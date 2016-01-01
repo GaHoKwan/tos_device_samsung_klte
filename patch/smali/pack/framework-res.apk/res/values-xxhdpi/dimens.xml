@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="dimen" name="tw_dialog_title_text_shadow_length">2.0</item>
+    <item type="dimen" name="tw_action_bar_title_shadow_dx_holo_dark">0.0</item>
+    <item type="dimen" name="tw_action_bar_title_shadow_dy_holo_dark">2.0</item>
+    <item type="dimen" name="tw_action_bar_title_shadow_dx_holo_light">0.0</item>
+    <item type="dimen" name="tw_action_bar_title_shadow_dy_holo_light">2.0</item>
+    <item type="dimen" name="tw_action_bar_tab_text_shadow_dy_device_default_light">2.0</item>
+    <dimen name="multiwindow_focusline_thickness">3.0dip</dimen>
+    <dimen name="multiwindow_frame_out_shadow_size">4.0dip</dimen>
+</resources>

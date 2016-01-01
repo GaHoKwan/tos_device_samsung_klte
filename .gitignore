@@ -1,7 +1,4 @@
-patch/smali/pack/*/dist/*.jar
 backup/*
 package/*
-progress/*
 temp/*
-config/file_record/*
 *.zip
