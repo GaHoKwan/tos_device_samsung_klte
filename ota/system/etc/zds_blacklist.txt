@@ -1,0 +1,4 @@
+com.android.wallpaper.livepicker
+com.sec.android.app.shealth
+com.android.contacts
+com.changba

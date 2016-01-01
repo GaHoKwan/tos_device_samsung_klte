@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<favorites xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher" >
+
+    <home>
+
+  
+
+        <!-- Screen 0 -->
+      <!-- .WeatherClockWidget 
+    <appwidget
+        launcher:packageName="com.sec.android.widgetapp.ap.hero.accuweather" 
+        launcher:className="com.sec.android.widgetapp.ap.hero.accuweather.WeatherClockWidget" 
+        launcher:screen="0" 
+        launcher:x="0" 
+        launcher:y="0" 
+        launcher:spanX="4" 
+        launcher:spanY="2" /> -->
+    <appwidget
+        launcher:packageName="com.sec.android.widgetapp.ap.hero.accuweather" 
+        launcher:className="com.sec.android.widgetapp.ap.hero.accuweather.WeatherClockWidget" 
+        launcher:screen="0" 
+        launcher:x="0" 
+        launcher:y="0" 
+        launcher:spanX="4" 
+        launcher:spanY="2" />
+        <!-- 
+        <appwidget
+            launcher:className="com.baidu.searchbox.MainActivity"
+            launcher:packageName="com.baidu.searchbox"
+            launcher:screen="0"
+            launcher:spanX="4"
+            launcher:spanY="1"
+            launcher:themeName=""
+            launcher:x="0"
+       		launcher:y="2" />--> 
+			
+		<search
+		launcher:screen="0"
+		launcher:x="0"
+		launcher:y="2" />
+        
+		<!-- Gallery -->
+        <favorite
+            launcher:className="com.sec.android.gallery3d.app.GalleryActivity"
+            launcher:packageName="com.sec.android.gallery3d"
+            launcher:screen="0"
+            launcher:x="0"
+            launcher:y="3" />
+		<!--Email  -->
+        <favorite
+            launcher:className="com.android.email.activity.Welcome"
+	          launcher:packageName="com.android.email"
+            launcher:screen="0"
+            launcher:x="1"
+            launcher:y="3" />
+			
+		<!--  -->
+        <favorite
+            launcher:packageName="com.sec.android.app.magnifier" 
+            launcher:className="com.sec.android.app.magnifier.MagnifierWidget"
+	          launcher:screen="0"
+            launcher:x="2"
+            launcher:y="3" />
+		<!-- Camera -->
+		<favorite
+            launcher:className="com.sec.android.app.camera.Camera"
+            launcher:packageName="com.sec.android.app.camera"
+            launcher:screen="0"
+            launcher:x="3"
+            launcher:y="3" />
+		<!-- 
+        <folder
+            launcher:screen="0"
+            launcher:title="@string/google_folder_name"
+            launcher:x="3"
+            launcher:y="3" >
+            <favorite
+                launcher:className="com.google.android.apps.docs.app.NewMainProxyActivity"
+                launcher:packageName="com.google.android.apps.docs" />
+            <favorite
+                launcher:className="com.google.android.gm.ConversationListActivityGmail"
+                launcher:packageName="com.google.android.gm" />
+            <favorite
+                launcher:className="com.google.android.googlequicksearchbox.SearchActivity"
+                launcher:packageName="com.google.android.googlequicksearchbox" />
+            <favorite
+                launcher:className="com.google.android.gms.app.settings.GoogleSettingsActivity"
+                launcher:packageName="com.google.android.gms" />
+                    </folder>
+        -->
+		
+        <!-- Screen 1 -->
+	
+		
+		<!-- S Health -->
+        <appwidget
+            launcher:className="com.sec.android.app.shealth.widget.WalkMateAppWidget" 
+            launcher:packageName="com.sec.android.app.shealth" 
+            launcher:screen="1"
+            launcher:spanX="4"
+            launcher:spanY="1"
+            launcher:themeName=""
+            launcher:x="0"
+            launcher:y="0" />
+		<appwidget
+            launcher:className="com.sec.android.GeoLookout.widget.SafetyCareWidget" 
+            launcher:packageName="com.sec.android.GeoLookout" 
+            launcher:screen="1"
+            launcher:spanX="4"
+            launcher:spanY="1"
+            launcher:themeName=""
+            launcher:x="0"
+            launcher:y="1" />
+			
+		<!-- Kids home -->
+	 <appwidget
+            launcher:packageName="com.sec.kidsplat.installer"
+            launcher:className="com.sec.kidsplat.installer.KidsModeInstallerWidget"
+            launcher:screen="1"
+            launcher:spanX="1"
+            launcher:spanY="1"
+            launcher:x="0"
+            launcher:y="3" />
+
+				<!--  -->
+        <favorite
+	          launcher:screen="1"
+            launcher:x="1"
+            launcher:y="3" />
+
+		
+        <!-- Life Times 	
+        <favorite
+            launcher:className="com.samsung.android.app.lifetimes.ui.MainActivity"
+            launcher:packageName="com.samsung.android.app.lifetimes"
+            launcher:screen="1"
+            launcher:x="1"
+            launcher:y="3" />
+        -->
+
+		<!-- -->
+	 <appwidget
+            launcher:screen="1"
+            launcher:spanX="1"
+            launcher:spanY="1"
+            launcher:x="2"
+            launcher:y="3" />
+
+    <!-- S Planner -->
+		<favorite
+            launcher:packageName="com.mci.smagazine"
+            launcher:className="com.mci.smagazine.SplashActivity"
+            launcher:screen="1"
+            launcher:x="3"
+            launcher:y="3" />
+		
+		<!-- Screen 2 -->
+		<!-- Samsung Apps -->
+        <appwidget
+            launcher:className="com.sec.android.widgetapp.dualcitywidget.WidgetDialogActivity"
+            launcher:packageName="com.sec.android.widgetapp.dualcitywidget"
+            launcher:screen="2"
+            launcher:spanX="4"
+            launcher:spanY="2"
+            launcher:themeName=""
+            launcher:x="0"
+            launcher:y="0" />
+
+</home>
+
+    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+	
+	<hotseat>
+        <favorite
+            launcher:packageName="com.android.contacts"
+            launcher:className="com.android.dialer.DialtactsActivity"
+            launcher:x="0" />
+        <favorite
+            launcher:packageName="com.android.contacts"
+            launcher:className="com.android.contacts.activities.PeopleActivity"
+            launcher:x="1" />
+        <favorite
+            launcher:packageName="com.android.mms"
+            launcher:className="com.android.mms.ui.ConversationComposer"
+            launcher:x="2" />
+        <favorite
+            launcher:packageName="com.sec.android.app.sbrowser"
+            launcher:className="com.sec.android.app.sbrowser.SBrowserMainActivity"
+            launcher:x="3" />
+     </hotseat>
+
+    <applist>
+
+        <!--
+        <favorite
+            launcher:className="com.android.contacts.activities.DialtactsActivity"
+            launcher:packageName="com.android.contacts"
+            launcher:screen="1" />
+        <favorite
+            launcher:className="com.android.contacts.activities.PeopleActivity"
+            launcher:packageName="com.android.contacts"
+            launcher:screen="1" />
+        <folder
+            launcher:screen="0"
+            launcher:title="@string/app_name" >
+            <favorite
+                launcher:className="com.android.mms.ui.ConversationComposer"
+                launcher:packageName="com.android.mms" />
+        </folder>
+        -->
+    </applist>
+
+</favorites>

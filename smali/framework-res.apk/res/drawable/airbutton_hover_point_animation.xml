@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_01" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_02" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_03" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_04" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_05" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_06" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_07" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_08" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_09" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_10" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_11" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_12" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_13" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_14" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_15" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_16" />
+    <item android:duration="50" android:drawable="@drawable/airbutton_hoverpointer_17" />
+</animation-list>

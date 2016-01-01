@@ -1,0 +1,14 @@
+[
+  {
+    "device" : "configure",
+    "params" :
+    [
+      {"name" : "loopback",   "value" : "2"      },
+      {"name" : "device",     "value" : "alsa"   },
+      {"name" : "playback",   "value" : "hw:0,34"},
+      {"name" : "samplerate", "value" : "48000"  },
+      {"name" : "period",     "value" : "1024"   },
+      {"name" : "nperiods",   "value" : "2"      }
+    ]
+  }
+]

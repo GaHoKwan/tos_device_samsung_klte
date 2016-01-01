@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/booster_timer_ani_35" android:maxLevel="2" />
+    <item android:drawable="@drawable/booster_timer_ani_34" android:maxLevel="5" />
+    <item android:drawable="@drawable/booster_timer_ani_33" android:maxLevel="8" />
+    <item android:drawable="@drawable/booster_timer_ani_32" android:maxLevel="11" />
+    <item android:drawable="@drawable/booster_timer_ani_31" android:maxLevel="13" />
+    <item android:drawable="@drawable/booster_timer_ani_30" android:maxLevel="16" />
+    <item android:drawable="@drawable/booster_timer_ani_29" android:maxLevel="19" />
+    <item android:drawable="@drawable/booster_timer_ani_28" android:maxLevel="21" />
+    <item android:drawable="@drawable/booster_timer_ani_27" android:maxLevel="24" />
+    <item android:drawable="@drawable/booster_timer_ani_26" android:maxLevel="27" />
+    <item android:drawable="@drawable/booster_timer_ani_25" android:maxLevel="30" />
+    <item android:drawable="@drawable/booster_timer_ani_24" android:maxLevel="32" />
+    <item android:drawable="@drawable/booster_timer_ani_23" android:maxLevel="35" />
+    <item android:drawable="@drawable/booster_timer_ani_22" android:maxLevel="38" />
+    <item android:drawable="@drawable/booster_timer_ani_21" android:maxLevel="41" />
+    <item android:drawable="@drawable/booster_timer_ani_20" android:maxLevel="43" />
+    <item android:drawable="@drawable/booster_timer_ani_19" android:maxLevel="53" />
+    <item android:drawable="@drawable/booster_timer_ani_18" android:maxLevel="56" />
+    <item android:drawable="@drawable/booster_timer_ani_17" android:maxLevel="59" />
+    <item android:drawable="@drawable/booster_timer_ani_16" android:maxLevel="61" />
+    <item android:drawable="@drawable/booster_timer_ani_15" android:maxLevel="63" />
+    <item android:drawable="@drawable/booster_timer_ani_14" android:maxLevel="66" />
+    <item android:drawable="@drawable/booster_timer_ani_13" android:maxLevel="69" />
+    <item android:drawable="@drawable/booster_timer_ani_12" android:maxLevel="71" />
+    <item android:drawable="@drawable/booster_timer_ani_11" android:maxLevel="73" />
+    <item android:drawable="@drawable/booster_timer_ani_10" android:maxLevel="76" />
+    <item android:drawable="@drawable/booster_timer_ani_9" android:maxLevel="78" />
+    <item android:drawable="@drawable/booster_timer_ani_8" android:maxLevel="80" />
+    <item android:drawable="@drawable/booster_timer_ani_7" android:maxLevel="83" />
+    <item android:drawable="@drawable/booster_timer_ani_6" android:maxLevel="85" />
+    <item android:drawable="@drawable/booster_timer_ani_5" android:maxLevel="88" />
+    <item android:drawable="@drawable/booster_timer_ani_4" android:maxLevel="90" />
+    <item android:drawable="@drawable/booster_timer_ani_3" android:maxLevel="93" />
+    <item android:drawable="@drawable/booster_timer_ani_2" android:maxLevel="95" />
+    <item android:drawable="@drawable/booster_timer_ani_1" android:maxLevel="98" />
+    <item android:drawable="@drawable/booster_timer_ani_full" android:maxLevel="100" />
+</level-list>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_root" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/tw_resolver_adv_header_height">
+                <TextView android:textSize="@dimen/tw_resolver_adv_header_text_size" android:id="@id/tw_textview_device_divider" android:paddingLeft="?listPreferredItemPaddingLeft" android:paddingTop="@dimen/tw_resolver_adv_header_padding_top" android:paddingRight="?listPreferredItemPaddingRight" android:paddingBottom="@dimen/tw_resolver_adv_header_padding_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/tw_resolver_adv_header_height" style="?android:attr/listSeparatorTextViewStyle" />
+                <ImageView android:gravity="center" android:id="@id/tw_refresh_button" android:padding="0.0dip" android:focusable="true" android:visibility="visible" android:clickable="true" android:layout_width="28.0dip" android:layout_height="28.0dip" android:layout_marginTop="11.0dip" android:layout_marginRight="18.0dip" android:layout_marginBottom="0.0dip" android:layout_alignParentRight="true" android:contentDescription="@string/tw_resolver_adv_refresh" style="?android:attr/borderlessButtonStyle" />
+            </RelativeLayout>
+            <ExpandableHeightGridView android:layout_gravity="center" android:id="@id/tw_device_grid" android:paddingLeft="4.0dip" android:paddingTop="0.0dip" android:paddingRight="4.0dip" android:paddingBottom="2.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:columnWidth="120.0dip" android:numColumns="4" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/tw_resolver_adv_header_text_size" android:id="@id/tw_textview_app_divider" android:paddingLeft="?listPreferredItemPaddingLeft" android:paddingTop="@dimen/tw_resolver_adv_header_padding_top" android:paddingRight="?listPreferredItemPaddingRight" android:paddingBottom="@dimen/tw_resolver_adv_header_padding_bottom" android:layout_width="fill_parent" android:layout_height="@dimen/tw_resolver_adv_header_height" style="?android:attr/listSeparatorTextViewStyle" />
+            <ExpandableHeightGridView android:layout_gravity="center" android:id="@id/tw_application_grid" android:paddingLeft="4.0dip" android:paddingTop="6.0dip" android:paddingRight="4.0dip" android:paddingBottom="19.0dip" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:columnWidth="120.0dip" android:numColumns="4" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
