@@ -238,6 +238,13 @@
 /dev/diag	u:object_r:diag_device:s0
 /dev/dumpstate	u:object_r:dumpstate_device:s0
 /dev/i2c.*		u:object_r:i2c_device:s0
+
+## Knox Sensitive data protection, DEK engine driver access
+/dev/dek_evt	u:object_r:knox_dar_device:s0
+/dev/dek_kek	u:object_r:knox_dar_device:s0
+/dev/dek_log	u:object_r:knox_dar_device:s0
+/dev/dek_req	u:object_r:knox_dar_device:s0
+
 /dev/media[0-3]*	u:object_r:camera_device:s0
 /dev/mobicore	u:object_r:mobicore_device:s0
 /dev/mobicore-user	u:object_r:mobicore-user_device:s0
@@ -251,6 +258,7 @@
 /dev/socket/charon		u:object_r:charon_socket:s0
 /dev/socket/dumpstate	u:object_r:dumpstate_socket:s0
 /dev/socket/cs_socket	u:object_r:cs_socket:s0
+/dev/socket/msockets(/.*)?	u:object_r:msockets_socket:s0
 /dev/socket/mtpd		u:object_r:mtpd_socket:s0
 /dev/socket/dir_enc_report	u:object_r:vold_socket:s0
 /dev/socket/drsd        u:object_r:drsd_socket:s0
@@ -560,3 +568,57 @@
 /system/vendor/itson(/.*)?  u:object_r:sprintitson_file:s0
 #/vendor/app(/.*)?  u:object_r:sprintitson_file:s0
 /carrier/itson(/.*)?  u:object_r:sprintitson_file:s0
+#line 1 "vendor/samsung/common/sepolicy/qcom_common/carrier_jpn/file_contexts"
+#felica start
+# JPN Felica Temporary Workaround
+/dev/ttyHSL2				u:object_r:nfcfelica_device:s0
+#/dev/ttyHSL1				u:object_r:nfcfelica_device:s0
+/dev/snfc_uart				u:object_r:nfc_device:s0
+/dev/snfc_pon				u:object_r:nfc_device:s0
+/dev/snfc_hsel				u:object_r:nfc_device:s0
+/dev/snfc_intu_poll			u:object_r:nfc_device:s0
+/dev/snfc_available_poll	u:object_r:nfc_device:s0
+/dev/snfc_rfs				u:object_r:nfc_device:s0
+/dev/snfc_rfs_poll			u:object_r:nfc_device:s0
+/dev/uartcc					u:object_r:nfc_device:s0
+/dev/felica_cen				u:object_r:nfcfelica_device:s0
+/dev/snfc_cen				u:object_r:nfcfelica_device:s0
+
+/dev/felica					u:object_r:felica_device:s0
+/dev/felica_pon				u:object_r:felica_device:s0
+/dev/felica_rfs				u:object_r:felica_device:s0
+/dev/felica_rws				u:object_r:felica_device:s0
+/dev/felica_ant				u:object_r:felica_device:s0
+/dev/felica_int_poll		u:object_r:felicashell_device:s0
+/dev/felica_uid				u:object_r:felica_device:s0
+/dev/felica_uicc			u:object_r:felica_device:s0
+#felica end
+
+#felica start
+/system/bin/fsslcmnd		u:object_r:fsslcmnd_exec:s0
+/system/bin/mfdp			u:object_r:mfdp_exec:s0
+/system/bin/mfsc			u:object_r:mfsc_exec:s0
+#felica end
+
+/system/bin/mfescand			u:object_r:mfescand_exec:s0
+
+#TMM
+/system/bin/MmbCaCasDrmMw	u:object_r:mmb_mw_exec:s0
+/system/bin/MmbFcCtlMw	u:object_r:mmb_mw_exec:s0
+/system/bin/MmbStCtlMwService	u:object_r:mmb_mw_exec:s0
+/system/bin/MmbFcMp4MwServer	u:object_r:mmb_mw_exec:s0
+/system/bin/MmbFcLiceMwServer	u:object_r:mmb_mw_exec:s0
+/system/bin/MmbStRecCmMwService	u:object_r:mmb_mw_exec:s0
+
+/data/mmb/MmbCaCasDrmMw(/.*)?		u:object_r:mmb_data_file:s0
+
+# for oneseg and mmcblk0p16
+/data/one-seg(/.*)? u:object_r:oneseg_mw_exec:s0
+/sdcard/oneseg(/.*)? u:object_r:oneseg_mw_exec:s0
+/data/data/com.samsung.sec.mtv(/.*)?    u:object_r:oneseg_mw_exec:s0
+/system/bin/nexprocess            u:object_r:oneseg_mw_exec:s0
+/system/bin/broadcastProcessObserver            u:object_r:oneseg_mw_exec:s0
+/system/bin/BMLEngineServer            u:object_r:oneseg_mw_exec:s0
+/system/bin/OneSegDsmcc            u:object_r:oneseg_mw_exec:s0
+/system/bin/OneSegTsDemux            u:object_r:oneseg_mw_exec:s0
+/system/bin/SDtvService            u:object_r:oneseg_mw_exec:s0
