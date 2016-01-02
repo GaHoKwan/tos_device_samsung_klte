@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/booster_speed_window_anim0" android:maxLevel="0" />
+    <item android:drawable="@drawable/booster_speed_window_anim1" android:maxLevel="5" />
+    <item android:drawable="@drawable/booster_speed_window_anim2" android:maxLevel="12" />
+    <item android:drawable="@drawable/booster_speed_window_anim3" android:maxLevel="17" />
+    <item android:drawable="@drawable/booster_speed_window_anim4" android:maxLevel="22" />
+    <item android:drawable="@drawable/booster_speed_window_anim5" android:maxLevel="27" />
+    <item android:drawable="@drawable/booster_speed_window_anim6" android:maxLevel="32" />
+    <item android:drawable="@drawable/booster_speed_window_anim7" android:maxLevel="37" />
+    <item android:drawable="@drawable/booster_speed_window_anim8" android:maxLevel="42" />
+    <item android:drawable="@drawable/booster_speed_window_anim9" android:maxLevel="47" />
+    <item android:drawable="@drawable/booster_speed_window_anim10" android:maxLevel="52" />
+    <item android:drawable="@drawable/booster_speed_window_anim11" android:maxLevel="57" />
+    <item android:drawable="@drawable/booster_speed_window_anim12" android:maxLevel="62" />
+    <item android:drawable="@drawable/booster_speed_window_anim13" android:maxLevel="67" />
+    <item android:drawable="@drawable/booster_speed_window_anim14" android:maxLevel="72" />
+    <item android:drawable="@drawable/booster_speed_window_anim15" android:maxLevel="77" />
+    <item android:drawable="@drawable/booster_speed_window_anim16" android:maxLevel="85" />
+    <item android:drawable="@drawable/booster_speed_window_anim17" android:maxLevel="92" />
+    <item android:drawable="@drawable/booster_speed_window_anim18" android:maxLevel="100" />
+</level-list>
