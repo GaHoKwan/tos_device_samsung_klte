@@ -4,6 +4,11 @@ ui_print("==Welcome to Maomaochong Installer==");
 ui_print("====================================");
 ui_print("wait");
 ui_print(" ");
+
+#TOS ADD 
+symlink("/system/bin/install-recovery.sh", "/system/etc/install-recovery.sh");
+#TOS END
+
 ui_print("Formatting /system partition");
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
 delete_recursive("/system");

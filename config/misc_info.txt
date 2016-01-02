@@ -11,3 +11,4 @@ system_size=888888888888888
 userdata_size=8888888888888888
 cache_size=888888888888
 selinux_fc=META/file_contexts
+recovery_device_assert=true
