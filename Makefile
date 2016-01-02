@@ -51,7 +51,7 @@ RESOLUTION :=1920x1080
 # The value is used to config whether to append device assertions to update_script
 # such as true, false.
 #-----------------------------------------------------------------------------
-RECOVERY_DEVICE_ASSERT=false
+RECOVERY_DEVICE_ASSERT=true
 
 ##############################################################################
 # The value is used to config the apps that should be modified 

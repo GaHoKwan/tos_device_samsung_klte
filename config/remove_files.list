@@ -51,7 +51,7 @@ app/FilterProvider.apk
 app/FixmoISA.apk
 app/Funtouch osV1.0.apk
 app/FWUpgrade.apk
-app/GearManagerStub.apk
+#app/GearManagerStub.apk
 app/GestureService.apk
 app/Headlines.apk
 app/HiddenMenu.apk
@@ -92,7 +92,7 @@ app/RootPA.apk
 app/RoseEUKor.apk
 #app/SafetyInformation.apk
 #app/SamsungCamera3.apk
-app/SamsungCameraFilter.apk
+#app/SamsungCameraFilter.apk
 app/SamsungChineseIME.apk
 app/SamsungChineseIMEThemeLight.apk
 app/SamsungContentsAgent.apk
@@ -103,7 +103,7 @@ app/SamsungWidget_ActiveApplication.apk
 app/SapaMonitor.apk
 app/SBrowser.apk
 app/SBrowserTry.apk
-#app/SCONE_Android_ProxyService_NoPersistent.apk
+app/SCONE_Android_ProxyService_NoPersistent.apk
 app/SCParser.apk
 app/SearchBoxBaidu_OPEN.apk
 app/SecCalculator2.apk
@@ -123,10 +123,10 @@ app/SoundDetector.apk
 app/SPenSdk3.apk
 app/SPlanner.apk
 app/SPlannerWidget.apk
-app/SPrintSpooler2.apk
+#app/SPrintSpooler2.apk
 #app/Stk.apk
 app/Superuser.apk
-app/SViewCoverService.apk
+#app/SViewCoverService.apk
 app/SyncMLSvc.apk
 app/SysScope.apk
 app/TaskManager.apk
@@ -150,17 +150,17 @@ priv-app/AirMessage.apk
 priv-app/AirMessageProxy.apk
 priv-app/AutomationTest_FB.apk
 #priv-app/AutoPreconfig.apk
-priv-app/BackupRestoreConfirmation.apk
+#priv-app/BackupRestoreConfirmation.apk
 priv-app/ConfigUpdater.apk
 priv-app/ContentSearch.apk
 priv-app/CSC.apk
-priv-app/DCMProvider.apk
+#priv-app/DCMProvider.apk
 #priv-app/DefaultContainerService.apk
 priv-app/DeviceKeystring.apk
 priv-app/DeviceTest.apk
 priv-app/DirectShareManager.apk
 priv-app/EasyLauncher2.apk
-priv-app/ExternalStorageProvider.apk
+#priv-app/ExternalStorageProvider.apk
 priv-app/fenghensettings.apk
 priv-app/fenghenyys.apk
 #priv-app/FingerprintService.apk
@@ -178,7 +178,7 @@ priv-app/MagicShot.apk
 #priv-app/NetworkLocation_Baidu.apk
 priv-app/NoiseField.apk
 priv-app/Omc.apk
-priv-app/OneTimeInitializer.apk
+#priv-app/OneTimeInitializer.apk
 priv-app/OutOfFocusViewer_WQHD_K.apk
 priv-app/PersonalPageService.apk
 priv-app/PhaseBeam.apk
@@ -187,7 +187,7 @@ priv-app/PhotoStudio_FHD_K.apk
 #priv-app/ProxyHandler.apk
 priv-app/SamsungBilling.apk
 priv-app/SamsungLinkPlatform.apk
-priv-app/Samsungservice2_K.apk
+#priv-app/Samsungservice2_K.apk
 priv-app/SamsungUpdates_K.apk
 priv-app/sCloudDataRelay.apk
 priv-app/sCloudDataSync.apk
@@ -215,15 +215,15 @@ priv-app/SecWallpaperPicker.apk
 #priv-app/serviceModeApp_FB.apk
 #priv-app/ServiceModeApp_RIL.apk
 priv-app/SFinder.apk
-priv-app/SharedStorageBackup.apk
+#priv-app/SharedStorageBackup.apk
 priv-app/ShareVideo.apk
-#priv-app/SHealth3.apk
+priv-app/SHealth3.apk
 #priv-app/Shell.apk
 priv-app/SPPPushClient_Prod.apk
 priv-app/SStudio_FHD_K.apk
 priv-app/S-Voice_Android_phone.apk
 priv-app/SystemUI.apk
-priv-app/Tag.apk
+#priv-app/Tag.apk
 priv-app/TouchWizHome.apk
 priv-app/TrimApp_phone_rotation.apk
 priv-app/UPSM_Manager_v1.0.apk
@@ -233,6 +233,8 @@ priv-app/UPSM_Manager_v1.0.apk
 
 lib/libsbrowser.so
 lib/libchrome.1916.141.so
+lib/libfacerecognition.so
+lib/libSECIMSJni.so
 lib/libgoogle_recognizer_jni_l.so
 lib/libk2ViewerJni.so
 lib/libSamsungVoiceEngine.so
