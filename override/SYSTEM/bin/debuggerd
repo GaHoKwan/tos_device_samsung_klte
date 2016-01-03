@@ -1,17 +1,12 @@
 #!/system/bin/sh
 #Powered by GaHoKwan
 
-#Su 
-busybox mount -o remount,rw /system
-ln -s /system/vendor/bin/su /system/xbin/su
-
 #Start
 /system/bin/debuggerd_vendor &
 
 #Inject
-mkdir -p /system/etc/init.d
 chmod -R 755 /system/etc/init.d/
 busybox run-parts /system/etc/init.d &
 
 #Start daemon
-/system/xbin/su --daemon
+/system/vendor/bin/su --daemon

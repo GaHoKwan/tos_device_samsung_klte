@@ -81,7 +81,7 @@ app/Personalization.apk
 app/PhotoTable.apk
 #app/PopupuiReceiver.apk
 #app/Preconfig.apk
-app/PreloadInstaller.apk
+#app/PreloadInstaller.apk
 app/QuickConnect.apk
 app/QuickConnectInteraction.apk
 #app/RCPComponents.apk
