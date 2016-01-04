@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 0
 
+    .prologue
+    .line 2273
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$11;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,16 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2275
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "dismissClipboardDialog"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 2276
+    .local v0, "intent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$11;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
@@ -52,6 +58,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 2277
     sget-boolean v1, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -62,6 +69,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2278
     :cond_0
     iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$11;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -74,6 +82,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 2280
     :cond_1
     return-void
 .end method

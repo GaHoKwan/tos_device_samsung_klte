@@ -39,7 +39,7 @@
     .prologue
     .line 54
     :try_start_0
-    invoke-super {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->finalize()V
+    invoke-super {p0}, Landroid/os/Binder;->finalize()V
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -106,20 +106,20 @@
 
     .line 107
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
     .line 108
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->checkThread()V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 109
     const/4 v2, 0x5
 
     new-array v2, v2, [I
 
-    iput-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->recordInfo:[I
+    iput-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->recordInfo:[I
 
     .line 110
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -130,7 +130,7 @@
 
     .line 111
     .local v1, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v4, 0x5
 
@@ -140,7 +140,7 @@
 
     .line 113
     .local v0, "response":Landroid/os/Message;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
 
@@ -149,7 +149,7 @@
     invoke-virtual {v2, p1, v0}, Lcom/android/internal/telephony/uicc/IccFileHandler;->getAdnLikesRecordInfo(ILandroid/os/Message;)V
 
     .line 114
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
 
     .line 115
     monitor-exit v3
@@ -157,7 +157,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 117
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->recordInfo:[I
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->recordInfo:[I
 
     return-object v2
 
@@ -193,13 +193,13 @@
 
     .line 142
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
     .line 144
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->checkThread()V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 145
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -210,7 +210,7 @@
 
     .line 146
     .local v1, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v4, 0x6
 
@@ -220,11 +220,11 @@
 
     .line 148
     .local v0, "response":Landroid/os/Message;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
     :try_end_0
@@ -269,7 +269,7 @@
 
     .line 156
     :cond_4
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
 
@@ -278,7 +278,7 @@
     invoke-virtual {v2, p1, v0}, Lcom/android/internal/telephony/uicc/IccFileHandler;->getAdnLikesSimStatusInfo(ILandroid/os/Message;)V
 
     .line 157
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -312,7 +312,7 @@
 
     move-result-object v2
 
-    iget v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mSimFileStatusInfo:I
+    iget v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mSimFileStatusInfo:I
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -326,7 +326,7 @@
 
     .line 166
     :cond_6
-    iget v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mSimFileStatusInfo:I
+    iget v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mSimFileStatusInfo:I
 
     goto :goto_0
 
@@ -391,20 +391,20 @@
 
     .line 64
     :cond_0
-    iget-object v4, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v4
 
     .line 65
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->checkThread()V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 66
     const/4 v3, 0x3
 
     new-array v3, v3, [I
 
-    iput-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mRecordSize:[I
+    iput-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mRecordSize:[I
 
     .line 69
     new-instance v2, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -415,7 +415,7 @@
 
     .line 70
     .local v2, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v5, 0x1
 
@@ -425,7 +425,7 @@
 
     .line 72
     .local v1, "response":Landroid/os/Message;
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v3}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
 
@@ -439,7 +439,7 @@
     invoke-virtual {v0, p1, v1}, Lcom/android/internal/telephony/uicc/IccFileHandler;->getEFLinearRecordSize(ILandroid/os/Message;)V
 
     .line 76
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
 
     .line 78
     :cond_1
@@ -448,7 +448,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 80
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mRecordSize:[I
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mRecordSize:[I
 
     return-object v3
 
@@ -482,13 +482,13 @@
 
     .line 125
     :cond_0
-    iget-object v3, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
     .line 126
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->checkThread()V
+    invoke-virtual {p0}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->checkThread()V
 
     .line 127
     new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -499,7 +499,7 @@
 
     .line 128
     .local v1, "status":Ljava/util/concurrent/atomic/AtomicBoolean;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mBaseHandler:Landroid/os/Handler;
 
     const/4 v4, 0x4
 
@@ -509,11 +509,11 @@
 
     .line 130
     .local v0, "response":Landroid/os/Message;
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
 
@@ -533,7 +533,7 @@
 
     .line 133
     :cond_2
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v2}, Lcom/android/internal/telephony/PhoneBase;->getIccFileHandler()Lcom/android/internal/telephony/uicc/IccFileHandler;
 
@@ -542,7 +542,7 @@
     invoke-virtual {v2, v0}, Lcom/android/internal/telephony/uicc/IccFileHandler;->getUsimPBCapa(Landroid/os/Message;)V
 
     .line 134
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->waitForResult(Ljava/util/concurrent/atomic/AtomicBoolean;)V
 
     .line 135
     monitor-exit v3
@@ -550,7 +550,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 137
-    iget-object v2, p0, Lcom/android/internal/telephony/cdma/RuimPhoneBookInterfaceManager;->mUsimPhonebookCapaInfo:Lcom/android/internal/telephony/uicc/UsimPhonebookCapaInfo;
+    iget-object v2, p0, Lcom/android/internal/telephony/IccPhoneBookInterfaceManager;->mUsimPhonebookCapaInfo:Lcom/android/internal/telephony/uicc/UsimPhonebookCapaInfo;
 
     goto :goto_0
 

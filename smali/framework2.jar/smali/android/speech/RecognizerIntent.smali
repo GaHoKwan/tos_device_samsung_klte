@@ -71,22 +71,30 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 46
     return-void
 .end method
 
 .method public static final getVoiceDetailsIntent(Landroid/content/Context;)Landroid/content/Intent;
     .locals 6
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 331
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "android.speech.action.WEB_SEARCH"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 332
+    .local v3, "voiceSearchIntent":Landroid/content/Intent;
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v4
@@ -97,6 +105,8 @@
 
     move-result-object v2
 
+    .line 334
+    .local v2, "ri":Landroid/content/pm/ResolveInfo;
     if-eqz v2, :cond_0
 
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -105,18 +115,20 @@
 
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v4, v4, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     if-nez v4, :cond_1
 
+    .line 341
     :cond_0
     :goto_0
     return-object v1
 
+    .line 336
     :cond_1
     iget-object v4, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v4, v4, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     const-string v5, "android.speech.DETAILS"
 
@@ -124,19 +136,24 @@
 
     move-result-object v0
 
+    .line 337
+    .local v0, "className":Ljava/lang/String;
     if-eqz v0, :cond_0
 
+    .line 339
     new-instance v1, Landroid/content/Intent;
 
     const-string v4, "android.speech.action.GET_LANGUAGE_DETAILS"
 
     invoke-direct {v1, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 340
+    .local v1, "detailsIntent":Landroid/content/Intent;
     new-instance v4, Landroid/content/ComponentName;
 
     iget-object v5, v2, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v5, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {v4, v5, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 

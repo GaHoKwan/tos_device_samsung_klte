@@ -30,6 +30,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -37,7 +39,10 @@
 
 .method synthetic constructor <init>(Lcom/android/server/TelephonyRegistry$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/TelephonyRegistry$1;
 
+    .prologue
+    .line 88
     invoke-direct {p0}, Lcom/android/server/TelephonyRegistry$Record;-><init>()V
 
     return-void
@@ -48,6 +53,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 101
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

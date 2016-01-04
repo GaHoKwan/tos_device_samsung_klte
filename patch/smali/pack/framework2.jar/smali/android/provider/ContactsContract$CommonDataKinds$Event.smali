@@ -34,6 +34,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6532
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -41,15 +43,20 @@
 
 .method public static getTypeResource(Ljava/lang/Integer;)I
     .locals 2
+    .param p0, "type"    # Ljava/lang/Integer;
 
+    .prologue
     const v0, 0x1040542
 
+    .line 6552
     if-nez p0, :cond_0
 
+    .line 6560
     :goto_0
     :pswitch_0
     return v0
 
+    .line 6555
     :cond_0
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
@@ -57,20 +64,24 @@
 
     packed-switch v1, :pswitch_data_0
 
+    .line 6560
     const v0, 0x104053f
 
     goto :goto_0
 
+    .line 6557
     :pswitch_1
     const v0, 0x1040541
 
     goto :goto_0
 
+    .line 6558
     :pswitch_2
     const v0, 0x1040540
 
     goto :goto_0
 
+    .line 6555
     nop
 
     :pswitch_data_0

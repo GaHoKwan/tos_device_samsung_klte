@@ -152,6 +152,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 40
     const/16 v0, 0xf
 
     new-array v0, v0, [I
@@ -160,6 +162,7 @@
 
     sput-object v0, Lcom/android/internal/os/ProcessStats;->PROCESS_STATS_FORMAT:[I
 
+    .line 68
     const/16 v0, 0x16
 
     new-array v0, v0, [I
@@ -168,6 +171,7 @@
 
     sput-object v0, Lcom/android/internal/os/ProcessStats;->PROCESS_FULL_STATS_FORMAT:[I
 
+    .line 102
     const/16 v0, 0x8
 
     new-array v0, v0, [I
@@ -176,6 +180,7 @@
 
     sput-object v0, Lcom/android/internal/os/ProcessStats;->SYSTEM_CPU_FORMAT:[I
 
+    .line 115
     const/4 v0, 0x3
 
     new-array v0, v0, [I
@@ -184,6 +189,7 @@
 
     sput-object v0, Lcom/android/internal/os/ProcessStats;->LOAD_AVERAGE_FORMAT:[I
 
+    .line 234
     new-instance v0, Lcom/android/internal/os/ProcessStats$1;
 
     invoke-direct {v0}, Lcom/android/internal/os/ProcessStats$1;-><init>()V
@@ -192,6 +198,7 @@
 
     return-void
 
+    .line 40
     nop
 
     :array_0
@@ -213,6 +220,7 @@
         0x2020
     .end array-data
 
+    .line 68
     :array_1
     .array-data 4
         0x20
@@ -239,6 +247,7 @@
         0x2020
     .end array-data
 
+    .line 102
     :array_2
     .array-data 4
         0x120
@@ -251,6 +260,7 @@
         0x2020
     .end array-data
 
+    .line 115
     :array_3
     .array-data 4
         0x4020
@@ -261,78 +271,100 @@
 
 .method public constructor <init>(Z)V
     .locals 4
+    .param p1, "includeThreads"    # Z
 
+    .prologue
     const/4 v3, 0x6
 
     const/4 v2, 0x4
 
     const/4 v1, 0x0
 
+    .line 253
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 64
     new-array v0, v2, [J
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcessStatsData:[J
 
+    .line 66
     new-array v0, v2, [J
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mSinglePidStatsData:[J
 
+    .line 99
     new-array v0, v3, [Ljava/lang/String;
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcessFullStatsStringData:[Ljava/lang/String;
 
+    .line 100
     new-array v0, v3, [J
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcessFullStatsData:[J
 
+    .line 113
     const/4 v0, 0x7
 
     new-array v0, v0, [J
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mSystemCpuData:[J
 
+    .line 121
     const/4 v0, 0x3
 
     new-array v0, v0, [F
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mLoadAverageData:[F
 
+    .line 125
     iput v1, p0, Lcom/android/internal/os/ProcessStats;->mLoad1:F
 
+    .line 126
     iput v1, p0, Lcom/android/internal/os/ProcessStats;->mLoad5:F
 
+    .line 127
     iput v1, p0, Lcom/android/internal/os/ProcessStats;->mLoad15:F
 
+    .line 151
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
+    .line 152
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
+    .line 155
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/ProcessStats;->mFirst:Z
 
+    .line 157
     const/16 v0, 0x1000
 
     new-array v0, v0, [B
 
     iput-object v0, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
 
+    .line 254
     iput-boolean p1, p0, Lcom/android/internal/os/ProcessStats;->mIncludeThreads:Z
 
+    .line 255
     return-void
 .end method
 
 .method private collectStats(Ljava/lang/String;IZ[ILjava/util/ArrayList;)[I
     .locals 27
+    .param p1, "statsFile"    # Ljava/lang/String;
+    .param p2, "parentPid"    # I
+    .param p3, "first"    # Z
+    .param p4, "curPids"    # [I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -345,6 +377,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 341
+    .local p5, "allProcs":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/os/ProcessStats$Stats;>;"
     move-object/from16 v0, p1
 
     move-object/from16 v1, p4
@@ -353,32 +388,48 @@
 
     move-result-object v17
 
+    .line 342
+    .local v17, "pids":[I
     if-nez v17, :cond_1
 
     const/4 v9, 0x0
 
+    .line 343
+    .local v9, "NP":I
     :goto_0
     invoke-virtual/range {p5 .. p5}, Ljava/util/ArrayList;->size()I
 
     move-result v10
 
+    .line 344
+    .local v10, "NS":I
     const/4 v11, 0x0
 
+    .line 345
+    .local v11, "curStatsIndex":I
     const/4 v12, 0x0
 
+    .local v12, "i":I
     :goto_1
     if-ge v12, v9, :cond_0
 
+    .line 346
     aget v5, v17, v12
 
+    .line 347
+    .local v5, "pid":I
     if-gez v5, :cond_2
 
+    .line 348
     move v9, v5
 
+    .line 504
+    .end local v5    # "pid":I
     :cond_0
     :goto_2
     if-ge v11, v10, :cond_f
 
+    .line 506
     move-object/from16 v0, p5
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -387,50 +438,66 @@
 
     check-cast v20, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .line 507
+    .local v20, "st":Lcom/android/internal/os/ProcessStats$Stats;
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_utime:I
 
+    .line 508
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_stime:I
 
+    .line 509
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_minfaults:I
 
+    .line 510
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_majfaults:I
 
+    .line 511
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
 
+    .line 512
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
+    .line 513
     move-object/from16 v0, p5
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
+    .line 514
     add-int/lit8 v10, v10, -0x1
 
+    .line 516
     goto :goto_2
 
+    .line 342
+    .end local v9    # "NP":I
+    .end local v10    # "NS":I
+    .end local v11    # "curStatsIndex":I
+    .end local v12    # "i":I
+    .end local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_1
     move-object/from16 v0, v17
 
@@ -438,6 +505,12 @@
 
     goto :goto_0
 
+    .line 351
+    .restart local v5    # "pid":I
+    .restart local v9    # "NP":I
+    .restart local v10    # "NS":I
+    .restart local v11    # "curStatsIndex":I
+    .restart local v12    # "i":I
     :cond_2
     if-ge v11, v10, :cond_4
 
@@ -451,6 +524,8 @@
 
     move-object/from16 v20, v3
 
+    .line 353
+    .restart local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     :goto_3
     if-eqz v20, :cond_9
 
@@ -460,36 +535,45 @@
 
     if-ne v3, v5, :cond_9
 
+    .line 355
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
 
+    .line 356
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
+    .line 357
     add-int/lit8 v11, v11, 0x1
 
+    .line 362
     move-object/from16 v0, v20
 
     iget-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->interesting:Z
 
     if-eqz v3, :cond_3
 
+    .line 363
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v23
 
+    .line 365
+    .local v23, "uptime":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/ProcessStats;->mProcessStatsData:[J
 
     move-object/from16 v18, v0
 
+    .line 366
+    .local v18, "procStats":[J
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->statFile:Ljava/lang/String;
@@ -512,34 +596,51 @@
 
     if-nez v3, :cond_5
 
+    .line 345
+    .end local v18    # "procStats":[J
+    .end local v23    # "uptime":J
     :cond_3
     :goto_4
     add-int/lit8 v12, v12, 0x1
 
     goto/16 :goto_1
 
+    .line 351
+    .end local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_4
     const/16 v20, 0x0
 
     goto :goto_3
 
+    .line 371
+    .restart local v18    # "procStats":[J
+    .restart local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
+    .restart local v23    # "uptime":J
     :cond_5
     const/4 v3, 0x0
 
     aget-wide v15, v18, v3
 
+    .line 372
+    .local v15, "minfaults":J
     const/4 v3, 0x1
 
     aget-wide v13, v18, v3
 
+    .line 373
+    .local v13, "majfaults":J
     const/4 v3, 0x2
 
     aget-wide v25, v18, v3
 
+    .line 374
+    .local v25, "utime":J
     const/4 v3, 0x3
 
     aget-wide v21, v18, v3
 
+    .line 376
+    .local v21, "stime":J
     move-object/from16 v0, v20
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_utime:J
@@ -556,36 +657,42 @@
 
     if-nez v3, :cond_6
 
+    .line 377
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_utime:I
 
+    .line 378
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_stime:I
 
+    .line 379
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_minfaults:I
 
+    .line 380
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_majfaults:I
 
+    .line 381
     move-object/from16 v0, v20
 
     iget-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->active:Z
 
     if-eqz v3, :cond_3
 
+    .line 382
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
@@ -594,6 +701,7 @@
 
     goto :goto_4
 
+    .line 387
     :cond_6
     move-object/from16 v0, v20
 
@@ -601,15 +709,18 @@
 
     if-nez v3, :cond_7
 
+    .line 388
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->active:Z
 
+    .line 391
     :cond_7
     if-gez p2, :cond_8
 
+    .line 392
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->cmdlineFile:Ljava/lang/String;
@@ -620,12 +731,14 @@
 
     invoke-direct {v0, v1, v3}, Lcom/android/internal/os/ProcessStats;->getName(Lcom/android/internal/os/ProcessStats$Stats;Ljava/lang/String;)V
 
+    .line 393
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     if-eqz v3, :cond_8
 
+    .line 394
     move-object/from16 v0, v20
 
     iget-object v4, v0, Lcom/android/internal/os/ProcessStats$Stats;->threadsDir:Ljava/lang/String;
@@ -650,6 +763,7 @@
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats;->mCurThreadPids:[I
 
+    .line 405
     :cond_8
     move-object/from16 v0, v20
 
@@ -661,12 +775,14 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_uptime:J
 
+    .line 406
     move-wide/from16 v0, v23
 
     move-object/from16 v2, v20
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats$Stats;->base_uptime:J
 
+    .line 407
     move-object/from16 v0, v20
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_utime:J
@@ -679,6 +795,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_utime:I
 
+    .line 408
     move-object/from16 v0, v20
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_stime:J
@@ -691,18 +808,21 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_stime:I
 
+    .line 409
     move-wide/from16 v0, v25
 
     move-object/from16 v2, v20
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats$Stats;->base_utime:J
 
+    .line 410
     move-wide/from16 v0, v21
 
     move-object/from16 v2, v20
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats$Stats;->base_stime:J
 
+    .line 411
     move-object/from16 v0, v20
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_minfaults:J
@@ -715,6 +835,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_minfaults:I
 
+    .line 412
     move-object/from16 v0, v20
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_majfaults:J
@@ -727,14 +848,17 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_majfaults:I
 
+    .line 413
     move-object/from16 v0, v20
 
     iput-wide v15, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_minfaults:J
 
+    .line 414
     move-object/from16 v0, v20
 
     iput-wide v13, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_majfaults:J
 
+    .line 415
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
@@ -743,6 +867,13 @@
 
     goto/16 :goto_4
 
+    .line 421
+    .end local v13    # "majfaults":J
+    .end local v15    # "minfaults":J
+    .end local v18    # "procStats":[J
+    .end local v21    # "stime":J
+    .end local v23    # "uptime":J
+    .end local v25    # "utime":J
     :cond_9
     if-eqz v20, :cond_a
 
@@ -752,9 +883,11 @@
 
     if-le v3, v5, :cond_e
 
+    .line 423
     :cond_a
     new-instance v20, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .end local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/os/ProcessStats;->mIncludeThreads:Z
@@ -765,28 +898,37 @@
 
     invoke-direct {v0, v5, v1, v3}, Lcom/android/internal/os/ProcessStats$Stats;-><init>(IIZ)V
 
+    .line 424
+    .restart local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, p5
 
     move-object/from16 v1, v20
 
     invoke-virtual {v0, v11, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
+    .line 425
     add-int/lit8 v11, v11, 0x1
 
+    .line 426
     add-int/lit8 v10, v10, 0x1
 
+    .line 431
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/ProcessStats;->mProcessFullStatsStringData:[Ljava/lang/String;
 
     move-object/from16 v19, v0
 
+    .line 432
+    .local v19, "procStatsString":[Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/ProcessStats;->mProcessFullStatsData:[J
 
     move-object/from16 v18, v0
 
+    .line 433
+    .restart local v18    # "procStats":[J
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
@@ -795,6 +937,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_uptime:J
 
+    .line 434
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->statFile:Ljava/lang/String;
@@ -817,12 +960,14 @@
 
     if-eqz v3, :cond_c
 
+    .line 442
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->interesting:Z
 
+    .line 443
     const/4 v3, 0x0
 
     aget-object v3, v19, v3
@@ -831,6 +976,7 @@
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->baseName:Ljava/lang/String;
 
+    .line 444
     const/4 v3, 0x1
 
     aget-wide v3, v18, v3
@@ -839,6 +985,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_minfaults:J
 
+    .line 445
     const/4 v3, 0x2
 
     aget-wide v3, v18, v3
@@ -847,6 +994,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_majfaults:J
 
+    .line 446
     const/4 v3, 0x3
 
     aget-wide v3, v18, v3
@@ -855,6 +1003,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_utime:J
 
+    .line 447
     const/4 v3, 0x4
 
     aget-wide v3, v18, v3
@@ -863,9 +1012,11 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_stime:J
 
+    .line 460
     :goto_5
     if-gez p2, :cond_d
 
+    .line 461
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->cmdlineFile:Ljava/lang/String;
@@ -876,12 +1027,14 @@
 
     invoke-direct {v0, v1, v3}, Lcom/android/internal/os/ProcessStats;->getName(Lcom/android/internal/os/ProcessStats$Stats;Ljava/lang/String;)V
 
+    .line 462
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     if-eqz v3, :cond_b
 
+    .line 463
     move-object/from16 v0, v20
 
     iget-object v4, v0, Lcom/android/internal/os/ProcessStats$Stats;->threadsDir:Ljava/lang/String;
@@ -906,6 +1059,7 @@
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats;->mCurThreadPids:[I
 
+    .line 475
     :cond_b
     :goto_6
     const/4 v3, 0x0
@@ -914,30 +1068,35 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_utime:I
 
+    .line 476
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_stime:I
 
+    .line 477
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_minfaults:I
 
+    .line 478
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_majfaults:I
 
+    .line 479
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
 
+    .line 480
     if-nez p3, :cond_3
 
     move-object/from16 v0, v20
@@ -946,6 +1105,7 @@
 
     if-eqz v3, :cond_3
 
+    .line 481
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
@@ -954,6 +1114,7 @@
 
     goto/16 :goto_4
 
+    .line 454
     :cond_c
     const-string v3, "ProcessStats"
 
@@ -977,12 +1138,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 455
     const-string v3, "<unknown>"
 
     move-object/from16 v0, v20
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->baseName:Ljava/lang/String;
 
+    .line 456
     const-wide/16 v3, 0x0
 
     move-object/from16 v0, v20
@@ -993,6 +1156,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->base_utime:J
 
+    .line 457
     const-wide/16 v3, 0x0
 
     move-object/from16 v0, v20
@@ -1005,6 +1169,7 @@
 
     goto/16 :goto_5
 
+    .line 466
     :cond_d
     move-object/from16 v0, v20
 
@@ -1012,6 +1177,7 @@
 
     if-eqz v3, :cond_b
 
+    .line 467
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->baseName:Ljava/lang/String;
@@ -1020,6 +1186,7 @@
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
+    .line 468
     move-object/from16 v0, v20
 
     iget-object v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
@@ -1036,6 +1203,9 @@
 
     goto :goto_6
 
+    .line 487
+    .end local v18    # "procStats":[J
+    .end local v19    # "procStatsString":[Ljava/lang/String;
     :cond_e
     const/4 v3, 0x0
 
@@ -1043,84 +1213,113 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_utime:I
 
+    .line 488
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_stime:I
 
+    .line 489
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_minfaults:I
 
+    .line 490
     const/4 v3, 0x0
 
     move-object/from16 v0, v20
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->rel_majfaults:I
 
+    .line 491
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
 
+    .line 492
     const/4 v3, 0x1
 
     move-object/from16 v0, v20
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
+    .line 493
     move-object/from16 v0, p5
 
     invoke-virtual {v0, v11}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
+    .line 494
     add-int/lit8 v10, v10, -0x1
 
+    .line 500
     add-int/lit8 v12, v12, -0x1
 
+    .line 501
     goto/16 :goto_4
 
+    .line 518
+    .end local v5    # "pid":I
+    .end local v20    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_f
     return-object v17
 .end method
 
 .method private getCpuSpeedTimes([J)[J
     .locals 14
+    .param p1, "out"    # [J
 
+    .prologue
+    .line 557
     move-object v7, p1
 
+    .line 558
+    .local v7, "tempTimes":[J
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
 
+    .line 559
+    .local v6, "tempSpeeds":[J
     const/16 v0, 0x3c
 
+    .line 560
+    .local v0, "MAX_SPEEDS":I
     if-nez p1, :cond_0
 
+    .line 561
     const/16 v11, 0x3c
 
     new-array v7, v11, [J
 
+    .line 562
     const/16 v11, 0x3c
 
     new-array v6, v11, [J
 
+    .line 564
     :cond_0
     const/4 v4, 0x0
 
+    .line 565
+    .local v4, "speed":I
     new-instance v1, Ljava/io/File;
 
     const-string v11, "/sys/bus/cpu/devices/cpu0/cpufreq/stats/time_in_state"
 
     invoke-direct {v1, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 567
+    .local v1, "f":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v11
 
     if-eqz v11, :cond_4
 
+    .line 568
     const-string v11, "/sys/bus/cpu/devices/cpu0/cpufreq/stats/time_in_state"
 
     const/4 v12, 0x0
@@ -1129,15 +1328,20 @@
 
     move-result-object v2
 
+    .line 573
+    .local v2, "file":Ljava/lang/String;
     :goto_0
     if-eqz v2, :cond_2
 
+    .line 574
     new-instance v5, Ljava/util/StringTokenizer;
 
     const-string v11, "\n "
 
     invoke-direct {v5, v2, v11}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 575
+    .local v5, "st":Ljava/util/StringTokenizer;
     :cond_1
     :goto_1
     invoke-virtual {v5}, Ljava/util/StringTokenizer;->hasMoreElements()Z
@@ -1146,44 +1350,61 @@
 
     if-eqz v11, :cond_2
 
+    .line 576
     invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 578
+    .local v8, "token":Ljava/lang/String;
     :try_start_0
     invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v9
 
+    .line 579
+    .local v9, "val":J
     aput-wide v9, v6, v4
 
+    .line 580
     invoke-virtual {v5}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 581
     invoke-static {v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v9
 
+    .line 582
     aput-wide v9, v7, v4
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 583
     add-int/lit8 v4, v4, 0x1
 
+    .line 584
     const/16 v11, 0x3c
 
     if-ne v4, v11, :cond_1
 
+    .line 594
+    .end local v5    # "st":Ljava/util/StringTokenizer;
+    .end local v8    # "token":Ljava/lang/String;
+    .end local v9    # "val":J
     :cond_2
     if-nez p1, :cond_3
 
+    .line 595
     new-array p1, v4, [J
 
+    .line 596
     new-array v11, v4, [J
 
     iput-object v11, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
 
+    .line 597
     const/4 v11, 0x0
 
     iget-object v12, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeeds:[J
@@ -1192,15 +1413,19 @@
 
     invoke-static {v6, v11, v12, v13, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 598
     const/4 v11, 0x0
 
     const/4 v12, 0x0
 
     invoke-static {v7, v11, p1, v12, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 600
     :cond_3
     return-object p1
 
+    .line 570
+    .end local v2    # "file":Ljava/lang/String;
     :cond_4
     const-string v11, "/sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state"
 
@@ -1210,11 +1435,17 @@
 
     move-result-object v2
 
+    .restart local v2    # "file":Ljava/lang/String;
     goto :goto_0
 
+    .line 589
+    .restart local v5    # "st":Ljava/util/StringTokenizer;
+    .restart local v8    # "token":Ljava/lang/String;
     :catch_0
     move-exception v3
 
+    .line 590
+    .local v3, "nfe":Ljava/lang/NumberFormatException;
     const-string v11, "ProcessStats"
 
     const-string v12, "Unable to parse time_in_state"
@@ -1226,9 +1457,15 @@
 
 .method private getName(Lcom/android/internal/os/ProcessStats$Stats;Ljava/lang/String;)V
     .locals 5
+    .param p1, "st"    # Lcom/android/internal/os/ProcessStats$Stats;
+    .param p2, "cmdlineFile"    # Ljava/lang/String;
 
+    .prologue
+    .line 845
     iget-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
+    .line 846
+    .local v2, "newName":Ljava/lang/String;
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
     if-eqz v3, :cond_0
@@ -1253,6 +1490,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 848
     :cond_0
     const/4 v3, 0x0
 
@@ -1260,6 +1498,8 @@
 
     move-result-object v0
 
+    .line 849
+    .local v0, "cmdName":Ljava/lang/String;
     if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -1270,14 +1510,18 @@
 
     if-le v3, v4, :cond_1
 
+    .line 850
     move-object v2, v0
 
+    .line 851
     const-string v3, "/"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
 
     move-result v1
 
+    .line 852
+    .local v1, "i":I
     if-lez v1, :cond_1
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -1288,17 +1532,23 @@
 
     if-ge v1, v3, :cond_1
 
+    .line 853
     add-int/lit8 v3, v1, 0x1
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 856
+    .end local v1    # "i":I
     :cond_1
     if-nez v2, :cond_2
 
+    .line 857
     iget-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->baseName:Ljava/lang/String;
 
+    .line 860
+    .end local v0    # "cmdName":Ljava/lang/String;
     :cond_2
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
@@ -1312,9 +1562,11 @@
 
     if-nez v3, :cond_4
 
+    .line 861
     :cond_3
     iput-object v2, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
+    .line 862
     iget-object v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->name:Ljava/lang/String;
 
     invoke-virtual {p0, v3}, Lcom/android/internal/os/ProcessStats;->onMeasureProcessName(Ljava/lang/String;)I
@@ -1323,19 +1575,36 @@
 
     iput v3, p1, Lcom/android/internal/os/ProcessStats$Stats;->nameWidth:I
 
+    .line 864
     :cond_4
     return-void
 .end method
 
 .method private printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
     .locals 7
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "prefix"    # Ljava/lang/String;
+    .param p3, "pid"    # I
+    .param p4, "label"    # Ljava/lang/String;
+    .param p5, "totalTime"    # I
+    .param p6, "user"    # I
+    .param p7, "system"    # I
+    .param p8, "iowait"    # I
+    .param p9, "irq"    # I
+    .param p10, "softIrq"    # I
+    .param p11, "minFaults"    # I
+    .param p12, "majFaults"    # I
 
+    .prologue
+    .line 765
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 766
     if-nez p5, :cond_0
 
     const/4 p5, 0x1
 
+    .line 767
     :cond_0
     add-int v1, p6, p7
 
@@ -1355,25 +1624,32 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 768
     const-string v1, "% "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 769
     if-ltz p3, :cond_1
 
+    .line 770
     invoke-virtual {p1, p3}, Ljava/io/PrintWriter;->print(I)V
 
+    .line 771
     const-string v1, "/"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 773
     :cond_1
     invoke-virtual {p1, p4}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 774
     const-string v1, ": "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 775
     int-to-long v3, p6
 
     int-to-long v5, p5
@@ -1384,10 +1660,12 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 776
     const-string v1, "% user + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 777
     int-to-long v3, p7
 
     int-to-long v5, p5
@@ -1398,16 +1676,20 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 778
     const-string v1, "% kernel"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 779
     if-lez p8, :cond_2
 
+    .line 780
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 781
     int-to-long v3, p8
 
     int-to-long v5, p5
@@ -1418,17 +1700,21 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 782
     const-string v1, "% iowait"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 784
     :cond_2
     if-lez p9, :cond_3
 
+    .line 785
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 786
     move/from16 v0, p9
 
     int-to-long v3, v0
@@ -1441,17 +1727,21 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 787
     const-string v1, "% irq"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 789
     :cond_3
     if-lez p10, :cond_4
 
+    .line 790
     const-string v1, " + "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 791
     move/from16 v0, p10
 
     int-to-long v3, v0
@@ -1464,103 +1754,141 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/internal/os/ProcessStats;->printRatio(Ljava/io/PrintWriter;JJ)V
 
+    .line 792
     const-string v1, "% softirq"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 794
     :cond_4
     if-gtz p11, :cond_5
 
     if-lez p12, :cond_7
 
+    .line 795
     :cond_5
     const-string v1, " / faults:"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 796
     if-lez p11, :cond_6
 
+    .line 797
     const-string v1, " "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 798
     move/from16 v0, p11
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
+    .line 799
     const-string v1, " minor"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 801
     :cond_6
     if-lez p12, :cond_7
 
+    .line 802
     const-string v1, " "
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 803
     move/from16 v0, p12
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(I)V
 
+    .line 804
     const-string v1, " major"
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 807
     :cond_7
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
+    .line 808
     return-void
 .end method
 
 .method private printRatio(Ljava/io/PrintWriter;JJ)V
     .locals 10
+    .param p1, "pw"    # Ljava/io/PrintWriter;
+    .param p2, "numerator"    # J
+    .param p4, "denominator"    # J
 
+    .prologue
     const-wide/16 v8, 0xa
 
+    .line 750
     const-wide/16 v6, 0x3e8
 
     mul-long/2addr v6, p2
 
     div-long v4, v6, p4
 
+    .line 751
+    .local v4, "thousands":J
     div-long v0, v4, v8
 
+    .line 752
+    .local v0, "hundreds":J
     invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 753
     cmp-long v6, v0, v8
 
     if-gez v6, :cond_0
 
+    .line 754
     mul-long v6, v0, v8
 
     sub-long v2, v4, v6
 
+    .line 755
+    .local v2, "remainder":J
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
 
     if-eqz v6, :cond_0
 
+    .line 756
     const/16 v6, 0x2e
 
     invoke-virtual {p1, v6}, Ljava/io/PrintWriter;->print(C)V
 
+    .line 757
     invoke-virtual {p1, v2, v3}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 760
+    .end local v2    # "remainder":J
     :cond_0
     return-void
 .end method
 
 .method private readFile(Ljava/lang/String;C)Ljava/lang/String;
     .locals 8
+    .param p1, "file"    # Ljava/lang/String;
+    .param p2, "endChar"    # C
 
+    .prologue
+    .line 814
     invoke-static {}, Landroid/os/StrictMode;->allowThreadDiskReads()Landroid/os/StrictMode$ThreadPolicy;
 
     move-result-object v4
 
+    .line 815
+    .local v4, "savedPolicy":Landroid/os/StrictMode$ThreadPolicy;
     const/4 v1, 0x0
 
+    .line 817
+    .local v1, "is":Ljava/io/FileInputStream;
     :try_start_0
     new-instance v2, Ljava/io/FileInputStream;
 
@@ -1570,28 +1898,38 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 818
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .local v2, "is":Ljava/io/FileInputStream;
     :try_start_1
     iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
 
-    invoke-virtual {v2, v5}, Ljava/io/FileInputStream;->read([B)I
+    invoke-virtual {v2, v5}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
 
+    .line 819
+    .local v3, "len":I
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
+    .line 821
     if-lez v3, :cond_3
 
+    .line 823
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
+    .line 824
     iget-object v5, p0, Lcom/android/internal/os/ProcessStats;->mBuffer:[B
 
     aget-byte v5, v5, v0
 
     if-ne v5, p2, :cond_2
 
+    .line 828
     :cond_0
     new-instance v5, Ljava/lang/String;
 
@@ -1605,107 +1943,148 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_7
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 833
     if-eqz v2, :cond_1
 
+    .line 835
     :try_start_2
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
+    .line 839
     :cond_1
     :goto_1
     invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     move-object v1, v2
 
+    .line 841
+    .end local v0    # "i":I
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .end local v3    # "len":I
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     :goto_2
     return-object v5
 
+    .line 823
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .restart local v0    # "i":I
+    .restart local v2    # "is":Ljava/io/FileInputStream;
+    .restart local v3    # "len":I
     :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 833
+    .end local v0    # "i":I
     :cond_3
     if-eqz v2, :cond_4
 
+    .line 835
     :try_start_3
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
 
+    .line 839
     :cond_4
     :goto_3
     invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     move-object v1, v2
 
+    .line 841
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .end local v3    # "len":I
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     :goto_4
     const/4 v5, 0x0
 
     goto :goto_2
 
+    .line 830
     :catch_0
     move-exception v5
 
+    .line 833
     :goto_5
     if-eqz v1, :cond_5
 
+    .line 835
     :try_start_4
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
 
+    .line 839
     :cond_5
     :goto_6
     invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     goto :goto_4
 
+    .line 831
     :catch_1
     move-exception v5
 
+    .line 833
     :goto_7
     if-eqz v1, :cond_6
 
+    .line 835
     :try_start_5
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_5
 
+    .line 839
     :cond_6
     :goto_8
     invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     goto :goto_4
 
+    .line 833
     :catchall_0
     move-exception v5
 
     :goto_9
     if-eqz v1, :cond_7
 
+    .line 835
     :try_start_6
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_6
 
+    .line 839
     :cond_7
     :goto_a
     invoke-static {v4}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     throw v5
 
+    .line 836
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .restart local v0    # "i":I
+    .restart local v2    # "is":Ljava/io/FileInputStream;
+    .restart local v3    # "len":I
     :catch_2
     move-exception v6
 
     goto :goto_1
 
+    .end local v0    # "i":I
     :catch_3
     move-exception v5
 
     goto :goto_3
 
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .end local v3    # "len":I
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     :catch_4
     move-exception v5
 
@@ -1721,25 +2100,40 @@
 
     goto :goto_a
 
+    .line 833
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .restart local v2    # "is":Ljava/io/FileInputStream;
     :catchall_1
     move-exception v5
 
     move-object v1, v2
 
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     goto :goto_9
 
+    .line 831
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .restart local v2    # "is":Ljava/io/FileInputStream;
     :catch_7
     move-exception v5
 
     move-object v1, v2
 
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     goto :goto_7
 
+    .line 830
+    .end local v1    # "is":Ljava/io/FileInputStream;
+    .restart local v2    # "is":Ljava/io/FileInputStream;
     :catch_8
     move-exception v5
 
     move-object v1, v2
 
+    .end local v2    # "is":Ljava/io/FileInputStream;
+    .restart local v1    # "is":Ljava/io/FileInputStream;
     goto :goto_5
 .end method
 
@@ -1748,27 +2142,35 @@
 .method final buildWorkingProcs()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x1
 
+    .line 636
     iget-boolean v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcsSorted:Z
 
     if-nez v6, :cond_4
 
+    .line 637
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
 
+    .line 638
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
+    .line 639
+    .local v1, "N":I
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     if-ge v2, v1, :cond_3
 
+    .line 640
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1777,14 +2179,18 @@
 
     check-cast v4, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .line 641
+    .local v4, "stats":Lcom/android/internal/os/ProcessStats$Stats;
     iget-boolean v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
     if-eqz v6, :cond_2
 
+    .line 642
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 643
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     if-eqz v6, :cond_2
@@ -1797,21 +2203,27 @@
 
     if-le v6, v8, :cond_2
 
+    .line 644
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->clear()V
 
+    .line 645
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
+    .line 646
+    .local v0, "M":I
     const/4 v3, 0x0
 
+    .local v3, "j":I
     :goto_1
     if-ge v3, v0, :cond_1
 
+    .line 647
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->threadStats:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -1820,19 +2232,25 @@
 
     check-cast v5, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .line 648
+    .local v5, "tstats":Lcom/android/internal/os/ProcessStats$Stats;
     iget-boolean v6, v5, Lcom/android/internal/os/ProcessStats$Stats;->working:Z
 
     if-eqz v6, :cond_0
 
+    .line 649
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 646
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
+    .line 652
+    .end local v5    # "tstats":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_1
     iget-object v6, v4, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
 
@@ -1840,11 +2258,16 @@
 
     invoke-static {v6, v7}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
+    .line 639
+    .end local v0    # "M":I
+    .end local v3    # "j":I
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 656
+    .end local v4    # "stats":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_3
     iget-object v6, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
@@ -1852,8 +2275,12 @@
 
     invoke-static {v6, v7}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
+    .line 657
     iput-boolean v8, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcsSorted:Z
 
+    .line 659
+    .end local v1    # "N":I
+    .end local v2    # "i":I
     :cond_4
     return-void
 .end method
@@ -1861,6 +2288,8 @@
 .method public final countStats()I
     .locals 1
 
+    .prologue
+    .line 662
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -1873,8 +2302,11 @@
 .method public final countWorkingStats()I
     .locals 1
 
+    .prologue
+    .line 670
     invoke-virtual {p0}, Lcom/android/internal/os/ProcessStats;->buildWorkingProcs()V
 
+    .line 671
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -1886,9 +2318,12 @@
 
 .method public getCpuTimeForPid(I)J
     .locals 8
+    .param p1, "pid"    # I
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 522
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -1913,8 +2348,12 @@
 
     move-result-object v0
 
+    .line 523
+    .local v0, "statFile":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/internal/os/ProcessStats;->mSinglePidStatsData:[J
 
+    .line 524
+    .local v1, "statsData":[J
     sget-object v4, Lcom/android/internal/os/ProcessStats;->PROCESS_STATS_FORMAT:[I
 
     invoke-static {v0, v4, v6, v1, v6}, Landroid/os/Process;->readProcFile(Ljava/lang/String;[I[Ljava/lang/String;[J[F)Z
@@ -1923,6 +2362,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 526
     const/4 v4, 0x2
 
     aget-wide v4, v1, v4
@@ -1933,6 +2373,7 @@
 
     add-long v2, v4, v6
 
+    .line 530
     :goto_0
     return-wide v2
 
@@ -1945,10 +2386,13 @@
 .method public getLastCpuSpeedTimes()[J
     .locals 8
 
+    .prologue
+    .line 539
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
     if-nez v3, :cond_0
 
+    .line 540
     const/4 v3, 0x0
 
     invoke-direct {p0, v3}, Lcom/android/internal/os/ProcessStats;->getCpuSpeedTimes([J)[J
@@ -1957,6 +2401,7 @@
 
     iput-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
+    .line 541
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
     array-length v3, v3
@@ -1965,8 +2410,10 @@
 
     iput-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
+    .line 542
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
@@ -1974,23 +2421,29 @@
 
     if-ge v0, v3, :cond_1
 
+    .line 543
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
     const-wide/16 v4, 0x1
 
     aput-wide v4, v3, v0
 
+    .line 542
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 546
+    .end local v0    # "i":I
     :cond_0
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
     invoke-direct {p0, v3}, Lcom/android/internal/os/ProcessStats;->getCpuSpeedTimes([J)[J
 
+    .line 547
     const/4 v0, 0x0
 
+    .restart local v0    # "i":I
     :goto_1
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
@@ -1998,10 +2451,13 @@
 
     if-ge v0, v3, :cond_1
 
+    .line 548
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
     aget-wide v1, v3, v0
 
+    .line 549
+    .local v1, "temp":J
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
     aget-wide v4, v3, v0
@@ -2014,14 +2470,18 @@
 
     aput-wide v4, v3, v0
 
+    .line 550
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mCpuSpeedTimes:[J
 
     aput-wide v1, v3, v0
 
+    .line 547
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 553
+    .end local v1    # "temp":J
     :cond_1
     iget-object v3, p0, Lcom/android/internal/os/ProcessStats;->mRelCpuSpeedTimes:[J
 
@@ -2031,6 +2491,8 @@
 .method public final getLastIdleTime()I
     .locals 1
 
+    .prologue
+    .line 624
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIdleTime:I
 
     return v0
@@ -2039,6 +2501,8 @@
 .method public final getLastIoWaitTime()I
     .locals 1
 
+    .prologue
+    .line 612
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIoWaitTime:I
 
     return v0
@@ -2047,6 +2511,8 @@
 .method public final getLastIrqTime()I
     .locals 1
 
+    .prologue
+    .line 616
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelIrqTime:I
 
     return v0
@@ -2055,6 +2521,8 @@
 .method public final getLastSoftIrqTime()I
     .locals 1
 
+    .prologue
+    .line 620
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelSoftIrqTime:I
 
     return v0
@@ -2063,6 +2531,8 @@
 .method public final getLastSystemTime()I
     .locals 1
 
+    .prologue
+    .line 608
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelSystemTime:I
 
     return v0
@@ -2071,6 +2541,8 @@
 .method public final getLastUserTime()I
     .locals 1
 
+    .prologue
+    .line 604
     iget v0, p0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
 
     return v0
@@ -2078,7 +2550,10 @@
 
 .method public final getStats(I)Lcom/android/internal/os/ProcessStats$Stats;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 666
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mProcStats:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2093,6 +2568,8 @@
 .method public final getTotalCpuPercent()F
     .locals 3
 
+    .prologue
+    .line 628
     iget v1, p0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
 
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mRelSystemTime:I
@@ -2107,10 +2584,14 @@
 
     add-int v0, v1, v2
 
+    .line 629
+    .local v0, "denom":I
     if-gtz v0, :cond_0
 
+    .line 630
     const/4 v1, 0x0
 
+    .line 632
     :goto_0
     return v1
 
@@ -2140,7 +2621,10 @@
 
 .method public final getWorkingStats(I)Lcom/android/internal/os/ProcessStats$Stats;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 675
     iget-object v0, p0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -2155,24 +2639,36 @@
 .method public init()V
     .locals 1
 
+    .prologue
+    .line 266
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/os/ProcessStats;->mFirst:Z
 
+    .line 267
     invoke-virtual {p0}, Lcom/android/internal/os/ProcessStats;->update()V
 
+    .line 268
     return-void
 .end method
 
 .method public onLoadChanged(FFF)V
     .locals 0
+    .param p1, "load1"    # F
+    .param p2, "load5"    # F
+    .param p3, "load15"    # F
 
+    .prologue
+    .line 258
     return-void
 .end method
 
 .method public onMeasureProcessName(Ljava/lang/String;)I
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 261
     const/4 v0, 0x0
 
     return v0
@@ -2181,38 +2677,50 @@
 .method public final printCurrentLoad()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 679
     new-instance v1, Ljava/io/StringWriter;
 
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
+    .line 680
+    .local v1, "sw":Ljava/io/StringWriter;
     new-instance v0, Ljava/io/PrintWriter;
 
     invoke-direct {v0, v1}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
+    .line 681
+    .local v0, "pw":Ljava/io/PrintWriter;
     const-string v2, "Load: "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 682
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad1:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(F)V
 
+    .line 683
     const-string v2, " / "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 684
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad5:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(F)V
 
+    .line 685
     const-string v2, " / "
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 686
     iget v2, p0, Lcom/android/internal/os/ProcessStats;->mLoad15:F
 
     invoke-virtual {v0, v2}, Ljava/io/PrintWriter;->println(F)V
 
+    .line 687
     invoke-virtual {v1}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -2222,23 +2730,32 @@
 
 .method public final printCurrentState(J)Ljava/lang/String;
     .locals 29
+    .param p1, "now"    # J
 
+    .prologue
+    .line 691
     invoke-virtual/range {p0 .. p0}, Lcom/android/internal/os/ProcessStats;->buildWorkingProcs()V
 
+    .line 693
     new-instance v26, Ljava/io/StringWriter;
 
     invoke-direct/range {v26 .. v26}, Ljava/io/StringWriter;-><init>()V
 
+    .line 694
+    .local v26, "sw":Ljava/io/StringWriter;
     new-instance v3, Ljava/io/PrintWriter;
 
     move-object/from16 v0, v26
 
     invoke-direct {v3, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
+    .line 696
+    .local v3, "pw":Ljava/io/PrintWriter;
     const-string v2, "CPU usage from "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 697
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
@@ -2247,6 +2764,7 @@
 
     if-lez v2, :cond_1
 
+    .line 698
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
@@ -2255,10 +2773,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 699
     const-string/jumbo v2, "ms to "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 700
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
@@ -2267,10 +2787,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 701
     const-string/jumbo v2, "ms ago"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 709
     :goto_0
     move-object/from16 v0, p0
 
@@ -2282,6 +2804,8 @@
 
     sub-long v23, v4, v6
 
+    .line 710
+    .local v23, "sampleTime":J
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleRealTime:J
@@ -2292,6 +2816,8 @@
 
     sub-long v21, v4, v6
 
+    .line 711
+    .local v21, "sampleRealTime":J
     const-wide/16 v4, 0x0
 
     cmp-long v2, v21, v4
@@ -2304,6 +2830,8 @@
 
     div-long v19, v4, v21
 
+    .line 712
+    .local v19, "percAwake":J
     :goto_1
     const-wide/16 v4, 0x64
 
@@ -2311,23 +2839,28 @@
 
     if-eqz v2, :cond_0
 
+    .line 713
     const-string v2, " with "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 714
     move-wide/from16 v0, v19
 
     invoke-virtual {v3, v0, v1}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 715
     const-string v2, "% awake"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 717
     :cond_0
     const-string v2, ":"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 719
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
@@ -2362,6 +2895,8 @@
 
     add-int v27, v2, v4
 
+    .line 725
+    .local v27, "totalTime":I
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
@@ -2370,8 +2905,11 @@
 
     move-result v16
 
+    .line 726
+    .local v16, "N":I
     const/16 v17, 0x0
 
+    .local v17, "i":I
     :goto_2
     move/from16 v0, v17
 
@@ -2379,6 +2917,7 @@
 
     if-ge v0, v1, :cond_8
 
+    .line 727
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats;->mWorkingProcs:Ljava/util/ArrayList;
@@ -2391,6 +2930,8 @@
 
     check-cast v25, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .line 728
+    .local v25, "st":Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, v25
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
@@ -2446,6 +2987,7 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
+    .line 731
     move-object/from16 v0, v25
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->removed:Z
@@ -2458,6 +3000,7 @@
 
     if-eqz v2, :cond_7
 
+    .line 732
     move-object/from16 v0, v25
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
@@ -2466,13 +3009,17 @@
 
     move-result v15
 
+    .line 733
+    .local v15, "M":I
     const/16 v18, 0x0
 
+    .local v18, "j":I
     :goto_4
     move/from16 v0, v18
 
     if-ge v0, v15, :cond_7
 
+    .line 734
     move-object/from16 v0, v25
 
     iget-object v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->workingThreads:Ljava/util/ArrayList;
@@ -2485,6 +3032,8 @@
 
     check-cast v28, Lcom/android/internal/os/ProcessStats$Stats;
 
+    .line 735
+    .local v28, "tst":Lcom/android/internal/os/ProcessStats$Stats;
     move-object/from16 v0, v28
 
     iget-boolean v2, v0, Lcom/android/internal/os/ProcessStats$Stats;->added:Z
@@ -2536,10 +3085,22 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
+    .line 733
     add-int/lit8 v18, v18, 0x1
 
     goto :goto_4
 
+    .line 703
+    .end local v15    # "M":I
+    .end local v16    # "N":I
+    .end local v17    # "i":I
+    .end local v18    # "j":I
+    .end local v19    # "percAwake":J
+    .end local v21    # "sampleRealTime":J
+    .end local v23    # "sampleTime":J
+    .end local v25    # "st":Lcom/android/internal/os/ProcessStats$Stats;
+    .end local v27    # "totalTime":I
+    .end local v28    # "tst":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_1
     move-object/from16 v0, p0
 
@@ -2549,10 +3110,12 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 704
     const-string/jumbo v2, "ms to "
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    .line 705
     move-object/from16 v0, p0
 
     iget-wide v4, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
@@ -2561,17 +3124,27 @@
 
     invoke-virtual {v3, v4, v5}, Ljava/io/PrintWriter;->print(J)V
 
+    .line 706
     const-string/jumbo v2, "ms later"
 
     invoke-virtual {v3, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
+    .line 711
+    .restart local v21    # "sampleRealTime":J
+    .restart local v23    # "sampleTime":J
     :cond_2
     const-wide/16 v19, 0x0
 
     goto/16 :goto_1
 
+    .line 728
+    .restart local v16    # "N":I
+    .restart local v17    # "i":I
+    .restart local v19    # "percAwake":J
+    .restart local v25    # "st":Lcom/android/internal/os/ProcessStats$Stats;
+    .restart local v27    # "totalTime":I
     :cond_3
     move-object/from16 v0, v25
 
@@ -2588,6 +3161,10 @@
 
     goto/16 :goto_3
 
+    .line 735
+    .restart local v15    # "M":I
+    .restart local v18    # "j":I
+    .restart local v28    # "tst":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_5
     move-object/from16 v0, v28
 
@@ -2604,11 +3181,17 @@
 
     goto :goto_5
 
+    .line 726
+    .end local v15    # "M":I
+    .end local v18    # "j":I
+    .end local v28    # "tst":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_7
     add-int/lit8 v17, v17, 0x1
 
     goto/16 :goto_2
 
+    .line 743
+    .end local v25    # "st":Lcom/android/internal/os/ProcessStats$Stats;
     :cond_8
     const-string v4, ""
 
@@ -2646,6 +3229,7 @@
 
     invoke-direct/range {v2 .. v14}, Lcom/android/internal/os/ProcessStats;->printProcessCPU(Ljava/io/PrintWriter;Ljava/lang/String;ILjava/lang/String;IIIIIIII)V
 
+    .line 746
     invoke-virtual/range {v26 .. v26}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -2656,6 +3240,8 @@
 .method public update()V
     .locals 26
 
+    .prologue
+    .line 272
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
@@ -2664,6 +3250,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleTime:J
 
+    .line 273
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v3
@@ -2672,6 +3259,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleTime:J
 
+    .line 274
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleRealTime:J
@@ -2680,6 +3268,7 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mLastSampleRealTime:J
 
+    .line 275
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v3
@@ -2688,12 +3277,15 @@
 
     iput-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mCurrentSampleRealTime:J
 
+    .line 277
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/ProcessStats;->mSystemCpuData:[J
 
     move-object/from16 v21, v0
 
+    .line 278
+    .local v21, "sysCpu":[J
     const-string v3, "/proc/stat"
 
     sget-object v4, Lcom/android/internal/os/ProcessStats;->SYSTEM_CPU_FORMAT:[I
@@ -2710,6 +3302,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 281
     const/4 v3, 0x0
 
     aget-wide v3, v21, v3
@@ -2720,26 +3313,38 @@
 
     add-long v24, v3, v5
 
+    .line 283
+    .local v24, "usertime":J
     const/4 v3, 0x2
 
     aget-wide v22, v21, v3
 
+    .line 285
+    .local v22, "systemtime":J
     const/4 v3, 0x3
 
     aget-wide v9, v21, v3
 
+    .line 287
+    .local v9, "idletime":J
     const/4 v3, 0x4
 
     aget-wide v11, v21, v3
 
+    .line 288
+    .local v11, "iowaittime":J
     const/4 v3, 0x5
 
     aget-wide v13, v21, v3
 
+    .line 289
+    .local v13, "irqtime":J
     const/4 v3, 0x6
 
     aget-wide v19, v21, v3
 
+    .line 291
+    .local v19, "softirqtime":J
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseUserTime:J
@@ -2752,6 +3357,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelUserTime:I
 
+    .line 292
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseSystemTime:J
@@ -2764,6 +3370,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelSystemTime:I
 
+    .line 293
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseIoWaitTime:J
@@ -2776,6 +3383,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelIoWaitTime:I
 
+    .line 294
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseIrqTime:J
@@ -2788,6 +3396,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelIrqTime:I
 
+    .line 295
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseSoftIrqTime:J
@@ -2800,6 +3409,7 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelSoftIrqTime:I
 
+    .line 296
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lcom/android/internal/os/ProcessStats;->mBaseIdleTime:J
@@ -2812,36 +3422,49 @@
 
     iput v3, v0, Lcom/android/internal/os/ProcessStats;->mRelIdleTime:I
 
+    .line 307
     move-wide/from16 v0, v24
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats;->mBaseUserTime:J
 
+    .line 308
     move-wide/from16 v0, v22
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats;->mBaseSystemTime:J
 
+    .line 309
     move-object/from16 v0, p0
 
     iput-wide v11, v0, Lcom/android/internal/os/ProcessStats;->mBaseIoWaitTime:J
 
+    .line 310
     move-object/from16 v0, p0
 
     iput-wide v13, v0, Lcom/android/internal/os/ProcessStats;->mBaseIrqTime:J
 
+    .line 311
     move-wide/from16 v0, v19
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lcom/android/internal/os/ProcessStats;->mBaseSoftIrqTime:J
 
+    .line 312
     move-object/from16 v0, p0
 
     iput-wide v9, v0, Lcom/android/internal/os/ProcessStats;->mBaseIdleTime:J
 
+    .line 315
+    .end local v9    # "idletime":J
+    .end local v11    # "iowaittime":J
+    .end local v13    # "irqtime":J
+    .end local v19    # "softirqtime":J
+    .end local v22    # "systemtime":J
+    .end local v24    # "usertime":J
     :cond_0
     const-string v4, "/proc"
 
@@ -2869,12 +3492,15 @@
 
     iput-object v3, v0, Lcom/android/internal/os/ProcessStats;->mCurPids:[I
 
+    .line 317
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/ProcessStats;->mLoadAverageData:[F
 
     move-object/from16 v18, v0
 
+    .line 318
+    .local v18, "loadAverages":[F
     const-string v3, "/proc/loadavg"
 
     sget-object v4, Lcom/android/internal/os/ProcessStats;->LOAD_AVERAGE_FORMAT:[I
@@ -2891,18 +3517,25 @@
 
     if-eqz v3, :cond_2
 
+    .line 320
     const/4 v3, 0x0
 
     aget v15, v18, v3
 
+    .line 321
+    .local v15, "load1":F
     const/4 v3, 0x1
 
     aget v17, v18, v3
 
+    .line 322
+    .local v17, "load5":F
     const/4 v3, 0x2
 
     aget v16, v18, v3
 
+    .line 323
+    .local v16, "load15":F
     move-object/from16 v0, p0
 
     iget v3, v0, Lcom/android/internal/os/ProcessStats;->mLoad1:F
@@ -2927,23 +3560,27 @@
 
     if-eqz v3, :cond_2
 
+    .line 324
     :cond_1
     move-object/from16 v0, p0
 
     iput v15, v0, Lcom/android/internal/os/ProcessStats;->mLoad1:F
 
+    .line 325
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/os/ProcessStats;->mLoad5:F
 
+    .line 326
     move/from16 v0, v16
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/internal/os/ProcessStats;->mLoad15:F
 
+    .line 327
     move-object/from16 v0, p0
 
     move/from16 v1, v17
@@ -2952,6 +3589,10 @@
 
     invoke-virtual {v0, v15, v1, v2}, Lcom/android/internal/os/ProcessStats;->onLoadChanged(FFF)V
 
+    .line 334
+    .end local v15    # "load1":F
+    .end local v16    # "load15":F
+    .end local v17    # "load5":F
     :cond_2
     const/4 v3, 0x0
 
@@ -2959,11 +3600,13 @@
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats;->mWorkingProcsSorted:Z
 
+    .line 335
     const/4 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-boolean v3, v0, Lcom/android/internal/os/ProcessStats;->mFirst:Z
 
+    .line 336
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/MarvellFALImpl$DVFSLockIntentSender;)V
     .locals 0
 
+    .prologue
+    .line 407
     iput-object p1, p0, Lcom/android/server/ssrm/MarvellFALImpl$DVFSLockIntentSender$1;->this$1:Lcom/android/server/ssrm/MarvellFALImpl$DVFSLockIntentSender;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,18 +35,25 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 410
     monitor-enter p0
 
+    .line 411
     :try_start_0
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 412
+    .local v0, "dvfsLockIntent":Landroid/content/Intent;
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 496
     const-string v1, "SSRMv2:MarvellFALImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -69,6 +78,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 499
     :goto_0
     iget-object v1, p0, Lcom/android/server/ssrm/MarvellFALImpl$DVFSLockIntentSender$1;->this$1:Lcom/android/server/ssrm/MarvellFALImpl$DVFSLockIntentSender;
 
@@ -82,15 +92,19 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 500
     monitor-exit p0
 
+    .line 501
     return-void
 
+    .line 414
     :pswitch_0
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 416
     const-string v1, "MIN"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -103,6 +117,8 @@
 
     goto :goto_0
 
+    .line 500
+    .end local v0    # "dvfsLockIntent":Landroid/content/Intent;
     :catchall_0
     move-exception v1
 
@@ -112,12 +128,15 @@
 
     throw v1
 
+    .line 419
+    .restart local v0    # "dvfsLockIntent":Landroid/content/Intent;
     :pswitch_1
     :try_start_1
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 421
     const-string v1, "MAX"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -130,11 +149,13 @@
 
     goto :goto_0
 
+    .line 424
     :pswitch_2
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 426
     const-string v1, "MIN"
 
     const-string v2, "0"
@@ -143,11 +164,13 @@
 
     goto :goto_0
 
+    .line 429
     :pswitch_3
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 431
     const-string v1, "MAX"
 
     const-string v2, "0"
@@ -156,11 +179,13 @@
 
     goto :goto_0
 
+    .line 434
     :pswitch_4
     const-string v1, "com.sec.android.intent.action.GPU_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 436
     const-string v1, "MIN"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -173,11 +198,13 @@
 
     goto :goto_0
 
+    .line 439
     :pswitch_5
     const-string v1, "com.sec.android.intent.action.GPU_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 441
     const-string v1, "MIN"
 
     const-string v2, "0"
@@ -186,11 +213,13 @@
 
     goto :goto_0
 
+    .line 444
     :pswitch_6
     const-string v1, "com.sec.android.intent.action.GPU_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 446
     const-string v1, "MAX"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -203,11 +232,13 @@
 
     goto :goto_0
 
+    .line 449
     :pswitch_7
     const-string v1, "com.sec.android.intent.action.GPU_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 451
     const-string v1, "MAX"
 
     const-string v2, "0"
@@ -216,11 +247,13 @@
 
     goto/16 :goto_0
 
+    .line 454
     :pswitch_8
     const-string v1, "com.sec.android.intent.action.DDR_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 456
     const-string v1, "MIN"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -233,11 +266,13 @@
 
     goto/16 :goto_0
 
+    .line 459
     :pswitch_9
     const-string v1, "com.sec.android.intent.action.DDR_BOOSTER_MIN"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 461
     const-string v1, "MIN"
 
     const-string v2, "0"
@@ -246,11 +281,13 @@
 
     goto/16 :goto_0
 
+    .line 464
     :pswitch_a
     const-string v1, "com.sec.android.intent.action.DDR_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 466
     const-string v1, "MAX"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -263,11 +300,13 @@
 
     goto/16 :goto_0
 
+    .line 469
     :pswitch_b
     const-string v1, "com.sec.android.intent.action.DDR_BOOSTER_MAX"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 471
     const-string v1, "MAX"
 
     const-string v2, "0"
@@ -276,11 +315,13 @@
 
     goto/16 :goto_0
 
+    .line 474
     :pswitch_c
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_CORE_NUM"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 476
     const-string v1, "NUM"
 
     iget v2, p1, Landroid/os/Message;->arg1:I
@@ -293,11 +334,13 @@
 
     goto/16 :goto_0
 
+    .line 479
     :pswitch_d
     const-string v1, "com.sec.android.intent.action.CPU_BOOSTER_CORE_NUM"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 481
     const-string v1, "NUM"
 
     const-string v2, "0"
@@ -308,6 +351,7 @@
 
     goto/16 :goto_0
 
+    .line 412
     nop
 
     :pswitch_data_0

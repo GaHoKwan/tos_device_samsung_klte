@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1790
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -33,12 +35,18 @@
 # virtual methods
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 4
+    .param p1, "pkg"    # Ljava/lang/String;
+    .param p2, "uid"    # I
 
-    invoke-virtual {p0}, Lcom/android/server/pm/UserManagerService$5;->getChangingUserId()I
+    .prologue
+    .line 1793
+    invoke-virtual {p0}, Lcom/android/internal/content/PackageMonitor;->getChangingUserId()I
 
     move-result v1
 
-    invoke-virtual {p0, p1}, Lcom/android/server/pm/UserManagerService$5;->isPackageDisappearing(Ljava/lang/String;)I
+    .line 1796
+    .local v1, "userId":I
+    invoke-virtual {p0, p1}, Lcom/android/internal/content/PackageMonitor;->isPackageDisappearing(Ljava/lang/String;)I
 
     move-result v2
 
@@ -48,6 +56,8 @@
 
     const/4 v0, 0x1
 
+    .line 1797
+    .local v0, "uninstalled":Z
     :goto_0
     if-eqz v0, :cond_0
 
@@ -62,14 +72,18 @@
 
     if-nez v2, :cond_0
 
+    .line 1798
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService$5;->this$0:Lcom/android/server/pm/UserManagerService;
 
     # invokes: Lcom/android/server/pm/UserManagerService;->cleanAppRestrictionsForPackage(Ljava/lang/String;I)V
     invoke-static {v2, p1, v1}, Lcom/android/server/pm/UserManagerService;->access$600(Lcom/android/server/pm/UserManagerService;Ljava/lang/String;I)V
 
+    .line 1800
     :cond_0
     return-void
 
+    .line 1796
+    .end local v0    # "uninstalled":Z
     :cond_1
     const/4 v0, 0x0
 

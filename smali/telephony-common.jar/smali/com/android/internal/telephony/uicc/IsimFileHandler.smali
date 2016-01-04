@@ -36,7 +36,7 @@
     sparse-switch p1, :sswitch_data_0
 
     .line 47
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/uicc/IsimFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/uicc/IccFileHandler;->getCommonIccEFPath(I)Ljava/lang/String;
 
     move-result-object v0
 

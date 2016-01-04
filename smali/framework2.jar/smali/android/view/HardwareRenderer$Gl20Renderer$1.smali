@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/view/HardwareRenderer$Gl20Renderer;Landroid/view/View;)V
     .locals 0
 
+    .prologue
+    .line 2250
     iput-object p1, p0, Landroid/view/HardwareRenderer$Gl20Renderer$1;->this$0:Landroid/view/HardwareRenderer$Gl20Renderer;
 
     iput-object p2, p0, Landroid/view/HardwareRenderer$Gl20Renderer$1;->val$view:Landroid/view/View;
@@ -41,27 +43,33 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 2253
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer$1;->this$0:Landroid/view/HardwareRenderer$Gl20Renderer;
 
-    iget-object v0, v0, Landroid/view/HardwareRenderer$Gl20Renderer;->mCanvas:Landroid/view/HardwareCanvas;
+    iget-object v0, v0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
     if-eqz v0, :cond_0
 
+    .line 2254
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer$1;->this$0:Landroid/view/HardwareRenderer$Gl20Renderer;
 
-    iget-object v0, v0, Landroid/view/HardwareRenderer$Gl20Renderer;->mCanvas:Landroid/view/HardwareCanvas;
+    iget-object v0, v0, Landroid/view/HardwareRenderer$GlRenderer;->mCanvas:Landroid/view/HardwareCanvas;
 
     invoke-virtual {v0}, Landroid/view/HardwareCanvas;->clearLayerUpdates()V
 
+    .line 2256
     :cond_0
     iget-object v0, p0, Landroid/view/HardwareRenderer$Gl20Renderer$1;->val$view:Landroid/view/View;
 
     # invokes: Landroid/view/HardwareRenderer$Gl20Renderer;->destroyHardwareLayer(Landroid/view/View;)V
     invoke-static {v0}, Landroid/view/HardwareRenderer$Gl20Renderer;->access$700(Landroid/view/View;)V
 
+    .line 2257
     const/4 v0, 0x0
 
     invoke-static {v0}, Landroid/view/GLES20Canvas;->flushCaches(I)V
 
+    .line 2258
     return-void
 .end method

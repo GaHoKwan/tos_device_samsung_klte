@@ -57,7 +57,7 @@
     .line 159
     iget-object v1, p0, Lgov/nist/core/HostPort;->host:Lgov/nist/core/Host;
 
-    invoke-virtual {v1}, Lgov/nist/core/Host;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/location/ComprehensiveCountryDetector;)V
     .locals 0
 
+    .prologue
+    .line 438
     iput-object p1, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,19 +35,24 @@
 # virtual methods
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 2
+    .param p1, "serviceState"    # Landroid/telephony/ServiceState;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 441
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     # operator++ for: Lcom/android/server/location/ComprehensiveCountryDetector;->mCountServiceStateChanges:I
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$308(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
+    .line 442
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     # operator++ for: Lcom/android/server/location/ComprehensiveCountryDetector;->mTotalCountServiceStateChanges:I
     invoke-static {v0}, Lcom/android/server/location/ComprehensiveCountryDetector;->access$408(Lcom/android/server/location/ComprehensiveCountryDetector;)I
 
+    .line 444
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 
     # invokes: Lcom/android/server/location/ComprehensiveCountryDetector;->isNetworkCountryCodeAvailable()Z
@@ -55,9 +62,11 @@
 
     if-nez v0, :cond_0
 
+    .line 450
     :goto_0
     return-void
 
+    .line 449
     :cond_0
     iget-object v0, p0, Lcom/android/server/location/ComprehensiveCountryDetector$4;->this$0:Lcom/android/server/location/ComprehensiveCountryDetector;
 

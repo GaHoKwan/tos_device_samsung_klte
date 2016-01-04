@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 12056
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$10;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$10;->val$path:Ljava/lang/String;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 12058
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$10;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mContext:Landroid/content/Context;
@@ -57,11 +61,14 @@
 
     check-cast v0, Landroid/os/CustomFrequencyManager;
 
+    .line 12059
+    .local v0, "mCustomFreqManager":Landroid/os/CustomFrequencyManager;
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$10;->val$path:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$10;->val$pkg_name:Ljava/lang/String;
 
     invoke-virtual {v0, v1, v2}, Landroid/os/CustomFrequencyManager;->reviewPackage(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 12060
     return-void
 .end method

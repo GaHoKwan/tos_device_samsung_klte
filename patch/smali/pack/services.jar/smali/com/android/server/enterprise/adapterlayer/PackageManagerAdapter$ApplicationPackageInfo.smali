@@ -46,24 +46,30 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 414
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 415
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$ApplicationPackageInfo;->packageName:Ljava/lang/String;
 
+    .line 416
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$ApplicationPackageInfo;->permissions:Ljava/util/List;
 
+    .line 417
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$ApplicationPackageInfo;->signatures:Ljava/util/List;
 
+    .line 418
     const/4 v0, 0x0
 
     new-array v0, v0, [Landroid/content/pm/Signature;
@@ -78,6 +84,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 421
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

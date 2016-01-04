@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,6 +33,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 75
     :try_start_0
     const-string v1, "edmnativehelperservice"
 
@@ -39,12 +43,16 @@
     .catch Ljava/lang/UnsatisfiedLinkError; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 81
     :goto_0
     return-void
 
+    .line 76
     :catch_0
     move-exception v0
 
+    .line 77
+    .local v0, "e":Ljava/lang/UnsatisfiedLinkError;
     sget-object v1, Lcom/android/server/enterprise/utils/EDMNativeHelper;->TAG:Ljava/lang/String;
 
     const-string v2, "UnsatisfiedLinkError: Could not load libedmnativehelperservice.so"
@@ -53,9 +61,13 @@
 
     goto :goto_0
 
+    .line 78
+    .end local v0    # "e":Ljava/lang/UnsatisfiedLinkError;
     :catch_1
     move-exception v0
 
+    .line 79
+    .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Lcom/android/server/enterprise/utils/EDMNativeHelper;->TAG:Ljava/lang/String;
 
     const-string v2, "Exception: Could not load libedmnativehelperservice.so"

@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
 
+    .prologue
+    .line 5580
     iput-object p1, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,13 @@
 # virtual methods
 .method public endTransition(Landroid/animation/LayoutTransition;Landroid/view/ViewGroup;Landroid/view/View;I)V
     .locals 2
+    .param p1, "transition"    # Landroid/animation/LayoutTransition;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "view"    # Landroid/view/View;
+    .param p4, "transitionType"    # I
 
+    .prologue
+    .line 5594
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     # getter for: Landroid/view/ViewGroup;->mLayoutCalledWhileSuppressed:Z
@@ -52,10 +60,12 @@
 
     if-nez v0, :cond_0
 
+    .line 5595
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->requestLayout()V
+    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
+    .line 5596
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     const/4 v1, 0x0
@@ -63,6 +73,7 @@
     # setter for: Landroid/view/ViewGroup;->mLayoutCalledWhileSuppressed:Z
     invoke-static {v0, v1}, Landroid/view/ViewGroup;->access$302(Landroid/view/ViewGroup;Z)Z
 
+    .line 5598
     :cond_0
     const/4 v0, 0x3
 
@@ -77,25 +88,35 @@
 
     if-eqz v0, :cond_1
 
+    .line 5599
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, p3}, Landroid/view/ViewGroup;->endViewTransition(Landroid/view/View;)V
 
+    .line 5601
     :cond_1
     return-void
 .end method
 
 .method public startTransition(Landroid/animation/LayoutTransition;Landroid/view/ViewGroup;Landroid/view/View;I)V
     .locals 1
+    .param p1, "transition"    # Landroid/animation/LayoutTransition;
+    .param p2, "container"    # Landroid/view/ViewGroup;
+    .param p3, "view"    # Landroid/view/View;
+    .param p4, "transitionType"    # I
 
+    .prologue
+    .line 5586
     const/4 v0, 0x3
 
     if-ne p4, v0, :cond_0
 
+    .line 5587
     iget-object v0, p0, Landroid/view/ViewGroup$3;->this$0:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, p3}, Landroid/view/ViewGroup;->startViewTransition(Landroid/view/View;)V
 
+    .line 5589
     :cond_0
     return-void
 .end method

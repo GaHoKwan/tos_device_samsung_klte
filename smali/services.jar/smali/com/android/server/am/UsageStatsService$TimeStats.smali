@@ -24,51 +24,67 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 142
     const/16 v0, 0xa
 
     new-array v0, v0, [I
 
     iput-object v0, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
+    .line 145
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 4
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     const/16 v3, 0xa
 
+    .line 162
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 142
     new-array v2, v3, [I
 
     iput-object v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
+    .line 163
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     iput v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->count:I
 
+    .line 164
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
+    .line 165
+    .local v1, "localTimes":[I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v3, :cond_0
 
+    .line 166
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
     aput v2, v1, v0
 
+    .line 165
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 168
     :cond_0
     return-void
 .end method
@@ -77,23 +93,31 @@
 # virtual methods
 .method add(I)V
     .locals 5
+    .param p1, "val"    # I
 
+    .prologue
     const/16 v4, 0x9
 
+    .line 152
     # getter for: Lcom/android/server/am/UsageStatsService;->LAUNCH_TIME_BINS:[I
     invoke-static {}, Lcom/android/server/am/UsageStatsService;->access$000()[I
 
     move-result-object v0
 
+    .line 153
+    .local v0, "bins":[I
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     if-ge v1, v4, :cond_1
 
+    .line 154
     aget v2, v0, v1
 
     if-ge p1, v2, :cond_0
 
+    .line 155
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
     aget v3, v2, v1
@@ -102,14 +126,17 @@
 
     aput v3, v2, v1
 
+    .line 160
     :goto_1
     return-void
 
+    .line 153
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 159
     :cond_1
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
@@ -125,39 +152,52 @@
 .method incCount()V
     .locals 1
 
+    .prologue
+    .line 148
     iget v0, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->count:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->count:I
 
+    .line 149
     return-void
 .end method
 
 .method writeToParcel(Landroid/os/Parcel;)V
     .locals 3
+    .param p1, "out"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 171
     iget v2, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->count:I
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 172
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$TimeStats;->times:[I
 
+    .line 173
+    .local v1, "localTimes":[I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     const/16 v2, 0xa
 
     if-ge v0, v2, :cond_0
 
+    .line 174
     aget v2, v1, v0
 
     invoke-virtual {p1, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 173
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 176
     :cond_0
     return-void
 .end method

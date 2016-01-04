@@ -26,14 +26,18 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;)V
     .locals 2
 
+    .prologue
+    .line 490
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 481
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mVibrator:Landroid/os/SystemVibrator;
 
+    .line 483
     const/16 v0, 0x12
 
     new-array v0, v0, [B
@@ -42,6 +46,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mIvt:[B
 
+    .line 491
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$200(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;)Landroid/content/Context;
 
@@ -57,8 +62,10 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mVibrator:Landroid/os/SystemVibrator;
 
+    .line 492
     return-void
 
+    .line 483
     :array_0
     .array-data 1
         0x1t
@@ -87,10 +94,13 @@
 .method playVibrator()V
     .locals 2
 
+    .prologue
+    .line 495
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mVibrator:Landroid/os/SystemVibrator;
 
     if-nez v0, :cond_0
 
+    .line 496
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mContext:Landroid/content/Context;
@@ -108,6 +118,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mVibrator:Landroid/os/SystemVibrator;
 
+    .line 499
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -118,12 +129,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 500
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mVibrator:Landroid/os/SystemVibrator;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->mIvt:[B
 
     invoke-virtual {v0, v1}, Landroid/os/SystemVibrator;->vibrateImmVibe([B)V
 
+    .line 502
     :cond_1
     return-void
 .end method

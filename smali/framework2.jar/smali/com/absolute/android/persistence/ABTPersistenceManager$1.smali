@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 796
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,7 +32,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 803
     # getter for: Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
     invoke-static {}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$000()Landroid/content/ServiceConnection;
 
@@ -38,11 +44,14 @@
 
     monitor-enter v2
 
+    .line 805
     :try_start_0
     invoke-static {p2}, Lcom/absolute/android/persistence/IABTPersistence$Stub;->asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTPersistence;
 
     move-result-object v0
 
+    .line 806
+    .local v0, "persistenceService":Lcom/absolute/android/persistence/IABTPersistence;
     new-instance v1, Lcom/absolute/android/persistence/ABTPersistenceManager;
 
     invoke-direct {v1, v0}, Lcom/absolute/android/persistence/ABTPersistenceManager;-><init>(Lcom/absolute/android/persistence/IABTPersistence;)V
@@ -50,6 +59,7 @@
     # setter for: Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
     invoke-static {v1}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$102(Lcom/absolute/android/persistence/ABTPersistenceManager;)Lcom/absolute/android/persistence/ABTPersistenceManager;
 
+    .line 807
     # getter for: Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
     invoke-static {}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$000()Landroid/content/ServiceConnection;
 
@@ -57,10 +67,14 @@
 
     invoke-virtual {v1}, Ljava/lang/Object;->notify()V
 
+    .line 808
     monitor-exit v2
 
+    .line 809
     return-void
 
+    .line 808
+    .end local v0    # "persistenceService":Lcom/absolute/android/persistence/IABTPersistence;
     :catchall_0
     move-exception v1
 
@@ -73,7 +87,10 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 813
     # getter for: Lcom/absolute/android/persistence/ABTPersistenceManager;->s_connection:Landroid/content/ServiceConnection;
     invoke-static {}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$000()Landroid/content/ServiceConnection;
 
@@ -81,6 +98,7 @@
 
     monitor-enter v1
 
+    .line 815
     :try_start_0
     # getter for: Lcom/absolute/android/persistence/ABTPersistenceManager;->s_persistenceManager:Lcom/absolute/android/persistence/ABTPersistenceManager;
     invoke-static {}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$100()Lcom/absolute/android/persistence/ABTPersistenceManager;
@@ -92,10 +110,13 @@
     # invokes: Lcom/absolute/android/persistence/ABTPersistenceManager;->setService(Lcom/absolute/android/persistence/IABTPersistence;)V
     invoke-static {v0, v2}, Lcom/absolute/android/persistence/ABTPersistenceManager;->access$200(Lcom/absolute/android/persistence/ABTPersistenceManager;Lcom/absolute/android/persistence/IABTPersistence;)V
 
+    .line 816
     monitor-exit v1
 
+    .line 817
     return-void
 
+    .line 816
     :catchall_0
     move-exception v0
 

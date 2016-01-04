@@ -47,7 +47,7 @@
     .line 69
     const-string v2, "SIPIfMatch.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 71
     :cond_0
@@ -60,22 +60,22 @@
     const/16 v2, 0x845
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 75
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 76
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0xfff
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 77
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -90,12 +90,12 @@
     invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/SIPIfMatch;->setETag(Ljava/lang/String;)V
 
     .line 81
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 82
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0xa
 
@@ -111,7 +111,7 @@
     .line 87
     const-string v2, "SIPIfMatch.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 84
     :cond_1
@@ -129,7 +129,7 @@
     .line 87
     const-string v3, "SIPIfMatch.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/SIPIfMatchParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 86
     :cond_2

@@ -240,7 +240,7 @@
 
     const/4 v1, 0x7
 
-    const-string v2, "www-authenticate"
+    const-string/jumbo v2, "www-authenticate"
 
     aput-object v2, v0, v1
 
@@ -306,7 +306,7 @@
 
     const/16 v1, 0x12
 
-    const-string v2, "x-permitted-cross-domain-policies"
+    const-string/jumbo v2, "x-permitted-cross-domain-policies"
 
     aput-object v2, v0, v1
 
@@ -1041,7 +1041,7 @@
 
     .line 238
     :sswitch_7
-    const-string v5, "www-authenticate"
+    const-string/jumbo v5, "www-authenticate"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1302,7 +1302,7 @@
 
     .line 301
     :sswitch_12
-    const-string v5, "x-permitted-cross-domain-policies"
+    const-string/jumbo v5, "x-permitted-cross-domain-policies"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

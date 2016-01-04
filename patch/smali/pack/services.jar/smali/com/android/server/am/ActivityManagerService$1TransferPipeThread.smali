@@ -27,19 +27,29 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/app/IApplicationThread;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
     .locals 1
+    .param p2, "_thread"    # Landroid/app/IApplicationThread;
+    .param p3, "_fd"    # Ljava/io/FileDescriptor;
+    .param p4, "_args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 13383
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$1TransferPipeThread;->this$0:Lcom/android/server/am/ActivityManagerService;
 
+    .line 13384
     const-string v0, "TransferPipeWrite"
 
     invoke-direct {p0, v0}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
+    .line 13385
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$1TransferPipeThread;->thread:Landroid/app/IApplicationThread;
 
+    .line 13386
     iput-object p3, p0, Lcom/android/server/am/ActivityManagerService$1TransferPipeThread;->fd:Ljava/io/FileDescriptor;
 
+    .line 13387
     iput-object p4, p0, Lcom/android/server/am/ActivityManagerService$1TransferPipeThread;->args:[Ljava/lang/String;
 
+    .line 13388
     return-void
 .end method
 
@@ -48,6 +58,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 13391
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$1TransferPipeThread;->thread:Landroid/app/IApplicationThread;
 
@@ -57,9 +69,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 13394
     :goto_0
     return-void
 
+    .line 13392
     :catch_0
     move-exception v0
 

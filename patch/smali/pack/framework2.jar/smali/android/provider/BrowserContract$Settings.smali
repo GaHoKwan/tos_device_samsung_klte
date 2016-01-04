@@ -28,6 +28,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 699
     sget-object v0, Landroid/provider/BrowserContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "settings"
@@ -44,6 +46,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 694
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -51,13 +55,18 @@
 
 .method public static isSyncEnabled(Landroid/content/Context;)Z
     .locals 11
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v8, 0x1
 
     const/4 v9, 0x0
 
+    .line 720
     const/4 v6, 0x0
 
+    .line 722
+    .local v6, "cursor":Landroid/database/Cursor;
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -93,6 +102,7 @@
 
     move-result-object v6
 
+    .line 724
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->moveToFirst()Z
@@ -104,6 +114,7 @@
 
     if-nez v0, :cond_2
 
+    .line 731
     :cond_0
     if-eqz v6, :cond_1
 
@@ -113,6 +124,7 @@
     :goto_0
     return v9
 
+    .line 727
     :cond_2
     const/4 v0, 0x0
 
@@ -128,6 +140,7 @@
 
     move v0, v8
 
+    .line 731
     :goto_1
     if-eqz v6, :cond_3
 
@@ -141,17 +154,22 @@
     :cond_4
     move v0, v9
 
+    .line 727
     goto :goto_1
 
+    .line 728
     :catch_0
     move-exception v7
 
+    .line 731
+    .local v7, "e":Ljava/lang/UnsupportedOperationException;
     if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     goto :goto_0
 
+    .end local v7    # "e":Ljava/lang/UnsupportedOperationException;
     :catchall_0
     move-exception v0
 
@@ -165,17 +183,24 @@
 
 .method public static setSyncEnabled(Landroid/content/Context;Z)V
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "enabled"    # Z
 
+    .prologue
+    .line 739
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
+    .line 740
+    .local v0, "values":Landroid/content/ContentValues;
     const-string v1, "key"
 
     const-string/jumbo v2, "sync_enabled"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 741
     const-string/jumbo v2, "value"
 
     if-eqz p1, :cond_0
@@ -189,6 +214,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 742
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
@@ -197,8 +223,10 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/ContentResolver;->insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
+    .line 743
     return-void
 
+    .line 741
     :cond_0
     const/4 v1, 0x0
 

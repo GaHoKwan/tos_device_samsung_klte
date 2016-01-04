@@ -25,7 +25,7 @@
 
     .prologue
     .line 64
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/builtin/PedometerOtherVerRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 

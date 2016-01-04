@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/os/OEMEncryption;)V
     .locals 0
 
+    .prologue
+    .line 46
     iput-object p1, p0, Landroid/os/OEMEncryption$1;->this$0:Landroid/os/OEMEncryption;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,9 +35,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 48
     const-string v0, "OEMEncryption"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -60,13 +65,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 49
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 65
     :goto_0
     return-void
 
+    .line 51
     :pswitch_0
     const-string v0, "OEMEncryption"
 
@@ -122,6 +130,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 53
     iget-object v0, p0, Landroid/os/OEMEncryption$1;->this$0:Landroid/os/OEMEncryption;
 
     # getter for: Landroid/os/OEMEncryption;->mNotificationManager:Landroid/app/NotificationManager;
@@ -140,6 +149,7 @@
 
     goto :goto_0
 
+    .line 59
     :pswitch_1
     const-string v0, "OEMEncryption"
 
@@ -195,6 +205,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 61
     iget-object v0, p0, Landroid/os/OEMEncryption$1;->this$0:Landroid/os/OEMEncryption;
 
     # getter for: Landroid/os/OEMEncryption;->mNotificationManager:Landroid/app/NotificationManager;
@@ -206,6 +217,7 @@
 
     goto/16 :goto_0
 
+    .line 49
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

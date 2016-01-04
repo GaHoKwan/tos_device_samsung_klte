@@ -27,23 +27,35 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "foreignReferTable"    # Ljava/lang/String;
+    .param p3, "foreignReferKey"    # Ljava/lang/String;
+    .param p4, "foreignKey"    # Ljava/lang/String;
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 39
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mColumns:Ljava/util/ArrayList;
 
+    .line 45
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mTableName:Ljava/lang/String;
 
+    .line 46
     iput-object p2, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mForeignReferTable:Ljava/lang/String;
 
+    .line 47
     iput-object p3, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mForeignReferKey:Ljava/lang/String;
 
+    .line 48
     iput-object p4, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mForeignKeyName:Ljava/lang/String;
 
+    .line 49
     return-void
 .end method
 
@@ -51,25 +63,34 @@
 # virtual methods
 .method public addColumn(Lcom/android/server/analytics/data/collection/storage/Column;)V
     .locals 1
+    .param p1, "column"    # Lcom/android/server/analytics/data/collection/storage/Column;
 
+    .prologue
+    .line 52
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mColumns:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 53
     return-void
 .end method
 
 .method public buildPrimaryKeys()Ljava/lang/String;
     .locals 6
 
+    .prologue
+    .line 56
     const-string v2, ""
 
+    .line 58
+    .local v2, "ret":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mColumns:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -84,10 +105,13 @@
 
     check-cast v0, Lcom/android/server/analytics/data/collection/storage/Column;
 
+    .line 59
+    .local v0, "column":Lcom/android/server/analytics/data/collection/storage/Column;
     iget-boolean v3, v0, Lcom/android/server/analytics/data/collection/storage/Column;->mIsPrimaryKey:Z
 
     if-eqz v3, :cond_0
 
+    .line 60
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -114,6 +138,8 @@
 
     goto :goto_0
 
+    .line 65
+    .end local v0    # "column":Lcom/android/server/analytics/data/collection/storage/Column;
     :cond_1
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -151,14 +177,19 @@
 .method public buildTableColumns()Ljava/lang/String;
     .locals 6
 
+    .prologue
+    .line 69
     const-string v2, ""
 
+    .line 71
+    .local v2, "ret":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mColumns:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -172,6 +203,8 @@
 
     check-cast v0, Lcom/android/server/analytics/data/collection/storage/Column;
 
+    .line 72
+    .local v0, "column":Lcom/android/server/analytics/data/collection/storage/Column;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -200,6 +233,8 @@
 
     goto :goto_0
 
+    .line 76
+    .end local v0    # "column":Lcom/android/server/analytics/data/collection/storage/Column;
     :cond_0
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
@@ -250,16 +285,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 80
+    .local p1, "list":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    .line 82
+    .local v2, "ret":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/analytics/data/collection/storage/Column;>;"
     iget-object v3, p0, Lcom/android/server/analytics/data/collection/storage/Table;->mColumns:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -274,6 +315,8 @@
 
     check-cast v0, Lcom/android/server/analytics/data/collection/storage/Column;
 
+    .line 83
+    .local v0, "column":Lcom/android/server/analytics/data/collection/storage/Column;
     iget-object v3, v0, Lcom/android/server/analytics/data/collection/storage/Column;->mColumnName:Ljava/lang/String;
 
     invoke-interface {p1, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -282,10 +325,13 @@
 
     if-nez v3, :cond_0
 
+    .line 84
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
+    .line 88
+    .end local v0    # "column":Lcom/android/server/analytics/data/collection/storage/Column;
     :cond_1
     return-object v2
 .end method

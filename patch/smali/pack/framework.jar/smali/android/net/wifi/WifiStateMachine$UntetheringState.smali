@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 8847
+    .line 8837
     iput-object p1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -39,7 +39,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 8851
+    .line 8841
     const-string v0, "1"
 
     const-string v1, "net.forward.disable"
@@ -54,14 +54,14 @@
 
     if-eqz v0, :cond_0
 
-    .line 8852
+    .line 8842
     const-string v0, "net.forward.disable"
 
     const-string v1, ""
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 8853
+    .line 8843
     # getter for: Landroid/net/wifi/WifiStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiStateMachine;->access$100()Z
 
@@ -74,9 +74,9 @@
     const-string v1, "net.forward.disable = null"
 
     # invokes: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$41100(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$40900(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8855
+    .line 8845
     :cond_0
     const-string v0, "100"
 
@@ -92,14 +92,14 @@
 
     if-eqz v0, :cond_1
 
-    .line 8856
+    .line 8846
     const-string v0, "net.leasetime"
 
     const-string v1, ""
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 8857
+    .line 8847
     # getter for: Landroid/net/wifi/WifiStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiStateMachine;->access$100()Z
 
@@ -112,20 +112,20 @@
     const-string v1, "net.leasetime = null"
 
     # invokes: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$41200(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$41000(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8860
+    .line 8850
     :cond_1
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # setter for: Landroid/net/wifi/WifiStateMachine;->mRVFMode:I
-    invoke-static {v0, v4}, Landroid/net/wifi/WifiStateMachine;->access$38202(Landroid/net/wifi/WifiStateMachine;I)I
+    invoke-static {v0, v4}, Landroid/net/wifi/WifiStateMachine;->access$38002(Landroid/net/wifi/WifiStateMachine;I)I
 
-    .line 8861
+    .line 8851
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # getter for: Landroid/net/wifi/WifiStateMachine;->mPreviousTetherData:I
-    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$41300(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v0}, Landroid/net/wifi/WifiStateMachine;->access$41100(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v0
 
@@ -133,20 +133,20 @@
 
     if-ne v0, v1, :cond_2
 
-    .line 8862
+    .line 8852
     const-string v0, "persist.sys.tether_data"
 
     const-string v1, "1"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 8863
+    .line 8853
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # setter for: Landroid/net/wifi/WifiStateMachine;->mPreviousTetherData:I
-    invoke-static {v0, v4}, Landroid/net/wifi/WifiStateMachine;->access$41302(Landroid/net/wifi/WifiStateMachine;I)I
+    invoke-static {v0, v4}, Landroid/net/wifi/WifiStateMachine;->access$41102(Landroid/net/wifi/WifiStateMachine;I)I
 
-    .line 8864
+    .line 8854
     # getter for: Landroid/net/wifi/WifiStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiStateMachine;->access$100()Z
 
@@ -159,9 +159,9 @@
     const-string v1, "persist.sys.tether_data = 1"
 
     # invokes: Landroid/net/wifi/WifiStateMachine;->log(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$41400(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Landroid/net/wifi/WifiStateMachine;->access$41200(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
 
-    .line 8867
+    .line 8857
     :cond_2
     iget-object v0, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
@@ -172,7 +172,7 @@
     iget-object v3, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # ++operator for: Landroid/net/wifi/WifiStateMachine;->mTetherToken:I
-    invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$39704(Landroid/net/wifi/WifiStateMachine;)I
+    invoke-static {v3}, Landroid/net/wifi/WifiStateMachine;->access$39504(Landroid/net/wifi/WifiStateMachine;)I
 
     move-result v3
 
@@ -184,7 +184,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/net/wifi/WifiStateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
-    .line 8870
+    .line 8860
     return-void
 .end method
 
@@ -193,38 +193,38 @@
     .param p1, "message"    # Landroid/os/Message;
 
     .prologue
-    .line 8873
+    .line 8863
     iget v1, p1, Landroid/os/Message;->what:I
 
     sparse-switch v1, :sswitch_data_0
 
-    .line 8902
+    .line 8892
     const/4 v1, 0x0
 
-    .line 8904
+    .line 8894
     :goto_0
     return v1
 
-    .line 8875
+    .line 8865
     :sswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/net/wifi/WifiStateMachine$TetherStateChange;
 
-    .line 8878
+    .line 8868
     .local v0, "stateChange":Landroid/net/wifi/WifiStateMachine$TetherStateChange;
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     iget-object v2, v0, Landroid/net/wifi/WifiStateMachine$TetherStateChange;->active:Ljava/util/ArrayList;
 
     # invokes: Landroid/net/wifi/WifiStateMachine;->isWifiTethered(Ljava/util/ArrayList;)Z
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$39800(Landroid/net/wifi/WifiStateMachine;Ljava/util/ArrayList;)Z
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$39600(Landroid/net/wifi/WifiStateMachine;Ljava/util/ArrayList;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    .line 8904
+    .line 8894
     .end local v0    # "stateChange":Landroid/net/wifi/WifiStateMachine$TetherStateChange;
     :cond_0
     :goto_1
@@ -232,7 +232,7 @@
 
     goto :goto_0
 
-    .line 8880
+    .line 8870
     .restart local v0    # "stateChange":Landroid/net/wifi/WifiStateMachine$TetherStateChange;
     :cond_1
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
@@ -240,7 +240,44 @@
     iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # getter for: Landroid/net/wifi/WifiStateMachine;->mSoftApStartedState:Lcom/android/internal/util/State;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$38700(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$38500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
+
+    move-result-object v2
+
+    # invokes: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$41300(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
+
+    goto :goto_1
+
+    .line 8873
+    .end local v0    # "stateChange":Landroid/net/wifi/WifiStateMachine$TetherStateChange;
+    :sswitch_1
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    # getter for: Landroid/net/wifi/WifiStateMachine;->mTetherToken:I
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$39500(Landroid/net/wifi/WifiStateMachine;)I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_0
+
+    .line 8874
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    const-string v2, "Failed to get tether update, force stop access point"
+
+    # invokes: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$41400(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
+
+    .line 8875
+    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
+
+    # getter for: Landroid/net/wifi/WifiStateMachine;->mSoftApStartedState:Lcom/android/internal/util/State;
+    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$38500(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
 
     move-result-object v2
 
@@ -249,53 +286,16 @@
 
     goto :goto_1
 
-    .line 8883
-    .end local v0    # "stateChange":Landroid/net/wifi/WifiStateMachine$TetherStateChange;
-    :sswitch_1
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    # getter for: Landroid/net/wifi/WifiStateMachine;->mTetherToken:I
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$39700(Landroid/net/wifi/WifiStateMachine;)I
-
-    move-result v2
-
-    if-ne v1, v2, :cond_0
-
-    .line 8884
-    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    const-string v2, "Failed to get tether update, force stop access point"
-
-    # invokes: Landroid/net/wifi/WifiStateMachine;->loge(Ljava/lang/String;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$41600(Landroid/net/wifi/WifiStateMachine;Ljava/lang/String;)V
-
-    .line 8885
-    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    iget-object v2, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    # getter for: Landroid/net/wifi/WifiStateMachine;->mSoftApStartedState:Lcom/android/internal/util/State;
-    invoke-static {v2}, Landroid/net/wifi/WifiStateMachine;->access$38700(Landroid/net/wifi/WifiStateMachine;)Lcom/android/internal/util/State;
-
-    move-result-object v2
-
-    # invokes: Landroid/net/wifi/WifiStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Landroid/net/wifi/WifiStateMachine;->access$41700(Landroid/net/wifi/WifiStateMachine;Lcom/android/internal/util/IState;)V
-
-    goto :goto_1
-
-    .line 8899
+    .line 8889
     :sswitch_2
     iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$UntetheringState;->this$0:Landroid/net/wifi/WifiStateMachine;
 
     # invokes: Landroid/net/wifi/WifiStateMachine;->deferMessage(Landroid/os/Message;)V
-    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$41800(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
+    invoke-static {v1, p1}, Landroid/net/wifi/WifiStateMachine;->access$41600(Landroid/net/wifi/WifiStateMachine;Landroid/os/Message;)V
 
     goto :goto_1
 
-    .line 8873
+    .line 8863
     :sswitch_data_0
     .sparse-switch
         0x2000b -> :sswitch_2

@@ -79,8 +79,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 25
     const-string v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -91,24 +93,31 @@
 
     sput-boolean v0, Landroid/os/CustomFrequencyManager;->DEBUG:Z
 
+    .line 44
     const/4 v0, 0x0
 
     sput-object v0, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
+    .line 541
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     sput-object v0, Landroid/os/CustomFrequencyManager;->lock:Ljava/lang/Object;
 
+    .line 615
     sput-boolean v2, Landroid/os/CustomFrequencyManager;->infinitLCDFrameReqServing:Z
 
+    .line 616
     sput-boolean v2, Landroid/os/CustomFrequencyManager;->infinitSysBusReqServing:Z
 
+    .line 617
     sput-boolean v2, Landroid/os/CustomFrequencyManager;->infinitGPUServing:Z
 
+    .line 618
     sput-boolean v2, Landroid/os/CustomFrequencyManager;->infinitCPUCoreServing:Z
 
+    .line 619
     sput-boolean v2, Landroid/os/CustomFrequencyManager;->infinitCPUBoostServing:Z
 
     return-void
@@ -117,34 +126,48 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 614
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/os/CustomFrequencyManager;->mHeld:Z
 
+    .line 47
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/ICustomFrequencyManager;Landroid/os/Handler;)V
     .locals 1
+    .param p1, "service"    # Landroid/os/ICustomFrequencyManager;
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 614
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/os/CustomFrequencyManager;->mHeld:Z
 
+    .line 53
     iput-object p1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
+    .line 54
     iput-object p2, p0, Landroid/os/CustomFrequencyManager;->mHandler:Landroid/os/Handler;
 
+    .line 55
     return-void
 .end method
 
 .method static synthetic access$000()Landroid/content/Context;
     .locals 1
 
+    .prologue
+    .line 22
     sget-object v0, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -152,7 +175,10 @@
 
 .method static synthetic access$102(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 22
     sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitGPUServing:Z
 
     return p0
@@ -160,7 +186,10 @@
 
 .method static synthetic access$202(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 22
     sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitSysBusReqServing:Z
 
     return p0
@@ -168,7 +197,10 @@
 
 .method static synthetic access$302(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 22
     sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitLCDFrameReqServing:Z
 
     return p0
@@ -176,7 +208,10 @@
 
 .method static synthetic access$402(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 22
     sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitCPUCoreServing:Z
 
     return p0
@@ -184,7 +219,10 @@
 
 .method static synthetic access$502(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 22
     sput-boolean p0, Landroid/os/CustomFrequencyManager;->infinitCPUBoostServing:Z
 
     return p0
@@ -193,6 +231,8 @@
 .method static declared-synchronized createServerAppToken()V
     .locals 2
 
+    .prologue
+    .line 231
     const-class v1, Landroid/os/CustomFrequencyManager;
 
     monitor-enter v1
@@ -202,6 +242,7 @@
 
     if-nez v0, :cond_0
 
+    .line 232
     new-instance v0, Landroid/os/Binder;
 
     invoke-direct {v0}, Landroid/os/Binder;-><init>()V
@@ -210,11 +251,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 234
     :cond_0
     monitor-exit v1
 
     return-void
 
+    .line 231
     :catchall_0
     move-exception v0
 
@@ -225,20 +268,32 @@
 
 .method public static logOnEng(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 622
     sget-boolean v0, Landroid/os/CustomFrequencyManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
+    .line 623
     invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 625
     :cond_0
     return-void
 .end method
 
 .method private newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
     .locals 7
+    .param p1, "type"    # I
+    .param p2, "frequency"    # I
+    .param p3, "timeout"    # J
+    .param p5, "pkgName"    # Ljava/lang/String;
 
+    .prologue
+    .line 555
     const-string v0, "CustomFrequencyManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -281,6 +336,7 @@
 
     invoke-static {v0, v1}, Landroid/os/CustomFrequencyManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 557
     const/4 v0, 0x1
 
     if-eq p1, v0, :cond_0
@@ -289,6 +345,7 @@
 
     if-ne p1, v0, :cond_1
 
+    .line 558
     :cond_0
     new-instance v0, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;
 
@@ -304,9 +361,11 @@
 
     invoke-direct/range {v0 .. v6}, Landroid/os/CustomFrequencyManager$GPUFrequencyRequest;-><init>(Landroid/os/CustomFrequencyManager;IIJLjava/lang/String;)V
 
+    .line 570
     :goto_0
     return-object v0
 
+    .line 559
     :cond_1
     const/16 v0, 0xa
 
@@ -316,6 +375,7 @@
 
     if-ne p1, v0, :cond_3
 
+    .line 560
     :cond_2
     new-instance v0, Landroid/os/CustomFrequencyManager$SysBusFrequencyRequest;
 
@@ -333,11 +393,13 @@
 
     goto :goto_0
 
+    .line 561
     :cond_3
     const/4 v0, 0x3
 
     if-ne p1, v0, :cond_4
 
+    .line 562
     new-instance v0, Landroid/os/CustomFrequencyManager$LCDFrameRateRequest;
 
     move-object v1, p0
@@ -354,6 +416,7 @@
 
     goto :goto_0
 
+    .line 563
     :cond_4
     const/4 v0, 0x4
 
@@ -363,6 +426,7 @@
 
     if-ne p1, v0, :cond_6
 
+    .line 564
     :cond_5
     new-instance v0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;
 
@@ -380,6 +444,7 @@
 
     goto :goto_0
 
+    .line 565
     :cond_6
     const/4 v0, 0x7
 
@@ -389,6 +454,7 @@
 
     if-ne p1, v0, :cond_8
 
+    .line 566
     :cond_7
     new-instance v0, Landroid/os/CustomFrequencyManager$CPUDVFSControlRequest;
 
@@ -406,11 +472,13 @@
 
     goto :goto_0
 
+    .line 567
     :cond_8
     const/16 v0, 0x8
 
     if-ne p1, v0, :cond_9
 
+    .line 568
     new-instance v0, Landroid/os/CustomFrequencyManager$MMCBurstControlRequest;
 
     move-object v1, p0
@@ -427,6 +495,7 @@
 
     goto :goto_0
 
+    .line 570
     :cond_9
     const/4 v0, 0x0
 
@@ -437,16 +506,21 @@
 # virtual methods
 .method public getRemainUsageTime(I)I
     .locals 5
+    .param p1, "mode"    # I
 
+    .prologue
     const/4 v1, -0x1
 
+    .line 84
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 92
     :goto_0
     return v1
 
+    .line 89
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -459,9 +533,12 @@
 
     goto :goto_0
 
+    .line 90
     :catch_0
     move-exception v0
 
+    .line 91
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -474,7 +551,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -494,15 +571,19 @@
 .method public getStandbyTimeInPowerSavingMode()I
     .locals 5
 
+    .prologue
     const/4 v1, -0x1
 
+    .line 71
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 79
     :goto_0
     return v1
 
+    .line 76
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -515,9 +596,12 @@
 
     goto :goto_0
 
+    .line 77
     :catch_0
     move-exception v0
 
+    .line 78
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -530,7 +614,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -550,15 +634,19 @@
 .method public getStandbyTimeInUltraPowerSavingMode()I
     .locals 5
 
+    .prologue
     const/4 v1, -0x1
 
+    .line 58
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 66
     :goto_0
     return v1
 
+    .line 63
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -571,9 +659,12 @@
 
     goto :goto_0
 
+    .line 64
     :catch_0
     move-exception v0
 
+    .line 65
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -586,7 +677,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -606,15 +697,19 @@
 .method public getSupportedCPUCoreNum()[I
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 97
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 104
     :goto_0
     return-object v1
 
+    .line 101
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -627,9 +722,12 @@
 
     goto :goto_0
 
+    .line 102
     :catch_0
     move-exception v0
 
+    .line 103
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -642,7 +740,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -662,15 +760,19 @@
 .method public getSupportedCPUFrequency()[I
     .locals 3
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 133
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 139
     :goto_0
     return-object v1
 
+    .line 137
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -683,24 +785,31 @@
 
     goto :goto_0
 
+    .line 138
     :catch_0
     move-exception v0
 
+    .line 139
+    .local v0, "e":Landroid/os/RemoteException;
     goto :goto_0
 .end method
 
 .method public getSupportedGPUFrequency()[I
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 109
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 116
     :goto_0
     return-object v1
 
+    .line 113
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -713,9 +822,12 @@
 
     goto :goto_0
 
+    .line 114
     :catch_0
     move-exception v0
 
+    .line 115
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -728,7 +840,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -748,15 +860,19 @@
 .method public getSupportedLCDFrequency()[I
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 144
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 151
     :goto_0
     return-object v1
 
+    .line 148
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -769,9 +885,12 @@
 
     goto :goto_0
 
+    .line 149
     :catch_0
     move-exception v0
 
+    .line 150
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -784,7 +903,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -804,15 +923,19 @@
 .method public getSupportedSysBusFrequency()[I
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 121
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v2, :cond_0
 
+    .line 128
     :goto_0
     return-object v1
 
+    .line 125
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -825,9 +948,12 @@
 
     goto :goto_0
 
+    .line 126
     :catch_0
     move-exception v0
 
+    .line 127
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "CustomFrequencyManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -840,7 +966,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -859,14 +985,19 @@
 
 .method public mpdUpdate(I)V
     .locals 4
+    .param p1, "mpEnable"    # I
 
+    .prologue
+    .line 601
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v1, :cond_0
 
+    .line 610
     :goto_0
     return-void
 
+    .line 605
     :cond_0
     :try_start_0
     const-string v1, "CustomFrequencyManager"
@@ -891,6 +1022,7 @@
 
     invoke-static {v1, v2}, Landroid/os/CustomFrequencyManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 606
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     invoke-interface {v1, p1}, Landroid/os/ICustomFrequencyManager;->mpdUpdate(I)V
@@ -899,36 +1031,54 @@
 
     goto :goto_0
 
+    .line 607
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 608
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public newFrequencyRequest(IIJLjava/lang/String;Landroid/content/Context;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
     .locals 3
+    .param p1, "type"    # I
+    .param p2, "frequency"    # I
+    .param p3, "timeout"    # J
+    .param p5, "pkgName"    # Ljava/lang/String;
+    .param p6, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 545
     sget-object v2, Landroid/os/CustomFrequencyManager;->lock:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 546
     :try_start_0
     sput-object p6, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
+    .line 547
     invoke-direct/range {p0 .. p5}, Landroid/os/CustomFrequencyManager;->newFrequencyRequest(IIJLjava/lang/String;)Landroid/os/CustomFrequencyManager$FrequencyRequest;
 
     move-result-object v0
 
+    .line 548
+    .local v0, "req":Landroid/os/CustomFrequencyManager$FrequencyRequest;
     const/4 v1, 0x0
 
     sput-object v1, Landroid/os/CustomFrequencyManager;->mContext:Landroid/content/Context;
 
+    .line 549
     monitor-exit v2
 
+    .line 550
     return-object v0
 
+    .line 549
+    .end local v0    # "req":Landroid/os/CustomFrequencyManager$FrequencyRequest;
     :catchall_0
     move-exception v1
 
@@ -941,14 +1091,20 @@
 
 .method public notifyWmAniationState(JZ)V
     .locals 1
+    .param p1, "currentTime"    # J
+    .param p3, "isStart"    # Z
 
+    .prologue
+    .line 628
     iget-object v0, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v0, :cond_0
 
+    .line 635
     :goto_0
     return-void
 
+    .line 632
     :cond_0
     :try_start_0
     iget-object v0, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -959,6 +1115,7 @@
 
     goto :goto_0
 
+    .line 633
     :catch_0
     move-exception v0
 
@@ -967,17 +1124,23 @@
 
 .method public onTopAppChanged(Z)V
     .locals 4
+    .param p1, "isTopFullscreen"    # Z
 
+    .prologue
+    .line 574
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v1, :cond_0
 
+    .line 586
     :goto_0
     return-void
 
+    .line 578
     :cond_0
     if-eqz p1, :cond_1
 
+    .line 579
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
@@ -989,9 +1152,12 @@
 
     goto :goto_0
 
+    .line 583
     :catch_0
     move-exception v0
 
+    .line 584
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "CustomFrequencyManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1016,6 +1182,8 @@
 
     goto :goto_0
 
+    .line 581
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
     :try_start_1
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -1031,14 +1199,20 @@
 
 .method public requestCPUUpdate(II)V
     .locals 4
+    .param p1, "cpu"    # I
+    .param p2, "enable"    # I
 
+    .prologue
+    .line 589
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v1, :cond_0
 
+    .line 598
     :goto_0
     return-void
 
+    .line 593
     :cond_0
     :try_start_0
     const-string v1, "CustomFrequencyManager"
@@ -1073,6 +1247,7 @@
 
     invoke-static {v1, v2}, Landroid/os/CustomFrequencyManager;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 594
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     invoke-interface {v1, p1, p2}, Landroid/os/ICustomFrequencyManager;->requestCPUUpdate(II)V
@@ -1081,24 +1256,33 @@
 
     goto :goto_0
 
+    .line 595
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 596
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public reviewPackage(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "packagePath"    # Ljava/lang/String;
+    .param p2, "Packagename"    # Ljava/lang/String;
 
+    .prologue
+    .line 649
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v1, :cond_0
 
+    .line 658
     :goto_0
     return-void
 
+    .line 654
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -1109,9 +1293,12 @@
 
     goto :goto_0
 
+    .line 655
     :catch_0
     move-exception v0
 
+    .line 656
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "CustomFrequencyManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1124,7 +1311,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1143,14 +1330,20 @@
 
 .method public sendCommandToSSRM(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 638
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
 
     if-nez v1, :cond_0
 
+    .line 646
     :goto_0
     return-void
 
+    .line 642
     :cond_0
     :try_start_0
     iget-object v1, p0, Landroid/os/CustomFrequencyManager;->mService:Landroid/os/ICustomFrequencyManager;
@@ -1161,9 +1354,12 @@
 
     goto :goto_0
 
+    .line 643
     :catch_0
     move-exception v0
 
+    .line 644
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "CustomFrequencyManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1176,7 +1372,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

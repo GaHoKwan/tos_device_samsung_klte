@@ -79,7 +79,7 @@
     .line 73
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, p2}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 74
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
@@ -97,7 +97,7 @@
     .line 88
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, v4}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 91
     :goto_0
@@ -107,7 +107,7 @@
     :sswitch_0
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -115,7 +115,7 @@
     :sswitch_1
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     goto :goto_0
 
@@ -123,7 +123,7 @@
     :sswitch_2
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 85
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$1;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;

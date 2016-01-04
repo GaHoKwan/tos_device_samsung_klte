@@ -21,11 +21,17 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/UpdateLockService;Landroid/os/Handler;Ljava/lang/String;)V
     .locals 0
+    .param p2, "h"    # Landroid/os/Handler;
+    .param p3, "tag"    # Ljava/lang/String;
 
+    .prologue
+    .line 47
     iput-object p1, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
 
+    .line 48
     invoke-direct {p0, p2, p3}, Landroid/os/TokenWatcher;-><init>(Landroid/os/Handler;Ljava/lang/String;)V
 
+    .line 49
     return-void
 .end method
 
@@ -34,23 +40,29 @@
 .method public acquired()V
     .locals 2
 
+    .prologue
+    .line 55
     iget-object v0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
 
+    .line 56
     return-void
 .end method
 
 .method public released()V
     .locals 2
 
+    .prologue
+    .line 61
     iget-object v0, p0, Lcom/android/server/UpdateLockService$LockWatcher;->this$0:Lcom/android/server/UpdateLockService;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/server/UpdateLockService;->sendLockChangedBroadcast(Z)V
 
+    .line 62
     return-void
 .end method

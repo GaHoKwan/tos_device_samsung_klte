@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerGridView;I)V
     .locals 0
 
+    .prologue
+    .line 89
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->this$0:Lcom/android/server/sec/ClippedDataPickerGridView;
 
     iput p2, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->val$currIndex:I
@@ -40,12 +42,15 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "arg0"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 105
     iget v0, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->val$currIndex:I
 
     iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->this$0:Lcom/android/server/sec/ClippedDataPickerGridView;
 
-    invoke-virtual {v1}, Lcom/android/server/sec/ClippedDataPickerGridView;->getChildCount()I
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v1
 
@@ -53,6 +58,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 106
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->this$0:Lcom/android/server/sec/ClippedDataPickerGridView;
 
     const/4 v1, 0x0
@@ -60,19 +66,26 @@
     # setter for: Lcom/android/server/sec/ClippedDataPickerGridView;->isAnimating:Z
     invoke-static {v0, v1}, Lcom/android/server/sec/ClippedDataPickerGridView;->access$002(Lcom/android/server/sec/ClippedDataPickerGridView;Z)Z
 
+    .line 108
     :cond_0
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "arg0"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 100
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "arg0"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 93
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerGridView$1;->this$0:Lcom/android/server/sec/ClippedDataPickerGridView;
 
     const/4 v1, 0x1
@@ -80,5 +93,6 @@
     # setter for: Lcom/android/server/sec/ClippedDataPickerGridView;->isAnimating:Z
     invoke-static {v0, v1}, Lcom/android/server/sec/ClippedDataPickerGridView;->access$002(Lcom/android/server/sec/ClippedDataPickerGridView;Z)Z
 
+    .line 94
     return-void
 .end method

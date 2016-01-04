@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService$OverTurnPlayer;Lcom/android/server/NotificationManagerService;)V
     .locals 0
 
+    .prologue
+    .line 3266
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
     iput-object p2, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->val$this$0:Lcom/android/server/NotificationManagerService;
@@ -40,18 +42,23 @@
 # virtual methods
 .method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 4
+    .param p1, "motionEvent"    # Landroid/hardware/motion/MREvent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 3268
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
+    .line 3286
     :goto_0
     return-void
 
+    .line 3271
     :pswitch_0
     :try_start_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
@@ -67,13 +74,17 @@
 
     move-result-object v0
 
+    .line 3272
+    .local v0, "player":Landroid/media/IRingtonePlayer;
     if-eqz v0, :cond_0
 
+    .line 3273
     invoke-interface {v0}, Landroid/media/IRingtonePlayer;->stopAsync()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 3277
     :cond_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
@@ -90,6 +101,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 3278
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
     iget-object v1, v1, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->this$0:Lcom/android/server/NotificationManagerService;
@@ -101,6 +113,7 @@
 
     invoke-virtual {v1}, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->unregister()V
 
+    .line 3280
     :cond_1
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
@@ -109,15 +122,18 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mIsPlaying:Z
     invoke-static {v1, v3}, Lcom/android/server/NotificationManagerService;->access$1002(Lcom/android/server/NotificationManagerService;Z)Z
 
+    .line 3282
     const-string v1, "STATUSBAR-NotificationService"
 
     const-string v2, "MREvent.FLIP_TOP_TO_BOTTOM"
 
+    .end local v0    # "player":Landroid/media/IRingtonePlayer;
     :goto_1
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
+    .line 3277
     :catchall_0
     move-exception v1
 
@@ -136,6 +152,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 3278
     iget-object v2, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
     iget-object v2, v2, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->this$0:Lcom/android/server/NotificationManagerService;
@@ -147,6 +164,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->unregister()V
 
+    .line 3280
     :cond_2
     iget-object v2, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
@@ -155,17 +173,21 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mIsPlaying:Z
     invoke-static {v2, v3}, Lcom/android/server/NotificationManagerService;->access$1002(Lcom/android/server/NotificationManagerService;Z)Z
 
+    .line 3282
     const-string v2, "STATUSBAR-NotificationService"
 
     const-string v3, "MREvent.FLIP_TOP_TO_BOTTOM"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3277
     throw v1
 
+    .line 3275
     :catch_0
     move-exception v1
 
+    .line 3277
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
     iget-object v1, v1, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->this$0:Lcom/android/server/NotificationManagerService;
@@ -181,6 +203,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 3278
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
     iget-object v1, v1, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->this$0:Lcom/android/server/NotificationManagerService;
@@ -192,6 +215,7 @@
 
     invoke-virtual {v1}, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->unregister()V
 
+    .line 3280
     :cond_3
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$OverTurnPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$OverTurnPlayer;
 
@@ -200,12 +224,14 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mIsPlaying:Z
     invoke-static {v1, v3}, Lcom/android/server/NotificationManagerService;->access$1002(Lcom/android/server/NotificationManagerService;Z)Z
 
+    .line 3282
     const-string v1, "STATUSBAR-NotificationService"
 
     const-string v2, "MREvent.FLIP_TOP_TO_BOTTOM"
 
     goto :goto_1
 
+    .line 3268
     nop
 
     :pswitch_data_0

@@ -23,7 +23,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/AMSLogger;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
+    .param p3, "x1"    # I
 
+    .prologue
+    .line 203
     iput-object p1, p0, Lcom/android/server/am/AMSLogger$1;->this$0:Lcom/android/server/am/AMSLogger;
 
     iput-object p4, p0, Lcom/android/server/am/AMSLogger$1;->val$traceFile:Ljava/lang/String;
@@ -37,7 +41,11 @@
 # virtual methods
 .method public declared-synchronized onEvent(ILjava/lang/String;)V
     .locals 3
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 205
     monitor-enter p0
 
     :try_start_0
@@ -68,14 +76,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 206
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 207
     monitor-exit p0
 
     return-void
 
+    .line 205
     :catchall_0
     move-exception v0
 

@@ -27,6 +27,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 72
     new-instance v0, Lcom/android/server/ThreadSafeSimpleDateFormat;
 
     const-string/jumbo v1, "z yyyy-MM-dd HH:mm:ss"
@@ -35,10 +37,12 @@
 
     sput-object v0, Lcom/android/server/SecSCTimeReceiver;->DATE_FORMAT:Lcom/android/server/ThreadSafeSimpleDateFormat;
 
+    .line 73
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
+    .line 74
     const-wide/16 v0, -0x1
 
     sput-wide v0, Lcom/android/server/SecSCTimeReceiver;->beforeBeforeTime:J
@@ -49,8 +53,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 75
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
@@ -60,7 +67,10 @@
 
 .method static synthetic access$000(Lcom/android/server/SecSCTimeReceiver;)Landroid/content/Context;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/SecSCTimeReceiver;
 
+    .prologue
+    .line 66
     iget-object v0, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
 
     return-object v0
@@ -68,7 +78,10 @@
 
 .method static synthetic access$100(Lcom/android/server/SecSCTimeReceiver;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/SecSCTimeReceiver;
 
+    .prologue
+    .line 66
     invoke-direct {p0}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_handleAutoTimeUpdation()V
 
     return-void
@@ -76,7 +89,10 @@
 
 .method static synthetic access$200(J)V
     .locals 0
+    .param p0, "x0"    # J
 
+    .prologue
+    .line 66
     invoke-static {p0, p1}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_nitzReceived(J)V
 
     return-void
@@ -85,6 +101,8 @@
 .method static synthetic access$300()Lcom/android/server/ThreadSafeSimpleDateFormat;
     .locals 1
 
+    .prologue
+    .line 66
     sget-object v0, Lcom/android/server/SecSCTimeReceiver;->DATE_FORMAT:Lcom/android/server/ThreadSafeSimpleDateFormat;
 
     return-object v0
@@ -93,12 +111,18 @@
 .method private getBeforeTime()J
     .locals 12
 
+    .prologue
     const-wide/16 v7, -0x1
 
+    .line 181
     const-wide/16 v0, 0x0
 
+    .line 182
+    .local v0, "beforeTime":J
     const/4 v2, 0x0
 
+    .line 184
+    .local v2, "br":Ljava/io/BufferedReader;
     :try_start_0
     new-instance v3, Ljava/io/BufferedReader;
 
@@ -115,13 +139,20 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 185
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .local v3, "br":Ljava/io/BufferedReader;
     :try_start_1
     const-string v5, ""
 
+    .line 186
+    .local v5, "nextLine":Ljava/lang/String;
     new-instance v6, Ljava/lang/StringBuffer;
 
     invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 187
+    .local v6, "sb":Ljava/lang/StringBuffer;
     :goto_0
     invoke-virtual {v3}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
@@ -129,6 +160,7 @@
 
     if-eqz v5, :cond_1
 
+    .line 188
     invoke-virtual {v6, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
     :try_end_1
     .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
@@ -138,24 +170,35 @@
 
     goto :goto_0
 
+    .line 201
+    .end local v5    # "nextLine":Ljava/lang/String;
+    .end local v6    # "sb":Ljava/lang/StringBuffer;
     :catch_0
     move-exception v4
 
     move-object v2, v3
 
+    .line 202
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
+    .local v4, "e":Ljava/lang/NumberFormatException;
     :goto_1
     :try_start_2
-    invoke-virtual {v4}, Ljava/lang/NumberFormatException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 210
     if-eqz v2, :cond_0
 
+    .line 212
     :try_start_3
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_5
 
+    .line 215
+    .end local v4    # "e":Ljava/lang/NumberFormatException;
     :cond_0
     :goto_2
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removebeforefile()V
@@ -163,9 +206,15 @@
     :goto_3
     move-wide v7, v0
 
+    .line 218
     :goto_4
     return-wide v7
 
+    .line 190
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .restart local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v5    # "nextLine":Ljava/lang/String;
+    .restart local v6    # "sb":Ljava/lang/StringBuffer;
     :cond_1
     :try_start_4
     const-string v9, "SecSCTimeReceiver"
@@ -194,6 +243,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 191
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v9
@@ -202,6 +252,7 @@
 
     move-result-wide v0
 
+    .line 192
     sget-wide v9, Lcom/android/server/SecSCTimeReceiver;->beforeBeforeTime:J
 
     cmp-long v9, v9, v7
@@ -214,6 +265,7 @@
 
     if-nez v9, :cond_3
 
+    .line 193
     const-string v9, "SecSCTimeReceiver"
 
     const-string v10, "returning because of double intent"
@@ -225,21 +277,30 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_9
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
+    .line 210
     if-eqz v3, :cond_2
 
+    .line 212
     :try_start_5
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_7
 
+    .line 215
     :cond_2
     :goto_5
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removebeforefile()V
 
     move-object v2, v3
 
+    .line 194
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
     goto :goto_4
 
+    .line 197
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .restart local v3    # "br":Ljava/io/BufferedReader;
     :cond_3
     :try_start_6
     const-string v7, "SecSCTimeReceiver"
@@ -248,8 +309,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 198
     sput-wide v0, Lcom/android/server/SecSCTimeReceiver;->beforeBeforeTime:J
 
+    .line 200
     const-string v7, "SecSCTimeReceiver"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -277,28 +340,40 @@
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_9
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
+    .line 210
     if-eqz v3, :cond_4
 
+    .line 212
     :try_start_7
     invoke-virtual {v3}, Ljava/io/BufferedReader;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_8
 
+    .line 215
     :cond_4
     :goto_6
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removebeforefile()V
 
     move-object v2, v3
 
+    .line 216
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
     goto :goto_3
 
+    .line 203
+    .end local v5    # "nextLine":Ljava/lang/String;
+    .end local v6    # "sb":Ljava/lang/StringBuffer;
     :catch_1
     move-exception v4
 
+    .line 204
+    .local v4, "e":Ljava/io/FileNotFoundException;
     :goto_7
     :try_start_8
-    invoke-virtual {v4}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 205
     const-string v7, "SecSCTimeReceiver"
 
     const-string v8, "Before time does not exist."
@@ -307,32 +382,42 @@
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
+    .line 206
     const-wide/16 v7, -0x2
 
+    .line 210
     if-eqz v2, :cond_5
 
+    .line 212
     :try_start_9
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_6
 
+    .line 215
     :cond_5
     :goto_8
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removebeforefile()V
 
     goto/16 :goto_4
 
+    .line 207
+    .end local v4    # "e":Ljava/io/FileNotFoundException;
     :catch_2
     move-exception v4
 
+    .line 208
+    .local v4, "e":Ljava/io/IOException;
     :goto_9
     :try_start_a
-    invoke-virtual {v4}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v4}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_0
 
+    .line 210
     if-eqz v2, :cond_0
 
+    .line 212
     :try_start_b
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_b
@@ -340,43 +425,57 @@
 
     goto/16 :goto_2
 
+    .line 213
     :catch_3
     move-exception v7
 
     goto/16 :goto_2
 
+    .line 210
+    .end local v4    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
     :goto_a
     if-eqz v2, :cond_6
 
+    .line 212
     :try_start_c
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
     :try_end_c
     .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_4
 
+    .line 215
     :cond_6
     :goto_b
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removebeforefile()V
 
+    .line 210
     throw v7
 
+    .line 213
     :catch_4
     move-exception v8
 
     goto :goto_b
 
+    .local v4, "e":Ljava/lang/NumberFormatException;
     :catch_5
     move-exception v7
 
     goto/16 :goto_2
 
+    .local v4, "e":Ljava/io/FileNotFoundException;
     :catch_6
     move-exception v9
 
     goto :goto_8
 
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .end local v4    # "e":Ljava/io/FileNotFoundException;
+    .restart local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v5    # "nextLine":Ljava/lang/String;
+    .restart local v6    # "sb":Ljava/lang/StringBuffer;
     :catch_7
     move-exception v9
 
@@ -387,27 +486,43 @@
 
     goto :goto_6
 
+    .line 210
+    .end local v5    # "nextLine":Ljava/lang/String;
+    .end local v6    # "sb":Ljava/lang/StringBuffer;
     :catchall_1
     move-exception v7
 
     move-object v2, v3
 
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
     goto :goto_a
 
+    .line 207
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .restart local v3    # "br":Ljava/io/BufferedReader;
     :catch_9
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
     goto :goto_9
 
+    .line 203
+    .end local v2    # "br":Ljava/io/BufferedReader;
+    .restart local v3    # "br":Ljava/io/BufferedReader;
     :catch_a
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "br":Ljava/io/BufferedReader;
+    .restart local v2    # "br":Ljava/io/BufferedReader;
     goto :goto_7
 
+    .line 201
     :catch_b
     move-exception v4
 
@@ -423,6 +538,8 @@
 .method private sec_sctime_handleAutoTimeUpdation()V
     .locals 3
 
+    .prologue
+    .line 265
     new-instance v2, Landroid/os/StrictMode$ThreadPolicy$Builder;
 
     invoke-direct {v2}, Landroid/os/StrictMode$ThreadPolicy$Builder;-><init>()V
@@ -435,24 +552,32 @@
 
     move-result-object v1
 
+    .line 266
+    .local v1, "policy":Landroid/os/StrictMode$ThreadPolicy;
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
+    .line 268
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
+    .line 269
+    .local v0, "handler":Landroid/os/Handler;
     new-instance v2, Lcom/android/server/SecSCTimeReceiver$2;
 
     invoke-direct {v2, p0}, Lcom/android/server/SecSCTimeReceiver$2;-><init>(Lcom/android/server/SecSCTimeReceiver;)V
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 292
     return-void
 .end method
 
 .method private sec_sctime_handleConnectivityStateChanged()V
     .locals 3
 
+    .prologue
+    .line 310
     new-instance v2, Landroid/os/StrictMode$ThreadPolicy$Builder;
 
     invoke-direct {v2}, Landroid/os/StrictMode$ThreadPolicy$Builder;-><init>()V
@@ -465,18 +590,24 @@
 
     move-result-object v1
 
+    .line 311
+    .local v1, "policy":Landroid/os/StrictMode$ThreadPolicy;
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
+    .line 313
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
+    .line 314
+    .local v0, "handler":Landroid/os/Handler;
     new-instance v2, Lcom/android/server/SecSCTimeReceiver$3;
 
     invoke-direct {v2, p0}, Lcom/android/server/SecSCTimeReceiver$3;-><init>(Lcom/android/server/SecSCTimeReceiver;)V
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 332
     return-void
 .end method
 
@@ -504,12 +635,15 @@
 .method private sec_sctime_userUpdateHandler()V
     .locals 7
 
+    .prologue
+    .line 137
     const-string v4, "SecSCTimeReceiver"
 
     const-string/jumbo v5, "start sec_sctime_userUpdateHandler()"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 140
     iget-object v4, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -522,6 +656,8 @@
 
     move-result-object v2
 
+    .line 141
+    .local v2, "nowTimeFormat":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
 
     invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -536,6 +672,8 @@
 
     move-result v0
 
+    .line 142
+    .local v0, "autoEnable":I
     const-string v4, "SecSCTimeReceiver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -558,6 +696,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 143
     const-string v4, "SecSCTimeReceiver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -582,6 +721,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 144
     const-string v4, "SecSCTimeReceiver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -604,6 +744,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 145
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v4
@@ -612,19 +753,25 @@
 
     move-result-object v1
 
+    .line 147
+    .local v1, "now":Ljava/util/Date;
     sget-object v4, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
     if-nez v4, :cond_0
 
+    .line 149
     const-string v4, "24"
 
     sput-object v4, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
+    .line 152
     :cond_0
     if-nez v2, :cond_1
 
+    .line 154
     const-string v2, "24"
 
+    .line 157
     :cond_1
     const-string v4, "SecSCTimeReceiver"
 
@@ -650,6 +797,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 158
     const-string v4, "SecSCTimeReceiver"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -672,6 +820,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 160
     sget-object v4, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -680,40 +829,51 @@
 
     if-eqz v4, :cond_3
 
+    .line 161
     const-string v4, "SecSCTimeReceiver"
 
     const-string v5, "Time was changed. time format is not changed check if it is auto update by Network"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 164
     if-nez v0, :cond_2
 
+    .line 165
     const-string v4, "SecSCTimeReceiver"
 
     const-string v5, "This is a not Auto update. Time format is also not changed. Update Time Diff"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 166
     invoke-virtual {p0}, Lcom/android/server/SecSCTimeReceiver;->handleUserUpdatedTimeUpdation()V
 
+    .line 178
     :goto_0
     return-void
 
+    .line 169
     :cond_2
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v3
 
+    .line 170
+    .local v3, "telephonymanager":Landroid/telephony/TelephonyManager;
     const-string v4, "SecSCTimeReceiver"
 
     const-string v5, "Auto time update is on. check network time again to pdate time diff"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 171
     invoke-direct {p0}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_handleAutoTimeUpdation()V
 
     goto :goto_0
 
+    .line 175
+    .end local v3    # "telephonymanager":Landroid/telephony/TelephonyManager;
     :cond_3
     const-string v4, "SecSCTimeReceiver"
 
@@ -721,6 +881,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 176
     sput-object v2, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
     goto :goto_0
@@ -730,13 +891,19 @@
 # virtual methods
 .method public SCTimeOnReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 98
     iput-object p1, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
 
+    .line 100
     sget-object v1, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
     if-nez v1, :cond_0
 
+    .line 102
     iget-object v1, p0, Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -751,6 +918,7 @@
 
     sput-object v1, Lcom/android/server/SecSCTimeReceiver;->timeFormat:Ljava/lang/String;
 
+    .line 103
     const-string v1, "SecSCTimeReceiver"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -775,15 +943,20 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 106
     :cond_0
     if-eqz p2, :cond_1
 
+    .line 108
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 109
+    .local v0, "action":Ljava/lang/String;
     if-eqz v0, :cond_1
 
+    .line 111
     const-string v1, "SecSCTimeReceiver"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -810,6 +983,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 113
     const-string v1, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -818,12 +992,17 @@
 
     if-eqz v1, :cond_2
 
+    .line 132
+    .end local v0    # "action":Ljava/lang/String;
     :cond_1
     :goto_0
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_unlock()V
 
+    .line 133
     return-void
 
+    .line 116
+    .restart local v0    # "action":Ljava/lang/String;
     :cond_2
     const-string v1, "android.intent.action.NITZ_SET_TIME"
 
@@ -833,10 +1012,12 @@
 
     if-eqz v1, :cond_3
 
+    .line 117
     invoke-virtual {p0}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_handleNitztimeUpdation()V
 
     goto :goto_0
 
+    .line 119
     :cond_3
     const-string v1, "android.intent.action.TIME_SET"
 
@@ -846,10 +1027,12 @@
 
     if-eqz v1, :cond_4
 
+    .line 120
     invoke-direct {p0}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_userUpdateHandler()V
 
     goto :goto_0
 
+    .line 122
     :cond_4
     const-string v1, "android.intent.action.NETWORK_SET_TIME"
 
@@ -859,6 +1042,7 @@
 
     if-nez v1, :cond_1
 
+    .line 125
     const-string v1, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -873,10 +1057,16 @@
 .method public handleUserUpdatedTimeUpdation()V
     .locals 9
 
+    .prologue
+    .line 246
     const-wide/16 v2, 0x0
 
+    .line 247
+    .local v2, "beforeTime":J
     const-wide/16 v0, 0x0
 
+    .line 248
+    .local v0, "afterTime":J
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v5
@@ -885,6 +1075,8 @@
 
     move-result-object v4
 
+    .line 249
+    .local v4, "now":Ljava/util/Date;
     invoke-virtual {v4}, Ljava/util/Date;->getTime()J
 
     move-result-wide v5
@@ -893,25 +1085,30 @@
 
     div-long v0, v5, v7
 
+    .line 250
     invoke-direct {p0}, Lcom/android/server/SecSCTimeReceiver;->getBeforeTime()J
 
     move-result-wide v2
 
+    .line 251
     const-wide/16 v5, -0x1
 
     cmp-long v5, v2, v5
 
     if-nez v5, :cond_0
 
+    .line 252
     const-string v5, "SecSCTimeReceiver"
 
     const-string v6, "BeforeBefore is same Before time. duplicate intent. do nothing"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 262
     :goto_0
     return-void
 
+    .line 254
     :cond_0
     const-wide/16 v5, -0x2
 
@@ -919,16 +1116,19 @@
 
     if-nez v5, :cond_1
 
+    .line 255
     const-string v5, "SecSCTimeReceiver"
 
     const-string v6, "Before time does not exist. remove diff file."
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 256
     invoke-static {}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_removedifffile()V
 
     goto :goto_0
 
+    .line 259
     :cond_1
     const-string v5, "SecSCTimeReceiver"
 
@@ -962,6 +1162,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 260
     invoke-static {v2, v3, v0, v1}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_updateTime(JJ)V
 
     goto :goto_0
@@ -969,9 +1170,13 @@
 
 .method public onNetworkStateChanged(JJ)V
     .locals 4
+    .param p1, "networktime"    # J
+    .param p3, "systemtime"    # J
 
+    .prologue
     const-wide/16 v1, 0x0
 
+    .line 336
     cmp-long v0, p1, v1
 
     if-lez v0, :cond_0
@@ -980,6 +1185,7 @@
 
     if-lez v0, :cond_0
 
+    .line 338
     const-string v0, "SecSCTimeReceiver"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1038,6 +1244,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 339
     const-string v0, "SecSCTimeReceiver"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1076,17 +1283,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 340
     invoke-static {p1, p2, p3, p4}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_ntpReceived(JJ)V
 
+    .line 342
     :cond_0
     return-void
 .end method
 
 .method public onNetworkTimeReceived(JJ)V
     .locals 6
+    .param p1, "networktime"    # J
+    .param p3, "systemtime"    # J
 
+    .prologue
     const-wide/16 v3, 0x0
 
+    .line 295
     cmp-long v2, p1, v3
 
     if-lez v2, :cond_0
@@ -1095,6 +1308,7 @@
 
     if-lez v2, :cond_0
 
+    .line 297
     const-string v2, "SecSCTimeReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1153,6 +1367,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 298
     const-string v2, "SecSCTimeReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1191,11 +1406,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 299
     invoke-static {p1, p2, p3, p4}, Lcom/android/server/SecSCTimeReceiver;->sec_sctime_ntpReceived(JJ)V
 
+    .line 307
     :goto_0
     return-void
 
+    .line 302
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -1205,6 +1423,8 @@
 
     div-long v0, v2, v4
 
+    .line 303
+    .local v0, "systime":J
     const-string v2, "SecSCTimeReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1237,6 +1457,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 304
     const-string v2, "SecSCTimeReceiver"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1259,6 +1480,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 305
     invoke-virtual {p0}, Lcom/android/server/SecSCTimeReceiver;->handleUserUpdatedTimeUpdation()V
 
     goto :goto_0
@@ -1266,31 +1488,43 @@
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 93
     const-string v0, "SecSCTimeReceiver"
 
     const-string v1, "onReceive : SecureClock Deactivate."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 94
     return-void
 .end method
 
 .method public sec_sctime_handleNitztimeUpdation()V
     .locals 6
 
+    .prologue
+    .line 222
     const-string v3, "SecSCTimeReceiver"
 
     const-string v4, "sec_sctime_handleNitztimeUpdation()"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 223
     const-wide/16 v1, 0x0
 
+    .line 224
+    .local v1, "nitzTime":J
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
+    .line 226
+    .local v0, "handler":Landroid/os/Handler;
     new-instance v3, Lcom/android/server/SecSCTimeReceiver$1;
 
     invoke-direct {v3, p0}, Lcom/android/server/SecSCTimeReceiver$1;-><init>(Lcom/android/server/SecSCTimeReceiver;)V
@@ -1299,5 +1533,6 @@
 
     invoke-virtual {v0, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 242
     return-void
 .end method

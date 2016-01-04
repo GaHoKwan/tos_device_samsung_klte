@@ -87,7 +87,7 @@
     .line 382
     iget-object v5, p0, Lcom/android/internal/telephony/cat/tcpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
-    iget v4, v5, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->bufferSize:I
+    iget v4, v5, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     .line 384
     .local v4, "size":I
@@ -163,7 +163,7 @@
     .line 393
     iget-object v5, p0, Lcom/android/internal/telephony/cat/tcpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
-    iget-object v5, v5, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
+    iget-object v5, v5, Lcom/android/internal/telephony/cat/CatBIPConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/tcpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
@@ -198,7 +198,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -259,12 +259,12 @@
 
     const/4 v6, 0x5
 
-    iput-byte v6, v5, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->linkStateCause:B
+    iput-byte v6, v5, Lcom/android/internal/telephony/cat/CatBIPConnection;->linkStateCause:B
 
     .line 399
     iget-object v5, p0, Lcom/android/internal/telephony/cat/tcpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
-    iget-object v5, v5, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
+    iget-object v5, v5, Lcom/android/internal/telephony/cat/CatBIPConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/tcpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
@@ -305,7 +305,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 

@@ -126,7 +126,7 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/movial/ipphone/SessionCall;->index:I
+    iput v0, p0, Lcom/android/internal/telephony/DriverCall;->index:I
 
     .line 113
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
@@ -138,7 +138,7 @@
     move v0, v1
 
     :goto_0
-    iput-boolean v0, p0, Lcom/movial/ipphone/SessionCall;->isMT:Z
+    iput-boolean v0, p0, Lcom/android/internal/telephony/DriverCall;->isMT:Z
 
     .line 114
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
@@ -155,21 +155,21 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/movial/ipphone/SessionCall;->number:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/DriverCall;->number:Ljava/lang/String;
 
     .line 116
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/movial/ipphone/SessionCall;->name:Ljava/lang/String;
+    iput-object v0, p0, Lcom/android/internal/telephony/DriverCall;->name:Ljava/lang/String;
 
     .line 117
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
-    iput v0, p0, Lcom/movial/ipphone/SessionCall;->numberPresentation:I
+    iput v0, p0, Lcom/android/internal/telephony/DriverCall;->numberPresentation:I
 
     .line 118
     invoke-virtual {p1}, Landroid/os/Parcel;->readSerializable()Ljava/io/Serializable;
@@ -216,12 +216,12 @@
     const/4 v2, 0x0
 
     .line 101
-    iget v0, p0, Lcom/movial/ipphone/SessionCall;->index:I
+    iget v0, p0, Lcom/android/internal/telephony/DriverCall;->index:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 102
-    iget-boolean v0, p0, Lcom/movial/ipphone/SessionCall;->isMT:Z
+    iget-boolean v0, p0, Lcom/android/internal/telephony/DriverCall;->isMT:Z
 
     if-eqz v0, :cond_0
 
@@ -239,17 +239,17 @@
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
     .line 104
-    iget-object v0, p0, Lcom/movial/ipphone/SessionCall;->number:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/internal/telephony/DriverCall;->number:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 105
-    iget-object v0, p0, Lcom/movial/ipphone/SessionCall;->name:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/internal/telephony/DriverCall;->name:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     .line 106
-    iget v0, p0, Lcom/movial/ipphone/SessionCall;->numberPresentation:I
+    iget v0, p0, Lcom/android/internal/telephony/DriverCall;->numberPresentation:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 

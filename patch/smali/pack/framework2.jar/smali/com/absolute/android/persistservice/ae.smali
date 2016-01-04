@@ -21,6 +21,8 @@
 .method private constructor <init>(Lcom/absolute/android/persistservice/ad;)V
     .locals 0
 
+    .prologue
+    .line 629
     iput-object p1, p0, Lcom/absolute/android/persistservice/ae;->a:Lcom/absolute/android/persistservice/ad;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

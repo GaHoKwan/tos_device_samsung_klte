@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView$8;)V
     .locals 0
 
+    .prologue
+    .line 1906
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,22 +39,29 @@
 .method public run()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x1
 
+    .line 1909
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
+    .line 1910
+    .local v1, "suggestionInfo":Landroid/os/Bundle;
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.MAIN"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1911
+    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "android.intent.category.SMARTCLIP"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1913
     const-string v2, "cropRect"
 
     new-instance v3, Landroid/graphics/Rect;
@@ -97,6 +106,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 1914
     const-string v2, "repository"
 
     iget-object v3, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
@@ -107,6 +117,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 1915
     const-string v2, "cropPointList"
 
     iget-object v3, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
@@ -120,8 +131,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
+    .line 1917
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
+    .line 1919
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -133,6 +146,7 @@
 
     if-nez v2, :cond_0
 
+    .line 1920
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -146,6 +160,7 @@
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
+    .line 1921
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -153,6 +168,7 @@
     # setter for: Lcom/android/server/smartclip/SmartClipView;->mIsStartingSuggestionService:Z
     invoke-static {v2, v8}, Lcom/android/server/smartclip/SmartClipView;->access$5802(Lcom/android/server/smartclip/SmartClipView;Z)Z
 
+    .line 1922
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -164,6 +180,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1923
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -175,6 +192,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1924
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -186,12 +204,14 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1926
     const-string v2, "SmartClipView"
 
     const-string v3, "addSPenEvent : mIsStartingSuggestionService is changed false to true"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1928
     :cond_0
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
@@ -204,6 +224,7 @@
 
     invoke-virtual {v2, v8}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1929
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -217,12 +238,14 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 1930
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/os/Looper;->quit()V
 
+    .line 1931
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$8$1;->this$1:Lcom/android/server/smartclip/SmartClipView$8;
 
     iget-object v2, v2, Lcom/android/server/smartclip/SmartClipView$8;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -232,5 +255,6 @@
     # setter for: Lcom/android/server/smartclip/SmartClipView;->mIsLiveCropThread:Z
     invoke-static {v2, v3}, Lcom/android/server/smartclip/SmartClipView;->access$702(Lcom/android/server/smartclip/SmartClipView;Z)Z
 
+    .line 1932
     return-void
 .end method

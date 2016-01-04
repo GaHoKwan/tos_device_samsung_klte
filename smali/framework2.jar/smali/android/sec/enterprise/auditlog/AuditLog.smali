@@ -31,6 +31,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,12 +40,22 @@
 
 .method public static log(IIZILjava/lang/String;Ljava/lang/String;)V
     .locals 7
+    .param p0, "severityGrade"    # I
+    .param p1, "moduleGroup"    # I
+    .param p2, "outcome"    # Z
+    .param p3, "uid"    # I
+    .param p4, "swComponent"    # Ljava/lang/String;
+    .param p5, "logMessage"    # Ljava/lang/String;
 
+    .prologue
+    .line 61
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager$EDMProxyServiceHelper;->getService()Landroid/sec/enterprise/IEDMProxy;
 
     move-result-object v0
 
+    .line 62
+    .local v0, "lService":Landroid/sec/enterprise/IEDMProxy;
     if-eqz v0, :cond_0
 
     move v1, p0
@@ -58,14 +70,18 @@
 
     move-object v6, p5
 
+    .line 63
     invoke-interface/range {v0 .. v6}, Landroid/sec/enterprise/IEDMProxy;->AuditLogger(IIZILjava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 69
+    .end local v0    # "lService":Landroid/sec/enterprise/IEDMProxy;
     :cond_0
     :goto_0
     return-void
 
+    .line 66
     :catch_0
     move-exception v1
 

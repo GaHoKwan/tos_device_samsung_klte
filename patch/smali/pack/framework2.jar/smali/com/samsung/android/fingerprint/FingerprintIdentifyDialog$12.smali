@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
 
+    .prologue
+    .line 922
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$12;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 1
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 925
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$12;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # getter for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mIsFinishedScanning:Z
@@ -46,22 +51,30 @@
 
     if-eqz v0, :cond_0
 
+    .line 926
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$12;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->dismiss()V
 
+    .line 928
     :cond_0
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 931
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 934
     return-void
 .end method

@@ -49,41 +49,55 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/os/Looper;Ljava/lang/String;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "l"    # Landroid/os/Looper;
+    .param p3, "tag"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 53
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 45
     iput-boolean v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->DEBUG:Z
 
+    .line 47
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
+    .line 49
     iput-boolean v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mReady:Z
 
+    .line 50
     const/16 v0, 0xbb8
 
     iput v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->DELAY:I
 
+    .line 60
     new-instance v0, Lcom/android/server/usb/UsbNotificationHandler$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/usb/UsbNotificationHandler$1;-><init>(Lcom/android/server/usb/UsbNotificationHandler;)V
 
     iput-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mBootCompletedReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 68
     new-instance v0, Lcom/android/server/usb/UsbNotificationHandler$2;
 
     invoke-direct {v0, p0}, Lcom/android/server/usb/UsbNotificationHandler$2;-><init>(Lcom/android/server/usb/UsbNotificationHandler;)V
 
     iput-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mLocaleChangedReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 54
     iput-object p3, p0, Lcom/android/server/usb/UsbNotificationHandler;->TAG:Ljava/lang/String;
 
+    .line 55
     iput-object p1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 
+    .line 56
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mBootCompletedReceiver:Landroid/content/BroadcastReceiver;
@@ -96,6 +110,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 57
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mLocaleChangedReceiver:Landroid/content/BroadcastReceiver;
@@ -108,12 +123,16 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 58
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/usb/UsbNotificationHandler;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/usb/UsbNotificationHandler;
 
+    .prologue
+    .line 43
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -121,7 +140,13 @@
 
 .method static synthetic access$100(Lcom/android/server/usb/UsbNotificationHandler;III)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/usb/UsbNotificationHandler;
+    .param p1, "x1"    # I
+    .param p2, "x2"    # I
+    .param p3, "x3"    # I
 
+    .prologue
+    .line 43
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/usb/UsbNotificationHandler;->sendMessageDelayed(III)V
 
     return-void
@@ -129,7 +154,10 @@
 
 .method static synthetic access$200(Lcom/android/server/usb/UsbNotificationHandler;)Landroid/content/Context;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/usb/UsbNotificationHandler;
 
+    .prologue
+    .line 43
     iget-object v0, p0, Lcom/android/server/usb/UsbNotificationHandler;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -137,17 +165,26 @@
 
 .method private sendMessageDelayed(III)V
     .locals 3
+    .param p1, "what"    # I
+    .param p2, "arg"    # I
+    .param p3, "delay"    # I
 
+    .prologue
+    .line 110
     invoke-static {p0, p1}, Landroid/os/Message;->obtain(Landroid/os/Handler;I)Landroid/os/Message;
 
     move-result-object v0
 
+    .line 111
+    .local v0, "m":Landroid/os/Message;
     iput p2, v0, Landroid/os/Message;->arg1:I
 
+    .line 112
     int-to-long v1, p3
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/usb/UsbNotificationHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 113
     return-void
 .end method
 
@@ -156,6 +193,8 @@
 .method public clearAllNotificaton()V
     .locals 3
 
+    .prologue
+    .line 157
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -166,6 +205,8 @@
 
     move-result-object v0
 
+    .line 158
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -173,12 +214,15 @@
 
     if-eqz v2, :cond_0
 
+    .line 159
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/Integer;
 
+    .line 160
+    .local v1, "key":Ljava/lang/Integer;
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -187,13 +231,18 @@
 
     goto :goto_0
 
+    .line 162
+    .end local v1    # "key":Ljava/lang/Integer;
     :cond_0
     return-void
 .end method
 
 .method public clearNotification(I)V
     .locals 3
+    .param p1, "key"    # I
 
+    .prologue
+    .line 166
     iget-object v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -206,6 +255,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 167
     iget-object v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -218,16 +268,23 @@
 
     check-cast v0, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 168
+    .local v0, "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     iget-boolean v1, p0, Lcom/android/server/usb/UsbNotificationHandler;->mReady:Z
 
     if-nez v1, :cond_1
 
+    .line 169
     invoke-virtual {v0}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->clearAll()V
 
+    .line 175
+    .end local v0    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_0
     :goto_0
     return-void
 
+    .line 171
+    .restart local v0    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_1
     invoke-virtual {v0}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->notStayNofication()V
 
@@ -236,7 +293,10 @@
 
 .method public clearNotification(Ljava/lang/String;)V
     .locals 2
+    .param p1, "id"    # Ljava/lang/String;
 
+    .prologue
+    .line 178
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v1
@@ -245,22 +305,30 @@
 
     move-result-object v0
 
+    .line 179
+    .local v0, "key":Ljava/lang/Integer;
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
     invoke-virtual {p0, v1}, Lcom/android/server/usb/UsbNotificationHandler;->clearNotification(I)V
 
+    .line 180
     return-void
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;)V
     .locals 5
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
 
+    .prologue
+    .line 463
     const-string v3, "  Notification : "
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 464
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -283,6 +351,7 @@
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 466
     iget-object v3, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -293,6 +362,8 @@
 
     move-result-object v0
 
+    .line 467
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -300,12 +371,15 @@
 
     if-eqz v3, :cond_0
 
+    .line 468
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/Integer;
 
+    .line 469
+    .local v1, "key":Ljava/lang/Integer;
     iget-object v3, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -314,6 +388,8 @@
 
     check-cast v2, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 470
+    .local v2, "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -354,13 +430,25 @@
 
     goto :goto_0
 
+    .line 472
+    .end local v1    # "key":Ljava/lang/Integer;
+    .end local v2    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_0
     return-void
 .end method
 
 .method public enqueueNotification(IIIZLandroid/app/PendingIntent;ZLjava/lang/String;)V
     .locals 9
+    .param p1, "titleId"    # I
+    .param p2, "messageId"    # I
+    .param p3, "icon"    # I
+    .param p4, "dismissable"    # Z
+    .param p5, "pi"    # Landroid/app/PendingIntent;
+    .param p6, "keep"    # Z
+    .param p7, "szId"    # Ljava/lang/String;
 
+    .prologue
+    .line 120
     const/4 v4, 0x1
 
     move-object v0, p0
@@ -381,12 +469,23 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/usb/UsbNotificationHandler;->enqueueNotification(IIIZZLandroid/app/PendingIntent;ZLjava/lang/String;)V
 
+    .line 121
     return-void
 .end method
 
 .method public enqueueNotification(IIIZZLandroid/app/PendingIntent;ZLjava/lang/String;)V
     .locals 13
+    .param p1, "titleId"    # I
+    .param p2, "messageId"    # I
+    .param p3, "icon"    # I
+    .param p4, "visible"    # Z
+    .param p5, "dismissable"    # Z
+    .param p6, "pi"    # Landroid/app/PendingIntent;
+    .param p7, "keep"    # Z
+    .param p8, "device"    # Ljava/lang/String;
 
+    .prologue
+    .line 125
     new-instance v1, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;
 
     move-object v2, p0
@@ -409,6 +508,8 @@
 
     invoke-direct/range {v1 .. v10}, Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;-><init>(Lcom/android/server/usb/UsbNotificationHandler;IIIZZLandroid/app/PendingIntent;ZLjava/lang/String;)V
 
+    .line 126
+    .local v1, "unit":Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;
     invoke-virtual/range {p8 .. p8}, Ljava/lang/String;->hashCode()I
 
     move-result v2
@@ -417,6 +518,8 @@
 
     move-result-object v11
 
+    .line 127
+    .local v11, "key":Ljava/lang/Integer;
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v2, v11}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
@@ -425,6 +528,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 128
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v2, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -433,11 +537,16 @@
 
     check-cast v12, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 129
+    .local v12, "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     invoke-virtual {v12, v1}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->push(Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;)V
 
+    .line 135
     :goto_0
     return-void
 
+    .line 131
+    .end local v12    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_0
     new-instance v12, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
@@ -445,10 +554,13 @@
 
     invoke-direct {v12, p0, v0}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;-><init>(Lcom/android/server/usb/UsbNotificationHandler;Ljava/lang/String;)V
 
+    .line 132
+    .restart local v12    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v2, v11, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 133
     invoke-virtual {v12, v1}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->push(Lcom/android/server/usb/UsbNotificationHandler$NotificatoinUnit;)V
 
     goto :goto_0
@@ -456,7 +568,15 @@
 
 .method public enqueueNotification(IIIZZLjava/lang/String;)V
     .locals 9
+    .param p1, "titleId"    # I
+    .param p2, "messageId"    # I
+    .param p3, "icon"    # I
+    .param p4, "dismissable"    # Z
+    .param p5, "keep"    # Z
+    .param p6, "szId"    # Ljava/lang/String;
 
+    .prologue
+    .line 116
     const/4 v4, 0x1
 
     const/4 v6, 0x0
@@ -477,27 +597,36 @@
 
     invoke-virtual/range {v0 .. v8}, Lcom/android/server/usb/UsbNotificationHandler;->enqueueNotification(IIIZZLandroid/app/PendingIntent;ZLjava/lang/String;)V
 
+    .line 117
     return-void
 .end method
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 83
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 107
     :cond_0
     :goto_0
     return-void
 
+    .line 85
     :pswitch_0
     iget v0, p1, Landroid/os/Message;->arg1:I
 
+    .line 87
+    .local v0, "key":I
     iget-boolean v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->mReady:Z
 
     if-eqz v2, :cond_0
 
+    .line 88
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -510,6 +639,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 89
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -522,10 +652,14 @@
 
     check-cast v1, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 90
+    .local v1, "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     invoke-virtual {v1}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->update()V
 
     goto :goto_0
 
+    .line 92
+    .end local v1    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_1
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->TAG:Ljava/lang/String;
 
@@ -557,9 +691,13 @@
 
     goto :goto_0
 
+    .line 96
+    .end local v0    # "key":I
     :pswitch_1
     iget v0, p1, Landroid/os/Message;->arg1:I
 
+    .line 98
+    .restart local v0    # "key":I
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -572,6 +710,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 99
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -584,10 +723,14 @@
 
     check-cast v1, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 100
+    .restart local v1    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     invoke-virtual {v1}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->remove()V
 
     goto :goto_0
 
+    .line 102
+    .end local v1    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_2
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->TAG:Ljava/lang/String;
 
@@ -619,6 +762,7 @@
 
     goto :goto_0
 
+    .line 83
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -629,10 +773,13 @@
 .method public readyNotification()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 137
     iput-boolean v4, p0, Lcom/android/server/usb/UsbNotificationHandler;->mReady:Z
 
+    .line 138
     iget-object v2, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -643,6 +790,8 @@
 
     move-result-object v0
 
+    .line 139
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -650,12 +799,15 @@
 
     if-eqz v2, :cond_0
 
+    .line 140
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/Integer;
 
+    .line 141
+    .local v1, "key":Ljava/lang/Integer;
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
@@ -666,6 +818,8 @@
 
     goto :goto_0
 
+    .line 143
+    .end local v1    # "key":Ljava/lang/Integer;
     :cond_0
     return-void
 .end method
@@ -673,6 +827,8 @@
 .method public reflashNotificaton()V
     .locals 4
 
+    .prologue
+    .line 147
     iget-object v3, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
@@ -683,6 +839,8 @@
 
     move-result-object v0
 
+    .line 148
+    .local v0, "iterator":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/Integer;>;"
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -690,12 +848,15 @@
 
     if-eqz v3, :cond_0
 
+    .line 149
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/Integer;
 
+    .line 150
+    .local v1, "key":Ljava/lang/Integer;
     iget-object v3, p0, Lcom/android/server/usb/UsbNotificationHandler;->map:Ljava/util/HashMap;
 
     invoke-virtual {v3, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -704,10 +865,15 @@
 
     check-cast v2, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
 
+    .line 151
+    .local v2, "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     invoke-virtual {v2}, Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;->reflash()V
 
     goto :goto_0
 
+    .line 153
+    .end local v1    # "key":Ljava/lang/Integer;
+    .end local v2    # "work":Lcom/android/server/usb/UsbNotificationHandler$NotificationWorking;
     :cond_0
     return-void
 .end method

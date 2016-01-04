@@ -50,7 +50,7 @@
     .local v0, "clone":Lorg/apache/http/impl/cookie/BasicClientCookie2;
     iget-object v1, p0, Lorg/apache/http/impl/cookie/BasicClientCookie2;->ports:[I
 
-    invoke-virtual {v1}, [I->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 

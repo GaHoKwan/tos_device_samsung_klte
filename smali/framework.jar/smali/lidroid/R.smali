@@ -1,0 +1,33 @@
+.class public final Llidroid/R;
+.super Ljava/lang/Object;
+.source "R.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Llidroid/R$styleable;,
+        Llidroid/R$string;,
+        Llidroid/R$raw;,
+        Llidroid/R$layout;,
+        Llidroid/R$integer;,
+        Llidroid/R$id;,
+        Llidroid/R$drawable;,
+        Llidroid/R$dimen;,
+        Llidroid/R$color;,
+        Llidroid/R$attr;,
+        Llidroid/R$array;
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 10
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method

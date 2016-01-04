@@ -1062,7 +1062,7 @@
 
     iget-object v1, p2, Lcom/samsung/javaomp/runtime/__OMPWorkshare;->sched:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

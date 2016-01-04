@@ -57,14 +57,14 @@
 
     .line 262
     .local v0, "serverTransaction":Lgov/nist/javax/sip/stack/SIPServerTransaction;
-    invoke-virtual {v0}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->isTerminated()Z
+    invoke-virtual {v0}, Lgov/nist/javax/sip/stack/SIPTransaction;->isTerminated()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
     .line 264
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/SIPServerTransaction$ProvisionalResponseTask;->cancel()Z
+    invoke-virtual {p0}, Ljava/util/TimerTask;->cancel()Z
 
     .line 284
     :cond_0
@@ -110,7 +110,7 @@
     if-lt v1, v2, :cond_0
 
     .line 276
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/SIPServerTransaction$ProvisionalResponseTask;->cancel()Z
+    invoke-virtual {p0}, Ljava/util/TimerTask;->cancel()Z
 
     .line 277
     iget-object v1, p0, Lgov/nist/javax/sip/stack/SIPServerTransaction$ProvisionalResponseTask;->this$0:Lgov/nist/javax/sip/stack/SIPServerTransaction;

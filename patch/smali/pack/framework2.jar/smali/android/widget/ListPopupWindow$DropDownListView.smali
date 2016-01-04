@@ -47,6 +47,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 1394
     new-instance v0, Landroid/widget/ListPopupWindow$DropDownListView$1;
 
     const-string v1, "alpha"
@@ -60,25 +62,36 @@
 
 .method public constructor <init>(Landroid/content/Context;Z)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "hijackFocus"    # Z
 
+    .prologue
+    .line 1457
     const/4 v0, 0x0
 
     const v1, 0x101006d
 
     invoke-direct {p0, p1, v0, v1}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
+    .line 1458
     iput-boolean p2, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
+    .line 1460
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/widget/ListPopupWindow$DropDownListView;->setCacheColorHint(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ListView;->setCacheColorHint(I)V
 
+    .line 1461
     return-void
 .end method
 
 .method static synthetic access$502(Landroid/widget/ListPopupWindow$DropDownListView;Z)Z
     .locals 0
+    .param p0, "x0"    # Landroid/widget/ListPopupWindow$DropDownListView;
+    .param p1, "x1"    # Z
 
+    .prologue
+    .line 1386
     iput-boolean p1, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mListSelectionHidden:Z
 
     return p1
@@ -87,38 +100,52 @@
 .method private clearPressedItem()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 1550
     iput-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mDrawsInPressedState:Z
 
-    invoke-virtual {p0, v0}, Landroid/widget/ListPopupWindow$DropDownListView;->setPressed(Z)V
+    .line 1551
+    invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
 
-    invoke-virtual {p0}, Landroid/widget/ListPopupWindow$DropDownListView;->updateSelectorState()V
+    .line 1552
+    invoke-virtual {p0}, Landroid/widget/AbsListView;->updateSelectorState()V
 
+    .line 1554
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
+    .line 1555
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
+    .line 1556
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
+    .line 1558
     :cond_0
     return-void
 .end method
 
 .method private clickPressedItem(Landroid/view/View;I)V
     .locals 7
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "position"    # I
 
-    invoke-virtual {p0, p2}, Landroid/widget/ListPopupWindow$DropDownListView;->getItemIdAtPosition(I)J
+    .prologue
+    .line 1530
+    invoke-virtual {p0, p2}, Landroid/widget/AdapterView;->getItemIdAtPosition(I)J
 
     move-result-wide v4
 
-    iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mSelector:Landroid/graphics/drawable/Drawable;
+    .line 1531
+    .local v4, "id":J
+    iget-object v0, p0, Landroid/widget/AbsListView;->mSelector:Landroid/graphics/drawable/Drawable;
 
     sget-object v1, Landroid/widget/ListPopupWindow$DropDownListView;->DRAWABLE_ALPHA:Landroid/util/IntProperty;
 
@@ -132,16 +159,20 @@
 
     move-result-object v6
 
+    .line 1533
+    .local v6, "anim":Landroid/animation/Animator;
     const-wide/16 v0, 0x96
 
-    invoke-virtual {v6, v0, v1}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
+    invoke-virtual {v6, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/Animator;
 
+    .line 1534
     new-instance v0, Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/AccelerateDecelerateInterpolator;-><init>()V
 
-    invoke-virtual {v6, v0}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v6, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 1535
     new-instance v0, Landroid/widget/ListPopupWindow$DropDownListView$2;
 
     move-object v1, p0
@@ -154,21 +185,27 @@
 
     invoke-virtual {v6, v0}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-virtual {v6}, Landroid/animation/Animator;->start()V
+    .line 1541
+    invoke-virtual {v6}, Landroid/animation/ObjectAnimator;->start()V
 
+    .line 1543
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
+    .line 1544
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
+    .line 1546
     :cond_0
     iput-object v6, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
+    .line 1547
     return-void
 
+    .line 1531
     nop
 
     :array_0
@@ -181,33 +218,46 @@
 
 .method private setPressedItem(Landroid/view/View;I)V
     .locals 1
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "position"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 1561
     iput-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mDrawsInPressedState:Z
 
-    invoke-virtual {p0, v0}, Landroid/widget/ListPopupWindow$DropDownListView;->setPressed(Z)V
+    .line 1565
+    invoke-virtual {p0, v0}, Landroid/view/View;->setPressed(Z)V
 
-    invoke-virtual {p0}, Landroid/widget/ListPopupWindow$DropDownListView;->layoutChildren()V
+    .line 1566
+    invoke-virtual {p0}, Landroid/widget/ListView;->layoutChildren()V
 
-    invoke-virtual {p0, p2}, Landroid/widget/ListPopupWindow$DropDownListView;->setSelectedPositionInt(I)V
+    .line 1569
+    invoke-virtual {p0, p2}, Landroid/widget/AdapterView;->setSelectedPositionInt(I)V
 
-    invoke-virtual {p0, p2, p1}, Landroid/widget/ListPopupWindow$DropDownListView;->positionSelector(ILandroid/view/View;)V
+    .line 1570
+    invoke-virtual {p0, p2, p1}, Landroid/widget/AbsListView;->positionSelector(ILandroid/view/View;)V
 
-    invoke-virtual {p0}, Landroid/widget/ListPopupWindow$DropDownListView;->refreshDrawableState()V
+    .line 1574
+    invoke-virtual {p0}, Landroid/view/View;->refreshDrawableState()V
 
+    .line 1576
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 
+    .line 1577
     iget-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
+    .line 1578
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mClickAnimation:Landroid/animation/Animator;
 
+    .line 1580
     :cond_0
     return-void
 .end method
@@ -217,11 +267,13 @@
 .method public hasFocus()Z
     .locals 1
 
+    .prologue
+    .line 1638
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
     if-nez v0, :cond_0
 
-    invoke-super {p0}, Landroid/widget/ListView;->hasFocus()Z
+    invoke-super {p0}, Landroid/view/ViewGroup;->hasFocus()Z
 
     move-result v0
 
@@ -242,11 +294,13 @@
 .method public hasWindowFocus()Z
     .locals 1
 
+    .prologue
+    .line 1618
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
     if-nez v0, :cond_0
 
-    invoke-super {p0}, Landroid/widget/ListView;->hasWindowFocus()Z
+    invoke-super {p0}, Landroid/view/View;->hasWindowFocus()Z
 
     move-result v0
 
@@ -267,11 +321,13 @@
 .method public isFocused()Z
     .locals 1
 
+    .prologue
+    .line 1628
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
     if-nez v0, :cond_0
 
-    invoke-super {p0}, Landroid/widget/ListView;->isFocused()Z
+    invoke-super {p0}, Landroid/view/View;->isFocused()Z
 
     move-result v0
 
@@ -292,6 +348,8 @@
 .method public isInTouchMode()Z
     .locals 1
 
+    .prologue
+    .line 1608
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mHijackFocus:Z
 
     if-eqz v0, :cond_0
@@ -301,7 +359,7 @@
     if-nez v0, :cond_1
 
     :cond_0
-    invoke-super {p0}, Landroid/widget/ListView;->isInTouchMode()Z
+    invoke-super {p0}, Landroid/view/View;->isInTouchMode()Z
 
     move-result v0
 
@@ -321,96 +379,131 @@
 
 .method obtainView(I[Z)Landroid/view/View;
     .locals 3
+    .param p1, "position"    # I
+    .param p2, "isScrap"    # [Z
 
-    invoke-super {p0, p1, p2}, Landroid/widget/ListView;->obtainView(I[Z)Landroid/view/View;
+    .prologue
+    .line 1596
+    invoke-super {p0, p1, p2}, Landroid/widget/AbsListView;->obtainView(I[Z)Landroid/view/View;
 
     move-result-object v0
 
+    .line 1598
+    .local v0, "view":Landroid/view/View;
     instance-of v1, v0, Landroid/widget/TextView;
 
     if-eqz v1, :cond_0
 
     move-object v1, v0
 
+    .line 1599
     check-cast v1, Landroid/widget/TextView;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setHorizontallyScrolling(Z)V
 
+    .line 1602
     :cond_0
     return-object v0
 .end method
 
 .method public onForwardedEvent(Landroid/view/MotionEvent;I)Z
     .locals 10
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "activePointerId"    # I
 
+    .prologue
     const/4 v9, 0x1
 
+    .line 1470
     const/4 v4, 0x1
 
+    .line 1471
+    .local v4, "handledEvent":Z
     const/4 v3, 0x0
 
+    .line 1473
+    .local v3, "clearPressedItem":Z
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
+    .line 1474
+    .local v0, "actionMasked":I
     packed-switch v0, :pswitch_data_0
 
+    .line 1507
     :cond_0
     :goto_0
     if-eqz v4, :cond_1
 
     if-eqz v3, :cond_2
 
+    .line 1508
     :cond_1
     invoke-direct {p0}, Landroid/widget/ListPopupWindow$DropDownListView;->clearPressedItem()V
 
+    .line 1512
     :cond_2
     if-eqz v4, :cond_7
 
+    .line 1513
     iget-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
     if-nez v8, :cond_3
 
+    .line 1514
     new-instance v8, Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
     invoke-direct {v8, p0}, Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;-><init>(Landroid/widget/AbsListView;)V
 
     iput-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
+    .line 1516
     :cond_3
     iget-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
-    invoke-virtual {v8, v9}, Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;->setEnabled(Z)Lcom/android/internal/widget/AutoScrollHelper;
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/AutoScrollHelper;->setEnabled(Z)Lcom/android/internal/widget/AutoScrollHelper;
 
+    .line 1517
     iget-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
-    invoke-virtual {v8, p0, p1}, Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-virtual {v8, p0, p1}, Lcom/android/internal/widget/AutoScrollHelper;->onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
+    .line 1522
     :cond_4
     :goto_1
     return v4
 
+    .line 1476
     :pswitch_0
     const/4 v4, 0x0
 
+    .line 1477
     goto :goto_0
 
+    .line 1479
     :pswitch_1
     const/4 v4, 0x0
 
+    .line 1482
     :pswitch_2
     invoke-virtual {p1, p2}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v1
 
+    .line 1483
+    .local v1, "activeIndex":I
     if-gez v1, :cond_5
 
+    .line 1484
     const/4 v4, 0x0
 
+    .line 1485
     goto :goto_0
 
+    .line 1488
     :cond_5
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
 
@@ -418,58 +511,80 @@
 
     float-to-int v6, v8
 
+    .line 1489
+    .local v6, "x":I
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v8
 
     float-to-int v7, v8
 
-    invoke-virtual {p0, v6, v7}, Landroid/widget/ListPopupWindow$DropDownListView;->pointToPosition(II)I
+    .line 1490
+    .local v7, "y":I
+    invoke-virtual {p0, v6, v7}, Landroid/widget/AbsListView;->pointToPosition(II)I
 
     move-result v5
 
+    .line 1491
+    .local v5, "position":I
     const/4 v8, -0x1
 
     if-ne v5, v8, :cond_6
 
+    .line 1492
     const/4 v3, 0x1
 
+    .line 1493
     goto :goto_0
 
+    .line 1496
     :cond_6
-    invoke-virtual {p0}, Landroid/widget/ListPopupWindow$DropDownListView;->getFirstVisiblePosition()I
+    invoke-virtual {p0}, Landroid/widget/AdapterView;->getFirstVisiblePosition()I
 
     move-result v8
 
     sub-int v8, v5, v8
 
-    invoke-virtual {p0, v8}, Landroid/widget/ListPopupWindow$DropDownListView;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v2
 
+    .line 1497
+    .local v2, "child":Landroid/view/View;
     invoke-direct {p0, v2, v5}, Landroid/widget/ListPopupWindow$DropDownListView;->setPressedItem(Landroid/view/View;I)V
 
+    .line 1498
     const/4 v4, 0x1
 
+    .line 1500
     if-ne v0, v9, :cond_0
 
+    .line 1501
     invoke-direct {p0, v2, v5}, Landroid/widget/ListPopupWindow$DropDownListView;->clickPressedItem(Landroid/view/View;I)V
 
     goto :goto_0
 
+    .line 1518
+    .end local v1    # "activeIndex":I
+    .end local v2    # "child":Landroid/view/View;
+    .end local v5    # "position":I
+    .end local v6    # "x":I
+    .end local v7    # "y":I
     :cond_7
     iget-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
     if-eqz v8, :cond_4
 
+    .line 1519
     iget-object v8, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mScrollHelper:Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;
 
     const/4 v9, 0x0
 
-    invoke-virtual {v8, v9}, Lcom/android/internal/widget/AutoScrollHelper$AbsListViewAutoScroller;->setEnabled(Z)Lcom/android/internal/widget/AutoScrollHelper;
+    invoke-virtual {v8, v9}, Lcom/android/internal/widget/AutoScrollHelper;->setEnabled(Z)Lcom/android/internal/widget/AutoScrollHelper;
 
     goto :goto_1
 
+    .line 1474
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -481,11 +596,13 @@
 .method touchModeDrawsInPressedState()Z
     .locals 1
 
+    .prologue
+    .line 1584
     iget-boolean v0, p0, Landroid/widget/ListPopupWindow$DropDownListView;->mDrawsInPressedState:Z
 
     if-nez v0, :cond_0
 
-    invoke-super {p0}, Landroid/widget/ListView;->touchModeDrawsInPressedState()Z
+    invoke-super {p0}, Landroid/widget/AbsListView;->touchModeDrawsInPressedState()Z
 
     move-result v0
 

@@ -41,7 +41,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->WAITING:Lcom/android/internal/telephony/Call$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Call$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -57,7 +57,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->INCOMING:Lcom/android/internal/telephony/Call$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Call$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -84,7 +84,7 @@
 
     sget-object v1, Lcom/movial/ipphone/SessionCall$State;->HOLDING:Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -100,7 +100,7 @@
 
     sget-object v1, Lcom/movial/ipphone/SessionCall$State;->DISCONNECTED:Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -116,7 +116,7 @@
 
     sget-object v1, Lcom/movial/ipphone/SessionCall$State;->INCOMING:Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -132,7 +132,7 @@
 
     sget-object v1, Lcom/movial/ipphone/SessionCall$State;->WAITING:Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -148,7 +148,7 @@
 
     sget-object v1, Lcom/movial/ipphone/SessionCall$State;->ACTIVE:Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

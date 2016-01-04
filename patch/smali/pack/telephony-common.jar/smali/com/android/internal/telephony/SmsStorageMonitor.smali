@@ -445,7 +445,7 @@
 
     const/4 v4, 0x2
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/SmsStorageMonitor;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v4
 
@@ -475,7 +475,7 @@
     .line 171
     const/4 v2, 0x5
 
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/SmsStorageMonitor;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 

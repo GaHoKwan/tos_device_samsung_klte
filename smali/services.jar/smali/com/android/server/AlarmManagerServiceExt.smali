@@ -28,10 +28,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 88
     const-string v0, "eng"
 
     sget-object v3, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -61,6 +63,7 @@
     :goto_0
     sput-boolean v0, Lcom/android/server/AlarmManagerServiceExt;->APP_SYNC_LOG:Z
 
+    .line 90
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x13
@@ -75,31 +78,42 @@
     :cond_0
     move v0, v2
 
+    .line 88
     goto :goto_0
 
     :cond_1
     move v1, v2
 
+    .line 90
     goto :goto_1
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/android/server/AlarmManagerService;Ljava/lang/Object;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "ams"    # Lcom/android/server/AlarmManagerService;
+    .param p3, "lock"    # Ljava/lang/Object;
 
+    .prologue
+    .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 97
     new-instance v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
     invoke-direct {v0, p1, p2, p3}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;-><init>(Landroid/content/Context;Lcom/android/server/AlarmManagerService;Ljava/lang/Object;)V
 
     iput-object v0, p0, Lcom/android/server/AlarmManagerServiceExt;->mSyncScheduler:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
+    .line 98
     return-void
 .end method
 
 .method static synthetic access$000()Z
     .locals 1
 
+    .prologue
+    .line 86
     sget-boolean v0, Lcom/android/server/AlarmManagerServiceExt;->APP_SYNC_LOG:Z
 
     return v0
@@ -108,6 +122,8 @@
 .method static synthetic access$100()Z
     .locals 1
 
+    .prologue
+    .line 86
     sget-boolean v0, Lcom/android/server/AlarmManagerServiceExt;->NEW_ALARM_MANAGER:Z
 
     return v0
@@ -115,15 +131,25 @@
 
 .method public static maxRepeatInterval(JJ)J
     .locals 12
+    .param p0, "interval"    # J
+    .param p2, "window"    # J
 
+    .prologue
+    .line 206
     move-wide v4, p0
 
+    .line 207
+    .local v4, "ret":J
     add-long v2, p0, p2
 
+    .line 208
+    .local v2, "maxInterval":J
     const-wide/16 v8, 0x2
 
     div-long v0, p0, v8
 
+    .line 209
+    .local v0, "halfInterval":J
     const-wide/16 v8, 0x0
 
     cmp-long v8, p2, v8
@@ -132,9 +158,15 @@
 
     move-wide v6, v4
 
+    .line 228
+    .end local v4    # "ret":J
+    .local v6, "ret":J
     :goto_0
     return-wide v6
 
+    .line 213
+    .end local v6    # "ret":J
+    .restart local v4    # "ret":J
     :cond_0
     const-wide/32 v8, 0x36ee80
 
@@ -142,6 +174,7 @@
 
     if-ltz v8, :cond_1
 
+    .line 214
     long-to-double v8, v2
 
     long-to-double v10, v0
@@ -159,8 +192,14 @@
     :goto_1
     move-wide v6, v4
 
+    .line 228
+    .end local v4    # "ret":J
+    .restart local v6    # "ret":J
     goto :goto_0
 
+    .line 219
+    .end local v6    # "ret":J
+    .restart local v4    # "ret":J
     :cond_1
     const-wide/32 v8, 0x1b7740
 
@@ -168,6 +207,7 @@
 
     if-ltz v8, :cond_2
 
+    .line 220
     long-to-double v8, v2
 
     const-wide v10, 0x41224f8000000000L    # 600000.0
@@ -186,6 +226,7 @@
 
     goto :goto_1
 
+    .line 226
     :cond_2
     long-to-double v8, v2
 
@@ -211,6 +252,8 @@
 .method public getSyncScheduler()Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
     .locals 1
 
+    .prologue
+    .line 104
     iget-object v0, p0, Lcom/android/server/AlarmManagerServiceExt;->mSyncScheduler:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
 
     return-object v0

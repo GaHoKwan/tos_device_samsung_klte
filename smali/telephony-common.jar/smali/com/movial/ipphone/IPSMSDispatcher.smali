@@ -157,7 +157,7 @@
     .line 187
     iget-object v1, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mGsmPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -174,7 +174,7 @@
     .line 189
     iget-object v1, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mGsmPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/gsm/GSMPhone;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -409,7 +409,7 @@
 
     .line 328
     .local v7, "tpStatus":I
-    iget v4, v6, Lcom/android/internal/telephony/gsm/SmsMessage;->mMessageRef:I
+    iget v4, v6, Lcom/android/internal/telephony/SmsMessageBase;->mMessageRef:I
 
     .line 329
     .local v4, "messageRef":I
@@ -439,7 +439,7 @@
     const/4 v2, 0x0
 
     .local v2, "i":I
-    iget-object v9, p0, Lcom/movial/ipphone/IPSMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
 
     invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
@@ -450,7 +450,7 @@
     if-ge v2, v0, :cond_2
 
     .line 331
-    iget-object v9, p0, Lcom/movial/ipphone/IPSMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -475,12 +475,12 @@
 
     .line 335
     :cond_0
-    iget-object v9, p0, Lcom/movial/ipphone/IPSMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher;->deliveryPendingList:Ljava/util/ArrayList;
 
     invoke-virtual {v9, v2}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     .line 337
-    iget-object v9, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mContext:Landroid/content/Context;
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
 
     invoke-virtual {v8, v9, v7}, Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;->updateSentMessageStatus(Landroid/content/Context;I)V
 
@@ -515,7 +515,7 @@
 
     .line 344
     :try_start_0
-    iget-object v9, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mContext:Landroid/content/Context;
+    iget-object v9, p0, Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
 
     const/4 v10, -0x1
 
@@ -829,12 +829,12 @@
     .line 583
     .end local v0    # "e":Landroid/os/RemoteException;
     :cond_1
-    iget-object v1, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     if-eqz v1, :cond_0
 
     .line 584
-    iget-object v1, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     invoke-static {p2}, Lcom/movial/ipphone/IPSMSDispatcher;->resultToCause(I)I
 
@@ -917,7 +917,7 @@
     .line 214
     iget-object v0, p0, Lcom/movial/ipphone/IPSMSDispatcher;->mIPInboundSmsHandler:Lcom/movial/ipphone/IPInboundSmsHandler;
 
-    invoke-virtual {v0}, Lcom/movial/ipphone/IPInboundSmsHandler;->dispose()V
+    invoke-virtual {v0}, Lcom/android/internal/telephony/InboundSmsHandler;->dispose()V
 
     .line 215
     return-void
@@ -1126,7 +1126,7 @@
     move-object v4, p4
 
     .line 362
-    invoke-virtual/range {v0 .. v5}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;I[BLcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
+    invoke-virtual/range {v0 .. v5}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;I[BLcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
 
     move-result-object v6
 
@@ -1136,13 +1136,13 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v6, p5, p6, v0}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
+    invoke-virtual {p0, v6, p5, p6, v0}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
 
     move-result-object v7
 
     .line 365
     .local v7, "tracker":Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
-    invoke-virtual {p0, v7}, Lcom/movial/ipphone/IPSMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
+    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/SMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
 
     .line 369
     .end local v6    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
@@ -1262,7 +1262,7 @@
     .local v6, "encoding":I
     move-object/from16 v0, p0
 
-    iget v1, v0, Lcom/movial/ipphone/IPSMSDispatcher;->mRemainingMessages:I
+    iget v1, v0, Lcom/android/internal/telephony/SMSDispatcher;->mRemainingMessages:I
 
     if-lez v1, :cond_1
 
@@ -1337,7 +1337,7 @@
     :cond_1
     move-object/from16 v0, p0
 
-    iput v15, v0, Lcom/movial/ipphone/IPSMSDispatcher;->mRemainingMessages:I
+    iput v15, v0, Lcom/android/internal/telephony/SMSDispatcher;->mRemainingMessages:I
 
     .line 463
     new-array v12, v15, [Lcom/android/internal/telephony/GsmAlphabet$TextEncodingDetails;
@@ -1581,7 +1581,7 @@
     .local p3, "parts":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     .local p4, "sentIntents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
     .local p5, "deliveryIntents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/app/PendingIntent;>;"
-    invoke-virtual/range {p0 .. p5}, Lcom/movial/ipphone/IPSMSDispatcher;->sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    invoke-virtual/range {p0 .. p5}, Lcom/android/internal/telephony/SMSDispatcher;->sendMultipartText(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 525
     return-void
@@ -1636,7 +1636,7 @@
     .line 543
     move-object/from16 v0, p3
 
-    invoke-virtual {p0, p1, p2, v0, v11}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
+    invoke-virtual {p0, p1, p2, v0, v11}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
 
     move-result-object v10
 
@@ -1650,13 +1650,13 @@
 
     move-object/from16 v1, p7
 
-    invoke-virtual {p0, v10, v0, v1, v2}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
+    invoke-virtual {p0, v10, v0, v1, v2}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
 
     move-result-object v12
 
     .line 547
     .local v12, "tracker":Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
-    invoke-virtual {p0, v12}, Lcom/movial/ipphone/IPSMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
+    invoke-virtual {p0, v12}, Lcom/android/internal/telephony/SMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
 
     .line 551
     .end local v10    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
@@ -1821,7 +1821,7 @@
 
     .line 560
     .local v0, "destAddr":Ljava/lang/String;
-    invoke-virtual {p0, v10, p1}, Lcom/movial/ipphone/IPSMSDispatcher;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v10, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v7
 
@@ -1923,7 +1923,7 @@
     if-eqz v1, :cond_1
 
     .line 385
-    invoke-virtual {p0, p1, p2, p3, v1}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
+    invoke-virtual {p0, p1, p2, p3, v1}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTrackerMap(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;)Ljava/util/HashMap;
 
     move-result-object v0
 
@@ -1933,13 +1933,13 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v0, p4, p5, v3}, Lcom/movial/ipphone/IPSMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
+    invoke-virtual {p0, v0, p4, p5, v3}, Lcom/android/internal/telephony/SMSDispatcher;->getSmsTracker(Ljava/util/HashMap;Landroid/app/PendingIntent;Landroid/app/PendingIntent;Ljava/lang/String;)Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
 
     move-result-object v2
 
     .line 389
     .local v2, "tracker":Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;
-    invoke-virtual {p0, v2}, Lcom/movial/ipphone/IPSMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/SMSDispatcher;->sendRawPdu(Lcom/android/internal/telephony/SMSDispatcher$SmsTracker;)V
 
     .line 393
     .end local v0    # "map":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"

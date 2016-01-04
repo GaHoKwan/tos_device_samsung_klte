@@ -659,7 +659,7 @@
     .param p1, "activation"    # Z
 
     .prologue
-    .line 1251
+    .line 1263
     return-void
 .end method
 
@@ -668,7 +668,7 @@
     .param p1, "on"    # I
 
     .prologue
-    .line 1224
+    .line 1236
     return-void
 .end method
 
@@ -816,12 +816,12 @@
     .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1306
+    .line 1318
     if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1307
+    .line 1319
     :cond_0
     return-void
 .end method
@@ -1688,12 +1688,12 @@
     .param p3, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1310
+    .line 1322
     if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1311
+    .line 1323
     :cond_0
     return-void
 .end method
@@ -1704,12 +1704,12 @@
     .param p2, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1314
+    .line 1326
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Landroid/os/Message;->sendToTarget()V
 
-    .line 1315
+    .line 1327
     :cond_0
     return-void
 .end method
@@ -1751,7 +1751,7 @@
     .locals 1
 
     .prologue
-    .line 1255
+    .line 1267
     const/4 v0, 0x0
 
     return v0
@@ -1764,6 +1764,18 @@
 
     .prologue
     .line 1158
+    return-void
+.end method
+
+.method public getCallBarringOption(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Message;)V
+    .locals 0
+    .param p1, "commandInterfacecbFlavour"    # Ljava/lang/String;
+    .param p2, "password"    # Ljava/lang/String;
+    .param p3, "serviceClass"    # I
+    .param p4, "onComplete"    # Landroid/os/Message;
+
+    .prologue
+    .line 1164
     return-void
 .end method
 
@@ -1791,6 +1803,18 @@
     return-void
 .end method
 
+.method public getCallForwardingOption(ILjava/lang/String;ILandroid/os/Message;)V
+    .locals 0
+    .param p1, "commandInterfaceCFReason"    # I
+    .param p2, "dialingNumber"    # Ljava/lang/String;
+    .param p3, "serviceClass"    # I
+    .param p4, "onComplete"    # Landroid/os/Message;
+
+    .prologue
+    .line 1192
+    return-void
+.end method
+
 .method public getCallWaiting(Landroid/os/Message;)V
     .locals 1
     .param p1, "onComplete"    # Landroid/os/Message;
@@ -1812,7 +1836,7 @@
     .locals 1
 
     .prologue
-    .line 1277
+    .line 1289
     const/4 v0, 0x0
 
     return-object v0
@@ -1905,14 +1929,14 @@
     .locals 2
 
     .prologue
-    .line 1297
+    .line 1309
     const-string v0, "SipPhone"
 
     const-string v1, "Not yet implement getDataDunEnabled() in JB 4.3"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1298
+    .line 1310
     const/4 v0, 0x0
 
     return v0
@@ -1970,7 +1994,7 @@
     .locals 1
 
     .prologue
-    .line 1210
+    .line 1222
     const/4 v0, 0x0
 
     return v0
@@ -1980,7 +2004,7 @@
     .locals 1
 
     .prologue
-    .line 1288
+    .line 1300
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->NONE:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     return-object v0
@@ -1990,7 +2014,7 @@
     .locals 1
 
     .prologue
-    .line 1292
+    .line 1304
     const/4 v0, 0x0
 
     return v0
@@ -2012,14 +2036,14 @@
     .locals 2
 
     .prologue
-    .line 1265
+    .line 1277
     const-string v0, "SipPhone"
 
     const-string v1, "Not supported in SipPhone"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1266
+    .line 1278
     const/4 v0, 0x0
 
     return v0
@@ -2052,7 +2076,7 @@
     .param p1, "ID"    # Ljava/lang/String;
 
     .prologue
-    .line 1244
+    .line 1256
     const/4 v0, 0x0
 
     return-object v0
@@ -2171,14 +2195,14 @@
     .param p1, "SimType"    # I
 
     .prologue
-    .line 1214
+    .line 1226
     const-string v0, "SipPhone"
 
     const-string v1, "getLine1NumberType not support in SipPhone"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1215
+    .line 1227
     const/4 v0, 0x0
 
     return-object v0
@@ -2201,7 +2225,7 @@
     .locals 1
 
     .prologue
-    .line 1207
+    .line 1219
     const/4 v0, 0x0
 
     return v0
@@ -2235,7 +2259,7 @@
     .locals 1
 
     .prologue
-    .line 1203
+    .line 1215
     const/4 v0, 0x0
 
     return v0
@@ -2292,14 +2316,14 @@
     .locals 2
 
     .prologue
-    .line 1271
+    .line 1283
     const-string v0, "SipPhone"
 
     const-string v1, "Not supported in SipPhone"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1272
+    .line 1284
     const/4 v0, 0x0
 
     return v0
@@ -2326,7 +2350,7 @@
     .locals 1
 
     .prologue
-    .line 1197
+    .line 1209
     const/4 v0, 0x0
 
     return v0
@@ -2405,7 +2429,7 @@
     .param p1, "response"    # Landroid/os/Message;
 
     .prologue
-    .line 1168
+    .line 1174
     return-void
 .end method
 
@@ -2435,7 +2459,7 @@
     .locals 1
 
     .prologue
-    .line 1192
+    .line 1204
     const/4 v0, 0x1
 
     return v0
@@ -2445,7 +2469,7 @@
     .locals 1
 
     .prologue
-    .line 1187
+    .line 1199
     const/4 v0, 0x1
 
     return v0
@@ -2554,14 +2578,14 @@
     .param p1, "SimType"    # I
 
     .prologue
-    .line 1219
+    .line 1231
     const-string v0, "SipPhone"
 
     const-string v1, "getSubscriberIdType not support in SipPhone"
 
     invoke-static {v0, v1}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1220
+    .line 1232
     const/4 v0, 0x0
 
     return-object v0
@@ -3027,7 +3051,7 @@
     .param p5, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1179
+    .line 1185
     const/4 v0, 0x0
 
     return v0
@@ -3041,7 +3065,7 @@
     .param p4, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1163
+    .line 1169
     const/4 v0, 0x0
 
     return v0
@@ -3057,7 +3081,7 @@
     .param p6, "onComplete"    # Landroid/os/Message;
 
     .prologue
-    .line 1185
+    .line 1197
     return-void
 .end method
 
@@ -3108,7 +3132,7 @@
     .param p1, "enable"    # Z
 
     .prologue
-    .line 1301
+    .line 1313
     return-void
 .end method
 
@@ -3274,7 +3298,7 @@
     .param p8, "response"    # Landroid/os/Message;
 
     .prologue
-    .line 1172
+    .line 1178
     return-void
 .end method
 
@@ -3293,7 +3317,7 @@
     .locals 0
 
     .prologue
-    .line 1283
+    .line 1295
     return-void
 .end method
 
@@ -3364,7 +3388,7 @@
     .locals 0
 
     .prologue
-    .line 1228
+    .line 1240
     return-void
 .end method
 
@@ -3372,7 +3396,7 @@
     .locals 0
 
     .prologue
-    .line 1234
+    .line 1246
     return-void
 .end method
 
@@ -3388,7 +3412,7 @@
     .locals 0
 
     .prologue
-    .line 1231
+    .line 1243
     return-void
 .end method
 
@@ -3396,7 +3420,7 @@
     .locals 0
 
     .prologue
-    .line 1237
+    .line 1249
     return-void
 .end method
 

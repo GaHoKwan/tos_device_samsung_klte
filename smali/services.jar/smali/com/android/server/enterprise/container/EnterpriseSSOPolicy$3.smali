@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;)V
     .locals 0
 
+    .prologue
+    .line 1514
     iput-object p1, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 21
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1517
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 1518
+    .local v4, "action":Ljava/lang/String;
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -62,6 +70,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1519
     const-string v18, "android.intent.action.USER_REMOVED"
 
     move-object/from16 v0, v18
@@ -72,6 +81,7 @@
 
     if-eqz v18, :cond_2
 
+    .line 1520
     const-string v18, "android.intent.extra.user_handle"
 
     const/16 v19, -0x1
@@ -86,6 +96,8 @@
 
     move-result v17
 
+    .line 1521
+    .local v17, "userHandle":I
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -112,6 +124,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1522
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOInterfaceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$800()Ljava/util/Map;
 
@@ -145,6 +158,7 @@
 
     invoke-interface/range {v18 .. v19}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1523
     :cond_0
     const-string v18, "EnterpriseSSOPolicyService"
 
@@ -173,6 +187,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1524
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -186,6 +201,7 @@
     # invokes: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->removeClintEntry(I)V
     invoke-static {v0, v1}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$1200(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;I)V
 
+    .line 1525
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -195,10 +211,13 @@
     # invokes: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->printArtifacts()V
     invoke-static/range {v18 .. v18}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$1100(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;)V
 
+    .line 1627
+    .end local v17    # "userHandle":I
     :cond_1
     :goto_0
     return-void
 
+    .line 1526
     :cond_2
     const-string v18, "android.intent.action.PACKAGE_REMOVED"
 
@@ -210,6 +229,7 @@
 
     if-eqz v18, :cond_3
 
+    .line 1540
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -221,6 +241,7 @@
 
     goto :goto_0
 
+    .line 1541
     :cond_3
     const-string v18, "android.intent.action.USER_SWITCHED"
 
@@ -232,10 +253,13 @@
 
     if-eqz v18, :cond_1
 
+    .line 1543
     invoke-static {}, Landroid/os/PersonaManager;->getKnoxInfo()Landroid/os/Bundle;
 
     move-result-object v6
 
+    .line 1544
+    .local v6, "bundle":Landroid/os/Bundle;
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$000()Z
 
@@ -243,12 +267,14 @@
 
     if-eqz v18, :cond_4
 
+    .line 1545
     const-string v18, "EnterpriseSSOPolicyService"
 
     const-string v19, "ACTION_USER_SWITCHED "
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1546
     :cond_4
     const-string v18, "2.0"
 
@@ -266,6 +292,7 @@
 
     if-eqz v18, :cond_b
 
+    .line 1547
     const-string v18, "android.intent.extra.user_handle"
 
     const/16 v19, -0x2710
@@ -280,6 +307,8 @@
 
     move-result v17
 
+    .line 1549
+    .restart local v17    # "userHandle":I
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -306,10 +335,15 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1551
     const/4 v15, 0x0
 
+    .line 1552
+    .local v15, "uid":Ljava/lang/String;
     const/4 v14, -0x1
 
+    .line 1553
+    .local v14, "uID":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -323,6 +357,7 @@
 
     if-eqz v18, :cond_6
 
+    .line 1554
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -334,10 +369,13 @@
 
     move-result-object v16
 
+    .line 1556
+    .local v16, "uidEntries":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
+    .local v9, "i$":Ljava/util/Iterator;
     :cond_5
     :goto_1
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
@@ -352,6 +390,8 @@
 
     check-cast v10, Ljava/lang/String;
 
+    .line 1557
+    .local v10, "item":Ljava/lang/String;
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -394,6 +434,7 @@
 
     if-eq v0, v1, :cond_5
 
+    .line 1558
     new-instance v13, Ljava/util/StringTokenizer;
 
     const-string v18, "-"
@@ -402,19 +443,28 @@
 
     invoke-direct {v13, v10, v0}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1560
+    .local v13, "toknizer":Ljava/util/StringTokenizer;
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v15
 
     goto :goto_1
 
+    .line 1565
+    .end local v9    # "i$":Ljava/util/Iterator;
+    .end local v10    # "item":Ljava/lang/String;
+    .end local v13    # "toknizer":Ljava/util/StringTokenizer;
+    .end local v16    # "uidEntries":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     :cond_6
     if-eqz v15, :cond_7
 
+    .line 1566
     invoke-static {v15}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v14
 
+    .line 1567
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -439,6 +489,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1570
     :cond_7
     move-object/from16 v0, p0
 
@@ -453,6 +504,7 @@
 
     if-eqz v18, :cond_1
 
+    .line 1571
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -464,10 +516,13 @@
 
     move-result-object v7
 
+    .line 1572
+    .local v7, "clientEntries":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
+    .restart local v9    # "i$":Ljava/util/Iterator;
     :cond_8
     :goto_2
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
@@ -482,6 +537,8 @@
 
     check-cast v10, Ljava/lang/String;
 
+    .line 1573
+    .restart local v10    # "item":Ljava/lang/String;
     new-instance v13, Ljava/util/StringTokenizer;
 
     const-string v18, "-"
@@ -490,10 +547,14 @@
 
     invoke-direct {v13, v10, v0}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1575
+    .restart local v13    # "toknizer":Ljava/util/StringTokenizer;
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 1576
+    .local v8, "clientUid":Ljava/lang/String;
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -518,6 +579,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1578
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -546,10 +608,13 @@
 
     if-eqz v18, :cond_8
 
+    .line 1579
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 1580
+    .local v3, "ContainerId":Ljava/lang/String;
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -574,6 +639,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1583
     new-instance v18, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
@@ -604,10 +670,13 @@
 
     if-eqz v18, :cond_8
 
+    .line 1584
     invoke-virtual {v13}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v12
 
+    .line 1585
+    .local v12, "sso":Ljava/lang/String;
     const-string v18, "EnterpriseSSOPolicyService"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -632,6 +701,7 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1589
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOTypeMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$900()Ljava/util/Map;
 
@@ -645,8 +715,11 @@
 
     move-result v5
 
+    .line 1592
+    .local v5, "bIsContainKey":Z
     if-eqz v5, :cond_a
 
+    .line 1593
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOTypeMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$900()Ljava/util/Map;
 
@@ -662,6 +735,8 @@
 
     check-cast v11, Lcom/android/server/enterprise/utils/SSOTypeMapData;
 
+    .line 1596
+    .local v11, "mSSOTypeMapData":Lcom/android/server/enterprise/utils/SSOTypeMapData;
     invoke-virtual {v11}, Lcom/android/server/enterprise/utils/SSOTypeMapData;->getSSOInterface()Lcom/sec/android/service/singlesignon/IEnterpriseSecurityManager2;
 
     move-result-object v18
@@ -690,6 +765,7 @@
 
     if-eqz v18, :cond_9
 
+    .line 1603
     const-string v18, "EnterpriseSSOPolicyService"
 
     const-string v19, "ACTION_USER_SWITCHED - SSO Service is already bound: "
@@ -698,6 +774,7 @@
 
     goto/16 :goto_2
 
+    .line 1606
     :cond_9
     move-object/from16 v0, p0
 
@@ -714,6 +791,8 @@
 
     goto/16 :goto_2
 
+    .line 1610
+    .end local v11    # "mSSOTypeMapData":Lcom/android/server/enterprise/utils/SSOTypeMapData;
     :cond_a
     move-object/from16 v0, p0
 
@@ -730,6 +809,18 @@
 
     goto/16 :goto_2
 
+    .line 1619
+    .end local v3    # "ContainerId":Ljava/lang/String;
+    .end local v5    # "bIsContainKey":Z
+    .end local v7    # "clientEntries":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v8    # "clientUid":Ljava/lang/String;
+    .end local v9    # "i$":Ljava/util/Iterator;
+    .end local v10    # "item":Ljava/lang/String;
+    .end local v12    # "sso":Ljava/lang/String;
+    .end local v13    # "toknizer":Ljava/util/StringTokenizer;
+    .end local v14    # "uID":I
+    .end local v15    # "uid":Ljava/lang/String;
+    .end local v17    # "userHandle":I
     :cond_b
     const-string v18, "android.intent.extra.user_handle"
 
@@ -745,6 +836,8 @@
 
     move-result v17
 
+    .line 1621
+    .restart local v17    # "userHandle":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -762,6 +855,7 @@
 
     if-eqz v18, :cond_1
 
+    .line 1622
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
@@ -781,6 +875,7 @@
 
     if-nez v18, :cond_1
 
+    .line 1623
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$3;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;

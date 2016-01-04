@@ -45,18 +45,23 @@
 .method constructor <init>(Lcom/android/server/ssrm/settings/LevelsModelReader;)V
     .locals 1
 
+    .prologue
+    .line 423
     iput-object p1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
+    .line 424
     const-string v0, "level"
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/ssrm/settings/LevelsModelReader$TagAction;-><init>(Lcom/android/server/ssrm/settings/LevelsModelReader;Ljava/lang/String;)V
 
+    .line 425
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevelConditions:Ljava/util/HashSet;
 
+    .line 426
     return-void
 .end method
 
@@ -64,7 +69,11 @@
 # virtual methods
 .method handleEndNestedTag(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 2
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
+    .prologue
+    .line 508
     const-string/jumbo v0, "state"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -73,12 +82,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 509
     iget-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevel:Lcom/android/server/ssrm/settings/Level;
 
     iget-object v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mCurrentBatteryState:Lcom/android/server/ssrm/settings/BatteryState;
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/settings/Level;->addBatteryState(Lcom/android/server/ssrm/settings/BatteryState;)V
 
+    .line 511
     :cond_0
     return-void
 .end method
@@ -86,10 +97,13 @@
 .method handleEndTag()V
     .locals 4
 
+    .prologue
+    .line 515
     iget-boolean v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsCompoundLevel:Z
 
     if-eqz v1, :cond_0
 
+    .line 516
     iget-object v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mController:Lcom/android/server/ssrm/settings/MainController;
@@ -103,14 +117,17 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/ssrm/settings/MainController;->addLevelSetConditions(Lcom/android/server/ssrm/settings/Level;Ljava/util/Set;)V
 
+    .line 526
     :goto_0
     return-void
 
+    .line 518
     :cond_0
     iget-boolean v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsDefaultLevel:Z
 
     if-eqz v1, :cond_1
 
+    .line 519
     iget-object v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mController:Lcom/android/server/ssrm/settings/MainController;
@@ -126,6 +143,7 @@
 
     goto :goto_0
 
+    .line 522
     :cond_1
     iget-object v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
@@ -142,6 +160,8 @@
 
     move-result-object v0
 
+    .line 523
+    .local v0, "cond":Lcom/android/server/ssrm/settings/Condition;
     iget-object v1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mRegistredConditions:Ljava/util/HashSet;
@@ -156,11 +176,17 @@
 
 .method handleStartNestedTag(Ljava/lang/String;Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 13
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
+    .prologue
     const/4 v12, 0x0
 
+    .line 440
     const/4 v1, 0x0
 
+    .line 441
+    .local v1, "errorMsg":Ljava/lang/String;
     const-string v11, "condition"
 
     invoke-virtual {v11, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -169,19 +195,24 @@
 
     if-eqz v11, :cond_8
 
+    .line 442
     iget-boolean v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsDefaultLevel:Z
 
     if-eqz v11, :cond_0
 
+    .line 443
     const-string v1, "Default level contains <condition> or <DependsOnConditions>."
 
+    .line 446
     :cond_0
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevelConditionName:Ljava/lang/String;
 
     if-eqz v11, :cond_1
 
+    .line 447
     const-string v1, "Multiple <condition> within <level> or <condition> and <DependsOnConditions> exists concurrently in the same <level>."
 
+    .line 450
     :cond_1
     const-string v11, "name"
 
@@ -189,12 +220,17 @@
 
     move-result-object v3
 
+    .line 451
+    .local v3, "name_attr":Ljava/lang/String;
     iget-boolean v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsCompoundLevel:Z
 
     if-eqz v11, :cond_6
 
+    .line 452
     const/4 v7, 0x0
 
+    .line 453
+    .local v7, "tmpCondition":Lcom/android/server/ssrm/settings/Condition;
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mRegistredConditions:Ljava/util/HashSet;
@@ -206,6 +242,7 @@
 
     move-result-object v2
 
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -220,6 +257,8 @@
 
     check-cast v0, Lcom/android/server/ssrm/settings/Condition;
 
+    .line 454
+    .local v0, "condition":Lcom/android/server/ssrm/settings/Condition;
     invoke-virtual {v0}, Lcom/android/server/ssrm/settings/Condition;->name()Ljava/lang/String;
 
     move-result-object v11
@@ -230,27 +269,40 @@
 
     if-eqz v11, :cond_2
 
+    .line 455
     move-object v7, v0
 
     goto :goto_0
 
+    .line 459
+    .end local v0    # "condition":Lcom/android/server/ssrm/settings/Condition;
     :cond_3
     if-eqz v7, :cond_5
 
+    .line 460
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevelConditions:Ljava/util/HashSet;
 
     invoke-virtual {v11, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
+    .line 501
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v3    # "name_attr":Ljava/lang/String;
+    .end local v7    # "tmpCondition":Lcom/android/server/ssrm/settings/Condition;
     :cond_4
     :goto_1
     if-eqz v1, :cond_e
 
+    .line 502
     new-instance v11, Ljava/lang/RuntimeException;
 
     invoke-direct {v11, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw v11
 
+    .line 462
+    .restart local v2    # "i$":Ljava/util/Iterator;
+    .restart local v3    # "name_attr":Ljava/lang/String;
+    .restart local v7    # "tmpCondition":Lcom/android/server/ssrm/settings/Condition;
     :cond_5
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -278,6 +330,9 @@
 
     goto :goto_1
 
+    .line 467
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v7    # "tmpCondition":Lcom/android/server/ssrm/settings/Condition;
     :cond_6
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
@@ -292,10 +347,12 @@
 
     if-eqz v11, :cond_7
 
+    .line 468
     iput-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevelConditionName:Ljava/lang/String;
 
     goto :goto_1
 
+    .line 470
     :cond_7
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -323,6 +380,8 @@
 
     goto :goto_1
 
+    .line 474
+    .end local v3    # "name_attr":Ljava/lang/String;
     :cond_8
     const-string v11, "DependsOnConditions"
 
@@ -332,12 +391,14 @@
 
     if-eqz v11, :cond_9
 
+    .line 475
     const/4 v11, 0x1
 
     iput-boolean v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsCompoundLevel:Z
 
     goto :goto_1
 
+    .line 476
     :cond_9
     const-string/jumbo v11, "state"
 
@@ -347,12 +408,15 @@
 
     if-eqz v11, :cond_b
 
+    .line 477
     const-string/jumbo v11, "step"
 
     invoke-interface {p2, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
+    .line 478
+    .local v5, "step_attr":Ljava/lang/String;
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mSteps:Ljava/util/HashMap;
@@ -366,8 +430,11 @@
 
     check-cast v6, Ljava/lang/Integer;
 
+    .line 479
+    .local v6, "temperature":Ljava/lang/Integer;
     if-eqz v6, :cond_a
 
+    .line 480
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mStateFactory:Lcom/android/server/ssrm/settings/BatteryControllerFactory;
 
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
@@ -382,6 +449,7 @@
 
     goto/16 :goto_1
 
+    .line 482
     :cond_a
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -409,6 +477,9 @@
 
     goto/16 :goto_1
 
+    .line 485
+    .end local v5    # "step_attr":Ljava/lang/String;
+    .end local v6    # "temperature":Ljava/lang/Integer;
     :cond_b
     const-string/jumbo v11, "setting"
 
@@ -418,24 +489,31 @@
 
     if-eqz v11, :cond_4
 
+    .line 486
     const-string/jumbo v11, "writer"
 
     invoke-interface {p2, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
+    .line 487
+    .local v10, "writer_attr":Ljava/lang/String;
     const-string/jumbo v11, "value"
 
     invoke-interface {p2, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
+    .line 488
+    .local v8, "value_attr":Ljava/lang/String;
     const-string v11, "option"
 
     invoke-interface {p2, v12, v11}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
+    .line 489
+    .local v4, "option_attr":Ljava/lang/String;
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mWriters:Ljava/util/HashMap;
@@ -449,12 +527,17 @@
 
     check-cast v9, Lcom/android/server/ssrm/settings/SettingWriter;
 
+    .line 490
+    .local v9, "writer":Lcom/android/server/ssrm/settings/SettingWriter;, "Lcom/android/server/ssrm/settings/SettingWriter<*>;"
     if-eqz v9, :cond_d
 
+    .line 491
     if-nez v4, :cond_c
 
+    .line 492
     const-string v4, "null"
 
+    .line 494
     :cond_c
     iget-object v11, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mCurrentBatteryState:Lcom/android/server/ssrm/settings/BatteryState;
 
@@ -466,6 +549,7 @@
 
     goto/16 :goto_1
 
+    .line 497
     :cond_d
     new-instance v11, Ljava/lang/StringBuilder;
 
@@ -493,15 +577,23 @@
 
     goto/16 :goto_1
 
+    .line 504
+    .end local v4    # "option_attr":Ljava/lang/String;
+    .end local v8    # "value_attr":Ljava/lang/String;
+    .end local v9    # "writer":Lcom/android/server/ssrm/settings/SettingWriter;, "Lcom/android/server/ssrm/settings/SettingWriter<*>;"
+    .end local v10    # "writer_attr":Ljava/lang/String;
     :cond_e
     return-void
 .end method
 
 .method handleStartTag(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 3
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 430
     const-string/jumbo v0, "true"
 
     const-string v1, "default"
@@ -516,6 +608,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mIsDefaultLevel:Z
 
+    .line 432
     iget-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mController:Lcom/android/server/ssrm/settings/MainController;
@@ -533,10 +626,12 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevel:Lcom/android/server/ssrm/settings/Level;
 
+    .line 433
     iget-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevel:Lcom/android/server/ssrm/settings/Level;
 
     invoke-virtual {v0, v2}, Lcom/android/server/ssrm/settings/Level;->initialize(Lcom/android/server/ssrm/settings/BatteryControllerFactory;)V
 
+    .line 435
     iget-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mLevel:Lcom/android/server/ssrm/settings/Level;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/settings/Level;->batteryStatesFactory()Lcom/android/server/ssrm/settings/BatteryControllerFactory;
@@ -545,5 +640,6 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$LevelTagAction;->mStateFactory:Lcom/android/server/ssrm/settings/BatteryControllerFactory;
 
+    .line 436
     return-void
 .end method

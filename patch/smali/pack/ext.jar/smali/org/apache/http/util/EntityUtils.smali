@@ -389,14 +389,14 @@
     :catchall_0
     move-exception v7
 
-    invoke-virtual {v5}, Ljava/io/Reader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
 
     throw v7
 
     .restart local v4    # "l":I
     .restart local v6    # "tmp":[C
     :cond_6
-    invoke-virtual {v5}, Ljava/io/Reader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
 
     .line 141
     invoke-virtual {v0}, Lorg/apache/http/util/CharArrayBuffer;->toString()Ljava/lang/String;

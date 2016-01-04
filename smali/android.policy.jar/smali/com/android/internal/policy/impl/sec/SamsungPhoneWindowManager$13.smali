@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 2096
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 2098
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$13;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->isScreenCaptureEnabled()Z
@@ -46,6 +50,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 2101
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -56,10 +61,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2105
     :cond_0
     :goto_0
     return-void
 
+    .line 2103
     :cond_1
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 

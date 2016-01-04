@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;)V
     .locals 0
 
+    .prologue
+    .line 235
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$2;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 238
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$2;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -46,12 +50,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 239
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "call requestStopScan"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 240
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$2;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -61,6 +67,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayController;->requestStopScan()V
 
+    .line 242
     :cond_0
     return-void
 .end method

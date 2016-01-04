@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$InvokeListBox;Landroid/webkitsec/WebViewClassic$InvokeListBox$MyArrayListAdapter;Landroid/widget/ListView;)V
     .locals 0
 
+    .prologue
+    .line 14411
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iput-object p2, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->val$adapter:Landroid/webkitsec/WebViewClassic$InvokeListBox$MyArrayListAdapter;
@@ -44,9 +46,12 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 14413
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -56,6 +61,7 @@
     # setter for: Landroid/webkitsec/WebViewClassic;->mSelectFocusMoved:Z
     invoke-static {v0, v1}, Landroid/webkitsec/WebViewClassic;->access$9402(Landroid/webkitsec/WebViewClassic;Z)Z
 
+    .line 14414
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -64,6 +70,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 14415
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -75,6 +82,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 14416
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -86,6 +94,7 @@
 
     invoke-virtual {v0}, Landroid/webkitsec/WebSelectDialog;->dismiss()V
 
+    .line 14417
     :cond_0
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
@@ -96,6 +105,7 @@
     # setter for: Landroid/webkitsec/WebViewClassic;->mWebSelectDialog:Landroid/webkitsec/WebSelectDialog;
     invoke-static {v0, v1}, Landroid/webkitsec/WebViewClassic;->access$9302(Landroid/webkitsec/WebViewClassic;Landroid/webkitsec/WebSelectDialog;)Landroid/webkitsec/WebSelectDialog;
 
+    .line 14418
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -103,6 +113,7 @@
     # setter for: Landroid/webkitsec/WebViewClassic;->bWebSelectDialogIsUp:Z
     invoke-static {v0, v4}, Landroid/webkitsec/WebViewClassic;->access$9202(Landroid/webkitsec/WebViewClassic;Z)Z
 
+    .line 14421
     :cond_1
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
@@ -115,6 +126,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 14422
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     # getter for: Landroid/webkitsec/WebViewClassic$InvokeListBox;->mMultiple:Z
@@ -124,6 +136,7 @@
 
     if-eqz v0, :cond_4
 
+    .line 14423
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -137,18 +150,19 @@
 
     iget-object v2, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->val$adapter:Landroid/webkitsec/WebViewClassic$InvokeListBox$MyArrayListAdapter;
 
-    invoke-virtual {v2}, Landroid/webkitsec/WebViewClassic$InvokeListBox$MyArrayListAdapter;->getCount()I
+    invoke-virtual {v2}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v2
 
     iget-object v3, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->val$listView:Landroid/widget/ListView;
 
-    invoke-virtual {v3}, Landroid/widget/ListView;->getCheckedItemPositions()Landroid/util/SparseBooleanArray;
+    invoke-virtual {v3}, Landroid/widget/AbsListView;->getCheckedItemPositions()Landroid/util/SparseBooleanArray;
 
     move-result-object v3
 
     invoke-virtual {v0, v1, v2, v4, v3}, Landroid/webkitsec/WebViewCore;->sendMessage(IIILjava/lang/Object;)V
 
+    .line 14431
     :goto_0
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
@@ -163,6 +177,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkitsec/WebViewCore;->sendMessage(I)V
 
+    .line 14434
     :cond_2
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
@@ -172,6 +187,7 @@
 
     if-eqz v0, :cond_3
 
+    .line 14435
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -180,9 +196,11 @@
 
     invoke-virtual {v0}, Landroid/webkitsec/WebViewClassic$WebViewInputConnection;->moveCursorToEnd()V
 
+    .line 14438
     :cond_3
     return-void
 
+    .line 14428
     :cond_4
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$2;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 

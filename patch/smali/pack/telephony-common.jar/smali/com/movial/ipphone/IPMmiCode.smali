@@ -179,7 +179,7 @@
     iput-object p1, p0, Lcom/movial/ipphone/IPMmiCode;->phone:Lcom/movial/ipphone/IPPhone;
 
     .line 458
-    invoke-virtual {p1}, Lcom/movial/ipphone/IPPhone;->getContext()Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -2941,7 +2941,7 @@
 
     const/4 v1, 0x7
 
-    invoke-virtual {p0, v1, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
@@ -3999,7 +3999,7 @@
 
     const/4 v11, 0x1
 
-    invoke-virtual {p0, v11, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v11, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v11
 
@@ -4022,7 +4022,7 @@
 
     const/4 v11, 0x1
 
-    invoke-virtual {p0, v11, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v11, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v11
 
@@ -4043,7 +4043,7 @@
 
     const/4 v5, 0x1
 
-    invoke-virtual {p0, v5, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v5, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v5
 
@@ -4178,7 +4178,7 @@
 
     const/4 v5, 0x6
 
-    invoke-virtual {p0, v5, v8, v7, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v5, v8, v7, p0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v5
 
@@ -4303,7 +4303,7 @@
 
     const/4 v11, 0x1
 
-    invoke-virtual {p0, v11, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v11, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v11
 
@@ -4380,7 +4380,7 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {p0, v1, p0}, Lcom/movial/ipphone/IPMmiCode;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 

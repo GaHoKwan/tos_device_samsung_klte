@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;Z)V
     .locals 0
 
+    .prologue
+    .line 3967
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
 
     iput-object p2, p0, Lcom/android/server/power/PowerManagerService$3;->val$reason:Ljava/lang/String;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 3969
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # invokes: Lcom/android/server/power/PowerManagerService;->getDebugLevel()I
@@ -54,10 +58,12 @@
 
     if-lez v0, :cond_0
 
+    .line 3970
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/power/PowerManagerService;->dumpDebugLog()V
 
+    .line 3972
     :cond_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -68,6 +74,7 @@
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->release()V
 
+    .line 3974
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$3;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
@@ -81,5 +88,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/power/ShutdownThread;->fakeShutdown(Landroid/content/Context;Ljava/lang/String;Z)V
 
+    .line 3975
     return-void
 .end method

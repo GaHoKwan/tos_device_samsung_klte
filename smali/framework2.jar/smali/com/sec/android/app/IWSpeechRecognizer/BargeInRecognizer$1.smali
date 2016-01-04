@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;)V
     .locals 0
 
+    .prologue
+    .line 114
     iput-object p1, p0, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer$1;->this$0:Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 117
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
@@ -44,9 +49,12 @@
 
     move-result v0
 
+    .line 118
+    .local v0, "result":I
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer$1;->this$0:Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;
 
     invoke-virtual {v1, v0}, Lcom/sec/android/app/IWSpeechRecognizer/BargeInRecognizer;->delayedStartBargeIn(I)V
 
+    .line 119
     return-void
 .end method

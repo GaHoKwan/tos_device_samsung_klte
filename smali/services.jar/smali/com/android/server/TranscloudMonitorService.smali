@@ -25,6 +25,8 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
+    .line 27
     const/4 v0, 0x1
 
     new-array v0, v0, [Landroid/content/pm/Signature;
@@ -46,28 +48,39 @@
 
 .method constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "mainHandler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/TranscloudMonitorService;->transcloud:Landroid/os/IBinder;
 
+    .line 54
     iput-object p1, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
+    .line 55
     iput-object p2, p0, Lcom/android/server/TranscloudMonitorService;->mMainHandler:Landroid/os/Handler;
 
+    .line 58
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->checkTranscloudManagerService()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 59
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->addTranscloudManagerService()Z
 
+    .line 63
     :goto_0
     return-void
 
+    .line 61
     :cond_0
     const-string v0, "Transcloud"
 
@@ -80,7 +93,10 @@
 
 .method static synthetic access$000(Lcom/android/server/TranscloudMonitorService;)Z
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/TranscloudMonitorService;
 
+    .prologue
+    .line 20
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->addTranscloudManagerService()Z
 
     move-result v0
@@ -90,7 +106,10 @@
 
 .method static synthetic access$100(Lcom/android/server/TranscloudMonitorService;)Z
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/TranscloudMonitorService;
 
+    .prologue
+    .line 20
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->systemReadyTranscloudManagerService()Z
 
     move-result v0
@@ -100,7 +119,10 @@
 
 .method static synthetic access$200(Lcom/android/server/TranscloudMonitorService;)Landroid/content/Context;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/TranscloudMonitorService;
 
+    .prologue
+    .line 20
     iget-object v0, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -109,16 +131,19 @@
 .method private addTranscloudManagerService()Z
     .locals 10
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v6, 0x0
 
+    .line 86
     const-string v4, "Transcloud"
 
     const-string v7, "add TranscloudManagerService..."
 
     invoke-static {v4, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 89
     :try_start_0
     iget-object v4, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
@@ -130,16 +155,22 @@
 
     move-result-object v0
 
+    .line 91
+    .local v0, "apkContext":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v1
 
+    .line 92
+    .local v1, "classLoader":Ljava/lang/ClassLoader;
     const-string v4, "com.samsung.android.service.transcloud.system.TranscloudManagerService"
 
     invoke-virtual {v1, v4}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v3
 
+    .line 93
+    .local v3, "managerServiceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v4, 0x2
 
     new-array v4, v4, [Ljava/lang/Class;
@@ -184,6 +215,7 @@
 
     iput-object v4, p0, Lcom/android/server/TranscloudMonitorService;->transcloud:Landroid/os/IBinder;
 
+    .line 94
     const-string/jumbo v4, "transcloud"
 
     iget-object v7, p0, Lcom/android/server/TranscloudMonitorService;->transcloud:Landroid/os/IBinder;
@@ -194,14 +226,22 @@
 
     move v4, v5
 
+    .line 100
+    .end local v0    # "apkContext":Landroid/content/Context;
+    .end local v1    # "classLoader":Ljava/lang/ClassLoader;
+    .end local v3    # "managerServiceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     :goto_0
     return v4
 
+    .line 96
     :catch_0
     move-exception v2
 
+    .line 97
+    .local v2, "e":Ljava/lang/Exception;
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->registerTranscloudInstallObserver()V
 
+    .line 98
     const-string v4, "Transcloud"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -214,7 +254,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -230,48 +270,62 @@
 
     move v4, v6
 
+    .line 100
     goto :goto_0
 .end method
 
 .method private checkTranscloudManagerService()Z
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 164
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->isTranscloudInstalled()Z
 
     move-result v1
 
+    .line 165
+    .local v1, "transcloudInstalled":Z
     if-nez v1, :cond_0
 
+    .line 166
     const-string v3, "Transcloud"
 
     const-string v4, "Failure starting TranscloudManagerService - transcloud not installed."
 
     invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 167
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->registerTranscloudInstallObserver()V
 
+    .line 178
     :goto_0
     return v2
 
+    .line 172
     :cond_0
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->isSignatureMatch()Z
 
     move-result v0
 
+    .line 173
+    .local v0, "signatureMatch":Z
     if-nez v0, :cond_1
 
+    .line 174
     const-string v3, "Transcloud"
 
     const-string v4, "Failure starting TranscloudManagerService - signature miss match."
 
     invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 175
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->registerTranscloudInstallObserver()V
 
     goto :goto_0
 
+    .line 178
     :cond_1
     const/4 v2, 0x1
 
@@ -281,6 +335,8 @@
 .method private isSignatureMatch()Z
     .locals 12
 
+    .prologue
+    .line 203
     const-string v9, "eng"
 
     sget-object v10, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -291,15 +347,20 @@
 
     if-eqz v9, :cond_1
 
+    .line 204
     const/4 v7, 0x1
 
+    .line 226
     :cond_0
     :goto_0
     return v7
 
+    .line 208
     :cond_1
     const/4 v7, 0x0
 
+    .line 210
+    .local v7, "signatureMatch":Z
     :try_start_0
     iget-object v9, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
@@ -315,23 +376,34 @@
 
     move-result-object v5
 
+    .line 211
+    .local v5, "pkgInfo":Landroid/content/pm/PackageInfo;
     iget-object v8, v5, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
+    .line 212
+    .local v8, "signatures":[Landroid/content/pm/Signature;
     if-eqz v8, :cond_0
 
+    .line 213
     move-object v0, v8
 
+    .local v0, "arr$":[Landroid/content/pm/Signature;
     array-length v4, v0
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_1
     if-ge v3, v4, :cond_0
 
     aget-object v6, v0, v3
 
+    .line 214
+    .local v6, "signature":Landroid/content/pm/Signature;
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_2
     sget-object v9, Lcom/android/server/TranscloudMonitorService;->SIGNATURES:[Landroid/content/pm/Signature;
 
@@ -339,6 +411,7 @@
 
     if-ge v2, v9, :cond_2
 
+    .line 215
     sget-object v9, Lcom/android/server/TranscloudMonitorService;->SIGNATURES:[Landroid/content/pm/Signature;
 
     aget-object v9, v9, v2
@@ -351,21 +424,34 @@
 
     if-eqz v9, :cond_3
 
+    .line 216
     const/4 v7, 0x1
 
+    .line 213
     :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
+    .line 214
     :cond_3
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
+    .line 222
+    .end local v0    # "arr$":[Landroid/content/pm/Signature;
+    .end local v2    # "i":I
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v5    # "pkgInfo":Landroid/content/pm/PackageInfo;
+    .end local v6    # "signature":Landroid/content/pm/Signature;
+    .end local v8    # "signatures":[Landroid/content/pm/Signature;
     :catch_0
     move-exception v1
 
+    .line 223
+    .local v1, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v9, "Transcloud"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -378,7 +464,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v1}, Landroid/content/pm/PackageManager$NameNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v11
 
@@ -392,6 +478,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 224
     const/4 v7, 0x0
 
     goto :goto_0
@@ -400,6 +487,8 @@
 .method private isTranscloudInstalled()Z
     .locals 3
 
+    .prologue
+    .line 188
     :try_start_0
     iget-object v0, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
@@ -415,14 +504,18 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 189
     const/4 v0, 0x1
 
+    .line 192
     :goto_0
     return v0
 
+    .line 190
     :catch_0
     move-exception v0
 
+    .line 192
     const/4 v0, 0x0
 
     goto :goto_0
@@ -431,24 +524,31 @@
 .method private registerTranscloudInstallObserver()V
     .locals 3
 
+    .prologue
+    .line 137
     const-string v1, "Transcloud"
 
     const-string v2, "register transcloud install observer..."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 138
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 139
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 140
     const-string v1, "package"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
+    .line 141
     iget-object v1, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
     new-instance v2, Lcom/android/server/TranscloudMonitorService$1;
@@ -457,27 +557,32 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 155
     return-void
 .end method
 
 .method private systemReadyTranscloudManagerService()Z
     .locals 13
 
+    .prologue
     const/4 v6, 0x1
 
     const/4 v7, 0x0
 
+    .line 104
     const-string v8, "Transcloud"
 
     const-string/jumbo v9, "systemReady TranscloudManagerService..."
 
     invoke-static {v8, v9}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 107
     :try_start_0
     iget-object v8, p0, Lcom/android/server/TranscloudMonitorService;->transcloud:Landroid/os/IBinder;
 
     if-eqz v8, :cond_0
 
+    .line 108
     iget-object v8, p0, Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
 
     const-string v9, "com.samsung.android.service.transcloud"
@@ -488,22 +593,30 @@
 
     move-result-object v0
 
+    .line 110
+    .local v0, "apkContext":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
 
     move-result-object v1
 
+    .line 111
+    .local v1, "classLoader":Ljava/lang/ClassLoader;
     const-string v8, "com.samsung.android.service.transcloud.system.TranscloudManagerService"
 
     invoke-virtual {v1, v8}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v4
 
+    .line 113
+    .local v4, "managerServiceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v8, "com.samsung.android.service.transcloud.ITranscloudManager$Stub"
 
     invoke-virtual {v1, v8}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v3
 
+    .line 114
+    .local v3, "managerClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const-string v8, "Transcloud"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -530,6 +643,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 115
     const-string v8, "Transcloud"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -556,6 +670,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 116
     const-string v8, "Transcloud"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -580,6 +695,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 118
     const-string v8, "asInterface"
 
     const/4 v9, 0x1
@@ -612,6 +728,8 @@
 
     move-result-object v5
 
+    .line 119
+    .local v5, "service":Ljava/lang/Object;
     const-string v8, "Transcloud"
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -642,6 +760,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 120
     const-string/jumbo v8, "systemReady"
 
     const/4 v9, 0x0
@@ -658,9 +777,16 @@
 
     invoke-virtual {v8, v5, v9}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 130
+    .end local v0    # "apkContext":Landroid/content/Context;
+    .end local v1    # "classLoader":Ljava/lang/ClassLoader;
+    .end local v3    # "managerClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v4    # "managerServiceClazz":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
+    .end local v5    # "service":Ljava/lang/Object;
     :goto_0
     return v6
 
+    .line 123
     :cond_0
     const-string v6, "Transcloud"
 
@@ -672,13 +798,18 @@
 
     move v6, v7
 
+    .line 124
     goto :goto_0
 
+    .line 126
     :catch_0
     move-exception v2
 
+    .line 127
+    .local v2, "e":Ljava/lang/Exception;
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->registerTranscloudInstallObserver()V
 
+    .line 128
     const-string v6, "Transcloud"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -691,7 +822,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
@@ -707,6 +838,7 @@
 
     move v6, v7
 
+    .line 130
     goto :goto_0
 .end method
 
@@ -715,27 +847,35 @@
 .method public systemRunning()V
     .locals 3
 
+    .prologue
+    .line 69
     const-string v1, "Transcloud"
 
     const-string/jumbo v2, "systemRunning TranscloudManagerService..."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 72
     invoke-direct {p0}, Lcom/android/server/TranscloudMonitorService;->systemReadyTranscloudManagerService()Z
 
     move-result v0
 
+    .line 73
+    .local v0, "started":Z
     if-eqz v0, :cond_0
 
+    .line 74
     const-string v1, "Transcloud"
 
     const-string/jumbo v2, "systemRunning ok.."
 
     invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 78
     :goto_0
     return-void
 
+    .line 76
     :cond_0
     const-string v1, "Transcloud"
 

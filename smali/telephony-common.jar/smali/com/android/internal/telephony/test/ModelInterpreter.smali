@@ -576,7 +576,7 @@
     .line 190
     iget-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->mHandlerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v1}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     .line 191
     iget-object v1, p0, Lcom/android/internal/telephony/test/ModelInterpreter;->mHandlerThread:Landroid/os/HandlerThread;
@@ -924,7 +924,7 @@
 
     .line 631
     .local v1, "ex":Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -987,7 +987,7 @@
 
     .line 615
     .local v1, "ex":Ljava/io/IOException;
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1507,7 +1507,7 @@
 
     .line 257
     .local v0, "ex":Ljava/lang/RuntimeException;
-    invoke-virtual {v0}, Ljava/lang/RuntimeException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 258
     const-string v3, "ERROR"

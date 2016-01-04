@@ -1038,7 +1038,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -2080,7 +2080,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v4}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -2130,7 +2130,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v4}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -2225,7 +2225,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v5}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -2512,7 +2512,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -2588,7 +2588,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/LinkageError;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -3332,7 +3332,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lorg/apache/commons/logging/LogConfigurationException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

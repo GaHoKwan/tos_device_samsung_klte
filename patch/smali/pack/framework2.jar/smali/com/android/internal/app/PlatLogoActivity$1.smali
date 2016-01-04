@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;Landroid/widget/TextView;)V
     .locals 0
 
+    .prologue
+    .line 106
     iput-object p1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
     iput-object p2, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$letter:Landroid/widget/TextView;
@@ -42,40 +44,48 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 7
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 110
     iget v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->clicks:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->clicks:I
 
+    .line 111
     iget v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->clicks:I
 
     const/4 v2, 0x6
 
     if-lt v1, v2, :cond_0
 
+    .line 112
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
     iget-object v1, v1, Lcom/android/internal/app/PlatLogoActivity;->mContent:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->performLongClick()Z
+    invoke-virtual {v1}, Landroid/view/View;->performLongClick()Z
 
+    .line 121
     :goto_0
     return-void
 
+    .line 115
     :cond_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$letter:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
     invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
+    .line 116
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$letter:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getRotation()F
+    invoke-virtual {v1}, Landroid/view/View;->getRotation()F
 
     move-result v1
 
@@ -85,9 +95,11 @@
 
     int-to-float v0, v1
 
+    .line 117
+    .local v0, "offset":F
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$1;->val$letter:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v2
 

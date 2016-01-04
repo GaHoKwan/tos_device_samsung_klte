@@ -1,0 +1,17 @@
+<SamsungMobileLanguage>
+   <Country>China</Country>
+   <CountryISO>CN</CountryISO>
+   <SalesCode>CHM</SalesCode>
+   <LanguageSet>
+          <Display>
+           zh_CN;en_US;ko_KR;
+          </Display>
+          <Input>
+                <SupportList>
+                 zh_CN;en_US;ko_KR;
+                </SupportList>
+                <EnableList>
+                </EnableList>
+          </Input>
+   </LanguageSet>
+</SamsungMobileLanguage>

@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/wifi/WifiPolicy;Landroid/net/wifi/WifiConfiguration;I)V
     .locals 0
 
+    .prologue
+    .line 2485
     iput-object p1, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$1;->this$0:Lcom/android/server/enterprise/wifi/WifiPolicy;
 
     iput-object p2, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$1;->val$config:Landroid/net/wifi/WifiConfiguration;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2487
     iget-object v0, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$1;->this$0:Lcom/android/server/enterprise/wifi/WifiPolicy;
 
     iget-object v1, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$1;->val$config:Landroid/net/wifi/WifiConfiguration;
@@ -54,5 +58,6 @@
     # invokes: Lcom/android/server/enterprise/wifi/WifiPolicy;->edmAddOrUpdateTask(Landroid/net/wifi/WifiConfiguration;I)V
     invoke-static {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->access$000(Lcom/android/server/enterprise/wifi/WifiPolicy;Landroid/net/wifi/WifiConfiguration;I)V
 
+    .line 2488
     return-void
 .end method

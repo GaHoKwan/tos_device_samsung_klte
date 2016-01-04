@@ -48,7 +48,7 @@
 
     .prologue
     .line 29
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     .prologue
     .line 29
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v0
 
@@ -74,7 +74,7 @@
 
     .prologue
     .line 29
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v0
 
@@ -87,7 +87,7 @@
 
     .prologue
     .line 29
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v0
 
@@ -172,7 +172,7 @@
 
     .prologue
     .line 163
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getContext()Landroid/content/Context;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -190,7 +190,7 @@
 
     .line 168
     :cond_1
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getContext()Landroid/content/Context;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 

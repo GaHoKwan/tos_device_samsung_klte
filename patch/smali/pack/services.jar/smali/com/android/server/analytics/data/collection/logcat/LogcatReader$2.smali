@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/analytics/data/collection/logcat/LogcatReader;)V
     .locals 0
 
+    .prologue
+    .line 246
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$2;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,17 +39,24 @@
 .method public onFinished()V
     .locals 0
 
+    .prologue
+    .line 249
     return-void
 .end method
 
 .method public onStarted()V
     .locals 0
 
+    .prologue
+    .line 257
     return-void
 .end method
 
 .method public processLogcatRecord(Ljava/lang/String;)V
     .locals 0
+    .param p1, "record"    # Ljava/lang/String;
 
+    .prologue
+    .line 253
     return-void
 .end method

@@ -26,12 +26,16 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Lcom/android/server/ssrm/fgapps/FgAppListener;-><init>()V
 
+    .line 33
     const-string v0, "SSRMv2:TSP:GlobeMode"
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->TAG:Ljava/lang/String;
 
+    .line 40
     return-void
 .end method
 
@@ -40,12 +44,15 @@
 .method public onBootComplete()V
     .locals 5
 
+    .prologue
+    .line 65
     new-instance v0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode$TouchSensitivityObserver;
 
     invoke-direct {v0, p0}, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode$TouchSensitivityObserver;-><init>(Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;)V
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->mObserver:Lcom/android/server/ssrm/fgapps/tsp/GlobeMode$TouchSensitivityObserver;
 
+    .line 66
     sget-object v0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -54,6 +61,7 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->mResolver:Landroid/content/ContentResolver;
 
+    .line 67
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->mResolver:Landroid/content/ContentResolver;
 
     const-string v1, "auto_adjust_touch"
@@ -70,11 +78,13 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
+    .line 70
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode;->mObserver:Lcom/android/server/ssrm/fgapps/tsp/GlobeMode$TouchSensitivityObserver;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/fgapps/tsp/GlobeMode$TouchSensitivityObserver;->onChange(Z)V
 
+    .line 71
     return-void
 .end method

@@ -41,6 +41,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 22
     const-string v0, "WifiOffloadDB"
 
     sput-object v0, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
@@ -50,7 +52,10 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 46
     const-string/jumbo v0, "wifioffload.db"
 
     const/4 v1, 0x0
@@ -59,20 +64,26 @@
 
     invoke-direct {p0, p1, v0, v1, v2}, Landroid/database/sqlite/SQLiteOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
 
+    .line 47
     return-void
 .end method
 
 .method private createWiFiData(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 1
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
+    .prologue
+    .line 76
     const-string v0, "CREATE TABLE wifi_data(_id INTEGER PRIMARY KEY AUTOINCREMENT,stationid INTEGER,wifissid TEXT NOT NULL,wifibssid TEXT,lastuseddate TEXT,dialogstatus INTEGER);"
 
     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
+    .line 89
     const-string v0, "CREATE TABLE data_usage(_id INTEGER PRIMARY KEY AUTOINCREMENT,userid INTEGER,pkgname TEXT NOT NULL,datausage INTEGER,launchcount INTEGER,offload INTEGER);"
 
     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
+    .line 100
     return-void
 .end method
 
@@ -80,59 +91,87 @@
 # virtual methods
 .method public deleteWifiDetail(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "selection"    # Ljava/lang/String;
+    .param p3, "selectionArgs"    # [Ljava/lang/String;
+    .param p4, "tableName"    # Ljava/lang/String;
 
+    .prologue
+    .line 140
     const/4 v0, 0x0
 
+    .line 141
+    .local v0, "count":I
     if-nez p1, :cond_0
 
+    .line 142
     sget-object v1, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
 
     const-string v2, "dbase is null , so recreate"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/wifi_offload/WifiOffloadDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    .line 143
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object p1
 
+    .line 145
     :cond_0
     invoke-virtual {p1, p4, p2, p3}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v0
 
+    .line 146
     return v0
 .end method
 
 .method public insertWiFiDetails(Landroid/database/sqlite/SQLiteDatabase;Landroid/content/ContentValues;Ljava/lang/String;)V
     .locals 2
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "tableName"    # Ljava/lang/String;
 
+    .prologue
+    .line 104
     if-nez p1, :cond_0
 
+    .line 105
     sget-object v0, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
 
     const-string v1, "dbase is null , so recreate"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/wifi_offload/WifiOffloadDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    .line 106
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object p1
 
+    .line 108
     :cond_0
     const-string v0, ""
 
     invoke-virtual {p1, p3, v0, p2}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
+    .line 109
     return-void
 .end method
 
 .method public isWiFiDataStored(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;I)Z
     .locals 9
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "bssid"    # Ljava/lang/String;
+    .param p3, "stationID"    # I
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 157
     const/4 v7, 0x0
 
+    .line 158
+    .local v7, "available":Z
     const/4 v0, 0x1
 
     new-array v2, v0, [Ljava/lang/String;
@@ -201,26 +240,38 @@
 
     move-result-object v8
 
+    .line 159
+    .local v8, "cursor":Landroid/database/Cursor;
     if-eqz v8, :cond_1
 
+    .line 160
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
     move-result v0
 
     if-lez v0, :cond_0
 
+    .line 161
     const/4 v7, 0x1
 
+    .line 163
     :cond_0
     invoke-interface {v8}, Landroid/database/Cursor;->close()V
 
+    .line 165
     :cond_1
     return v7
 .end method
 
 .method public isWiFiDataStored(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;II)Z
     .locals 1
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "bssid"    # Ljava/lang/String;
+    .param p3, "stationID"    # I
+    .param p4, "networkType"    # I
 
+    .prologue
+    .line 189
     const/4 v0, 0x0
 
     return v0
@@ -228,15 +279,24 @@
 
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
 
+    .prologue
+    .line 53
     invoke-direct {p0, p1}, Lcom/android/server/wifi_offload/WifiOffloadDB;->createWiFiData(Landroid/database/sqlite/SQLiteDatabase;)V
 
+    .line 54
     return-void
 .end method
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 3
+    .param p1, "db"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "oldVersion"    # I
+    .param p3, "currentVersion"    # I
 
+    .prologue
+    .line 58
     sget-object v0, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -269,29 +329,43 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 60
     return-void
 .end method
 
 .method public query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 9
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "sortOrder"    # Ljava/lang/String;
+    .param p6, "tableName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 125
     new-instance v0, Landroid/database/sqlite/SQLiteQueryBuilder;
 
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteQueryBuilder;-><init>()V
 
+    .line 127
+    .local v0, "sqlBuilder":Landroid/database/sqlite/SQLiteQueryBuilder;
     invoke-virtual {v0, p6}, Landroid/database/sqlite/SQLiteQueryBuilder;->setTables(Ljava/lang/String;)V
 
+    .line 128
     if-nez p1, :cond_0
 
+    .line 129
     sget-object v1, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
 
     const-string v2, "dbase is null , so recreate"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/wifi_offload/WifiOffloadDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    .line 130
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object p1
 
@@ -308,34 +382,50 @@
 
     move-object v7, p5
 
+    .line 132
     invoke-virtual/range {v0 .. v7}, Landroid/database/sqlite/SQLiteQueryBuilder;->query(Landroid/database/sqlite/SQLiteDatabase;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v8
 
+    .line 134
+    .local v8, "cursor":Landroid/database/Cursor;
     return-object v8
 .end method
 
 .method public updateWiFiDetails(Landroid/database/sqlite/SQLiteDatabase;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
+    .param p1, "dbase"    # Landroid/database/sqlite/SQLiteDatabase;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "tableName"    # Ljava/lang/String;
 
+    .prologue
+    .line 113
     const/4 v0, 0x0
 
+    .line 114
+    .local v0, "count":I
     if-nez p1, :cond_0
 
+    .line 115
     sget-object v1, Lcom/android/server/wifi_offload/WifiOffloadDB;->TAG:Ljava/lang/String;
 
     const-string v2, "dbase is null , so recreate"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/wifi_offload/WifiOffloadDB;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    .line 116
+    invoke-virtual {p0}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object p1
 
+    .line 118
     :cond_0
     invoke-virtual {p1, p5, p2, p3, p4}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v0
 
+    .line 119
     return v0
 .end method

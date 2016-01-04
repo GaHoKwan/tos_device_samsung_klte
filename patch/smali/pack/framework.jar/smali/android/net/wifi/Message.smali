@@ -162,7 +162,7 @@
 
     .line 52
     .local v0, "e":Ljava/net/URISyntaxException;
-    invoke-virtual {v0}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -197,7 +197,7 @@
 
     .line 66
     .local v0, "e":Ljava/net/URISyntaxException;
-    invoke-virtual {v0}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -252,7 +252,7 @@
 
     .line 77
     .local v0, "e":Ljava/net/URISyntaxException;
-    invoke-virtual {v0}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

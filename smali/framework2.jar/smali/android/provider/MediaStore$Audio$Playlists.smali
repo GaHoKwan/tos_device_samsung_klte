@@ -40,6 +40,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 1607
     const-string v0, "internal"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Playlists;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -48,6 +50,7 @@
 
     sput-object v0, Landroid/provider/MediaStore$Audio$Playlists;->INTERNAL_CONTENT_URI:Landroid/net/Uri;
 
+    .line 1614
     const-string v0, "external"
 
     invoke-static {v0}, Landroid/provider/MediaStore$Audio$Playlists;->getContentUri(Ljava/lang/String;)Landroid/net/Uri;
@@ -62,14 +65,20 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1590
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1635
     return-void
 .end method
 
 .method public static getContentUri(Ljava/lang/String;)Landroid/net/Uri;
     .locals 2
+    .param p0, "volumeName"    # Ljava/lang/String;
 
+    .prologue
+    .line 1600
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

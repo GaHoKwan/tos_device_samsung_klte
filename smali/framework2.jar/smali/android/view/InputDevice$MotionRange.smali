@@ -33,29 +33,56 @@
 # direct methods
 .method private constructor <init>(IIFFFFF)V
     .locals 0
+    .param p1, "axis"    # I
+    .param p2, "source"    # I
+    .param p3, "min"    # F
+    .param p4, "max"    # F
+    .param p5, "flat"    # F
+    .param p6, "fuzz"    # F
+    .param p7, "resolution"    # F
 
+    .prologue
+    .line 717
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 718
     iput p1, p0, Landroid/view/InputDevice$MotionRange;->mAxis:I
 
+    .line 719
     iput p2, p0, Landroid/view/InputDevice$MotionRange;->mSource:I
 
+    .line 720
     iput p3, p0, Landroid/view/InputDevice$MotionRange;->mMin:F
 
+    .line 721
     iput p4, p0, Landroid/view/InputDevice$MotionRange;->mMax:F
 
+    .line 722
     iput p5, p0, Landroid/view/InputDevice$MotionRange;->mFlat:F
 
+    .line 723
     iput p6, p0, Landroid/view/InputDevice$MotionRange;->mFuzz:F
 
+    .line 724
     iput p7, p0, Landroid/view/InputDevice$MotionRange;->mResolution:F
 
+    .line 725
     return-void
 .end method
 
 .method synthetic constructor <init>(IIFFFFFLandroid/view/InputDevice$1;)V
     .locals 0
+    .param p1, "x0"    # I
+    .param p2, "x1"    # I
+    .param p3, "x2"    # F
+    .param p4, "x3"    # F
+    .param p5, "x4"    # F
+    .param p6, "x5"    # F
+    .param p7, "x6"    # F
+    .param p8, "x7"    # Landroid/view/InputDevice$1;
 
+    .prologue
+    .line 707
     invoke-direct/range {p0 .. p7}, Landroid/view/InputDevice$MotionRange;-><init>(IIFFFFF)V
 
     return-void
@@ -63,7 +90,10 @@
 
 .method static synthetic access$100(Landroid/view/InputDevice$MotionRange;)I
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mAxis:I
 
     return v0
@@ -71,7 +101,10 @@
 
 .method static synthetic access$200(Landroid/view/InputDevice$MotionRange;)I
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mSource:I
 
     return v0
@@ -79,7 +112,10 @@
 
 .method static synthetic access$400(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mMin:F
 
     return v0
@@ -87,7 +123,10 @@
 
 .method static synthetic access$500(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mMax:F
 
     return v0
@@ -95,7 +134,10 @@
 
 .method static synthetic access$600(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mFlat:F
 
     return v0
@@ -103,7 +145,10 @@
 
 .method static synthetic access$700(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mFuzz:F
 
     return v0
@@ -111,7 +156,10 @@
 
 .method static synthetic access$800(Landroid/view/InputDevice$MotionRange;)F
     .locals 1
+    .param p0, "x0"    # Landroid/view/InputDevice$MotionRange;
 
+    .prologue
+    .line 707
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mResolution:F
 
     return v0
@@ -122,6 +170,8 @@
 .method public getAxis()I
     .locals 1
 
+    .prologue
+    .line 732
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mAxis:I
 
     return v0
@@ -130,6 +180,8 @@
 .method public getFlat()F
     .locals 1
 
+    .prologue
+    .line 789
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mFlat:F
 
     return v0
@@ -138,6 +190,8 @@
 .method public getFuzz()F
     .locals 1
 
+    .prologue
+    .line 801
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mFuzz:F
 
     return v0
@@ -146,6 +200,8 @@
 .method public getMax()F
     .locals 1
 
+    .prologue
+    .line 769
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mMax:F
 
     return v0
@@ -154,6 +210,8 @@
 .method public getMin()F
     .locals 1
 
+    .prologue
+    .line 761
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mMin:F
 
     return v0
@@ -162,6 +220,8 @@
 .method public getRange()F
     .locals 2
 
+    .prologue
+    .line 777
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mMax:F
 
     iget v1, p0, Landroid/view/InputDevice$MotionRange;->mMin:F
@@ -174,6 +234,8 @@
 .method public getResolution()F
     .locals 1
 
+    .prologue
+    .line 809
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mResolution:F
 
     return v0
@@ -182,6 +244,8 @@
 .method public getSource()I
     .locals 1
 
+    .prologue
+    .line 740
     iget v0, p0, Landroid/view/InputDevice$MotionRange;->mSource:I
 
     return v0
@@ -189,7 +253,10 @@
 
 .method public isFromSource(I)Z
     .locals 1
+    .param p1, "source"    # I
 
+    .prologue
+    .line 753
     invoke-virtual {p0}, Landroid/view/InputDevice$MotionRange;->getSource()I
 
     move-result v0

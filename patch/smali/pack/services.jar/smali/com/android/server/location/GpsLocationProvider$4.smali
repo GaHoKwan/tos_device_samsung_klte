@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
 
+    .prologue
+    .line 680
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 17
 
+    .prologue
+    .line 686
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -56,6 +60,7 @@
 
     if-ltz v1, :cond_0
 
+    .line 687
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -67,6 +72,7 @@
 
     invoke-virtual {v1}, Landroid/util/NtpTrustedTime;->forceRefresh()Z
 
+    .line 691
     :cond_0
     move-object/from16 v0, p0
 
@@ -87,6 +93,7 @@
 
     if-gez v1, :cond_2
 
+    .line 692
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -100,6 +107,8 @@
 
     move-result-wide v2
 
+    .line 693
+    .local v2, "time":J
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -113,6 +122,8 @@
 
     move-result-wide v4
 
+    .line 694
+    .local v4, "timeReference":J
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -126,10 +137,14 @@
 
     move-result-wide v7
 
+    .line 695
+    .local v7, "certainty":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v11
 
+    .line 697
+    .local v11, "now":J
     const-string v1, "GpsLocationProvider"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -198,6 +213,7 @@
 
     invoke-static {v1, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 703
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -207,8 +223,15 @@
     # invokes: Lcom/android/server/location/GpsLocationProvider;->native_inject_time(JJI)V
     invoke-static/range {v1 .. v6}, Lcom/android/server/location/GpsLocationProvider;->access$900(Lcom/android/server/location/GpsLocationProvider;JJI)V
 
+    .line 704
     const-wide/32 v9, 0x5265c00
 
+    .line 710
+    .end local v2    # "time":J
+    .end local v4    # "timeReference":J
+    .end local v7    # "certainty":J
+    .end local v11    # "now":J
+    .local v9, "delay":J
     :goto_0
     move-object/from16 v0, p0
 
@@ -223,6 +246,7 @@
     # invokes: Lcom/android/server/location/GpsLocationProvider;->sendMessage(IILjava/lang/Object;)V
     invoke-static {v1, v6, v13, v14}, Lcom/android/server/location/GpsLocationProvider;->access$1000(Lcom/android/server/location/GpsLocationProvider;IILjava/lang/Object;)V
 
+    .line 712
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -234,6 +258,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 715
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/location/GpsLocationProvider$4;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -247,6 +272,7 @@
 
     invoke-virtual {v1, v6, v9, v10}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 719
     :cond_1
     move-object/from16 v0, p0
 
@@ -259,8 +285,11 @@
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 720
     return-void
 
+    .line 706
+    .end local v9    # "delay":J
     :cond_2
     const-string v1, "GpsLocationProvider"
 
@@ -268,7 +297,9 @@
 
     invoke-static {v1, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 707
     const-wide/32 v9, 0x493e0
 
+    .restart local v9    # "delay":J
     goto :goto_0
 .end method

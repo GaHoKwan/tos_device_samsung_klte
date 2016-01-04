@@ -23,6 +23,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 385
     const-string v0, "attachment;\\s*filename\\s*=\\s*\"?([^\"]*)\"?"
 
     const/4 v1, 0x2
@@ -39,6 +41,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,23 +50,34 @@
 
 .method public static composeSearchUrl(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 6
+    .param p0, "inQuery"    # Ljava/lang/String;
+    .param p1, "template"    # Ljava/lang/String;
+    .param p2, "queryPlaceHolder"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 87
     invoke-virtual {p1, p2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v2
 
+    .line 88
+    .local v2, "placeHolderIndex":I
     if-gez v2, :cond_0
 
+    .line 106
     :goto_0
     return-object v4
 
+    .line 93
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 94
+    .local v0, "buffer":Ljava/lang/StringBuilder;
     const/4 v5, 0x0
 
     invoke-virtual {p1, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -71,6 +86,7 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 97
     :try_start_0
     const-string/jumbo v5, "utf-8"
 
@@ -78,10 +94,13 @@
 
     move-result-object v3
 
+    .line 98
+    .local v3, "query":Ljava/lang/String;
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     :try_end_0
     .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 103
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -94,57 +113,77 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 106
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
     goto :goto_0
 
+    .line 99
+    .end local v3    # "query":Ljava/lang/String;
     :catch_0
     move-exception v1
 
+    .line 100
+    .local v1, "ex":Ljava/io/UnsupportedEncodingException;
     goto :goto_0
 .end method
 
 .method public static decode([B)[B
     .locals 9
+    .param p0, "url"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 110
     array-length v6, p0
 
     if-nez v6, :cond_0
 
+    .line 111
     new-array v2, v8, [B
 
+    .line 133
     :goto_0
     return-object v2
 
+    .line 115
     :cond_0
     array-length v6, p0
 
     new-array v5, v6, [B
 
+    .line 117
+    .local v5, "tempData":[B
     const/4 v3, 0x0
 
+    .line 118
+    .local v3, "tempCount":I
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_1
     array-length v6, p0
 
     if-ge v1, v6, :cond_3
 
+    .line 119
     aget-byte v0, p0, v1
 
+    .line 120
+    .local v0, "b":B
     const/16 v6, 0x25
 
     if-ne v0, v6, :cond_1
 
+    .line 121
     array-length v6, p0
 
     sub-int/2addr v6, v1
@@ -153,6 +192,7 @@
 
     if-le v6, v7, :cond_2
 
+    .line 122
     add-int/lit8 v6, v1, 0x1
 
     aget-byte v6, p0, v6
@@ -175,19 +215,27 @@
 
     int-to-byte v0, v6
 
+    .line 124
     add-int/lit8 v1, v1, 0x2
 
+    .line 129
     :cond_1
     add-int/lit8 v4, v3, 0x1
 
+    .end local v3    # "tempCount":I
+    .local v4, "tempCount":I
     aput-byte v0, v5, v3
 
+    .line 118
     add-int/lit8 v1, v1, 0x1
 
     move v3, v4
 
+    .end local v4    # "tempCount":I
+    .restart local v3    # "tempCount":I
     goto :goto_1
 
+    .line 126
     :cond_2
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
@@ -197,9 +245,13 @@
 
     throw v6
 
+    .line 131
+    .end local v0    # "b":B
     :cond_3
     new-array v2, v3, [B
 
+    .line 132
+    .local v2, "retData":[B
     invoke-static {v5, v8, v2, v8, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     goto :goto_0
@@ -207,60 +259,85 @@
 
 .method public static final guessFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 12
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "contentDisposition"    # Ljava/lang/String;
+    .param p2, "mimeType"    # Ljava/lang/String;
 
+    .prologue
     const/16 v11, 0x2f
 
     const/16 v9, 0x2e
 
     const/4 v10, 0x0
 
+    .line 303
     const/4 v3, 0x0
 
+    .line 304
+    .local v3, "filename":Ljava/lang/String;
     const/4 v2, 0x0
 
+    .line 307
+    .local v2, "extension":Ljava/lang/String;
     if-nez v3, :cond_0
 
     if-eqz p1, :cond_0
 
+    .line 308
     invoke-static {p1}, Landroid/webkitsec/URLUtil;->parseContentDisposition(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 309
     if-eqz v3, :cond_0
 
+    .line 310
     invoke-virtual {v3, v11}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v8
 
     add-int/lit8 v4, v8, 0x1
 
+    .line 311
+    .local v4, "index":I
     if-lez v4, :cond_0
 
+    .line 312
     invoke-virtual {v3, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 318
+    .end local v4    # "index":I
     :cond_0
     if-nez v3, :cond_2
 
+    .line 319
     invoke-static {p0}, Landroid/net/Uri;->decode(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 320
+    .local v0, "decodedUrl":Ljava/lang/String;
     if-eqz v0, :cond_2
 
+    .line 321
     const/16 v8, 0x3f
 
     invoke-virtual {v0, v8}, Ljava/lang/String;->indexOf(I)I
 
     move-result v6
 
+    .line 323
+    .local v6, "queryIndex":I
     if-lez v6, :cond_1
 
+    .line 324
     invoke-virtual {v0, v10, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 326
     :cond_1
     const-string v8, "/"
 
@@ -270,32 +347,46 @@
 
     if-nez v8, :cond_2
 
+    .line 327
     invoke-virtual {v0, v11}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v8
 
     add-int/lit8 v4, v8, 0x1
 
+    .line 328
+    .restart local v4    # "index":I
     if-lez v4, :cond_2
 
+    .line 329
     invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 336
+    .end local v0    # "decodedUrl":Ljava/lang/String;
+    .end local v4    # "index":I
+    .end local v6    # "queryIndex":I
     :cond_2
     if-nez v3, :cond_3
 
+    .line 337
     const-string v3, "downloadfile"
 
+    .line 342
     :cond_3
     invoke-virtual {v3, v9}, Ljava/lang/String;->indexOf(I)I
 
     move-result v1
 
+    .line 343
+    .local v1, "dotIndex":I
     if-gez v1, :cond_8
 
+    .line 344
     if-eqz p2, :cond_4
 
+    .line 345
     invoke-static {}, Landroid/webkitsec/MimeTypeMap;->getSingleton()Landroid/webkitsec/MimeTypeMap;
 
     move-result-object v8
@@ -304,8 +395,10 @@
 
     move-result-object v2
 
+    .line 346
     if-eqz v2, :cond_4
 
+    .line 347
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -324,9 +417,11 @@
 
     move-result-object v2
 
+    .line 350
     :cond_4
     if-nez v2, :cond_5
 
+    .line 351
     if-eqz p2, :cond_7
 
     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
@@ -341,6 +436,7 @@
 
     if-eqz v8, :cond_7
 
+    .line 352
     const-string/jumbo v8, "text/html"
 
     invoke-virtual {p2, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -349,8 +445,10 @@
 
     if-eqz v8, :cond_6
 
+    .line 353
     const-string v2, ".html"
 
+    .line 381
     :cond_5
     :goto_0
     new-instance v8, Ljava/lang/StringBuilder;
@@ -371,23 +469,29 @@
 
     return-object v8
 
+    .line 355
     :cond_6
     const-string v2, ".txt"
 
     goto :goto_0
 
+    .line 358
     :cond_7
     const-string v2, ".bin"
 
     goto :goto_0
 
+    .line 362
     :cond_8
     if-eqz p2, :cond_9
 
+    .line 365
     invoke-virtual {v3, v9}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v5
 
+    .line 366
+    .local v5, "lastDotIndex":I
     invoke-static {}, Landroid/webkitsec/MimeTypeMap;->getSingleton()Landroid/webkitsec/MimeTypeMap;
 
     move-result-object v8
@@ -402,6 +506,8 @@
 
     move-result-object v7
 
+    .line 368
+    .local v7, "typeFromExt":Ljava/lang/String;
     if-eqz v7, :cond_9
 
     invoke-virtual {v7, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -410,6 +516,7 @@
 
     if-nez v8, :cond_9
 
+    .line 369
     invoke-static {}, Landroid/webkitsec/MimeTypeMap;->getSingleton()Landroid/webkitsec/MimeTypeMap;
 
     move-result-object v8
@@ -418,8 +525,10 @@
 
     move-result-object v2
 
+    .line 370
     if-eqz v2, :cond_9
 
+    .line 371
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -438,13 +547,18 @@
 
     move-result-object v2
 
+    .line 375
+    .end local v5    # "lastDotIndex":I
+    .end local v7    # "typeFromExt":Ljava/lang/String;
     :cond_9
     if-nez v2, :cond_a
 
+    .line 376
     invoke-virtual {v3, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 378
     :cond_a
     invoke-virtual {v3, v10, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -455,19 +569,28 @@
 
 .method public static guessUrl(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
+    .param p0, "inUrl"    # Ljava/lang/String;
 
+    .prologue
+    .line 48
     move-object v1, p0
 
+    .line 53
+    .local v1, "retVal":Ljava/lang/String;
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v3
 
     if-nez v3, :cond_1
 
+    .line 82
+    .end local p0    # "inUrl":Ljava/lang/String;
     :cond_0
     :goto_0
     return-object p0
 
+    .line 54
+    .restart local p0    # "inUrl":Ljava/lang/String;
     :cond_1
     const-string v3, "about:"
 
@@ -477,6 +600,7 @@
 
     if-nez v3, :cond_0
 
+    .line 56
     const-string v3, "data:"
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -485,6 +609,7 @@
 
     if-nez v3, :cond_0
 
+    .line 58
     const-string v3, "file:"
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -493,6 +618,7 @@
 
     if-nez v3, :cond_0
 
+    .line 60
     const-string v3, "javascript:"
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -501,6 +627,7 @@
 
     if-nez v3, :cond_0
 
+    .line 63
     const-string v3, "."
 
     invoke-virtual {p0, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -511,6 +638,7 @@
 
     if-ne v3, v4, :cond_2
 
+    .line 64
     const/4 v3, 0x0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -523,6 +651,7 @@
 
     move-result-object p0
 
+    .line 68
     :cond_2
     :try_start_0
     new-instance v2, Landroid/net/WebAddress;
@@ -531,6 +660,8 @@
     :try_end_0
     .catch Landroid/net/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 78
+    .local v2, "webAddress":Landroid/net/WebAddress;
     invoke-virtual {v2}, Landroid/net/WebAddress;->getHost()Ljava/lang/String;
 
     move-result-object v3
@@ -545,6 +676,7 @@
 
     if-ne v3, v4, :cond_3
 
+    .line 80
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -575,6 +707,7 @@
 
     invoke-virtual {v2, v3}, Landroid/net/WebAddress;->setHost(Ljava/lang/String;)V
 
+    .line 82
     :cond_3
     invoke-virtual {v2}, Landroid/net/WebAddress;->toString()Ljava/lang/String;
 
@@ -582,17 +715,24 @@
 
     goto :goto_0
 
+    .line 69
+    .end local v2    # "webAddress":Landroid/net/WebAddress;
     :catch_0
     move-exception v0
 
+    .local v0, "ex":Landroid/net/ParseException;
     move-object p0, v1
 
+    .line 74
     goto :goto_0
 .end method
 
 .method public static isAboutUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 208
     if-eqz p0, :cond_0
 
     const-string v0, "about:"
@@ -616,7 +756,10 @@
 
 .method public static isAssetUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 174
     if-eqz p0, :cond_0
 
     const-string v0, "file:///android_asset/"
@@ -640,7 +783,10 @@
 
 .method public static isContentUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 257
     if-eqz p0, :cond_0
 
     const-string v0, "content:"
@@ -664,9 +810,12 @@
 
 .method public static isCookielessProxyUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 192
     if-eqz p0, :cond_0
 
     const-string v0, "file:///cookieless_proxy/"
@@ -690,7 +839,10 @@
 
 .method public static isDataUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 215
     if-eqz p0, :cond_0
 
     const-string v0, "data:"
@@ -714,7 +866,10 @@
 
 .method public static isFileUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 199
     if-eqz p0, :cond_0
 
     const-string v0, "file://"
@@ -754,9 +909,12 @@
 
 .method public static isHttpUrl(Ljava/lang/String;)Z
     .locals 3
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 229
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -789,9 +947,12 @@
 
 .method public static isHttpsUrl(Ljava/lang/String;)Z
     .locals 3
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 238
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -824,7 +985,10 @@
 
 .method public static isJavaScriptUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 222
     if-eqz p0, :cond_0
 
     const-string v0, "javascript:"
@@ -848,9 +1012,12 @@
 
 .method public static isNetworkUrl(Ljava/lang/String;)Z
     .locals 2
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 247
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -859,6 +1026,7 @@
 
     if-nez v1, :cond_1
 
+    .line 250
     :cond_0
     :goto_0
     return v0
@@ -884,7 +1052,10 @@
 
 .method public static isResourceUrl(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 182
     if-eqz p0, :cond_0
 
     const-string v0, "file:///android_res/"
@@ -908,9 +1079,12 @@
 
 .method public static isValidUrl(Ljava/lang/String;)Z
     .locals 2
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 264
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -919,6 +1093,7 @@
 
     if-nez v1, :cond_1
 
+    .line 268
     :cond_0
     :goto_0
     return v0
@@ -980,7 +1155,10 @@
 
 .method static parseContentDisposition(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
+    .param p0, "contentDisposition"    # Ljava/lang/String;
 
+    .prologue
+    .line 400
     :try_start_0
     sget-object v1, Landroid/webkitsec/URLUtil;->CONTENT_DISPOSITION_PATTERN:Ljava/util/regex/Pattern;
 
@@ -988,12 +1166,15 @@
 
     move-result-object v0
 
+    .line 401
+    .local v0, "m":Ljava/util/regex/Matcher;
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 402
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -1002,12 +1183,16 @@
 
     move-result-object v1
 
+    .line 407
+    .end local v0    # "m":Ljava/util/regex/Matcher;
     :goto_0
     return-object v1
 
+    .line 404
     :catch_0
     move-exception v1
 
+    .line 407
     :cond_0
     const/4 v1, 0x0
 
@@ -1016,7 +1201,10 @@
 
 .method private static parseHex(B)I
     .locals 3
+    .param p0, "b"    # B
 
+    .prologue
+    .line 163
     const/16 v0, 0x30
 
     if-lt p0, v0, :cond_0
@@ -1027,9 +1215,11 @@
 
     add-int/lit8 v0, p0, -0x30
 
+    .line 165
     :goto_0
     return v0
 
+    .line 164
     :cond_0
     const/16 v0, 0x41
 
@@ -1045,6 +1235,7 @@
 
     goto :goto_0
 
+    .line 165
     :cond_1
     const/16 v0, 0x61
 
@@ -1060,6 +1251,7 @@
 
     goto :goto_0
 
+    .line 167
     :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -1094,58 +1286,77 @@
 
 .method public static stripAnchor(Ljava/lang/String;)Ljava/lang/String;
     .locals 2
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
+    .line 282
     const/16 v1, 0x23
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
+    .line 283
+    .local v0, "anchorIndex":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_0
 
+    .line 284
     const/4 v1, 0x0
 
     invoke-virtual {p0, v1, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object p0
 
+    .line 286
+    .end local p0    # "url":Ljava/lang/String;
     :cond_0
     return-object p0
 .end method
 
 .method static verifyURLEncoding(Ljava/lang/String;)Z
     .locals 6
+    .param p0, "url"    # Ljava/lang/String;
 
+    .prologue
     const/16 v5, 0x25
 
     const/4 v3, 0x0
 
+    .line 140
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
+    .line 141
+    .local v0, "count":I
     if-nez v0, :cond_1
 
+    .line 159
     :cond_0
     :goto_0
     return v3
 
+    .line 145
     :cond_1
     invoke-virtual {p0, v5}, Ljava/lang/String;->indexOf(I)I
 
     move-result v2
 
+    .line 146
+    .local v2, "index":I
     :goto_1
     if-ltz v2, :cond_2
 
     if-ge v2, v0, :cond_2
 
+    .line 147
     add-int/lit8 v4, v0, -0x2
 
     if-ge v2, v4, :cond_0
 
+    .line 149
     add-int/lit8 v2, v2, 0x1
 
     :try_start_0
@@ -1157,6 +1368,7 @@
 
     invoke-static {v4}, Landroid/webkitsec/URLUtil;->parseHex(B)I
 
+    .line 150
     add-int/lit8 v2, v2, 0x1
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -1169,6 +1381,7 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 157
     add-int/lit8 v4, v2, 0x1
 
     invoke-virtual {p0, v5, v4}, Ljava/lang/String;->indexOf(II)I
@@ -1177,11 +1390,16 @@
 
     goto :goto_1
 
+    .line 151
     :catch_0
     move-exception v1
 
+    .line 152
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     goto :goto_0
 
+    .line 159
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
     :cond_2
     const/4 v3, 0x1
 

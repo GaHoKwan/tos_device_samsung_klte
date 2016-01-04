@@ -21,12 +21,17 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
+    .param p2, "input"    # Landroid/os/ParcelFileDescriptor;
 
+    .prologue
+    .line 446
     iput-object p1, p0, Lcom/android/server/BackupManagerService$FullRestoreParams;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0, p1}, Lcom/android/server/BackupManagerService$FullParams;-><init>(Lcom/android/server/BackupManagerService;)V
 
-    iput-object p2, p0, Lcom/android/server/BackupManagerService$FullRestoreParams;->fd:Landroid/os/ParcelFileDescriptor;
+    .line 447
+    iput-object p2, p0, Lcom/android/server/BackupManagerService$FullParams;->fd:Landroid/os/ParcelFileDescriptor;
 
+    .line 448
     return-void
 .end method

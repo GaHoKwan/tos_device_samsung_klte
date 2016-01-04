@@ -595,7 +595,7 @@
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->varTable:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
@@ -721,7 +721,7 @@
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->varTable:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
@@ -890,7 +890,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1001,7 +1001,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v0
 
@@ -1027,7 +1027,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1271,7 +1271,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1415,7 +1415,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1522,7 +1522,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -1788,7 +1788,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -1905,7 +1905,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -2028,7 +2028,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -2250,7 +2250,7 @@
 
     check-cast v1, Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
@@ -2406,7 +2406,7 @@
 
     check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -2641,7 +2641,7 @@
 
     check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -2777,7 +2777,7 @@
 
     check-cast v1, Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
@@ -3154,7 +3154,7 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -7976,7 +7976,7 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :cond_2
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -8069,7 +8069,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -8193,7 +8193,7 @@
 
     check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -8300,7 +8300,7 @@
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :cond_9
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -8368,7 +8368,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v0
 
@@ -8387,7 +8387,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -8503,7 +8503,7 @@
 
     check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -8986,7 +8986,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -9263,7 +9263,7 @@
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     :cond_2
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -9356,7 +9356,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -9526,7 +9526,7 @@
 
     invoke-direct {v1, v0}, Ljava/io/PrintWriter;-><init>(Ljava/io/Writer;)V
 
-    invoke-virtual {p1, p0, v1}, Lcom/samsung/javaomp/compiler/ASTStatement;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v1
 
@@ -9974,7 +9974,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v3}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v3
 
@@ -10010,7 +10010,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -10130,7 +10130,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTBlock;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10144,7 +10144,7 @@
 .method public visit(Lcom/samsung/javaomp/compiler/ASTCompilationUnit;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
     .locals 1
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTCompilationUnit;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10162,7 +10162,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTForStatement;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10186,7 +10186,7 @@
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->varTable:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -10244,7 +10244,7 @@
 
     invoke-virtual {v0, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTFormalParameter;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10281,7 +10281,7 @@
 
     iget-object v1, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->varTable:Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -10342,7 +10342,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTLocalVariableDeclaration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10372,7 +10372,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTMethodDeclaration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10474,7 +10474,7 @@
 
     iput v1, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->uniqueParallelRegion:I
 
-    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelSections;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
+    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPDirectiveWithClauses;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
     move-result-object v1
 
@@ -10735,7 +10735,7 @@
 .method public visit(Lcom/samsung/javaomp/compiler/ASTStatement;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
     .locals 1
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTStatement;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10779,7 +10779,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTCatchBlock;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10809,13 +10809,13 @@
 
     iput-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->currentClassFields:Ljava/util/LinkedList;
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBody;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v3
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->parallelRegions:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -10855,13 +10855,13 @@
 
     iput-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->parallelRegions:Ljava/util/LinkedList;
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBodyDeclaration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v2
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->parallelRegions:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -10919,7 +10919,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTConstructorDeclatration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -10999,7 +10999,7 @@
     return-object p2
 
     :cond_0
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTImportDeclaration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object p2
 
@@ -11090,7 +11090,7 @@
     throw v0
 
     :cond_0
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTName;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -11381,7 +11381,7 @@
 .method public visit(Lcom/samsung/javaomp/compiler/ASTOMPIdentifier;Ljava/io/PrintWriter;)Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTOMPIdentifier;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -11441,11 +11441,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
+    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
     move-result-object v3
 
-    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->getCanonicalFor()Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;
+    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->getCanonicalFor()Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;
 
     move-result-object v4
 
@@ -12172,11 +12172,11 @@
 
     invoke-virtual {v0, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
+    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->getClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
     move-result-object v3
 
-    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->getCanonicalFor()Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;
+    invoke-virtual {p1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->getCanonicalFor()Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;
 
     move-result-object v4
 
@@ -12617,7 +12617,7 @@
     throw v0
 
     :cond_0
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTPrimaryPrefix;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 
@@ -12658,7 +12658,7 @@
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
     :cond_0
-    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/ASTTypeDeclaration;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
+    invoke-virtual {p1, p0, p2}, Lcom/samsung/javaomp/compiler/SimpleNode;->printWithChildren(Lcom/samsung/javaomp/compiler/JavaParserVisitor;Ljava/io/PrintWriter;)Ljava/io/PrintWriter;
 
     move-result-object v0
 

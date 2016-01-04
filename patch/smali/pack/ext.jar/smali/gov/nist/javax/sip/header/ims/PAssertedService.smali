@@ -49,7 +49,7 @@
 
     .prologue
     .line 110
-    invoke-super {p0}, Lgov/nist/javax/sip/header/SIPHeader;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -144,7 +144,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0, p1}, Lgov/nist/javax/sip/header/SIPHeader;->equals(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lgov/nist/javax/sip/header/SIPObject;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 

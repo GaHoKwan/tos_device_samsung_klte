@@ -13,6 +13,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -20,7 +22,16 @@
 
 .method public static writeTtsSpeakFailure(Ljava/lang/String;IIILjava/lang/String;II)V
     .locals 4
+    .param p0, "engine"    # Ljava/lang/String;
+    .param p1, "callerUid"    # I
+    .param p2, "callerPid"    # I
+    .param p3, "length"    # I
+    .param p4, "locale"    # Ljava/lang/String;
+    .param p5, "rate"    # I
+    .param p6, "pitch"    # I
 
+    .prologue
+    .line 24
     const v0, 0x128e2
 
     const/4 v1, 0x7
@@ -77,12 +88,25 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 25
     return-void
 .end method
 
 .method public static writeTtsSpeakSuccess(Ljava/lang/String;IIILjava/lang/String;IIJJJ)V
     .locals 4
+    .param p0, "engine"    # Ljava/lang/String;
+    .param p1, "callerUid"    # I
+    .param p2, "callerPid"    # I
+    .param p3, "length"    # I
+    .param p4, "locale"    # Ljava/lang/String;
+    .param p5, "rate"    # I
+    .param p6, "pitch"    # I
+    .param p7, "engineLatency"    # J
+    .param p9, "engineTotal"    # J
+    .param p11, "audioLatency"    # J
 
+    .prologue
+    .line 20
     const v0, 0x128e1
 
     const/16 v1, 0xa
@@ -163,5 +187,6 @@
 
     invoke-static {v0, v1}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
+    .line 21
     return-void
 .end method

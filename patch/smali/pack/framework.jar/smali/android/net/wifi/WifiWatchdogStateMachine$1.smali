@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 748
+    .line 737
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -47,12 +47,12 @@
 
     const/4 v9, 0x0
 
-    .line 751
+    .line 740
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 752
+    .line 741
     .local v1, "action":Ljava/lang/String;
     const-string v7, "android.net.wifi.RSSI_CHANGED"
 
@@ -62,7 +62,7 @@
 
     if-eqz v7, :cond_3
 
-    .line 753
+    .line 742
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v10, 0x21003
@@ -81,14 +81,14 @@
 
     invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
 
-    .line 755
+    .line 744
     const-string v7, "monitorNetworkPropertiesUpdate"
 
     invoke-virtual {p2, v7, v9}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v5
 
-    .line 756
+    .line 745
     .local v5, "reason":I
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -108,7 +108,7 @@
 
     if-nez v7, :cond_0
 
-    .line 758
+    .line 747
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mQualityResultHandler:Landroid/net/wifi/WifiWatchdogStateMachine$QualityResultHandler;
@@ -124,7 +124,7 @@
 
     invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
 
-    .line 761
+    .line 750
     :cond_0
     const-string v7, "DhcpSession"
 
@@ -132,7 +132,7 @@
 
     move-result-object v3
 
-    .line 762
+    .line 751
     .local v3, "mDhcpSessionState":Ljava/lang/String;
     if-eqz v3, :cond_1
 
@@ -143,7 +143,7 @@
 
     if-nez v7, :cond_1
 
-    .line 763
+    .line 752
     const-string v7, "start"
 
     invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -152,13 +152,13 @@
 
     if-eqz v7, :cond_2
 
-    .line 764
+    .line 753
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsInDhcpSession:Z
     invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$302(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
 
-    .line 765
+    .line 754
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mQualityResultHandler:Landroid/net/wifi/WifiWatchdogStateMachine$QualityResultHandler;
@@ -174,14 +174,14 @@
 
     invoke-virtual {v7}, Landroid/os/Message;->sendToTarget()V
 
-    .line 830
+    .line 819
     .end local v3    # "mDhcpSessionState":Ljava/lang/String;
     .end local v5    # "reason":I
     :cond_1
     :goto_0
     return-void
 
-    .line 767
+    .line 756
     .restart local v3    # "mDhcpSessionState":Ljava/lang/String;
     .restart local v5    # "reason":I
     :cond_2
@@ -202,13 +202,13 @@
 
     if-eqz v7, :cond_1
 
-    .line 768
+    .line 757
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsInDhcpSession:Z
     invoke-static {v7, v9}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$302(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
 
-    .line 769
+    .line 758
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mQualityResultHandler:Landroid/net/wifi/WifiWatchdogStateMachine$QualityResultHandler;
@@ -226,7 +226,7 @@
 
     goto :goto_0
 
-    .line 772
+    .line 761
     .end local v3    # "mDhcpSessionState":Ljava/lang/String;
     .end local v5    # "reason":I
     :cond_3
@@ -238,7 +238,7 @@
 
     if-eqz v7, :cond_4
 
-    .line 773
+    .line 762
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v8, 0x21004
@@ -247,7 +247,7 @@
 
     goto :goto_0
 
-    .line 774
+    .line 763
     :cond_4
     const-string v7, "android.net.wifi.STATE_CHANGE"
 
@@ -257,7 +257,7 @@
 
     if-eqz v7, :cond_5
 
-    .line 775
+    .line 764
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v8, 0x21002
@@ -266,7 +266,7 @@
 
     goto :goto_0
 
-    .line 776
+    .line 765
     :cond_5
     const-string v7, "android.intent.action.SCREEN_ON"
 
@@ -276,7 +276,7 @@
 
     if-eqz v7, :cond_6
 
-    .line 777
+    .line 766
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v8, 0x21008
@@ -285,7 +285,7 @@
 
     goto :goto_0
 
-    .line 778
+    .line 767
     :cond_6
     const-string v7, "android.intent.action.SCREEN_OFF"
 
@@ -295,7 +295,7 @@
 
     if-eqz v7, :cond_7
 
-    .line 779
+    .line 768
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v8, 0x21009
@@ -304,7 +304,7 @@
 
     goto :goto_0
 
-    .line 780
+    .line 769
     :cond_7
     const-string v7, "android.net.wifi.WIFI_STATE_CHANGED"
 
@@ -314,7 +314,7 @@
 
     if-eqz v7, :cond_8
 
-    .line 781
+    .line 770
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     const v8, 0x21005
@@ -331,7 +331,7 @@
 
     goto/16 :goto_0
 
-    .line 783
+    .line 772
     :cond_8
     const-string v7, "android.intent.action.SIM_STATE_CHANGED"
 
@@ -341,14 +341,14 @@
 
     if-eqz v7, :cond_9
 
-    .line 784
+    .line 773
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-virtual {v7, v11}, Landroid/net/wifi/WifiWatchdogStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 785
+    .line 774
     :cond_9
     const-string v7, "android.intent.action.ANY_DATA_STATE"
 
@@ -358,7 +358,7 @@
 
     if-eqz v7, :cond_12
 
-    .line 786
+    .line 775
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mConnectivityManager:Landroid/net/ConnectivityManager;
@@ -388,7 +388,7 @@
 
     if-eq v7, v10, :cond_b
 
-    .line 788
+    .line 777
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -403,13 +403,13 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v7, v10}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$700(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 789
+    .line 778
     :cond_a
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-virtual {v7, v11}, Landroid/net/wifi/WifiWatchdogStateMachine;->sendMessage(I)V
 
-    .line 791
+    .line 780
     :cond_b
     const-string v7, "apnType"
 
@@ -417,7 +417,7 @@
 
     move-result-object v2
 
-    .line 792
+    .line 781
     .local v2, "apnType":Ljava/lang/String;
     const-string v7, "hipri"
 
@@ -435,7 +435,7 @@
 
     if-eqz v7, :cond_1
 
-    .line 794
+    .line 783
     :cond_c
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->SMARTCM_DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$800()Z
@@ -467,11 +467,11 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v7, v10}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$900(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 795
+    .line 784
     :cond_d
     const/4 v6, 0x0
 
-    .line 797
+    .line 786
     .local v6, "state":Lcom/android/internal/telephony/PhoneConstants$DataState;
     :try_start_0
     const-class v7, Lcom/android/internal/telephony/PhoneConstants$DataState;
@@ -494,7 +494,7 @@
     :try_end_0
     .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 802
+    .line 791
     :goto_1
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->SMARTCM_DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$800()Z
@@ -526,11 +526,11 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v7, v10}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1000(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 803
+    .line 792
     :cond_e
     const/4 v4, 0x0
 
-    .line 804
+    .line 793
     .local v4, "previousState":Z
     const-string v7, "hipri"
 
@@ -540,7 +540,7 @@
 
     if-eqz v7, :cond_10
 
-    .line 805
+    .line 794
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsMobileHipriConnected:Z
@@ -548,7 +548,7 @@
 
     move-result v4
 
-    .line 806
+    .line 795
     iget-object v10, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     sget-object v7, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
@@ -561,7 +561,7 @@
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsMobileHipriConnected:Z
     invoke-static {v10, v7}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1102(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
 
-    .line 807
+    .line 796
     if-nez v4, :cond_1
 
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -584,10 +584,10 @@
     :cond_f
     move v7, v9
 
-    .line 806
+    .line 795
     goto :goto_2
 
-    .line 809
+    .line 798
     :cond_10
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -596,7 +596,7 @@
 
     move-result v4
 
-    .line 810
+    .line 799
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     sget-object v10, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
@@ -607,7 +607,7 @@
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsMobileConnected:Z
     invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1202(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
 
-    .line 811
+    .line 800
     if-nez v4, :cond_1
 
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -630,10 +630,10 @@
     :cond_11
     move v8, v9
 
-    .line 810
+    .line 799
     goto :goto_3
 
-    .line 814
+    .line 803
     .end local v2    # "apnType":Ljava/lang/String;
     .end local v4    # "previousState":Z
     .end local v6    # "state":Lcom/android/internal/telephony/PhoneConstants$DataState;
@@ -653,13 +653,13 @@
 
     if-nez v7, :cond_15
 
-    .line 815
+    .line 804
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mIsScanning:Z
     invoke-static {v7, v9}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$1302(Landroid/net/wifi/WifiWatchdogStateMachine;Z)Z
 
-    .line 816
+    .line 805
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->getCurrentState()Lcom/android/internal/util/IState;
@@ -676,14 +676,14 @@
 
     if-ne v7, v8, :cond_13
 
-    .line 817
+    .line 806
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-virtual {v7, v10}, Landroid/net/wifi/WifiWatchdogStateMachine;->sendMessage(I)V
 
     goto/16 :goto_0
 
-    .line 819
+    .line 808
     :cond_13
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -696,7 +696,7 @@
 
     if-eq v7, v8, :cond_14
 
-    .line 820
+    .line 809
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mCaptivePortalHandler:Landroid/net/wifi/WifiWatchdogStateMachine$CaptivePortalHandler;
@@ -708,7 +708,7 @@
 
     goto/16 :goto_0
 
-    .line 822
+    .line 811
     :cond_14
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -721,7 +721,7 @@
 
     goto/16 :goto_0
 
-    .line 825
+    .line 814
     :cond_15
     const-string v7, "android.intent.action.SERVICE_STATE"
 
@@ -764,7 +764,7 @@
 
     if-nez v7, :cond_1
 
-    .line 827
+    .line 816
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -779,7 +779,7 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2000(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 828
+    .line 817
     :cond_16
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$1;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -792,7 +792,7 @@
 
     goto/16 :goto_0
 
-    .line 799
+    .line 788
     .restart local v2    # "apnType":Ljava/lang/String;
     .restart local v6    # "state":Lcom/android/internal/telephony/PhoneConstants$DataState;
     :catch_0

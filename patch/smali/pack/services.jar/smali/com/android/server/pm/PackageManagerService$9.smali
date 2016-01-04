@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;ILcom/android/server/pm/PackageVerificationResponse;)V
     .locals 0
 
+    .prologue
+    .line 10492
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput p2, p0, Lcom/android/server/pm/PackageManagerService$9;->val$verificationId:I
@@ -41,25 +43,33 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 10495
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     const/16 v2, 0x10
 
-    invoke-virtual {v1, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
+    .line 10496
+    .local v0, "msg":Landroid/os/Message;
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$9;->val$verificationId:I
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
+    .line 10497
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$9;->val$response:Lcom/android/server/pm/PackageVerificationResponse;
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 10498
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$9;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -71,7 +81,8 @@
 
     move-result-wide v2
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 10499
     return-void
 .end method

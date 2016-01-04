@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
 
+    .prologue
+    .line 1042
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$14;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1044
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$14;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     const-string v1, ""
@@ -45,5 +49,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->setAnimationTextandImage(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
+    .line 1045
     return-void
 .end method

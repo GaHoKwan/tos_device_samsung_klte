@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController$21;)V
     .locals 0
 
+    .prologue
+    .line 1840
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$21$1;->this$1:Lcom/android/server/display/WifiDisplayController$21;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onFailure(I)V
     .locals 3
+    .param p1, "reason"    # I
 
+    .prologue
+    .line 1855
     const-string v0, "WifiDisplayController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,18 +70,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1860
     return-void
 .end method
 
 .method public onSuccess()V
     .locals 2
 
+    .prologue
+    .line 1844
     const-string v0, "WifiDisplayController"
 
     const-string v1, "Fullscan succeeded.  Requesting peers now."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1847
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$21$1;->this$1:Lcom/android/server/display/WifiDisplayController$21;
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$21;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -88,6 +97,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1848
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$21$1;->this$1:Lcom/android/server/display/WifiDisplayController$21;
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$21;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -95,6 +105,7 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->requestPeers()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$900(Lcom/android/server/display/WifiDisplayController;)V
 
+    .line 1850
     :cond_0
     return-void
 .end method

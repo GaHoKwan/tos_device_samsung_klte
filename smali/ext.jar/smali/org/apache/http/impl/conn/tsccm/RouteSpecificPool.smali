@@ -97,7 +97,7 @@
     .line 150
     iget-object v5, p0, Lorg/apache/http/impl/conn/tsccm/RouteSpecificPool;->freeEntries:Ljava/util/LinkedList;
 
-    invoke-virtual {v5}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v5}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v5
 
@@ -134,7 +134,7 @@
 
     .line 154
     .local v1, "entry":Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;
-    invoke-virtual {v1}, Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;->getState()Ljava/lang/Object;
+    invoke-virtual {v1}, Lorg/apache/http/impl/conn/AbstractPoolEntry;->getState()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -157,7 +157,7 @@
     :cond_1
     iget-object v5, p0, Lorg/apache/http/impl/conn/tsccm/RouteSpecificPool;->freeEntries:Ljava/util/LinkedList;
 
-    invoke-virtual {v5}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v5}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v5
 
@@ -174,7 +174,7 @@
 
     .line 162
     .restart local v1    # "entry":Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;
-    invoke-virtual {v1, v4}, Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;->setState(Ljava/lang/Object;)V
+    invoke-virtual {v1, v4}, Lorg/apache/http/impl/conn/AbstractPoolEntry;->setState(Ljava/lang/Object;)V
 
     .line 163
     invoke-virtual {v1}, Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;->getConnection()Lorg/apache/http/conn/OperatedClientConnection;

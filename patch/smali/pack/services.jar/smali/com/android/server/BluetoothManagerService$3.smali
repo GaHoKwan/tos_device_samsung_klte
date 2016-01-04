@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/BluetoothManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2241
     iput-object p1, p0, Lcom/android/server/BluetoothManagerService$3;->this$0:Lcom/android/server/BluetoothManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,25 +38,34 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 2244
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
 
+    .line 2245
     const/4 v0, 0x1
 
     # setter for: Lcom/android/server/BluetoothManagerService;->isEnablePopup:Z
     invoke-static {v0}, Lcom/android/server/BluetoothManagerService;->access$4502(Z)Z
 
+    .line 2246
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService$3;->this$0:Lcom/android/server/BluetoothManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/BluetoothManagerService;->enable()Z
 
+    .line 2251
     :goto_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 2252
     return-void
 
+    .line 2248
     :cond_0
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService$3;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -65,6 +76,7 @@
     # invokes: Lcom/android/server/BluetoothManagerService;->bluetoothStateChangeHandler(II)V
     invoke-static {v0, v1, v2}, Lcom/android/server/BluetoothManagerService;->access$3600(Lcom/android/server/BluetoothManagerService;II)V
 
+    .line 2249
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService$3;->this$0:Lcom/android/server/BluetoothManagerService;
 
     # getter for: Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;

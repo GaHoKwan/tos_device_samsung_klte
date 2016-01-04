@@ -22,6 +22,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3845
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,22 +31,29 @@
 
 .method public static encrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 8
+    .param p0, "key"    # Ljava/lang/String;
+    .param p1, "text"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
         }
     .end annotation
 
+    .prologue
+    .line 3849
     if-eqz p0, :cond_0
 
     if-nez p1, :cond_1
 
+    .line 3850
     :cond_0
     const/4 v5, 0x0
 
+    .line 3862
     :goto_0
     return-object v5
 
+    .line 3851
     :cond_1
     new-instance v3, Ljavax/crypto/spec/SecretKeySpec;
 
@@ -56,16 +65,21 @@
 
     invoke-direct {v3, v5, v6}, Ljavax/crypto/spec/SecretKeySpec;-><init>([BLjava/lang/String;)V
 
+    .line 3852
+    .local v3, "keySpec":Ljavax/crypto/spec/SecretKeySpec;
     const-string v5, "AES"
 
     invoke-static {v5}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v0
 
+    .line 3853
+    .local v0, "cipher":Ljavax/crypto/Cipher;
     const/4 v5, 0x1
 
     invoke-virtual {v0, v5, v3}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;)V
 
+    .line 3854
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v5
@@ -74,17 +88,23 @@
 
     move-result-object v1
 
+    .line 3856
+    .local v1, "encrypted":[B
     new-instance v4, Ljava/lang/StringBuffer;
 
     invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 3857
+    .local v4, "sb":Ljava/lang/StringBuffer;
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
     array-length v5, v1
 
     if-ge v2, v5, :cond_2
 
+    .line 3858
     const-string v5, "0123456789ABCDEF"
 
     aget-byte v6, v1, v2
@@ -113,10 +133,12 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
+    .line 3857
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 3862
     :cond_2
     invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 

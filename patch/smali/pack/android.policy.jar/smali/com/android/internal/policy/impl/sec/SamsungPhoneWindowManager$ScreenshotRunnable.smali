@@ -26,17 +26,23 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Landroid/content/ServiceConnection;)V
     .locals 1
+    .param p2, "conn"    # Landroid/content/ServiceConnection;
 
+    .prologue
+    .line 2159
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2157
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->mConn:Landroid/content/ServiceConnection;
 
+    .line 2160
     iput-object p2, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->mConn:Landroid/content/ServiceConnection;
 
+    .line 2161
     return-void
 .end method
 
@@ -45,12 +51,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2164
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mScreenshotLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 2165
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
@@ -64,6 +73,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2166
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
@@ -72,6 +82,7 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
+    .line 2167
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$ScreenshotRunnable;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mServiceConnectionMap:Ljava/util/Map;
@@ -80,11 +91,14 @@
 
     invoke-interface {v0, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2169
     :cond_0
     monitor-exit v1
 
+    .line 2170
     return-void
 
+    .line 2169
     :catchall_0
     move-exception v0
 

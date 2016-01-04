@@ -68,7 +68,7 @@
     .line 52
     .local p0, "this":Landroid/emoji/EmojiFactory$CustomLinkedHashMap;, "Landroid/emoji/EmojiFactory$CustomLinkedHashMap<TK;TV;>;"
     .local p1, "eldest":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    invoke-virtual {p0}, Landroid/emoji/EmojiFactory$CustomLinkedHashMap;->size()I
+    invoke-virtual {p0}, Ljava/util/HashMap;->size()I
 
     move-result v0
 

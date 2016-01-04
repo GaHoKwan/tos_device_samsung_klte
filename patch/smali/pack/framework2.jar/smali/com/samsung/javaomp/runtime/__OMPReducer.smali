@@ -72,7 +72,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -159,7 +159,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -236,7 +236,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -313,7 +313,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -390,7 +390,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -469,7 +469,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -548,7 +548,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -625,7 +625,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -702,7 +702,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -779,7 +779,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -858,7 +858,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -937,7 +937,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -1014,7 +1014,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -1091,7 +1091,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -1168,7 +1168,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 

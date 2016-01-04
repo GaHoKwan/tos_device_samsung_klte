@@ -299,7 +299,7 @@
     .line 89
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->$VALUES:[Lcom/android/internal/telephony/IccCard$State;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/IccCard$State;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -317,7 +317,7 @@
     .line 117
     sget-object v0, Lcom/android/internal/telephony/IccCard$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -409,7 +409,7 @@
     .line 146
     sget-object v0, Lcom/android/internal/telephony/IccCard$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

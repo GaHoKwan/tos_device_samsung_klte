@@ -189,7 +189,7 @@
 
     iget-object v7, p0, Lgov/nist/javax/sip/ListeningPointImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v7}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v7}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v7
 
@@ -396,7 +396,7 @@
 
     .line 253
     .local v1, "siprequest":Lgov/nist/javax/sip/message/SIPRequest;
-    invoke-virtual {v1}, Lgov/nist/javax/sip/message/SIPRequest;->setNullRequest()V
+    invoke-virtual {v1}, Lgov/nist/javax/sip/message/SIPMessage;->setNullRequest()V
 
     .line 254
     invoke-virtual {v0, v1}, Lgov/nist/javax/sip/stack/MessageChannel;->sendMessage(Lgov/nist/javax/sip/message/SIPMessage;)V

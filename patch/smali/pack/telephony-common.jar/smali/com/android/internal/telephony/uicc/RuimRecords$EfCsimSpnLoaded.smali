@@ -187,7 +187,7 @@
 
     const-string v8, ""
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     .line 537
     :goto_2
@@ -254,7 +254,7 @@
 
     iget-object v9, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    iget-object v9, v9, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iget-object v9, v9, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -299,7 +299,7 @@
 
     iget-object v8, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    iget-object v8, v8, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iget-object v8, v8, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     invoke-static {v7, v8}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -318,7 +318,7 @@
 
     invoke-direct {v8, v6, v9, v5, v10}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -370,7 +370,7 @@
 
     move-result-object v8
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     goto :goto_3
 
@@ -386,7 +386,7 @@
 
     invoke-direct {v8, v6, v9, v5, v10}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     .line 509
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
@@ -398,7 +398,7 @@
     .line 516
     iget-object v7, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    iget-object v7, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iget-object v7, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isPrintableAsciiOnly(Ljava/lang/CharSequence;)Z
 
@@ -421,7 +421,7 @@
 
     iget-object v9, p0, Lcom/android/internal/telephony/uicc/RuimRecords$EfCsimSpnLoaded;->this$0:Lcom/android/internal/telephony/uicc/RuimRecords;
 
-    iget-object v9, v9, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iget-object v9, v9, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -453,7 +453,7 @@
 
     move-result-object v8
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
 
     goto/16 :goto_3
 
@@ -469,7 +469,7 @@
 
     invoke-direct {v8, v6, v9, v5, v10}, Ljava/lang/String;-><init>([BIILjava/lang/String;)V
 
-    iput-object v8, v7, Lcom/android/internal/telephony/uicc/RuimRecords;->mSpn:Ljava/lang/String;
+    iput-object v8, v7, Lcom/android/internal/telephony/uicc/IccRecords;->mSpn:Ljava/lang/String;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 

@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;)V
     .locals 0
 
+    .prologue
+    .line 908
     iput-object p1, p0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->this$1:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-direct {p0}, Landroid/os/RemoteCallbackList;-><init>()V
@@ -42,9 +44,13 @@
 # virtual methods
 .method public bridge synthetic onCallbackDied(Landroid/os/IInterface;)V
     .locals 0
+    .param p1, "x0"    # Landroid/os/IInterface;
 
+    .prologue
+    .line 908
     check-cast p1, Landroid/print/IPrinterDiscoveryObserver;
 
+    .end local p1    # "x0":Landroid/os/IInterface;
     invoke-virtual {p0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->onCallbackDied(Landroid/print/IPrinterDiscoveryObserver;)V
 
     return-void
@@ -52,7 +58,10 @@
 
 .method public onCallbackDied(Landroid/print/IPrinterDiscoveryObserver;)V
     .locals 2
+    .param p1, "observer"    # Landroid/print/IPrinterDiscoveryObserver;
 
+    .prologue
+    .line 911
     iget-object v0, p0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->this$1:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     iget-object v0, v0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->this$0:Lcom/android/server/print/UserState;
@@ -64,19 +73,24 @@
 
     monitor-enter v1
 
+    .line 912
     :try_start_0
     iget-object v0, p0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->this$1:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->stopPrinterDiscoveryLocked(Landroid/print/IPrinterDiscoveryObserver;)V
 
+    .line 913
     iget-object v0, p0, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator$1;->this$1:Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;
 
     invoke-virtual {v0, p1}, Lcom/android/server/print/UserState$PrinterDiscoverySessionMediator;->removeObserverLocked(Landroid/print/IPrinterDiscoveryObserver;)V
 
+    .line 914
     monitor-exit v1
 
+    .line 915
     return-void
 
+    .line 914
     :catchall_0
     move-exception v0
 

@@ -52,7 +52,7 @@
 
     .line 79
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/AcceptLanguage;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/AcceptLanguage;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -165,7 +165,7 @@
     .line 98
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptLanguage;->hasParameter(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameter(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -179,7 +179,7 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AcceptLanguage;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "q"
 
@@ -203,7 +203,7 @@
     .line 109
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptLanguage;->hasParameter(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameter(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -217,7 +217,7 @@
     .line 117
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptLanguage;->removeParameter(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->removeParameter(Ljava/lang/String;)V
 
     .line 118
     return-void
@@ -353,7 +353,7 @@
     .line 153
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptLanguage;->removeParameter(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->removeParameter(Ljava/lang/String;)V
 
     .line 156
     :goto_0
@@ -371,7 +371,7 @@
 
     invoke-direct {v0, v1, v2}, Lgov/nist/core/NameValue;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptLanguage;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     goto :goto_0
 .end method

@@ -49,7 +49,7 @@
 
     move-result-object v1
 
-    # invokes: Lcom/movial/ipphone/WifiCallSwitchPreference;->callChangeListener(Ljava/lang/Object;)Z
+    # invokes: Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
     invoke-static {v0, v1}, Lcom/movial/ipphone/WifiCallSwitchPreference;->access$100(Lcom/movial/ipphone/WifiCallSwitchPreference;Ljava/lang/Object;)Z
 
     move-result v0
@@ -78,7 +78,7 @@
     :cond_1
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$3;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, p2}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, p2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 141
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$3;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;

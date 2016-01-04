@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -15,12 +17,15 @@
 .method public static deleteFile(Ljava/io/File;)Z
     .locals 4
 
+    .prologue
+    .line 27
     invoke-virtual {p0}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 28
     invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v1
@@ -32,6 +37,7 @@
     :goto_0
     if-lt v0, v2, :cond_1
 
+    .line 32
     :cond_0
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
@@ -39,11 +45,14 @@
 
     return v0
 
+    .line 28
     :cond_1
     aget-object v3, v1, v0
 
+    .line 29
     invoke-static {v3}, Lcom/absolute/android/utils/FileUtil;->deleteFile(Ljava/io/File;)Z
 
+    .line 28
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -52,14 +61,18 @@
 .method public static getFilename(Ljava/lang/String;)Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 43
     const-string v0, ""
 
+    .line 44
     sget-char v1, Ljava/io/File;->separatorChar:C
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->lastIndexOf(I)I
 
     move-result v1
 
+    .line 45
     if-ltz v1, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -68,6 +81,7 @@
 
     if-ge v1, v2, :cond_0
 
+    .line 46
     add-int/lit8 v0, v1, 0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -78,6 +92,7 @@
 
     move-result-object v0
 
+    .line 48
     :cond_0
     return-object v0
 .end method

@@ -53,7 +53,7 @@
     .line 42
     sget-object v0, Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;->TRACE:Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

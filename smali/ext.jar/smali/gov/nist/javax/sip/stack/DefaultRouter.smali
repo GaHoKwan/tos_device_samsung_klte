@@ -47,7 +47,7 @@
     :try_start_0
     iget-object v1, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/SipStackImpl;->getAddressResolver()Lgov/nist/core/net/AddressResolver;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getAddressResolver()Lgov/nist/core/net/AddressResolver;
 
     move-result-object v1
 
@@ -157,7 +157,7 @@
     :goto_2
     iget-object v5, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v5}, Lgov/nist/javax/sip/SipStackImpl;->getAddressResolver()Lgov/nist/core/net/AddressResolver;
+    invoke-virtual {v5}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getAddressResolver()Lgov/nist/core/net/AddressResolver;
 
     move-result-object v0
 
@@ -227,13 +227,13 @@
 
     .prologue
     .line 264
-    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPRequest;->getRouteHeaders()Lgov/nist/javax/sip/header/RouteList;
+    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPMessage;->getRouteHeaders()Lgov/nist/javax/sip/header/RouteList;
 
     move-result-object v4
 
     .line 265
     .local v4, "routes":Lgov/nist/javax/sip/header/RouteList;
-    invoke-virtual {v4}, Lgov/nist/javax/sip/header/RouteList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v1
 
@@ -241,7 +241,7 @@
 
     .line 266
     .local v1, "first":Lgov/nist/javax/sip/header/Route;
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/Route;->getAddress()Ljavax/sip/address/Address;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->getAddress()Ljavax/sip/address/Address;
 
     move-result-object v5
 
@@ -253,7 +253,7 @@
 
     .line 267
     .local v2, "firstUri":Lgov/nist/javax/sip/address/SipUri;
-    invoke-virtual {v4}, Lgov/nist/javax/sip/header/RouteList;->removeFirst()V
+    invoke-virtual {v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->removeFirst()V
 
     .line 270
     new-instance v0, Lgov/nist/javax/sip/address/AddressImpl;
@@ -275,7 +275,7 @@
 
     .line 274
     .local v3, "route":Lgov/nist/javax/sip/header/Route;
-    invoke-virtual {v4, v3}, Lgov/nist/javax/sip/header/RouteList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v4, v3}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 275
     invoke-virtual {p1, v2}, Lgov/nist/javax/sip/message/SIPRequest;->setRequestURI(Ljavax/sip/address/URI;)V
@@ -283,7 +283,7 @@
     .line 276
     iget-object v5, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v5}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v5}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v5
 
@@ -292,7 +292,7 @@
     .line 277
     iget-object v5, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v5}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v5}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v5
 
@@ -375,7 +375,7 @@
 
     .line 173
     :cond_2
-    invoke-virtual {v5}, Lgov/nist/javax/sip/message/SIPRequest;->getRouteHeaders()Lgov/nist/javax/sip/header/RouteList;
+    invoke-virtual {v5}, Lgov/nist/javax/sip/message/SIPMessage;->getRouteHeaders()Lgov/nist/javax/sip/header/RouteList;
 
     move-result-object v4
 
@@ -384,7 +384,7 @@
     if-eqz v4, :cond_5
 
     .line 196
-    invoke-virtual {v4}, Lgov/nist/javax/sip/header/RouteList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v3
 
@@ -392,7 +392,7 @@
 
     .line 197
     .local v3, "route":Lgov/nist/javax/sip/header/Route;
-    invoke-virtual {v3}, Lgov/nist/javax/sip/header/Route;->getAddress()Ljavax/sip/address/Address;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/header/AddressParametersHeader;->getAddress()Ljavax/sip/address/Address;
 
     move-result-object v8
 
@@ -427,7 +427,7 @@
     .line 203
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -436,7 +436,7 @@
     .line 204
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -454,7 +454,7 @@
     .local v0, "hop":Ljavax/sip/address/Hop;
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -463,7 +463,7 @@
     .line 210
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -533,7 +533,7 @@
     .restart local v0    # "hop":Ljavax/sip/address/Hop;
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -542,7 +542,7 @@
     .line 221
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -583,7 +583,7 @@
     .line 231
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -592,7 +592,7 @@
     .line 232
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -650,7 +650,7 @@
 
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -659,7 +659,7 @@
     .line 239
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -693,7 +693,7 @@
     :cond_9
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v8
 
@@ -702,7 +702,7 @@
     .line 242
     iget-object v8, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v8}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v8}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v8
 
@@ -720,7 +720,7 @@
 
     iget-object v9, p0, Lgov/nist/javax/sip/stack/DefaultRouter;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v9}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v9}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v9
 
@@ -752,7 +752,7 @@
     invoke-virtual {v1, v2}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 339
-    invoke-virtual {v1}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v1}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
     :try_end_0
     .catch Ljavax/sip/SipException; {:try_start_0 .. :try_end_0} :catch_0
 

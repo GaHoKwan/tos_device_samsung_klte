@@ -49,37 +49,47 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;Landroid/content/Context;)V
     .locals 13
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 493
     iput-object p1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 480
     new-instance v1, Landroid/graphics/Region;
 
     invoke-direct {v1}, Landroid/graphics/Region;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mBounds:Landroid/graphics/Region;
 
+    .line 481
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
+    .line 482
     new-instance v1, Landroid/graphics/Paint;
 
     invoke-direct {v1}, Landroid/graphics/Paint;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
+    .line 486
     new-instance v1, Landroid/view/Surface;
 
     invoke-direct {v1}, Landroid/view/Surface;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurface:Landroid/view/Surface;
 
+    .line 494
     const/4 v11, 0x0
 
+    .line 496
+    .local v11, "surfaceControl":Landroid/view/SurfaceControl;
     :try_start_0
     # getter for: Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->mWindowManager:Landroid/view/WindowManager;
     invoke-static {p1}, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->access$1000(Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;)Landroid/view/WindowManager;
@@ -97,6 +107,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
+    .line 497
     new-instance v0, Landroid/view/SurfaceControl;
 
     iget-object v1, p1, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -132,9 +143,13 @@
     :try_end_0
     .catch Landroid/view/SurfaceControl$OutOfResourcesException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 502
+    .end local v11    # "surfaceControl":Landroid/view/SurfaceControl;
+    .local v0, "surfaceControl":Landroid/view/SurfaceControl;
     :goto_0
     iput-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
+    .line 503
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     # getter for: Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->mWindowManager:Landroid/view/WindowManager;
@@ -152,6 +167,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/SurfaceControl;->setLayerStack(I)V
 
+    .line 504
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     iget-object v2, p1, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -173,6 +189,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/SurfaceControl;->setLayer(I)V
 
+    .line 507
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     const/4 v2, 0x0
@@ -181,16 +198,20 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/view/SurfaceControl;->setPosition(FF)V
 
+    .line 508
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurface:Landroid/view/Surface;
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     invoke-virtual {v1, v2}, Landroid/view/Surface;->copyFrom(Landroid/view/SurfaceControl;)V
 
+    .line 510
     new-instance v12, Landroid/util/TypedValue;
 
     invoke-direct {v12}, Landroid/util/TypedValue;-><init>()V
 
+    .line 511
+    .local v12, "typedValue":Landroid/util/TypedValue;
     invoke-virtual {p2}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v1
@@ -201,6 +222,7 @@
 
     invoke-virtual {v1, v2, v12, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
+    .line 513
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -211,12 +233,15 @@
 
     move-result v7
 
+    .line 515
+    .local v7, "borderColor":I
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
     sget-object v2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
+    .line 516
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
     # getter for: Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->mBorderWidth:I
@@ -228,16 +253,20 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
+    .line 517
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v1, v7}, Landroid/graphics/Paint;->setColor(I)V
 
+    .line 519
     new-instance v8, Landroid/view/animation/DecelerateInterpolator;
 
     const/high16 v1, 0x40200000    # 2.5f
 
     invoke-direct {v8, v1}, Landroid/view/animation/DecelerateInterpolator;-><init>(F)V
 
+    .line 520
+    .local v8, "interpolator":Landroid/view/animation/Interpolator;
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
@@ -250,6 +279,8 @@
 
     int-to-long v9, v1
 
+    .line 523
+    .local v9, "longAnimationDuration":J
     const-string v1, "alpha"
 
     const/4 v2, 0x2
@@ -264,27 +295,41 @@
 
     iput-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
+    .line 525
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1, v8}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
+    .line 526
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1, v9, v10}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
+    .line 527
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mInvalidated:Z
 
+    .line 528
     return-void
 
+    .line 499
+    .end local v0    # "surfaceControl":Landroid/view/SurfaceControl;
+    .end local v7    # "borderColor":I
+    .end local v8    # "interpolator":Landroid/view/animation/Interpolator;
+    .end local v9    # "longAnimationDuration":J
+    .end local v12    # "typedValue":Landroid/util/TypedValue;
+    .restart local v11    # "surfaceControl":Landroid/view/SurfaceControl;
     :catch_0
     move-exception v1
 
     move-object v0, v11
 
+    .end local v11    # "surfaceControl":Landroid/view/SurfaceControl;
+    .restart local v0    # "surfaceControl":Landroid/view/SurfaceControl;
     goto/16 :goto_0
 
+    .line 523
     nop
 
     :array_0
@@ -299,6 +344,8 @@
 .method public drawIfNeeded()V
     .locals 6
 
+    .prologue
+    .line 627
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v2, v2, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -312,16 +359,20 @@
 
     monitor-enter v3
 
+    .line 628
     :try_start_0
     iget-boolean v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mInvalidated:Z
 
     if-nez v2, :cond_0
 
+    .line 629
     monitor-exit v3
 
+    .line 667
     :goto_0
     return-void
 
+    .line 631
     :cond_0
     const/4 v2, 0x0
 
@@ -329,8 +380,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 632
     const/4 v0, 0x0
 
+    .line 635
+    .local v0, "canvas":Landroid/graphics/Canvas;
     :try_start_1
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
@@ -340,12 +394,14 @@
 
     if-eqz v2, :cond_1
 
+    .line 636
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mBounds:Landroid/graphics/Region;
 
     iget-object v4, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2, v4}, Landroid/graphics/Region;->getBounds(Landroid/graphics/Rect;)Z
 
+    .line 638
     :cond_1
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
@@ -369,6 +425,7 @@
 
     invoke-virtual {v2, v4, v5}, Landroid/graphics/Rect;->inset(II)V
 
+    .line 639
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurface:Landroid/view/Surface;
 
     iget-object v4, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
@@ -381,14 +438,18 @@
 
     move-result-object v0
 
+    .line 648
     :goto_1
     if-nez v0, :cond_2
 
+    .line 649
     :try_start_2
     monitor-exit v3
 
     goto :goto_0
 
+    .line 666
+    .end local v0    # "canvas":Landroid/graphics/Canvas;
     :catchall_0
     move-exception v2
 
@@ -398,6 +459,8 @@
 
     throw v2
 
+    .line 654
+    .restart local v0    # "canvas":Landroid/graphics/Canvas;
     :cond_2
     const/4 v2, 0x0
 
@@ -406,39 +469,48 @@
 
     invoke-virtual {v0, v2, v4}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
+    .line 655
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
     iget v4, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mAlpha:I
 
     invoke-virtual {v2, v4}, Landroid/graphics/Paint;->setAlpha(I)V
 
+    .line 656
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mBounds:Landroid/graphics/Region;
 
     invoke-virtual {v2}, Landroid/graphics/Region;->getBoundaryPath()Landroid/graphics/Path;
 
     move-result-object v1
 
+    .line 657
+    .local v1, "path":Landroid/graphics/Path;
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
+    .line 659
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v2, v0}, Landroid/view/Surface;->unlockCanvasAndPost(Landroid/graphics/Canvas;)V
 
+    .line 661
     iget v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mAlpha:I
 
     if-lez v2, :cond_3
 
+    .line 662
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     invoke-virtual {v2}, Landroid/view/SurfaceControl;->show()V
 
+    .line 666
     :goto_2
     monitor-exit v3
 
     goto :goto_0
 
+    .line 664
     :cond_3
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
@@ -448,11 +520,14 @@
 
     goto :goto_2
 
+    .line 645
+    .end local v1    # "path":Landroid/graphics/Path;
     :catch_0
     move-exception v2
 
     goto :goto_1
 
+    .line 643
     :catch_1
     move-exception v2
 
@@ -462,6 +537,8 @@
 .method public getAlpha()I
     .locals 2
 
+    .prologue
+    .line 576
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v0, v0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -475,6 +552,7 @@
 
     monitor-enter v1
 
+    .line 577
     :try_start_0
     iget v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mAlpha:I
 
@@ -482,6 +560,7 @@
 
     return v0
 
+    .line 578
     :catchall_0
     move-exception v0
 
@@ -494,18 +573,24 @@
 
 .method public invalidate(Landroid/graphics/Rect;)V
     .locals 1
+    .param p1, "dirtyRect"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 616
     if-eqz p1, :cond_0
 
+    .line 617
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
+    .line 621
     :goto_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mInvalidated:Z
 
+    .line 622
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v0, v0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -517,8 +602,10 @@
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->scheduleAnimationLocked()V
 
+    .line 623
     return-void
 
+    .line 619
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
@@ -530,20 +617,27 @@
 .method public releaseSurface()V
     .locals 1
 
+    .prologue
+    .line 670
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl;->release()V
 
+    .line 671
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurface:Landroid/view/Surface;
 
     invoke-virtual {v0}, Landroid/view/Surface;->release()V
 
+    .line 672
     return-void
 .end method
 
 .method public setAlpha(I)V
     .locals 2
+    .param p1, "alpha"    # I
 
+    .prologue
+    .line 582
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v0, v0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -557,23 +651,29 @@
 
     monitor-enter v1
 
+    .line 583
     :try_start_0
     iget v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mAlpha:I
 
     if-ne v0, p1, :cond_0
 
+    .line 584
     monitor-exit v1
 
+    .line 592
     :goto_0
     return-void
 
+    .line 586
     :cond_0
     iput p1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mAlpha:I
 
+    .line 587
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->invalidate(Landroid/graphics/Rect;)V
 
+    .line 591
     monitor-exit v1
 
     goto :goto_0
@@ -590,7 +690,10 @@
 
 .method public setBounds(Landroid/graphics/Region;)V
     .locals 2
+    .param p1, "bounds"    # Landroid/graphics/Region;
 
+    .prologue
+    .line 595
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v0, v0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -604,6 +707,7 @@
 
     monitor-enter v1
 
+    .line 596
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mBounds:Landroid/graphics/Region;
 
@@ -613,20 +717,25 @@
 
     if-eqz v0, :cond_0
 
+    .line 597
     monitor-exit v1
 
+    .line 605
     :goto_0
     return-void
 
+    .line 599
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mBounds:Landroid/graphics/Region;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Region;->set(Landroid/graphics/Region;)Z
 
+    .line 600
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->invalidate(Landroid/graphics/Rect;)V
 
+    .line 604
     monitor-exit v1
 
     goto :goto_0
@@ -643,7 +752,11 @@
 
 .method public setShown(ZZ)V
     .locals 4
+    .param p1, "shown"    # Z
+    .param p2, "animate"    # Z
 
+    .prologue
+    .line 531
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v1, v1, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -657,21 +770,27 @@
 
     monitor-enter v2
 
+    .line 532
     :try_start_0
     iget-boolean v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShown:Z
 
     if-ne v1, p1, :cond_0
 
+    .line 533
     monitor-exit v2
 
+    .line 571
     :goto_0
     return-void
 
+    .line 535
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShown:Z
 
+    .line 536
     if-eqz p2, :cond_3
 
+    .line 537
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->isRunning()Z
@@ -680,10 +799,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 538
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->reverse()V
 
+    .line 570
     :goto_1
     monitor-exit v2
 
@@ -698,9 +819,11 @@
 
     throw v1
 
+    .line 540
     :cond_1
     if-eqz p1, :cond_2
 
+    .line 541
     :try_start_1
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
@@ -708,6 +831,7 @@
 
     goto :goto_1
 
+    .line 543
     :cond_2
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
@@ -715,6 +839,7 @@
 
     goto :goto_1
 
+    .line 548
     :cond_3
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
@@ -722,8 +847,11 @@
 
     if-nez v1, :cond_4
 
+    .line 551
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
+    .line 552
+    .local v0, "animator":Landroid/animation/ValueAnimator;
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v1, v1, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -739,15 +867,19 @@
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 561
+    .end local v0    # "animator":Landroid/animation/ValueAnimator;
     :goto_2
     if-eqz p1, :cond_5
 
+    .line 562
     const/16 v1, 0xff
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->setAlpha(I)V
 
     goto :goto_1
 
+    .line 559
     :cond_4
     iget-object v1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mShowHideFrameAnimator:Landroid/animation/ValueAnimator;
 
@@ -755,6 +887,7 @@
 
     goto :goto_2
 
+    .line 564
     :cond_5
     const/4 v1, 0x0
 
@@ -768,6 +901,8 @@
 .method public updateSize()V
     .locals 4
 
+    .prologue
+    .line 608
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
     iget-object v0, v0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;->this$0:Lcom/android/server/wm/DisplayMagnifier;
@@ -781,6 +916,7 @@
 
     monitor-enter v1
 
+    .line 609
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
 
@@ -802,6 +938,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
+    .line 610
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->this$1:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport;
@@ -824,14 +961,18 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/view/SurfaceControl;->setSize(II)V
 
+    .line 611
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->mDirtyRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;->invalidate(Landroid/graphics/Rect;)V
 
+    .line 612
     monitor-exit v1
 
+    .line 613
     return-void
 
+    .line 612
     :catchall_0
     move-exception v0
 

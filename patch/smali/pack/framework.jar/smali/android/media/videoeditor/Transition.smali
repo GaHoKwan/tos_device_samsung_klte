@@ -1030,7 +1030,7 @@
     .line 237
     iget-object v5, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
-    invoke-virtual {v0}, Landroid/media/videoeditor/TransitionAlpha;->getBehavior()I
+    invoke-virtual {v0}, Landroid/media/videoeditor/Transition;->getBehavior()I
 
     move-result v6
 
@@ -1122,7 +1122,7 @@
     .line 251
     iget-object v5, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
-    invoke-virtual {v4}, Landroid/media/videoeditor/TransitionSliding;->getBehavior()I
+    invoke-virtual {v4}, Landroid/media/videoeditor/Transition;->getBehavior()I
 
     move-result v6
 
@@ -1179,7 +1179,7 @@
     .line 261
     iget-object v5, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
-    invoke-virtual {v1}, Landroid/media/videoeditor/TransitionCrossfade;->getBehavior()I
+    invoke-virtual {v1}, Landroid/media/videoeditor/Transition;->getBehavior()I
 
     move-result v6
 
@@ -1219,7 +1219,7 @@
     .line 269
     iget-object v5, p0, Landroid/media/videoeditor/Transition;->mNativeHelper:Landroid/media/videoeditor/MediaArtistNativeHelper;
 
-    invoke-virtual {v2}, Landroid/media/videoeditor/TransitionFadeBlack;->getBehavior()I
+    invoke-virtual {v2}, Landroid/media/videoeditor/Transition;->getBehavior()I
 
     move-result v6
 

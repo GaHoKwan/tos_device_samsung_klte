@@ -47,7 +47,7 @@
     .line 54
     const-string v3, "ContentLengthParser.enter"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ContentLengthParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 56
     :cond_0
@@ -60,10 +60,10 @@
     .local v0, "contentLength":Lgov/nist/javax/sip/header/ContentLength;
     const/16 v3, 0x824
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ContentLengthParser;->headerName(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 58
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ContentLengthParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -78,12 +78,12 @@
     invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/ContentLength;->setContentLength(I)V
 
     .line 60
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ContentLengthParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 61
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ContentLengthParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xa
 
@@ -101,7 +101,7 @@
     .line 69
     const-string v3, "ContentLengthParser.leave"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ContentLengthParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 62
     :cond_1
@@ -116,11 +116,11 @@
     .line 64
     .local v1, "ex":Ljavax/sip/InvalidArgumentException;
     :try_start_1
-    invoke-virtual {v1}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ContentLengthParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v3
 
@@ -140,7 +140,7 @@
     .line 69
     const-string v4, "ContentLengthParser.leave"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ContentLengthParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 68
     :cond_2
@@ -153,11 +153,11 @@
     .line 66
     .local v1, "ex":Ljava/lang/NumberFormatException;
     :try_start_2
-    invoke-virtual {v1}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ContentLengthParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v3
 

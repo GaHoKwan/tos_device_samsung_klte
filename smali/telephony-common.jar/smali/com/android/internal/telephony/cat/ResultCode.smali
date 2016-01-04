@@ -886,7 +886,7 @@
     .line 27
     sget-object v0, Lcom/android/internal/telephony/cat/ResultCode;->$VALUES:[Lcom/android/internal/telephony/cat/ResultCode;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/cat/ResultCode;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

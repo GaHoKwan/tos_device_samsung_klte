@@ -903,14 +903,14 @@
     .line 199
     :cond_5
     :goto_3
-    new-instance v7, Landroid/content/res/Resources;
+    new-instance v7, Landroid/content/res/LidroidResources;
 
     .end local v7    # "r":Landroid/content/res/Resources;
     move-object/from16 v11, p4
 
     move-object/from16 v12, p5
 
-    invoke-direct/range {v7 .. v12}, Landroid/content/res/Resources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;)V
+    invoke-direct/range {v7 .. v12}, Landroid/content/res/LidroidResources;-><init>(Landroid/content/res/AssetManager;Landroid/util/DisplayMetrics;Landroid/content/res/Configuration;Landroid/content/res/CompatibilityInfo;Landroid/os/IBinder;)V
 
     .line 206
     .restart local v7    # "r":Landroid/content/res/Resources;

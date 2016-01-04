@@ -59,7 +59,7 @@
     .local v1, "field":Ljava/lang/reflect/Field;
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+    invoke-virtual {v1, v2}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
     .line 870
     invoke-virtual {p1}, Ljava/net/Socket;->getInetAddress()Ljava/net/InetAddress;
@@ -82,7 +82,7 @@
 
     .line 874
     .local v0, "e":Ljava/lang/NoSuchFieldException;
-    invoke-virtual {v0}, Ljava/lang/NoSuchFieldException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -93,7 +93,7 @@
 
     .line 880
     .local v0, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

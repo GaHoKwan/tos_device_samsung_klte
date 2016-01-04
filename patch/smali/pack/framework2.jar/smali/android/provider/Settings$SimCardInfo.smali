@@ -48,6 +48,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 11297
     const-string v0, "content://settings/simcard_info"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -56,6 +58,7 @@
 
     sput-object v0, Landroid/provider/Settings$SimCardInfo;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 11351
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
@@ -98,6 +101,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11266
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

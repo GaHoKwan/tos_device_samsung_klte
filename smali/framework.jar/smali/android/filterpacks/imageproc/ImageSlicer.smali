@@ -169,7 +169,7 @@
     .line 94
     const-string v7, "image"
 
-    invoke-virtual {p0, v7}, Landroid/filterpacks/imageproc/ImageSlicer;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v7}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v7
 
@@ -342,13 +342,13 @@
 
     const/4 v8, 0x1
 
-    invoke-virtual {p0, v7, v8}, Landroid/filterpacks/imageproc/ImageSlicer;->setWaitsOnInputPort(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v7, v8}, Landroid/filterfw/core/Filter;->setWaitsOnInputPort(Ljava/lang/String;Z)V
 
     .line 137
     :goto_0
     const-string v7, "image"
 
-    invoke-virtual {p0, v7, v1}, Landroid/filterpacks/imageproc/ImageSlicer;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v7, v1}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     .line 140
     invoke-virtual {v1}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
@@ -365,7 +365,7 @@
     .line 133
     const-string v7, "image"
 
-    invoke-virtual {p0, v7, v11}, Landroid/filterpacks/imageproc/ImageSlicer;->setWaitsOnInputPort(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v7, v11}, Landroid/filterfw/core/Filter;->setWaitsOnInputPort(Ljava/lang/String;Z)V
 
     goto :goto_0
 .end method
@@ -383,14 +383,14 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ImageSlicer;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     .line 67
     const-string v0, "image"
 
     const-string v1, "image"
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ImageSlicer;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 68
     return-void

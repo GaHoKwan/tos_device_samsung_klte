@@ -21,7 +21,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 51
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ","
 
@@ -39,7 +39,7 @@
 
     .prologue
     .line 55
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->set(Lgov/nist/core/NameValue;)V
 
@@ -52,7 +52,7 @@
 
     .prologue
     .line 62
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     .prologue
     .line 73
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->getNameValue(Ljava/lang/String;)Lgov/nist/core/NameValue;
 
@@ -95,7 +95,7 @@
     .line 97
     const-string v0, "cnonce"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -109,7 +109,7 @@
     .line 107
     const-string v0, "nextnonce"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -123,7 +123,7 @@
     .line 117
     const-string v0, "nc"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationInfo;->getParameterAsInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -137,7 +137,7 @@
     .line 127
     const-string v0, "qop"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -151,7 +151,7 @@
     .line 136
     const-string v0, "rspauth"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

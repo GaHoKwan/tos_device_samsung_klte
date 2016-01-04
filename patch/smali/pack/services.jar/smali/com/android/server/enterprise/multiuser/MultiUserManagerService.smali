@@ -21,15 +21,21 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 70
     invoke-direct {p0}, Landroid/app/enterprise/multiuser/IMultiUserManager$Stub;-><init>()V
 
+    .line 67
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 71
     iput-object p1, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
+    .line 72
     new-instance v0, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget-object v1, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
@@ -38,12 +44,16 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+    .line 73
     return-void
 .end method
 
 .method private enforceMultiUserManagementPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
     .locals 2
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
 
+    .prologue
+    .line 88
     invoke-direct {p0}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -59,7 +69,10 @@
 
 .method private enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
     .locals 2
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
 
+    .prologue
+    .line 97
     invoke-direct {p0}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -76,10 +89,13 @@
 .method private getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
     .locals 2
 
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     if-nez v0, :cond_0
 
+    .line 77
     iget-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
     const-string v1, "enterprise_policy"
@@ -92,6 +108,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 80
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -102,30 +119,40 @@
 # virtual methods
 .method public allowMultipleUsers(Landroid/app/enterprise/ContextInfo;Z)I
     .locals 21
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "allow"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 130
     invoke-direct/range {p0 .. p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 131
     invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
 
     move-result v17
 
     if-nez v17, :cond_0
 
+    .line 132
     const/16 v17, -0x1
 
+    .line 166
     :goto_0
     return v17
 
+    .line 134
     :cond_0
     const/4 v11, 0x1
 
+    .line 135
+    .local v11, "ret":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -158,6 +185,7 @@
 
     and-int v11, v11, v17
 
+    .line 138
     if-eqz v11, :cond_4
 
     const/16 v17, 0x0
@@ -174,10 +202,13 @@
 
     if-nez v17, :cond_4
 
+    .line 139
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v14
 
+    .line 140
+    .local v14, "token":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
@@ -192,12 +223,16 @@
 
     check-cast v16, Landroid/os/UserManager;
 
+    .line 141
+    .local v16, "um":Landroid/os/UserManager;
     if-eqz v16, :cond_1
 
+    .line 142
     const/16 v17, 0x0
 
     invoke-virtual/range {v16 .. v17}, Landroid/os/UserManager;->setGuestEnabled(Z)V
 
+    .line 144
     :cond_1
     move-object/from16 v0, p0
 
@@ -213,6 +248,8 @@
 
     check-cast v5, Landroid/app/ActivityManager;
 
+    .line 146
+    .local v5, "am":Landroid/app/ActivityManager;
     const/16 v17, 0xc
 
     const/16 v18, 0x0
@@ -229,8 +266,12 @@
 
     move-result-object v10
 
+    .line 148
+    .local v10, "recentTasks":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
     const-string v12, "com.android.settings"
 
+    .line 149
+    .local v12, "settingsPkg":Ljava/lang/String;
     if-nez p2, :cond_3
 
     invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
@@ -239,10 +280,12 @@
 
     if-nez v17, :cond_3
 
+    .line 150
     invoke-interface {v10}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
+    .local v7, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
@@ -257,18 +300,27 @@
 
     check-cast v13, Landroid/app/ActivityManager$RecentTaskInfo;
 
+    .line 151
+    .local v13, "task":Landroid/app/ActivityManager$RecentTaskInfo;
     iget-object v8, v13, Landroid/app/ActivityManager$RecentTaskInfo;->baseIntent:Landroid/content/Intent;
 
+    .line 152
+    .local v8, "origInt":Landroid/content/Intent;
     invoke-virtual {v8}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v6
 
+    .line 153
+    .local v6, "cmp":Landroid/content/ComponentName;
     if-eqz v6, :cond_2
 
+    .line 154
     invoke-virtual {v6}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v9
 
+    .line 155
+    .local v9, "packageName":Ljava/lang/String;
     const-string v17, "MultiUserManagerService"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -293,6 +345,7 @@
 
     invoke-static/range {v17 .. v18}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 157
     if-eqz v9, :cond_2
 
     const-string v17, "com.android.settings"
@@ -305,6 +358,7 @@
 
     if-eqz v17, :cond_2
 
+    .line 158
     iget v0, v13, Landroid/app/ActivityManager$RecentTaskInfo;->persistentId:I
 
     move/from16 v17, v0
@@ -319,9 +373,21 @@
 
     goto :goto_1
 
+    .line 164
+    .end local v6    # "cmp":Landroid/content/ComponentName;
+    .end local v7    # "i$":Ljava/util/Iterator;
+    .end local v8    # "origInt":Landroid/content/Intent;
+    .end local v9    # "packageName":Ljava/lang/String;
+    .end local v13    # "task":Landroid/app/ActivityManager$RecentTaskInfo;
     :cond_3
     invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 166
+    .end local v5    # "am":Landroid/app/ActivityManager;
+    .end local v10    # "recentTasks":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RecentTaskInfo;>;"
+    .end local v12    # "settingsPkg":Ljava/lang/String;
+    .end local v14    # "token":J
+    .end local v16    # "um":Landroid/os/UserManager;
     :cond_4
     if-eqz v11, :cond_5
 
@@ -337,18 +403,25 @@
 
 .method public allowUserCreation(Landroid/app/enterprise/ContextInfo;Z)Z
     .locals 5
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "allow"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 273
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 275
     const/4 v0, 0x0
 
+    .line 276
+    .local v0, "ret":Z
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, v1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
@@ -359,6 +432,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 277
     iget-object v1, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v2, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
@@ -371,24 +445,32 @@
 
     move-result v0
 
+    .line 281
     :cond_0
     return v0
 .end method
 
 .method public allowUserRemoval(Landroid/app/enterprise/ContextInfo;Z)Z
     .locals 5
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "allow"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 309
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 311
     const/4 v0, 0x0
 
+    .line 312
+    .local v0, "ret":Z
     const/4 v1, 0x0
 
     invoke-virtual {p0, p1, v1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
@@ -399,6 +481,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 313
     iget-object v1, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget v2, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
@@ -411,28 +494,36 @@
 
     move-result v0
 
+    .line 317
     :cond_0
     return v0
 .end method
 
 .method public createUser(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)I
     .locals 10
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x1
 
     const/4 v9, 0x0
 
+    .line 188
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 190
     const/4 v3, -0x1
 
+    .line 192
+    .local v3, "userId":I
     invoke-virtual {p0, p1, v9}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
 
     move-result v5
@@ -445,10 +536,13 @@
 
     if-eqz v5, :cond_2
 
+    .line 193
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v0
 
+    .line 195
+    .local v0, "token":J
     iget-object v5, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v6, "user"
@@ -459,8 +553,11 @@
 
     check-cast v2, Landroid/os/UserManager;
 
+    .line 196
+    .local v2, "um":Landroid/os/UserManager;
     if-eqz v2, :cond_1
 
+    .line 198
     invoke-virtual {v2}, Landroid/os/UserManager;->getUserCount()I
 
     move-result v5
@@ -471,11 +568,18 @@
 
     if-lt v5, v6, :cond_0
 
+    .line 199
     const/4 v5, -0x1
 
+    .line 221
+    .end local v0    # "token":J
+    .end local v2    # "um":Landroid/os/UserManager;
     :goto_0
     return v5
 
+    .line 203
+    .restart local v0    # "token":J
+    .restart local v2    # "um":Landroid/os/UserManager;
     :cond_0
     if-eqz p2, :cond_3
 
@@ -483,6 +587,7 @@
 
     move-result-object p2
 
+    .line 205
     :goto_1
     const/4 v5, 0x4
 
@@ -490,16 +595,21 @@
 
     move-result-object v4
 
+    .line 206
+    .local v4, "userInfo":Landroid/content/pm/UserInfo;
     if-eqz v4, :cond_1
 
+    .line 207
     iget v3, v4, Landroid/content/pm/UserInfo;->id:I
 
+    .line 210
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
     move-result v5
 
     if-gtz v5, :cond_1
 
+    .line 212
     iget-object v5, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
     const v6, 0x10402f9
@@ -516,16 +626,25 @@
 
     move-result-object p2
 
+    .line 214
     invoke-virtual {v2, v3, p2}, Landroid/os/UserManager;->setUserName(ILjava/lang/String;)V
 
+    .line 218
+    .end local v4    # "userInfo":Landroid/content/pm/UserInfo;
     :cond_1
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .end local v0    # "token":J
+    .end local v2    # "um":Landroid/os/UserManager;
     :cond_2
     move v5, v3
 
+    .line 221
     goto :goto_0
 
+    .line 203
+    .restart local v0    # "token":J
+    .restart local v2    # "um":Landroid/os/UserManager;
     :cond_3
     const-string p2, ""
 
@@ -534,18 +653,24 @@
 
 .method public getUsers(Landroid/app/enterprise/ContextInfo;)[I
     .locals 9
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 248
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceMultiUserManagementPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 250
     const/4 v4, 0x0
 
+    .line 252
+    .local v4, "users":[I
     const/4 v7, 0x0
 
     invoke-virtual {p0, p1, v7}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
@@ -556,10 +681,13 @@
 
     if-ne v7, v8, :cond_1
 
+    .line 253
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
+    .line 254
+    .local v1, "token":J
     iget-object v7, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v8, "user"
@@ -570,23 +698,33 @@
 
     check-cast v3, Landroid/os/UserManager;
 
+    .line 255
+    .local v3, "um":Landroid/os/UserManager;
     if-eqz v3, :cond_0
 
+    .line 256
     invoke-virtual {v3}, Landroid/os/UserManager;->getUsers()Ljava/util/List;
 
     move-result-object v6
 
+    .line 257
+    .local v6, "usersList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     invoke-interface {v6}, Ljava/util/List;->size()I
 
     move-result v5
 
+    .line 258
+    .local v5, "usersCount":I
     new-array v4, v5, [I
 
+    .line 259
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v5, :cond_0
 
+    .line 260
     invoke-interface {v6, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v7
@@ -597,37 +735,52 @@
 
     aput v7, v4, v0
 
+    .line 259
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 264
+    .end local v0    # "i":I
+    .end local v5    # "usersCount":I
+    .end local v6    # "usersList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/UserInfo;>;"
     :cond_0
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 267
+    .end local v1    # "token":J
+    .end local v3    # "um":Landroid/os/UserManager;
     :cond_1
     return-object v4
 .end method
 
 .method public isUserCreationAllowed(Landroid/app/enterprise/ContextInfo;Z)Z
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "showMsg"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 287
     const/4 v0, 0x1
 
+    .line 288
+    .local v0, "ret":Z
     invoke-virtual {p0, p1, v3}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
 
     move-result v4
 
     if-ne v4, v2, :cond_2
 
+    .line 289
     iget-object v4, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v5, "MULTI_USER_MGMT"
@@ -638,6 +791,8 @@
 
     move-result-object v1
 
+    .line 292
+    .local v1, "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
@@ -650,23 +805,31 @@
 
     move v0, v2
 
+    .line 299
+    .end local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :goto_0
     if-eqz p2, :cond_0
 
     if-nez v0, :cond_0
 
+    .line 300
     const v2, 0x10402f7
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
+    .line 303
     :cond_0
     return v0
 
+    .restart local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_1
     move v0, v3
 
+    .line 292
     goto :goto_0
 
+    .line 295
+    .end local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_2
     const/4 v0, 0x0
 
@@ -675,24 +838,31 @@
 
 .method public isUserRemovalAllowed(Landroid/app/enterprise/ContextInfo;Z)Z
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "showMsg"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 323
     const/4 v0, 0x1
 
+    .line 324
+    .local v0, "ret":Z
     invoke-virtual {p0, p1, v3}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
 
     move-result v4
 
     if-ne v4, v2, :cond_2
 
+    .line 325
     iget-object v4, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v5, "MULTI_USER_MGMT"
@@ -703,6 +873,8 @@
 
     move-result-object v1
 
+    .line 328
+    .local v1, "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
@@ -715,23 +887,31 @@
 
     move v0, v2
 
+    .line 335
+    .end local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :goto_0
     if-eqz p2, :cond_0
 
     if-nez v0, :cond_0
 
+    .line 336
     const v2, 0x10402f8
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
+    .line 339
     :cond_0
     return v0
 
+    .restart local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_1
     move v0, v3
 
+    .line 328
     goto :goto_0
 
+    .line 331
+    .end local v1    # "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     :cond_2
     const/4 v0, 0x0
 
@@ -740,28 +920,35 @@
 
 .method public multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "showMsg"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 113
     invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
 
     move-result v4
 
     if-nez v4, :cond_1
 
+    .line 114
     const/4 v2, -0x1
 
+    .line 125
     :cond_0
     :goto_0
     return v2
 
+    .line 116
     :cond_1
     iget-object v4, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -773,6 +960,8 @@
 
     move-result-object v1
 
+    .line 119
+    .local v1, "values":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Boolean;>;"
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
@@ -785,15 +974,19 @@
 
     move v0, v2
 
+    .line 120
+    .local v0, "ret":Z
     :goto_1
     if-eqz p2, :cond_2
 
     if-nez v0, :cond_2
 
+    .line 121
     const v4, 0x10402f6
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
+    .line 125
     :cond_2
     if-nez v0, :cond_0
 
@@ -801,20 +994,25 @@
 
     goto :goto_0
 
+    .end local v0    # "ret":Z
     :cond_3
     move v0, v3
 
+    .line 119
     goto :goto_1
 .end method
 
 .method public multipleUsersSupported(Landroid/app/enterprise/ContextInfo;)Z
     .locals 3
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 104
     :try_start_0
     invoke-static {}, Landroid/os/UserManager;->supportsMultipleUsers()Z
     :try_end_0
@@ -822,12 +1020,16 @@
 
     move-result v1
 
+    .line 107
     :goto_0
     return v1
 
+    .line 105
     :catch_0
     move-exception v0
 
+    .line 106
+    .local v0, "e":Ljava/lang/Error;
     const-string v1, "MultiUserManagerService"
 
     invoke-virtual {v0}, Ljava/lang/Error;->getMessage()Ljava/lang/String;
@@ -836,6 +1038,7 @@
 
     invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 107
     const/4 v1, 0x0
 
     goto :goto_0
@@ -843,38 +1046,54 @@
 
 .method public onAdminAdded(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 175
     return-void
 .end method
 
 .method public onAdminRemoved(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 183
     return-void
 .end method
 
 .method public onPreAdminRemoval(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 179
     return-void
 .end method
 
 .method public removeUser(Landroid/app/enterprise/ContextInfo;I)Z
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "userId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 227
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->enforceOwnerOnlyAndMultiUserPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 229
     const/4 v0, 0x0
 
+    .line 231
+    .local v0, "ret":Z
     if-ltz p2, :cond_1
 
     invoke-virtual {p0, p1, v6}, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->multipleUsersAllowed(Landroid/app/enterprise/ContextInfo;Z)I
@@ -891,10 +1110,13 @@
 
     if-eqz v4, :cond_1
 
+    .line 234
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
+    .line 235
+    .local v1, "token":J
     iget-object v4, p0, Lcom/android/server/enterprise/multiuser/MultiUserManagerService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v5, "user"
@@ -905,15 +1127,22 @@
 
     check-cast v3, Landroid/os/UserManager;
 
+    .line 236
+    .local v3, "um":Landroid/os/UserManager;
     if-eqz v3, :cond_0
 
+    .line 237
     invoke-virtual {v3, p2}, Landroid/os/UserManager;->removeUser(I)Z
 
     move-result v0
 
+    .line 239
     :cond_0
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 242
+    .end local v1    # "token":J
+    .end local v3    # "um":Landroid/os/UserManager;
     :cond_1
     return v0
 .end method
@@ -921,5 +1150,7 @@
 .method public systemReady()V
     .locals 0
 
+    .prologue
+    .line 171
     return-void
 .end method

@@ -29,19 +29,32 @@
 # direct methods
 .method constructor <init>(ZJJJJ)V
     .locals 0
+    .param p1, "isNight"    # Z
+    .param p2, "yesterdaySunset"    # J
+    .param p4, "todaySunrise"    # J
+    .param p6, "todaySunset"    # J
+    .param p8, "tomorrowSunrise"    # J
 
+    .prologue
+    .line 179
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 180
     iput-boolean p1, p0, Lcom/android/server/TwilightService$TwilightState;->mIsNight:Z
 
+    .line 181
     iput-wide p2, p0, Lcom/android/server/TwilightService$TwilightState;->mYesterdaySunset:J
 
+    .line 182
     iput-wide p4, p0, Lcom/android/server/TwilightService$TwilightState;->mTodaySunrise:J
 
+    .line 183
     iput-wide p6, p0, Lcom/android/server/TwilightService$TwilightState;->mTodaySunset:J
 
+    .line 184
     iput-wide p8, p0, Lcom/android/server/TwilightService$TwilightState;->mTomorrowSunrise:J
 
+    .line 185
     return-void
 .end method
 
@@ -49,7 +62,10 @@
 # virtual methods
 .method public equals(Lcom/android/server/TwilightService$TwilightState;)Z
     .locals 4
+    .param p1, "other"    # Lcom/android/server/TwilightService$TwilightState;
 
+    .prologue
+    .line 232
     if-eqz p1, :cond_0
 
     iget-boolean v0, p0, Lcom/android/server/TwilightService$TwilightState;->mIsNight:Z
@@ -103,13 +119,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 228
     instance-of v0, p1, Lcom/android/server/TwilightService$TwilightState;
 
     if-eqz v0, :cond_0
 
     check-cast p1, Lcom/android/server/TwilightService$TwilightState;
 
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/TwilightService$TwilightState;->equals(Lcom/android/server/TwilightService$TwilightState;)Z
 
     move-result v0
@@ -130,6 +150,8 @@
 .method public getTodaySunrise()J
     .locals 2
 
+    .prologue
+    .line 207
     iget-wide v0, p0, Lcom/android/server/TwilightService$TwilightState;->mTodaySunrise:J
 
     return-wide v0
@@ -138,6 +160,8 @@
 .method public getTodaySunset()J
     .locals 2
 
+    .prologue
+    .line 215
     iget-wide v0, p0, Lcom/android/server/TwilightService$TwilightState;->mTodaySunset:J
 
     return-wide v0
@@ -146,6 +170,8 @@
 .method public getTomorrowSunrise()J
     .locals 2
 
+    .prologue
+    .line 223
     iget-wide v0, p0, Lcom/android/server/TwilightService$TwilightState;->mTomorrowSunrise:J
 
     return-wide v0
@@ -154,6 +180,8 @@
 .method public getYesterdaySunset()J
     .locals 2
 
+    .prologue
+    .line 199
     iget-wide v0, p0, Lcom/android/server/TwilightService$TwilightState;->mYesterdaySunset:J
 
     return-wide v0
@@ -162,6 +190,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 242
     const/4 v0, 0x0
 
     return v0
@@ -170,6 +200,8 @@
 .method public isNight()Z
     .locals 1
 
+    .prologue
+    .line 191
     iget-boolean v0, p0, Lcom/android/server/TwilightService$TwilightState;->mIsNight:Z
 
     return v0
@@ -178,10 +210,14 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
+    .prologue
+    .line 247
     invoke-static {}, Ljava/text/DateFormat;->getDateTimeInstance()Ljava/text/DateFormat;
 
     move-result-object v0
 
+    .line 248
+    .local v0, "f":Ljava/text/DateFormat;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

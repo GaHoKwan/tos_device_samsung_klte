@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 1099
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1102
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$3;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/PhoneWindowManager;->takeScreenshot()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$800(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
+    .line 1103
     return-void
 .end method

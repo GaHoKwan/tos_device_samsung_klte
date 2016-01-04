@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
+    .prologue
+    .line 396
     iput-object p1, p0, Lcom/android/server/content/SyncManager$8;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,14 @@
 # virtual methods
 .method public onSyncRequest(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;)V
     .locals 11
+    .param p1, "account"    # Landroid/accounts/Account;
+    .param p2, "userId"    # I
+    .param p3, "reason"    # I
+    .param p4, "authority"    # Ljava/lang/String;
+    .param p5, "extras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 400
     iget-object v0, p0, Lcom/android/server/content/SyncManager$8;->this$0:Lcom/android/server/content/SyncManager;
 
     const-wide/16 v6, 0x0
@@ -57,5 +66,6 @@
 
     invoke-virtual/range {v0 .. v10}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;JJZ)V
 
+    .line 404
     return-void
 .end method

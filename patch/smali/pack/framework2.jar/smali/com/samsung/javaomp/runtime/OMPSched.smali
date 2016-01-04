@@ -142,7 +142,7 @@
 
     sget-object v0, Lcom/samsung/javaomp/runtime/OMPSched;->$VALUES:[Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v0}, [Lcom/samsung/javaomp/runtime/OMPSched;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

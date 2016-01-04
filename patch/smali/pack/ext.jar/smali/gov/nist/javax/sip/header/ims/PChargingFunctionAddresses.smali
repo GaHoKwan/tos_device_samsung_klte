@@ -48,7 +48,7 @@
 
     .line 134
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "ccf"
 
@@ -82,7 +82,7 @@
 
     .line 217
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "ecf"
 
@@ -99,7 +99,7 @@
 
     .prologue
     .line 280
-    iget-object v3, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v3, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v3}, Lgov/nist/core/NameValueList;->iterator()Ljava/util/Iterator;
 
@@ -175,7 +175,7 @@
 
     .line 94
     .local v0, "encoding":Ljava/lang/StringBuffer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->duplicates:Lgov/nist/core/DuplicateNameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->duplicates:Lgov/nist/core/DuplicateNameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/DuplicateNameValueList;->isEmpty()Z
 
@@ -184,7 +184,7 @@
     if-nez v1, :cond_0
 
     .line 96
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->duplicates:Lgov/nist/core/DuplicateNameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->duplicates:Lgov/nist/core/DuplicateNameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/DuplicateNameValueList;->encode()Ljava/lang/String;
 
@@ -206,7 +206,7 @@
 
     .prologue
     .line 166
-    iget-object v4, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v4, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v4}, Lgov/nist/core/NameValueList;->iterator()Ljava/util/Iterator;
 
@@ -278,7 +278,7 @@
     .end local v1    # "ccfNV":Lgov/nist/core/NameValue;
     .end local v3    # "nv":Lgov/nist/core/NameValue;
     :cond_1
-    invoke-virtual {v0}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v4
 
@@ -305,7 +305,7 @@
 
     .line 251
     .local v3, "listw":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Lgov/nist/core/NameValue;>;"
-    iget-object v6, p0, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v6, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v6}, Lgov/nist/core/NameValueList;->iterator()Ljava/util/Iterator;
 
@@ -313,7 +313,7 @@
 
     .line 252
     .local v2, "li":Ljava/util/Iterator;
-    invoke-virtual {v3}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v3}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
@@ -506,7 +506,7 @@
     :cond_0
     const-string v0, "ccf"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->setMultiParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setMultiParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 119
     return-void
@@ -538,7 +538,7 @@
     :cond_0
     const-string v0, "ecf"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingFunctionAddresses;->setMultiParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setMultiParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 202
     return-void

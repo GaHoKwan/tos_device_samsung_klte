@@ -29,14 +29,18 @@
 .method private constructor <init>(Lcom/android/server/power/ShutdownDialog;)V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 357
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 358
     iput-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->imageLoadThread:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
+    .line 359
     iput-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->soundThread:Lcom/android/server/power/ShutdownDialog$SoundThread;
 
     return-void
@@ -44,7 +48,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/ShutdownDialog;Lcom/android/server/power/ShutdownDialog$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/power/ShutdownDialog;
+    .param p2, "x1"    # Lcom/android/server/power/ShutdownDialog$1;
 
+    .prologue
+    .line 357
     invoke-direct {p0, p1}, Lcom/android/server/power/ShutdownDialog$StateDrawing;-><init>(Lcom/android/server/power/ShutdownDialog;)V
 
     return-void
@@ -55,9 +63,11 @@
 .method public checkRunning()Z
     .locals 1
 
+    .prologue
+    .line 382
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->soundThread:Lcom/android/server/power/ShutdownDialog$SoundThread;
 
-    invoke-virtual {v0}, Lcom/android/server/power/ShutdownDialog$SoundThread;->checkRunning()Z
+    invoke-virtual {v0}, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->checkRunning()Z
 
     move-result v0
 
@@ -65,7 +75,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->imageLoadThread:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
-    invoke-virtual {v0}, Lcom/android/server/power/ShutdownDialog$ImageLoadThread;->checkRunning()Z
+    invoke-virtual {v0}, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->checkRunning()Z
 
     move-result v0
 
@@ -86,6 +96,8 @@
 .method public checkStart()Z
     .locals 1
 
+    .prologue
+    .line 378
     const/4 v0, 0x1
 
     return v0
@@ -94,21 +106,26 @@
 .method public prepare()V
     .locals 2
 
+    .prologue
+    .line 362
     invoke-virtual {p0}, Lcom/android/server/power/ShutdownDialog$StateDrawing;->checkRunning()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 363
     const-string v0, "ShutdownDialog"
 
     const-string v1, "becareful prepare while draw"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 367
     :goto_0
     return-void
 
+    .line 365
     :cond_0
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->this$0:Lcom/android/server/power/ShutdownDialog;
 
@@ -125,14 +142,17 @@
 .method public start()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 370
     const-string v0, "ShutdownDialog"
 
     const-string v1, "StateDrawing.start()"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 371
     new-instance v0, Lcom/android/server/power/ShutdownDialog$SoundThread;
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->this$0:Lcom/android/server/power/ShutdownDialog;
@@ -141,6 +161,7 @@
 
     iput-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->soundThread:Lcom/android/server/power/ShutdownDialog$SoundThread;
 
+    .line 372
     new-instance v0, Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->this$0:Lcom/android/server/power/ShutdownDialog;
@@ -149,6 +170,7 @@
 
     iput-object v0, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->imageLoadThread:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
+    .line 373
     new-instance v0, Ljava/lang/Thread;
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->soundThread:Lcom/android/server/power/ShutdownDialog$SoundThread;
@@ -157,6 +179,7 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 374
     new-instance v0, Ljava/lang/Thread;
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$StateDrawing;->imageLoadThread:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
@@ -165,5 +188,6 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 375
     return-void
 .end method

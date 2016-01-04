@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService$PickupPlayer;)V
     .locals 0
 
+    .prologue
+    .line 3162
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,16 +38,21 @@
 # virtual methods
 .method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 4
+    .param p1, "motionEvent"    # Landroid/hardware/motion/MREvent;
 
+    .prologue
+    .line 3164
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
+    .line 3187
     :goto_0
     return-void
 
+    .line 3166
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
 
@@ -60,16 +67,20 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
+    .line 3167
     const-string v1, "STATUSBAR-NotificationService"
 
     const-string v2, "Pickup - MREvent.REACTIVE_ALERT"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3168
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
+    .line 3169
+    .local v0, "mPickUpHandler":Landroid/os/Handler;
     new-instance v1, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;
 
     invoke-direct {v1, p0}, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;-><init>(Lcom/android/server/NotificationManagerService$PickupPlayer$1;)V
@@ -80,6 +91,7 @@
 
     goto :goto_0
 
+    .line 3164
     :pswitch_data_0
     .packed-switch 0x43
         :pswitch_0

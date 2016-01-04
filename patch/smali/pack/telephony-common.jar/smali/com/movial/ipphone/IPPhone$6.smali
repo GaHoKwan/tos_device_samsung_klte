@@ -23,7 +23,7 @@
     .locals 3
 
     .prologue
-    .line 1283
+    .line 1302
     invoke-static {}, Lcom/android/internal/telephony/PhoneConstants$State;->values()[Lcom/android/internal/telephony/PhoneConstants$State;
 
     move-result-object v0
@@ -39,7 +39,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->RINGING:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->OFFHOOK:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

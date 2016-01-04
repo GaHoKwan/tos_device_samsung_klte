@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;)V
     .locals 0
 
+    .prologue
+    .line 251
     iput-object p1, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable$3;->this$1:Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,17 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 255
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0
 
     invoke-static {v0}, Landroid/os/Process;->killProcess(I)V
 
+    .line 256
     return-void
 .end method

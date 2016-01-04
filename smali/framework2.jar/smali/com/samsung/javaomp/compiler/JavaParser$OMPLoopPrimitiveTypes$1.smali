@@ -33,31 +33,31 @@
 
     const-string v1, "char"
 
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/javaomp/compiler/JavaParser$OMPLoopPrimitiveTypes$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "Integer"
 
     const-string v1, "int"
 
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/javaomp/compiler/JavaParser$OMPLoopPrimitiveTypes$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "Byte"
 
     const-string v1, "byte"
 
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/javaomp/compiler/JavaParser$OMPLoopPrimitiveTypes$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "Short"
 
     const-string/jumbo v1, "short"
 
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/javaomp/compiler/JavaParser$OMPLoopPrimitiveTypes$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "Long"
 
     const-string v1, "long"
 
-    invoke-virtual {p0, v0, v1}, Lcom/samsung/javaomp/compiler/JavaParser$OMPLoopPrimitiveTypes$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

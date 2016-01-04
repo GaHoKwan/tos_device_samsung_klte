@@ -46,7 +46,7 @@
 
     .line 52
     .local v0, "handler":Lcom/android/internal/telephony/CellBroadcastHandler;
-    invoke-virtual {v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->start()V
+    invoke-virtual {v0}, Lcom/android/internal/util/StateMachine;->start()V
 
     .line 53
     return-object v0
@@ -71,7 +71,7 @@
     .line 95
     const-string v0, "Dispatching emergency SMS CB"
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
 
     .line 96
     new-instance v1, Landroid/content/Intent;
@@ -98,11 +98,11 @@
     .line 107
     const-string v4, "simSlot"
 
-    iget-object v0, p0, Lcom/android/internal/telephony/CellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/internal/telephony/CellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/PhoneBase;->getSimSlot()I
 
@@ -112,11 +112,11 @@
     invoke-virtual {v1, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     .line 109
-    iget-object v0, p0, Lcom/android/internal/telephony/CellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
-    iget-object v4, p0, Lcom/android/internal/telephony/CellBroadcastHandler;->mReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v4, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/CellBroadcastHandler;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getHandler()Landroid/os/Handler;
 
     move-result-object v5
 
@@ -136,7 +136,7 @@
     :cond_0
     const-string v0, "Dispatching SMS CB"
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
 
     .line 101
     new-instance v1, Landroid/content/Intent;
@@ -171,7 +171,7 @@
     .line 77
     const-string v0, "handleLocationInfo in CellBroadcastHandler. It will be used in GsmCellBroadcastHandler."
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
 
     .line 78
     return-void
@@ -185,7 +185,7 @@
     .line 82
     const-string v0, "handleOperatorInfo in CellBroadcastHandler. It will be used in GsmCellBroadcastHandler."
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
 
     .line 83
     return-void
@@ -247,7 +247,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     .line 70
     const/4 v0, 0x0

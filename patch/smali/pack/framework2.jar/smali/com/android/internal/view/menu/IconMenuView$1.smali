@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/view/menu/IconMenuView;)V
     .locals 0
 
+    .prologue
+    .line 303
     iput-object p1, p0, Lcom/android/internal/view/menu/IconMenuView$1;->this$0:Lcom/android/internal/view/menu/IconMenuView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 307
     iget-object v0, p0, Lcom/android/internal/view/menu/IconMenuView$1;->this$0:Lcom/android/internal/view/menu/IconMenuView;
 
     # getter for: Lcom/android/internal/view/menu/IconMenuView;->mMenu:Lcom/android/internal/view/menu/MenuBuilder;
@@ -46,5 +51,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuBuilder;->changeMenuMode()V
 
+    .line 308
     return-void
 .end method

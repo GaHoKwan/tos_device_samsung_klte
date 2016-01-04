@@ -22,19 +22,25 @@
 .method constructor <init>(Landroid/os/DVFSHelper;)V
     .locals 1
 
+    .prologue
     const v0, 0x13d620
 
+    .line 867
     iput-object p1, p0, Landroid/os/DVFSHelper$ModelSantos10;->this$0:Landroid/os/DVFSHelper;
 
     invoke-direct {p0, p1}, Landroid/os/DVFSHelper$ModelJBP;-><init>(Landroid/os/DVFSHelper;)V
 
-    iput v0, p0, Landroid/os/DVFSHelper$ModelSantos10;->GALLERY_TOUCH_ARM_FREQ:I
+    .line 868
+    iput v0, p0, Landroid/os/DVFSHelper$Model;->GALLERY_TOUCH_ARM_FREQ:I
 
-    iput v0, p0, Landroid/os/DVFSHelper$ModelSantos10;->LAUNCHER_TOUCH_ARM_FREQ:I
+    .line 869
+    iput v0, p0, Landroid/os/DVFSHelper$Model;->LAUNCHER_TOUCH_ARM_FREQ:I
 
+    .line 870
     const/4 v0, -0x1
 
-    iput v0, p0, Landroid/os/DVFSHelper$ModelSantos10;->GROUP_PLAY_ARM_FREQ:I
+    iput v0, p0, Landroid/os/DVFSHelper$Model;->GROUP_PLAY_ARM_FREQ:I
 
+    .line 871
     return-void
 .end method

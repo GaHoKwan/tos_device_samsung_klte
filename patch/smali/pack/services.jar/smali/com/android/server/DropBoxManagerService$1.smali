@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/DropBoxManagerService;)V
     .locals 0
 
+    .prologue
+    .line 106
     iput-object p1, p0, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 109
     if-eqz p2, :cond_0
 
     const-string v0, "android.intent.action.BOOT_COMPLETED"
@@ -48,6 +54,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 110
     iget-object v0, p0, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
     const/4 v1, 0x1
@@ -55,9 +62,11 @@
     # setter for: Lcom/android/server/DropBoxManagerService;->mBooted:Z
     invoke-static {v0, v1}, Lcom/android/server/DropBoxManagerService;->access$002(Lcom/android/server/DropBoxManagerService;Z)Z
 
+    .line 130
     :goto_0
     return-void
 
+    .line 115
     :cond_0
     iget-object v0, p0, Lcom/android/server/DropBoxManagerService$1;->this$0:Lcom/android/server/DropBoxManagerService;
 
@@ -66,11 +75,12 @@
     # setter for: Lcom/android/server/DropBoxManagerService;->mCachedQuotaUptimeMillis:J
     invoke-static {v0, v1, v2}, Lcom/android/server/DropBoxManagerService;->access$102(Lcom/android/server/DropBoxManagerService;J)J
 
+    .line 120
     new-instance v0, Lcom/android/server/DropBoxManagerService$1$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/DropBoxManagerService$1$1;-><init>(Lcom/android/server/DropBoxManagerService$1;)V
 
-    invoke-virtual {v0}, Lcom/android/server/DropBoxManagerService$1$1;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 .end method

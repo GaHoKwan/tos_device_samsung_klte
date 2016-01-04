@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/Spinner;Landroid/view/View;Landroid/widget/Spinner$DropdownPopup;)V
     .locals 0
+    .param p2, "x0"    # Landroid/view/View;
 
+    .prologue
+    .line 216
     iput-object p1, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     iput-object p3, p0, Landroid/widget/Spinner$1;->val$popup:Landroid/widget/Spinner$DropdownPopup;
@@ -38,6 +41,8 @@
 .method public getPopup()Landroid/widget/ListPopupWindow;
     .locals 1
 
+    .prologue
+    .line 219
     iget-object v0, p0, Landroid/widget/Spinner$1;->val$popup:Landroid/widget/Spinner$DropdownPopup;
 
     return-object v0
@@ -46,6 +51,8 @@
 .method public onForwardingStarted()Z
     .locals 3
 
+    .prologue
+    .line 224
     iget-object v0, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     # getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
@@ -59,6 +66,7 @@
 
     if-nez v0, :cond_0
 
+    .line 225
     iget-object v0, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
     # getter for: Landroid/widget/Spinner;->mPopup:Landroid/widget/Spinner$SpinnerPopup;
@@ -68,18 +76,19 @@
 
     iget-object v1, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v1}, Landroid/widget/Spinner;->getTextDirection()I
+    invoke-virtual {v1}, Landroid/view/View;->getTextDirection()I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/Spinner$1;->this$0:Landroid/widget/Spinner;
 
-    invoke-virtual {v2}, Landroid/widget/Spinner;->getTextAlignment()I
+    invoke-virtual {v2}, Landroid/view/View;->getTextAlignment()I
 
     move-result v2
 
     invoke-interface {v0, v1, v2}, Landroid/widget/Spinner$SpinnerPopup;->show(II)V
 
+    .line 227
     :cond_0
     const/4 v0, 0x1
 

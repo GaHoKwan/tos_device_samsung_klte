@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/Editor$HandleView;)V
     .locals 0
 
+    .prologue
+    .line 4502
     iput-object p1, p0, Landroid/widget/Editor$HandleView$2;->this$1:Landroid/widget/Editor$HandleView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 4504
     iget-object v0, p0, Landroid/widget/Editor$HandleView$2;->this$1:Landroid/widget/Editor$HandleView;
 
     invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->hideNewActionPopupWindow()V
 
+    .line 4505
     return-void
 .end method

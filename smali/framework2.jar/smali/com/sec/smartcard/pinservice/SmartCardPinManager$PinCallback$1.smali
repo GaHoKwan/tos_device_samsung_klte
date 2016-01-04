@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;)V
     .locals 0
 
+    .prologue
+    .line 359
     iput-object p1, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;
 
     invoke-direct {p0}, Lcom/sec/smartcard/pinservice/ISmartCardGetPinCallback$Stub;-><init>()V
@@ -39,39 +41,50 @@
         }
     .end annotation
 
+    .prologue
+    .line 368
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;
 
     invoke-virtual {v0}, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;->onUserCancelled()V
 
+    .line 369
     return-void
 .end method
 
 .method public onUserEnteredPin([C)V
     .locals 1
+    .param p1, "pin"    # [C
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 363
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;
 
     invoke-virtual {v0, p1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;->onUserEnteredPin([C)V
 
+    .line 364
     return-void
 .end method
 
 .method public onUserPinError(I)V
     .locals 1
+    .param p1, "error"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 373
     iget-object v0, p0, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback$1;->this$0:Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;
 
     invoke-virtual {v0, p1}, Lcom/sec/smartcard/pinservice/SmartCardPinManager$PinCallback;->onUserPinError(I)V
 
+    .line 374
     return-void
 .end method

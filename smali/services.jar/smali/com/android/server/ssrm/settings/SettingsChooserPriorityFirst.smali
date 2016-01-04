@@ -19,6 +19,9 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
+    .local p0, "this":Lcom/android/server/ssrm/settings/SettingsChooserPriorityFirst;, "Lcom/android/server/ssrm/settings/SettingsChooserPriorityFirst<TT;>;"
     invoke-direct {p0}, Lcom/android/server/ssrm/settings/SettingsChooser;-><init>()V
 
     return-void
@@ -40,5 +43,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 28
+    .local p0, "this":Lcom/android/server/ssrm/settings/SettingsChooserPriorityFirst;, "Lcom/android/server/ssrm/settings/SettingsChooserPriorityFirst<TT;>;"
+    .local p1, "currentSetting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<TT;>;"
+    .local p2, "newSetting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<TT;>;"
     return-object p1
 .end method

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/CompatModeDialog;)V
     .locals 0
 
+    .prologue
+    .line 52
     iput-object p1, p0, Lcom/android/server/am/CompatModeDialog$1;->this$0:Lcom/android/server/am/CompatModeDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 4
+    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
+    .param p2, "isChecked"    # Z
 
+    .prologue
+    .line 55
     iget-object v0, p0, Lcom/android/server/am/CompatModeDialog$1;->this$0:Lcom/android/server/am/CompatModeDialog;
 
     iget-object v1, v0, Lcom/android/server/am/CompatModeDialog;->mService:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
+    .line 56
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/CompatModeDialog$1;->this$0:Lcom/android/server/am/CompatModeDialog;
 
@@ -54,13 +61,13 @@
 
     iget-object v0, v0, Lcom/android/server/am/CompatModeDialog;->mAppInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v3, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v3, v0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/server/am/CompatModeDialog$1;->this$0:Lcom/android/server/am/CompatModeDialog;
 
     iget-object v0, v0, Lcom/android/server/am/CompatModeDialog;->mCompatEnabled:Landroid/widget/Switch;
 
-    invoke-virtual {v0}, Landroid/widget/Switch;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
@@ -71,19 +78,24 @@
     :goto_0
     invoke-virtual {v2, v3, v0}, Lcom/android/server/am/CompatModePackages;->setPackageScreenCompatModeLocked(Ljava/lang/String;I)V
 
+    .line 60
     iget-object v0, p0, Lcom/android/server/am/CompatModeDialog$1;->this$0:Lcom/android/server/am/CompatModeDialog;
 
     invoke-virtual {v0}, Lcom/android/server/am/CompatModeDialog;->updateControls()V
 
+    .line 61
     monitor-exit v1
 
+    .line 62
     return-void
 
+    .line 56
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 61
     :catchall_0
     move-exception v0
 

@@ -42,6 +42,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 947
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -54,6 +56,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 943
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -61,7 +65,10 @@
 
 .method static synthetic access$2300(Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;)Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .prologue
+    .line 943
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mNext:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
     return-object v0
@@ -69,7 +76,11 @@
 
 .method static synthetic access$2302(Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;)Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
+    .param p1, "x1"    # Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .prologue
+    .line 943
     iput-object p1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mNext:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
     return-object p1
@@ -78,103 +89,139 @@
 .method private clear()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 1001
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
 
     invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
 
+    .line 1002
     iput-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
 
+    .line 1003
     iget-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mRawEvent:Landroid/view/MotionEvent;
 
     invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
 
+    .line 1004
     iput-object v1, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mRawEvent:Landroid/view/MotionEvent;
 
+    .line 1005
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mPolicyFlags:I
 
+    .line 1006
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mCachedTimeMillis:J
 
+    .line 1007
     return-void
 .end method
 
 .method private initialize(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
     .locals 2
+    .param p1, "event"    # Landroid/view/MotionEvent;
+    .param p2, "rawEvent"    # Landroid/view/MotionEvent;
+    .param p3, "policyFlags"    # I
 
+    .prologue
+    .line 979
     invoke-static {p1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mEvent:Landroid/view/MotionEvent;
 
+    .line 980
     invoke-static {p2}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mRawEvent:Landroid/view/MotionEvent;
 
+    .line 981
     iput p3, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mPolicyFlags:I
 
+    .line 982
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mCachedTimeMillis:J
 
+    .line 983
     return-void
 .end method
 
 .method public static obtain(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     .locals 3
+    .param p0, "event"    # Landroid/view/MotionEvent;
+    .param p1, "rawEvent"    # Landroid/view/MotionEvent;
+    .param p2, "policyFlags"    # I
 
+    .prologue
+    .line 961
     sget-object v2, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sLock:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 963
     :try_start_0
     sget v1, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
     if-lez v1, :cond_0
 
+    .line 964
     sget v1, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
     add-int/lit8 v1, v1, -0x1
 
     sput v1, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
+    .line 965
     sget-object v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPool:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .line 966
+    .local v0, "info":Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     iget-object v1, v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mNext:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
     sput-object v1, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPool:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .line 967
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mNext:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .line 968
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mInPool:Z
 
+    .line 972
     :goto_0
     invoke-direct {v0, p0, p1, p2}, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->initialize(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
 
+    .line 973
     monitor-exit v2
 
     return-object v0
 
+    .line 970
+    .end local v0    # "info":Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     :cond_0
     new-instance v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
     invoke-direct {v0}, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;-><init>()V
 
+    .restart local v0    # "info":Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     goto :goto_0
 
+    .line 974
+    .end local v0    # "info":Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
     :catchall_0
     move-exception v1
 
@@ -190,15 +237,19 @@
 .method public recycle()V
     .locals 3
 
+    .prologue
+    .line 986
     sget-object v1, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 987
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mInPool:Z
 
     if-eqz v0, :cond_0
 
+    .line 988
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v2, "Already recycled."
@@ -207,6 +258,7 @@
 
     throw v0
 
+    .line 997
     :catchall_0
     move-exception v0
 
@@ -216,36 +268,44 @@
 
     throw v0
 
+    .line 990
     :cond_0
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->clear()V
 
+    .line 991
     sget v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
     const/16 v2, 0xa
 
     if-ge v0, v2, :cond_1
 
+    .line 992
     sget v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
     add-int/lit8 v0, v0, 0x1
 
     sput v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPoolSize:I
 
+    .line 993
     sget-object v0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPool:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
     iput-object v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mNext:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .line 994
     sput-object p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->sPool:Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;
 
+    .line 995
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/accessibility/ScreenMagnifier$MotionEventInfo;->mInPool:Z
 
+    .line 997
     :cond_1
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 998
     return-void
 .end method

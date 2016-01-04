@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 659
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 8
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 663
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # invokes: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->updateVisibility()Z
@@ -43,13 +49,17 @@
 
     if-eqz v6, :cond_2
 
+    .line 664
     const/4 v2, 0x1
 
+    .line 672
+    .local v2, "floatingStyle":I
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # invokes: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->loadCenterPosition()V
     invoke-static {v6}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$3400(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
 
+    .line 673
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mSipVisible:Z
@@ -59,8 +69,11 @@
 
     if-eqz v6, :cond_1
 
+    .line 674
     const/4 v5, 0x0
 
+    .line 675
+    .local v5, "needBlock":Z
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->BLOCK_LIST:[Ljava/lang/String;
@@ -68,15 +81,20 @@
 
     move-result-object v0
 
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v1, v0, v3
 
+    .line 676
+    .local v1, "blockPkg":Ljava/lang/String;
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mCurrentPackage:Ljava/lang/String;
@@ -90,8 +108,11 @@
 
     if-eqz v6, :cond_3
 
+    .line 677
     const/4 v5, 0x1
 
+    .line 681
+    .end local v1    # "blockPkg":Ljava/lang/String;
     :cond_0
     if-eqz v5, :cond_1
 
@@ -104,16 +125,30 @@
 
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v6, v7}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 684
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
+    .end local v5    # "needBlock":Z
     :cond_1
     iget-object v6, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$9;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
-    invoke-virtual {v6}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->postInvalidateOnAnimation()V
+    invoke-virtual {v6}, Landroid/view/View;->postInvalidateOnAnimation()V
 
+    .line 686
+    .end local v2    # "floatingStyle":I
     :cond_2
     return-void
 
+    .line 675
+    .restart local v0    # "arr$":[Ljava/lang/String;
+    .restart local v1    # "blockPkg":Ljava/lang/String;
+    .restart local v2    # "floatingStyle":I
+    .restart local v3    # "i$":I
+    .restart local v4    # "len$":I
+    .restart local v5    # "needBlock":Z
     :cond_3
     add-int/lit8 v3, v3, 0x1
 

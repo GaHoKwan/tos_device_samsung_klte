@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
 
+    .prologue
+    .line 178
     iput-object p1, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,15 +39,17 @@
 .method public onPreDraw()Z
     .locals 4
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 182
     iget-object v3, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
-    invoke-virtual {v0}, Landroid/view/SurfaceView;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
     move-result v0
 
@@ -53,7 +57,7 @@
 
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
-    invoke-virtual {v0}, Landroid/view/SurfaceView;->getHeight()I
+    invoke-virtual {v0}, Landroid/view/View;->getHeight()I
 
     move-result v0
 
@@ -64,15 +68,18 @@
     :goto_0
     iput-boolean v0, v3, Landroid/view/SurfaceView;->mHaveFrame:Z
 
+    .line 183
     iget-object v0, p0, Landroid/view/SurfaceView$3;->this$0:Landroid/view/SurfaceView;
 
     # invokes: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v2, v2}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
+    .line 184
     return v1
 
     :cond_0
     move v0, v2
 
+    .line 182
     goto :goto_0
 .end method

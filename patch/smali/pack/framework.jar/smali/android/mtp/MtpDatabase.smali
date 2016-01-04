@@ -1989,7 +1989,7 @@
 
     move-result-object v6
 
-    const-string v8, "x"
+    const-string/jumbo v8, "x"
 
     invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2028,6 +2028,8 @@
     goto :goto_0
 
     .line 800
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x5003 -> :sswitch_1

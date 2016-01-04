@@ -149,7 +149,7 @@
     .line 80
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "you may only call next() if hasNext() is true"
+    const-string/jumbo v2, "you may only call next() if hasNext() is true"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

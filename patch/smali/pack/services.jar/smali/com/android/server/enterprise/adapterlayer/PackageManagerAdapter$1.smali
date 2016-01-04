@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$InstallationCallback;)V
     .locals 0
 
+    .prologue
+    .line 339
     iput-object p1, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$1;->this$0:Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter;
 
     iput-object p2, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$1;->val$icb:Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$InstallationCallback;
@@ -37,15 +39,20 @@
 # virtual methods
 .method public packageInstalled(Ljava/lang/String;I)V
     .locals 1
+    .param p1, "pkgName"    # Ljava/lang/String;
+    .param p2, "status"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 343
     iget-object v0, p0, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$1;->val$icb:Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$InstallationCallback;
 
     invoke-interface {v0, p1, p2}, Lcom/android/server/enterprise/adapterlayer/PackageManagerAdapter$InstallationCallback;->packageInstalled(Ljava/lang/String;I)V
 
+    .line 344
     return-void
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/UsageStatsService;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 539
     iput-object p1, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
     invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
@@ -34,8 +37,10 @@
 .method public run()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 543
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
@@ -48,6 +53,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 545
     iget-object v0, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
 
     # getter for: Lcom/android/server/am/UsageStatsService;->mUnforcedDiskWriteRunning:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -57,6 +63,7 @@
 
     invoke-virtual {v0, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 549
     new-instance v0, Lcom/android/server/enterprise/application/ApplicationUsage;
 
     iget-object v1, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;
@@ -70,8 +77,10 @@
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/application/ApplicationUsage;->insertToAppControlDB()V
 
+    .line 553
     return-void
 
+    .line 545
     :catchall_0
     move-exception v0
 
@@ -84,6 +93,7 @@
 
     invoke-virtual {v1, v3}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 549
     new-instance v1, Lcom/android/server/enterprise/application/ApplicationUsage;
 
     iget-object v2, p0, Lcom/android/server/am/UsageStatsService$1;->this$0:Lcom/android/server/am/UsageStatsService;

@@ -37,7 +37,7 @@
     .line 144
     sget-object v0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_PEDOMETER:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -54,7 +54,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$2;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v2
 
@@ -107,7 +107,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$2;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v2
 
@@ -120,11 +120,11 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$2;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$2;->setOptionForLib(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;->setOptionForLib(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 139
     # invokes: Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator;->getContextProviderMap()Ljava/util/concurrent/ConcurrentHashMap;
@@ -132,7 +132,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList$2;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v2
 

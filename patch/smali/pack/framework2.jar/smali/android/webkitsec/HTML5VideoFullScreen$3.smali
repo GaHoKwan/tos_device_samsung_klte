@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/HTML5VideoFullScreen;)V
     .locals 0
 
+    .prologue
+    .line 164
     iput-object p1, p0, Landroid/webkitsec/HTML5VideoFullScreen$3;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,12 @@
 # virtual methods
 .method public onVideoSizeChanged(Landroid/media/MediaPlayer;II)V
     .locals 3
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
 
+    .prologue
+    .line 167
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$3;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoWidth()I
@@ -46,6 +53,7 @@
     # setter for: Landroid/webkitsec/HTML5VideoFullScreen;->mVideoWidth:I
     invoke-static {v0, v1}, Landroid/webkitsec/HTML5VideoFullScreen;->access$002(Landroid/webkitsec/HTML5VideoFullScreen;I)I
 
+    .line 168
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$3;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->getVideoHeight()I
@@ -55,6 +63,7 @@
     # setter for: Landroid/webkitsec/HTML5VideoFullScreen;->mVideoHeight:I
     invoke-static {v0, v1}, Landroid/webkitsec/HTML5VideoFullScreen;->access$102(Landroid/webkitsec/HTML5VideoFullScreen;I)I
 
+    .line 169
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$3;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mVideoWidth:I
@@ -73,6 +82,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 170
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$3;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mVideoSurfaceView:Landroid/webkitsec/HTML5VideoFullScreen$VideoSurfaceView;
@@ -80,7 +90,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkitsec/HTML5VideoFullScreen$VideoSurfaceView;->getHolder()Landroid/view/SurfaceHolder;
+    invoke-virtual {v0}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
 
@@ -100,6 +110,7 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
+    .line 172
     :cond_0
     return-void
 .end method

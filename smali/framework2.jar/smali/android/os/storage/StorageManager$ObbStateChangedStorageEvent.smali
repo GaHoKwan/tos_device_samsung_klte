@@ -25,16 +25,24 @@
 # direct methods
 .method public constructor <init>(Landroid/os/storage/StorageManager;Ljava/lang/String;I)V
     .locals 1
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "state"    # I
 
+    .prologue
+    .line 201
     iput-object p1, p0, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->this$0:Landroid/os/storage/StorageManager;
 
+    .line 202
     const/4 v0, 0x3
 
     invoke-direct {p0, p1, v0}, Landroid/os/storage/StorageManager$StorageEvent;-><init>(Landroid/os/storage/StorageManager;I)V
 
+    .line 203
     iput-object p2, p0, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->path:Ljava/lang/String;
 
+    .line 204
     iput p3, p0, Landroid/os/storage/StorageManager$ObbStateChangedStorageEvent;->state:I
 
+    .line 205
     return-void
 .end method

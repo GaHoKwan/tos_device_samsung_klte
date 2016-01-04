@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/service/gesture/GestureManager;)V
     .locals 0
 
+    .prologue
+    .line 96
     iput-object p1, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 99
     const-string v0, "GestureManager"
 
     const-string/jumbo v1, "onServiceConnected"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 100
     iget-object v0, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     invoke-static {p2}, Lcom/samsung/android/service/gesture/IGestureService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/samsung/android/service/gesture/IGestureService;
@@ -52,6 +59,7 @@
     # setter for: Lcom/samsung/android/service/gesture/GestureManager;->mService:Lcom/samsung/android/service/gesture/IGestureService;
     invoke-static {v0, v1}, Lcom/samsung/android/service/gesture/GestureManager;->access$102(Lcom/samsung/android/service/gesture/GestureManager;Lcom/samsung/android/service/gesture/IGestureService;)Lcom/samsung/android/service/gesture/IGestureService;
 
+    .line 101
     iget-object v0, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     const/4 v1, 0x1
@@ -59,6 +67,7 @@
     # setter for: Lcom/samsung/android/service/gesture/GestureManager;->mBound:Z
     invoke-static {v0, v1}, Lcom/samsung/android/service/gesture/GestureManager;->access$202(Lcom/samsung/android/service/gesture/GestureManager;Z)Z
 
+    .line 102
     iget-object v0, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     # getter for: Lcom/samsung/android/service/gesture/GestureManager;->mConnectionListener:Lcom/samsung/android/service/gesture/GestureManager$ServiceConnectionListener;
@@ -68,18 +77,23 @@
 
     invoke-interface {v0}, Lcom/samsung/android/service/gesture/GestureManager$ServiceConnectionListener;->onServiceConnected()V
 
+    .line 103
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 107
     const-string v0, "GestureManager"
 
     const-string/jumbo v1, "onServiceDisconnected"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 108
     iget-object v0, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     const/4 v1, 0x0
@@ -87,6 +101,7 @@
     # setter for: Lcom/samsung/android/service/gesture/GestureManager;->mBound:Z
     invoke-static {v0, v1}, Lcom/samsung/android/service/gesture/GestureManager;->access$202(Lcom/samsung/android/service/gesture/GestureManager;Z)Z
 
+    .line 109
     iget-object v0, p0, Lcom/samsung/android/service/gesture/GestureManager$2;->this$0:Lcom/samsung/android/service/gesture/GestureManager;
 
     # getter for: Lcom/samsung/android/service/gesture/GestureManager;->mConnectionListener:Lcom/samsung/android/service/gesture/GestureManager$ServiceConnectionListener;
@@ -96,5 +111,6 @@
 
     invoke-interface {v0}, Lcom/samsung/android/service/gesture/GestureManager$ServiceConnectionListener;->onServiceDisconnected()V
 
+    .line 110
     return-void
 .end method

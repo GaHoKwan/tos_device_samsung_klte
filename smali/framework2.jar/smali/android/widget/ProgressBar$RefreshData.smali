@@ -41,6 +41,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 640
     new-instance v0, Landroid/util/Pools$SynchronizedPool;
 
     const/16 v1, 0x18
@@ -55,6 +57,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 638
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -62,7 +66,12 @@
 
 .method public static obtain(IIZ)Landroid/widget/ProgressBar$RefreshData;
     .locals 2
+    .param p0, "id"    # I
+    .param p1, "progress"    # I
+    .param p2, "fromUser"    # Z
 
+    .prologue
+    .line 648
     sget-object v1, Landroid/widget/ProgressBar$RefreshData;->sPool:Landroid/util/Pools$SynchronizedPool;
 
     invoke-virtual {v1}, Landroid/util/Pools$SynchronizedPool;->acquire()Ljava/lang/Object;
@@ -71,19 +80,28 @@
 
     check-cast v0, Landroid/widget/ProgressBar$RefreshData;
 
+    .line 649
+    .local v0, "rd":Landroid/widget/ProgressBar$RefreshData;
     if-nez v0, :cond_0
 
+    .line 650
     new-instance v0, Landroid/widget/ProgressBar$RefreshData;
 
+    .end local v0    # "rd":Landroid/widget/ProgressBar$RefreshData;
     invoke-direct {v0}, Landroid/widget/ProgressBar$RefreshData;-><init>()V
 
+    .line 652
+    .restart local v0    # "rd":Landroid/widget/ProgressBar$RefreshData;
     :cond_0
     iput p0, v0, Landroid/widget/ProgressBar$RefreshData;->id:I
 
+    .line 653
     iput p1, v0, Landroid/widget/ProgressBar$RefreshData;->progress:I
 
+    .line 654
     iput-boolean p2, v0, Landroid/widget/ProgressBar$RefreshData;->fromUser:Z
 
+    .line 655
     return-object v0
 .end method
 
@@ -92,9 +110,12 @@
 .method public recycle()V
     .locals 1
 
+    .prologue
+    .line 659
     sget-object v0, Landroid/widget/ProgressBar$RefreshData;->sPool:Landroid/util/Pools$SynchronizedPool;
 
     invoke-virtual {v0, p0}, Landroid/util/Pools$SynchronizedPool;->release(Ljava/lang/Object;)Z
 
+    .line 660
     return-void
 .end method

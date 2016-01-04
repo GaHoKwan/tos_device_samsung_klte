@@ -125,7 +125,7 @@
     .line 417
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    invoke-virtual {v1, p3, v6}, Landroid/media/audiofx/Equalizer;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p3, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v3
 
@@ -139,7 +139,7 @@
     .line 419
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    invoke-virtual {v1, p3, v7}, Landroid/media/audiofx/Equalizer;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p3, v7}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v4
 
@@ -154,7 +154,7 @@
     .line 423
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/Equalizer;->byteArrayToShort([BI)S
+    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([BI)S
 
     move-result v5
 
@@ -202,7 +202,7 @@
     .line 425
     iget-object v1, p0, Landroid/media/audiofx/Equalizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Equalizer;
 
-    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/Equalizer;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v5
 

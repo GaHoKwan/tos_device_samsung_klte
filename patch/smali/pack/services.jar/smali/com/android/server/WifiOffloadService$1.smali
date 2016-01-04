@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WifiOffloadService;)V
     .locals 0
 
+    .prologue
+    .line 505
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,15 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 508
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
+    .line 509
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->wifiManager:Landroid/net/wifi/WifiManager;
@@ -51,6 +57,7 @@
 
     if-nez v0, :cond_0
 
+    .line 510
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
@@ -71,6 +78,7 @@
     # setter for: Lcom/android/server/WifiOffloadService;->wifiManager:Landroid/net/wifi/WifiManager;
     invoke-static {v1, v0}, Lcom/android/server/WifiOffloadService;->access$002(Lcom/android/server/WifiOffloadService;Landroid/net/wifi/WifiManager;)Landroid/net/wifi/WifiManager;
 
+    .line 512
     :cond_0
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -85,6 +93,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 513
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v0}, Lcom/android/server/WifiOffloadService;->checkIsWifiConnected()Z
@@ -93,17 +102,20 @@
 
     if-nez v0, :cond_1
 
+    .line 514
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "After Wifi disconnect 5min over so turn Wifi OFF"
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 515
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     # setter for: Lcom/android/server/WifiOffloadService;->mSeamlessConnectWhileConnecting:Z
     invoke-static {v0, v3}, Lcom/android/server/WifiOffloadService;->access$202(Lcom/android/server/WifiOffloadService;Z)Z
 
+    .line 516
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->wifiManager:Landroid/net/wifi/WifiManager;
@@ -113,6 +125,7 @@
 
     invoke-virtual {v0, v3}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
+    .line 521
     :cond_1
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -120,17 +133,20 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 522
     const-string v0, "WifiOffloadService"
 
     const-string v1, "<<<<<<<<<<<<<<<< STARTING dialog after delay >>>>>>>>>>> 1000"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 524
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$1;->this$0:Lcom/android/server/WifiOffloadService;
 
     # invokes: Lcom/android/server/WifiOffloadService;->startWifiOffloadAPDialog()V
     invoke-static {v0}, Lcom/android/server/WifiOffloadService;->access$300(Lcom/android/server/WifiOffloadService;)V
 
+    .line 527
     :cond_2
     return-void
 .end method

@@ -38,15 +38,11 @@
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGFORYELLOWPAGE:Ljava/lang/String; = "CscFeature_Contact_ConfigForYellowPage"
 
-.field public static final TAG_CSCFEATURE_CONTACT_CONFIGHELPGUIDEFORGUESTURE:Ljava/lang/String; = "CscFeature_Contact_ConfigHelpGuideForGesture"
-
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSCALLTIMETYPE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsCallTimeType"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGLOGSTIMEBASE:Ljava/lang/String; = "CscFeature_Contact_ConfigLogsTimeBase"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGOPSTYLEVARIATION:Ljava/lang/String; = "CscFeature_Contact_ConfigOpStyleVariation"
-
-.field public static final TAG_CSCFEATURE_CONTACT_CONFIGTELNUMBERMATCH:Ljava/lang/String; = "CscFeature_Contact_ConfigTelNumMatchingForNationPrefix"
 
 .field public static final TAG_CSCFEATURE_CONTACT_CONFIGZIPCODEINPUTTYPE:Ljava/lang/String; = "CscFeature_Contact_ConfigZipCodeInputType"
 
@@ -263,6 +259,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

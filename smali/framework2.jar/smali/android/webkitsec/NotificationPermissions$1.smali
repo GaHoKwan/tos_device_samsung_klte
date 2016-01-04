@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/webkitsec/NotificationPermissions;)V
     .locals 0
 
+    .prologue
+    .line 79
     iput-object p1, p0, Landroid/webkitsec/NotificationPermissions$1;->this$0:Landroid/webkitsec/NotificationPermissions;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,20 +35,26 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 83
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 88
     :goto_0
     return-void
 
+    .line 85
     :pswitch_0
     # invokes: Landroid/webkitsec/NotificationPermissions;->nativeClearAll()V
     invoke-static {}, Landroid/webkitsec/NotificationPermissions;->access$000()V
 
     goto :goto_0
 
+    .line 83
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

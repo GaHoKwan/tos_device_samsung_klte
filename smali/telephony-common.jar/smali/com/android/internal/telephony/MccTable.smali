@@ -4143,629 +4143,466 @@
 .end method
 
 .method public static updateMccMncConfiguration(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 18
+    .locals 13
     .param p0, "context"    # Landroid/content/Context;
     .param p1, "mccmnc"    # Ljava/lang/String;
 
     .prologue
     .line 188
-    invoke-static/range {p1 .. p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v14
+    move-result v9
 
-    if-nez v14, :cond_1
+    if-nez v9, :cond_8
 
     .line 192
-    const/4 v14, 0x0
+    const/4 v9, 0x0
 
-    const/4 v15, 0x3
+    const/4 v10, 0x3
 
     :try_start_0
-    move-object/from16 v0, p1
+    invoke-virtual {p1, v9, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    invoke-virtual {v0, v14, v15}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v14
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    invoke-static {v14}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v10
+    move-result v6
 
     .line 193
-    .local v10, "mcc":I
-    const/4 v14, 0x3
+    .local v6, "mcc":I
+    const/4 v9, 0x3
 
-    move-object/from16 v0, p1
+    invoke-virtual {p1, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    invoke-virtual {v0, v14}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    move-result-object v9
 
-    move-result-object v14
-
-    invoke-static {v14}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v11
+    move-result v7
 
     .line 199
-    .local v11, "mnc":I
-    const-string v14, "MccTable"
+    .local v7, "mnc":I
+    const-string v9, "MccTable"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "updateMccMncConfiguration: mcc="
+    const-string v11, "updateMccMncConfiguration: mcc="
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    const-string v16, ", mnc="
+    const-string v11, ", mnc="
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 201
-    const-string v14, "VZW"
-
-    const-string v15, "VZW"
-
-    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v14
-
-    if-eqz v14, :cond_5
-
-    .line 206
-    const/4 v4, 0x0
-
-    .line 207
-    .local v4, "hasConfigMccPreviouslySet":Z
-    const/4 v2, 0x0
-
-    .line 210
-    .local v2, "config":Landroid/content/res/Configuration;
-    :try_start_1
-    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
-
-    move-result-object v14
-
-    invoke-interface {v14}, Landroid/app/IActivityManager;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v2
-
-    .line 211
-    iget v14, v2, Landroid/content/res/Configuration;->mcc:I
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    if-eqz v14, :cond_0
-
-    .line 212
-    const/4 v4, 0x1
-
-    .line 218
-    :cond_0
-    :goto_0
-    const-string v14, "connectivity"
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v14}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/net/ConnectivityManager;
-
-    .line 219
-    .local v1, "cm":Landroid/net/ConnectivityManager;
-    if-eqz v1, :cond_2
-
-    const/4 v14, 0x1
-
-    invoke-virtual {v1, v14}, Landroid/net/ConnectivityManager;->getNetworkInfo(I)Landroid/net/NetworkInfo;
-
-    move-result-object v12
-
-    .line 220
-    .local v12, "ni":Landroid/net/NetworkInfo;
-    :goto_1
-    if-eqz v12, :cond_3
-
-    invoke-virtual {v12}, Landroid/net/NetworkInfo;->isConnected()Z
-
-    move-result v8
-
-    .line 222
-    .local v8, "isWifiConnected":Z
-    :goto_2
-    if-eqz v4, :cond_4
-
-    if-eqz v8, :cond_4
-
-    .line 223
-    const-string v14, "MccTable"
-
-    const-string v15, "Delaying updateMccMncConfiguration while WiFi is connected..."
-
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 279
-    .end local v1    # "cm":Landroid/net/ConnectivityManager;
-    .end local v2    # "config":Landroid/content/res/Configuration;
-    .end local v4    # "hasConfigMccPreviouslySet":Z
-    .end local v8    # "isWifiConnected":Z
-    .end local v10    # "mcc":I
-    .end local v11    # "mnc":I
-    .end local v12    # "ni":Landroid/net/NetworkInfo;
-    :cond_1
-    :goto_3
-    return-void
-
-    .line 194
-    :catch_0
-    move-exception v3
-
-    .line 195
-    .local v3, "e":Ljava/lang/NumberFormatException;
-    const-string v14, "MccTable"
-
-    const-string v15, "Error parsing IMSI"
-
-    invoke-static {v14, v15}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_3
-
-    .line 214
-    .end local v3    # "e":Ljava/lang/NumberFormatException;
-    .restart local v2    # "config":Landroid/content/res/Configuration;
-    .restart local v4    # "hasConfigMccPreviouslySet":Z
-    .restart local v10    # "mcc":I
-    .restart local v11    # "mnc":I
-    :catch_1
-    move-exception v3
-
-    .line 215
-    .local v3, "e":Landroid/os/RemoteException;
-    const-string v14, "MccTable"
-
-    const-string v15, "Can\'t get current configuration"
-
-    invoke-static {v14, v15, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_0
-
-    .line 219
-    .end local v3    # "e":Landroid/os/RemoteException;
-    .restart local v1    # "cm":Landroid/net/ConnectivityManager;
-    :cond_2
-    const/4 v12, 0x0
-
-    goto :goto_1
-
-    .line 220
-    .restart local v12    # "ni":Landroid/net/NetworkInfo;
-    :cond_3
-    const/4 v8, 0x0
-
-    goto :goto_2
-
-    .line 227
-    .restart local v8    # "isWifiConnected":Z
-    :cond_4
-    if-eqz v2, :cond_5
-
-    iget v14, v2, Landroid/content/res/Configuration;->mcc:I
-
-    if-ne v14, v10, :cond_5
-
-    iget v14, v2, Landroid/content/res/Configuration;->mnc:I
-
-    if-ne v14, v11, :cond_5
-
-    .line 228
-    const-string v14, "MccTable"
-
-    const-string v15, "Ignoring same operatorNumeric"
-
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_3
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 233
-    .end local v1    # "cm":Landroid/net/ConnectivityManager;
-    .end local v2    # "config":Landroid/content/res/Configuration;
-    .end local v4    # "hasConfigMccPreviouslySet":Z
-    .end local v8    # "isWifiConnected":Z
-    .end local v12    # "ni":Landroid/net/NetworkInfo;
-    :cond_5
-    const/4 v9, 0x0
+    const/4 v5, 0x0
 
     .line 234
-    .local v9, "locale":Ljava/util/Locale;
-    if-eqz v10, :cond_8
+    .local v5, "locale":Ljava/util/Locale;
+    if-eqz v6, :cond_2
 
     .line 235
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
-    move-result-object v14
+    move-result-object v9
 
-    const-string v15, "CscFeatureRILSetDefaultTimezoneWithoutNITZ"
+    const-string v10, "CscFeatureRILSetDefaultTimezoneWithoutNITZ"
 
-    invoke-virtual {v14, v15}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
+    invoke-virtual {v9, v10}, Lcom/sec/android/app/CscFeature;->getEnableStatus(Ljava/lang/String;)Z
 
-    move-result v14
+    move-result v9
 
-    if-eqz v14, :cond_6
+    if-eqz v9, :cond_0
 
-    const/16 v14, 0xfa
+    const/16 v9, 0xfa
 
-    if-eq v10, v14, :cond_7
+    if-eq v6, v9, :cond_1
 
     .line 236
-    :cond_6
-    move-object/from16 v0, p0
-
-    invoke-static {v0, v10}, Lcom/android/internal/telephony/MccTable;->setTimezoneFromMccIfNeeded(Landroid/content/Context;I)V
+    :cond_0
+    invoke-static {p0, v6}, Lcom/android/internal/telephony/MccTable;->setTimezoneFromMccIfNeeded(Landroid/content/Context;I)V
 
     .line 238
-    :cond_7
-    move-object/from16 v0, p0
+    :cond_1
+    invoke-static {p0, v6}, Lcom/android/internal/telephony/MccTable;->getLocaleFromMcc(Landroid/content/Context;I)Ljava/util/Locale;
 
-    invoke-static {v0, v10}, Lcom/android/internal/telephony/MccTable;->getLocaleFromMcc(Landroid/content/Context;I)Ljava/util/Locale;
+    move-result-object v5
+
+    .line 239
+    invoke-static {p0, v6}, Lcom/android/internal/telephony/MccTable;->setWifiCountryCodeFromMcc(Landroid/content/Context;I)V
+
+    .line 242
+    :cond_2
+    :try_start_1
+    new-instance v0, Landroid/content/res/Configuration;
+
+    invoke-direct {v0}, Landroid/content/res/Configuration;-><init>()V
+
+    .line 243
+    .local v0, "config":Landroid/content/res/Configuration;
+    const/4 v8, 0x0
+
+    .line 244
+    .local v8, "updateConfig":Z
+    if-eqz v6, :cond_4
+
+    .line 245
+    iput v6, v0, Landroid/content/res/Configuration;->mcc:I
+
+    .line 246
+    if-nez v7, :cond_3
+
+    const v7, 0xffff
+
+    .end local v7    # "mnc":I
+    :cond_3
+    iput v7, v0, Landroid/content/res/Configuration;->mnc:I
+
+    .line 247
+    const/4 v8, 0x1
+
+    .line 249
+    :cond_4
+    if-eqz v5, :cond_5
+
+    .line 250
+    invoke-virtual {v0, v5}, Landroid/content/res/Configuration;->setLocale(Ljava/util/Locale;)V
+
+    .line 251
+    const/4 v8, 0x1
+
+    .line 253
+    :cond_5
+    if-eqz v8, :cond_9
+
+    .line 254
+    const-string v9, "SPR-CDMA"
+
+    const-string v10, ""
+
+    invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_7
+
+    .line 256
+    const-string v9, "ro.cdma.home.operator.numeric"
+
+    invoke-static {v9}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
+
+    move-result-object v3
+
+    .line 258
+    .local v3, "homeMccMnc":Ljava/lang/String;
+    if-eqz v3, :cond_6
+
+    :try_start_2
+    invoke-virtual {v3}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    const/4 v10, 0x4
+
+    if-lt v9, v10, :cond_6
+
+    .line 259
+    const/4 v9, 0x0
+
+    const/4 v10, 0x3
+
+    invoke-virtual {v3, v9, v10}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v9
 
-    .line 239
-    move-object/from16 v0, p0
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    invoke-static {v0, v10}, Lcom/android/internal/telephony/MccTable;->setWifiCountryCodeFromMcc(Landroid/content/Context;I)V
-
-    .line 242
-    :cond_8
-    :try_start_2
-    new-instance v2, Landroid/content/res/Configuration;
-
-    invoke-direct {v2}, Landroid/content/res/Configuration;-><init>()V
-
-    .line 243
-    .restart local v2    # "config":Landroid/content/res/Configuration;
-    const/4 v13, 0x0
-
-    .line 244
-    .local v13, "updateConfig":Z
-    if-eqz v10, :cond_a
-
-    .line 245
-    iput v10, v2, Landroid/content/res/Configuration;->mcc:I
-
-    .line 246
-    if-nez v11, :cond_9
-
-    const v11, 0xffff
-
-    .end local v11    # "mnc":I
-    :cond_9
-    iput v11, v2, Landroid/content/res/Configuration;->mnc:I
-
-    .line 247
-    const/4 v13, 0x1
-
-    .line 249
-    :cond_a
-    if-eqz v9, :cond_b
-
-    .line 250
-    invoke-virtual {v2, v9}, Landroid/content/res/Configuration;->setLocale(Ljava/util/Locale;)V
-
-    .line 251
-    const/4 v13, 0x1
-
-    .line 253
-    :cond_b
-    if-eqz v13, :cond_e
-
-    .line 254
-    const-string v14, "SPR-CDMA"
-
-    const-string v15, "VZW-CDMA"
-
-    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v14
-
-    if-eqz v14, :cond_d
-
-    .line 256
-    const-string v14, "ro.cdma.home.operator.numeric"
-
-    invoke-static {v14}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
-
-    move-result-object v6
-
-    .line 258
-    .local v6, "homeMccMnc":Ljava/lang/String;
-    if-eqz v6, :cond_c
-
-    :try_start_3
-    invoke-virtual {v6}, Ljava/lang/String;->length()I
-
-    move-result v14
-
-    const/4 v15, 0x4
-
-    if-lt v14, v15, :cond_c
-
-    .line 259
-    const/4 v14, 0x0
-
-    const/4 v15, 0x3
-
-    invoke-virtual {v6, v14, v15}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v14}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
-
-    move-result v5
+    move-result v2
 
     .line 260
-    .local v5, "homeMcc":I
-    const/4 v14, 0x3
+    .local v2, "homeMcc":I
+    const/4 v9, 0x3
 
-    invoke-virtual {v6, v14}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v3, v9}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v9
 
-    invoke-static {v14}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v4
 
     .line 261
-    .local v7, "homeMnc":I
-    iput v5, v2, Landroid/content/res/Configuration;->mcc:I
+    .local v4, "homeMnc":I
+    iput v2, v0, Landroid/content/res/Configuration;->mcc:I
 
     .line 262
-    iput v7, v2, Landroid/content/res/Configuration;->mnc:I
-    :try_end_3
-    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_3} :catch_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    iput v4, v0, Landroid/content/res/Configuration;->mnc:I
+    :try_end_2
+    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 267
-    .end local v5    # "homeMcc":I
-    .end local v7    # "homeMnc":I
-    :cond_c
-    :try_start_4
-    const-string v14, "MccTable"
+    .end local v2    # "homeMcc":I
+    .end local v4    # "homeMnc":I
+    :cond_6
+    :try_start_3
+    const-string v9, "MccTable"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "updateMccMncConfiguration for SPR: mcc="
+    const-string v11, "updateMccMncConfiguration for SPR: mcc="
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    iget v0, v2, Landroid/content/res/Configuration;->mcc:I
+    iget v11, v0, Landroid/content/res/Configuration;->mcc:I
 
-    move/from16 v16, v0
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v15
+    const-string v11, ", mnc="
 
-    const-string v16, ", mnc="
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v15
+    iget v11, v0, Landroid/content/res/Configuration;->mnc:I
 
-    iget v0, v2, Landroid/content/res/Configuration;->mnc:I
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v16, v0
+    move-result-object v10
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 270
-    .end local v6    # "homeMccMnc":Ljava/lang/String;
-    :cond_d
-    :goto_4
-    const-string v14, "MccTable"
+    .end local v3    # "homeMccMnc":Ljava/lang/String;
+    :cond_7
+    :goto_0
+    const-string v9, "MccTable"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "updateMccMncConfiguration updateConfig config="
+    const-string v11, "updateMccMncConfiguration updateConfig config="
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 271
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
-    move-result-object v14
+    move-result-object v9
 
-    invoke-interface {v14, v2}, Landroid/app/IActivityManager;->updateConfiguration(Landroid/content/res/Configuration;)V
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_2
+    invoke-interface {v9, v0}, Landroid/app/IActivityManager;->updateConfiguration(Landroid/content/res/Configuration;)V
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_2
 
-    goto/16 :goto_3
+    .line 279
+    .end local v0    # "config":Landroid/content/res/Configuration;
+    .end local v5    # "locale":Ljava/util/Locale;
+    .end local v6    # "mcc":I
+    .end local v8    # "updateConfig":Z
+    :cond_8
+    :goto_1
+    return-void
 
-    .line 275
-    .end local v2    # "config":Landroid/content/res/Configuration;
-    .end local v13    # "updateConfig":Z
-    :catch_2
-    move-exception v3
+    .line 194
+    :catch_0
+    move-exception v1
 
-    .line 276
-    .restart local v3    # "e":Landroid/os/RemoteException;
-    const-string v14, "MccTable"
+    .line 195
+    .local v1, "e":Ljava/lang/NumberFormatException;
+    const-string v9, "MccTable"
 
-    const-string v15, "Can\'t update configuration"
+    const-string v10, "Error parsing IMSI"
 
-    invoke-static {v14, v15, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v9, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_3
+    goto :goto_1
 
     .line 264
-    .end local v3    # "e":Landroid/os/RemoteException;
-    .restart local v2    # "config":Landroid/content/res/Configuration;
-    .restart local v6    # "homeMccMnc":Ljava/lang/String;
-    .restart local v13    # "updateConfig":Z
-    :catch_3
-    move-exception v3
+    .end local v1    # "e":Ljava/lang/NumberFormatException;
+    .restart local v0    # "config":Landroid/content/res/Configuration;
+    .restart local v3    # "homeMccMnc":Ljava/lang/String;
+    .restart local v5    # "locale":Ljava/util/Locale;
+    .restart local v6    # "mcc":I
+    .restart local v8    # "updateConfig":Z
+    :catch_1
+    move-exception v1
 
     .line 265
-    .local v3, "e":Ljava/lang/NumberFormatException;
-    :try_start_5
-    const-string v14, "MccTable"
+    .restart local v1    # "e":Ljava/lang/NumberFormatException;
+    :try_start_4
+    const-string v9, "MccTable"
 
-    const-string v15, "Error parsing ro.cdma.home.operator.numeric. Update config using IMSI"
+    const-string v10, "Error parsing ro.cdma.home.operator.numeric. Update config using IMSI"
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    invoke-static {v9, v10}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     .line 267
-    :try_start_6
-    const-string v14, "MccTable"
+    :try_start_5
+    const-string v9, "MccTable"
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, "updateMccMncConfiguration for SPR: mcc="
+    const-string v11, "updateMccMncConfiguration for SPR: mcc="
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v10
 
-    iget v0, v2, Landroid/content/res/Configuration;->mcc:I
+    iget v11, v0, Landroid/content/res/Configuration;->mcc:I
 
-    move/from16 v16, v0
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v15
+    const-string v11, ", mnc="
 
-    const-string v16, ", mnc="
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    move-result-object v15
+    iget v11, v0, Landroid/content/res/Configuration;->mnc:I
 
-    iget v0, v2, Landroid/content/res/Configuration;->mnc:I
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v16, v0
+    move-result-object v10
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v10
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_2
 
-    move-result-object v15
+    goto :goto_0
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .line 275
+    .end local v0    # "config":Landroid/content/res/Configuration;
+    .end local v1    # "e":Ljava/lang/NumberFormatException;
+    .end local v3    # "homeMccMnc":Ljava/lang/String;
+    .end local v8    # "updateConfig":Z
+    :catch_2
+    move-exception v1
 
-    goto :goto_4
+    .line 276
+    .local v1, "e":Landroid/os/RemoteException;
+    const-string v9, "MccTable"
 
-    .end local v3    # "e":Ljava/lang/NumberFormatException;
+    const-string v10, "Can\'t update configuration"
+
+    invoke-static {v9, v10, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
+    .line 267
+    .end local v1    # "e":Landroid/os/RemoteException;
+    .restart local v0    # "config":Landroid/content/res/Configuration;
+    .restart local v3    # "homeMccMnc":Ljava/lang/String;
+    .restart local v8    # "updateConfig":Z
     :catchall_0
-    move-exception v14
+    move-exception v9
 
-    const-string v15, "MccTable"
+    :try_start_6
+    const-string v10, "MccTable"
 
-    new-instance v16, Ljava/lang/StringBuilder;
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v17, "updateMccMncConfiguration for SPR: mcc="
+    const-string v12, "updateMccMncConfiguration for SPR: mcc="
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v16
+    move-result-object v11
 
-    iget v0, v2, Landroid/content/res/Configuration;->mcc:I
+    iget v12, v0, Landroid/content/res/Configuration;->mcc:I
 
-    move/from16 v17, v0
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v16
+    const-string v12, ", mnc="
 
-    const-string v17, ", mnc="
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v11
 
-    move-result-object v16
+    iget v12, v0, Landroid/content/res/Configuration;->mnc:I
 
-    iget v0, v2, Landroid/content/res/Configuration;->mnc:I
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v17, v0
+    move-result-object v11
 
-    invoke-virtual/range {v16 .. v17}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v16
+    move-result-object v11
 
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v16
-
-    invoke-static/range {v15 .. v16}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    throw v14
+    throw v9
 
     .line 273
-    .end local v6    # "homeMccMnc":Ljava/lang/String;
-    :cond_e
-    const-string v14, "MccTable"
+    .end local v3    # "homeMccMnc":Ljava/lang/String;
+    :cond_9
+    const-string v9, "MccTable"
 
-    const-string v15, "updateMccMncConfiguration nothing to update"
+    const-string v10, "updateMccMncConfiguration nothing to update"
 
-    invoke-static {v14, v15}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_6
     .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_2
 
-    goto/16 :goto_3
+    goto :goto_1
 .end method

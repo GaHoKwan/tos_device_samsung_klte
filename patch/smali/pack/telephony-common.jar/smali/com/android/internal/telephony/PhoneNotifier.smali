@@ -38,6 +38,9 @@
 .method public abstract notifyDunDataConnection(Lcom/android/internal/telephony/Phone;)V
 .end method
 
+.method public abstract notifyFdnUpdated(Lcom/android/internal/telephony/Phone;)V
+.end method
+
 .method public abstract notifyMessageWaitingChanged(Lcom/android/internal/telephony/Phone;)V
 .end method
 

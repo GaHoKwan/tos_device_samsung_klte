@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/connectivity/EnterpriseVpn;)V
     .locals 0
 
+    .prologue
+    .line 161
     iput-object p1, p0, Lcom/android/server/connectivity/EnterpriseVpn$2;->this$0:Lcom/android/server/connectivity/EnterpriseVpn;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,25 +35,35 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/16 v3, -0x2710
 
+    .line 164
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 165
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 167
+    .local v1, "userId":I
     if-ne v1, v3, :cond_1
 
+    .line 174
     :cond_0
     :goto_0
     return-void
 
+    .line 169
     :cond_1
     const-string v2, "android.intent.action.USER_ADDED"
 
@@ -61,6 +73,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 170
     iget-object v2, p0, Lcom/android/server/connectivity/EnterpriseVpn$2;->this$0:Lcom/android/server/connectivity/EnterpriseVpn;
 
     # invokes: Lcom/android/server/connectivity/EnterpriseVpn;->onUserAdded(I)V
@@ -68,6 +81,7 @@
 
     goto :goto_0
 
+    .line 171
     :cond_2
     const-string v2, "android.intent.action.USER_REMOVED"
 
@@ -77,6 +91,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 172
     iget-object v2, p0, Lcom/android/server/connectivity/EnterpriseVpn$2;->this$0:Lcom/android/server/connectivity/EnterpriseVpn;
 
     # invokes: Lcom/android/server/connectivity/EnterpriseVpn;->onUserRemoved(I)V

@@ -1200,7 +1200,7 @@
     .local v0, "e":Lorg/xmlpull/v1/XmlPullParserException;
     const-string v3, "SharedPreferencesImpl"
 
-    const-string v4, "writeToFile: Got exception:"
+    const-string/jumbo v4, "writeToFile: Got exception:"
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1350,7 +1350,7 @@
     .local v0, "e":Ljava/io/IOException;
     const-string v3, "SharedPreferencesImpl"
 
-    const-string v4, "writeToFile: Got exception:"
+    const-string/jumbo v4, "writeToFile: Got exception:"
 
     invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

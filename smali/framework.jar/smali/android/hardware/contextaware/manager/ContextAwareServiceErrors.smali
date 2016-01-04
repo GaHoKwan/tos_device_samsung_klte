@@ -522,7 +522,7 @@
 
     .line 131
     .local v1, "i":Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;
-    invoke-virtual {v1}, Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
@@ -581,7 +581,7 @@
     .line 23
     sget-object v0, Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;->$VALUES:[Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -597,7 +597,7 @@
 
     .prologue
     .line 108
-    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextAwareServiceErrors;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

@@ -34,26 +34,26 @@
     .param p4, "volMax"    # I
 
     .prologue
-    .line 1230
+    .line 1224
     iput-object p1, p0, Landroid/media/MediaFocusControl$RemotePlaybackState;->this$0:Landroid/media/MediaFocusControl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1231
+    .line 1225
     iput p2, p0, Landroid/media/MediaFocusControl$RemotePlaybackState;->mRccId:I
 
-    .line 1232
+    .line 1226
     iput p3, p0, Landroid/media/MediaFocusControl$RemotePlaybackState;->mVolume:I
 
-    .line 1233
+    .line 1227
     iput p4, p0, Landroid/media/MediaFocusControl$RemotePlaybackState;->mVolumeMax:I
 
-    .line 1234
+    .line 1228
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/media/MediaFocusControl$RemotePlaybackState;->mVolumeHandling:I
 
-    .line 1235
+    .line 1229
     return-void
 .end method
 
@@ -66,7 +66,7 @@
     .param p5, "x4"    # Landroid/media/MediaFocusControl$1;
 
     .prologue
-    .line 1224
+    .line 1218
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/media/MediaFocusControl$RemotePlaybackState;-><init>(Landroid/media/MediaFocusControl;III)V
 
     return-void

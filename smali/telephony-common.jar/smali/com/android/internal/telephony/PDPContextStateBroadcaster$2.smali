@@ -41,7 +41,7 @@
 
     invoke-direct {v1, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 162
     const-string v0, "radioTurnedOff"
@@ -52,7 +52,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 163
     const-string v0, "unknownPdpDisconnect"
@@ -63,7 +63,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 164
     const-string v0, "unknown data error"
@@ -74,7 +74,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 165
     const-string v0, "roamingOn"
@@ -85,7 +85,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 166
     const-string v0, "roamingOff"
@@ -96,7 +96,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 167
     const-string v0, "dataDisabled"
@@ -107,7 +107,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 168
     const-string v0, "dataEnabled"
@@ -118,7 +118,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 169
     const-string v0, "dataAttached"
@@ -129,7 +129,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 170
     const-string v0, "dataDetached"
@@ -140,7 +140,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 171
     const-string v0, "cdmaDataAttached"
@@ -151,7 +151,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 172
     const-string v0, "cdmaDataDetached"
@@ -162,7 +162,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 173
     const-string v0, "apnChanged"
@@ -173,7 +173,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 174
     const-string v0, "apnSwitched"
@@ -184,7 +184,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 175
     const-string v0, "apnFailed"
@@ -195,7 +195,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 176
     const-string v0, "restoreDefaultApn"
@@ -206,7 +206,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 177
     const-string v0, "pdpReset"
@@ -217,7 +217,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 178
     const-string v0, "2GVoiceCallEnded"
@@ -228,7 +228,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 179
     const-string v0, "2GVoiceCallStarted"
@@ -239,7 +239,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 180
     const-string v0, "psRestrictEnabled"
@@ -250,7 +250,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 181
     const-string v0, "psRestrictDisabled"
@@ -261,7 +261,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 182
     const-string v0, "simLoaded"
@@ -272,7 +272,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 183
     const-string v0, "apnTypeDisabled"
@@ -283,7 +283,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 184
     const-string v0, "apnTypeEnabled"
@@ -294,7 +294,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 185
     const-string v0, "masterDataDisabled"
@@ -305,7 +305,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 186
     const-string v0, "masterDataEnabled"
@@ -316,7 +316,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 187
     const-string v0, "iccRecordsLoaded"
@@ -327,7 +327,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 188
     const-string v0, "cdmaOtaProvisioning"
@@ -338,7 +338,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 189
     const-string v0, "defaultDataDisabled"
@@ -349,7 +349,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 190
     const-string v0, "defaultDataEnabled"
@@ -360,7 +360,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 191
     const-string v0, "radioOn"
@@ -371,7 +371,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 192
     const-string v0, "radioOff"
@@ -382,7 +382,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 193
     const-string v0, "radioTechnologyChanged"
@@ -393,7 +393,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 194
     const-string v0, "networkOrModemDisconnect"
@@ -404,7 +404,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 195
     const-string v0, "dataNetworkAttached"
@@ -415,7 +415,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 196
     const-string v0, "dataNetworkDetached"
@@ -426,7 +426,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 197
     const-string v0, "dataProfileDbChanged"
@@ -437,7 +437,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 198
     const-string v0, "cdmaSubscriptionSourceChanged"
@@ -448,7 +448,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 199
     const-string v0, "tetheredModeChanged"
@@ -459,7 +459,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 200
     const-string v0, "dataConnectionPropertyChanged"
@@ -470,7 +470,7 @@
 
     invoke-direct {v1, v2}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 203
     const-string v0, "nwTypeChanged"
@@ -479,7 +479,7 @@
 
     invoke-direct {v1, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 204
     const-string v0, "dependencyMet"
@@ -488,7 +488,7 @@
 
     invoke-direct {v1, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 205
     const-string v0, "dependencyUnmet"
@@ -497,7 +497,7 @@
 
     invoke-direct {v1, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 206
     const-string v0, "linkPropertiesChanged"
@@ -506,7 +506,7 @@
 
     invoke-direct {v1, v3}, Ljava/lang/Integer;-><init>(I)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$2;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 207
     return-void

@@ -80,7 +80,7 @@
     invoke-direct/range {p0 .. p5}, Lcom/android/internal/telephony/cat/LaunchBrowserParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Ljava/lang/String;Lcom/android/internal/telephony/cat/LaunchBrowserMode;Ljava/lang/String;)V
 
     .line 107
-    invoke-virtual {p0, p6}, Lcom/android/internal/telephony/cat/LaunchBrowserParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p6}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 108
     return-void

@@ -54,7 +54,7 @@
     .line 86
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    # invokes: Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    # invokes: Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
     invoke-static {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->access$000(Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;)Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v3
@@ -70,7 +70,7 @@
     .line 88
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    # invokes: Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    # invokes: Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
     invoke-static {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->access$100(Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;)Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v3
@@ -84,7 +84,7 @@
     .line 89
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    # invokes: Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    # invokes: Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
     invoke-static {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->access$200(Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;)Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v3
@@ -98,7 +98,7 @@
     .line 91
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    invoke-virtual {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextValueNames()[Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/hardware/contextaware/manager/ContextProvider;->getContextValueNames()[Ljava/lang/String;
 
     move-result-object v1
 
@@ -125,7 +125,7 @@
     .line 95
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    # invokes: Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    # invokes: Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
     invoke-static {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->access$300(Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;)Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v3
@@ -147,7 +147,7 @@
     :cond_0
     iget-object v3, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider$1;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;
 
-    invoke-virtual {v3}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->notifyObserver()V
+    invoke-virtual {v3}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     .line 99
     return-void

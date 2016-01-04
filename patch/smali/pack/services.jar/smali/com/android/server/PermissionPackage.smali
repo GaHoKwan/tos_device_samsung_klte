@@ -42,25 +42,31 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 791
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 792
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/PermissionPackage;->seinfos:Ljava/util/HashSet;
 
+    .line 793
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/PermissionPackage;->packages:Ljava/util/HashSet;
 
+    .line 794
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/PermissionPackage;->agentTypes:Ljava/util/HashSet;
 
+    .line 795
     return-void
 .end method

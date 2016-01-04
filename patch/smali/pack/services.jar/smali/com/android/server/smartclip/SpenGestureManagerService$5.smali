@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/widget/CheckBox;)V
     .locals 0
 
+    .prologue
+    .line 588
     iput-object p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService$5;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     iput-object p2, p0, Lcom/android/server/smartclip/SpenGestureManagerService$5;->val$mcheck:Landroid/widget/CheckBox;
@@ -40,15 +42,20 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "id"    # I
 
+    .prologue
+    .line 590
     iget-object v0, p0, Lcom/android/server/smartclip/SpenGestureManagerService$5;->val$mcheck:Landroid/widget/CheckBox;
 
-    invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
+    invoke-virtual {v0}, Landroid/widget/CompoundButton;->isChecked()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 591
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->access$200()Landroid/content/Context;
 
@@ -64,8 +71,10 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 593
     :cond_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 594
     return-void
 .end method

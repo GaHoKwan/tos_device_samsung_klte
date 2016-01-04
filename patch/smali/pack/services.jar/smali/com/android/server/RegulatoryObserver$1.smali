@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/RegulatoryObserver;)V
     .locals 0
 
+    .prologue
+    .line 131
     iput-object p1, p0, Lcom/android/server/RegulatoryObserver$1;->this$0:Lcom/android/server/RegulatoryObserver;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,17 +35,23 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 134
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 144
     :goto_0
     return-void
 
+    .line 136
     :pswitch_0
     monitor-enter p0
 
+    .line 137
     :try_start_0
     # getter for: Lcom/android/server/RegulatoryObserver;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RegulatoryObserver;->access$000()Ljava/lang/String;
@@ -77,14 +85,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 138
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 139
+    .local v0, "broadcastIntent":Landroid/content/Intent;
     const-string v1, "crda.custom.intent.action.COUNTRY_CODE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 140
     iget-object v1, p0, Lcom/android/server/RegulatoryObserver$1;->this$0:Lcom/android/server/RegulatoryObserver;
 
     # getter for: Lcom/android/server/RegulatoryObserver;->mContext:Landroid/content/Context;
@@ -96,10 +108,12 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 141
     monitor-exit p0
 
     goto :goto_0
 
+    .end local v0    # "broadcastIntent":Landroid/content/Intent;
     :catchall_0
     move-exception v1
 
@@ -109,6 +123,7 @@
 
     throw v1
 
+    .line 134
     nop
 
     :pswitch_data_0

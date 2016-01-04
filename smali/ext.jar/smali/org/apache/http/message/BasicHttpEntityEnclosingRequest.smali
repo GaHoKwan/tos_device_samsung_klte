@@ -63,7 +63,7 @@
     .line 77
     const-string v1, "Expect"
 
-    invoke-virtual {p0, v1}, Lorg/apache/http/message/BasicHttpEntityEnclosingRequest;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+    invoke-virtual {p0, v1}, Lorg/apache/http/message/AbstractHttpMessage;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
 
     move-result-object v0
 

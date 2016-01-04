@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$InvokeListBox;)V
     .locals 0
 
+    .prologue
+    .line 14482
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$4;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +38,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 4
+    .param p2, "v"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,6 +51,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 14494
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$4;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -57,6 +65,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 14495
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$4;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$InvokeListBox;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -74,6 +83,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/webkitsec/WebViewCore;->sendMessage(III)V
 
+    .line 14498
     :cond_0
     return-void
 .end method

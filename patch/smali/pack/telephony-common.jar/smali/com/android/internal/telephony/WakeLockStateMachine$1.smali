@@ -44,7 +44,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/WakeLockStateMachine;->sendMessage(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
     .line 255
     return-void

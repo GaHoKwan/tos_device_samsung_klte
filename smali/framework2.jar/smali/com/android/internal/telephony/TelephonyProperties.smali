@@ -204,6 +204,10 @@
 
 .field public static final PROPERTY_SMS_SEND:Ljava/lang/String; = "telephony.sms.send"
 
+.field public static final PROPERTY_SS_FALLBACK_BY_IMS_ERROR:Ljava/lang/String; = "persist.radio.ss.fallback"
+
+.field public static final PROPERTY_SS_ROUTING_POLICY:Ljava/lang/String; = "persist.radio.ss.policy"
+
 .field public static final PROPERTY_TDSCDMA_PRESENT:Ljava/lang/String; = "persist.radio.tdscdma_present"
 
 .field public static final PROPERTY_TEST_CSIM:Ljava/lang/String; = "persist.radio.test-csim"
@@ -211,6 +215,8 @@
 .field public static final PROPERTY_TEST_EPDG:Ljava/lang/String; = "telephony.test.epdg"
 
 .field public static final PROPERTY_TETHERING_TEST_MODE:Ljava/lang/String; = "ril.tethering.test_mode"
+
+.field public static final PROPERTY_USSD_ROUTING_POLICY:Ljava/lang/String; = "persist.radio.ussd.policy"
 
 .field public static final PROPERTY_VOICE_NETWORK_TYPE:Ljava/lang/String; = "gsm.voice.network.type"
 

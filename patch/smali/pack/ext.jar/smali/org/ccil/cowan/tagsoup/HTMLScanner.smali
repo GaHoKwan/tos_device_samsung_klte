@@ -1318,7 +1318,7 @@
     invoke-interface {v2, v1, v0}, Lorg/ccil/cowan/tagsoup/Scanner;->scan(Ljava/io/Reader;Lorg/ccil/cowan/tagsoup/ScanHandler;)V
 
     .line 638
-    invoke-virtual {v3}, Ljava/io/Writer;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
 
     .line 639
     return-void

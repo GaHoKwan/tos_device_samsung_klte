@@ -122,7 +122,7 @@
     check-cast v0, Ljavax/sip/header/Parameters;
 
     .end local v0    # "o":Ljavax/sip/header/HeaderAddress;
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;->equalParameters(Ljavax/sip/header/Parameters;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->equalParameters(Ljavax/sip/header/Parameters;)Z
 
     move-result v3
 

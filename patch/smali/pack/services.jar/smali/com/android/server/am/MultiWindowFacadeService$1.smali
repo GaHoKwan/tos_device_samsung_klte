@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/MultiWindowFacadeService;)V
     .locals 0
 
+    .prologue
+    .line 469
     iput-object p1, p0, Lcom/android/server/am/MultiWindowFacadeService$1;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,11 +35,16 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 4
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 471
     if-ne p1, v3, :cond_0
 
+    .line 472
     iget-object v0, p0, Lcom/android/server/am/MultiWindowFacadeService$1;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     iget-object v0, v0, Lcom/android/server/am/MultiWindowFacadeService;->mHandler:Lcom/android/server/am/MultiWindowFacadeService$H;
@@ -48,12 +55,13 @@
 
     const-string v2, "com.android.phone"
 
-    invoke-virtual {v1, v3, v2}, Lcom/android/server/am/MultiWindowFacadeService$H;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v3, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/MultiWindowFacadeService$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 475
     :cond_0
     return-void
 .end method

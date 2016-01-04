@@ -34,7 +34,7 @@
     .line 49
     const-string v4, "data"
 
-    invoke-virtual {p0, v4}, Landroid/filterpacks/base/OutputStreamTarget;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, v4}, Landroid/filterfw/core/Filter;->pullInput(Ljava/lang/String;)Landroid/filterfw/core/Frame;
 
     move-result-object v2
 
@@ -82,7 +82,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {v0}, Ljava/nio/ByteBuffer;->limit()I
+    invoke-virtual {v0}, Ljava/nio/Buffer;->limit()I
 
     move-result v7
 
@@ -126,7 +126,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -156,7 +156,7 @@
     .line 44
     const-string v0, "data"
 
-    invoke-virtual {p0, v0}, Landroid/filterpacks/base/OutputStreamTarget;->addInputPort(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Landroid/filterfw/core/Filter;->addInputPort(Ljava/lang/String;)V
 
     .line 45
     return-void

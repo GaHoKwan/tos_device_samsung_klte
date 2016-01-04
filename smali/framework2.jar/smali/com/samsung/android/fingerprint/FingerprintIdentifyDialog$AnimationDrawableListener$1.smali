@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;)V
     .locals 0
 
+    .prologue
+    .line 132
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 135
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener$1;->this$1:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;->onAnimationEnd()V
 
+    .line 136
     return-void
 .end method

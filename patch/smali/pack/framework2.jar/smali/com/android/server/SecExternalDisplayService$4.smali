@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/SecExternalDisplayService;Landroid/widget/Toast;)V
     .locals 0
 
+    .prologue
+    .line 360
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$4;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     iput-object p2, p0, Lcom/android/server/SecExternalDisplayService$4;->val$theatre:Landroid/widget/Toast;
@@ -38,6 +40,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 362
     :goto_0
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$4;->this$0:Lcom/android/server/SecExternalDisplayService;
 
@@ -48,20 +52,24 @@
 
     if-eqz v0, :cond_0
 
+    .line 363
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$4;->val$theatre:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    .line 364
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$4;->val$theatre:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    .line 365
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$4;->val$theatre:Landroid/widget/Toast;
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     goto :goto_0
 
+    .line 367
     :cond_0
     return-void
 .end method

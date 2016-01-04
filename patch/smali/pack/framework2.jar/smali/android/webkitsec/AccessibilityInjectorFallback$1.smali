@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/webkitsec/AccessibilityInjectorFallback;Ljava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 452
     iput-object p1, p0, Landroid/webkitsec/AccessibilityInjectorFallback$1;->this$0:Landroid/webkitsec/AccessibilityInjectorFallback;
 
     iput-object p2, p0, Landroid/webkitsec/AccessibilityInjectorFallback$1;->val$selection:Ljava/lang/String;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 455
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjectorFallback$1;->this$0:Landroid/webkitsec/AccessibilityInjectorFallback;
 
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjectorFallback$1;->val$selection:Ljava/lang/String;
@@ -54,5 +58,6 @@
     # invokes: Landroid/webkitsec/AccessibilityInjectorFallback;->onSelectionStringChangedMainThread(Ljava/lang/String;I)V
     invoke-static {v0, v1, v2}, Landroid/webkitsec/AccessibilityInjectorFallback;->access$000(Landroid/webkitsec/AccessibilityInjectorFallback;Ljava/lang/String;I)V
 
+    .line 456
     return-void
 .end method

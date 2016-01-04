@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView;)V
     .locals 0
 
+    .prologue
+    .line 482
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$1;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 484
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 485
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.SINGLE_SCREEN_CAPTURE_ON"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,16 +54,19 @@
 
     if-eqz v1, :cond_1
 
+    .line 486
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$1;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     const/4 v2, 0x1
 
     iput-boolean v2, v1, Lcom/android/server/smartclip/SmartClipView;->mScreenCaptureOn:Z
 
+    .line 491
     :cond_0
     :goto_0
     return-void
 
+    .line 487
     :cond_1
     const-string v1, "android.intent.action.SINGLE_SCREEN_CAPTURE_OFF"
 
@@ -65,6 +76,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 488
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$1;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     const/4 v2, 0x0

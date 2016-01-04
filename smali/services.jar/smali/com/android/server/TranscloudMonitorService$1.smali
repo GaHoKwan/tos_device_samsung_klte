@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/TranscloudMonitorService;)V
     .locals 0
 
+    .prologue
+    .line 141
     iput-object p1, p0, Lcom/android/server/TranscloudMonitorService$1;->this$0:Lcom/android/server/TranscloudMonitorService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 143
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
@@ -42,10 +48,14 @@
 
     move-result-object v1
 
+    .line 144
+    .local v1, "packageName":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 145
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "com.samsung.android.service.transcloud"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -54,6 +64,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 146
     const-string v2, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -62,22 +73,26 @@
 
     if-eqz v2, :cond_0
 
+    .line 147
     const-string v2, "Transcloud"
 
     const-string v3, "Transcloud installed!"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 148
     iget-object v2, p0, Lcom/android/server/TranscloudMonitorService$1;->this$0:Lcom/android/server/TranscloudMonitorService;
 
     # invokes: Lcom/android/server/TranscloudMonitorService;->addTranscloudManagerService()Z
     invoke-static {v2}, Lcom/android/server/TranscloudMonitorService;->access$000(Lcom/android/server/TranscloudMonitorService;)Z
 
+    .line 149
     iget-object v2, p0, Lcom/android/server/TranscloudMonitorService$1;->this$0:Lcom/android/server/TranscloudMonitorService;
 
     # invokes: Lcom/android/server/TranscloudMonitorService;->systemReadyTranscloudManagerService()Z
     invoke-static {v2}, Lcom/android/server/TranscloudMonitorService;->access$100(Lcom/android/server/TranscloudMonitorService;)Z
 
+    .line 150
     iget-object v2, p0, Lcom/android/server/TranscloudMonitorService$1;->this$0:Lcom/android/server/TranscloudMonitorService;
 
     # getter for: Lcom/android/server/TranscloudMonitorService;->mContext:Landroid/content/Context;
@@ -87,6 +102,7 @@
 
     invoke-virtual {v2, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    .line 153
     :cond_0
     return-void
 .end method

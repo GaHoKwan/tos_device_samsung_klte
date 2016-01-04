@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$2;)V
     .locals 0
 
+    .prologue
+    .line 1433
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$2$2;->this$1:Lcom/android/server/am/ActivityManagerService$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,16 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 1437
     const-string v0, "GATE"
 
     const-string v1, "<GATE-M>APP_FC:FC dialog has been cleared</GATE-M>"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1438
     return-void
 .end method

@@ -25,11 +25,15 @@
 # direct methods
 .method public constructor <init>(Landroid/telephony/TelephonyManager;Landroid/os/Bundle;)V
     .locals 1
+    .param p2, "bundle"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 2450
     iput-object p1, p0, Landroid/telephony/TelephonyManager$GbaBootstrappingResponse;->this$0:Landroid/telephony/TelephonyManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2451
     const-string/jumbo v0, "res"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
@@ -38,6 +42,7 @@
 
     iput-object v0, p0, Landroid/telephony/TelephonyManager$GbaBootstrappingResponse;->res:[B
 
+    .line 2452
     const-string v0, "auts"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
@@ -46,5 +51,6 @@
 
     iput-object v0, p0, Landroid/telephony/TelephonyManager$GbaBootstrappingResponse;->auts:[B
 
+    .line 2453
     return-void
 .end method

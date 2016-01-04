@@ -25,7 +25,14 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/accounts/AccountManagerService;Lcom/android/server/accounts/AccountManagerService$UserAccounts;Landroid/accounts/IAccountManagerResponse;Ljava/lang/String;ZZLjava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Lcom/android/server/accounts/AccountManagerService$UserAccounts;
+    .param p3, "x1"    # Landroid/accounts/IAccountManagerResponse;
+    .param p4, "x2"    # Ljava/lang/String;
+    .param p5, "x3"    # Z
+    .param p6, "x4"    # Z
 
+    .prologue
+    .line 1387
     iput-object p1, p0, Lcom/android/server/accounts/AccountManagerService$5;->this$0:Lcom/android/server/accounts/AccountManagerService;
 
     iput-object p7, p0, Lcom/android/server/accounts/AccountManagerService$5;->val$accountType:Ljava/lang/String;
@@ -41,28 +48,41 @@
 # virtual methods
 .method public onResult(Landroid/os/Bundle;)V
     .locals 3
+    .param p1, "result"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 1402
     if-eqz p1, :cond_0
 
+    .line 1403
     const-string v2, "authTokenLabelKey"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 1404
+    .local v1, "label":Ljava/lang/String;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .line 1405
+    .local v0, "bundle":Landroid/os/Bundle;
     const-string v2, "authTokenLabelKey"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1406
     invoke-super {p0, v0}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
+    .line 1411
+    .end local v0    # "bundle":Landroid/os/Bundle;
+    .end local v1    # "label":Ljava/lang/String;
     :goto_0
     return-void
 
+    .line 1409
     :cond_0
     invoke-super {p0, p1}, Lcom/android/server/accounts/AccountManagerService$Session;->onResult(Landroid/os/Bundle;)V
 
@@ -77,18 +97,24 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$5;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
+    .prologue
+    .line 1397
+    iget-object v0, p0, Lcom/android/server/accounts/AccountManagerService$Session;->mAuthenticator:Landroid/accounts/IAccountAuthenticator;
 
     iget-object v1, p0, Lcom/android/server/accounts/AccountManagerService$5;->val$authTokenType:Ljava/lang/String;
 
     invoke-interface {v0, p0, v1}, Landroid/accounts/IAccountAuthenticator;->getAuthTokenLabel(Landroid/accounts/IAccountAuthenticatorResponse;Ljava/lang/String;)V
 
+    .line 1398
     return-void
 .end method
 
 .method protected toDebugString(J)Ljava/lang/String;
     .locals 2
+    .param p1, "now"    # J
 
+    .prologue
+    .line 1390
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

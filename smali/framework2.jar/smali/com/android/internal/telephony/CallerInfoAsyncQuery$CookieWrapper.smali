@@ -28,6 +28,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +37,10 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/telephony/CallerInfoAsyncQuery$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/internal/telephony/CallerInfoAsyncQuery$1;
 
+    .prologue
+    .line 92
     invoke-direct {p0}, Lcom/android/internal/telephony/CallerInfoAsyncQuery$CookieWrapper;-><init>()V
 
     return-void

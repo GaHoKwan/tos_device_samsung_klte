@@ -79,7 +79,7 @@
     .line 69
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
-    invoke-virtual {v0, p2}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p2}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 70
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
@@ -97,7 +97,7 @@
     .line 87
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
-    invoke-virtual {v0, v4}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v4}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 88
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
@@ -117,7 +117,7 @@
     :sswitch_0
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 75
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
@@ -135,7 +135,7 @@
     :sswitch_1
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 79
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
@@ -153,7 +153,7 @@
     :sswitch_2
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
-    invoke-virtual {v0, v3}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v3}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 83
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$1;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;

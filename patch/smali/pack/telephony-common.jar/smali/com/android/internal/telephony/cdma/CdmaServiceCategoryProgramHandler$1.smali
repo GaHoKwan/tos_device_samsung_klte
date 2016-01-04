@@ -38,7 +38,7 @@
     const/4 v11, 0x0
 
     .line 126
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler$1;->getResultCode()I
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getResultCode()I
 
     move-result v7
 
@@ -73,7 +73,7 @@
 
     move-result-object v11
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v10, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$100(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
 
     .line 184
@@ -82,7 +82,7 @@
 
     .line 131
     :cond_0
-    invoke-virtual {p0, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler$1;->getResultExtras(Z)Landroid/os/Bundle;
+    invoke-virtual {p0, v11}, Landroid/content/BroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
 
     move-result-object v6
 
@@ -95,7 +95,7 @@
 
     const-string v11, "SCP results error: missing extras"
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v10, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$200(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
 
     goto :goto_0
@@ -117,7 +117,7 @@
 
     const-string v11, "SCP results error: missing sender extra."
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v10, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$300(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
 
     goto :goto_0
@@ -139,7 +139,7 @@
 
     const-string v11, "SCP results error: missing results extra."
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v10, v11}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$400(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
 
     goto :goto_0
@@ -223,7 +223,7 @@
     invoke-virtual {v3, v10}, Ljava/io/DataOutputStream;->write(I)V
 
     .line 164
-    iget v10, v2, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->ton:I
+    iget v10, v2, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     invoke-virtual {v3, v10}, Ljava/io/DataOutputStream;->write(I)V
 
@@ -238,11 +238,11 @@
     invoke-virtual {v3, v10}, Ljava/io/DataOutputStream;->write(I)V
 
     .line 167
-    iget-object v10, v2, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v10, v2, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     const/4 v11, 0x0
 
-    iget-object v12, v2, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v12, v2, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     array-length v12, v12
 
@@ -293,7 +293,7 @@
 
     .line 180
     :try_start_1
-    invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterOutputStream;->close()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -317,14 +317,14 @@
 
     const-string v11, "exception creating SCP results PDU"
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
     invoke-static {v10, v11, v4}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$500(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;Ljava/lang/Throwable;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     .line 180
     :try_start_3
-    invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterOutputStream;->close()V
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
 
@@ -343,7 +343,7 @@
 
     .line 180
     :try_start_4
-    invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterOutputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
@@ -374,7 +374,7 @@
 
     const-string v1, "mScpResultsReceiver finished"
 
-    # invokes: Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->log(Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->access$000(Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;Ljava/lang/String;)V
 
     .line 122
@@ -382,7 +382,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->sendMessage(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
     .line 123
     return-void

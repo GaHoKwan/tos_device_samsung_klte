@@ -28,6 +28,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;III)V
     .locals 0
 
+    .prologue
+    .line 9419
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput p2, p0, Lcom/android/server/pm/PackageManagerService$6;->val$nextState:I
@@ -45,21 +47,28 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 9422
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     iget v2, p0, Lcom/android/server/pm/PackageManagerService$6;->val$nextState:I
 
-    invoke-virtual {v1, v2}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
+    .line 9423
+    .local v0, "msg":Landroid/os/Message;
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$6;->val$scanId:I
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
+    .line 9424
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$6;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, v1, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
@@ -68,7 +77,8 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 9425
     return-void
 .end method

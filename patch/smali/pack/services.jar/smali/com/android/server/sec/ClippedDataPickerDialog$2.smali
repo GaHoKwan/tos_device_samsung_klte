@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 0
 
+    .prologue
+    .line 590
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$2;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,30 +38,41 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 593
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$2;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mGridViewAniGoingOn:Z
 
+    .line 594
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 598
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 601
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$2;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     const/4 v1, 0x1
 
     iput-boolean v1, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mGridViewAniGoingOn:Z
 
+    .line 602
     return-void
 .end method

@@ -15,6 +15,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,10 +25,12 @@
 .method private static a(Ljava/lang/String;)[B
     .locals 8
 
+    .prologue
     const/16 v7, 0x8
 
     const/4 v1, 0x0
 
+    .line 154
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
@@ -35,6 +39,7 @@
 
     move v0, v1
 
+    .line 155
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -42,38 +47,48 @@
 
     if-lt v0, v3, :cond_0
 
+    .line 159
     new-instance v0, Ljava/util/zip/CRC32;
 
     invoke-direct {v0}, Ljava/util/zip/CRC32;-><init>()V
 
+    .line 160
     array-length v3, v2
 
     invoke-virtual {v0, v2, v1, v3}, Ljava/util/zip/CRC32;->update([BII)V
 
+    .line 161
     invoke-virtual {v0}, Ljava/util/zip/CRC32;->getValue()J
 
     move-result-wide v2
 
+    .line 162
     const-wide v4, 0xffffffffL
 
     and-long/2addr v2, v4
 
+    .line 164
     new-array v0, v7, [B
 
+    .line 165
     aput-byte v1, v0, v1
 
+    .line 166
     const/4 v4, 0x1
 
     aput-byte v1, v0, v4
 
+    .line 167
     const/4 v4, 0x2
 
     aput-byte v1, v0, v4
 
+    .line 168
     const/4 v4, 0x3
 
     aput-byte v1, v0, v4
 
+    .line 169
     const/4 v1, 0x4
 
     const-wide/32 v4, -0x1000000
@@ -90,6 +105,7 @@
 
     aput-byte v4, v0, v1
 
+    .line 170
     const/4 v1, 0x5
 
     const-wide/32 v4, 0xff0000
@@ -106,6 +122,7 @@
 
     aput-byte v4, v0, v1
 
+    .line 171
     const/4 v1, 0x6
 
     const-wide/32 v4, 0xff00
@@ -120,6 +137,7 @@
 
     aput-byte v4, v0, v1
 
+    .line 172
     const/4 v1, 0x7
 
     const-wide/16 v4, 0xff
@@ -132,8 +150,10 @@
 
     aput-byte v2, v0, v1
 
+    .line 173
     return-object v0
 
+    .line 156
     :cond_0
     invoke-virtual {p0, v0}, Ljava/lang/String;->charAt(I)C
 
@@ -143,6 +163,7 @@
 
     aput-byte v3, v2, v0
 
+    .line 155
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
@@ -151,20 +172,25 @@
 .method public static cryptValue([B[BILjava/lang/String;Ljava/lang/String;)[B
     .locals 6
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 54
     invoke-static {p0, p2, p3, p4}, Lcom/absolute/android/crypt/Crypt;->getCipher([BILjava/lang/String;Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v0
 
+    .line 59
     array-length v1, p1
 
     invoke-virtual {v0, v1}, Ljavax/crypto/Cipher;->getOutputSize(I)I
 
     move-result v1
 
+    .line 58
     new-array v4, v1, [B
 
+    .line 60
     array-length v3, p1
 
     move-object v1, p1
@@ -175,22 +201,27 @@
 
     move-result v1
 
+    .line 62
     invoke-virtual {v0, v4, v1}, Ljavax/crypto/Cipher;->doFinal([BI)I
 
     move-result v0
 
     add-int/2addr v1, v0
 
+    .line 63
     array-length v0, v4
 
     if-ge v1, v0, :cond_0
 
+    .line 64
     new-array v0, v1, [B
 
+    .line 65
     invoke-static {v4, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     move-object v4, v0
 
+    .line 70
     :cond_0
     return-object v4
 .end method
@@ -198,37 +229,46 @@
 .method public static getCipher([BILjava/lang/String;Ljava/lang/String;)Ljavax/crypto/Cipher;
     .locals 3
 
+    .prologue
+    .line 89
     const-string v0, "DESede"
 
+    .line 92
     const-string v1, "/"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
+    .line 93
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_0
 
+    .line 94
     const/4 v0, 0x0
 
     invoke-virtual {p2, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 96
     :cond_0
     new-instance v1, Ljavax/crypto/spec/DESedeKeySpec;
 
     invoke-direct {v1, p0}, Ljavax/crypto/spec/DESedeKeySpec;-><init>([B)V
 
+    .line 97
     invoke-static {v0}, Ljavax/crypto/SecretKeyFactory;->getInstance(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;
 
     move-result-object v0
 
+    .line 98
     invoke-virtual {v0, v1}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
 
     move-result-object v0
 
+    .line 100
     new-instance v1, Ljavax/crypto/spec/IvParameterSpec;
 
     invoke-static {p3}, Lcom/absolute/android/crypt/Crypt;->a(Ljava/lang/String;)[B
@@ -237,24 +277,31 @@
 
     invoke-direct {v1, v2}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
+    .line 102
     invoke-static {p2}, Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;
 
     move-result-object v2
 
+    .line 103
     invoke-virtual {v2, p1, v0, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
+    .line 105
     return-object v2
 .end method
 
 .method public static getDigest(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 5
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 121
+    .line 123
     invoke-static {p0}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
 
     move-result-object v0
 
+    .line 128
     :try_start_0
     new-instance v1, Ljava/io/FileInputStream;
 
@@ -263,6 +310,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 129
     :try_start_1
     new-instance v3, Ljava/security/DigestInputStream;
 
@@ -271,13 +319,15 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
+    .line 130
     const/16 v0, 0x2000
 
     :try_start_2
     new-array v0, v0, [B
 
+    .line 131
     :cond_0
-    invoke-virtual {v3, v0}, Ljava/security/DigestInputStream;->read([B)I
+    invoke-virtual {v3, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v2
 
@@ -285,6 +335,7 @@
 
     if-ne v2, v4, :cond_0
 
+    .line 133
     invoke-virtual {v3}, Ljava/security/DigestInputStream;->getMessageDigest()Ljava/security/MessageDigest;
 
     move-result-object v0
@@ -293,6 +344,7 @@
 
     move-result-object v0
 
+    .line 134
     invoke-static {v0}, Lcom/absolute/android/crypt/HexUtilities;->EncodeBytesAsHexString([B)Ljava/lang/String;
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_4
@@ -300,14 +352,17 @@
 
     move-result-object v0
 
+    .line 141
     :try_start_3
-    invoke-virtual {v3}, Ljava/security/DigestInputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterInputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
 
+    .line 149
     :goto_0
     return-object v0
 
+    .line 136
     :catch_0
     move-exception v0
 
@@ -319,26 +374,32 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 139
     :catchall_0
     move-exception v0
 
     move-object v3, v2
 
+    .line 141
     :goto_2
     if-eqz v3, :cond_2
 
+    .line 142
     :try_start_5
-    invoke-virtual {v3}, Ljava/security/DigestInputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterInputStream;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 
+    .line 148
     :cond_1
     :goto_3
     throw v0
 
+    .line 144
     :cond_2
     if-eqz v1, :cond_1
 
+    .line 145
     :try_start_6
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
     :try_end_6
@@ -356,6 +417,7 @@
 
     goto :goto_0
 
+    .line 139
     :catchall_1
     move-exception v0
 
@@ -377,6 +439,7 @@
 
     goto :goto_2
 
+    .line 136
     :catch_3
     move-exception v0
 

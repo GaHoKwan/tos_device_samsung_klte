@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 621
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$6;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 3
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 623
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$6;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     if-eq p1, v0, :cond_0
@@ -49,8 +55,10 @@
     # setter for: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mIsRingingOrOffhook:Z
     invoke-static {v1, v0}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->access$302(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Z)Z
 
+    .line 624
     return-void
 
+    .line 623
     :cond_1
     const/4 v0, 0x0
 

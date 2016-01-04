@@ -58,8 +58,11 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 408
     invoke-direct {p0}, Lcom/android/server/firewall/AndFilter;-><init>()V
 
+    .line 416
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x1
@@ -68,6 +71,7 @@
 
     iput-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
+    .line 418
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x0
@@ -81,7 +85,10 @@
 
 .method synthetic constructor <init>(Lcom/android/server/firewall/IntentFirewall$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/firewall/IntentFirewall$1;
 
+    .prologue
+    .line 408
     invoke-direct {p0}, Lcom/android/server/firewall/IntentFirewall$Rule;-><init>()V
 
     return-void
@@ -92,6 +99,8 @@
 .method public getBlock()Z
     .locals 1
 
+    .prologue
+    .line 473
     iget-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->block:Z
 
     return v0
@@ -99,7 +108,10 @@
 
 .method public getComponentFilter(I)Landroid/content/ComponentName;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 470
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -114,6 +126,8 @@
 .method public getComponentFilterCount()I
     .locals 1
 
+    .prologue
+    .line 466
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -125,7 +139,10 @@
 
 .method public getIntentFilter(I)Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 462
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -140,6 +157,8 @@
 .method public getIntentFilterCount()I
     .locals 1
 
+    .prologue
+    .line 458
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -152,6 +171,8 @@
 .method public getLog()Z
     .locals 1
 
+    .prologue
+    .line 477
     iget-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->log:Z
 
     return v0
@@ -159,6 +180,7 @@
 
 .method protected readChild(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 7
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -166,12 +188,16 @@
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 433
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 435
+    .local v2, "currentTag":Ljava/lang/String;
     const-string v4, "intent-filter"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -180,19 +206,26 @@
 
     if-eqz v4, :cond_0
 
+    .line 436
     new-instance v3, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
 
     invoke-direct {v3, p0}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;-><init>(Lcom/android/server/firewall/IntentFirewall$Rule;)V
 
-    invoke-virtual {v3, p1}, Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
+    .line 437
+    .local v3, "intentFilter":Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
+    invoke-virtual {v3, p1}, Landroid/content/IntentFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)V
 
+    .line 438
     iget-object v4, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mIntentFilters:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 455
+    .end local v3    # "intentFilter":Lcom/android/server/firewall/IntentFirewall$FirewallIntentFilter;
     :goto_0
     return-void
 
+    .line 439
     :cond_0
     const-string v4, "component-filter"
 
@@ -202,14 +235,18 @@
 
     if-eqz v4, :cond_3
 
+    .line 440
     const-string v4, "name"
 
     invoke-interface {p1, v6, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 441
+    .local v1, "componentStr":Ljava/lang/String;
     if-nez v1, :cond_1
 
+    .line 442
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string v5, "Component name must be specified."
@@ -218,13 +255,17 @@
 
     throw v4
 
+    .line 446
     :cond_1
     invoke-static {v1}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v0
 
+    .line 447
+    .local v0, "componentName":Landroid/content/ComponentName;
     if-nez v0, :cond_2
 
+    .line 448
     new-instance v4, Lorg/xmlpull/v1/XmlPullParserException;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -249,6 +290,7 @@
 
     throw v4
 
+    .line 451
     :cond_2
     iget-object v4, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->mComponentFilters:Ljava/util/ArrayList;
 
@@ -256,14 +298,18 @@
 
     goto :goto_0
 
+    .line 453
+    .end local v0    # "componentName":Landroid/content/ComponentName;
+    .end local v1    # "componentStr":Ljava/lang/String;
     :cond_3
-    invoke-super {p0, p1}, Lcom/android/server/firewall/AndFilter;->readChild(Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-super {p0, p1}, Lcom/android/server/firewall/FilterList;->readChild(Lorg/xmlpull/v1/XmlPullParser;)V
 
     goto :goto_0
 .end method
 
 .method public bridge synthetic readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
     .locals 1
+    .param p1, "x0"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -271,6 +317,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 408
     invoke-virtual {p0, p1}, Lcom/android/server/firewall/IntentFirewall$Rule;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
 
     move-result-object v0
@@ -280,6 +328,7 @@
 
 .method public readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/IntentFirewall$Rule;
     .locals 2
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -287,8 +336,10 @@
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 424
     const-string v0, "block"
 
     invoke-interface {p1, v1, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -301,6 +352,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->block:Z
 
+    .line 425
     const-string v0, "log"
 
     invoke-interface {p1, v1, v0}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -313,7 +365,9 @@
 
     iput-boolean v0, p0, Lcom/android/server/firewall/IntentFirewall$Rule;->log:Z
 
-    invoke-super {p0, p1}, Lcom/android/server/firewall/AndFilter;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
+    .line 427
+    invoke-super {p0, p1}, Lcom/android/server/firewall/FilterList;->readFromXml(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/FilterList;
 
+    .line 428
     return-object p0
 .end method

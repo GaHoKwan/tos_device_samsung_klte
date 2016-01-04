@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 1312
     invoke-static {}, Landroid/text/Layout$Alignment;->values()[Landroid/text/Layout$Alignment;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Landroid/text/Layout$Alignment;->ALIGN_LEFT:Landroid/text/Layout$Alignment;
 
-    invoke-virtual {v1}, Landroid/text/Layout$Alignment;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
-    invoke-virtual {v1}, Landroid/text/Layout$Alignment;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

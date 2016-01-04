@@ -470,7 +470,7 @@
     .line 69
     sget-object v0, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->$VALUES:[Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

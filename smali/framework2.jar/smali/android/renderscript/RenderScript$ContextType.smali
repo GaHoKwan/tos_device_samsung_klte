@@ -41,12 +41,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 131
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "NORMAL"
@@ -55,6 +57,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->NORMAL:Landroid/renderscript/RenderScript$ContextType;
 
+    .line 138
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "DEBUG"
@@ -63,6 +66,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->DEBUG:Landroid/renderscript/RenderScript$ContextType;
 
+    .line 145
     new-instance v0, Landroid/renderscript/RenderScript$ContextType;
 
     const-string v1, "PROFILE"
@@ -71,6 +75,7 @@
 
     sput-object v0, Landroid/renderscript/RenderScript$ContextType;->PROFILE:Landroid/renderscript/RenderScript$ContextType;
 
+    .line 126
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/renderscript/RenderScript$ContextType;
@@ -94,22 +99,30 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 148
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 149
     iput p3, p0, Landroid/renderscript/RenderScript$ContextType;->mID:I
 
+    .line 150
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/RenderScript$ContextType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 126
     const-class v0, Landroid/renderscript/RenderScript$ContextType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -124,9 +137,11 @@
 .method public static values()[Landroid/renderscript/RenderScript$ContextType;
     .locals 1
 
+    .prologue
+    .line 126
     sget-object v0, Landroid/renderscript/RenderScript$ContextType;->$VALUES:[Landroid/renderscript/RenderScript$ContextType;
 
-    invoke-virtual {v0}, [Landroid/renderscript/RenderScript$ContextType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

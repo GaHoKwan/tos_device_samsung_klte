@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 982
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,15 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v1, 0x1
 
+    .line 985
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
@@ -50,19 +56,25 @@
 
     if-eqz v3, :cond_0
 
+    .line 986
     const-string v3, "com.sec.android.extra.ARRAGE_MODE"
 
     invoke-virtual {p2, v3, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
+    .line 988
+    .local v0, "mode":I
     const/16 v3, 0x8
 
     if-ne v0, v3, :cond_2
 
+    .line 990
     # setter for: Lcom/android/server/InputMethodManagerService;->mFloatingForMultiWindow:Z
     invoke-static {v1}, Lcom/android/server/InputMethodManagerService;->access$902(Z)Z
 
+    .line 998
+    .end local v0    # "mode":I
     :cond_0
     :goto_0
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
@@ -85,6 +97,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 999
     iget-object v3, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v4, p0, Lcom/android/server/InputMethodManagerService$RangeModeChangeReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
@@ -115,17 +128,22 @@
 
     invoke-virtual {v3, v4, v1}, Lcom/android/server/InputMethodManagerService;->executeOrSendMessage(Landroid/os/IInterface;Landroid/os/Message;)V
 
+    .line 1002
     :cond_1
     return-void
 
+    .line 993
+    .restart local v0    # "mode":I
     :cond_2
     # setter for: Lcom/android/server/InputMethodManagerService;->mFloatingForMultiWindow:Z
     invoke-static {v2}, Lcom/android/server/InputMethodManagerService;->access$902(Z)Z
 
     goto :goto_0
 
+    .end local v0    # "mode":I
     :cond_3
     move v1, v2
 
+    .line 999
     goto :goto_1
 .end method

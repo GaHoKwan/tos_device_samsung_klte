@@ -66,6 +66,7 @@
 .method static constructor <clinit>()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x5
 
     const/4 v8, 0x4
@@ -76,6 +77,7 @@
 
     const/4 v5, 0x0
 
+    .line 346
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$1;
 
     const-string v1, "GETVERSION"
@@ -86,6 +88,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETVERSION:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 351
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$2;
 
     const-string v1, "GETIFLIST"
@@ -98,6 +101,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETIFLIST:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 356
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$3;
 
     const-string v1, "REFRESHIFLIST"
@@ -108,6 +112,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->REFRESHIFLIST:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 361
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$4;
 
     const-string v1, "SETIFCONFIG"
@@ -118,6 +123,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->SETIFCONFIG:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 366
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$5;
 
     const-string v1, "SETROUTE"
@@ -128,6 +134,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->SETROUTE:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 371
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$6;
 
     const-string v1, "GETVMID"
@@ -140,6 +147,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETVMID:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 376
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$7;
 
     const-string v1, "REMOVEIF"
@@ -154,6 +162,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->REMOVEIF:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 381
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$8;
 
     const-string v1, "PUSHIF"
@@ -168,6 +177,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->PUSHIF:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 386
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$9;
 
     const-string v1, "GETIFIDX"
@@ -182,6 +192,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETIFIDX:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 391
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$10;
 
     const-string v1, "EXIT"
@@ -196,6 +207,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->EXIT:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 396
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$Cmd$11;
 
     const-string v1, "MAX"
@@ -210,6 +222,7 @@
 
     sput-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->MAX:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .line 344
     const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/android/server/connectivity/VpnNamespace$Cmd;
@@ -277,6 +290,7 @@
 
 .method private constructor <init>(Ljava/lang/String;IILjava/lang/Class;)V
     .locals 0
+    .param p3, "cmd"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -285,18 +299,31 @@
         }
     .end annotation
 
+    .prologue
+    .line 407
+    .local p4, "argType":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 408
     iput p3, p0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->cmd:I
 
+    .line 409
     iput-object p4, p0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->argType:Ljava/lang/Class;
 
+    .line 410
     return-void
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IILjava/lang/Class;Lcom/android/server/connectivity/VpnNamespace$1;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
+    .param p2, "x1"    # I
+    .param p3, "x2"    # I
+    .param p4, "x3"    # Ljava/lang/Class;
+    .param p5, "x4"    # Lcom/android/server/connectivity/VpnNamespace$1;
 
+    .prologue
+    .line 345
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/connectivity/VpnNamespace$Cmd;-><init>(Ljava/lang/String;IILjava/lang/Class;)V
 
     return-void
@@ -304,7 +331,10 @@
 
 .method static synthetic access$200(Lcom/android/server/connectivity/VpnNamespace$Cmd;)Ljava/lang/Class;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
+    .prologue
+    .line 345
     invoke-direct {p0}, Lcom/android/server/connectivity/VpnNamespace$Cmd;->getArgType()Ljava/lang/Class;
 
     move-result-object v0
@@ -314,12 +344,16 @@
 
 .method static synthetic access$300(Lcom/android/server/connectivity/VpnNamespace$Cmd;Ljava/io/DataOutputStream;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/connectivity/VpnNamespace$Cmd;
+    .param p1, "x1"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 345
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/VpnNamespace$Cmd;->writeTo(Ljava/io/DataOutputStream;)V
 
     return-void
@@ -327,12 +361,15 @@
 
 .method static synthetic access$500(Ljava/io/DataInputStream;)Ljava/lang/Integer;
     .locals 1
+    .param p0, "x0"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 345
     invoke-static {p0}, Lcom/android/server/connectivity/VpnNamespace$Cmd;->getIntReply(Ljava/io/DataInputStream;)Ljava/lang/Integer;
 
     move-result-object v0
@@ -342,12 +379,15 @@
 
 .method static synthetic access$600(Ljava/io/DataInputStream;)Ljava/util/List;
     .locals 1
+    .param p0, "x0"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 345
     invoke-static {p0}, Lcom/android/server/connectivity/VpnNamespace$Cmd;->getIfListReply(Ljava/io/DataInputStream;)Ljava/util/List;
 
     move-result-object v0
@@ -365,6 +405,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 417
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->argType:Ljava/lang/Class;
 
     return-object v0
@@ -372,6 +414,7 @@
 
 .method private static getIfListReply(Ljava/io/DataInputStream;)Ljava/util/List;
     .locals 6
+    .param p0, "din"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -390,14 +433,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 432
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v1
 
+    .line 433
+    .local v1, "nIfs":S
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
 
+    .line 435
+    .local v2, "res":Ljava/util/List;, "Ljava/util/List<Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;>;"
     # getter for: Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/connectivity/VpnNamespace;->access$100()Ljava/lang/String;
 
@@ -429,33 +478,41 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 436
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 437
     invoke-static {p0}, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->readObject(Ljava/io/DataInputStream;)Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
 
     move-result-object v3
 
     invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 436
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 440
     :cond_0
     return-object v2
 .end method
 
 .method private static getIntReply(Ljava/io/DataInputStream;)Ljava/lang/Integer;
     .locals 1
+    .param p0, "din"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 421
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v0
@@ -469,20 +526,28 @@
 
 .method private static getStringReply(Ljava/io/DataInputStream;)Ljava/lang/String;
     .locals 3
+    .param p0, "din"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 425
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v1
 
+    .line 426
+    .local v1, "len":I
     new-array v0, v1, [B
 
+    .line 427
+    .local v0, "buf":[B
     invoke-virtual {p0, v0}, Ljava/io/DataInputStream;->readFully([B)V
 
+    .line 428
     new-instance v2, Ljava/lang/String;
 
     invoke-direct {v2, v0}, Ljava/lang/String;-><init>([B)V
@@ -492,7 +557,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/connectivity/VpnNamespace$Cmd;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 344
     const-class v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -507,9 +575,11 @@
 .method public static values()[Lcom/android/server/connectivity/VpnNamespace$Cmd;
     .locals 1
 
+    .prologue
+    .line 344
     sget-object v0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->$VALUES:[Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
-    invoke-virtual {v0}, [Lcom/android/server/connectivity/VpnNamespace$Cmd;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -520,16 +590,20 @@
 
 .method private writeTo(Ljava/io/DataOutputStream;)V
     .locals 1
+    .param p1, "out"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 413
     iget v0, p0, Lcom/android/server/connectivity/VpnNamespace$Cmd;->cmd:I
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 414
     return-void
 .end method
 

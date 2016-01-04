@@ -40,7 +40,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -56,7 +56,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -93,7 +93,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -132,7 +132,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -148,7 +148,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v7
 
@@ -195,7 +195,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AndroidRunnerConcreteCreator$AndroidRunnerList$7;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 

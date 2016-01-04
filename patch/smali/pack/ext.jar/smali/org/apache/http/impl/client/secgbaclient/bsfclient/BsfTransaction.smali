@@ -753,7 +753,7 @@
 
     .line 215
     .local v13, "e":Ljava/net/URISyntaxException;
-    invoke-virtual {v13}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v13}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 216
     const/4 v1, 0x0
@@ -1432,7 +1432,7 @@
 
     .line 121
     .local v2, "e":Lorg/apache/http/client/ClientProtocolException;
-    invoke-virtual {v2}, Lorg/apache/http/client/ClientProtocolException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -1443,7 +1443,7 @@
 
     .line 124
     .local v2, "e":Ljava/io/IOException;
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
@@ -1454,7 +1454,7 @@
 
     .line 128
     .local v2, "e":Ljava/net/URISyntaxException;
-    invoke-virtual {v2}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 

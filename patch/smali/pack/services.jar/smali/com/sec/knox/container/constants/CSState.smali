@@ -64,6 +64,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -74,6 +75,7 @@
 
     const/4 v4, 0x0
 
+    .line 9
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_DOESNOT_EXISTS"
@@ -82,6 +84,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_DOESNOT_EXISTS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 10
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_CREATION_INPROGRESS"
@@ -90,6 +93,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATION_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 11
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_ACTIVE"
@@ -98,6 +102,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 12
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_LOCK"
@@ -106,6 +111,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK:Lcom/sec/knox/container/constants/CSState;
 
+    .line 13
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_LOCK_RESET_PWD"
@@ -114,6 +120,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 14
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INACTIVE"
@@ -126,6 +133,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 15
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_VERIFY_PWD"
@@ -138,6 +146,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_VERIFY_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 16
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_RESET_PWD"
@@ -150,6 +159,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 17
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INACTIVE_RESET_PWD"
@@ -162,6 +172,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 18
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_UNINSTALL_INPROGRESS"
@@ -174,6 +185,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UNINSTALL_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 19
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_CREATED_NOT_ACTIVE"
@@ -186,6 +198,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_NOT_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 20
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_CREATED_INACTIVE"
@@ -198,6 +211,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 21
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_UPGRADE_INPROGRESS"
@@ -210,6 +224,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 22
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INACTIVE_UPGRADE"
@@ -222,6 +237,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 23
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_UPGRADE_INPROGRESS_RESET_PWD"
@@ -234,6 +250,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 24
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INACTIVE_UPGRADE_RESET_PWD"
@@ -246,6 +263,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 25
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_ADMIN_PWD_RESET"
@@ -258,6 +276,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
+    .line 26
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INACTIVE_ADMIN_PWD_RESET"
@@ -270,6 +289,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
+    .line 27
     new-instance v0, Lcom/sec/knox/container/constants/CSState;
 
     const-string v1, "CSSTATE_INVALID"
@@ -282,6 +302,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INVALID:Lcom/sec/knox/container/constants/CSState;
 
+    .line 7
     const/16 v0, 0x13
 
     new-array v0, v0, [Lcom/sec/knox/container/constants/CSState;
@@ -403,137 +424,192 @@
         }
     .end annotation
 
+    .prologue
+    .line 32
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 33
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/sec/knox/container/constants/CSState;->id:I
 
+    .line 34
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 36
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 37
     iput p3, p0, Lcom/sec/knox/container/constants/CSState;->id:I
 
+    .line 38
     return-void
 .end method
 
 .method public static getState(I)Lcom/sec/knox/container/constants/CSState;
     .locals 1
+    .param p0, "id"    # I
 
+    .prologue
+    .line 45
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INVALID:Lcom/sec/knox/container/constants/CSState;
 
+    .line 46
+    .local v0, "t":Lcom/sec/knox/container/constants/CSState;
     packed-switch p0, :pswitch_data_0
 
+    .line 105
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INVALID:Lcom/sec/knox/container/constants/CSState;
 
+    .line 108
     :goto_0
     return-object v0
 
+    .line 48
     :pswitch_0
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INVALID:Lcom/sec/knox/container/constants/CSState;
 
+    .line 49
     goto :goto_0
 
+    .line 51
     :pswitch_1
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_DOESNOT_EXISTS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 52
     goto :goto_0
 
+    .line 54
     :pswitch_2
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATION_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 55
     goto :goto_0
 
+    .line 57
     :pswitch_3
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 58
     goto :goto_0
 
+    .line 60
     :pswitch_4
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK:Lcom/sec/knox/container/constants/CSState;
 
+    .line 61
     goto :goto_0
 
+    .line 63
     :pswitch_5
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 64
     goto :goto_0
 
+    .line 66
     :pswitch_6
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 67
     goto :goto_0
 
+    .line 69
     :pswitch_7
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_VERIFY_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 70
     goto :goto_0
 
+    .line 72
     :pswitch_8
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 73
     goto :goto_0
 
+    .line 75
     :pswitch_9
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 76
     goto :goto_0
 
+    .line 78
     :pswitch_a
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UNINSTALL_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 79
     goto :goto_0
 
+    .line 81
     :pswitch_b
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_NOT_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 82
     goto :goto_0
 
+    .line 84
     :pswitch_c
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 85
     goto :goto_0
 
+    .line 87
     :pswitch_d
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
+    .line 88
     goto :goto_0
 
+    .line 90
     :pswitch_e
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE:Lcom/sec/knox/container/constants/CSState;
 
+    .line 91
     goto :goto_0
 
+    .line 93
     :pswitch_f
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 94
     goto :goto_0
 
+    .line 96
     :pswitch_10
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
+    .line 97
     goto :goto_0
 
+    .line 99
     :pswitch_11
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
+    .line 100
     goto :goto_0
 
+    .line 102
     :pswitch_12
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
+    .line 103
     goto :goto_0
 
+    .line 46
     nop
 
     :pswitch_data_0
@@ -562,7 +638,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/sec/knox/container/constants/CSState;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 7
     const-class v0, Lcom/sec/knox/container/constants/CSState;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -577,9 +656,11 @@
 .method public static values()[Lcom/sec/knox/container/constants/CSState;
     .locals 1
 
+    .prologue
+    .line 7
     sget-object v0, Lcom/sec/knox/container/constants/CSState;->$VALUES:[Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v0}, [Lcom/sec/knox/container/constants/CSState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -593,6 +674,8 @@
 .method public getId()I
     .locals 1
 
+    .prologue
+    .line 41
     iget v0, p0, Lcom/sec/knox/container/constants/CSState;->id:I
 
     return v0

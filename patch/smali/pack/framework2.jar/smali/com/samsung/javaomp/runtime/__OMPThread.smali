@@ -150,7 +150,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -192,7 +192,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {p0}, Lcom/samsung/javaomp/runtime/__OMPThread;->join()V
+    invoke-virtual {p0}, Ljava/lang/Thread;->join()V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -212,7 +212,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -344,7 +344,7 @@
 
     if-nez v3, :cond_3
 
-    invoke-virtual {v2, v0}, Ljava/util/concurrent/LinkedBlockingQueue;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/util/AbstractQueue;->add(Ljava/lang/Object;)Z
 
     :cond_2
     :goto_1
@@ -376,7 +376,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     iget-object v0, p0, Lcom/samsung/javaomp/runtime/__OMPThread;->finalized:Ljava/lang/Boolean;
 
@@ -487,7 +487,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/samsung/javaomp/runtime/__OMPThread;->getState()Ljava/lang/Thread$State;
+    invoke-virtual {p0}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
 
     move-result-object v2
 
@@ -501,7 +501,7 @@
     return v0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/samsung/javaomp/runtime/__OMPThread;->getState()Ljava/lang/Thread$State;
+    invoke-virtual {p0}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
 
     move-result-object v2
 
@@ -509,7 +509,7 @@
 
     if-eq v2, v3, :cond_1
 
-    invoke-virtual {p0}, Lcom/samsung/javaomp/runtime/__OMPThread;->getState()Ljava/lang/Thread$State;
+    invoke-virtual {p0}, Ljava/lang/Thread;->getState()Ljava/lang/Thread$State;
 
     move-result-object v2
 

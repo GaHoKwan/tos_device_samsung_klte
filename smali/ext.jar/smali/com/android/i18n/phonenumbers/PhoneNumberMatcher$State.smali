@@ -130,7 +130,7 @@
     .line 166
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberMatcher$State;->$VALUES:[Lcom/android/i18n/phonenumbers/PhoneNumberMatcher$State;
 
-    invoke-virtual {v0}, [Lcom/android/i18n/phonenumbers/PhoneNumberMatcher$State;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

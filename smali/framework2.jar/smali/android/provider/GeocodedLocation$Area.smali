@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 68
     const-string v0, "content://geocoded_location/area"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -50,9 +52,13 @@
 
 .method public constructor <init>(Landroid/database/Cursor;)V
     .locals 2
+    .param p1, "c"    # Landroid/database/Cursor;
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 74
     const-string v0, "area_id"
 
     invoke-interface {p1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -65,6 +71,7 @@
 
     iput-wide v0, p0, Landroid/provider/GeocodedLocation$Area;->mAreaId:J
 
+    .line 75
     const-string/jumbo v0, "province"
 
     invoke-interface {p1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -77,6 +84,7 @@
 
     iput-object v0, p0, Landroid/provider/GeocodedLocation$Area;->mName:Ljava/lang/String;
 
+    .line 76
     return-void
 .end method
 
@@ -85,6 +93,8 @@
 .method public getAreaId()J
     .locals 2
 
+    .prologue
+    .line 83
     iget-wide v0, p0, Landroid/provider/GeocodedLocation$Area;->mAreaId:J
 
     return-wide v0
@@ -93,6 +103,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 79
     iget-object v0, p0, Landroid/provider/GeocodedLocation$Area;->mName:Ljava/lang/String;
 
     return-object v0

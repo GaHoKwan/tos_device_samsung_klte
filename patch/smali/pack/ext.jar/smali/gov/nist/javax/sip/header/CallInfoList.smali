@@ -47,9 +47,9 @@
 
     .line 50
     .local v0, "retval":Lgov/nist/javax/sip/header/CallInfoList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/CallInfoList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/CallInfoList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     .line 51
     return-object v0

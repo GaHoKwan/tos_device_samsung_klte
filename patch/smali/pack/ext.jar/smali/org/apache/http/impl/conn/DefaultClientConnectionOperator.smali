@@ -728,7 +728,7 @@
     :cond_13
     new-instance v11, Ljava/net/ConnectException;
 
-    invoke-virtual {v13}, Ljava/net/SocketException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1051,7 +1051,7 @@
     :cond_8
     new-instance v10, Ljava/net/ConnectException;
 
-    invoke-virtual {v12}, Ljava/net/SocketException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 

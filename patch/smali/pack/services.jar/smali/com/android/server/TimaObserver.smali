@@ -47,6 +47,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 38
     const-class v0, Lcom/android/server/TimaObserver;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -60,29 +62,38 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 61
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
 
+    .line 36
     iput-boolean v3, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
+    .line 51
     new-instance v1, Ljava/lang/Object;
 
     invoke-direct {v1}, Ljava/lang/Object;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/TimaObserver;->mLock:Ljava/lang/Object;
 
+    .line 54
     iput-boolean v3, p0, Lcom/android/server/TimaObserver;->mSystemReady:Z
 
+    .line 119
     new-instance v1, Lcom/android/server/TimaObserver$1;
 
     invoke-direct {v1, p0}, Lcom/android/server/TimaObserver$1;-><init>(Lcom/android/server/TimaObserver;)V
 
     iput-object v1, p0, Lcom/android/server/TimaObserver;->mHandler:Landroid/os/Handler;
 
+    .line 62
     iput-object p1, p0, Lcom/android/server/TimaObserver;->mContext:Landroid/content/Context;
 
+    .line 64
     iget-object v1, p0, Lcom/android/server/TimaObserver;->mContext:Landroid/content/Context;
 
     const-string v2, "power"
@@ -95,6 +106,7 @@
 
     iput-object v1, p0, Lcom/android/server/TimaObserver;->mPowerManager:Landroid/os/PowerManager;
 
+    .line 65
     iget-object v1, p0, Lcom/android/server/TimaObserver;->mPowerManager:Landroid/os/PowerManager;
 
     sget-object v2, Lcom/android/server/TimaObserver;->TAG:Ljava/lang/String;
@@ -105,18 +117,22 @@
 
     iput-object v1, p0, Lcom/android/server/TimaObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    .line 67
     const-string/jumbo v1, "tima"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
+    .line 68
+    .local v0, "b":Landroid/os/IBinder;
     invoke-static {v0}, Landroid/service/tima/ITimaService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/tima/ITimaService;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/TimaObserver;->mTimaService:Landroid/service/tima/ITimaService;
 
+    .line 70
     iget-boolean v1, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -127,17 +143,22 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 71
     :cond_0
     const-string v1, "DEVPATH=/devices/virtual/tima/tima_uevent"
 
     invoke-virtual {p0, v1}, Lcom/android/server/TimaObserver;->startObserving(Ljava/lang/String;)V
 
+    .line 72
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/TimaObserver;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/TimaObserver;
 
+    .prologue
+    .line 35
     invoke-direct {p0}, Lcom/android/server/TimaObserver;->handleTimaStateChange()V
 
     return-void
@@ -146,10 +167,13 @@
 .method private handleTimaStateChange()V
     .locals 3
 
+    .prologue
+    .line 113
     iget-object v1, p0, Lcom/android/server/TimaObserver;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 114
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
@@ -161,6 +185,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 115
     :cond_0
     iget-object v0, p0, Lcom/android/server/TimaObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -170,11 +195,14 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 116
     :cond_1
     monitor-exit v1
 
+    .line 117
     return-void
 
+    .line 116
     :catchall_0
     move-exception v0
 
@@ -188,6 +216,8 @@
 .method private updateLocked()V
     .locals 1
 
+    .prologue
+    .line 109
     iget-object v0, p0, Lcom/android/server/TimaObserver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     if-eqz v0, :cond_0
@@ -196,6 +226,7 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 110
     :cond_0
     return-void
 .end method
@@ -204,7 +235,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 8
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 76
     iget-boolean v4, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -235,6 +269,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 79
     :cond_0
     invoke-virtual {p1}, Landroid/os/UEventObserver$UEvent;->toString()Ljava/lang/String;
 
@@ -250,19 +285,23 @@
 
     if-ne v4, v5, :cond_2
 
+    .line 106
     :cond_1
     :goto_0
     return-void
 
+    .line 82
     :cond_2
     iget-boolean v4, p0, Lcom/android/server/TimaObserver;->mSystemReady:Z
 
     if-eqz v4, :cond_1
 
+    .line 84
     iget-object v5, p0, Lcom/android/server/TimaObserver;->mLock:Ljava/lang/Object;
 
     monitor-enter v5
 
+    .line 89
     :try_start_0
     iget-boolean v4, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
@@ -292,6 +331,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 90
     :cond_3
     iget-object v4, p0, Lcom/android/server/TimaObserver;->mTimaService:Landroid/service/tima/ITimaService;
     :try_end_0
@@ -305,6 +345,7 @@
 
     goto :goto_0
 
+    .line 105
     :catchall_0
     move-exception v4
 
@@ -314,6 +355,7 @@
 
     throw v4
 
+    .line 92
     :cond_4
     :try_start_2
     const-string v4, "TIMA_STATUS"
@@ -322,12 +364,16 @@
 
     move-result-object v3
 
+    .line 93
+    .local v3, "status":Ljava/lang/String;
     const-string v4, "TIMA_RESULT"
 
     invoke-virtual {p1, v4}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 95
+    .local v2, "result":Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -352,6 +398,8 @@
 
     move-result-object v1
 
+    .line 96
+    .local v1, "eventStr":Ljava/lang/String;
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -368,6 +416,7 @@
 
     move-result-object v1
 
+    .line 97
     const-string v4, ";;"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -394,6 +443,7 @@
 
     move-result-object v1
 
+    .line 98
     :cond_5
     iget-boolean v4, p0, Lcom/android/server/TimaObserver;->DEBUG:Z
 
@@ -421,6 +471,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 99
     :cond_6
     iget-object v4, p0, Lcom/android/server/TimaObserver;->mTimaService:Landroid/service/tima/ITimaService;
 
@@ -429,15 +480,22 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 105
+    .end local v1    # "eventStr":Ljava/lang/String;
+    .end local v2    # "result":Ljava/lang/String;
+    .end local v3    # "status":Ljava/lang/String;
     :goto_1
     :try_start_3
     monitor-exit v5
 
     goto/16 :goto_0
 
+    .line 100
     :catch_0
     move-exception v0
 
+    .line 101
+    .local v0, "e":Ljava/lang/Exception;
     sget-object v4, Lcom/android/server/TimaObserver;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;

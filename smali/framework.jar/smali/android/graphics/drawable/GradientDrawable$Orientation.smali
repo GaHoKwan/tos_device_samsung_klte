@@ -223,7 +223,7 @@
     .line 135
     sget-object v0, Landroid/graphics/drawable/GradientDrawable$Orientation;->$VALUES:[Landroid/graphics/drawable/GradientDrawable$Orientation;
 
-    invoke-virtual {v0}, [Landroid/graphics/drawable/GradientDrawable$Orientation;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

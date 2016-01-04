@@ -4472,12 +4472,12 @@
 
     move-object/from16 v0, v46
 
-    iput-object v0, v4, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iput-object v0, v4, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     .line 781
     const/16 v46, 0x0
 
-    iget-object v0, v4, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v4, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v47, v0
 
@@ -4505,7 +4505,7 @@
     :try_start_2
     new-instance v25, Lcom/android/internal/util/BitwiseInputStream;
 
-    iget-object v0, v4, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v4, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v46, v0
 
@@ -4638,7 +4638,7 @@
 
     move/from16 v0, v46
 
-    iput v0, v5, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->ton:I
+    iput v0, v5, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     .line 794
     const/16 v46, 0x4
@@ -4913,7 +4913,7 @@
 
     move-object/from16 v0, v46
 
-    iput-object v0, v5, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iput-object v0, v5, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     .line 809
     move-object/from16 v0, v25
@@ -4923,7 +4923,7 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/util/BitwiseInputStream;->skip(I)V
 
     .line 810
-    iget-object v0, v5, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v5, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v35, v0
 
@@ -4957,13 +4957,13 @@
     :try_start_6
     new-instance v13, Ljava/lang/String;
 
-    iget-object v0, v5, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v5, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v46, v0
 
     const/16 v47, 0x0
 
-    iget-object v0, v5, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v5, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v48, v0
 
@@ -5565,7 +5565,7 @@
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->write(I)V
 
     .line 852
-    iget v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->ton:I
+    iget v0, v12, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     move/from16 v46, v0
 
@@ -5598,13 +5598,13 @@
     invoke-virtual {v0, v1}, Ljava/io/DataOutputStream;->write(I)V
 
     .line 855
-    iget-object v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v12, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v46, v0
 
     const/16 v47, 0x0
 
-    iget-object v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v12, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v48, v0
 
@@ -5691,7 +5691,7 @@
 
     move-result-object v47
 
-    iget v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->ton:I
+    iget v0, v12, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     move/from16 v48, v0
 
@@ -5745,7 +5745,7 @@
 
     move-result-object v47
 
-    iget-object v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v12, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v48, v0
 
@@ -5778,7 +5778,7 @@
 
     move-result-object v47
 
-    iget-object v0, v12, Lcom/android/internal/telephony/cdma/sms/CdmaSmsAddress;->origBytes:[B
+    iget-object v0, v12, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     move-object/from16 v48, v0
 
@@ -5983,7 +5983,7 @@
     .line 880
     .end local v7    # "bearerdata":[B
     :cond_e
-    invoke-virtual/range {v18 .. v18}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual/range {v18 .. v18}, Ljava/io/FilterOutputStream;->close()V
 
     .line 881
     invoke-virtual {v6}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B

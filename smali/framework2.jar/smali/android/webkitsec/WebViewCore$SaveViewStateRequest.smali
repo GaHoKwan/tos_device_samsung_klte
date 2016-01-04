@@ -32,6 +32,7 @@
 # direct methods
 .method constructor <init>(Ljava/io/OutputStream;Landroid/webkitsec/ValueCallback;)V
     .locals 0
+    .param p1, "s"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,11 +44,17 @@
         }
     .end annotation
 
+    .prologue
+    .line 1567
+    .local p2, "cb":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/lang/Boolean;>;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1568
     iput-object p1, p0, Landroid/webkitsec/WebViewCore$SaveViewStateRequest;->mStream:Ljava/io/OutputStream;
 
+    .line 1569
     iput-object p2, p0, Landroid/webkitsec/WebViewCore$SaveViewStateRequest;->mCallback:Landroid/webkitsec/ValueCallback;
 
+    .line 1570
     return-void
 .end method

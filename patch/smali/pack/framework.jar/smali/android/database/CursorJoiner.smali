@@ -102,7 +102,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "you must have the same number of columns on the left and right, "
+    const-string/jumbo v2, "you must have the same number of columns on the left and right, "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -244,7 +244,7 @@
     .line 244
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "you must specify an even number of values"
+    const-string/jumbo v3, "you must specify an even number of values"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -338,7 +338,7 @@
 
     iget-object v1, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    invoke-virtual {v1}, Landroid/database/CursorJoiner$Result;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -472,7 +472,7 @@
 
     iget-object v3, p0, Landroid/database/CursorJoiner;->mCompareResult:Landroid/database/CursorJoiner$Result;
 
-    invoke-virtual {v3}, Landroid/database/CursorJoiner$Result;->ordinal()I
+    invoke-virtual {v3}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -646,7 +646,7 @@
     .line 158
     new-instance v2, Ljava/lang/IllegalStateException;
 
-    const-string v3, "you must only call next() when hasNext() is true"
+    const-string/jumbo v3, "you must only call next() when hasNext() is true"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
@@ -815,6 +815,8 @@
     goto :goto_2
 
     .line 169
+    nop
+
     :pswitch_data_0
     .packed-switch -0x1
         :pswitch_0

@@ -52,14 +52,14 @@
     .line 91
     const-string v3, "AccessNetworkInfoParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 93
     :cond_0
     const/16 v3, 0x84f
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->headerName(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 94
     new-instance v0, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;
@@ -70,22 +70,22 @@
     .local v0, "accessNetworkInfo":Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;
     const-string v3, "P-Access-Network-Info"
 
-    invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 97
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 98
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xfff
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 99
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -100,47 +100,47 @@
     invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setAccessType(Ljava/lang/String;)V
 
     .line 102
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 103
     :goto_0
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
     if-ne v3, v5, :cond_2
 
     .line 104
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x3b
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 105
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 107
     const/16 v3, 0x3d
 
-    invoke-super {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->nameValue(C)Lgov/nist/core/NameValue;
+    invoke-super {p0, v3}, Lgov/nist/core/ParserCore;->nameValue(C)Lgov/nist/core/NameValue;
 
     move-result-object v1
 
     .line 108
     .local v1, "nv":Lgov/nist/core/NameValue;
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     .line 109
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -162,7 +162,7 @@
     .line 118
     const-string v4, "AccessNetworkInfoParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 117
     :cond_1
@@ -173,12 +173,12 @@
     .restart local v2    # "token":Lgov/nist/core/Token;
     :cond_2
     :try_start_1
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 112
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xa
 
@@ -194,7 +194,7 @@
     .line 118
     const-string v3, "AccessNetworkInfoParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PAccessNetworkInfoParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 115
     :cond_3

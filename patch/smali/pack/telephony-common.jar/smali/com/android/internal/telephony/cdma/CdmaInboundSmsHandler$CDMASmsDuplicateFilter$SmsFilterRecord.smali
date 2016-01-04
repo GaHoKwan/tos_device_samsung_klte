@@ -35,24 +35,24 @@
     .param p6, "mBody"    # Ljava/lang/String;
 
     .prologue
-    .line 703
+    .line 705
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->this$1:Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 704
+    .line 706
     iput p2, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgId:I
 
-    .line 705
+    .line 707
     iput-wide p3, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->timeStamp:J
 
-    .line 706
+    .line 708
     iput-object p5, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->originAddress:Ljava/lang/String;
 
-    .line 707
+    .line 709
     iput-object p6, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgBody:Ljava/lang/String;
 
-    .line 708
+    .line 710
     return-void
 .end method
 
@@ -61,7 +61,7 @@
     .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
 
     .prologue
-    .line 697
+    .line 699
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->originAddress:Ljava/lang/String;
 
     return-object v0
@@ -72,7 +72,7 @@
     .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
 
     .prologue
-    .line 697
+    .line 699
     iget-wide v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->timeStamp:J
 
     return-wide v0
@@ -83,7 +83,7 @@
     .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
 
     .prologue
-    .line 697
+    .line 699
     iget v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgId:I
 
     return v0
@@ -94,7 +94,7 @@
     .param p0, "x0"    # Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
 
     .prologue
-    .line 697
+    .line 699
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgBody:Ljava/lang/String;
 
     return-object v0

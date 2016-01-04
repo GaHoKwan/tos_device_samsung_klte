@@ -21,23 +21,30 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/wifi/WifiNotificationController;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 743
     iput-object p1, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
+    .line 744
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 745
     return-void
 .end method
 
 .method private getValue()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 770
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     # getter for: Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/server/wifi/WifiNotificationController;->access$1100(Lcom/android/server/wifi/WifiNotificationController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/wifi/WifiNotificationController;->access$800(Lcom/android/server/wifi/WifiNotificationController;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -65,14 +72,19 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 5
+    .locals 3
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 758
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
+    .line 760
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     monitor-enter v1
 
+    .line 761
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
@@ -81,37 +93,32 @@
     move-result v2
 
     # setter for: Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabled:Z
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiNotificationController;->access$1202(Lcom/android/server/wifi/WifiNotificationController;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiNotificationController;->access$902(Lcom/android/server/wifi/WifiNotificationController;Z)Z
 
+    .line 762
     iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     # invokes: Lcom/android/server/wifi/WifiNotificationController;->resetNotification()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiNotificationController;->access$100(Lcom/android/server/wifi/WifiNotificationController;)V
 
+    .line 763
     iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     # getter for: Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabled:Z
-    invoke-static {v0}, Lcom/android/server/wifi/WifiNotificationController;->access$1200(Lcom/android/server/wifi/WifiNotificationController;)Z
+    invoke-static {v0}, Lcom/android/server/wifi/WifiNotificationController;->access$900(Lcom/android/server/wifi/WifiNotificationController;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
-
-    const/4 v2, 0x0
-
-    const/4 v3, -0x1
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/wifi/WifiNotificationController;->showOngoingWifiNotification(ZIZ)V
-
+    .line 766
     :cond_0
     monitor-exit v1
 
+    .line 767
     return-void
 
+    .line 766
     :catchall_0
     move-exception v0
 
@@ -125,10 +132,12 @@
 .method public register()V
     .locals 4
 
+    .prologue
+    .line 748
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     # getter for: Lcom/android/server/wifi/WifiNotificationController;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/server/wifi/WifiNotificationController;->access$1100(Lcom/android/server/wifi/WifiNotificationController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/wifi/WifiNotificationController;->access$800(Lcom/android/server/wifi/WifiNotificationController;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -136,6 +145,8 @@
 
     move-result-object v0
 
+    .line 749
+    .local v0, "cr":Landroid/content/ContentResolver;
     const-string/jumbo v1, "wifi_networks_available_notification_on"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -146,10 +157,12 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 751
     iget-object v2, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
     monitor-enter v2
 
+    .line 752
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wifi/WifiNotificationController$NotificationEnabledSettingObserver;->this$0:Lcom/android/server/wifi/WifiNotificationController;
 
@@ -158,12 +171,15 @@
     move-result v3
 
     # setter for: Lcom/android/server/wifi/WifiNotificationController;->mNotificationEnabled:Z
-    invoke-static {v1, v3}, Lcom/android/server/wifi/WifiNotificationController;->access$1202(Lcom/android/server/wifi/WifiNotificationController;Z)Z
+    invoke-static {v1, v3}, Lcom/android/server/wifi/WifiNotificationController;->access$902(Lcom/android/server/wifi/WifiNotificationController;Z)Z
 
+    .line 753
     monitor-exit v2
 
+    .line 754
     return-void
 
+    .line 753
     :catchall_0
     move-exception v1
 

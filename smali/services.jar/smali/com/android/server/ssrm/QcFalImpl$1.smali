@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 85
     invoke-static {}, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->values()[Lcom/android/server/ssrm/QcFalImpl$PlatformType;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->MSM8064:Lcom/android/server/ssrm/QcFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->MSM8226:Lcom/android/server/ssrm/QcFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->MSM8974:Lcom/android/server/ssrm/QcFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->MSM8610:Lcom/android/server/ssrm/QcFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/QcFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

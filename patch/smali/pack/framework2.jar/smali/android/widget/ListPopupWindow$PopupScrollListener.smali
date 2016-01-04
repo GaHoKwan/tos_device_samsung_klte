@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/widget/ListPopupWindow;)V
     .locals 0
 
+    .prologue
+    .line 1690
     iput-object p1, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/widget/ListPopupWindow;Landroid/widget/ListPopupWindow$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/widget/ListPopupWindow;
+    .param p2, "x1"    # Landroid/widget/ListPopupWindow$1;
 
+    .prologue
+    .line 1690
     invoke-direct {p0, p1}, Landroid/widget/ListPopupWindow$PopupScrollListener;-><init>(Landroid/widget/ListPopupWindow;)V
 
     return-void
@@ -44,13 +50,23 @@
 # virtual methods
 .method public onScroll(Landroid/widget/AbsListView;III)V
     .locals 0
+    .param p1, "view"    # Landroid/widget/AbsListView;
+    .param p2, "firstVisibleItem"    # I
+    .param p3, "visibleItemCount"    # I
+    .param p4, "totalItemCount"    # I
 
+    .prologue
+    .line 1694
     return-void
 .end method
 
 .method public onScrollStateChanged(Landroid/widget/AbsListView;I)V
     .locals 2
+    .param p1, "view"    # Landroid/widget/AbsListView;
+    .param p2, "scrollState"    # I
 
+    .prologue
+    .line 1697
     const/4 v0, 0x1
 
     if-ne p2, v0, :cond_0
@@ -76,6 +92,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1699
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     # getter for: Landroid/widget/ListPopupWindow;->mHandler:Landroid/os/Handler;
@@ -92,6 +109,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 1700
     iget-object v0, p0, Landroid/widget/ListPopupWindow$PopupScrollListener;->this$0:Landroid/widget/ListPopupWindow;
 
     # getter for: Landroid/widget/ListPopupWindow;->mResizePopupRunnable:Landroid/widget/ListPopupWindow$ResizePopupRunnable;
@@ -101,6 +119,7 @@
 
     invoke-virtual {v0}, Landroid/widget/ListPopupWindow$ResizePopupRunnable;->run()V
 
+    .line 1702
     :cond_0
     return-void
 .end method

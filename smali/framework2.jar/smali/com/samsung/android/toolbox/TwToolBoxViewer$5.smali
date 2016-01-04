@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxViewer;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 180
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$5;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,11 +36,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 6
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 183
     iget-object v2, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$5;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
 
     iget-object v3, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$5;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
@@ -58,15 +64,18 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxViewer;->mEarphonesOnly:Z
     invoke-static {v2, v0}, Lcom/samsung/android/toolbox/TwToolBoxViewer;->access$502(Lcom/samsung/android/toolbox/TwToolBoxViewer;Z)Z
 
+    .line 184
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$5;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
 
     # invokes: Lcom/samsung/android/toolbox/TwToolBoxViewer;->updateVisibility()V
     invoke-static {v0}, Lcom/samsung/android/toolbox/TwToolBoxViewer;->access$200(Lcom/samsung/android/toolbox/TwToolBoxViewer;)V
 
+    .line 185
     return-void
 
     :cond_0
     move v0, v1
 
+    .line 183
     goto :goto_0
 .end method

@@ -49,7 +49,7 @@
     .line 82
     const-string v2, "PAssociatedURIParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 84
     :cond_0
@@ -62,7 +62,7 @@
     const/16 v2, 0x851
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 90
     new-instance v0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;
@@ -73,40 +73,40 @@
     .local v0, "associatedURI":Lgov/nist/javax/sip/header/ims/PAssociatedURI;
     const-string v2, "P-Associated-URI"
 
-    invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 93
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 94
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/ims/PAssociatedURIList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 96
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 97
     :goto_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
     if-ne v2, v4, :cond_2
 
     .line 99
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x2c
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 100
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -121,10 +121,10 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 104
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/ims/PAssociatedURIList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 106
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -144,7 +144,7 @@
     .line 118
     const-string v3, "PAssociatedURIParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 117
     :cond_1
@@ -154,12 +154,12 @@
     .restart local v0    # "associatedURI":Lgov/nist/javax/sip/header/ims/PAssociatedURI;
     :cond_2
     :try_start_1
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 109
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0xa
 
@@ -175,7 +175,7 @@
     .line 118
     const-string v2, "PAssociatedURIParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssociatedURIParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 111
     :cond_3

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;)V
     .locals 0
 
+    .prologue
+    .line 610
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$1;->this$1:Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 12
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 613
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -63,44 +68,63 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 615
     const-string v9, "ACTION"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 616
+    .local v0, "action":Ljava/lang/String;
     const-string v9, "DEVPATH"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
+    .line 617
+    .local v4, "devpath":Ljava/lang/String;
     const-string v9, "MAJOR"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
+    .line 618
+    .local v6, "major":Ljava/lang/String;
     const-string v9, "MINOR"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
+    .line 619
+    .local v7, "minor":Ljava/lang/String;
     const-string v9, "DEVNAME"
 
     invoke-virtual {p1, v9}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 620
+    .local v3, "devname":Ljava/lang/String;
     const-string v1, "1"
 
+    .line 621
+    .local v1, "cardNumber":Ljava/lang/String;
     const-string v2, "0"
 
+    .line 622
+    .local v2, "deviceNumber":Ljava/lang/String;
     const/4 v8, 0x0
 
+    .line 623
+    .local v8, "state":I
     const/4 v5, 0x0
 
+    .line 625
+    .local v5, "isPlayback":Z
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -156,6 +180,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 627
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -181,6 +206,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 628
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -206,6 +232,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 630
     const-string v9, "116"
 
     invoke-virtual {v9, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -214,10 +241,12 @@
 
     if-eqz v9, :cond_2
 
+    .line 631
     invoke-virtual {v4}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 632
     const-string/jumbo v9, "usb"
 
     invoke-virtual {v4, v9}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -234,6 +263,7 @@
 
     if-nez v9, :cond_2
 
+    .line 634
     const-string v9, "p"
 
     invoke-virtual {v3, v9}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -250,6 +280,7 @@
 
     if-eqz v9, :cond_2
 
+    .line 635
     :cond_0
     const-string v9, "p"
 
@@ -259,8 +290,10 @@
 
     if-eqz v9, :cond_1
 
+    .line 636
     const/4 v5, 0x1
 
+    .line 637
     :cond_1
     const/16 v9, 0x8
 
@@ -272,6 +305,7 @@
 
     move-result-object v1
 
+    .line 638
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -297,6 +331,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 639
     const/16 v9, 0xa
 
     invoke-virtual {v3, v9}, Ljava/lang/String;->charAt(I)C
@@ -307,6 +342,7 @@
 
     move-result-object v2
 
+    .line 640
     # getter for: Lcom/android/server/WiredAccessoryManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/WiredAccessoryManager;->access$500()Ljava/lang/String;
 
@@ -332,6 +368,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 641
     const-string v9, "add"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -340,8 +377,10 @@
 
     if-eqz v9, :cond_3
 
+    .line 642
     const/4 v8, 0x1
 
+    .line 645
     :goto_0
     iget-object v9, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$1;->this$1:Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
 
@@ -355,9 +394,11 @@
     # invokes: Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;->update_usbaudio(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$UsbAudioData;)V
     invoke-static {v9, v10}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;->access$800(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$UsbAudioData;)V
 
+    .line 649
     :cond_2
     return-void
 
+    .line 644
     :cond_3
     const/4 v8, 0x0
 

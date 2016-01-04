@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/server/dreams/DreamManagerService;Landroid/os/Binder;Landroid/content/ComponentName;ZI)V
     .locals 0
 
+    .prologue
+    .line 345
     iput-object p1, p0, Lcom/android/server/dreams/DreamManagerService$3;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     iput-object p2, p0, Lcom/android/server/dreams/DreamManagerService$3;->val$newToken:Landroid/os/Binder;
@@ -53,6 +55,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 348
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$3;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     # getter for: Lcom/android/server/dreams/DreamManagerService;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
@@ -62,6 +66,7 @@
 
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->forceHideSoftInput()Z
 
+    .line 349
     iget-object v0, p0, Lcom/android/server/dreams/DreamManagerService$3;->this$0:Lcom/android/server/dreams/DreamManagerService;
 
     # getter for: Lcom/android/server/dreams/DreamManagerService;->mController:Lcom/android/server/dreams/DreamController;
@@ -79,5 +84,6 @@
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/dreams/DreamController;->startDream(Landroid/os/Binder;Landroid/content/ComponentName;ZI)V
 
+    .line 350
     return-void
 .end method

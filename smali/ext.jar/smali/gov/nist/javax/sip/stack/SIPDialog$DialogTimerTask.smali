@@ -157,7 +157,7 @@
     if-eq v5, v6, :cond_1
 
     .line 420
-    invoke-virtual {v4, v7}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->raiseErrorEvent(I)V
+    invoke-virtual {v4, v7}, Lgov/nist/javax/sip/stack/SIPTransaction;->raiseErrorEvent(I)V
 
     .line 455
     :cond_1
@@ -184,7 +184,7 @@
     iput-object v5, p0, Lgov/nist/javax/sip/stack/SIPDialog$DialogTimerTask;->transaction:Lgov/nist/javax/sip/stack/SIPServerTransaction;
 
     .line 457
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/SIPDialog$DialogTimerTask;->cancel()Z
+    invoke-virtual {p0}, Ljava/util/TimerTask;->cancel()Z
 
     .line 461
     :cond_3
@@ -221,7 +221,7 @@
 
     .line 429
     :try_start_0
-    iget v5, v4, Lgov/nist/javax/sip/stack/SIPServerTransaction;->T2:I
+    iget v5, v4, Lgov/nist/javax/sip/stack/SIPTransaction;->T2:I
 
     # invokes: Lgov/nist/javax/sip/stack/SIPDialog;->toRetransmitFinalResponse(I)Z
     invoke-static {v0, v5}, Lgov/nist/javax/sip/stack/SIPDialog;->access$600(Lgov/nist/javax/sip/stack/SIPDialog;I)Z
@@ -279,7 +279,7 @@
     .line 448
     :cond_7
     :goto_2
-    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->fireTimer()V
+    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPTransaction;->fireTimer()V
 
     goto :goto_1
 
@@ -293,15 +293,15 @@
     :try_start_1
     iget-object v5, p0, Lgov/nist/javax/sip/stack/SIPDialog$DialogTimerTask;->this$0:Lgov/nist/javax/sip/stack/SIPDialog;
 
-    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->getPeerAddress()Ljava/lang/String;
+    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPTransaction;->getPeerAddress()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->getPeerPort()I
+    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPTransaction;->getPeerPort()I
 
     move-result v7
 
-    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->getPeerProtocol()Ljava/lang/String;
+    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPTransaction;->getPeerProtocol()Ljava/lang/String;
 
     move-result-object v8
 
@@ -397,7 +397,7 @@
 
     .line 448
     :cond_8
-    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->fireTimer()V
+    invoke-virtual {v4}, Lgov/nist/javax/sip/stack/SIPTransaction;->fireTimer()V
 
     .line 444
     throw v5

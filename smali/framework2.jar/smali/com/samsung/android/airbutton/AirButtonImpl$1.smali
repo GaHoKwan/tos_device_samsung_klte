@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/AirButtonImpl;)V
     .locals 0
 
+    .prologue
+    .line 254
     iput-object p1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$1;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +38,14 @@
 # virtual methods
 .method public onSideButtonClicked(Landroid/view/MotionEvent;)V
     .locals 1
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 257
     iget-object v0, p0, Lcom/samsung/android/airbutton/AirButtonImpl$1;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-virtual {v0, p1}, Lcom/samsung/android/airbutton/AirButtonImpl;->onHoverButtonSecondary(Landroid/view/MotionEvent;)V
 
+    .line 258
     return-void
 .end method

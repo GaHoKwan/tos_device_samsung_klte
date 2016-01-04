@@ -236,7 +236,7 @@
     .line 1445
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "x must be < bitmap.width()"
+    const-string/jumbo v1, "x must be < bitmap.width()"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -253,7 +253,7 @@
     .line 1448
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "y must be < bitmap.height()"
+    const-string/jumbo v1, "y must be < bitmap.height()"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -316,7 +316,7 @@
     .line 1474
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "x + width must be <= bitmap.width()"
+    const-string/jumbo v3, "x + width must be <= bitmap.width()"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -335,7 +335,7 @@
     .line 1478
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "y + height must be <= bitmap.height()"
+    const-string/jumbo v3, "y + height must be <= bitmap.height()"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -467,7 +467,7 @@
     .line 414
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "x must be >= 0"
+    const-string/jumbo v1, "x must be >= 0"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -480,7 +480,7 @@
     .line 417
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "y must be >= 0"
+    const-string/jumbo v1, "y must be >= 0"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -609,7 +609,7 @@
     .line 780
     new-instance v13, Ljava/lang/IllegalArgumentException;
 
-    const-string v14, "x + width must be <= bitmap.width()"
+    const-string/jumbo v14, "x + width must be <= bitmap.width()"
 
     invoke-direct {v13, v14}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -628,7 +628,7 @@
     .line 783
     new-instance v13, Ljava/lang/IllegalArgumentException;
 
-    const-string v14, "y + height must be <= bitmap.height()"
+    const-string/jumbo v14, "y + height must be <= bitmap.height()"
 
     invoke-direct {v13, v14}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

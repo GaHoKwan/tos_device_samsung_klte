@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 0
 
+    .prologue
+    .line 1380
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$16;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +38,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "rowId"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,10 +51,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1382
+    .local p1, "adapterView":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     sget-boolean v0, Lcom/android/internal/policy/impl/GlobalActions;->SAFE_DEBUG:Z
 
     if-eqz v0, :cond_0
 
+    .line 1383
     const-string v0, "GlobalActions"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -72,6 +81,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1384
     :cond_0
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mCoverViewListView:Landroid/widget/ListView;
     invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$3200()Landroid/widget/ListView;
@@ -80,8 +90,9 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ListView;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
 
+    .line 1385
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$16;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
@@ -97,5 +108,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/GlobalActions$Action;->onPress()V
 
+    .line 1386
     return-void
 .end method

@@ -48,7 +48,7 @@
     iput-object v1, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     .line 79
-    invoke-virtual {p2}, Lcom/android/internal/telephony/dataconnection/DataConnection;->getName()Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/android/internal/util/StateMachine;->getName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -104,7 +104,7 @@
 
     iget-object v2, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/dataconnection/DataConnection;->getName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/internal/util/StateMachine;->getName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -171,7 +171,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/dataconnection/DcRetryAlarmController;->mDc:Lcom/android/internal/telephony/dataconnection/DataConnection;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/dataconnection/DataConnection;->getHandler()Landroid/os/Handler;
+    invoke-virtual {v4}, Lcom/android/internal/util/StateMachine;->getHandler()Landroid/os/Handler;
 
     move-result-object v4
 

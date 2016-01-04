@@ -149,7 +149,7 @@
     .line 50
     sget-object v0, Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->$VALUES:[Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/test/SimulatedCommands$SimLockState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;I)V
     .locals 0
 
+    .prologue
+    .line 1792
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow$1;->this$1:Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;
 
     iput p2, p0, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow$1;->val$menuItemDiff:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1794
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow$1;->this$1:Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;
 
     iget-object v1, v1, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -68,16 +72,21 @@
 
     mul-int v0, v1, v2
 
+    .line 1796
+    .local v0, "t":I
     const-wide/16 v1, 0xc8
 
     :try_start_0
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 1798
     :goto_0
     add-int/lit8 v0, v0, -0x3
 
+    .line 1799
     if-gtz v0, :cond_0
 
+    .line 1800
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow$1;->this$1:Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;
 
     # getter for: Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;->mHorizontalScrollView:Landroid/widget/HorizontalScrollView;
@@ -91,9 +100,11 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
+    .line 1808
     :goto_1
     return-void
 
+    .line 1803
     :cond_0
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow$1;->this$1:Landroid/webkitsec/WebViewClassic$SelectActionPopupWindow;
 
@@ -106,6 +117,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
+    .line 1805
     const-wide/16 v1, 0x2
 
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
@@ -114,6 +126,7 @@
 
     goto :goto_0
 
+    .line 1807
     :catch_0
     move-exception v1
 

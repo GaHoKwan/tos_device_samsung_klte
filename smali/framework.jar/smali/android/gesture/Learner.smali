@@ -203,7 +203,7 @@
     .line 80
     .end local v2    # "instance":Landroid/gesture/Instance;
     :cond_3
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v3, v4}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
     .line 81
     return-void

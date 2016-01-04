@@ -238,6 +238,8 @@
 
 .field public densityDpi:I
 
+.field public extra:Llidroid/content/res/ExtraConfiguration;
+
 .field public fontScale:F
 
 .field public hardKeyboardHidden:I
@@ -298,11 +300,17 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     .prologue
     .line 641
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Llidroid/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Llidroid/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
 
     .line 642
     invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaults()V
@@ -312,12 +320,18 @@
 .end method
 
 .method public constructor <init>(Landroid/content/res/Configuration;)V
-    .locals 0
+    .locals 1
     .param p1, "o"    # Landroid/content/res/Configuration;
 
     .prologue
     .line 648
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Llidroid/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Llidroid/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
 
     .line 649
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
@@ -327,12 +341,18 @@
 .end method
 
 .method private constructor <init>(Landroid/os/Parcel;)V
-    .locals 0
+    .locals 1
     .param p1, "source"    # Landroid/os/Parcel;
 
     .prologue
     .line 1255
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Llidroid/content/res/ExtraConfiguration;
+
+    invoke-direct {v0}, Llidroid/content/res/ExtraConfiguration;-><init>()V
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
 
     .line 1256
     invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcel(Landroid/os/Parcel;)V
@@ -365,6 +385,37 @@
 .end method
 
 .method public static needNewResources(II)Z
+    .locals 1
+    .param p0, "configChanges"    # I
+    .param p1, "interestingChanges"    # I
+
+    .prologue
+    .line 1049
+    invoke-static {p0, p1}, Landroid/content/res/Configuration;->needNewResourcesOld(II)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Llidroid/content/res/ExtraConfiguration;->needNewResources(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static needNewResourcesOld(II)Z
     .locals 2
     .param p0, "configChanges"    # I
     .param p1, "interestingChanges"    # I
@@ -562,6 +613,54 @@
 
 # virtual methods
 .method public compareTo(Landroid/content/res/Configuration;)I
+    .locals 3
+    .param p1, "that"    # Landroid/content/res/Configuration;
+
+    .prologue
+    .line 1214
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->compareToOld(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    .line 1215
+    .local v0, "n":I
+    if-eqz v0, :cond_0
+
+    .line 1217
+    .end local v0    # "n":I
+    :goto_0
+    return v0
+
+    .restart local v0    # "n":I
+    :cond_0
+    iget-object v1, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    iget-object v2, p1, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v1, v2}, Llidroid/content/res/ExtraConfiguration;->compareTo(Ljava/lang/Object;)I
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public bridge synthetic compareTo(Ljava/lang/Object;)I
+    .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+
+    .prologue
+    .line 40
+    check-cast p1, Landroid/content/res/Configuration;
+
+    .end local p1    # "x0":Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->compareTo(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public compareToOld(Landroid/content/res/Configuration;)I
     .locals 7
     .param p1, "that"    # Landroid/content/res/Configuration;
 
@@ -866,22 +965,6 @@
     goto/16 :goto_0
 .end method
 
-.method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 1
-    .param p1, "x0"    # Ljava/lang/Object;
-
-    .prologue
-    .line 40
-    check-cast p1, Landroid/content/res/Configuration;
-
-    .end local p1    # "x0":Ljava/lang/Object;
-    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->compareTo(Landroid/content/res/Configuration;)I
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public describeContents()I
     .locals 1
 
@@ -893,6 +976,29 @@
 .end method
 
 .method public diff(Landroid/content/res/Configuration;)I
+    .locals 3
+    .param p1, "delta"    # Landroid/content/res/Configuration;
+
+    .prologue
+    .line 936
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->diffOld(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    iget-object v2, p1, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v1, v2}, Llidroid/content/res/ExtraConfiguration;->diff(Llidroid/content/res/ExtraConfiguration;)I
+
+    move-result v1
+
+    or-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public diffOld(Landroid/content/res/Configuration;)I
     .locals 4
     .param p1, "delta"    # Landroid/content/res/Configuration;
 
@@ -1318,6 +1424,26 @@
 .end method
 
 .method public hashCode()I
+    .locals 2
+
+    .prologue
+    .line 1297
+    invoke-virtual {p0}, Landroid/content/res/Configuration;->hashCodeOld()I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v1}, Llidroid/content/res/ExtraConfiguration;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public hashCodeOld()I
     .locals 3
 
     .prologue
@@ -1572,6 +1698,23 @@
 .end method
 
 .method public readFromParcel(Landroid/os/Parcel;)V
+    .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
+
+    .prologue
+    .line 1157
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->readFromParcelOld(Landroid/os/Parcel;)V
+
+    .line 1158
+    iget-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v0, p1}, Llidroid/content/res/ExtraConfiguration;->readFromParcel(Landroid/os/Parcel;)V
+
+    .line 1159
+    return-void
+.end method
+
+.method public readFromParcelOld(Landroid/os/Parcel;)V
     .locals 5
     .param p1, "source"    # Landroid/os/Parcel;
 
@@ -1823,6 +1966,120 @@
 .end method
 
 .method public setTo(Landroid/content/res/Configuration;)V
+    .locals 2
+    .param p1, "o"    # Landroid/content/res/Configuration;
+
+    .prologue
+    .line 586
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->setToOld(Landroid/content/res/Configuration;)V
+
+    .line 587
+    iget-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    iget-object v1, p1, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v0, v1}, Llidroid/content/res/ExtraConfiguration;->setTo(Llidroid/content/res/ExtraConfiguration;)V
+
+    .line 588
+    return-void
+.end method
+
+.method public setToDefaults()V
+    .locals 1
+
+    .prologue
+    .line 760
+    invoke-virtual {p0}, Landroid/content/res/Configuration;->setToDefaultsOld()V
+
+    .line 761
+    iget-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v0}, Llidroid/content/res/ExtraConfiguration;->setToDefaults()V
+
+    .line 762
+    return-void
+.end method
+
+.method public setToDefaultsOld()V
+    .locals 2
+
+    .prologue
+    const/4 v1, 0x0
+
+    .line 827
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Landroid/content/res/Configuration;->fontScale:F
+
+    .line 828
+    iput v1, p0, Landroid/content/res/Configuration;->mnc:I
+
+    iput v1, p0, Landroid/content/res/Configuration;->mcc:I
+
+    .line 829
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    .line 830
+    iput-boolean v1, p0, Landroid/content/res/Configuration;->userSetLocale:Z
+
+    .line 831
+    iput v1, p0, Landroid/content/res/Configuration;->touchscreen:I
+
+    .line 832
+    iput v1, p0, Landroid/content/res/Configuration;->keyboard:I
+
+    .line 833
+    iput v1, p0, Landroid/content/res/Configuration;->keyboardHidden:I
+
+    .line 834
+    iput v1, p0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
+
+    .line 835
+    iput v1, p0, Landroid/content/res/Configuration;->navigation:I
+
+    .line 836
+    iput v1, p0, Landroid/content/res/Configuration;->navigationHidden:I
+
+    .line 837
+    iput v1, p0, Landroid/content/res/Configuration;->orientation:I
+
+    .line 838
+    iput v1, p0, Landroid/content/res/Configuration;->screenLayout:I
+
+    .line 839
+    iput v1, p0, Landroid/content/res/Configuration;->uiMode:I
+
+    .line 840
+    iput v1, p0, Landroid/content/res/Configuration;->compatScreenWidthDp:I
+
+    iput v1, p0, Landroid/content/res/Configuration;->screenWidthDp:I
+
+    .line 841
+    iput v1, p0, Landroid/content/res/Configuration;->compatScreenHeightDp:I
+
+    iput v1, p0, Landroid/content/res/Configuration;->screenHeightDp:I
+
+    .line 842
+    iput v1, p0, Landroid/content/res/Configuration;->compatSmallestScreenWidthDp:I
+
+    iput v1, p0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
+
+    .line 843
+    iput v1, p0, Landroid/content/res/Configuration;->densityDpi:I
+
+    .line 844
+    iput v1, p0, Landroid/content/res/Configuration;->seq:I
+
+    .line 846
+    iput v1, p0, Landroid/content/res/Configuration;->FlipFont:I
+
+    .line 848
+    return-void
+.end method
+
+.method public setToOld(Landroid/content/res/Configuration;)V
     .locals 1
     .param p1, "o"    # Landroid/content/res/Configuration;
 
@@ -1958,85 +2215,6 @@
     return-void
 .end method
 
-.method public setToDefaults()V
-    .locals 2
-
-    .prologue
-    const/4 v1, 0x0
-
-    .line 827
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    iput v0, p0, Landroid/content/res/Configuration;->fontScale:F
-
-    .line 828
-    iput v1, p0, Landroid/content/res/Configuration;->mnc:I
-
-    iput v1, p0, Landroid/content/res/Configuration;->mcc:I
-
-    .line 829
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
-
-    .line 830
-    iput-boolean v1, p0, Landroid/content/res/Configuration;->userSetLocale:Z
-
-    .line 831
-    iput v1, p0, Landroid/content/res/Configuration;->touchscreen:I
-
-    .line 832
-    iput v1, p0, Landroid/content/res/Configuration;->keyboard:I
-
-    .line 833
-    iput v1, p0, Landroid/content/res/Configuration;->keyboardHidden:I
-
-    .line 834
-    iput v1, p0, Landroid/content/res/Configuration;->hardKeyboardHidden:I
-
-    .line 835
-    iput v1, p0, Landroid/content/res/Configuration;->navigation:I
-
-    .line 836
-    iput v1, p0, Landroid/content/res/Configuration;->navigationHidden:I
-
-    .line 837
-    iput v1, p0, Landroid/content/res/Configuration;->orientation:I
-
-    .line 838
-    iput v1, p0, Landroid/content/res/Configuration;->screenLayout:I
-
-    .line 839
-    iput v1, p0, Landroid/content/res/Configuration;->uiMode:I
-
-    .line 840
-    iput v1, p0, Landroid/content/res/Configuration;->compatScreenWidthDp:I
-
-    iput v1, p0, Landroid/content/res/Configuration;->screenWidthDp:I
-
-    .line 841
-    iput v1, p0, Landroid/content/res/Configuration;->compatScreenHeightDp:I
-
-    iput v1, p0, Landroid/content/res/Configuration;->screenHeightDp:I
-
-    .line 842
-    iput v1, p0, Landroid/content/res/Configuration;->compatSmallestScreenWidthDp:I
-
-    iput v1, p0, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
-
-    .line 843
-    iput v1, p0, Landroid/content/res/Configuration;->densityDpi:I
-
-    .line 844
-    iput v1, p0, Landroid/content/res/Configuration;->seq:I
-
-    .line 846
-    iput v1, p0, Landroid/content/res/Configuration;->FlipFont:I
-
-    .line 848
-    return-void
-.end method
-
 .method public toString()Ljava/lang/String;
     .locals 3
 
@@ -2050,7 +2228,7 @@
 
     .line 684
     .local v1, "sb":Ljava/lang/StringBuilder;
-    const-string v2, "{"
+    const-string/jumbo v2, "{"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2835,6 +3013,8 @@
     goto/16 :goto_12
 
     .line 710
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_2
@@ -2942,6 +3122,29 @@
 .end method
 
 .method public updateFrom(Landroid/content/res/Configuration;)I
+    .locals 3
+    .param p1, "delta"    # Landroid/content/res/Configuration;
+
+    .prologue
+    .line 795
+    invoke-virtual {p0, p1}, Landroid/content/res/Configuration;->updateFromOld(Landroid/content/res/Configuration;)I
+
+    move-result v0
+
+    iget-object v1, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    iget-object v2, p1, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v1, v2}, Llidroid/content/res/ExtraConfiguration;->updateFrom(Llidroid/content/res/ExtraConfiguration;)I
+
+    move-result v1
+
+    or-int/2addr v0, v1
+
+    return v0
+.end method
+
+.method public updateFromOld(Landroid/content/res/Configuration;)I
     .locals 4
     .param p1, "delta"    # Landroid/content/res/Configuration;
 
@@ -3526,6 +3729,24 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
+    .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
+
+    .prologue
+    .line 1108
+    invoke-virtual {p0, p1, p2}, Landroid/content/res/Configuration;->writeToParcelOld(Landroid/os/Parcel;I)V
+
+    .line 1109
+    iget-object v0, p0, Landroid/content/res/Configuration;->extra:Llidroid/content/res/ExtraConfiguration;
+
+    invoke-virtual {v0, p1, p2}, Llidroid/content/res/ExtraConfiguration;->writeToParcel(Landroid/os/Parcel;I)V
+
+    .line 1110
+    return-void
+.end method
+
+.method public writeToParcelOld(Landroid/os/Parcel;I)V
     .locals 3
     .param p1, "dest"    # Landroid/os/Parcel;
     .param p2, "flags"    # I

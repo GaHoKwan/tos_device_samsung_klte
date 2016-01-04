@@ -35,11 +35,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/usb/UsbDebuggingManager;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 161
     iput-object p1, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
+    .line 162
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 163
     return-void
 .end method
 
@@ -47,19 +52,24 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v6, 0x0
 
     const/4 v5, 0x1
 
+    .line 166
     iget v3, p1, Landroid/os/Message;->what:I
 
     packed-switch v3, :pswitch_data_0
 
+    .line 233
     :cond_0
     :goto_0
     return-void
 
+    .line 168
     :pswitch_0
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -70,11 +80,13 @@
 
     if-nez v3, :cond_0
 
+    .line 171
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mAdbEnabled:Z
     invoke-static {v3, v5}, Lcom/android/server/usb/UsbDebuggingManager;->access$002(Lcom/android/server/usb/UsbDebuggingManager;Z)Z
 
+    .line 173
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     new-instance v4, Ljava/lang/Thread;
@@ -88,6 +100,7 @@
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mThread:Ljava/lang/Thread;
     invoke-static {v3, v4}, Lcom/android/server/usb/UsbDebuggingManager;->access$102(Lcom/android/server/usb/UsbDebuggingManager;Ljava/lang/Thread;)Ljava/lang/Thread;
 
+    .line 174
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # getter for: Lcom/android/server/usb/UsbDebuggingManager;->mThread:Ljava/lang/Thread;
@@ -99,6 +112,7 @@
 
     goto :goto_0
 
+    .line 179
     :pswitch_1
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -109,6 +123,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 182
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     const/4 v4, 0x0
@@ -116,11 +131,13 @@
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mAdbEnabled:Z
     invoke-static {v3, v4}, Lcom/android/server/usb/UsbDebuggingManager;->access$002(Lcom/android/server/usb/UsbDebuggingManager;Z)Z
 
+    .line 183
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # invokes: Lcom/android/server/usb/UsbDebuggingManager;->closeSocket()V
     invoke-static {v3}, Lcom/android/server/usb/UsbDebuggingManager;->access$200(Lcom/android/server/usb/UsbDebuggingManager;)V
 
+    .line 186
     :try_start_0
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -133,17 +150,20 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 190
     :goto_1
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mThread:Ljava/lang/Thread;
     invoke-static {v3, v6}, Lcom/android/server/usb/UsbDebuggingManager;->access$102(Lcom/android/server/usb/UsbDebuggingManager;Ljava/lang/Thread;)Ljava/lang/Thread;
 
+    .line 191
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mOutputStream:Ljava/io/OutputStream;
     invoke-static {v3, v6}, Lcom/android/server/usb/UsbDebuggingManager;->access$302(Lcom/android/server/usb/UsbDebuggingManager;Ljava/io/OutputStream;)Ljava/io/OutputStream;
 
+    .line 192
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mSocket:Landroid/net/LocalSocket;
@@ -151,11 +171,14 @@
 
     goto :goto_0
 
+    .line 196
     :pswitch_2
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
+    .line 197
+    .local v1, "key":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # invokes: Lcom/android/server/usb/UsbDebuggingManager;->getFingerprints(Ljava/lang/String;)Ljava/lang/String;
@@ -163,6 +186,8 @@
 
     move-result-object v0
 
+    .line 199
+    .local v0, "fingerprints":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # getter for: Lcom/android/server/usb/UsbDebuggingManager;->mFingerprints:Ljava/lang/String;
@@ -176,6 +201,7 @@
 
     if-nez v3, :cond_1
 
+    .line 200
     const-string v3, "UsbDebuggingManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -217,16 +243,19 @@
 
     goto/16 :goto_0
 
+    .line 205
     :cond_1
     iget v3, p1, Landroid/os/Message;->arg1:I
 
     if-ne v3, v5, :cond_2
 
+    .line 206
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     # invokes: Lcom/android/server/usb/UsbDebuggingManager;->writeKey(Ljava/lang/String;)V
     invoke-static {v3, v1}, Lcom/android/server/usb/UsbDebuggingManager;->access$700(Lcom/android/server/usb/UsbDebuggingManager;Ljava/lang/String;)V
 
+    .line 209
     :cond_2
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -237,6 +266,9 @@
 
     goto/16 :goto_0
 
+    .line 214
+    .end local v0    # "fingerprints":Ljava/lang/String;
+    .end local v1    # "key":Ljava/lang/String;
     :pswitch_3
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -247,11 +279,14 @@
 
     goto/16 :goto_0
 
+    .line 218
     :pswitch_4
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
+    .line 219
+    .restart local v1    # "key":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     iget-object v4, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
@@ -264,6 +299,7 @@
     # setter for: Lcom/android/server/usb/UsbDebuggingManager;->mFingerprints:Ljava/lang/String;
     invoke-static {v3, v4}, Lcom/android/server/usb/UsbDebuggingManager;->access$602(Lcom/android/server/usb/UsbDebuggingManager;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 220
     const-string v3, "persist.sys.auto_confirm"
 
     const-string v4, "0"
@@ -272,6 +308,8 @@
 
     move-result-object v2
 
+    .line 221
+    .local v2, "value":Ljava/lang/String;
     const-string v3, "1"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -286,12 +324,14 @@
 
     if-nez v3, :cond_3
 
+    .line 222
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
     invoke-virtual {v3, v5, v1}, Lcom/android/server/usb/UsbDebuggingManager;->allowUsbDebugging(ZLjava/lang/String;)V
 
     goto/16 :goto_0
 
+    .line 224
     :cond_3
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -307,6 +347,9 @@
 
     goto/16 :goto_0
 
+    .line 230
+    .end local v1    # "key":Ljava/lang/String;
+    .end local v2    # "value":Ljava/lang/String;
     :pswitch_5
     iget-object v3, p0, Lcom/android/server/usb/UsbDebuggingManager$UsbDebuggingHandler;->this$0:Lcom/android/server/usb/UsbDebuggingManager;
 
@@ -315,11 +358,13 @@
 
     goto/16 :goto_0
 
+    .line 187
     :catch_0
     move-exception v3
 
     goto/16 :goto_1
 
+    .line 166
     nop
 
     :pswitch_data_0

@@ -294,7 +294,7 @@
 
     .prologue
     .line 246
-    const-string v0, "{ bounds: %s, score: %s, id: %d, leftEyePosition: %s, rightEyePosition: %s, mouthPosition: %s }"
+    const-string/jumbo v0, "{ bounds: %s, score: %s, id: %d, leftEyePosition: %s, rightEyePosition: %s, mouthPosition: %s }"
 
     const/4 v1, 0x6
 

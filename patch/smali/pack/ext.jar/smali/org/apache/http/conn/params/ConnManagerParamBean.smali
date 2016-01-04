@@ -24,7 +24,7 @@
 
     .prologue
     .line 59
-    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.conn-manager.max-per-route"
 
@@ -40,7 +40,7 @@
 
     .prologue
     .line 54
-    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.conn-manager.max-total"
 
@@ -56,7 +56,7 @@
 
     .prologue
     .line 49
-    iget-object v0, p0, Lorg/apache/http/conn/params/ConnManagerParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.conn-manager.timeout"
 

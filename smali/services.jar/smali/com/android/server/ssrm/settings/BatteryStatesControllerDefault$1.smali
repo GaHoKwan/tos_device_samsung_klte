@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 178
     iput-object p1, p0, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$1;->this$0:Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,36 +36,46 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 181
     sget-boolean v1, Lcom/android/server/ssrm/Monitor;->sIsHeavyAppFg:Z
 
     if-eqz v1, :cond_0
 
+    .line 190
     :goto_0
     return-void
 
+    .line 185
     :cond_0
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
+    .line 186
+    .local v0, "newMsg":Landroid/os/Message;
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
+    .line 187
     iget v1, p1, Landroid/os/Message;->arg2:I
 
     iput v1, v0, Landroid/os/Message;->arg2:I
 
+    .line 188
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 189
     new-instance v1, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$TopDumpThread;
 
     invoke-direct {v1, v0}, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$TopDumpThread;-><init>(Landroid/os/Message;)V
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$TopDumpThread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
 
     goto :goto_0
 .end method

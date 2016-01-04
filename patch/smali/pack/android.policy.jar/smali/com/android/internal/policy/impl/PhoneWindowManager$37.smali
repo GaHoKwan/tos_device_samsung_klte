@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)V
     .locals 0
 
+    .prologue
+    .line 7950
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$37;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$37;->val$forceClose:Z
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 7953
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$37;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -55,16 +59,20 @@
 
     check-cast v0, Landroid/content/Intent;
 
+    .line 7954
+    .local v0, "closeIntent":Landroid/content/Intent;
     const-string v2, "com.sec.android.multiwindow.close.traybar"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 7955
     const-string v2, "com.sec.android.multiwindow.extra.forceclose"
 
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$37;->val$forceClose:Z
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 7956
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$37;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -73,13 +81,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 7960
+    .end local v0    # "closeIntent":Landroid/content/Intent;
     :goto_0
     return-void
 
+    .line 7957
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .line 7958
+    .local v1, "e":Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

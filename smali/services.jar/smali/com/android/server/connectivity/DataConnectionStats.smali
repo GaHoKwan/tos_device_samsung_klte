@@ -28,37 +28,50 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 48
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 43
     sget-object v0, Lcom/android/internal/telephony/IccCardConstants$State;->READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
     iput-object v0, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
+    .line 46
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/connectivity/DataConnectionStats;->mDataState:I
 
+    .line 131
     new-instance v0, Lcom/android/server/connectivity/DataConnectionStats$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/connectivity/DataConnectionStats$1;-><init>(Lcom/android/server/connectivity/DataConnectionStats;)V
 
     iput-object v0, p0, Lcom/android/server/connectivity/DataConnectionStats;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
+    .line 49
     iput-object p1, p0, Lcom/android/server/connectivity/DataConnectionStats;->mContext:Landroid/content/Context;
 
+    .line 50
     invoke-static {}, Lcom/android/server/am/BatteryStatsService;->getService()Lcom/android/internal/app/IBatteryStats;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/connectivity/DataConnectionStats;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
+    .line 51
     return-void
 .end method
 
 .method static synthetic access$002(Lcom/android/server/connectivity/DataConnectionStats;Landroid/telephony/SignalStrength;)Landroid/telephony/SignalStrength;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/connectivity/DataConnectionStats;
+    .param p1, "x1"    # Landroid/telephony/SignalStrength;
 
+    .prologue
+    .line 36
     iput-object p1, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSignalStrength:Landroid/telephony/SignalStrength;
 
     return-object p1
@@ -66,7 +79,11 @@
 
 .method static synthetic access$102(Lcom/android/server/connectivity/DataConnectionStats;Landroid/telephony/ServiceState;)Landroid/telephony/ServiceState;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/connectivity/DataConnectionStats;
+    .param p1, "x1"    # Landroid/telephony/ServiceState;
 
+    .prologue
+    .line 36
     iput-object p1, p0, Lcom/android/server/connectivity/DataConnectionStats;->mServiceState:Landroid/telephony/ServiceState;
 
     return-object p1
@@ -74,7 +91,10 @@
 
 .method static synthetic access$200(Lcom/android/server/connectivity/DataConnectionStats;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/connectivity/DataConnectionStats;
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Lcom/android/server/connectivity/DataConnectionStats;->notePhoneDataConnectionState()V
 
     return-void
@@ -82,7 +102,11 @@
 
 .method static synthetic access$302(Lcom/android/server/connectivity/DataConnectionStats;I)I
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/connectivity/DataConnectionStats;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 36
     iput p1, p0, Lcom/android/server/connectivity/DataConnectionStats;->mDataState:I
 
     return p1
@@ -91,8 +115,10 @@
 .method private hasService()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 126
     iget-object v1, p0, Lcom/android/server/connectivity/DataConnectionStats;->mServiceState:Landroid/telephony/ServiceState;
 
     if-eqz v1, :cond_0
@@ -127,6 +153,8 @@
 .method private isCdma()Z
     .locals 1
 
+    .prologue
+    .line 122
     iget-object v0, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSignalStrength:Landroid/telephony/SignalStrength;
 
     if-eqz v0, :cond_0
@@ -153,17 +181,21 @@
 .method private notePhoneDataConnectionState()V
     .locals 7
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 82
     iget-object v5, p0, Lcom/android/server/connectivity/DataConnectionStats;->mServiceState:Landroid/telephony/ServiceState;
 
     if-nez v5, :cond_0
 
+    .line 98
     :goto_0
     return-void
 
+    .line 85
     :cond_0
     iget-object v5, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
@@ -180,6 +212,8 @@
     :cond_1
     move v2, v3
 
+    .line 87
+    .local v2, "simReadyOrUnknown":Z
     :goto_1
     if-nez v2, :cond_2
 
@@ -202,6 +236,8 @@
 
     if-ne v5, v6, :cond_4
 
+    .line 90
+    .local v3, "visible":Z
     :goto_2
     iget-object v4, p0, Lcom/android/server/connectivity/DataConnectionStats;->mServiceState:Landroid/telephony/ServiceState;
 
@@ -209,6 +245,8 @@
 
     move-result v1
 
+    .line 94
+    .local v1, "networkType":I
     :try_start_0
     iget-object v4, p0, Lcom/android/server/connectivity/DataConnectionStats;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
@@ -218,9 +256,12 @@
 
     goto :goto_0
 
+    .line 95
     :catch_0
     move-exception v0
 
+    .line 96
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v4, "DataConnectionStats"
 
     const-string v5, "Error noting data connection state"
@@ -229,26 +270,38 @@
 
     goto :goto_0
 
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "networkType":I
+    .end local v2    # "simReadyOrUnknown":Z
+    .end local v3    # "visible":Z
     :cond_3
     move v2, v4
 
+    .line 85
     goto :goto_1
 
+    .restart local v2    # "simReadyOrUnknown":Z
     :cond_4
     move v3, v4
 
+    .line 87
     goto :goto_2
 .end method
 
 .method private final updateSimState(Landroid/content/Intent;)V
     .locals 3
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 101
     const-string/jumbo v2, "ss"
 
     invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 102
+    .local v1, "stateExtra":Ljava/lang/String;
     const-string v2, "ABSENT"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -257,13 +310,16 @@
 
     if-eqz v2, :cond_0
 
+    .line 103
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->ABSENT:Lcom/android/internal/telephony/IccCardConstants$State;
 
     iput-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
+    .line 119
     :goto_0
     return-void
 
+    .line 104
     :cond_0
     const-string v2, "READY"
 
@@ -273,12 +329,14 @@
 
     if-eqz v2, :cond_1
 
+    .line 105
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->READY:Lcom/android/internal/telephony/IccCardConstants$State;
 
     iput-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
     goto :goto_0
 
+    .line 106
     :cond_1
     const-string v2, "LOCKED"
 
@@ -288,12 +346,15 @@
 
     if-eqz v2, :cond_4
 
+    .line 107
     const-string v2, "reason"
 
     invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 109
+    .local v0, "lockedReason":Ljava/lang/String;
     const-string v2, "PIN"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -302,12 +363,14 @@
 
     if-eqz v2, :cond_2
 
+    .line 110
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->PIN_REQUIRED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     iput-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
     goto :goto_0
 
+    .line 111
     :cond_2
     const-string v2, "PUK"
 
@@ -317,12 +380,14 @@
 
     if-eqz v2, :cond_3
 
+    .line 112
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->PUK_REQUIRED:Lcom/android/internal/telephony/IccCardConstants$State;
 
     iput-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mSimState:Lcom/android/internal/telephony/IccCardConstants$State;
 
     goto :goto_0
 
+    .line 114
     :cond_3
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->PERSO_LOCKED:Lcom/android/internal/telephony/IccCardConstants$State;
 
@@ -330,6 +395,8 @@
 
     goto :goto_0
 
+    .line 117
+    .end local v0    # "lockedReason":Ljava/lang/String;
     :cond_4
     sget-object v2, Lcom/android/internal/telephony/IccCardConstants$State;->UNKNOWN:Lcom/android/internal/telephony/IccCardConstants$State;
 
@@ -342,11 +409,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 71
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 72
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.SIM_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -355,14 +428,18 @@
 
     if-eqz v1, :cond_1
 
+    .line 73
     invoke-direct {p0, p2}, Lcom/android/server/connectivity/DataConnectionStats;->updateSimState(Landroid/content/Intent;)V
 
+    .line 74
     invoke-direct {p0}, Lcom/android/server/connectivity/DataConnectionStats;->notePhoneDataConnectionState()V
 
+    .line 79
     :cond_0
     :goto_0
     return-void
 
+    .line 75
     :cond_1
     const-string v1, "android.net.conn.CONNECTIVITY_CHANGE"
 
@@ -380,6 +457,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 77
     :cond_2
     invoke-direct {p0}, Lcom/android/server/connectivity/DataConnectionStats;->notePhoneDataConnectionState()V
 
@@ -389,6 +467,8 @@
 .method public startMonitoring()V
     .locals 4
 
+    .prologue
+    .line 54
     iget-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mContext:Landroid/content/Context;
 
     const-string v3, "phone"
@@ -399,31 +479,40 @@
 
     check-cast v1, Landroid/telephony/TelephonyManager;
 
+    .line 56
+    .local v1, "phone":Landroid/telephony/TelephonyManager;
     iget-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
     const/16 v3, 0x1c1
 
     invoke-virtual {v1, v2, v3}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
 
+    .line 62
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 63
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v2, "android.intent.action.SIM_STATE_CHANGED"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 64
     const-string v2, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 65
     const-string v2, "android.net.conn.INET_CONDITION_ACTION"
 
     invoke-virtual {v0, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 66
     iget-object v2, p0, Lcom/android/server/connectivity/DataConnectionStats;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 67
     return-void
 .end method

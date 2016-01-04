@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WallpaperManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2288
     iput-object p1, p0, Lcom/android/server/WallpaperManagerService$3;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 2292
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 2301
     :goto_0
     return-void
 
+    .line 2295
     :pswitch_0
     const-string v0, "WallpaperService"
 
@@ -66,6 +73,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2296
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$3;->this$0:Lcom/android/server/WallpaperManagerService;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
@@ -76,6 +84,7 @@
 
     goto :goto_0
 
+    .line 2292
     nop
 
     :pswitch_data_0

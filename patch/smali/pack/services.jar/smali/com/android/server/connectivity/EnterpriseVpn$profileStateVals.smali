@@ -37,12 +37,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 119
     new-instance v0, Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;
 
     const-string v1, "IDLE"
@@ -96,6 +98,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 119
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +107,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 119
     const-class v0, Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -118,9 +125,11 @@
 .method public static values()[Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;
     .locals 1
 
+    .prologue
+    .line 119
     sget-object v0, Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;->$VALUES:[Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;
 
-    invoke-virtual {v0}, [Lcom/android/server/connectivity/EnterpriseVpn$profileStateVals;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

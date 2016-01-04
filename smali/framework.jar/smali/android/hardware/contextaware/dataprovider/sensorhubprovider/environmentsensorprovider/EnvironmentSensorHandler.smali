@@ -120,7 +120,7 @@
 
     .line 136
     :cond_1
-    invoke-virtual {v2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$SUB_DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
@@ -131,7 +131,7 @@
     if-eqz v5, :cond_0
 
     .line 140
-    invoke-virtual {v2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$SUB_DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v4
 

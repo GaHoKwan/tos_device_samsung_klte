@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView;)V
     .locals 0
 
+    .prologue
+    .line 249
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$1;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,13 @@
 # virtual methods
 .method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 1
+    .param p1, "parent"    # Landroid/widget/AdapterView;
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
+    .prologue
+    .line 251
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$1;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView;->mCallback:Landroid/app/ActionBar$OnNavigationListener;
@@ -46,6 +54,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 252
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$1;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView;->mCallback:Landroid/app/ActionBar$OnNavigationListener;
@@ -55,12 +64,16 @@
 
     invoke-interface {v0, p3, p4, p5}, Landroid/app/ActionBar$OnNavigationListener;->onNavigationItemSelected(IJ)Z
 
+    .line 254
     :cond_0
     return-void
 .end method
 
 .method public onNothingSelected(Landroid/widget/AdapterView;)V
     .locals 0
+    .param p1, "parent"    # Landroid/widget/AdapterView;
 
+    .prologue
+    .line 257
     return-void
 .end method

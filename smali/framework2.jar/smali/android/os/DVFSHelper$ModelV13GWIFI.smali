@@ -22,13 +22,17 @@
 .method constructor <init>(Landroid/os/DVFSHelper;)V
     .locals 1
 
+    .prologue
+    .line 926
     iput-object p1, p0, Landroid/os/DVFSHelper$ModelV13GWIFI;->this$0:Landroid/os/DVFSHelper;
 
     invoke-direct {p0, p1}, Landroid/os/DVFSHelper$ModelHA;-><init>(Landroid/os/DVFSHelper;)V
 
+    .line 927
     const v0, 0xf4240
 
-    iput v0, p0, Landroid/os/DVFSHelper$ModelV13GWIFI;->BROWSER_FLING_ARM_FREQ:I
+    iput v0, p0, Landroid/os/DVFSHelper$Model;->BROWSER_FLING_ARM_FREQ:I
 
+    .line 928
     return-void
 .end method

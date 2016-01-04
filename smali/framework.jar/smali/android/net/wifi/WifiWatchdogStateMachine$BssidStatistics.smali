@@ -46,32 +46,32 @@
     .param p2, "bssid"    # Ljava/lang/String;
 
     .prologue
-    .line 4979
+    .line 4994
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4980
+    .line 4995
     iput-object p2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssid:Ljava/lang/String;
 
-    .line 4981
+    .line 4996
     const/16 v1, -0x69
 
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
-    .line 4982
+    .line 4997
     const/16 v1, 0x3d
 
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntriesSize:I
 
-    .line 4983
+    .line 4998
     iget v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntriesSize:I
 
     new-array v1, v1, [Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     iput-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntries:[Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
-    .line 4984
+    .line 4999
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -80,7 +80,7 @@
 
     if-ge v0, v1, :cond_0
 
-    .line 4985
+    .line 5000
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntries:[Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     new-instance v2, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
@@ -91,71 +91,60 @@
 
     aput-object v2, v1, v0
 
-    .line 4984
+    .line 4999
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 4986
+    .line 5001
     :cond_0
     return-void
 .end method
 
-.method static synthetic access$11600(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)J
+.method static synthetic access$11700(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)J
     .locals 2
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
 
     .prologue
-    .line 4949
+    .line 4964
     iget-wide v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeSample:J
 
     return-wide v0
 .end method
 
-.method static synthetic access$11602(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
+.method static synthetic access$11702(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
     .locals 0
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
     .param p1, "x1"    # J
 
     .prologue
-    .line 4949
+    .line 4964
     iput-wide p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeSample:J
 
     return-wide p1
 .end method
 
-.method static synthetic access$19900(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)J
+.method static synthetic access$20000(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)J
     .locals 2
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
 
     .prologue
-    .line 4949
+    .line 4964
     iget-wide v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssidAvoidTimeMax:J
 
     return-wide v0
 .end method
 
-.method static synthetic access$19902(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
+.method static synthetic access$20002(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
     .locals 0
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
     .param p1, "x1"    # J
 
     .prologue
-    .line 4949
+    .line 4964
     iput-wide p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssidAvoidTimeMax:J
 
     return-wide p1
-.end method
-
-.method static synthetic access$20200(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)I
-    .locals 1
-    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
-
-    .prologue
-    .line 4949
-    iget v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetRssi:I
-
-    return v0
 .end method
 
 .method static synthetic access$20300(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)I
@@ -163,22 +152,21 @@
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
 
     .prologue
-    .line 4949
-    iget v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetCount:I
+    .line 4964
+    iget v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetRssi:I
 
     return v0
 .end method
 
-.method static synthetic access$25702(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
-    .locals 0
+.method static synthetic access$20400(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;)I
+    .locals 1
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
-    .param p1, "x1"    # J
 
     .prologue
-    .line 4949
-    iput-wide p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeGood:J
+    .line 4964
+    iget v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetCount:I
 
-    return-wide p1
+    return v0
 .end method
 
 .method static synthetic access$25802(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
@@ -187,7 +175,19 @@
     .param p1, "x1"    # J
 
     .prologue
-    .line 4949
+    .line 4964
+    iput-wide p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeGood:J
+
+    return-wide p1
+.end method
+
+.method static synthetic access$25902(Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;J)J
+    .locals 0
+    .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
+    .param p1, "x1"    # J
+
+    .prologue
+    .line 4964
     iput-wide p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimePoor:J
 
     return-wide p1
@@ -198,7 +198,7 @@
     .param p0, "x0"    # Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;
 
     .prologue
-    .line 4949
+    .line 4964
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssid:Ljava/lang/String;
 
     return-object v0
@@ -213,26 +213,26 @@
     .param p3, "threshold"    # D
 
     .prologue
-    .line 5117
+    .line 5132
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
     sub-int/2addr p1, v7
 
-    .line 5118
+    .line 5133
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
     sub-int/2addr p2, v7
 
-    .line 5119
+    .line 5134
     const/4 v2, 0x0
 
-    .line 5120
+    .line 5135
     .local v2, "emptyCount":I
     if-ge p1, p2, :cond_1
 
     const/4 v0, 0x1
 
-    .line 5121
+    .line 5136
     .local v0, "d":I
     :goto_0
     move v3, p1
@@ -241,7 +241,7 @@
     :goto_1
     if-eq v3, p2, :cond_4
 
-    .line 5123
+    .line 5138
     if-ltz v3, :cond_2
 
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntriesSize:I
@@ -253,7 +253,7 @@
     aget-object v7, v7, v3
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mVolume:D
-    invoke-static {v7}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v7}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11900(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v7
 
@@ -263,16 +263,16 @@
 
     if-lez v7, :cond_2
 
-    .line 5124
+    .line 5139
     const/4 v2, 0x0
 
-    .line 5125
+    .line 5140
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntries:[Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     aget-object v7, v7, v3
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mValue:D
-    invoke-static {v7}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11700(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v7}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v7
 
@@ -280,12 +280,12 @@
 
     if-gez v7, :cond_3
 
-    .line 5127
+    .line 5142
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
     add-int v6, v7, v3
 
-    .line 5128
+    .line 5143
     .local v6, "rssi":I
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
@@ -294,14 +294,14 @@
 
     if-eqz v7, :cond_0
 
-    .line 5129
+    .line 5144
     new-instance v1, Ljava/text/DecimalFormat;
 
     const-string v7, "#.##"
 
     invoke-direct {v1, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 5130
+    .line 5145
     .local v1, "df":Ljava/text/DecimalFormat;
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -348,7 +348,7 @@
     aget-object v9, v9, v3
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mValue:D
-    invoke-static {v9}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11700(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v9}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v9
 
@@ -375,7 +375,7 @@
     aget-object v9, v9, v3
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mVolume:D
-    invoke-static {v9}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v9}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11900(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v9
 
@@ -392,16 +392,16 @@
     move-result-object v8
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26600(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26700(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 5152
+    .line 5167
     .end local v1    # "df":Ljava/text/DecimalFormat;
     .end local v6    # "rssi":I
     :cond_0
     :goto_2
     return v6
 
-    .line 5120
+    .line 5135
     .end local v0    # "d":I
     .end local v3    # "i":I
     :cond_1
@@ -409,7 +409,7 @@
 
     goto/16 :goto_0
 
-    .line 5137
+    .line 5152
     .restart local v0    # "d":I
     .restart local v3    # "i":I
     :cond_2
@@ -419,24 +419,24 @@
 
     if-lt v2, v7, :cond_3
 
-    .line 5139
+    .line 5154
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
     add-int v6, v7, v3
 
-    .line 5140
+    .line 5155
     .restart local v6    # "rssi":I
     invoke-virtual {p0, v6}, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->presetLoss(I)D
 
     move-result-wide v4
 
-    .line 5141
+    .line 5156
     .local v4, "lossPreset":D
     cmpg-double v7, v4, p3
 
     if-gez v7, :cond_3
 
-    .line 5142
+    .line 5157
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -444,14 +444,14 @@
 
     if-eqz v7, :cond_0
 
-    .line 5143
+    .line 5158
     new-instance v1, Ljava/text/DecimalFormat;
 
     const-string v7, "#.##"
 
     invoke-direct {v1, v7}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 5144
+    .line 5159
     .restart local v1    # "df":Ljava/text/DecimalFormat;
     iget-object v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -516,11 +516,11 @@
     move-result-object v8
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26700(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26800(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
     goto :goto_2
 
-    .line 5121
+    .line 5136
     .end local v1    # "df":Ljava/text/DecimalFormat;
     .end local v4    # "lossPreset":D
     .end local v6    # "rssi":I
@@ -529,7 +529,7 @@
 
     goto/16 :goto_1
 
-    .line 5152
+    .line 5167
     :cond_4
     iget v7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
@@ -542,7 +542,7 @@
     .locals 6
 
     .prologue
-    .line 5092
+    .line 5107
     iget-wide v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssidAvoidTimeMax:J
 
     const-wide/16 v4, 0x0
@@ -551,7 +551,7 @@
 
     if-lez v2, :cond_1
 
-    .line 5093
+    .line 5108
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -594,22 +594,22 @@
     move-result-object v3
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26300(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26400(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 5106
+    .line 5121
     :cond_0
     :goto_0
     return-void
 
-    .line 5099
+    .line 5114
     :cond_1
     const/16 v0, -0x69
 
-    .line 5100
+    .line 5115
     .local v0, "from":I
     const/16 v1, -0x2d
 
-    .line 5101
+    .line 5116
     .local v1, "to":I
     const-wide v2, 0x3fc999999999999aL    # 0.2
 
@@ -619,18 +619,18 @@
 
     iput v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetRssi:I
 
-    .line 5102
+    .line 5117
     const/4 v2, 0x1
 
     iput v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetCount:I
 
-    .line 5103
+    .line 5118
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->MAX_AVOID_TIME:[Landroid/net/wifi/WifiWatchdogStateMachine$MaxAvoidTime;
-    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26400()[Landroid/net/wifi/WifiWatchdogStateMachine$MaxAvoidTime;
+    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26500()[Landroid/net/wifi/WifiWatchdogStateMachine$MaxAvoidTime;
 
     move-result-object v4
 
@@ -646,7 +646,7 @@
 
     iput-wide v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssidAvoidTimeMax:J
 
-    .line 5104
+    .line 5119
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -689,7 +689,7 @@
     move-result-object v3
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26500(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26600(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -699,7 +699,7 @@
     .param p1, "rssi"    # I
 
     .prologue
-    .line 5033
+    .line 5048
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -728,39 +728,39 @@
     move-result-object v12
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v11, v12}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26100(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26200(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 5035
+    .line 5050
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v8
 
-    .line 5036
+    .line 5051
     .local v8, "now":J
     iget-wide v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimeGood:J
 
     sub-long v3, v8, v11
 
-    .line 5037
+    .line 5052
     .local v3, "lastGood":J
     iget-wide v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mLastTimePoor:J
 
     sub-long v5, v8, v11
 
-    .line 5038
+    .line 5053
     .local v5, "lastPoor":J
     add-int/lit8 v2, p1, 0x3
 
-    .line 5039
+    .line 5054
     .local v2, "from":I
     add-int/lit8 v10, p1, 0x14
 
-    .line 5040
+    .line 5055
     .local v10, "to":I
     const-wide/16 v0, 0x0
 
-    .line 5043
+    .line 5058
     .local v0, "avoidMax":J
     const-wide v11, 0x3fc999999999999aL    # 0.2
 
@@ -770,20 +770,20 @@
 
     iput v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetRssi:I
 
-    .line 5044
+    .line 5059
     const/4 v11, 0x3
 
     iput v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mGoodLinkTargetCount:I
 
-    .line 5062
+    .line 5077
     const-wide/16 v0, 0x7530
 
-    .line 5075
+    .line 5090
     add-long v11, v8, v0
 
     iput-wide v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mBssidAvoidTimeMax:J
 
-    .line 5077
+    .line 5092
     iget-object v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -849,9 +849,9 @@
     move-result-object v12
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v11, v12}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26200(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v11, v12}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26300(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 5080
+    .line 5095
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v11
@@ -868,7 +868,7 @@
 
     move-result v7
 
-    .line 5081
+    .line 5096
     .local v7, "line":I
     iget-object v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -878,7 +878,7 @@
 
     iput v12, v11, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcStep:I
 
-    .line 5082
+    .line 5097
     iget-object v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v11, v11, Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentQcFail:Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;
@@ -887,7 +887,7 @@
 
     iput v12, v11, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->error:I
 
-    .line 5083
+    .line 5098
     iget-object v11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v11, v11, Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentQcFail:Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;
@@ -910,7 +910,7 @@
 
     iput v12, v11, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->line:I
 
-    .line 5084
+    .line 5099
     const/4 v11, 0x1
 
     return v11
@@ -925,16 +925,16 @@
 
     const-wide/high16 v2, 0x3ff0000000000000L    # 1.0
 
-    .line 5014
+    .line 5029
     const/16 v4, -0x5a
 
     if-gt p1, v4, :cond_0
 
-    .line 5023
+    .line 5038
     :goto_0
     return-wide v2
 
-    .line 5015
+    .line 5030
     :cond_0
     if-lez p1, :cond_1
 
@@ -942,26 +942,26 @@
 
     goto :goto_0
 
-    .line 5017
+    .line 5032
     :cond_1
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->sPresetLoss:[D
-    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26000()[D
+    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26100()[D
 
     move-result-object v4
 
     if-nez v4, :cond_2
 
-    .line 5019
+    .line 5034
     const/16 v1, 0x5a
 
-    .line 5020
+    .line 5035
     .local v1, "size":I
     new-array v4, v9, [D
 
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->sPresetLoss:[D
-    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26002([D)[D
+    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26102([D)[D
 
-    .line 5021
+    .line 5036
     const/4 v0, 0x0
 
     .local v0, "i":I
@@ -969,7 +969,7 @@
     if-ge v0, v9, :cond_2
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->sPresetLoss:[D
-    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26000()[D
+    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26100()[D
 
     move-result-object v4
 
@@ -991,12 +991,12 @@
 
     goto :goto_1
 
-    .line 5023
+    .line 5038
     .end local v0    # "i":I
     .end local v1    # "size":I
     :cond_2
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->sPresetLoss:[D
-    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26000()[D
+    invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26100()[D
 
     move-result-object v2
 
@@ -1014,21 +1014,21 @@
     .param p4, "volume"    # I
 
     .prologue
-    .line 4996
+    .line 5011
     if-gtz p4, :cond_1
 
-    .line 5005
+    .line 5020
     :cond_0
     :goto_0
     return-void
 
-    .line 4997
+    .line 5012
     :cond_1
     iget v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mRssiBase:I
 
     sub-int v1, p1, v2
 
-    .line 4998
+    .line 5013
     .local v1, "index":I
     if-ltz v1, :cond_0
 
@@ -1036,14 +1036,14 @@
 
     if-ge v1, v2, :cond_0
 
-    .line 4999
+    .line 5014
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->mEntries:[Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;
 
     aget-object v2, v2, v1
 
     invoke-virtual {v2, p2, p3, p4}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->update(DI)V
 
-    .line 5000
+    .line 5015
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -1051,14 +1051,14 @@
 
     if-eqz v2, :cond_0
 
-    .line 5001
+    .line 5016
     new-instance v0, Ljava/text/DecimalFormat;
 
     const-string v2, "#.##"
 
     invoke-direct {v0, v2}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
 
-    .line 5002
+    .line 5017
     .local v0, "df":Ljava/text/DecimalFormat;
     iget-object v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$BssidStatistics;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -1087,7 +1087,7 @@
     aget-object v4, v4, v1
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mValue:D
-    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11700(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v4
 
@@ -1114,7 +1114,7 @@
     aget-object v4, v4, v1
 
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->mVolume:D
-    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11800(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
+    invoke-static {v4}, Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;->access$11900(Landroid/net/wifi/WifiWatchdogStateMachine$VolumeWeightedEMA;)D
 
     move-result-wide v4
 
@@ -1131,7 +1131,7 @@
     move-result-object v3
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
-    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$25900(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$26000(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

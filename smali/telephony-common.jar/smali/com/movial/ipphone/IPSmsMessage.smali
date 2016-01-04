@@ -177,7 +177,7 @@
 
     .line 210
     .local v1, "msg":Lcom/movial/ipphone/IPSmsMessage;
-    iput p0, v1, Lcom/movial/ipphone/IPSmsMessage;->mIndexOnIcc:I
+    iput p0, v1, Lcom/android/internal/telephony/SmsMessageBase;->mIndexOnIcc:I
 
     .line 215
     const/4 v5, 0x0
@@ -211,7 +211,7 @@
 
     and-int/lit8 v5, v5, 0x7
 
-    iput v5, v1, Lcom/movial/ipphone/IPSmsMessage;->mStatusOnIcc:I
+    iput v5, v1, Lcom/android/internal/telephony/SmsMessageBase;->mStatusOnIcc:I
 
     .line 223
     array-length v5, p1
@@ -552,7 +552,7 @@
 
     move-result-object v5
 
-    iput-object v5, v2, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedMessage:[B
+    iput-object v5, v2, Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;->encodedMessage:[B
 
     goto :goto_0
 .end method
@@ -1029,7 +1029,7 @@
 
     move-result-object v12
 
-    iput-object v12, v7, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedMessage:[B
+    iput-object v12, v7, Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;->encodedMessage:[B
 
     goto/16 :goto_0
 
@@ -1119,7 +1119,7 @@
     .line 506
     const/4 v2, 0x0
 
-    iput-object v2, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
+    iput-object v2, p4, Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;->encodedScAddress:[B
 
     .line 513
     :goto_0
@@ -1195,7 +1195,7 @@
 
     move-result-object v2
 
-    iput-object v2, p4, Lcom/android/internal/telephony/gsm/SmsMessage$SubmitPdu;->encodedScAddress:[B
+    iput-object v2, p4, Lcom/android/internal/telephony/SmsMessageBase$SubmitPduBase;->encodedScAddress:[B
 
     goto :goto_0
 
@@ -1342,7 +1342,7 @@
 
     .prologue
     .line 963
-    iput-object p1, p0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iput-object p1, p0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     .line 967
     new-instance v1, Lcom/movial/ipphone/IPSmsMessage$PduParser;
@@ -1355,10 +1355,10 @@
 
     move-result-object v2
 
-    iput-object v2, p0, Lcom/movial/ipphone/IPSmsMessage;->mScAddress:Ljava/lang/String;
+    iput-object v2, p0, Lcom/android/internal/telephony/SmsMessageBase;->mScAddress:Ljava/lang/String;
 
     .line 971
-    iget-object v2, p0, Lcom/movial/ipphone/IPSmsMessage;->mScAddress:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/internal/telephony/SmsMessageBase;->mScAddress:Ljava/lang/String;
 
     if-eqz v2, :cond_0
 
@@ -1463,10 +1463,10 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iput-object v1, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     .line 1060
-    iget-object v1, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v1, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     if-eqz v1, :cond_0
 
@@ -1527,7 +1527,7 @@
 
     move-result-wide v4
 
-    iput-wide v4, p0, Lcom/movial/ipphone/IPSmsMessage;->mScTimeMillis:J
+    iput-wide v4, p0, Lcom/android/internal/telephony/SmsMessageBase;->mScTimeMillis:J
 
     .line 1082
     and-int/lit8 v1, p2, 0x40
@@ -1588,7 +1588,7 @@
 
     move-result v3
 
-    iput v3, p0, Lcom/movial/ipphone/IPSmsMessage;->mMessageRef:I
+    iput v3, p0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageRef:I
 
     .line 1015
     invoke-virtual {p1}, Lcom/movial/ipphone/IPSmsMessage$PduParser;->getAddress()Lcom/android/internal/telephony/gsm/GsmSmsAddress;
@@ -1602,7 +1602,7 @@
 
     move-result-wide v6
 
-    iput-wide v6, p0, Lcom/movial/ipphone/IPSmsMessage;->mScTimeMillis:J
+    iput-wide v6, p0, Lcom/android/internal/telephony/SmsMessageBase;->mScTimeMillis:J
 
     .line 1019
     invoke-virtual {p1}, Lcom/movial/ipphone/IPSmsMessage$PduParser;->getSCTimestampMillis()J
@@ -1856,7 +1856,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserData:[B
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserData:[B
 
     .line 1190
     invoke-virtual/range {p1 .. p1}, Lcom/movial/ipphone/IPSmsMessage$PduParser;->getUserDataHeader()Lcom/android/internal/telephony/SmsHeader;
@@ -1865,7 +1865,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     .line 1192
     packed-switch v5, :pswitch_data_0
@@ -1874,12 +1874,12 @@
     :goto_5
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     if-eqz v11, :cond_0
 
     .line 1250
-    invoke-virtual/range {p0 .. p0}, Lcom/movial/ipphone/IPSmsMessage;->parseMessageBody()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/telephony/SmsMessageBase;->parseMessageBody()V
 
     .line 1253
     :cond_0
@@ -2103,12 +2103,12 @@
 
     move-object/from16 v0, p0
 
-    iput-boolean v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mIsMwi:Z
+    iput-boolean v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mIsMwi:Z
 
     .line 1163
     move-object/from16 v0, p0
 
-    iput-boolean v2, v0, Lcom/movial/ipphone/IPSmsMessage;->mMwiSense:Z
+    iput-boolean v2, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMwiSense:Z
 
     .line 1164
     move-object/from16 v0, p0
@@ -2126,7 +2126,7 @@
     :goto_9
     move-object/from16 v0, p0
 
-    iput-boolean v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMwiDontStore:Z
+    iput-boolean v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMwiDontStore:Z
 
     goto/16 :goto_3
 
@@ -2156,7 +2156,7 @@
 
     move-object/from16 v0, p0
 
-    iput-boolean v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mIsMwi:Z
+    iput-boolean v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mIsMwi:Z
 
     .line 1168
     const-string v11, "IPSmsMessage"
@@ -2297,18 +2297,18 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     .line 1198
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     if-eqz v11, :cond_11
 
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     iget-object v11, v11, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
 
@@ -2316,7 +2316,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     iget-object v11, v11, Lcom/android/internal/telephony/SmsHeader;->portAddrs:Lcom/android/internal/telephony/SmsHeader$PortAddrs;
 
@@ -2344,7 +2344,7 @@
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     const/4 v12, 0x0
 
@@ -2355,7 +2355,7 @@
     .line 1209
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     array-length v11, v11
 
@@ -2367,7 +2367,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iget-object v12, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     invoke-virtual {v12}, Ljava/lang/String;->length()I
 
@@ -2410,7 +2410,7 @@
     .line 1216
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     const/4 v12, 0x0
 
@@ -2418,13 +2418,13 @@
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v14, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     array-length v14, v14
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iget-object v15, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     invoke-virtual {v15}, Ljava/lang/String;->length()I
 
@@ -2441,13 +2441,13 @@
 
     move-object/from16 v0, p0
 
-    iget-object v12, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v12, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     array-length v12, v12
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iget-object v13, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     invoke-virtual {v13}, Ljava/lang/String;->length()I
 
@@ -2468,7 +2468,7 @@
     .local v4, "dcs_offset":I
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     aget-byte v11, v11, v4
 
@@ -2479,7 +2479,7 @@
     .line 1222
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     aget-byte v11, v11, v4
 
@@ -2560,7 +2560,7 @@
     .line 1228
     move-object/from16 v0, p0
 
-    iput-object v7, v0, Lcom/movial/ipphone/IPSmsMessage;->mPdu:[B
+    iput-object v7, v0, Lcom/android/internal/telephony/SmsMessageBase;->mPdu:[B
 
     goto/16 :goto_5
 
@@ -2588,7 +2588,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     iget v11, v11, Lcom/android/internal/telephony/SmsHeader;->languageTable:I
 
@@ -2599,7 +2599,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
+    iget-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mUserDataHeader:Lcom/android/internal/telephony/SmsHeader;
 
     iget v11, v11, Lcom/android/internal/telephony/SmsHeader;->languageShiftTable:I
 
@@ -2612,7 +2612,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     goto/16 :goto_5
 
@@ -2638,7 +2638,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     goto/16 :goto_5
 
@@ -2652,7 +2652,7 @@
 
     move-object/from16 v0, p0
 
-    iput-object v11, v0, Lcom/movial/ipphone/IPSmsMessage;->mMessageBody:Ljava/lang/String;
+    iput-object v11, v0, Lcom/android/internal/telephony/SmsMessageBase;->mMessageBody:Ljava/lang/String;
 
     goto/16 :goto_5
 
@@ -2804,7 +2804,7 @@
 
     .prologue
     .line 890
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;
 
@@ -2814,7 +2814,7 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;
 
@@ -2843,11 +2843,11 @@
     const/4 v1, 0x1
 
     .line 897
-    iget-boolean v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mIsMwi:Z
+    iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mIsMwi:Z
 
     if-eqz v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mMwiSense:Z
+    iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mMwiSense:Z
 
     if-nez v0, :cond_0
 
@@ -2856,11 +2856,11 @@
     return v1
 
     :cond_0
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;
 
@@ -2890,11 +2890,11 @@
     const/4 v1, 0x1
 
     .line 908
-    iget-boolean v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mIsMwi:Z
+    iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mIsMwi:Z
 
     if-eqz v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mMwiSense:Z
+    iget-boolean v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mMwiSense:Z
 
     if-eqz v0, :cond_0
 
@@ -2903,11 +2903,11 @@
     return v1
 
     :cond_0
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/movial/ipphone/IPSmsMessage;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsMessageBase;->mOriginatingAddress:Lcom/android/internal/telephony/SmsAddress;
 
     check-cast v0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;
 
@@ -2937,11 +2937,11 @@
     const/4 v0, 0x1
 
     .line 919
-    iget-boolean v1, p0, Lcom/movial/ipphone/IPSmsMessage;->mIsMwi:Z
+    iget-boolean v1, p0, Lcom/android/internal/telephony/SmsMessageBase;->mIsMwi:Z
 
     if-eqz v1, :cond_1
 
-    iget-boolean v1, p0, Lcom/movial/ipphone/IPSmsMessage;->mMwiDontStore:Z
+    iget-boolean v1, p0, Lcom/android/internal/telephony/SmsMessageBase;->mMwiDontStore:Z
 
     if-eqz v1, :cond_1
 
@@ -2961,7 +2961,7 @@
     .line 927
     const-string v1, " "
 
-    invoke-virtual {p0}, Lcom/movial/ipphone/IPSmsMessage;->getMessageBody()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/internal/telephony/SmsMessageBase;->getMessageBody()Ljava/lang/String;
 
     move-result-object v2
 

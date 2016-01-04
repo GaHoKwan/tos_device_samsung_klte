@@ -32,17 +32,22 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 3536
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3537
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkitsec/WebViewCore$DrawData;->mBaseLayer:I
 
+    .line 3538
     new-instance v0, Landroid/graphics/Point;
 
     invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
 
     iput-object v0, p0, Landroid/webkitsec/WebViewCore$DrawData;->mContentSize:Landroid/graphics/Point;
 
+    .line 3539
     return-void
 .end method

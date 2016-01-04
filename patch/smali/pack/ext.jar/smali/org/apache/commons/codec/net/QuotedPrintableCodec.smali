@@ -568,7 +568,7 @@
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     new-instance v1, Lorg/apache/commons/codec/DecoderException;
 
-    invoke-virtual {v0}, Ljava/io/UnsupportedEncodingException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -776,7 +776,7 @@
     .local v0, "e":Ljava/io/UnsupportedEncodingException;
     new-instance v1, Lorg/apache/commons/codec/EncoderException;
 
-    invoke-virtual {v0}, Ljava/io/UnsupportedEncodingException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 

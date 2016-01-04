@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Landroid/app/IStopUserCallback;I)V
     .locals 0
 
+    .prologue
+    .line 19935
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$29;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$29;->val$callback:Landroid/app/IStopUserCallback;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 19939
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$29;->val$callback:Landroid/app/IStopUserCallback;
 
@@ -54,9 +58,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 19942
     :goto_0
     return-void
 
+    .line 19940
     :catch_0
     move-exception v0
 

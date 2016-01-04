@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/AirButtonImpl;)V
     .locals 0
 
+    .prologue
+    .line 1363
     iput-object p1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$6;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1366
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 1368
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "AirButtonImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -60,6 +68,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1369
     const-string v1, "com.samsung.cover.OPEN"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,16 +77,19 @@
 
     if-eqz v1, :cond_1
 
+    .line 1371
     const-string v1, "AirButtonImpl"
 
     const-string v2, "do nothing on com.samsung.cover.OPEN"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1386
     :cond_0
     :goto_0
     return-void
 
+    .line 1381
     :cond_1
     const-string v1, "android.intent.action.CONFIGURATION_CHANGED"
 
@@ -87,12 +99,14 @@
 
     if-eqz v1, :cond_2
 
+    .line 1382
     iget-object v1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$6;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-virtual {v1}, Lcom/samsung/android/airbutton/AirButtonImpl;->hide()V
 
     goto :goto_0
 
+    .line 1383
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$6;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
@@ -116,6 +130,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 1384
     :cond_3
     iget-object v1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$6;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 

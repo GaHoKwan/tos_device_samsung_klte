@@ -39,7 +39,7 @@
 
     sget-object v1, Landroid/media/WFDUibcManager$UIBC_Mode;->Camera:Landroid/media/WFDUibcManager$UIBC_Mode;
 
-    invoke-virtual {v1}, Landroid/media/WFDUibcManager$UIBC_Mode;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Landroid/media/WFDUibcManager$UIBC_Mode;->forceValue:Landroid/media/WFDUibcManager$UIBC_Mode;
 
-    invoke-virtual {v1}, Landroid/media/WFDUibcManager$UIBC_Mode;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

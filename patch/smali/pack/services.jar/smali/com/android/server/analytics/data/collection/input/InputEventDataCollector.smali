@@ -38,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 54
     new-instance v0, Ljava/text/SimpleDateFormat;
 
     const-string v1, "MM-dd HH:mm:ss.SSS"
@@ -52,8 +54,11 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
+    .line 103
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 104
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v1, "InternalHandlerThread"
@@ -62,8 +67,11 @@
 
     invoke-direct {v0, v1, v2}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
+    .line 106
+    .local v0, "thread":Landroid/os/HandlerThread;
     invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
 
+    .line 107
     new-instance v1, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector$InternalHandler;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
@@ -74,6 +82,7 @@
 
     sput-object v1, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mInternalHandler:Landroid/os/Handler;
 
+    .line 108
     sget-object v1, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mInternalHandler:Landroid/os/Handler;
 
     new-instance v2, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector$1;
@@ -82,26 +91,33 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 119
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mPid:I
 
+    .line 120
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getId()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mTid:J
 
+    .line 121
     iput-object p0, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mInstance:Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;
 
+    .line 122
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;)Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;
 
+    .prologue
+    .line 50
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mInstance:Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;
 
     return-object v0
@@ -109,7 +125,11 @@
 
 .method static synthetic access$100(Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;Ljava/lang/String;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;
+    .param p1, "x1"    # Ljava/lang/String;
 
+    .prologue
+    .line 50
     invoke-direct {p0, p1}, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->processInputEventLog(Ljava/lang/String;)V
 
     return-void
@@ -120,7 +140,11 @@
 
 .method public static log(ILjava/lang/String;)V
     .locals 3
+    .param p0, "logGroup"    # I
+    .param p1, "log"    # Ljava/lang/String;
 
+    .prologue
+    .line 57
     sget-object v0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mInternalHandler:Landroid/os/Handler;
 
     const/4 v1, 0x1
@@ -135,20 +159,25 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 59
     return-void
 .end method
 
 .method private processInputEventLog(Ljava/lang/String;)V
     .locals 6
+    .param p1, "log"    # Ljava/lang/String;
 
+    .prologue
     const/4 v5, 0x4
 
+    .line 162
     const-string v3, "InputEventDataCollector"
 
     const-string v4, "processInputEvent"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 164
     new-array v0, v5, [Ljava/lang/Object;
 
     const/4 v3, 0x0
@@ -189,12 +218,16 @@
 
     aput-object p1, v0, v3
 
+    .line 167
+    .local v0, "arguments":[Ljava/lang/Object;
     const-string/jumbo v3, "{0} {1,number,##########} {2,number,##########} I input_event: {3}"
 
     invoke-static {v3, v0}, Ljava/text/MessageFormat;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 170
+    .local v2, "result":Ljava/lang/String;
     :try_start_0
     iget-object v3, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mCallback:Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;
 
@@ -204,12 +237,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 175
     :goto_0
     return-void
 
+    .line 172
     :catch_0
     move-exception v1
 
+    .line 173
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_0
@@ -217,11 +254,16 @@
 
 .method private supportedLogGroups(I)Z
     .locals 2
+    .param p1, "logGroups"    # I
 
+    .prologue
+    .line 199
     invoke-virtual {p0}, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->getSupportedLogGroups()I
 
     move-result v0
 
+    .line 200
+    .local v0, "supported":I
     and-int v1, v0, p1
 
     if-eqz v1, :cond_0
@@ -242,6 +284,8 @@
 .method public getActiveLogGroups()I
     .locals 1
 
+    .prologue
+    .line 195
     iget v0, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mLogGroups:I
 
     return v0
@@ -250,6 +294,8 @@
 .method public getSupportedLogGroups()I
     .locals 1
 
+    .prologue
+    .line 126
     const/4 v0, 0x4
 
     return v0
@@ -257,27 +303,38 @@
 
 .method public registerLogCollectorCallback(Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;)V
     .locals 0
+    .param p1, "callback"    # Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;
 
+    .prologue
+    .line 131
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mCallback:Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;
 
+    .line 132
     return-void
 .end method
 
 .method public restartLogCollection(I)V
     .locals 0
+    .param p1, "logGroups"    # I
 
+    .prologue
+    .line 137
     return-void
 .end method
 
 .method public startLogCollection(I)V
     .locals 3
+    .param p1, "logGroups"    # I
 
+    .prologue
+    .line 141
     invoke-direct {p0, p1}, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->supportedLogGroups(I)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 142
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -302,34 +359,45 @@
 
     throw v0
 
+    .line 144
     :cond_0
     iput p1, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mLogGroups:I
 
+    .line 145
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->enableLogCollection(Z)V
 
+    .line 155
     return-void
 .end method
 
 .method public stopLogCollection()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 179
     invoke-static {v0}, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->enableLogCollection(Z)V
 
+    .line 185
     iput v0, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mLogGroups:I
 
+    .line 186
     return-void
 .end method
 
 .method public unregisterLogCollectorCallback(Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;)V
     .locals 1
+    .param p1, "callback"    # Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;
 
+    .prologue
+    .line 190
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/analytics/data/collection/input/InputEventDataCollector;->mCallback:Lcom/sec/analytics/data/collection/serviceif/LogCollector$LogCollectorCallback;
 
+    .line 191
     return-void
 .end method

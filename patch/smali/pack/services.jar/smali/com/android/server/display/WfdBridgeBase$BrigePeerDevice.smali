@@ -34,28 +34,38 @@
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;)V
     .locals 1
 
+    .prologue
+    .line 96
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$BrigePeerDevice;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>()V
 
+    .line 108
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/display/WfdBridgeBase$BrigePeerDevice;->mSupportedDevice:I
 
+    .line 98
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;Landroid/net/wifi/p2p/WifiP2pDevice;)V
     .locals 1
+    .param p2, "device"    # Landroid/net/wifi/p2p/WifiP2pDevice;
 
+    .prologue
+    .line 100
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$BrigePeerDevice;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
+    .line 101
     invoke-direct {p0, p2}, Landroid/net/wifi/p2p/WifiP2pDevice;-><init>(Landroid/net/wifi/p2p/WifiP2pDevice;)V
 
+    .line 108
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/display/WfdBridgeBase$BrigePeerDevice;->mSupportedDevice:I
 
+    .line 102
     return-void
 .end method
 
@@ -63,6 +73,9 @@
 # virtual methods
 .method public parseSupportedType(Ljava/util/StringTokenizer;)V
     .locals 0
+    .param p1, "st"    # Ljava/util/StringTokenizer;
 
+    .prologue
+    .line 106
     return-void
 .end method

@@ -39,25 +39,35 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 18
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    .line 19
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
-    invoke-virtual {p0, p0, v0}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
+    .line 20
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback;
     .locals 2
+    .param p0, "obj"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 27
     if-nez p0, :cond_0
 
+    .line 28
     const/4 v0, 0x0
 
+    .line 34
     :goto_0
     return-object v0
 
+    .line 30
     :cond_0
     const-string v1, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
@@ -65,19 +75,24 @@
 
     move-result-object v0
 
+    .line 31
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback;
 
     if-eqz v1, :cond_1
 
+    .line 32
     check-cast v0, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback;
 
     goto :goto_0
 
+    .line 34
     :cond_1
     new-instance v0, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub$Proxy;
 
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -88,19 +103,28 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
+    .prologue
+    .line 38
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 10
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 42
     sparse-switch p1, :sswitch_data_0
 
+    .line 116
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v0
@@ -108,32 +132,42 @@
     :goto_0
     return v0
 
+    .line 46
     :sswitch_0
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 47
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 51
     :sswitch_1
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 53
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
+    .line 55
+    .local v1, "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 57
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
+    .line 59
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -142,23 +176,33 @@
 
     const/4 v4, 0x1
 
+    .line 61
+    .local v4, "_arg3":Z
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
+    .line 63
+    .local v5, "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v6
 
+    .line 65
+    .local v6, "_arg5":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v7
 
+    .line 67
+    .local v7, "_arg6":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v8
 
+    .line 69
+    .local v8, "_arg7":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -167,108 +211,175 @@
 
     const/4 v9, 0x1
 
+    .local v9, "_arg8":Z
     :goto_2
     move-object v0, p0
 
+    .line 70
     invoke-virtual/range {v0 .. v9}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub;->onStatusEvent(IIIZILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 
+    .line 71
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 72
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 59
+    .end local v4    # "_arg3":Z
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Ljava/lang/String;
+    .end local v7    # "_arg6":Ljava/lang/String;
+    .end local v8    # "_arg7":Ljava/lang/String;
+    .end local v9    # "_arg8":Z
     :cond_0
     const/4 v4, 0x0
 
     goto :goto_1
 
+    .line 69
+    .restart local v4    # "_arg3":Z
+    .restart local v5    # "_arg4":I
+    .restart local v6    # "_arg5":Ljava/lang/String;
+    .restart local v7    # "_arg6":Ljava/lang/String;
+    .restart local v8    # "_arg7":Ljava/lang/String;
     :cond_1
     const/4 v9, 0x0
 
     goto :goto_2
 
+    .line 76
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Z
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":Ljava/lang/String;
+    .end local v7    # "_arg6":Ljava/lang/String;
+    .end local v8    # "_arg7":Ljava/lang/String;
     :sswitch_2
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 78
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
+    .line 80
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 82
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 83
+    .local v3, "_arg2":Ljava/lang/String;
     invoke-virtual {p0, v1, v2, v3}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub;->onRdsDataEvent(IILjava/lang/String;)V
 
+    .line 84
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 85
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 89
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":Ljava/lang/String;
     :sswitch_3
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 91
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
+    .line 93
+    .restart local v1    # "_arg0":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 95
+    .restart local v2    # "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
+    .line 97
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
+    .line 99
+    .local v4, "_arg3":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v5
 
+    .line 101
+    .restart local v5    # "_arg4":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v6
 
+    .local v6, "_arg5":I
     move-object v0, p0
 
+    .line 102
     invoke-virtual/range {v0 .. v6}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub;->onRdsRTPlusEvent(IIIIII)V
 
+    .line 103
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 104
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
+    .line 108
+    .end local v1    # "_arg0":I
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
+    .end local v5    # "_arg4":I
+    .end local v6    # "_arg5":I
     :sswitch_4
     const-string v0, "com.broadcom.fm.fmreceiver.IFmReceiverCallback"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 110
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
+    .line 111
+    .restart local v1    # "_arg0":I
     invoke-virtual {p0, v1}, Lcom/broadcom/fm/fmreceiver/IFmReceiverCallback$Stub;->onRdsAFEvent(I)V
 
+    .line 112
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 113
     const/4 v0, 0x1
 
     goto/16 :goto_0
 
+    .line 42
     nop
 
     :sswitch_data_0

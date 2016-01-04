@@ -52,14 +52,14 @@
     .line 69
     const-string v3, "parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 71
     :cond_0
     const/16 v3, 0x84d
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->headerName(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 72
     new-instance v0, Lgov/nist/javax/sip/header/ims/PChargingVector;
@@ -72,11 +72,11 @@
     .local v0, "chargingVector":Lgov/nist/javax/sip/header/ims/PChargingVector;
     :goto_0
     :try_start_1
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -86,16 +86,16 @@
     invoke-virtual {p0, v0}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->parseParameter(Lgov/nist/javax/sip/header/ims/PChargingVector;)V
 
     .line 77
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 78
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_1
     .catch Ljava/text/ParseException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -117,7 +117,7 @@
     .line 91
     const-string v3, "icid-value"
 
-    invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -148,7 +148,7 @@
     .line 96
     const-string v4, "parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 95
     :cond_2
@@ -159,14 +159,14 @@
     .restart local v2    # "la":C
     :cond_3
     :try_start_3
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x3b
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 82
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_3
@@ -197,7 +197,7 @@
     .line 96
     const-string v3, "parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 93
     :cond_5
@@ -222,20 +222,20 @@
     .line 103
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 105
     :cond_0
     const/16 v1, 0x3d
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->nameValue(C)Lgov/nist/core/NameValue;
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->nameValue(C)Lgov/nist/core/NameValue;
 
     move-result-object v0
 
     .line 106
     .local v0, "nv":Lgov/nist/core/NameValue;
-    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -247,7 +247,7 @@
     .line 109
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 114
     :cond_1
@@ -265,7 +265,7 @@
     .line 109
     const-string v2, "parseParameter"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PChargingVectorParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 108
     :cond_2

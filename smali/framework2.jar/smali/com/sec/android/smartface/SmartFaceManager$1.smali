@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/sec/android/smartface/SmartFaceManager;)V
     .locals 0
 
+    .prologue
+    .line 255
     iput-object p1, p0, Lcom/sec/android/smartface/SmartFaceManager$1;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onInfo(Lcom/sec/android/smartface/FaceInfo;I)V
     .locals 3
+    .param p1, "data"    # Lcom/sec/android/smartface/FaceInfo;
+    .param p2, "service_type"    # I
 
+    .prologue
+    .line 260
     const-string v0, "SmartFaceManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -75,10 +81,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 261
     and-int/lit8 v0, p2, 0x4
 
     if-eqz v0, :cond_0
 
+    .line 263
     iget-object v0, p0, Lcom/sec/android/smartface/SmartFaceManager$1;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->lock:Ljava/util/concurrent/locks/Lock;
@@ -88,6 +96,7 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
 
+    .line 264
     iget-object v0, p0, Lcom/sec/android/smartface/SmartFaceManager$1;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     iget v1, p1, Lcom/sec/android/smartface/FaceInfo;->needToStay:I
@@ -95,6 +104,7 @@
     # setter for: Lcom/sec/android/smartface/SmartFaceManager;->mCallbackData:I
     invoke-static {v0, v1}, Lcom/sec/android/smartface/SmartFaceManager;->access$102(Lcom/sec/android/smartface/SmartFaceManager;I)I
 
+    .line 265
     iget-object v0, p0, Lcom/sec/android/smartface/SmartFaceManager$1;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->complete:Ljava/util/concurrent/locks/Condition;
@@ -104,6 +114,7 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V
 
+    .line 266
     iget-object v0, p0, Lcom/sec/android/smartface/SmartFaceManager$1;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->lock:Ljava/util/concurrent/locks/Lock;
@@ -113,6 +124,7 @@
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
+    .line 268
     :cond_0
     return-void
 .end method

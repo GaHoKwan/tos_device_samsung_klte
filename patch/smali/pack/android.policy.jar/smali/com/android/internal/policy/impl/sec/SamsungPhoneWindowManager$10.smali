@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 1922
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,26 +39,33 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1924
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 1925
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "com.sec.factory"
 
     const-string v2, "com.sec.factory.app.factorytest.FactoryTestMain"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1927
     const/high16 v1, 0x34000000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 1930
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$10;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
+    .line 1931
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -67,6 +76,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1932
     :cond_0
     return-void
 .end method

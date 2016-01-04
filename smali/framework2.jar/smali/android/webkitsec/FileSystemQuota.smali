@@ -30,6 +30,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,6 +40,8 @@
 .method static synthetic access$000()V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-static {}, Landroid/webkitsec/FileSystemQuota;->nativeClearAll()V
 
     return-void
@@ -46,16 +50,20 @@
 .method public static getInstance()Landroid/webkitsec/FileSystemQuota;
     .locals 1
 
+    .prologue
+    .line 57
     sget-object v0, Landroid/webkitsec/FileSystemQuota;->sInstance:Landroid/webkitsec/FileSystemQuota;
 
     if-nez v0, :cond_0
 
+    .line 58
     new-instance v0, Landroid/webkitsec/FileSystemQuota;
 
     invoke-direct {v0}, Landroid/webkitsec/FileSystemQuota;-><init>()V
 
     sput-object v0, Landroid/webkitsec/FileSystemQuota;->sInstance:Landroid/webkitsec/FileSystemQuota;
 
+    .line 60
     :cond_0
     sget-object v0, Landroid/webkitsec/FileSystemQuota;->sInstance:Landroid/webkitsec/FileSystemQuota;
 
@@ -67,7 +75,10 @@
 
 .method private declared-synchronized postMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 96
     monitor-enter p0
 
     :try_start_0
@@ -75,16 +86,19 @@
 
     if-nez v0, :cond_1
 
+    .line 97
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
 
     if-nez v0, :cond_0
 
+    .line 98
     new-instance v0, Ljava/util/Vector;
 
     invoke-direct {v0}, Ljava/util/Vector;-><init>()V
 
     iput-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
 
+    .line 100
     :cond_0
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
 
@@ -92,11 +106,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 104
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 102
     :cond_1
     :try_start_1
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mHandler:Landroid/os/Handler;
@@ -107,6 +123,7 @@
 
     goto :goto_0
 
+    .line 96
     :catchall_0
     move-exception v0
 
@@ -120,6 +137,8 @@
 .method public clearAll()V
     .locals 2
 
+    .prologue
+    .line 112
     const/4 v0, 0x0
 
     const/4 v1, 0x0
@@ -130,12 +149,15 @@
 
     invoke-direct {p0, v0}, Landroid/webkitsec/FileSystemQuota;->postMessage(Landroid/os/Message;)V
 
+    .line 113
     return-void
 .end method
 
 .method public declared-synchronized createHandler()V
     .locals 3
 
+    .prologue
+    .line 69
     monitor-enter p0
 
     :try_start_0
@@ -143,16 +165,19 @@
 
     if-nez v0, :cond_1
 
+    .line 70
     new-instance v0, Landroid/webkitsec/FileSystemQuota$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/FileSystemQuota$1;-><init>(Landroid/webkitsec/FileSystemQuota;)V
 
     iput-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mHandler:Landroid/os/Handler;
 
+    .line 83
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
 
     if-eqz v0, :cond_1
 
+    .line 84
     :goto_0
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
 
@@ -162,6 +187,7 @@
 
     if-nez v0, :cond_0
 
+    .line 85
     iget-object v1, p0, Landroid/webkitsec/FileSystemQuota;->mHandler:Landroid/os/Handler;
 
     iget-object v0, p0, Landroid/webkitsec/FileSystemQuota;->mQueuedMessages:Ljava/util/Vector;
@@ -180,6 +206,7 @@
 
     goto :goto_0
 
+    .line 69
     :catchall_0
     move-exception v0
 
@@ -187,6 +214,7 @@
 
     throw v0
 
+    .line 87
     :cond_0
     const/4 v0, 0x0
 
@@ -195,6 +223,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 90
     :cond_1
     monitor-exit p0
 

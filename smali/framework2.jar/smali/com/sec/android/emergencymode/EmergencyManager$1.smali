@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/android/emergencymode/EmergencyManager;)V
     .locals 0
 
+    .prologue
+    .line 91
     iput-object p1, p0, Lcom/sec/android/emergencymode/EmergencyManager$1;->this$0:Lcom/sec/android/emergencymode/EmergencyManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,21 +35,29 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v1, 0x0
 
     const/4 v6, -0x1
 
+    .line 94
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 95
+    .local v0, "action":Ljava/lang/String;
     if-nez v0, :cond_1
 
+    .line 110
     :cond_0
     :goto_0
     return-void
 
+    .line 97
     :cond_1
     const-string v3, "EmergencyManager"
 
@@ -71,6 +81,7 @@
 
     invoke-static {v3, v4}, Lcom/sec/android/emergencymode/Elog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 98
     const-string v3, "android.intent.action.EMERGENCY_START_SERVICE_BY_ORDER"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -79,18 +90,23 @@
 
     if-eqz v3, :cond_2
 
+    .line 99
     const-string v3, "enabled"
 
     invoke-virtual {p2, v3, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v1
 
+    .line 100
+    .local v1, "enabled":Z
     const-string v3, "flag"
 
     invoke-virtual {p2, v3, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
+    .line 101
+    .local v2, "flag":I
     iget-object v3, p0, Lcom/sec/android/emergencymode/EmergencyManager$1;->this$0:Lcom/sec/android/emergencymode/EmergencyManager;
 
     const-string/jumbo v4, "tipsurl"
@@ -102,8 +118,10 @@
     # setter for: Lcom/sec/android/emergencymode/EmergencyManager;->tipsUrl:Ljava/lang/String;
     invoke-static {v3, v4}, Lcom/sec/android/emergencymode/EmergencyManager;->access$002(Lcom/sec/android/emergencymode/EmergencyManager;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 102
     if-eq v2, v6, :cond_0
 
+    .line 103
     iget-object v3, p0, Lcom/sec/android/emergencymode/EmergencyManager$1;->this$0:Lcom/sec/android/emergencymode/EmergencyManager;
 
     # invokes: Lcom/sec/android/emergencymode/EmergencyManager;->triggerEmergencyMode(ZI)V
@@ -111,6 +129,9 @@
 
     goto :goto_0
 
+    .line 105
+    .end local v1    # "enabled":Z
+    .end local v2    # "flag":I
     :cond_2
     const-string v3, "com.nttdocomo.android.epsmodecontrol.action.CHANGE_MODE"
 
@@ -120,6 +141,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 106
     iget-object v3, p0, Lcom/sec/android/emergencymode/EmergencyManager$1;->this$0:Lcom/sec/android/emergencymode/EmergencyManager;
 
     # getter for: Lcom/sec/android/emergencymode/EmergencyManager;->mContext:Landroid/content/Context;
@@ -135,9 +157,13 @@
 
     const/4 v1, 0x1
 
+    .line 107
+    .restart local v1    # "enabled":Z
     :cond_3
     const/16 v2, 0x10
 
+    .line 108
+    .restart local v2    # "flag":I
     iget-object v3, p0, Lcom/sec/android/emergencymode/EmergencyManager$1;->this$0:Lcom/sec/android/emergencymode/EmergencyManager;
 
     # invokes: Lcom/sec/android/emergencymode/EmergencyManager;->triggerEmergencyMode(ZI)V

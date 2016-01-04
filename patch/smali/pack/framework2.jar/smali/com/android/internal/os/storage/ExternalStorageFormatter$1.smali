@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/os/storage/ExternalStorageFormatter;)V
     .locals 0
 
+    .prologue
+    .line 79
     iput-object p1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 
     invoke-direct {p0}, Landroid/os/storage/StorageEventListener;-><init>()V
@@ -33,7 +35,12 @@
 # virtual methods
 .method public onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "oldState"    # Ljava/lang/String;
+    .param p3, "newState"    # Ljava/lang/String;
 
+    .prologue
+    .line 82
     const-string v1, "ExternalStorageFormatter"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -76,6 +83,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 86
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 
     # getter for: Lcom/android/internal/os/storage/ExternalStorageFormatter;->mStorageVolume:Landroid/os/storage/StorageVolume;
@@ -93,6 +101,8 @@
 
     move-result-object v0
 
+    .line 89
+    .local v0, "extStoragePath":Ljava/lang/String;
     :goto_0
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -100,6 +110,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 90
     const-string/jumbo v1, "mounted"
 
     invoke-virtual {v1, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -108,13 +119,17 @@
 
     if-nez v1, :cond_0
 
+    .line 91
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 
     invoke-virtual {v1, p3}, Lcom/android/internal/os/storage/ExternalStorageFormatter;->updateProgressState(Ljava/lang/String;)V
 
+    .line 94
     :cond_0
     return-void
 
+    .line 86
+    .end local v0    # "extStoragePath":Ljava/lang/String;
     :cond_1
     iget-object v1, p0, Lcom/android/internal/os/storage/ExternalStorageFormatter$1;->this$0:Lcom/android/internal/os/storage/ExternalStorageFormatter;
 

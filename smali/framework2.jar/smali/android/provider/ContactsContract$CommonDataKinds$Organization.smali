@@ -46,6 +46,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6274
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -53,7 +55,12 @@
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 6350
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -62,14 +69,20 @@
 
     if-nez v1, :cond_0
 
+    .line 6354
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
+    .line 6353
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Organization;->getTypeLabelResource(I)I
 
     move-result v0
 
+    .line 6354
+    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
@@ -79,24 +92,31 @@
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 6336
     packed-switch p0, :pswitch_data_0
 
+    .line 6339
     const v0, 0x104055c
 
     :goto_0
     return v0
 
+    .line 6337
     :pswitch_0
     const v0, 0x104055a
 
     goto :goto_0
 
+    .line 6338
     :pswitch_1
     const v0, 0x104055b
 
     goto :goto_0
 
+    .line 6336
     nop
 
     :pswitch_data_0

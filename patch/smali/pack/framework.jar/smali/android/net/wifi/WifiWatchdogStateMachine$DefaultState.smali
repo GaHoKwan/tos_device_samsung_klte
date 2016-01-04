@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 991
+    .line 980
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -37,7 +37,7 @@
     .locals 2
 
     .prologue
-    .line 994
+    .line 983
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -54,32 +54,32 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->logd(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2100(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 995
+    .line 984
     :cond_0
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->setupNetworkReceiver()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2200(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 996
+    .line 985
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->registerForSettingsChanges()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2300(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 997
+    .line 986
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->registerForWatchdogToggle()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2400(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 998
+    .line 987
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->updateSettings()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2500(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 999
+    .line 988
     return-void
 .end method
 
@@ -90,12 +90,12 @@
     .prologue
     const/4 v3, 0x1
 
-    .line 1003
+    .line 992
     iget v0, p1, Landroid/os/Message;->what:I
 
     sparse-switch v0, :sswitch_data_0
 
-    .line 1034
+    .line 1023
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -140,20 +140,20 @@
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->loge(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3500(Landroid/net/wifi/WifiWatchdogStateMachine;Ljava/lang/String;)V
 
-    .line 1037
+    .line 1026
     :cond_0
     :goto_0
     :sswitch_0
     return v3
 
-    .line 1005
+    .line 994
     :sswitch_1
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     # invokes: Landroid/net/wifi/WifiWatchdogStateMachine;->updateSettings()V
     invoke-static {v0}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2500(Landroid/net/wifi/WifiWatchdogStateMachine;)V
 
-    .line 1006
+    .line 995
     # getter for: Landroid/net/wifi/WifiWatchdogStateMachine;->DBG:Z
     invoke-static {}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$600()Z
 
@@ -170,7 +170,7 @@
 
     goto :goto_0
 
-    .line 1009
+    .line 998
     :sswitch_2
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -186,7 +186,7 @@
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentSignalLevel:I
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2702(Landroid/net/wifi/WifiWatchdogStateMachine;I)I
 
-    .line 1011
+    .line 1000
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -203,7 +203,7 @@
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mWifiInfo:Landroid/net/wifi/WifiInfo;
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$2902(Landroid/net/wifi/WifiWatchdogStateMachine;Landroid/net/wifi/WifiInfo;)Landroid/net/wifi/WifiInfo;
 
-    .line 1012
+    .line 1001
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -220,7 +220,7 @@
     # setter for: Landroid/net/wifi/WifiWatchdogStateMachine;->mCurrentLinkSpeed:I
     invoke-static {v0, v1}, Landroid/net/wifi/WifiWatchdogStateMachine;->access$3102(Landroid/net/wifi/WifiWatchdogStateMachine;I)I
 
-    .line 1013
+    .line 1002
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     iget-object v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
@@ -239,7 +239,7 @@
 
     goto :goto_0
 
-    .line 1028
+    .line 1017
     :sswitch_3
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -248,7 +248,7 @@
 
     goto :goto_0
 
-    .line 1031
+    .line 1020
     :sswitch_4
     iget-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$DefaultState;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
@@ -259,7 +259,7 @@
 
     goto :goto_0
 
-    .line 1003
+    .line 992
     :sswitch_data_0
     .sparse-switch
         0x21002 -> :sswitch_0

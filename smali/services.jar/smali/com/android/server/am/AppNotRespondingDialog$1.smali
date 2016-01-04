@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/AppNotRespondingDialog;)V
     .locals 0
 
+    .prologue
+    .line 64
     iput-object p1, p0, Lcom/android/server/am/AppNotRespondingDialog$1;->this$0:Lcom/android/server/am/AppNotRespondingDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,16 +39,25 @@
 .method public run()V
     .locals 11
 
+    .prologue
+    .line 67
     const/4 v2, 0x0
 
+    .line 68
+    .local v2, "filestr":Ljava/lang/String;
     const-string v2, "/data/log/looper.txt"
 
+    .line 69
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 70
+    .local v1, "file":Ljava/io/File;
     const/4 v3, 0x0
 
+    .line 71
+    .local v3, "output":Ljava/io/FileOutputStream;
     iget-object v6, p0, Lcom/android/server/am/AppNotRespondingDialog$1;->this$0:Lcom/android/server/am/AppNotRespondingDialog;
 
     # getter for: Lcom/android/server/am/AppNotRespondingDialog;->mProc:Lcom/android/server/am/ProcessRecord;
@@ -56,8 +67,10 @@
 
     iget-object v6, v6, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
 
-    iget-object v5, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v6, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
+    .line 74
+    .local v5, "pkg":Ljava/lang/String;
     :try_start_0
     new-instance v4, Ljava/io/FileOutputStream;
 
@@ -66,6 +79,9 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 75
+    .end local v3    # "output":Ljava/io/FileOutputStream;
+    .local v4, "output":Ljava/io/FileOutputStream;
     :try_start_1
     const-string v6, "activity"
 
@@ -92,8 +108,10 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 79
     if-eqz v4, :cond_2
 
+    .line 81
     :try_start_2
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
@@ -101,17 +119,26 @@
 
     move-object v3, v4
 
+    .line 87
+    .end local v4    # "output":Ljava/io/FileOutputStream;
+    .restart local v3    # "output":Ljava/io/FileOutputStream;
     :cond_0
     :goto_0
     const-string v6, "-k -t -z -d -o /data/log/dumpstate_app_anr"
 
     invoke-static {v6}, Landroid/os/Debug;->saveDumpstate(Ljava/lang/String;)V
 
+    .line 88
     return-void
 
+    .line 82
+    .end local v3    # "output":Ljava/io/FileOutputStream;
+    .restart local v4    # "output":Ljava/io/FileOutputStream;
     :catch_0
     move-exception v0
 
+    .line 83
+    .local v0, "e":Ljava/io/IOException;
     const-string v6, "AppNotRespondingDialog"
 
     const-string v7, "output.close() failed"
@@ -120,11 +147,18 @@
 
     move-object v3, v4
 
+    .line 84
+    .end local v4    # "output":Ljava/io/FileOutputStream;
+    .restart local v3    # "output":Ljava/io/FileOutputStream;
     goto :goto_0
 
+    .line 76
+    .end local v0    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v0
 
+    .line 77
+    .restart local v0    # "e":Ljava/io/IOException;
     :goto_1
     :try_start_3
     const-string v6, "AppNotRespondingDialog"
@@ -151,8 +185,10 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 79
     if-eqz v3, :cond_0
 
+    .line 81
     :try_start_4
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_4
@@ -160,9 +196,11 @@
 
     goto :goto_0
 
+    .line 82
     :catch_2
     move-exception v0
 
+    .line 83
     const-string v6, "AppNotRespondingDialog"
 
     const-string v7, "output.close() failed"
@@ -171,24 +209,31 @@
 
     goto :goto_0
 
+    .line 79
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v6
 
     :goto_2
     if-eqz v3, :cond_1
 
+    .line 81
     :try_start_5
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
 
+    .line 84
     :cond_1
     :goto_3
     throw v6
 
+    .line 82
     :catch_3
     move-exception v0
 
+    .line 83
+    .restart local v0    # "e":Ljava/io/IOException;
     const-string v7, "AppNotRespondingDialog"
 
     const-string v8, "output.close() failed"
@@ -197,22 +242,37 @@
 
     goto :goto_3
 
+    .line 79
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v3    # "output":Ljava/io/FileOutputStream;
+    .restart local v4    # "output":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v6
 
     move-object v3, v4
 
+    .end local v4    # "output":Ljava/io/FileOutputStream;
+    .restart local v3    # "output":Ljava/io/FileOutputStream;
     goto :goto_2
 
+    .line 76
+    .end local v3    # "output":Ljava/io/FileOutputStream;
+    .restart local v4    # "output":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v0
 
     move-object v3, v4
 
+    .end local v4    # "output":Ljava/io/FileOutputStream;
+    .restart local v3    # "output":Ljava/io/FileOutputStream;
     goto :goto_1
 
+    .end local v3    # "output":Ljava/io/FileOutputStream;
+    .restart local v4    # "output":Ljava/io/FileOutputStream;
     :cond_2
     move-object v3, v4
 
+    .end local v4    # "output":Ljava/io/FileOutputStream;
+    .restart local v3    # "output":Ljava/io/FileOutputStream;
     goto :goto_0
 .end method

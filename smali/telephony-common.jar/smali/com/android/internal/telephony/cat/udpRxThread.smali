@@ -90,7 +90,7 @@
     .local v2, "ds":Ljava/net/DatagramSocket;
     iget-object v6, p0, Lcom/android/internal/telephony/cat/udpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
-    iget v5, v6, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->bufferSize:I
+    iget v5, v6, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     .line 465
     .local v5, "size":I
@@ -201,7 +201,7 @@
     .line 476
     iget-object v6, p0, Lcom/android/internal/telephony/cat/udpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
-    iget-object v6, v6, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
+    iget-object v6, v6, Lcom/android/internal/telephony/cat/CatBIPConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     iget-object v7, p0, Lcom/android/internal/telephony/cat/udpRxThread;->conn:Lcom/android/internal/telephony/cat/CatBIPClientConnection;
 
@@ -232,7 +232,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v3}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -313,7 +313,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v4}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 

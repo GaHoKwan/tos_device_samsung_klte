@@ -121,7 +121,7 @@
     .line 192
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
 
-    invoke-virtual {v3, p3, v6}, Landroid/media/audiofx/Virtualizer;->byteArrayToInt([BI)I
+    invoke-virtual {v3, p3, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v1
 
@@ -136,7 +136,7 @@
     .line 195
     iget-object v3, p0, Landroid/media/audiofx/Virtualizer$BaseParameterListener;->this$0:Landroid/media/audiofx/Virtualizer;
 
-    invoke-virtual {v3, p4, v6}, Landroid/media/audiofx/Virtualizer;->byteArrayToShort([BI)S
+    invoke-virtual {v3, p4, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([BI)S
 
     move-result v2
 

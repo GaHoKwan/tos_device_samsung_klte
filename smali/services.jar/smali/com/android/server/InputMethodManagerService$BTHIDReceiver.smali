@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 949
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$BTHIDReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 952
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 953
+    .local v2, "intentAction":Ljava/lang/String;
     const-string v4, "InputMethodManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -60,6 +68,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 954
     const-string v4, "android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,6 +77,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 955
     const-string v4, "android.bluetooth.profile.extra.STATE"
 
     const/4 v5, -0x1
@@ -76,6 +86,8 @@
 
     move-result v0
 
+    .line 956
+    .local v0, "extra":I
     const-string v4, "android.bluetooth.profile.extra.hidType"
 
     const/4 v5, 0x0
@@ -84,12 +96,18 @@
 
     move-result v1
 
+    .line 958
+    .local v1, "hidType":I
     const/4 v3, 0x0
 
+    .line 959
+    .local v3, "isHidDevice":Z
     if-eqz v1, :cond_0
 
+    .line 960
     const/4 v3, 0x1
 
+    .line 963
     :cond_0
     const-string v4, "InputMethodManagerService"
 
@@ -113,6 +131,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 964
     const-string v4, "InputMethodManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -135,6 +154,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 965
     const-string v4, "InputMethodManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -157,17 +177,24 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 967
     if-eqz v3, :cond_1
 
+    .line 968
     const/4 v4, 0x2
 
     if-ne v0, v4, :cond_2
 
+    .line 969
     const/16 v4, 0x8
 
     # |= operator for: Lcom/android/server/InputMethodManagerService;->keyboardState:I
     invoke-static {v4}, Lcom/android/server/InputMethodManagerService;->access$376(I)I
 
+    .line 976
+    .end local v0    # "extra":I
+    .end local v1    # "hidType":I
+    .end local v3    # "isHidDevice":Z
     :cond_1
     :goto_0
     const-string v4, "InputMethodManagerService"
@@ -197,8 +224,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 977
     return-void
 
+    .line 972
+    .restart local v0    # "extra":I
+    .restart local v1    # "hidType":I
+    .restart local v3    # "isHidDevice":Z
     :cond_2
     const/16 v4, -0x9
 

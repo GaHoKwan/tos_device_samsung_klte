@@ -352,7 +352,7 @@
 
     .line 218
     :try_start_2
-    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v14}, Ljava/io/InputStreamReader;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
 
@@ -572,7 +572,7 @@
 
     .line 218
     :try_start_5
-    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v14}, Ljava/io/InputStreamReader;->close()V
     :try_end_5
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
 
@@ -621,7 +621,7 @@
 
     .line 218
     :try_start_7
-    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v14}, Ljava/io/InputStreamReader;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
 
@@ -637,7 +637,7 @@
 
     .line 218
     :try_start_8
-    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v14}, Ljava/io/InputStreamReader;->close()V
     :try_end_8
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_4
 

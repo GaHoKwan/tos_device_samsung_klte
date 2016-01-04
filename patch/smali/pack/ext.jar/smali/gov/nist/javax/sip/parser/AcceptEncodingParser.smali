@@ -59,21 +59,21 @@
     .line 89
     const-string v5, "AcceptEncodingParser.parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 92
     :cond_0
     const/16 v5, 0x813
 
     :try_start_0
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->headerName(I)V
+    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 94
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v5, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
@@ -86,7 +86,7 @@
 
     .line 96
     .local v0, "acceptEncoding":Lgov/nist/javax/sip/header/AcceptEncoding;
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/AcceptEncodingList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -100,7 +100,7 @@
     .line 138
     const-string v5, "AcceptEncodingParser.parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 135
     :cond_2
@@ -110,39 +110,39 @@
     .restart local v0    # "acceptEncoding":Lgov/nist/javax/sip/header/AcceptEncoding;
     :cond_3
     :try_start_1
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/AcceptEncodingList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 128
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v5, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
     if-ne v5, v9, :cond_4
 
     .line 129
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0x2c
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 130
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 98
     .end local v0    # "acceptEncoding":Lgov/nist/javax/sip/header/AcceptEncoding;
     :cond_4
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v5, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
@@ -155,25 +155,25 @@
 
     .line 100
     .restart local v0    # "acceptEncoding":Lgov/nist/javax/sip/header/AcceptEncoding;
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v5, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
     if-eq v5, v7, :cond_5
 
     .line 102
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0xfff
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 103
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -191,61 +191,61 @@
     .end local v4    # "value":Lgov/nist/core/Token;
     :cond_5
     :goto_0
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v5, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
     if-ne v5, v7, :cond_3
 
     .line 108
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0x3b
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 109
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 110
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0x71
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 111
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 112
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0x3d
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 113
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 114
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0xfff
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 115
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
     :try_end_1
@@ -274,7 +274,7 @@
 
     .line 124
     :try_start_3
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_3
@@ -296,7 +296,7 @@
     .line 138
     const-string v6, "AcceptEncodingParser.parse"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 137
     :cond_6
@@ -311,11 +311,11 @@
     .line 120
     .local v2, "ex":Ljava/lang/NumberFormatException;
     :try_start_4
-    invoke-virtual {v2}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v5
 
@@ -328,11 +328,11 @@
 
     .line 122
     .local v2, "ex":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v2}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AcceptEncodingParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v5
 

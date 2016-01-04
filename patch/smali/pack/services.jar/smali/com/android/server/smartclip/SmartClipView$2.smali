@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView;)V
     .locals 0
 
+    .prologue
+    .line 510
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$2;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 512
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 513
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.MEDIA_SCANNER_FINISHED"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -48,6 +56,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 514
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$2;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mIsFirstMediaScan:Z
@@ -57,6 +66,7 @@
 
     if-ne v1, v2, :cond_1
 
+    .line 515
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$2;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     const/4 v2, 0x0
@@ -64,10 +74,12 @@
     # setter for: Lcom/android/server/smartclip/SmartClipView;->mIsFirstMediaScan:Z
     invoke-static {v1, v2}, Lcom/android/server/smartclip/SmartClipView;->access$002(Lcom/android/server/smartclip/SmartClipView;Z)Z
 
+    .line 523
     :cond_0
     :goto_0
     return-void
 
+    .line 518
     :cond_1
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$2;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
@@ -78,6 +90,7 @@
 
     if-nez v1, :cond_0
 
+    .line 519
     iget-object v1, p0, Lcom/android/server/smartclip/SmartClipView$2;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # setter for: Lcom/android/server/smartclip/SmartClipView;->mIsSendingBootMsg:Z

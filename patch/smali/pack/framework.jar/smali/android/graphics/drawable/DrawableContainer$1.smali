@@ -50,7 +50,7 @@
     .line 382
     iget-object v0, p0, Landroid/graphics/drawable/DrawableContainer$1;->this$0:Landroid/graphics/drawable/DrawableContainer;
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/DrawableContainer;->invalidateSelf()V
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     .line 383
     return-void

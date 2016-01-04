@@ -913,7 +913,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -1295,7 +1295,7 @@
 
     const/16 v1, 0x12
 
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/ServiceStateTracker;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
@@ -1333,7 +1333,7 @@
 
     const/16 v1, 0x12
 
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/ServiceStateTracker;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
@@ -1401,7 +1401,7 @@
     .line 1047
     const/16 v4, 0x2b
 
-    invoke-virtual {p0, v4, v2}, Lcom/android/internal/telephony/ServiceStateTracker;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v4, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
@@ -1495,7 +1495,7 @@
     .line 1053
     .local v0, "e":Ljava/lang/InterruptedException;
     :try_start_3
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 1054
     const/4 v4, 0x0
@@ -2739,7 +2739,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->getLooper()Landroid/os/Looper;
+    invoke-virtual {p0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v2
 
@@ -2992,7 +2992,7 @@
     .line 1677
     const-string v5, "999999999999999"
 
-    invoke-virtual {v3}, Landroid/telephony/MultiSimTelephonyManager;->getSubscriberId()Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
 
     move-result-object v6
 
@@ -3004,7 +3004,7 @@
 
     const-string v5, "999999999999999"
 
-    invoke-virtual {v4}, Landroid/telephony/MultiSimTelephonyManager;->getSubscriberId()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
 
     move-result-object v6
 
@@ -4083,8 +4083,13 @@
 
     invoke-virtual {v5, p2}, Landroid/telephony/SignalStrength;->setGsm(Z)V
 
-    .line 940
+    .line 896
     :goto_0
+    iget-object v5, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
+
+    invoke-virtual {v5}, Landroid/telephony/SignalStrength;->setSignalBars()V
+
+    .line 940
     :try_start_0
     iget-object v5, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mSignalStrength:Landroid/telephony/SignalStrength;
 
@@ -4262,14 +4267,28 @@
     :try_start_0
     iget-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
+
+    .line 807
+    invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->hangupBeforeDeactivePDP()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    monitor-exit p0
+
+    .line 848
+    :goto_0
+    return-void
 
     .line 812
+    :cond_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->isDisconnected()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     .line 814
     const-string v1, "radioTurnedOff"
@@ -4285,20 +4304,29 @@
     invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->hangupAndPowerOff()V
 
     .line 847
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     monitor-exit p0
 
-    .line 848
-    return-void
+    goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 
     .line 818
-    :cond_1
+    :cond_2
+    :try_start_1
     invoke-virtual {p1}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->isConnecting()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     .line 819
     const-string v1, "radioTurnedOff"
@@ -4328,11 +4356,11 @@
     .line 823
     const-wide/16 v1, 0x7d0
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/telephony/ServiceStateTracker;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     .line 824
     const-string v1, "Wait upto 2s for data to disconnect, then turn off radio."
@@ -4344,23 +4372,10 @@
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    goto :goto_0
-
-    .line 847
-    .end local v0    # "msg":Landroid/os/Message;
-    :catchall_0
-    move-exception v1
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
+    goto :goto_1
 
     .line 827
-    .restart local v0    # "msg":Landroid/os/Message;
-    :cond_2
-    :try_start_1
+    :cond_3
     const-string v1, "Cannot send delayed Msg, turn off radio right away."
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
@@ -4368,11 +4383,11 @@
     .line 828
     invoke-virtual {p0}, Lcom/android/internal/telephony/ServiceStateTracker;->hangupAndPowerOff()V
 
-    goto :goto_0
+    goto :goto_1
 
     .line 832
     .end local v0    # "msg":Landroid/os/Message;
-    :cond_3
+    :cond_4
     const-string v1, "radioTurnedOff"
 
     invoke-virtual {p1, v1}, Lcom/android/internal/telephony/dataconnection/DcTrackerBase;->cleanUpAllConnections(Ljava/lang/String;)V
@@ -4400,11 +4415,11 @@
     .line 837
     const-wide/16 v1, 0x2710
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/internal/telephony/ServiceStateTracker;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     .line 838
     const-string v1, "Wait upto 10s for data to disconnect, then turn off radio."
@@ -4416,10 +4431,10 @@
 
     iput-boolean v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mPendingRadioPowerOffAfterDataOff:Z
 
-    goto :goto_0
+    goto :goto_1
 
     .line 842
-    :cond_4
+    :cond_5
     const-string v1, "Cannot send delayed Msg, turn off radio right away."
 
     invoke-virtual {p0, v1}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
@@ -4429,7 +4444,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public processPendingRadioPowerOffAfterDataOff()Z
@@ -4767,7 +4782,7 @@
 
     const/16 v1, 0x13
 
-    invoke-virtual {p0, v1, p1}, Lcom/android/internal/telephony/ServiceStateTracker;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v1
 
@@ -5857,9 +5872,69 @@
 .end method
 
 .method protected useDataRegStateForDataOnlyDevices()V
-    .locals 0
+    .locals 2
 
     .prologue
-    .line 459
+    .line 462
+    iget-boolean v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mVoiceCapable:Z
+
+    if-nez v0, :cond_0
+
+    .line 464
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "useDataRegStateForDataOnlyDevice: VoiceRegState="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mNewSS:Landroid/telephony/ServiceState;
+
+    invoke-virtual {v1}, Landroid/telephony/ServiceState;->getVoiceRegState()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " DataRegState="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mNewSS:Landroid/telephony/ServiceState;
+
+    invoke-virtual {v1}, Landroid/telephony/ServiceState;->getDataRegState()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/ServiceStateTracker;->log(Ljava/lang/String;)V
+
+    .line 468
+    iget-object v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mNewSS:Landroid/telephony/ServiceState;
+
+    iget-object v1, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mNewSS:Landroid/telephony/ServiceState;
+
+    invoke-virtual {v1}, Landroid/telephony/ServiceState;->getDataRegState()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/telephony/ServiceState;->setVoiceRegState(I)V
+
+    .line 470
+    :cond_0
     return-void
 .end method

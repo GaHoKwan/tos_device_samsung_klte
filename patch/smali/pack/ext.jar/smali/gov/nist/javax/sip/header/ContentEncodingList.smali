@@ -47,9 +47,9 @@
 
     .line 44
     .local v0, "retval":Lgov/nist/javax/sip/header/ContentEncodingList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ContentEncodingList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ContentEncodingList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     .line 45
     return-object v0

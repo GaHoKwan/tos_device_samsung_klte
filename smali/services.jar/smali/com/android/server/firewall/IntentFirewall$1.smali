@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/firewall/IntentFirewall;)V
     .locals 0
 
+    .prologue
+    .line 534
     iput-object p1, p0, Lcom/android/server/firewall/IntentFirewall$1;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 537
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$1;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
     invoke-static {}, Lcom/android/server/firewall/IntentFirewall;->getRulesDir()Ljava/io/File;
@@ -43,5 +48,6 @@
     # invokes: Lcom/android/server/firewall/IntentFirewall;->readRulesDir(Ljava/io/File;)V
     invoke-static {v0, v1}, Lcom/android/server/firewall/IntentFirewall;->access$300(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
 
+    .line 538
     return-void
 .end method

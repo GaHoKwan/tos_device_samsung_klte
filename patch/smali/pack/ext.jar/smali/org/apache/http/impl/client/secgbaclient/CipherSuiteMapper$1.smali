@@ -44,7 +44,7 @@
 
     fill-array-data v1, :array_0
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 60
     const-string v0, "TLS_RSA_WITH_NULL_MD5"
@@ -53,7 +53,7 @@
 
     fill-array-data v1, :array_1
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 61
     const-string v0, "NULL-MD5"
@@ -62,7 +62,7 @@
 
     fill-array-data v1, :array_2
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 63
     const-string v0, "TLS_RSA_WITH_NULL_SHA"
@@ -71,7 +71,7 @@
 
     fill-array-data v1, :array_3
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 64
     const-string v0, "NULL-SHA"
@@ -80,7 +80,7 @@
 
     fill-array-data v1, :array_4
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 66
     const-string v0, "TLS_RSA_WITH_NULL_SHA256"
@@ -89,7 +89,7 @@
 
     fill-array-data v1, :array_5
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 69
     const-string v0, "TLS_RSA_WITH_RC4_128_MD5"
@@ -98,7 +98,7 @@
 
     fill-array-data v1, :array_6
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 70
     const-string v0, "RC4-MD5"
@@ -107,7 +107,7 @@
 
     fill-array-data v1, :array_7
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 72
     const-string v0, "TLS_RSA_WITH_RC4_128_SHA"
@@ -116,7 +116,7 @@
 
     fill-array-data v1, :array_8
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 73
     const-string v0, "RC4-SHA"
@@ -125,7 +125,7 @@
 
     fill-array-data v1, :array_9
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 75
     const-string v0, "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
@@ -134,7 +134,7 @@
 
     fill-array-data v1, :array_a
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 76
     const-string v0, "DES-CBC3-SHA"
@@ -143,7 +143,7 @@
 
     fill-array-data v1, :array_b
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 78
     const-string v0, "TLS_RSA_WITH_AES_128_CBC_SHA"
@@ -152,7 +152,7 @@
 
     fill-array-data v1, :array_c
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 79
     const-string v0, "AES128-SHA"
@@ -161,7 +161,7 @@
 
     fill-array-data v1, :array_d
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 81
     const-string v0, "TLS_RSA_WITH_AES_256_CBC_SHA"
@@ -170,7 +170,7 @@
 
     fill-array-data v1, :array_e
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 82
     const-string v0, "AES256-SHA"
@@ -179,7 +179,7 @@
 
     fill-array-data v1, :array_f
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 84
     const-string v0, "TLS_RSA_WITH_AES_128_CBC_SHA256"
@@ -188,7 +188,7 @@
 
     fill-array-data v1, :array_10
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 87
     const-string v0, "TLS_RSA_WITH_AES_256_CBC_SHA256"
@@ -197,7 +197,7 @@
 
     fill-array-data v1, :array_11
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/client/secgbaclient/CipherSuiteMapper$1;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 89
     return-void

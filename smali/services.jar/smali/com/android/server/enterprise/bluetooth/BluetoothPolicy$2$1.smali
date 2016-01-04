@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$2;Landroid/os/ConditionVariable;)V
     .locals 0
 
+    .prologue
+    .line 276
     iput-object p1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$2$1;->this$1:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$2;
 
     iput-object p2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$2$1;->val$condition:Landroid/os/ConditionVariable;
@@ -37,7 +39,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 280
     const-string v1, "android.bluetooth.adapter.extra.STATE"
 
     const/high16 v2, -0x80000000
@@ -46,14 +52,18 @@
 
     move-result v0
 
+    .line 282
+    .local v0, "state":I
     const/16 v1, 0xc
 
     if-ne v0, v1, :cond_0
 
+    .line 283
     iget-object v1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$2$1;->val$condition:Landroid/os/ConditionVariable;
 
     invoke-virtual {v1}, Landroid/os/ConditionVariable;->open()V
 
+    .line 285
     :cond_0
     return-void
 .end method

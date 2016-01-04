@@ -114,7 +114,7 @@
     .line 352
     iget-object v4, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
-    iget-object v4, v4, Lcom/android/internal/telephony/RIL;->mGsmBroadcastSmsRegistrant:Landroid/os/Registrant;
+    iget-object v4, v4, Lcom/android/internal/telephony/BaseCommands;->mGsmBroadcastSmsRegistrant:Landroid/os/Registrant;
 
     if-eqz v4, :cond_0
 
@@ -155,7 +155,7 @@
     .line 363
     iget-object v4, p0, Lcom/android/internal/telephony/RIL$1;->this$0:Lcom/android/internal/telephony/RIL;
 
-    iget-object v4, v4, Lcom/android/internal/telephony/RIL;->mGsmBroadcastSmsRegistrant:Landroid/os/Registrant;
+    iget-object v4, v4, Lcom/android/internal/telephony/BaseCommands;->mGsmBroadcastSmsRegistrant:Landroid/os/Registrant;
 
     new-instance v5, Landroid/os/AsyncResult;
 

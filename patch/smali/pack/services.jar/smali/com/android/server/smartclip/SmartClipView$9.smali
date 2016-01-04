@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView;)V
     .locals 0
 
+    .prologue
+    .line 2050
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 2057
     iget-object v0, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mFinishSaveImg:Z
@@ -46,6 +51,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2058
     iget-object v0, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mLoadingAniImgView:Landroid/widget/ImageView;
@@ -57,6 +63,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
+    .line 2059
     iget-object v0, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mLoadingAniImgView:Landroid/widget/ImageView;
@@ -68,13 +75,16 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2060
     iget-object v0, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-virtual {v0}, Lcom/android/server/smartclip/SmartClipView;->closeView()V
 
+    .line 2064
     :goto_0
     return-void
 
+    .line 2062
     :cond_0
     iget-object v0, p0, Lcom/android/server/smartclip/SmartClipView$9;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
@@ -83,19 +93,25 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
     goto :goto_0
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 2067
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 2054
     return-void
 .end method

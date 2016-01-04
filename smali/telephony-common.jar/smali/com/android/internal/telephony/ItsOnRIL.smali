@@ -421,13 +421,13 @@
 
     .prologue
     .line 109
-    iget-object v1, p0, Lcom/android/internal/telephony/ItsOnRIL;->mRequestList:Landroid/util/SparseArray;
+    iget-object v1, p0, Lcom/android/internal/telephony/RIL;->mRequestList:Landroid/util/SparseArray;
 
     monitor-enter v1
 
     .line 110
     :try_start_0
-    iget-object v0, p0, Lcom/android/internal/telephony/ItsOnRIL;->mRequestList:Landroid/util/SparseArray;
+    iget-object v0, p0, Lcom/android/internal/telephony/RIL;->mRequestList:Landroid/util/SparseArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
@@ -647,7 +647,7 @@
     .line 288
     :cond_2
     :try_start_0
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/ItsOnRIL;->responseSetupDataCall(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/RIL;->responseSetupDataCall(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -923,7 +923,7 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {p0, v9, v10, v11}, Lcom/android/internal/telephony/ItsOnRIL;->acknowledgeLastIncomingGsmSms(ZILandroid/os/Message;)V
+    invoke-virtual {p0, v9, v10, v11}, Lcom/android/internal/telephony/RIL;->acknowledgeLastIncomingGsmSms(ZILandroid/os/Message;)V
 
     goto :goto_1
 
@@ -991,14 +991,14 @@
 
     const/4 v11, 0x0
 
-    invoke-virtual {p0, v9, v10, v11}, Lcom/android/internal/telephony/ItsOnRIL;->acknowledgeLastIncomingCdmaSms(ZILandroid/os/Message;)V
+    invoke-virtual {p0, v9, v10, v11}, Lcom/android/internal/telephony/RIL;->acknowledgeLastIncomingCdmaSms(ZILandroid/os/Message;)V
 
     goto :goto_1
 
     .line 350
     .end local v8    # "sms":Landroid/telephony/SmsMessage;
     :sswitch_3
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/ItsOnRIL;->responseCdmaCallWaiting(Landroid/os/Parcel;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/RIL;->responseCdmaCallWaiting(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1036,7 +1036,7 @@
 
     .line 360
     .local v7, "result":Landroid/os/Message;
-    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/ItsOnRIL;->getCurrentCalls(Landroid/os/Message;)V
+    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/RIL;->getCurrentCalls(Landroid/os/Message;)V
 
     goto :goto_0
 
@@ -1072,7 +1072,7 @@
 
     .line 373
     .local v0, "response":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/internal/telephony/DriverCall;>;"
-    iget v1, p0, Lcom/android/internal/telephony/ItsOnRIL;->mPhoneType:I
+    iget v1, p0, Lcom/android/internal/telephony/BaseCommands;->mPhoneType:I
 
     const/4 v2, 0x2
 
@@ -1163,7 +1163,7 @@
 
     .line 146
     .local v1, "authorized":Z
-    iget v5, p0, Lcom/android/internal/telephony/ItsOnRIL;->mPhoneType:I
+    iget v5, p0, Lcom/android/internal/telephony/BaseCommands;->mPhoneType:I
 
     if-ne v5, v7, :cond_1
 
@@ -1237,7 +1237,7 @@
 
     .line 172
     :sswitch_3
-    iget v5, p0, Lcom/android/internal/telephony/ItsOnRIL;->mPhoneType:I
+    iget v5, p0, Lcom/android/internal/telephony/BaseCommands;->mPhoneType:I
 
     if-ne v5, v7, :cond_0
 

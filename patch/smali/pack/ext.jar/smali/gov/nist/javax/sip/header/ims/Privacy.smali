@@ -48,7 +48,7 @@
 
     .prologue
     .line 141
-    invoke-super {p0}, Lgov/nist/javax/sip/header/SIPHeader;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

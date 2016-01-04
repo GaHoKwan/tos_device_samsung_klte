@@ -26,13 +26,20 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "trackerHandler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 1008
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1009
     iput-object p1, p0, Lcom/android/server/ConnectivityService$DefaultNetworkFactory;->mContext:Landroid/content/Context;
 
+    .line 1010
     iput-object p2, p0, Lcom/android/server/ConnectivityService$DefaultNetworkFactory;->mTrackerHandler:Landroid/os/Handler;
 
+    .line 1011
     return-void
 .end method
 
@@ -40,11 +47,16 @@
 # virtual methods
 .method public createTracker(ILandroid/net/NetworkConfig;)Landroid/net/NetworkStateTracker;
     .locals 3
+    .param p1, "targetNetworkType"    # I
+    .param p2, "config"    # Landroid/net/NetworkConfig;
 
+    .prologue
+    .line 1015
     iget v0, p2, Landroid/net/NetworkConfig;->radio:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1033
     :pswitch_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -72,20 +84,24 @@
 
     throw v0
 
+    .line 1017
     :pswitch_1
     const/16 v0, 0xd
 
     if-ne p1, v0, :cond_0
 
+    .line 1018
     new-instance v0, Landroid/net/wifi/WifiP2pStateTracker;
 
     iget-object v1, p2, Landroid/net/NetworkConfig;->name:Ljava/lang/String;
 
     invoke-direct {v0, p1, v1}, Landroid/net/wifi/WifiP2pStateTracker;-><init>(ILjava/lang/String;)V
 
+    .line 1030
     :goto_0
     return-object v0
 
+    .line 1020
     :cond_0
     new-instance v0, Landroid/net/wifi/WifiStateTracker;
 
@@ -95,6 +111,7 @@
 
     goto :goto_0
 
+    .line 1022
     :pswitch_2
     new-instance v0, Landroid/net/MultiSimMobileDataStateTracker;
 
@@ -104,6 +121,7 @@
 
     goto :goto_0
 
+    .line 1024
     :pswitch_3
     new-instance v0, Landroid/net/DummyDataStateTracker;
 
@@ -113,6 +131,7 @@
 
     goto :goto_0
 
+    .line 1026
     :pswitch_4
     invoke-static {}, Landroid/bluetooth/BluetoothTetheringDataTracker;->getInstance()Landroid/bluetooth/BluetoothTetheringDataTracker;
 
@@ -120,6 +139,7 @@
 
     goto :goto_0
 
+    .line 1028
     :pswitch_5
     iget-object v0, p0, Lcom/android/server/ConnectivityService$DefaultNetworkFactory;->mContext:Landroid/content/Context;
 
@@ -132,6 +152,7 @@
 
     goto :goto_0
 
+    .line 1030
     :pswitch_6
     iget-object v0, p0, Lcom/android/server/ConnectivityService$DefaultNetworkFactory;->mContext:Landroid/content/Context;
 
@@ -144,6 +165,7 @@
 
     goto :goto_0
 
+    .line 1015
     nop
 
     :pswitch_data_0

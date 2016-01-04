@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webviewchromium_actionbar_share">Համօգտագործել</string>
+    <string name="webviewchromium_actionbar_web_search">Վեբ որոնում</string>
+    <string name="webviewchromium_accessibility_content_view">Վեբ տեսք</string>
+    <string name="webviewchromium_date_picker_dialog_set">Սահմանել</string>
+    <string name="webviewchromium_date_picker_dialog_clear">Մաքրել</string>
+    <string name="webviewchromium_date_picker_dialog_title">Սահմանել ամսաթիվը</string>
+    <string name="webviewchromium_date_time_picker_dialog_title">Սահմանել ամսաթիվն ու ժամը</string>
+    <string name="webviewchromium_month_picker_dialog_title">Սահմանել ամիսը</string>
+    <string name="webviewchromium_week_picker_dialog_title">Սահմանել շաբաթը</string>
+    <string name="webviewchromium_accessibility_datetime_picker_date">Ամսաթիվը</string>
+    <string name="webviewchromium_accessibility_datetime_picker_time">Ժամը</string>
+    <string name="webviewchromium_accessibility_date_picker_month">Ամիս</string>
+    <string name="webviewchromium_accessibility_date_picker_week">Շաբաթ</string>
+    <string name="webviewchromium_accessibility_date_picker_year">Տարի</string>
+    <string name="webviewchromium_media_player_error_title">Տեսանյութը հնարավոր չէ նվագարկել</string>
+    <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Ներողություն, այս տեսանյութը վավեր չէ այս սարքի հոսքի համար:</string>
+    <string name="webviewchromium_media_player_error_text_unknown">Ներողություն, այս տեսանյութը հնարավոր չէ նվագարկել:</string>
+    <string name="webviewchromium_media_player_error_button">Լավ</string>
+    <string name="webviewchromium_media_player_loading_video">Տեսանյութի բեռնում</string>
+    <string name="webviewchromium_color_picker_button_more">Ավելին</string>
+    <string name="webviewchromium_color_picker_hue">Գուներանգ</string>
+    <string name="webviewchromium_color_picker_saturation">Հագեցում</string>
+    <string name="webviewchromium_color_picker_value">Արժեք</string>
+    <string name="webviewchromium_color_picker_button_set">Սահմանել</string>
+    <string name="webviewchromium_color_picker_button_cancel">Չեղարկել</string>
+    <string name="webviewchromium_color_picker_dialog_title">Ընտրել գույնը</string>
+    <string name="webviewchromium_low_memory_error">Չստացվեց ավարտել նախորդ գործողությունը՝ անբավարար հիշողության պատճառով</string>
+    <string name="webviewchromium_opening_file_error">Ընտրված ֆայլը չհաջողվեց բացել</string>
+    <string name="webviewchromium_private_browsing_warning">Այս գործառույթը Android-ի այս տարբերակում չի աջակցվում:</string>
+</resources>

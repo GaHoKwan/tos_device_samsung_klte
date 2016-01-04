@@ -80,44 +80,53 @@
 .method public constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 3
 
+    .prologue
+    .line 2780
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2773
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mHomeKeyRequestedComponents:Ljava/util/HashSet;
 
+    .line 2774
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mPowerKeyRequestedComponents:Ljava/util/HashSet;
 
+    .line 2775
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mRecentKeyRequestedComponents:Ljava/util/HashSet;
 
+    .line 2776
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mEndCallKeyRequestedComponents:Ljava/util/HashSet;
 
+    .line 2777
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
+    .line 2778
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mTopActivity:Landroid/content/ComponentName;
 
+    .line 2782
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
     const/4 v1, 0x3
@@ -130,6 +139,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2783
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
     const/16 v1, 0x1a
@@ -142,6 +152,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2784
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
     const/16 v1, 0xbb
@@ -154,6 +165,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2785
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
     const/4 v1, 0x6
@@ -166,12 +178,16 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 2786
     return-void
 .end method
 
 .method static synthetic access$1900(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;)Ljava/util/HashMap;
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;
 
+    .prologue
+    .line 2772
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
     return-object v0
@@ -182,8 +198,11 @@
 .method public getCurrentTopActivity()Landroid/content/ComponentName;
     .locals 1
 
+    .prologue
+    .line 2853
     monitor-enter p0
 
+    .line 2854
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mTopActivity:Landroid/content/ComponentName;
 
@@ -191,6 +210,7 @@
 
     return-object v0
 
+    .line 2855
     :catchall_0
     move-exception v0
 
@@ -203,9 +223,13 @@
 
 .method public isSystemKeyEventRequested(I)Z
     .locals 1
+    .param p1, "keyCode"    # I
 
+    .prologue
+    .line 2845
     monitor-enter p0
 
+    .line 2846
     :try_start_0
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->getCurrentTopActivity()Landroid/content/ComponentName;
 
@@ -219,6 +243,7 @@
 
     return v0
 
+    .line 2847
     :catchall_0
     move-exception v0
 
@@ -231,9 +256,14 @@
 
 .method public isSystemKeyEventRequested(ILandroid/content/ComponentName;)Z
     .locals 4
+    .param p1, "keyCode"    # I
+    .param p2, "componentName"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 2833
     monitor-enter p0
 
+    .line 2834
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
@@ -247,12 +277,15 @@
 
     check-cast v0, Ljava/util/HashSet;
 
+    .line 2835
+    .local v0, "components":Ljava/util/HashSet;
     invoke-virtual {v0, p2}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
+    .line 2836
     sget-boolean v1, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -289,11 +322,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2837
     :cond_0
     const/4 v1, 0x1
 
     monitor-exit p0
 
+    .line 2839
     :goto_0
     return v1
 
@@ -304,6 +339,8 @@
 
     goto :goto_0
 
+    .line 2841
+    .end local v0    # "components":Ljava/util/HashSet;
     :catchall_0
     move-exception v1
 
@@ -316,7 +353,12 @@
 
 .method public requestSystemKeyEvent(ILandroid/content/ComponentName;Z)Z
     .locals 3
+    .param p1, "keyCode"    # I
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "request"    # Z
 
+    .prologue
+    .line 2805
     const/16 v1, 0x1a
 
     if-eq p1, v1, :cond_0
@@ -333,16 +375,21 @@
 
     if-eq p1, v1, :cond_0
 
+    .line 2806
     const/4 v1, 0x0
 
+    .line 2817
     :goto_0
     return v1
 
+    .line 2809
     :cond_0
     monitor-enter p0
 
+    .line 2810
     if-eqz p3, :cond_1
 
+    .line 2811
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
 
@@ -356,8 +403,11 @@
 
     check-cast v0, Ljava/util/HashSet;
 
+    .line 2812
+    .local v0, "components":Ljava/util/HashSet;
     invoke-virtual {v0, p2}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
+    .line 2817
     :goto_1
     const/4 v1, 0x1
 
@@ -365,6 +415,8 @@
 
     goto :goto_0
 
+    .line 2818
+    .end local v0    # "components":Ljava/util/HashSet;
     :catchall_0
     move-exception v1
 
@@ -374,6 +426,7 @@
 
     throw v1
 
+    .line 2814
     :cond_1
     :try_start_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mKeyComponentsMap:Ljava/util/HashMap;
@@ -388,6 +441,8 @@
 
     check-cast v0, Ljava/util/HashSet;
 
+    .line 2815
+    .restart local v0    # "components":Ljava/util/HashSet;
     invoke-virtual {v0, p2}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -397,16 +452,23 @@
 
 .method public updateTopActivity(Landroid/content/ComponentName;)V
     .locals 1
+    .param p1, "componentName"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 2860
     monitor-enter p0
 
+    .line 2861
     :try_start_0
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$HoldKeyConcept;->mTopActivity:Landroid/content/ComponentName;
 
+    .line 2862
     monitor-exit p0
 
+    .line 2863
     return-void
 
+    .line 2862
     :catchall_0
     move-exception v0
 

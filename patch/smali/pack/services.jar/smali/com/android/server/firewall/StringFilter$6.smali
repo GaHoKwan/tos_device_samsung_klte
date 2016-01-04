@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 283
     invoke-direct {p0, p1}, Lcom/android/server/firewall/StringFilter$ValueProvider;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -27,6 +30,11 @@
 # virtual methods
 .method public getValue(Landroid/content/ComponentName;Landroid/content/Intent;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
+    .param p1, "resolvedComponent"    # Landroid/content/ComponentName;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "resolvedType"    # Ljava/lang/String;
 
+    .prologue
+    .line 287
     return-object p3
 .end method

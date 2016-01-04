@@ -46,7 +46,7 @@
 
     .line 29
     .local v0, "handler":Lcom/movial/ipphone/IPInboundSmsHandler;
-    invoke-virtual {v0}, Lcom/movial/ipphone/IPInboundSmsHandler;->start()V
+    invoke-virtual {v0}, Lcom/android/internal/util/StateMachine;->start()V
 
     .line 30
     return-object v0

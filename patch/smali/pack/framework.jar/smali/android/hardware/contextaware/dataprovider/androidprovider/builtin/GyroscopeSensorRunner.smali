@@ -126,7 +126,7 @@
 
     .prologue
     .line 163
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/builtin/GyroscopeSensorRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -137,7 +137,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 164
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawSensorProvider;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 

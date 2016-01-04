@@ -277,7 +277,7 @@
 
     iget-object v1, p0, Lorg/apache/http/impl/client/TwoChunkInputStream$SimpleDataBuffer;->dis:Ljava/io/DataInputStream;
 
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterInputStream;->close()V
 
     .line 1343
     :cond_1
@@ -293,7 +293,7 @@
     .line 1345
     iget-object v1, p0, Lorg/apache/http/impl/client/TwoChunkInputStream$SimpleDataBuffer;->dos:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
 
     .line 1347
     :cond_2

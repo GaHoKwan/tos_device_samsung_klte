@@ -289,7 +289,7 @@
     .line 612
     sget-object v0, Lcom/android/internal/telephony/CardSubscriptionManager$1;->$SwitchMap$com$android$internal$telephony$uicc$IccCardApplicationStatus$AppType:[I
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppType;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -2471,7 +2471,7 @@
     .local v5, "strCardIndex":Ljava/lang/String;
     const/4 v7, 0x3
 
-    invoke-virtual {p0, v7, v5}, Lcom/android/internal/telephony/CardSubscriptionManager;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v7, v5}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v4
 
@@ -2563,13 +2563,13 @@
 
     move-result v3
 
-    invoke-virtual {p0, v1, v2, v3, p2}, Lcom/android/internal/telephony/CardSubscriptionManager;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v1, v2, v3, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     .line 475
     .local v0, "msg":Landroid/os/Message;
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CardSubscriptionManager;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 476
     return-void

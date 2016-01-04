@@ -417,9 +417,6 @@
     .line 141
     const/4 v7, 0x7
 
-    .line 143
-    const/16 v7, 0xa
-
     .line 146
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;

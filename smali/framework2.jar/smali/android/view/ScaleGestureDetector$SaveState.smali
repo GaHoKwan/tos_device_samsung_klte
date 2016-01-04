@@ -36,12 +36,16 @@
 .method public constructor <init>(Landroid/view/ScaleGestureDetector;)V
     .locals 0
 
+    .prologue
+    .line 182
     iput-object p1, p0, Landroid/view/ScaleGestureDetector$SaveState;->this$0:Landroid/view/ScaleGestureDetector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 183
     invoke-virtual {p0}, Landroid/view/ScaleGestureDetector$SaveState;->reset()V
 
+    .line 184
     return-void
 .end method
 
@@ -50,8 +54,10 @@
 .method reset()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 187
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->maxY:F
 
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->maxX:F
@@ -60,11 +66,15 @@
 
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->minX:F
 
+    .line 188
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->mLenBeforeSqrt:F
 
+    .line 189
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->mSpanX:F
 
+    .line 190
     iput v0, p0, Landroid/view/ScaleGestureDetector$SaveState;->mSpanY:F
 
+    .line 191
     return-void
 .end method

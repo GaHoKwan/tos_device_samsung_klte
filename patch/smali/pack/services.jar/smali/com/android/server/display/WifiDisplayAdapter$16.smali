@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 1242
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$16;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$16;->val$address:Ljava/lang/String;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1245
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$16;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -50,6 +54,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1246
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$16;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -61,6 +66,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/WifiDisplayController;->requestConnectWithPin(Ljava/lang/String;)V
 
+    .line 1248
     :cond_0
     return-void
 .end method

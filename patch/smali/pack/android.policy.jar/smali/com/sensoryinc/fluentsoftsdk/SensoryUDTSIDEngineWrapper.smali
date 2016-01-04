@@ -13,6 +13,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -21,6 +23,8 @@
 .method public static declared-synchronized getInstance()Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;
     .locals 3
 
+    .prologue
+    .line 14
     const-class v1, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngineWrapper;
 
     monitor-enter v1
@@ -30,24 +34,28 @@
 
     if-nez v0, :cond_1
 
+    .line 16
     const-string v0, "SensoryUDTSIDEngineWrapper"
 
     const-string v2, "getInstance() : make new SensoryUDTSIDEngine"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 18
     invoke-static {}, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;->init()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 20
     new-instance v0, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;
 
     invoke-direct {v0}, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;-><init>()V
 
     sput-object v0, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngineWrapper;->uniqueInstance:Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;
 
+    .line 28
     :cond_0
     :goto_0
     sget-object v0, Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngineWrapper;->uniqueInstance:Lcom/sensoryinc/fluentsoftsdk/SensoryUDTSIDEngine;
@@ -58,6 +66,7 @@
 
     return-object v0
 
+    .line 25
     :cond_1
     :try_start_1
     const-string v0, "SensoryUDTSIDEngineWrapper"
@@ -70,6 +79,7 @@
 
     goto :goto_0
 
+    .line 14
     :catchall_0
     move-exception v0
 

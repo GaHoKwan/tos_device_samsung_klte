@@ -32,7 +32,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/client/methods/HttpTrace;->setURI(Ljava/net/URI;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/client/methods/HttpRequestBase;->setURI(Ljava/net/URI;)V
 
     .line 75
     return-void
@@ -47,7 +47,7 @@
     invoke-direct {p0}, Lorg/apache/http/client/methods/HttpRequestBase;-><init>()V
 
     .line 66
-    invoke-virtual {p0, p1}, Lorg/apache/http/client/methods/HttpTrace;->setURI(Ljava/net/URI;)V
+    invoke-virtual {p0, p1}, Lorg/apache/http/client/methods/HttpRequestBase;->setURI(Ljava/net/URI;)V
 
     .line 67
     return-void

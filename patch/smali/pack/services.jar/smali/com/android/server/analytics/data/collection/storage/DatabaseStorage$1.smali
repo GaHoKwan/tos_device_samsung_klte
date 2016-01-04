@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
 
+    .prologue
+    .line 130
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->this$0:Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;
 
     iput-object p2, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
@@ -40,9 +42,14 @@
 # virtual methods
 .method public onTableFound(Lcom/android/server/analytics/data/collection/storage/Table;)V
     .locals 10
+    .param p1, "table"    # Lcom/android/server/analytics/data/collection/storage/Table;
 
+    .prologue
+    .line 133
     iget-object v4, p1, Lcom/android/server/analytics/data/collection/storage/Table;->mTableName:Ljava/lang/String;
 
+    .line 135
+    .local v4, "name":Ljava/lang/String;
     :try_start_0
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -53,30 +60,36 @@
 
     if-nez v5, :cond_0
 
+    .line 136
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     # invokes: Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->preTableCreate(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
     invoke-static {v5, p1}, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->access$100(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
 
+    .line 137
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     # invokes: Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->createTable(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
     invoke-static {v5, p1}, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->access$200(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
 
+    .line 138
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     # invokes: Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->postTableCreate(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
     invoke-static {v5, p1}, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->access$300(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
 
+    .line 155
     :goto_0
     return-void
 
+    .line 140
     :cond_0
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     # invokes: Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->preTableUpdate(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
     invoke-static {v5, p1}, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->access$400(Landroid/database/sqlite/SQLiteDatabase;Lcom/android/server/analytics/data/collection/storage/Table;)V
 
+    .line 141
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     # invokes: Lcom/android/server/analytics/data/collection/storage/DatabaseStorage;->getMissingColumns(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Lcom/android/server/analytics/data/collection/storage/Table;)Ljava/util/ArrayList;
@@ -84,10 +97,13 @@
 
     move-result-object v1
 
+    .line 143
+    .local v1, "columns":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/analytics/data/collection/storage/Column;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -101,6 +117,8 @@
 
     check-cast v0, Lcom/android/server/analytics/data/collection/storage/Column;
 
+    .line 144
+    .local v0, "column":Lcom/android/server/analytics/data/collection/storage/Column;
     iget-object v5, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseStorage$1;->val$db:Landroid/database/sqlite/SQLiteDatabase;
 
     const-string v6, "ALTER TABLE %s ADD COLUMN %s;"
@@ -131,9 +149,15 @@
 
     goto :goto_1
 
+    .line 152
+    .end local v0    # "column":Lcom/android/server/analytics/data/collection/storage/Column;
+    .end local v1    # "columns":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/analytics/data/collection/storage/Column;>;"
+    .end local v3    # "i$":Ljava/util/Iterator;
     :catch_0
     move-exception v2
 
+    .line 153
+    .local v2, "e":Ljava/lang/Exception;
     const-string v5, "DatabaseStorage"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -164,6 +188,10 @@
 
     goto :goto_0
 
+    .line 148
+    .end local v2    # "e":Ljava/lang/Exception;
+    .restart local v1    # "columns":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/analytics/data/collection/storage/Column;>;"
+    .restart local v3    # "i$":Ljava/util/Iterator;
     :cond_1
     :try_start_1
     const-string v5, "DatabaseStorage"

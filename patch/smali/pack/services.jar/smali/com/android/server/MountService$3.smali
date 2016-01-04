@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
 
+    .prologue
+    .line 719
     iput-object p1, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,16 +35,23 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 722
     iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
     # invokes: Lcom/android/server/MountService;->waitForReady()V
     invoke-static {v2}, Lcom/android/server/MountService;->access$1200(Lcom/android/server/MountService;)V
 
+    .line 723
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 727
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.ACTION_IDLE_MAINTENANCE_START"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -51,6 +60,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 731
     :try_start_0
     iget-object v2, p0, Lcom/android/server/MountService$3;->this$0:Lcom/android/server/MountService;
 
@@ -73,6 +83,7 @@
 
     invoke-virtual {v2, v3, v4}, Lcom/android/server/NativeDaemonConnector;->execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
 
+    .line 732
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
@@ -81,13 +92,17 @@
     :try_end_0
     .catch Lcom/android/server/NativeDaemonConnectorException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 737
     :cond_0
     :goto_0
     return-void
 
+    .line 733
     :catch_0
     move-exception v1
 
+    .line 734
+    .local v1, "ndce":Lcom/android/server/NativeDaemonConnectorException;
     const-string v2, "MountService"
 
     const-string v3, "Failed to run fstrim!"

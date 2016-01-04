@@ -35,6 +35,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 372
     new-instance v0, Landroid/widget/CompoundButton$SavedState$1;
 
     invoke-direct {v0}, Landroid/widget/CompoundButton$SavedState$1;-><init>()V
@@ -46,9 +48,13 @@
 
 .method private constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 355
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
+    .line 356
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->readValue(Ljava/lang/ClassLoader;)Ljava/lang/Object;
@@ -63,12 +69,17 @@
 
     iput-boolean v0, p0, Landroid/widget/CompoundButton$SavedState;->checked:Z
 
+    .line 357
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/os/Parcel;Landroid/widget/CompoundButton$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/os/Parcel;
+    .param p2, "x1"    # Landroid/widget/CompoundButton$1;
 
+    .prologue
+    .line 341
     invoke-direct {p0, p1}, Landroid/widget/CompoundButton$SavedState;-><init>(Landroid/os/Parcel;)V
 
     return-void
@@ -76,9 +87,13 @@
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
+    .prologue
+    .line 348
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
+    .line 349
     return-void
 .end method
 
@@ -87,6 +102,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 367
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -136,9 +153,14 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
-    invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    .prologue
+    .line 361
+    invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 362
     iget-boolean v0, p0, Landroid/widget/CompoundButton$SavedState;->checked:Z
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -147,5 +169,6 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
+    .line 363
     return-void
 .end method

@@ -38,6 +38,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 33
     const-string v0, "SSRMv2:PowerSavingMode"
 
     sput-object v0, Lcom/android/server/ssrm/PowerSavingMode;->TAG:Ljava/lang/String;
@@ -47,51 +49,62 @@
 
 .method constructor <init>(Landroid/content/Context;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v8, 0x0
 
     const-wide/16 v4, 0x0
 
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 89
     new-instance v0, Lcom/android/server/ssrm/PowerSavingMode$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/ssrm/PowerSavingMode$1;-><init>(Lcom/android/server/ssrm/PowerSavingMode;)V
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 50
     iput-object p1, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
+    .line 52
     new-instance v0, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
     invoke-direct {v0, p0, p1}, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;-><init>(Lcom/android/server/ssrm/PowerSavingMode;Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mPSMObserver:Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
+    .line 54
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mPSMObserver:Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
     const-string v1, "powersaving_switch"
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;->registerUriByName(Ljava/lang/String;)V
 
+    .line 56
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mPSMObserver:Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
     const-string v1, "psm_switch"
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;->registerUriByName(Ljava/lang/String;)V
 
+    .line 58
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mPSMObserver:Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
     const-string v1, "psm_cpu_clock"
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;->registerUriByName(Ljava/lang/String;)V
 
+    .line 60
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mPSMObserver:Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;
 
     const-string v1, "psm_display"
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/PowerSavingMode$PowerSavingModeObserver;->registerUriByName(Ljava/lang/String;)V
 
+    .line 62
     new-instance v0, Landroid/os/DVFSHelper;
 
     iget-object v1, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
@@ -104,6 +117,7 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuMaxHelper:Landroid/os/DVFSHelper;
 
+    .line 63
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->getSupportedCPUFrequencyForSSRM()[I
@@ -112,10 +126,12 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuFreqTable:[I
 
+    .line 64
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuFreqTable:[I
 
     if-eqz v0, :cond_0
 
+    .line 65
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuMaxHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "CPU"
@@ -140,6 +156,7 @@
 
     invoke-virtual {v0, v1, v6, v7}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 69
     :cond_0
     new-instance v0, Landroid/os/DVFSHelper;
 
@@ -153,6 +170,7 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mFpsMaxHelper:Landroid/os/DVFSHelper;
 
+    .line 70
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mFpsMaxHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "FPS"
@@ -161,6 +179,7 @@
 
     invoke-virtual {v0, v1, v6, v7}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 72
     new-instance v0, Landroid/os/DVFSHelper;
 
     iget-object v1, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
@@ -173,10 +192,12 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mGpuMaxHelper:Landroid/os/DVFSHelper;
 
+    .line 73
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_KF:Z
 
     if-eqz v0, :cond_2
 
+    .line 74
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mGpuMaxHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "GPU"
@@ -185,16 +206,20 @@
 
     invoke-virtual {v0, v1, v4, v5}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 79
     :cond_1
     :goto_0
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 80
+    .local v3, "filter":Landroid/content/IntentFilter;
     const-string v0, "android.settings.POWERSAVING_CHANGED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 81
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/ssrm/PowerSavingMode;->mIntentReceiver:Landroid/content/BroadcastReceiver;
@@ -207,22 +232,28 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    .line 83
     new-instance v0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;
 
     invoke-direct {v0, p0, p1}, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;-><init>(Lcom/android/server/ssrm/PowerSavingMode;Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mUltraPsmObserver:Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;
 
+    .line 84
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mUltraPsmObserver:Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;
 
     const-string/jumbo v1, "ultra_powersaving_mode"
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->registerUriByName(Ljava/lang/String;)V
 
+    .line 86
     invoke-virtual {p0}, Lcom/android/server/ssrm/PowerSavingMode;->onSettingChanged()V
 
+    .line 87
     return-void
 
+    .line 75
+    .end local v3    # "filter":Landroid/content/IntentFilter;
     :cond_2
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_KA:Z
 
@@ -232,6 +263,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 76
     :cond_3
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode;->mGpuMaxHelper:Landroid/os/DVFSHelper;
 
@@ -247,13 +279,17 @@
 .method static adjustChargingCurrentForUsPorivder()V
     .locals 3
 
+    .prologue
+    .line 179
     sget-boolean v0, Lcom/android/server/ssrm/SSRMUtil;->DEBUG:Z
 
     if-nez v0, :cond_0
 
+    .line 184
     :goto_0
     return-void
 
+    .line 182
     :cond_0
     sget-object v1, Lcom/android/server/ssrm/PowerSavingMode;->TAG:Ljava/lang/String;
 
@@ -283,10 +319,12 @@
 .method onSettingChanged()V
     .locals 6
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 142
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -299,6 +337,8 @@
 
     move-result v0
 
+    .line 144
+    .local v0, "powerSavingSwitch":I
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -311,6 +351,8 @@
 
     move-result v1
 
+    .line 147
+    .local v1, "psmSwitch":I
     if-ne v0, v3, :cond_0
 
     if-ne v1, v3, :cond_0
@@ -320,6 +362,7 @@
     :goto_0
     invoke-static {v2}, Lcom/android/server/ssrm/DeviceStatus;->setPowerSavingMode(Z)V
 
+    .line 149
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -339,6 +382,7 @@
     :goto_1
     sput-boolean v2, Lcom/android/server/ssrm/DeviceStatus;->sPowerSavingModeLimitPerformance:Z
 
+    .line 152
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -356,6 +400,7 @@
     :goto_2
     sput-boolean v3, Lcom/android/server/ssrm/DeviceStatus;->sPowerSavingModeLimitDisplay:Z
 
+    .line 155
     sget-object v2, Lcom/android/server/ssrm/PowerSavingMode;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -406,20 +451,24 @@
 
     invoke-static {v2, v3}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 159
     invoke-static {}, Lcom/android/server/ssrm/DeviceStatus;->isPowerSavingModeLimitPerformance()Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
+    .line 160
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 161
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mGpuMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 167
     :goto_3
     sget-boolean v2, Lcom/android/server/ssrm/Feature;->MODEL_K:Z
 
@@ -431,13 +480,16 @@
 
     if-eqz v2, :cond_4
 
+    .line 168
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mFpsMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 173
     :goto_4
     invoke-static {}, Lcom/android/server/ssrm/PowerSavingMode;->adjustChargingCurrentForUsPorivder()V
 
+    .line 175
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mContext:Landroid/content/Context;
 
     new-instance v3, Landroid/content/Intent;
@@ -448,34 +500,41 @@
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 176
     return-void
 
     :cond_0
     move v2, v4
 
+    .line 147
     goto/16 :goto_0
 
     :cond_1
     move v2, v4
 
+    .line 149
     goto :goto_1
 
     :cond_2
     move v3, v4
 
+    .line 152
     goto :goto_2
 
+    .line 163
     :cond_3
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mCpuMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->release()V
 
+    .line 164
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mGpuMaxHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->release()V
 
     goto :goto_3
 
+    .line 170
     :cond_4
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode;->mFpsMaxHelper:Landroid/os/DVFSHelper;
 

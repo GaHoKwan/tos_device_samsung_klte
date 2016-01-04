@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 1930
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$51;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public onAction()V
     .locals 6
 
+    .prologue
+    .line 1933
     :try_start_0
     const-string v3, "BezelInteractionService"
 
@@ -48,24 +52,35 @@
 
     move-result-object v1
 
+    .line 1934
+    .local v1, "bm":Lcom/samsung/android/bezelinteraction/IBezelManager;
     new-instance v0, Lcom/samsung/android/bezelinteraction/BezelEvent;
 
     invoke-direct {v0}, Lcom/samsung/android/bezelinteraction/BezelEvent;-><init>()V
 
+    .line 1935
+    .local v0, "bezelEvent":Lcom/samsung/android/bezelinteraction/BezelEvent;
     const/4 v3, 0x1
 
     iput v3, v0, Lcom/samsung/android/bezelinteraction/BezelEvent;->type:I
 
+    .line 1936
     invoke-interface {v1, v0}, Lcom/samsung/android/bezelinteraction/IBezelManager;->selectedItemCallback(Lcom/samsung/android/bezelinteraction/BezelEvent;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1940
+    .end local v0    # "bezelEvent":Lcom/samsung/android/bezelinteraction/BezelEvent;
+    .end local v1    # "bm":Lcom/samsung/android/bezelinteraction/IBezelManager;
     :goto_0
     return-void
 
+    .line 1937
     :catch_0
     move-exception v2
 
+    .line 1938
+    .local v2, "ex":Ljava/lang/Exception;
     const-string/jumbo v3, "toolbox"
 
     new-instance v4, Ljava/lang/StringBuilder;

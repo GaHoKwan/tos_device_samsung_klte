@@ -115,11 +115,11 @@
     .line 127
     iget-object v4, p0, Lcom/android/internal/telephony/ItsOnRIL$ItsOnRilHandler;->this$0:Lcom/android/internal/telephony/ItsOnRIL;
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/ItsOnRIL$ItsOnRilHandler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {p0}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Lcom/android/internal/telephony/ItsOnRIL;->hangupWaitingOrBackground(Landroid/os/Message;)V
+    invoke-virtual {v4, v5}, Lcom/android/internal/telephony/RIL;->hangupWaitingOrBackground(Landroid/os/Message;)V
 
     goto :goto_0
 

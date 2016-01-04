@@ -31,16 +31,20 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 508
     const-wide/16 v0, 0x1388
 
     invoke-direct {p0, v0, v1}, Landroid/util/TimedRemoteCaller;-><init>(J)V
 
+    .line 509
     new-instance v0, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller$1;-><init>(Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;)V
 
     iput-object v0, p0, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
+    .line 515
     return-void
 .end method
 
@@ -48,6 +52,10 @@
 # virtual methods
 .method public setPrintJobState(Landroid/print/IPrintSpooler;Landroid/print/PrintJobId;ILjava/lang/String;)Z
     .locals 6
+    .param p1, "target"    # Landroid/print/IPrintSpooler;
+    .param p2, "printJobId"    # Landroid/print/PrintJobId;
+    .param p3, "status"    # I
+    .param p4, "error"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;,
@@ -55,10 +63,14 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->onBeforeRemoteCall()I
+    .prologue
+    .line 519
+    invoke-virtual {p0}, Landroid/util/TimedRemoteCaller;->onBeforeRemoteCall()I
 
     move-result v5
 
+    .line 520
+    .local v5, "sequence":I
     iget-object v4, p0, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
     move-object v0, p1
@@ -71,7 +83,8 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/print/IPrintSpooler;->setPrintJobState(Landroid/print/PrintJobId;ILjava/lang/String;Landroid/print/IPrintSpoolerCallbacks;I)V
 
-    invoke-virtual {p0, v5}, Lcom/android/server/print/RemotePrintSpooler$SetPrintJobStateCaller;->getResultTimed(I)Ljava/lang/Object;
+    .line 521
+    invoke-virtual {p0, v5}, Landroid/util/TimedRemoteCaller;->getResultTimed(I)Ljava/lang/Object;
 
     move-result-object v0
 

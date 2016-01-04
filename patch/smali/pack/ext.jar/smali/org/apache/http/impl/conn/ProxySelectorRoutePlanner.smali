@@ -129,7 +129,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Ljava/net/Proxy$Type;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 

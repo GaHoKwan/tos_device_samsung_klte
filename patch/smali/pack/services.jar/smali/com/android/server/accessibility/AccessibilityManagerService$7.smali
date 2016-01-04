@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 940
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 943
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 944
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -48,11 +56,13 @@
 
     if-eqz v5, :cond_1
 
+    .line 945
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     # setter for: Lcom/android/server/accessibility/AccessibilityManagerService;->mCurtainModeIsRunning:Z
     invoke-static {v5, v7}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$1302(Lcom/android/server/accessibility/AccessibilityManagerService;Z)Z
 
+    .line 946
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     const-string v6, "android.intent.extra.user_handle"
@@ -64,22 +74,29 @@
     # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->switchUser(I)V
     invoke-static {v5, v6}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$1400(Lcom/android/server/accessibility/AccessibilityManagerService;I)V
 
+    .line 947
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
+    .line 948
+    .local v2, "colorBlindMultiUserintent":Landroid/content/Intent;
     const-string v5, "com.android.settings.colorblind.ColorBlindMultiUserReceiver"
 
     invoke-virtual {v2, v5}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 949
     sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {p1, v2, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 981
+    .end local v2    # "colorBlindMultiUserintent":Landroid/content/Intent;
     :cond_0
     :goto_0
     return-void
 
+    .line 950
     :cond_1
     const-string v5, "android.intent.action.USER_REMOVED"
 
@@ -89,6 +106,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 951
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     const-string v6, "android.intent.extra.user_handle"
@@ -102,6 +120,7 @@
 
     goto :goto_0
 
+    .line 952
     :cond_2
     const-string v5, "android.intent.action.USER_PRESENT"
 
@@ -111,6 +130,7 @@
 
     if-eqz v5, :cond_3
 
+    .line 954
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->getCurrentUserStateLocked()Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
@@ -118,6 +138,8 @@
 
     move-result-object v4
 
+    .line 955
+    .local v4, "userState":Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
     # getter for: Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->mUiAutomationService:Lcom/android/server/accessibility/AccessibilityManagerService$Service;
     invoke-static {v4}, Lcom/android/server/accessibility/AccessibilityManagerService$UserState;->access$800(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Lcom/android/server/accessibility/AccessibilityManagerService$Service;
 
@@ -125,6 +147,7 @@
 
     if-nez v5, :cond_0
 
+    .line 956
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->readConfigurationForUserStateLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)Z
@@ -134,6 +157,7 @@
 
     if-eqz v5, :cond_0
 
+    .line 957
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->onUserStateChangedLocked(Lcom/android/server/accessibility/AccessibilityManagerService$UserState;)V
@@ -141,6 +165,8 @@
 
     goto :goto_0
 
+    .line 960
+    .end local v4    # "userState":Lcom/android/server/accessibility/AccessibilityManagerService$UserState;
     :cond_3
     const-string v5, "android.intent.action.SCREEN_ON"
 
@@ -150,18 +176,24 @@
 
     if-eqz v5, :cond_0
 
+    .line 961
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityManagerService$7;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-virtual {v5}, Lcom/android/server/accessibility/AccessibilityManagerService;->getScreenCurtainState()I
 
     move-result v1
 
+    .line 962
+    .local v1, "checkScreenCurtain":I
     if-eqz v1, :cond_0
 
+    .line 963
     new-instance v3, Landroid/os/Handler;
 
     invoke-direct {v3}, Landroid/os/Handler;-><init>()V
 
+    .line 964
+    .local v3, "mHandler":Landroid/os/Handler;
     new-instance v5, Lcom/android/server/accessibility/AccessibilityManagerService$7$1;
 
     invoke-direct {v5, p0, v1}, Lcom/android/server/accessibility/AccessibilityManagerService$7$1;-><init>(Lcom/android/server/accessibility/AccessibilityManagerService$7;I)V

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/FakeShutdown;)V
     .locals 0
 
+    .prologue
+    .line 834
     iput-object p1, p0, Lcom/android/server/power/FakeShutdown$2;->this$0:Lcom/android/server/power/FakeShutdown;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 836
     iget-object v1, p0, Lcom/android/server/power/FakeShutdown$2;->this$0:Lcom/android/server/power/FakeShutdown;
 
     # getter for: Lcom/android/server/power/FakeShutdown;->mp:Landroid/media/MediaPlayer;
@@ -46,15 +50,18 @@
 
     if-nez v1, :cond_0
 
+    .line 837
     const-string v1, "FakeShutdown"
 
     const-string v2, "MediaPlayer is null"
 
     invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 850
     :goto_0
     return-void
 
+    .line 841
     :cond_0
     :try_start_0
     const-string v1, "FakeShutdown"
@@ -63,6 +70,7 @@
 
     invoke-static {v1, v2}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 843
     iget-object v1, p0, Lcom/android/server/power/FakeShutdown$2;->this$0:Lcom/android/server/power/FakeShutdown;
 
     # getter for: Lcom/android/server/power/FakeShutdown;->mp:Landroid/media/MediaPlayer;
@@ -72,6 +80,7 @@
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->start()V
 
+    .line 844
     iget-object v1, p0, Lcom/android/server/power/FakeShutdown$2;->this$0:Lcom/android/server/power/FakeShutdown;
 
     # getter for: Lcom/android/server/power/FakeShutdown;->mp:Landroid/media/MediaPlayer;
@@ -92,9 +101,12 @@
 
     goto :goto_0
 
+    .line 845
     :catch_0
     move-exception v0
 
+    .line 846
+    .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "FakeShutdown"
 
     const-string/jumbo v2, "sound thread IllegalStateException"
@@ -103,9 +115,13 @@
 
     goto :goto_0
 
+    .line 847
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v0
 
+    .line 848
+    .local v0, "e":Ljava/lang/InterruptedException;
     const-string v1, "FakeShutdown"
 
     const-string/jumbo v2, "sound thread InterruptedException"

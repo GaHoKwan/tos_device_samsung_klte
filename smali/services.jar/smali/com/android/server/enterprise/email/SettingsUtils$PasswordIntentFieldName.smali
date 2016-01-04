@@ -36,6 +36,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/email/SettingsUtils;)V
     .locals 0
 
+    .prologue
+    .line 1394
     iput-object p1, p0, Lcom/android/server/enterprise/email/SettingsUtils$PasswordIntentFieldName;->this$0:Lcom/android/server/enterprise/email/SettingsUtils;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

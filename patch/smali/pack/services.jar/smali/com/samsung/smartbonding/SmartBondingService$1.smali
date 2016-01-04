@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/smartbonding/SmartBondingService;)V
     .locals 0
 
+    .prologue
+    .line 2542
     iput-object p1, p0, Lcom/samsung/smartbonding/SmartBondingService$1;->this$0:Lcom/samsung/smartbonding/SmartBondingService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 2545
     iget-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$1;->this$0:Lcom/samsung/smartbonding/SmartBondingService;
 
     # getter for: Lcom/samsung/smartbonding/SmartBondingService;->mHandler:Lcom/samsung/smartbonding/SmartBondingService$SmartBondingHandler;
@@ -53,11 +58,12 @@
 
     const/16 v2, 0xe
 
-    invoke-virtual {v1, v2}, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 2546
     return-void
 .end method

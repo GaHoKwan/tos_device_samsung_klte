@@ -37,6 +37,8 @@
 .method constructor <init>(Ljava/lang/reflect/Method;Landroid/view/View;)V
     .locals 0
 
+    .prologue
+    .line 1085
     iput-object p1, p0, Landroid/view/ViewDebug$7;->val$method:Ljava/lang/reflect/Method;
 
     iput-object p2, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;
@@ -57,6 +59,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1088
     iget-object v1, p0, Landroid/view/ViewDebug$7;->val$method:Ljava/lang/reflect/Method;
 
     iget-object v2, p0, Landroid/view/ViewDebug$7;->val$view:Landroid/view/View;

@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/FHoverPopupWindow;)V
     .locals 0
 
+    .prologue
+    .line 206
     iput-object p1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,12 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 208
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -54,12 +59,14 @@
     # setter for: Landroid/widget/FHoverPopupWindow;->objAnimationValue:F
     invoke-static {v1, v0}, Landroid/widget/FHoverPopupWindow;->access$802(Landroid/widget/FHoverPopupWindow;F)F
 
+    .line 210
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/FHoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v0, Landroid/widget/HoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     if-eqz v0, :cond_0
 
+    .line 211
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
     # getter for: Landroid/widget/FHoverPopupWindow;->mDirection:I
@@ -87,7 +94,7 @@
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -102,7 +109,7 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v2, v2, Landroid/widget/FHoverPopupWindow;->mContentView:Landroid/view/View;
+    iget-object v2, v2, Landroid/widget/HoverPopupWindow;->mContentView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
 
@@ -116,13 +123,14 @@
 
     if-gez v0, :cond_1
 
+    .line 214
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/FHoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v0, Landroid/widget/HoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -139,14 +147,16 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v2, v2, Landroid/widget/FHoverPopupWindow;->mPopupPosY:I
+    iget v2, v2, Landroid/widget/HoverPopupWindow;->mPopupPosY:I
 
     invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->update(IIII)V
 
+    .line 225
     :cond_0
     :goto_0
     return-void
 
+    .line 215
     :cond_1
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
@@ -175,7 +185,7 @@
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -190,7 +200,7 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v2, v2, Landroid/widget/FHoverPopupWindow;->mContentView:Landroid/view/View;
+    iget-object v2, v2, Landroid/widget/HoverPopupWindow;->mContentView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getWidth()I
 
@@ -204,13 +214,14 @@
 
     if-lez v0, :cond_2
 
+    .line 218
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/FHoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v0, Landroid/widget/HoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -227,12 +238,13 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v2, v2, Landroid/widget/FHoverPopupWindow;->mPopupPosY:I
+    iget v2, v2, Landroid/widget/HoverPopupWindow;->mPopupPosY:I
 
     invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->update(IIII)V
 
     goto :goto_0
 
+    .line 219
     :cond_2
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
@@ -250,13 +262,14 @@
 
     if-ne v0, v1, :cond_3
 
+    .line 220
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/FHoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v0, Landroid/widget/HoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -273,12 +286,13 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v2, v2, Landroid/widget/FHoverPopupWindow;->mPopupPosY:I
+    iget v2, v2, Landroid/widget/HoverPopupWindow;->mPopupPosY:I
 
     invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->update(IIII)V
 
     goto :goto_0
 
+    .line 221
     :cond_3
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
@@ -296,13 +310,14 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 222
     iget-object v0, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget-object v0, v0, Landroid/widget/FHoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v0, Landroid/widget/HoverPopupWindow;->mPopup:Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v1, v1, Landroid/widget/FHoverPopupWindow;->mPopupPosX:I
+    iget v1, v1, Landroid/widget/HoverPopupWindow;->mPopupPosX:I
 
     int-to-float v1, v1
 
@@ -319,7 +334,7 @@
 
     iget-object v2, p0, Landroid/widget/FHoverPopupWindow$3;->this$0:Landroid/widget/FHoverPopupWindow;
 
-    iget v2, v2, Landroid/widget/FHoverPopupWindow;->mPopupPosY:I
+    iget v2, v2, Landroid/widget/HoverPopupWindow;->mPopupPosY:I
 
     invoke-virtual {v0, v1, v2, v3, v3}, Landroid/widget/PopupWindow;->update(IIII)V
 

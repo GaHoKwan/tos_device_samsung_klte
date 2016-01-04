@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 0
 
+    .prologue
+    .line 1152
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$12;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "whichButton"    # I
 
+    .prologue
+    .line 1154
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$12;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -57,12 +63,14 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
+    .line 1155
+    .local v0, "im":Landroid/view/inputmethod/InputMethodManager;
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mPasscodeEditText:Landroid/widget/EditText;
     invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$2700()Landroid/widget/EditText;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v1}, Landroid/view/View;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
 
@@ -70,5 +78,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
+    .line 1156
     return-void
 .end method

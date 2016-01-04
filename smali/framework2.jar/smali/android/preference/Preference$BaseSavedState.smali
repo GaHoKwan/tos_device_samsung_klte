@@ -31,6 +31,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 1912
     new-instance v0, Landroid/preference/Preference$BaseSavedState$1;
 
     invoke-direct {v0}, Landroid/preference/Preference$BaseSavedState$1;-><init>()V
@@ -42,16 +44,24 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 1905
     invoke-direct {p0, p1}, Landroid/view/AbsSavedState;-><init>(Landroid/os/Parcel;)V
 
+    .line 1906
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
+    .prologue
+    .line 1909
     invoke-direct {p0, p1}, Landroid/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
+    .line 1910
     return-void
 .end method

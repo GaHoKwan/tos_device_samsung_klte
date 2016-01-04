@@ -30,6 +30,8 @@
 .method private constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
     .locals 0
 
+    .prologue
+    .line 738
     iput-object p1, p0, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;->this$0:Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +41,11 @@
 
 .method synthetic constructor <init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;Landroid/print/PrintManager$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/print/PrintManager$PrintDocumentAdapterDelegate;
+    .param p2, "x1"    # Landroid/print/PrintManager$1;
 
+    .prologue
+    .line 738
     invoke-direct {p0, p1}, Landroid/print/PrintManager$PrintDocumentAdapterDelegate$WriteSpec;-><init>(Landroid/print/PrintManager$PrintDocumentAdapterDelegate;)V
 
     return-void

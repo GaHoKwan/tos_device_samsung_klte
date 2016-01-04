@@ -26,6 +26,8 @@
 .method constructor <init>(Landroid/transition/ChangeText;Landroid/widget/TextView;I)V
     .locals 0
 
+    .prologue
+    .line 249
     iput-object p1, p0, Landroid/transition/ChangeText$5;->this$0:Landroid/transition/ChangeText;
 
     iput-object p2, p0, Landroid/transition/ChangeText$5;->val$view:Landroid/widget/TextView;
@@ -41,12 +43,16 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 253
     iget-object v0, p0, Landroid/transition/ChangeText$5;->val$view:Landroid/widget/TextView;
 
     iget v1, p0, Landroid/transition/ChangeText$5;->val$endColor:I
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 254
     return-void
 .end method

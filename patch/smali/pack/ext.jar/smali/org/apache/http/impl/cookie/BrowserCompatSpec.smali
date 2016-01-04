@@ -135,7 +135,7 @@
     if-eqz p1, :cond_0
 
     .line 85
-    invoke-virtual {p1}, [Ljava/lang/String;->clone()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -151,7 +151,7 @@
 
     invoke-direct {v1}, Lorg/apache/http/impl/cookie/BasicPathHandler;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 90
     const-string v0, "domain"
@@ -160,7 +160,7 @@
 
     invoke-direct {v1}, Lorg/apache/http/impl/cookie/BasicDomainHandler;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 91
     const-string v0, "max-age"
@@ -169,7 +169,7 @@
 
     invoke-direct {v1}, Lorg/apache/http/impl/cookie/BasicMaxAgeHandler;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 92
     const-string v0, "secure"
@@ -178,7 +178,7 @@
 
     invoke-direct {v1}, Lorg/apache/http/impl/cookie/BasicSecureHandler;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 93
     const-string v0, "comment"
@@ -187,7 +187,7 @@
 
     invoke-direct {v1}, Lorg/apache/http/impl/cookie/BasicCommentHandler;-><init>()V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 94
     const-string v0, "expires"
@@ -198,7 +198,7 @@
 
     invoke-direct {v1, v2}, Lorg/apache/http/impl/cookie/BasicExpiresHandler;-><init>([Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
+    invoke-virtual {p0, v0, v1}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->registerAttribHandler(Ljava/lang/String;Lorg/apache/http/cookie/CookieAttributeHandler;)V
 
     .line 96
     return-void
@@ -571,7 +571,7 @@
     .end local v7    # "parser":Lorg/apache/http/impl/cookie/NetscapeDraftHeaderParser;
     .restart local v2    # "elems":[Lorg/apache/http/HeaderElement;
     :goto_2
-    invoke-virtual {p0, v2, p2}, Lorg/apache/http/impl/cookie/BrowserCompatSpec;->parse([Lorg/apache/http/HeaderElement;Lorg/apache/http/cookie/CookieOrigin;)Ljava/util/List;
+    invoke-virtual {p0, v2, p2}, Lorg/apache/http/impl/cookie/CookieSpecBase;->parse([Lorg/apache/http/HeaderElement;Lorg/apache/http/cookie/CookieOrigin;)Ljava/util/List;
 
     move-result-object v9
 

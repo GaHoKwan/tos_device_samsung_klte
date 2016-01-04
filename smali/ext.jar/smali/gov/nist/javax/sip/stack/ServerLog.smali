@@ -1130,7 +1130,7 @@
     invoke-virtual {p0}, Lgov/nist/javax/sip/stack/ServerLog;->checkLogFile()V
 
     .line 406
-    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p1}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 407
     iget-object v0, p0, Lgov/nist/javax/sip/stack/ServerLog;->printWriter:Ljava/io/PrintWriter;
@@ -1140,7 +1140,7 @@
     .line 408
     iget-object v0, p0, Lgov/nist/javax/sip/stack/ServerLog;->printWriter:Ljava/io/PrintWriter;
 
-    invoke-virtual {p1, v0}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintWriter;)V
+    invoke-virtual {p1, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
     .line 411
     :cond_0

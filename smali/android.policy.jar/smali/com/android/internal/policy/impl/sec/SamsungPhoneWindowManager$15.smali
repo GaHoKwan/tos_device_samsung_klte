@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 3452
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 3454
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 3456
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "LGT"
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
@@ -53,10 +61,12 @@
 
     if-nez v2, :cond_1
 
+    .line 3485
     :cond_0
     :goto_0
     return-void
 
+    .line 3460
     :cond_1
     const-string v2, "com.lguplus.uvs.REQUEST_ORIENTATION"
 
@@ -66,6 +76,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 3461
     const-string v2, "orientation"
 
     const/4 v3, -0x1
@@ -74,10 +85,13 @@
 
     move-result v1
 
+    .line 3464
+    .local v1, "requestedOrientation":I
     sget-boolean v2, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 
     if-eqz v2, :cond_2
 
+    .line 3465
     const-string v2, "SamsungWindowManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -127,6 +141,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3468
     :cond_2
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
@@ -137,11 +152,13 @@
 
     if-eq v2, v1, :cond_0
 
+    .line 3469
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->setUvsOrieatation(I)V
     invoke-static {v2, v1}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->access$1600(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;I)V
 
+    .line 3471
     iget-object v2, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mHandler:Landroid/os/Handler;

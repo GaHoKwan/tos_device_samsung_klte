@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/CountryDetectorService;)V
     .locals 0
 
+    .prologue
+    .line 177
     iput-object p1, p0, Lcom/android/server/CountryDetectorService$1;->this$0:Lcom/android/server/CountryDetectorService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onCountryDetected(Landroid/location/Country;)V
     .locals 2
+    .param p1, "country"    # Landroid/location/Country;
 
+    .prologue
+    .line 179
     iget-object v0, p0, Lcom/android/server/CountryDetectorService$1;->this$0:Lcom/android/server/CountryDetectorService;
 
     # getter for: Lcom/android/server/CountryDetectorService;->mHandler:Landroid/os/Handler;
@@ -50,5 +55,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 184
     return-void
 .end method

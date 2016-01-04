@@ -567,7 +567,7 @@
 
     invoke-direct {v0, v2, v1, v1}, Ljava/util/GregorianCalendar;-><init>(III)V
 
-    invoke-virtual {v0}, Ljava/util/GregorianCalendar;->getTimeInMillis()J
+    invoke-virtual {v0}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v0
 

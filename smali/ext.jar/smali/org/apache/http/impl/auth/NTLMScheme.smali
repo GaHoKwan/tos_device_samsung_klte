@@ -133,7 +133,7 @@
 
     .line 135
     .local v7, "buffer":Lorg/apache/http/util/CharArrayBuffer;
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/NTLMScheme;->isProxy()Z
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/AuthSchemeBase;->isProxy()Z
 
     move-result v1
 

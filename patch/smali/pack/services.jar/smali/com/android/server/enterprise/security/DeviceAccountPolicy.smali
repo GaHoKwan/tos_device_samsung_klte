@@ -39,6 +39,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 76
     const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/String;
@@ -75,6 +77,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
 
+    .line 80
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v0
@@ -86,15 +89,21 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "ctx"    # Landroid/content/Context;
 
+    .prologue
+    .line 95
     invoke-direct {p0}, Landroid/app/enterprise/IDeviceAccountPolicy$Stub;-><init>()V
 
+    .line 85
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 96
     iput-object p1, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mContext:Landroid/content/Context;
 
+    .line 97
     new-instance v0, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget-object v1, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mContext:Landroid/content/Context;
@@ -103,11 +112,16 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+    .line 98
     return-void
 .end method
 
 .method private addAccountsToBWLInternal(IILjava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
     .locals 8
+    .param p1, "callingUid"    # I
+    .param p2, "containerId"    # I
+    .param p3, "type"    # Ljava/lang/String;
+    .param p5, "listType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -121,12 +135,16 @@
         }
     .end annotation
 
+    .prologue
+    .local p4, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const/4 v5, 0x0
 
+    .line 128
     invoke-direct {p0, p2, p3}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object p3
 
+    .line 129
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes(I)Ljava/util/List;
 
     move-result-object v6
@@ -142,18 +160,23 @@
     :cond_0
     move v4, v5
 
+    .line 150
     :cond_1
     :goto_0
     return v4
 
+    .line 133
     :cond_2
     const/4 v4, 0x1
 
+    .line 135
+    .local v4, "result":Z
     :try_start_0
     invoke-interface {p4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -167,10 +190,14 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 136
+    .local v0, "account":Ljava/lang/String;
     new-instance v1, Landroid/content/ContentValues;
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
+    .line 137
+    .local v1, "cv":Landroid/content/ContentValues;
     const-string v6, "adminUid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -179,6 +206,7 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 138
     const-string v6, "containerID"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -187,18 +215,22 @@
 
     invoke-virtual {v1, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 139
     const-string/jumbo v6, "type"
 
     invoke-virtual {v1, v6, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 140
     const-string v6, "name"
 
     invoke-virtual {v1, v6, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 141
     const-string v6, "listType"
 
     invoke-virtual {v1, v6, p5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 142
     if-eqz v4, :cond_3
 
     iget-object v6, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -215,17 +247,25 @@
 
     const/4 v4, 0x1
 
+    .line 145
     :goto_2
     goto :goto_1
 
     :cond_3
     move v4, v5
 
+    .line 142
     goto :goto_2
 
+    .line 146
+    .end local v0    # "account":Ljava/lang/String;
+    .end local v1    # "cv":Landroid/content/ContentValues;
+    .end local v3    # "i$":Ljava/util/Iterator;
     :catch_0
     move-exception v2
 
+    .line 147
+    .local v2, "e":Ljava/lang/Exception;
     const-string v5, "DeviceAccountPolicy"
 
     const-string v6, "Handled Exception in addAccountsToBWLInternal()"
@@ -237,6 +277,9 @@
 
 .method private addAccountsToBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
     .locals 6
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p4, "listType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -251,10 +294,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 123
     iget v1, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
 
     iget v2, p1, Landroid/app/enterprise/ContextInfo;->mContainerId:I
@@ -276,6 +323,7 @@
 
 .method private checkAccountMatch(Ljava/util/Iterator;Ljava/lang/String;)Z
     .locals 1
+    .param p2, "match"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -288,6 +336,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 107
+    .local p1, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_0
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
@@ -296,6 +347,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 109
     :try_start_0
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -311,8 +363,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 110
     const/4 v0, 0x1
 
+    .line 117
     :goto_1
     return v0
 
@@ -321,6 +375,7 @@
 
     goto :goto_1
 
+    .line 112
     :catch_0
     move-exception v0
 
@@ -329,11 +384,16 @@
 
 .method private clearAccountsFromBWLByInternal(I[Ljava/lang/String;)Z
     .locals 9
+    .param p1, "containerId"    # I
+    .param p2, "type"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 508
     if-gtz p1, :cond_0
 
+    .line 509
     new-instance v6, Ljava/lang/SecurityException;
 
     const-string v7, "Invalid ContainerId. This API is supported only for container"
@@ -342,33 +402,43 @@
 
     throw v6
 
+    .line 513
     :cond_0
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
+    .line 514
+    .local v4, "selectionValues":Landroid/content/ContentValues;
     invoke-static {p1, v6}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getAdminLUIDWhereIn(II)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 515
+    .local v3, "selectAdmin":Ljava/lang/String;
     const-string v7, "#SelectClause#"
 
     invoke-virtual {v4, v3, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 517
     if-eqz p2, :cond_2
 
     array-length v7, p2
 
     if-lez v7, :cond_2
 
+    .line 518
     new-instance v5, Ljava/lang/StringBuffer;
 
     invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 519
+    .local v5, "whereBuffer":Ljava/lang/StringBuffer;
     const-string/jumbo v7, "type IN ("
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 520
     aget-object v7, p2, v6
 
     invoke-direct {p0, p1, v7}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
@@ -377,17 +447,21 @@
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 522
     const/4 v1, 0x1
 
+    .local v1, "i":I
     :goto_0
     array-length v7, p2
 
     if-ge v1, v7, :cond_1
 
+    .line 523
     const-string v7, ","
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 524
     aget-object v7, p2, v1
 
     invoke-direct {p0, p1, v7}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
@@ -396,15 +470,18 @@
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 522
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 527
     :cond_1
     const-string v7, ")"
 
     invoke-virtual {v5, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 529
     invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -413,9 +490,14 @@
 
     invoke-virtual {v4, v7, v8}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 532
+    .end local v1    # "i":I
+    .end local v5    # "whereBuffer":Ljava/lang/StringBuffer;
     :cond_2
     const/4 v2, 0x1
 
+    .line 534
+    .local v2, "result":Z
     :try_start_0
     iget-object v7, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -431,17 +513,22 @@
 
     const/4 v2, 0x1
 
+    .line 540
     :goto_1
     return v2
 
     :cond_3
     move v2, v6
 
+    .line 534
     goto :goto_1
 
+    .line 536
     :catch_0
     move-exception v0
 
+    .line 537
+    .local v0, "e":Ljava/lang/Exception;
     const-string v6, "DeviceAccountPolicy"
 
     const-string v7, "Handled Exception in clearAccountsFromBWLBySystem()"
@@ -453,27 +540,42 @@
 
 .method private clearAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
     .locals 12
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "listType"    # Ljava/lang/String;
 
+    .prologue
+    .line 217
     iget v10, p1, Landroid/app/enterprise/ContextInfo;->mContainerId:I
 
     invoke-direct {p0, v10, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
+    .line 218
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 219
     iget v4, p1, Landroid/app/enterprise/ContextInfo;->mContainerId:I
 
+    .line 220
+    .local v4, "containerId":I
     iget v2, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
 
+    .line 221
+    .local v2, "callingUid":I
     invoke-static {v2, v4}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->translateToAdminLUID(II)J
 
     move-result-wide v0
 
+    .line 222
+    .local v0, "adminLUID":J
     const/4 v7, 0x0
 
+    .line 224
+    .local v7, "result":Z
     const/4 v10, 0x3
 
     new-array v3, v10, [Ljava/lang/String;
@@ -496,6 +598,8 @@
 
     aput-object v11, v3, v10
 
+    .line 229
+    .local v3, "columns":[Ljava/lang/String;
     const/4 v10, 0x3
 
     new-array v8, v10, [Ljava/lang/String;
@@ -516,10 +620,14 @@
 
     aput-object p3, v8, v10
 
+    .line 233
+    .local v8, "values":[Ljava/lang/String;
     new-instance v9, Landroid/content/ContentValues;
 
     invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
 
+    .line 234
+    .local v9, "where":Landroid/content/ContentValues;
     const-string v10, "adminUid"
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -528,14 +636,17 @@
 
     invoke-virtual {v9, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
+    .line 235
     const-string/jumbo v10, "type"
 
     invoke-virtual {v9, v10, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 236
     const-string v10, "listType"
 
     invoke-virtual {v9, v10, p3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 241
     :try_start_0
     iget-object v10, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -545,6 +656,8 @@
 
     move-result-object v6
 
+    .line 243
+    .local v6, "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
@@ -553,12 +666,17 @@
 
     if-eqz v10, :cond_1
 
+    .line 244
     :cond_0
     const/4 v10, 0x1
 
+    .line 253
+    .end local v6    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     :goto_0
     return v10
 
+    .line 247
+    .restart local v6    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     :cond_1
     iget-object v10, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -570,14 +688,19 @@
 
     move-result v7
 
+    .end local v6    # "list":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     :goto_1
     move v10, v7
 
+    .line 253
     goto :goto_0
 
+    .line 249
     :catch_0
     move-exception v5
 
+    .line 250
+    .local v5, "e":Ljava/lang/Exception;
     const-string v10, "DeviceAccountPolicy"
 
     const-string v11, "Handled Exception in clearAccountsFromBWLInternal()"
@@ -589,7 +712,10 @@
 
 .method private enforceSecurityPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
     .locals 2
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
 
+    .prologue
+    .line 101
     invoke-direct {p0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -605,6 +731,9 @@
 
 .method private getAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
     .locals 9
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "listType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -619,18 +748,24 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 188
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 189
     iget v2, p1, Landroid/app/enterprise/ContextInfo;->mContainerId:I
 
+    .line 191
+    .local v2, "containerId":I
     invoke-direct {p0, v2, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
+    .line 192
     invoke-virtual {p0, v2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes(I)Ljava/util/List;
 
     move-result-object v7
@@ -641,20 +776,27 @@
 
     if-nez v7, :cond_1
 
+    .line 212
     :cond_0
     return-object v4
 
+    .line 197
     :cond_1
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object v0
 
+    .line 199
+    .local v0, "accountMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     if-eqz v0, :cond_0
 
+    .line 202
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v6
 
+    .line 203
+    .local v6, "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-interface {v6}, Ljava/util/Set;->size()I
@@ -663,10 +805,13 @@
 
     invoke-direct {v4, v7}, Ljava/util/ArrayList;-><init>(I)V
 
+    .line 205
+    .local v4, "list":Ljava/util/List;, "Ljava/util/List<Landroid/app/enterprise/AccountControlInfo;>;"
     invoke-interface {v6}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -680,10 +825,14 @@
 
     check-cast v5, Ljava/lang/Integer;
 
+    .line 206
+    .local v5, "uid":Ljava/lang/Integer;
     new-instance v1, Landroid/app/enterprise/AccountControlInfo;
 
     invoke-direct {v1}, Landroid/app/enterprise/AccountControlInfo;-><init>()V
 
+    .line 207
+    .local v1, "aci":Landroid/app/enterprise/AccountControlInfo;
     invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v7
@@ -694,6 +843,7 @@
 
     iput-object v7, v1, Landroid/app/enterprise/AccountControlInfo;->adminPackageName:Ljava/lang/String;
 
+    .line 208
     new-instance v8, Ljava/util/ArrayList;
 
     invoke-interface {v0, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -706,6 +856,7 @@
 
     iput-object v8, v1, Landroid/app/enterprise/AccountControlInfo;->entries:Ljava/util/List;
 
+    .line 209
     invoke-interface {v4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
@@ -714,10 +865,13 @@
 .method private getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
     .locals 2
 
+    .prologue
+    .line 88
     iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     if-nez v0, :cond_0
 
+    .line 89
     iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mContext:Landroid/content/Context;
 
     const-string v1, "enterprise_policy"
@@ -730,6 +884,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 92
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -738,7 +893,11 @@
 
 .method private getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p1, "containerId"    # I
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 548
     invoke-static {p1, p2}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getNonContainerizedString(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -748,7 +907,11 @@
 
 .method private getPackageNameForUid(II)Ljava/lang/String;
     .locals 1
+    .param p1, "uid"    # I
+    .param p2, "containerId"    # I
 
+    .prologue
+    .line 544
     iget-object v0, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     invoke-virtual {v0, p1}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->getPackageNameForUid(I)Ljava/lang/String;
@@ -760,6 +923,9 @@
 
 .method private declared-synchronized loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
     .locals 20
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "listType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -777,6 +943,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 260
     monitor-enter p0
 
     :try_start_0
@@ -784,10 +952,14 @@
 
     move-result v15
 
+    .line 261
+    .local v15, "userId":I
     move-object/from16 v0, p1
 
     iget v6, v0, Landroid/app/enterprise/ContextInfo;->mContainerId:I
 
+    .line 262
+    .local v6, "containerId":I
     const-string v17, "DeviceAccountPolicy"
 
     new-instance v18, Ljava/lang/StringBuilder;
@@ -812,6 +984,7 @@
 
     invoke-static/range {v17 .. v18}, Landroid/util/secutil/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 263
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -832,12 +1005,15 @@
 
     move-result-object v13
 
+    .line 265
+    .local v13, "uidList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
     move-result v17
 
     if-nez v17, :cond_1
 
+    .line 266
     const-string v17, "DeviceAccountPolicy"
 
     const-string v18, " loadAccounts : admin is null "
@@ -846,20 +1022,25 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 267
     const/4 v3, 0x0
 
+    .line 311
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-object v3
 
+    .line 270
     :cond_1
     :try_start_1
     new-instance v14, Ljava/util/TreeSet;
 
     invoke-direct {v14, v13}, Ljava/util/TreeSet;-><init>(Ljava/util/Collection;)V
 
+    .line 273
+    .local v14, "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
     new-instance v3, Ljava/util/HashMap;
 
     invoke-interface {v14}, Ljava/util/Set;->size()I
@@ -870,10 +1051,13 @@
 
     invoke-direct {v3, v0}, Ljava/util/HashMap;-><init>(I)V
 
+    .line 275
+    .local v3, "accountMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     invoke-interface {v14}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v10
 
+    .local v10, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
@@ -887,6 +1071,8 @@
 
     check-cast v12, Ljava/lang/Long;
 
+    .line 276
+    .local v12, "uid":Ljava/lang/Long;
     invoke-virtual {v12}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v17
@@ -895,6 +1081,8 @@
 
     move-result v4
 
+    .line 277
+    .local v4, "adminUid":I
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v17
@@ -913,6 +1101,15 @@
 
     goto :goto_1
 
+    .line 260
+    .end local v3    # "accountMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .end local v4    # "adminUid":I
+    .end local v6    # "containerId":I
+    .end local v10    # "i$":Ljava/util/Iterator;
+    .end local v12    # "uid":Ljava/lang/Long;
+    .end local v13    # "uidList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
+    .end local v14    # "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .end local v15    # "userId":I
     :catchall_0
     move-exception v17
 
@@ -920,6 +1117,13 @@
 
     throw v17
 
+    .line 280
+    .restart local v3    # "accountMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .restart local v6    # "containerId":I
+    .restart local v10    # "i$":Ljava/util/Iterator;
+    .restart local v13    # "uidList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
+    .restart local v14    # "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Long;>;"
+    .restart local v15    # "userId":I
     :cond_2
     const/16 v17, 0x2
 
@@ -940,10 +1144,14 @@
 
     aput-object v18, v5, v17
 
+    .line 284
+    .local v5, "columns":[Ljava/lang/String;
     new-instance v16, Landroid/content/ContentValues;
 
     invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
 
+    .line 285
+    .local v16, "where":Landroid/content/ContentValues;
     const-string v17, "containerID"
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -952,6 +1160,7 @@
 
     invoke-virtual/range {v16 .. v18}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 286
     const-string/jumbo v17, "userID"
 
     invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -960,6 +1169,7 @@
 
     invoke-virtual/range {v16 .. v18}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 287
     const-string/jumbo v17, "type"
 
     move-object/from16 v0, v16
@@ -970,6 +1180,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 288
     const-string v17, "listType"
 
     move-object/from16 v0, v16
@@ -982,6 +1193,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 291
     :try_start_3
     move-object/from16 v0, p0
 
@@ -1001,18 +1213,22 @@
 
     move-result-object v8
 
+    .line 293
+    .local v8, "cvList":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
     invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
 
     move-result v17
 
     if-eqz v17, :cond_3
 
+    .line 294
     const-string v17, "DeviceAccountPolicy"
 
     const-string v18, "  loadAccounts list empty "
 
     invoke-static/range {v17 .. v18}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 297
     :cond_3
     invoke-interface {v8}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -1031,6 +1247,8 @@
 
     check-cast v7, Landroid/content/ContentValues;
 
+    .line 298
+    .local v7, "cv":Landroid/content/ContentValues;
     const-string v17, "adminUid"
 
     move-object/from16 v0, v17
@@ -1039,8 +1257,11 @@
 
     move-result-object v11
 
+    .line 299
+    .local v11, "typeLong":Ljava/lang/Long;
     if-eqz v11, :cond_4
 
+    .line 300
     invoke-virtual {v11}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v17
@@ -1049,6 +1270,8 @@
 
     move-result v4
 
+    .line 301
+    .restart local v4    # "adminUid":I
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v17
@@ -1076,9 +1299,16 @@
 
     goto :goto_2
 
+    .line 307
+    .end local v4    # "adminUid":I
+    .end local v7    # "cv":Landroid/content/ContentValues;
+    .end local v8    # "cvList":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
+    .end local v11    # "typeLong":Ljava/lang/Long;
     :catch_0
     move-exception v9
 
+    .line 308
+    .local v9, "e":Ljava/lang/Exception;
     :try_start_4
     const-string v17, "DeviceAccountPolicy"
 
@@ -1094,6 +1324,11 @@
 
     goto/16 :goto_0
 
+    .line 304
+    .end local v9    # "e":Ljava/lang/Exception;
+    .restart local v7    # "cv":Landroid/content/ContentValues;
+    .restart local v8    # "cvList":Ljava/util/List;, "Ljava/util/List<Landroid/content/ContentValues;>;"
+    .restart local v11    # "typeLong":Ljava/lang/Long;
     :cond_4
     :try_start_5
     const-string v17, "DeviceAccountPolicy"
@@ -1110,6 +1345,9 @@
 
 .method private removeAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
     .locals 12
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p4, "listType"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1124,18 +1362,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 155
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->enforceSecurityPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 156
     iget v3, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
 
+    .line 157
+    .local v3, "callingUid":I
     iget v5, p1, Landroid/app/enterprise/ContextInfo;->mContainerId:I
 
+    .line 159
+    .local v5, "containerId":I
     invoke-direct {p0, v5, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
+    .line 160
     invoke-virtual {p0, v5}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getSupportedAccountTypes(I)Ljava/util/List;
 
     move-result-object v10
@@ -1148,21 +1395,27 @@
 
     if-nez p3, :cond_2
 
+    .line 161
     :cond_0
     const/4 v8, 0x0
 
+    .line 183
     :cond_1
     :goto_0
     return v8
 
+    .line 164
     :cond_2
     const/4 v8, 0x1
 
+    .line 166
+    .local v8, "result":Z
     :try_start_0
     invoke-interface {p3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
+    .local v7, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1176,10 +1429,14 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 167
+    .local v0, "account":Ljava/lang/String;
     invoke-static {v3, v5}, Lcom/android/server/enterprise/storage/EdmStorageProvider;->translateToAdminLUID(II)J
 
     move-result-wide v1
 
+    .line 168
+    .local v1, "adminLUID":J
     const/4 v10, 0x4
 
     new-array v4, v10, [Ljava/lang/String;
@@ -1208,6 +1465,8 @@
 
     aput-object v11, v4, v10
 
+    .line 172
+    .local v4, "columns":[Ljava/lang/String;
     const/4 v10, 0x4
 
     new-array v9, v10, [Ljava/lang/String;
@@ -1232,6 +1491,8 @@
 
     aput-object p4, v9, v10
 
+    .line 175
+    .local v9, "values":[Ljava/lang/String;
     if-eqz v8, :cond_3
 
     iget-object v10, p0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -1248,17 +1509,27 @@
 
     const/4 v8, 0x1
 
+    .line 178
     :goto_2
     goto :goto_1
 
+    .line 175
     :cond_3
     const/4 v8, 0x0
 
     goto :goto_2
 
+    .line 179
+    .end local v0    # "account":Ljava/lang/String;
+    .end local v1    # "adminLUID":J
+    .end local v4    # "columns":[Ljava/lang/String;
+    .end local v7    # "i$":Ljava/util/Iterator;
+    .end local v9    # "values":[Ljava/lang/String;
     :catch_0
     move-exception v6
 
+    .line 180
+    .local v6, "e":Ljava/lang/Exception;
     const-string v10, "DeviceAccountPolicy"
 
     const-string v11, "Handled Exception in removeAccountsFromBWLInternal()"
@@ -1272,6 +1543,8 @@
 # virtual methods
 .method public addAccountsToAdditionBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1284,6 +1557,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 409
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "ADDITION_BLACKLIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->addAccountsToBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -1295,6 +1571,8 @@
 
 .method public addAccountsToAdditionWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1307,6 +1585,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 427
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "ADDITION_WHITELIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->addAccountsToBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -1318,6 +1599,8 @@
 
 .method public addAccountsToRemovalBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1330,6 +1613,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 320
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "REMOVAL_BLACKLIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->addAccountsToBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -1341,6 +1627,8 @@
 
 .method public addAccountsToRemovalWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1353,6 +1641,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 337
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "REMOVAL_WHITELIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->addAccountsToBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -1364,7 +1655,11 @@
 
 .method public clearAccountsFromAdditionBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 422
     const-string v0, "ADDITION_BLACKLIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->clearAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1376,7 +1671,11 @@
 
 .method public clearAccountsFromAdditionWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 440
     const-string v0, "ADDITION_WHITELIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->clearAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1388,15 +1687,23 @@
 
 .method public clearAccountsFromBWLBySystem(I[Ljava/lang/String;)Z
     .locals 4
+    .param p1, "containerId"    # I
+    .param p2, "type"    # [Ljava/lang/String;
 
+    .prologue
+    .line 498
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
+    .line 499
+    .local v1, "callingUid":I
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v0
 
+    .line 500
+    .local v0, "callingPid":I
     invoke-static {v1}, Landroid/os/UserHandle;->getAppId(I)I
 
     move-result v2
@@ -1409,6 +1716,7 @@
 
     if-eq v0, v2, :cond_1
 
+    .line 501
     :cond_0
     new-instance v2, Ljava/lang/SecurityException;
 
@@ -1418,6 +1726,7 @@
 
     throw v2
 
+    .line 504
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->clearAccountsFromBWLByInternal(I[Ljava/lang/String;)Z
 
@@ -1428,7 +1737,11 @@
 
 .method public clearAccountsFromRemovalBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 333
     const-string v0, "REMOVAL_BLACKLIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->clearAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1440,7 +1753,11 @@
 
 .method public clearAccountsFromRemovalWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 350
     const-string v0, "REMOVAL_WHITELIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->clearAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Z
@@ -1452,6 +1769,8 @@
 
 .method public getAccountsFromAdditionBlackLists(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1465,6 +1784,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 418
     const-string v0, "ADDITION_BLACKLIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -1476,6 +1797,8 @@
 
 .method public getAccountsFromAdditionWhiteLists(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1489,6 +1812,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 436
     const-string v0, "ADDITION_WHITELIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -1500,6 +1825,8 @@
 
 .method public getAccountsFromRemovalBlackLists(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1513,6 +1840,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 329
     const-string v0, "REMOVAL_BLACKLIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -1524,6 +1853,8 @@
 
 .method public getAccountsFromRemovalWhiteLists(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1537,6 +1868,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 346
     const-string v0, "REMOVAL_WHITELIST"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
@@ -1548,6 +1881,7 @@
 
 .method public getSupportedAccountTypes(I)Ljava/util/List;
     .locals 1
+    .param p1, "containerId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1558,6 +1892,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 316
     sget-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
 
     invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1569,7 +1905,13 @@
 
 .method public declared-synchronized isAccountAdditionAllowed(ILjava/lang/String;Ljava/lang/String;Z)Z
     .locals 12
+    .param p1, "containerId"    # I
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "account"    # Ljava/lang/String;
+    .param p4, "showMsg"    # Z
 
+    .prologue
+    .line 451
     monitor-enter p0
 
     :try_start_0
@@ -1579,6 +1921,8 @@
 
     move-result v3
 
+    .line 453
+    .local v3, "callingUid":I
     if-nez p1, :cond_0
 
     :try_start_1
@@ -1590,10 +1934,13 @@
 
     if-ne v10, v11, :cond_0
 
+    .line 455
     invoke-static {p2}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getContainerIdAndPkgName(Ljava/lang/String;)Landroid/util/Pair;
 
     move-result-object v7
 
+    .line 457
+    .local v7, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v10, v7, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/Integer;
@@ -1602,6 +1949,7 @@
 
     move-result p1
 
+    .line 458
     iget-object v10, v7, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     move-object v0, v10
@@ -1613,6 +1961,8 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 466
+    .end local v7    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     :goto_0
     :try_start_2
     new-instance v4, Landroid/app/enterprise/ContextInfo;
@@ -1623,12 +1973,16 @@
 
     invoke-direct {v4, v10, p1}, Landroid/app/enterprise/ContextInfo;-><init>(II)V
 
+    .line 467
+    .local v4, "cxtInfo":Landroid/app/enterprise/ContextInfo;
     const-string v10, "ADDITION_BLACKLIST"
 
     invoke-direct {p0, v4, p2, v10}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object v1
 
+    .line 469
+    .local v1, "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     const-string v10, "ADDITION_WHITELIST"
 
     invoke-direct {p0, v4, p2, v10}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
@@ -1637,15 +1991,23 @@
 
     move-result-object v2
 
+    .line 472
+    .local v2, "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     if-nez v1, :cond_1
 
+    .line 473
     const/4 v10, 0x1
 
+    .line 494
     :goto_1
     monitor-exit p0
 
     return v10
 
+    .line 460
+    .end local v1    # "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .end local v2    # "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .end local v4    # "cxtInfo":Landroid/app/enterprise/ContextInfo;
     :cond_0
     :try_start_3
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
@@ -1657,9 +2019,12 @@
 
     goto :goto_0
 
+    .line 462
     :catch_0
     move-exception v5
 
+    .line 463
+    .local v5, "e":Ljava/lang/Exception;
     :try_start_4
     const-string v10, "DeviceAccountPolicy"
 
@@ -1671,6 +2036,9 @@
 
     goto :goto_0
 
+    .line 451
+    .end local v3    # "callingUid":I
+    .end local v5    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v10
 
@@ -1678,16 +2046,24 @@
 
     throw v10
 
+    .line 476
+    .restart local v1    # "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .restart local v2    # "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .restart local v3    # "callingUid":I
+    .restart local v4    # "cxtInfo":Landroid/app/enterprise/ContextInfo;
     :cond_1
     :try_start_5
     invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v9
 
+    .line 477
+    .local v9, "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
     invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
+    .local v6, "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1701,6 +2077,8 @@
 
     check-cast v8, Ljava/lang/Integer;
 
+    .line 479
+    .local v8, "uid":Ljava/lang/Integer;
     if-eqz v2, :cond_3
 
     invoke-interface {v2, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1719,6 +2097,7 @@
 
     if-nez v10, :cond_2
 
+    .line 485
     :cond_3
     invoke-interface {v1, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1736,19 +2115,24 @@
 
     if-eqz v10, :cond_2
 
+    .line 486
     if-eqz p4, :cond_4
 
+    .line 487
     const v10, 0x10402eb
 
     invoke-static {v10}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 490
     :cond_4
     const/4 v10, 0x0
 
     goto :goto_1
 
+    .line 494
+    .end local v8    # "uid":Ljava/lang/Integer;
     :cond_5
     const/4 v10, 0x1
 
@@ -1757,11 +2141,18 @@
 
 .method public isAccountAdditionAllowed(Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 3
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "account"    # Ljava/lang/String;
+    .param p3, "showMsg"    # Z
 
+    .prologue
+    .line 445
     invoke-static {p1}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getContainerIdAndPkgName(Ljava/lang/String;)Landroid/util/Pair;
 
     move-result-object v0
 
+    .line 446
+    .local v0, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v1, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Integer;
@@ -1783,7 +2174,13 @@
 
 .method public declared-synchronized isAccountRemovalAllowed(ILjava/lang/String;Ljava/lang/String;Z)Z
     .locals 12
+    .param p1, "containerId"    # I
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "account"    # Ljava/lang/String;
+    .param p4, "showMsg"    # Z
 
+    .prologue
+    .line 361
     monitor-enter p0
 
     :try_start_0
@@ -1793,6 +2190,8 @@
 
     move-result v3
 
+    .line 363
+    .local v3, "callingUid":I
     if-nez p1, :cond_0
 
     :try_start_1
@@ -1804,10 +2203,13 @@
 
     if-ne v10, v11, :cond_0
 
+    .line 365
     invoke-static {p2}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getContainerIdAndPkgName(Ljava/lang/String;)Landroid/util/Pair;
 
     move-result-object v7
 
+    .line 367
+    .local v7, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v10, v7, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v10, Ljava/lang/Integer;
@@ -1816,6 +2218,7 @@
 
     move-result p1
 
+    .line 368
     iget-object v10, v7, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     move-object v0, v10
@@ -1827,6 +2230,8 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 376
+    .end local v7    # "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     :goto_0
     :try_start_2
     new-instance v4, Landroid/app/enterprise/ContextInfo;
@@ -1837,12 +2242,16 @@
 
     invoke-direct {v4, v10, p1}, Landroid/app/enterprise/ContextInfo;-><init>(II)V
 
+    .line 377
+    .local v4, "cxtInfo":Landroid/app/enterprise/ContextInfo;
     const-string v10, "REMOVAL_BLACKLIST"
 
     invoke-direct {p0, v4, p2, v10}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
 
     move-result-object v1
 
+    .line 379
+    .local v1, "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     const-string v10, "REMOVAL_WHITELIST"
 
     invoke-direct {p0, v4, p2, v10}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->loadAccounts(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Map;
@@ -1851,15 +2260,23 @@
 
     move-result-object v2
 
+    .line 382
+    .local v2, "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
     if-nez v1, :cond_1
 
+    .line 383
     const/4 v10, 0x1
 
+    .line 404
     :goto_1
     monitor-exit p0
 
     return v10
 
+    .line 370
+    .end local v1    # "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .end local v2    # "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .end local v4    # "cxtInfo":Landroid/app/enterprise/ContextInfo;
     :cond_0
     :try_start_3
     invoke-direct {p0, p1, p2}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->getNonContainerizedType(ILjava/lang/String;)Ljava/lang/String;
@@ -1871,9 +2288,12 @@
 
     goto :goto_0
 
+    .line 372
     :catch_0
     move-exception v5
 
+    .line 373
+    .local v5, "e":Ljava/lang/Exception;
     :try_start_4
     const-string v10, "DeviceAccountPolicy"
 
@@ -1885,6 +2305,9 @@
 
     goto :goto_0
 
+    .line 361
+    .end local v3    # "callingUid":I
+    .end local v5    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v10
 
@@ -1892,16 +2315,24 @@
 
     throw v10
 
+    .line 386
+    .restart local v1    # "accountBlackMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .restart local v2    # "accountWhiteMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/Integer;Ljava/util/Set<Ljava/lang/String;>;>;"
+    .restart local v3    # "callingUid":I
+    .restart local v4    # "cxtInfo":Landroid/app/enterprise/ContextInfo;
     :cond_1
     :try_start_5
     invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v9
 
+    .line 387
+    .local v9, "uidSet":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/Integer;>;"
     invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
+    .local v6, "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1915,6 +2346,8 @@
 
     check-cast v8, Ljava/lang/Integer;
 
+    .line 389
+    .local v8, "uid":Ljava/lang/Integer;
     if-eqz v2, :cond_3
 
     invoke-interface {v2, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1933,6 +2366,7 @@
 
     if-nez v10, :cond_2
 
+    .line 395
     :cond_3
     invoke-interface {v1, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1950,19 +2384,24 @@
 
     if-eqz v10, :cond_2
 
+    .line 396
     if-eqz p4, :cond_4
 
+    .line 397
     const v10, 0x10402ea
 
     invoke-static {v10}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 400
     :cond_4
     const/4 v10, 0x0
 
     goto :goto_1
 
+    .line 404
+    .end local v8    # "uid":Ljava/lang/Integer;
     :cond_5
     const/4 v10, 0x1
 
@@ -1971,11 +2410,18 @@
 
 .method public isAccountRemovalAllowed(Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 3
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "account"    # Ljava/lang/String;
+    .param p3, "showMsg"    # Z
 
+    .prologue
+    .line 355
     invoke-static {p1}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getContainerIdAndPkgName(Ljava/lang/String;)Landroid/util/Pair;
 
     move-result-object v0
 
+    .line 356
+    .local v0, "pair":Landroid/util/Pair;, "Landroid/util/Pair<Ljava/lang/Integer;Ljava/lang/String;>;"
     iget-object v1, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Integer;
@@ -1997,19 +2443,29 @@
 
 .method public onAdminAdded(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 554
     return-void
 .end method
 
 .method public onAdminRemoved(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 560
     return-void
 .end method
 
 .method public onContainerCreation(II)V
     .locals 3
+    .param p1, "containerId"    # I
+    .param p2, "ownerUid"    # I
 
+    .prologue
+    .line 574
     const-string v0, "DeviceAccountPolicy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2048,12 +2504,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 575
     return-void
 .end method
 
 .method public onContainerRemoved(II)V
     .locals 3
+    .param p1, "containerId"    # I
+    .param p2, "ownerUid"    # I
 
+    .prologue
+    .line 589
     const-string v0, "DeviceAccountPolicy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2092,18 +2553,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 590
     return-void
 .end method
 
 .method public onPreAdminRemoval(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 570
     return-void
 .end method
 
 .method public onPreContainerRemoval(II)V
     .locals 3
+    .param p1, "containerId"    # I
+    .param p2, "ownerUid"    # I
 
+    .prologue
+    .line 579
     const-string v0, "DeviceAccountPolicy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2142,6 +2611,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 582
     const/4 v0, 0x0
 
     :try_start_0
@@ -2149,9 +2619,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 585
     :goto_0
     return-void
 
+    .line 583
     :catch_0
     move-exception v0
 
@@ -2160,6 +2632,8 @@
 
 .method public removeAccountsFromAdditionBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2172,6 +2646,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 414
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "ADDITION_BLACKLIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->removeAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -2183,6 +2660,8 @@
 
 .method public removeAccountsFromAdditionWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2195,6 +2674,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 432
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "ADDITION_WHITELIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->removeAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -2206,6 +2688,8 @@
 
 .method public removeAccountsFromRemovalBlackList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2218,6 +2702,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 325
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "REMOVAL_BLACKLIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->removeAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -2229,6 +2716,8 @@
 
 .method public removeAccountsFromRemovalWhiteList(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;)Z
     .locals 1
+    .param p1, "cxtIfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2241,6 +2730,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 342
+    .local p3, "accounts":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v0, "REMOVAL_WHITELIST"
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->removeAccountsFromBWLInternal(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)Z
@@ -2253,5 +2745,7 @@
 .method public systemReady()V
     .locals 0
 
+    .prologue
+    .line 565
     return-void
 .end method

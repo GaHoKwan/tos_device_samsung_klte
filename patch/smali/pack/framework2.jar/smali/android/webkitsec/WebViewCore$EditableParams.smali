@@ -43,6 +43,8 @@
 .method public constructor <init>(Landroid/webkitsec/WebViewCore;)V
     .locals 0
 
+    .prologue
+    .line 4757
     iput-object p1, p0, Landroid/webkitsec/WebViewCore$EditableParams;->this$0:Landroid/webkitsec/WebViewCore;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

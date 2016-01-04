@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
     .locals 0
 
+    .prologue
+    .line 286
     iput-object p1, p0, Landroid/widget/ActivityChooserView$5;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,23 +38,32 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 12
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const/4 v11, 0x1
 
     const/4 v10, 0x0
 
+    .line 288
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
 
     move-result v6
 
+    .line 289
+    .local v6, "width":I
     invoke-virtual {p1}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
+    .line 291
+    .local v2, "height":I
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
+    .line 292
+    .local v1, "context":Landroid/content/Context;
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
@@ -63,14 +74,21 @@
 
     iget v4, v8, Landroid/util/DisplayMetrics;->widthPixels:I
 
+    .line 293
+    .local v4, "screenWidth":I
     const/4 v8, 0x2
 
     new-array v3, v8, [I
 
+    .line 294
+    .local v3, "screenPos":[I
     invoke-virtual {p1, v3}, Landroid/view/View;->getLocationOnScreen([I)V
 
+    .line 296
     const/4 v5, 0x0
 
+    .line 297
+    .local v5, "statusBarHeight":I
     const-string/jumbo v8, "window"
 
     invoke-static {v8}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -81,6 +99,8 @@
 
     move-result-object v7
 
+    .line 299
+    .local v7, "wm":Landroid/view/IWindowManager;
     :try_start_0
     invoke-interface {v7}, Landroid/view/IWindowManager;->isStatusBarVisible()Z
 
@@ -88,6 +108,7 @@
 
     if-eqz v8, :cond_0
 
+    .line 300
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v8
@@ -100,6 +121,7 @@
 
     move-result v5
 
+    .line 306
     :cond_0
     :goto_0
     invoke-virtual {p1}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
@@ -110,6 +132,8 @@
 
     move-result-object v0
 
+    .line 308
+    .local v0, "cheatSheet":Landroid/widget/Toast;
     const/16 v8, 0x35
 
     aget v9, v3, v10
@@ -128,10 +152,14 @@
 
     invoke-virtual {v0, v8, v9, v10}, Landroid/widget/Toast;->setGravity(III)V
 
+    .line 310
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
+    .line 311
     return v11
 
+    .line 303
+    .end local v0    # "cheatSheet":Landroid/widget/Toast;
     :catch_0
     move-exception v8
 

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/app/ActionBarImpl;)V
     .locals 0
 
+    .prologue
+    .line 156
     iput-object p1, p0, Lcom/android/internal/app/ActionBarImpl$3;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 159
     iget-object v1, p0, Lcom/android/internal/app/ActionBarImpl$3;->this$0:Lcom/android/internal/app/ActionBarImpl;
 
     # getter for: Lcom/android/internal/app/ActionBarImpl;->mContainerView:Lcom/android/internal/widget/ActionBarContainer;
@@ -44,13 +49,17 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/widget/ActionBarContainer;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
+    .line 160
+    .local v0, "parent":Landroid/view/ViewParent;
     check-cast v0, Landroid/view/View;
 
+    .end local v0    # "parent":Landroid/view/ViewParent;
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 161
     return-void
 .end method

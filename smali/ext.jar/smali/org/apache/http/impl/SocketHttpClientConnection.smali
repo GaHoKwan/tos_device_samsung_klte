@@ -132,7 +132,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v1, v2, p2}, Lorg/apache/http/impl/SocketHttpClientConnection;->init(Lorg/apache/http/io/SessionInputBuffer;Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {p0, v1, v2, p2}, Lorg/apache/http/impl/AbstractHttpClientConnection;->init(Lorg/apache/http/io/SessionInputBuffer;Lorg/apache/http/io/SessionOutputBuffer;Lorg/apache/http/params/HttpParams;)V
 
     .line 111
     const/4 v1, 0x1
@@ -168,7 +168,7 @@
     iput-boolean v0, p0, Lorg/apache/http/impl/SocketHttpClientConnection;->open:Z
 
     .line 192
-    invoke-virtual {p0}, Lorg/apache/http/impl/SocketHttpClientConnection;->doFlush()V
+    invoke-virtual {p0}, Lorg/apache/http/impl/AbstractHttpClientConnection;->doFlush()V
 
     .line 195
     :try_start_0

@@ -120,7 +120,7 @@
     .line 197
     iget-object v1, p0, Lgov/nist/javax/sip/header/Accept;->mediaRange:Lgov/nist/javax/sip/header/MediaRange;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/MediaRange;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -170,11 +170,11 @@
 
     .line 98
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Accept;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Accept;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -188,7 +188,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 100
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Accept;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -266,7 +266,7 @@
     .line 137
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Accept;->getParameterAsFloat(Ljava/lang/String;)F
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsFloat(Ljava/lang/String;)F
 
     move-result v0
 

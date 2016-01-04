@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/BatteryService;)V
     .locals 0
 
+    .prologue
+    .line 561
     iput-object p1, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 564
     invoke-static {}, Landroid/app/ActivityManagerNative;->isSystemReady()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 570
     # getter for: Lcom/android/server/BatteryService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/BatteryService;->access$000()Ljava/lang/String;
 
@@ -52,6 +57,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 571
     iget-object v0, p0, Lcom/android/server/BatteryService$2;->this$0:Lcom/android/server/BatteryService;
 
     # getter for: Lcom/android/server/BatteryService;->mContext:Landroid/content/Context;
@@ -65,6 +71,7 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/power/ShutdownThread;->shutdown(Landroid/content/Context;ZLjava/lang/String;)V
 
+    .line 573
     :cond_0
     return-void
 .end method

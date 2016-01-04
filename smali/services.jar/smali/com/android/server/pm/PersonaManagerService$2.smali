@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2532
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$2;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x0
 
     const/4 v8, 0x1
 
+    .line 2535
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$2;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
@@ -57,6 +62,7 @@
 
     if-ge v1, v4, :cond_4
 
+    .line 2536
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$2;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mPersonas:Landroid/util/SparseArray;
@@ -70,18 +76,22 @@
 
     check-cast v3, Landroid/content/pm/PersonaInfo;
 
+    .line 2538
+    .local v3, "pi":Landroid/content/pm/PersonaInfo;
     if-eqz v3, :cond_0
 
     iget-boolean v4, v3, Landroid/content/pm/PersonaInfo;->partial:Z
 
     if-ne v4, v8, :cond_1
 
+    .line 2535
     :cond_0
     :goto_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 2542
     :cond_1
     invoke-virtual {v3}, Landroid/content/pm/PersonaInfo;->isSecureFileSystem()Z
 
@@ -89,6 +99,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 2543
     iget v4, v3, Landroid/content/pm/PersonaInfo;->id:I
 
     const-string v5, "persona_file_system"
@@ -102,6 +113,7 @@
 
     invoke-static {v4, v5, v6, v9}, Lcom/android/server/pm/HandlerCacheManager;->registerHandler(ILjava/lang/String;Ljava/lang/Object;Landroid/content/pm/IPersonaObserver;)V
 
+    .line 2544
     iget-boolean v4, v3, Landroid/content/pm/PersonaInfo;->isSuperLocked:Z
 
     if-nez v4, :cond_3
@@ -122,6 +134,7 @@
 
     if-eq v4, v5, :cond_3
 
+    .line 2546
     :try_start_0
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$2;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
@@ -142,8 +155,11 @@
 
     move-result v2
 
+    .line 2547
+    .local v2, "mountStatus":Z
     if-nez v2, :cond_2
 
+    .line 2548
     const-string v4, "PersonaManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -178,9 +194,13 @@
 
     goto :goto_1
 
+    .line 2552
+    .end local v2    # "mountStatus":Z
     :catch_0
     move-exception v0
 
+    .line 2553
+    .local v0, "e":Ljava/lang/Exception;
     const-string v4, "PersonaManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -205,6 +225,9 @@
 
     goto :goto_1
 
+    .line 2550
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v2    # "mountStatus":Z
     :cond_2
     :try_start_1
     const-string v4, "PersonaManagerService"
@@ -241,6 +264,8 @@
 
     goto/16 :goto_1
 
+    .line 2556
+    .end local v2    # "mountStatus":Z
     :cond_3
     const-string v4, "PersonaManagerService"
 
@@ -274,6 +299,8 @@
 
     goto/16 :goto_1
 
+    .line 2560
+    .end local v3    # "pi":Landroid/content/pm/PersonaInfo;
     :cond_4
     return-void
 .end method

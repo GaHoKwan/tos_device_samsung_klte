@@ -75,6 +75,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 93
     const-wide v0, 0x3fb657184ae74487L    # 0.08726646259971647
 
     invoke-static {v0, v1}, Ljava/lang/Math;->cos(D)D
@@ -88,33 +90,45 @@
 
 .method public constructor <init>(Landroid/hardware/SensorManager;Lcom/android/server/power/SuspendBlocker;Landroid/os/Handler;)V
     .locals 1
+    .param p1, "sensorManager"    # Landroid/hardware/SensorManager;
+    .param p2, "suspendBlocker"    # Lcom/android/server/power/SuspendBlocker;
+    .param p3, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 144
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 99
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
 
+    .line 336
     new-instance v0, Lcom/android/server/power/WirelessChargerDetector$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/power/WirelessChargerDetector$1;-><init>(Lcom/android/server/power/WirelessChargerDetector;)V
 
     iput-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mListener:Landroid/hardware/SensorEventListener;
 
+    .line 349
     new-instance v0, Lcom/android/server/power/WirelessChargerDetector$2;
 
     invoke-direct {v0, p0}, Lcom/android/server/power/WirelessChargerDetector$2;-><init>(Lcom/android/server/power/WirelessChargerDetector;)V
 
     iput-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorTimeout:Ljava/lang/Runnable;
 
+    .line 145
     iput-object p1, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
+    .line 146
     iput-object p2, p0, Lcom/android/server/power/WirelessChargerDetector;->mSuspendBlocker:Lcom/android/server/power/SuspendBlocker;
 
+    .line 147
     iput-object p3, p0, Lcom/android/server/power/WirelessChargerDetector;->mHandler:Landroid/os/Handler;
 
+    .line 149
     const/16 v0, 0x9
 
     invoke-virtual {p1, v0}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
@@ -123,12 +137,16 @@
 
     iput-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mGravitySensor:Landroid/hardware/Sensor;
 
+    .line 150
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/power/WirelessChargerDetector;)Ljava/lang/Object;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
 
+    .prologue
+    .line 72
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
 
     return-object v0
@@ -136,7 +154,13 @@
 
 .method static synthetic access$100(Lcom/android/server/power/WirelessChargerDetector;FFF)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
+    .param p1, "x1"    # F
+    .param p2, "x2"    # F
+    .param p3, "x3"    # F
 
+    .prologue
+    .line 72
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/power/WirelessChargerDetector;->processSampleLocked(FFF)V
 
     return-void
@@ -144,7 +168,10 @@
 
 .method static synthetic access$200(Lcom/android/server/power/WirelessChargerDetector;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/power/WirelessChargerDetector;
 
+    .prologue
+    .line 72
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->finishDetectionLocked()V
 
     return-void
@@ -153,54 +180,68 @@
 .method private clearAtRestLocked()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 306
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
 
+    .line 307
     iput v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestX:F
 
+    .line 308
     iput v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestY:F
 
+    .line 309
     iput v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestZ:F
 
+    .line 310
     return-void
 .end method
 
 .method private finishDetectionLocked()V
     .locals 5
 
+    .prologue
     const/4 v3, 0x3
 
     const/4 v4, 0x0
 
+    .line 241
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
 
     if-eqz v0, :cond_2
 
+    .line 242
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mListener:Landroid/hardware/SensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
+    .line 243
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorTimeout:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 245
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
     if-eqz v0, :cond_1
 
+    .line 246
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->clearAtRestLocked()V
 
+    .line 247
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
 
     if-ge v0, v3, :cond_3
 
+    .line 248
     const-string v0, "WirelessChargerDetector"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -265,37 +306,46 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 259
     :cond_0
     :goto_0
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
+    .line 269
     :cond_1
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
 
+    .line 270
     iget-object v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mSuspendBlocker:Lcom/android/server/power/SuspendBlocker;
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->release()V
 
+    .line 272
     :cond_2
     return-void
 
+    .line 253
     :cond_3
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mMovingSamples:I
 
     if-nez v0, :cond_0
 
+    .line 254
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
 
+    .line 255
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleX:F
 
     iput v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestX:F
 
+    .line 256
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleY:F
 
     iput v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestY:F
 
+    .line 257
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleZ:F
 
     iput v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mRestZ:F
@@ -305,7 +355,15 @@
 
 .method private static hasMoved(FFFFFF)Z
     .locals 11
+    .param p0, "x1"    # F
+    .param p1, "y1"    # F
+    .param p2, "z1"    # F
+    .param p3, "x2"    # F
+    .param p4, "y2"    # F
+    .param p5, "z2"    # F
 
+    .prologue
+    .line 314
     mul-float v7, p0, p3
 
     mul-float v8, p1, p4
@@ -318,6 +376,8 @@
 
     float-to-double v0, v7
 
+    .line 315
+    .local v0, "dotProduct":D
     mul-float v7, p0, p0
 
     mul-float v8, p1, p1
@@ -334,6 +394,8 @@
 
     move-result-wide v2
 
+    .line 316
+    .local v2, "mag1":D
     mul-float v7, p3, p3
 
     mul-float v8, p4, p4
@@ -350,6 +412,8 @@
 
     move-result-wide v4
 
+    .line 317
+    .local v4, "mag2":D
     const-wide v7, 0x40219d0140000000L    # 8.806650161743164
 
     cmpg-double v7, v2, v7
@@ -374,12 +438,15 @@
 
     if-lez v7, :cond_1
 
+    .line 322
     :cond_0
     const/4 v6, 0x1
 
+    .line 333
     :goto_0
     return v6
 
+    .line 324
     :cond_1
     mul-double v7, v2, v4
 
@@ -393,9 +460,13 @@
 
     const/4 v6, 0x1
 
+    .line 333
+    .local v6, "moved":Z
     :goto_1
     goto :goto_0
 
+    .line 324
+    .end local v6    # "moved":Z
     :cond_2
     const/4 v6, 0x0
 
@@ -404,35 +475,49 @@
 
 .method private processSampleLocked(FFF)V
     .locals 6
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
+    .prologue
+    .line 275
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
 
     if-eqz v0, :cond_1
 
+    .line 276
     iput p1, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleX:F
 
+    .line 277
     iput p2, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleY:F
 
+    .line 278
     iput p3, p0, Lcom/android/server/power/WirelessChargerDetector;->mLastSampleZ:F
 
+    .line 280
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
 
+    .line 281
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_2
 
+    .line 283
     iput p1, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleX:F
 
+    .line 284
     iput p2, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleY:F
 
+    .line 285
     iput p3, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleZ:F
 
+    .line 294
     :cond_0
     :goto_0
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
@@ -457,11 +542,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 300
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->clearAtRestLocked()V
 
+    .line 303
     :cond_1
     return-void
 
+    .line 288
     :cond_2
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mFirstSampleX:F
 
@@ -481,6 +569,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 289
     iget v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mMovingSamples:I
 
     add-int/lit8 v0, v0, 0x1
@@ -493,10 +582,12 @@
 .method private startDetectionLocked()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
+    .line 224
     iget-boolean v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
 
     if-nez v1, :cond_0
@@ -505,6 +596,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 225
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v2, p0, Lcom/android/server/power/WirelessChargerDetector;->mListener:Landroid/hardware/SensorEventListener;
@@ -519,22 +611,28 @@
 
     if-eqz v1, :cond_0
 
+    .line 227
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mSuspendBlocker:Lcom/android/server/power/SuspendBlocker;
 
     invoke-interface {v1}, Lcom/android/server/power/SuspendBlocker;->acquire()V
 
+    .line 228
     iput-boolean v6, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionInProgress:Z
 
+    .line 229
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionStartTime:J
 
+    .line 230
     iput v5, p0, Lcom/android/server/power/WirelessChargerDetector;->mTotalSamples:I
 
+    .line 231
     iput v5, p0, Lcom/android/server/power/WirelessChargerDetector;->mMovingSamples:I
 
+    .line 233
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/android/server/power/WirelessChargerDetector;->mSensorTimeout:Ljava/lang/Runnable;
@@ -543,14 +641,19 @@
 
     move-result-object v0
 
+    .line 234
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0, v6}, Landroid/os/Message;->setAsynchronous(Z)V
 
+    .line 235
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mHandler:Landroid/os/Handler;
 
     const-wide/16 v2, 0x320
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 238
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method
@@ -559,18 +662,24 @@
 # virtual methods
 .method public dump(Ljava/io/PrintWriter;)V
     .locals 7
+    .param p1, "pw"    # Ljava/io/PrintWriter;
 
+    .prologue
+    .line 153
     iget-object v1, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 154
     :try_start_0
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
+    .line 155
     const-string v0, "Wireless Charger Detector State:"
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 156
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -593,6 +702,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 157
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -615,6 +725,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 158
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -637,6 +748,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 159
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -683,6 +795,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 160
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -705,6 +818,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 161
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -736,6 +850,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 163
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -758,6 +873,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 164
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -780,6 +896,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 165
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -802,6 +919,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 166
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -848,6 +966,7 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 168
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -894,10 +1013,13 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 170
     monitor-exit v1
 
+    .line 171
     return-void
 
+    .line 161
     :cond_0
     iget-wide v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mDetectionStartTime:J
 
@@ -907,6 +1029,7 @@
 
     goto/16 :goto_0
 
+    .line 170
     :catchall_0
     move-exception v0
 
@@ -919,34 +1042,46 @@
 
 .method public update(ZII)Z
     .locals 6
+    .param p1, "isPowered"    # Z
+    .param p2, "plugType"    # I
+    .param p3, "batteryLevel"    # I
 
+    .prologue
     const/4 v5, 0x4
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 183
     iget-object v3, p0, Lcom/android/server/power/WirelessChargerDetector;->mLock:Ljava/lang/Object;
 
     monitor-enter v3
 
+    .line 184
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
+    .line 186
+    .local v0, "wasPoweredWirelessly":Z
     if-eqz p1, :cond_1
 
     if-ne p2, v5, :cond_1
 
+    .line 189
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
+    .line 190
     const/4 v4, 0x1
 
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
+    .line 191
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->startDetectionLocked()V
 
+    .line 217
     :cond_0
     :goto_0
     iget-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
@@ -968,27 +1103,34 @@
 
     return v1
 
+    .line 195
     :cond_1
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mPoweredWirelessly:Z
 
+    .line 196
     iget-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mAtRest:Z
 
     if-eqz v4, :cond_0
 
+    .line 197
     if-eqz p2, :cond_2
 
     if-eq p2, v5, :cond_2
 
+    .line 200
     const/4 v4, 0x0
 
     iput-boolean v4, p0, Lcom/android/server/power/WirelessChargerDetector;->mMustUpdateRestPosition:Z
 
+    .line 201
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->clearAtRestLocked()V
 
     goto :goto_0
 
+    .line 220
+    .end local v0    # "wasPoweredWirelessly":Z
     :catchall_0
     move-exception v1
 
@@ -998,6 +1140,8 @@
 
     throw v1
 
+    .line 207
+    .restart local v0    # "wasPoweredWirelessly":Z
     :cond_2
     :try_start_1
     invoke-direct {p0}, Lcom/android/server/power/WirelessChargerDetector;->startDetectionLocked()V
@@ -1009,5 +1153,6 @@
     :cond_3
     move v1, v2
 
+    .line 217
     goto :goto_1
 .end method

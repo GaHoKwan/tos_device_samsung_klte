@@ -40,6 +40,8 @@
 .method constructor <init>(Landroid/transition/ChangeText;Landroid/widget/TextView;Ljava/lang/CharSequence;IIILjava/lang/CharSequence;II)V
     .locals 1
 
+    .prologue
+    .line 267
     iput-object p1, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
     iput-object p2, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
@@ -60,6 +62,7 @@
 
     invoke-direct {p0}, Landroid/transition/Transition$TransitionListenerAdapter;-><init>()V
 
+    .line 268
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/transition/ChangeText$6;->mPausedColor:I
@@ -71,7 +74,10 @@
 # virtual methods
 .method public onTransitionPause(Landroid/transition/Transition;)V
     .locals 4
+    .param p1, "transition"    # Landroid/transition/Transition;
 
+    .prologue
+    .line 272
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
     # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
@@ -83,18 +89,21 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 273
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/transition/ChangeText$6;->val$endText:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 274
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     instance-of v0, v0, Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
 
+    .line 275
     iget-object v1, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
@@ -108,6 +117,7 @@
     # invokes: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
+    .line 278
     :cond_0
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
@@ -118,6 +128,7 @@
 
     if-lez v0, :cond_1
 
+    .line 279
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getCurrentTextColor()I
@@ -126,19 +137,24 @@
 
     iput v0, p0, Landroid/transition/ChangeText$6;->mPausedColor:I
 
+    .line 280
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     iget v1, p0, Landroid/transition/ChangeText$6;->val$endColor:I
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 282
     :cond_1
     return-void
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
     .locals 4
+    .param p1, "transition"    # Landroid/transition/Transition;
 
+    .prologue
+    .line 286
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
     # getter for: Landroid/transition/ChangeText;->mChangeBehavior:I
@@ -150,18 +166,21 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 287
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     iget-object v1, p0, Landroid/transition/ChangeText$6;->val$startText:Ljava/lang/CharSequence;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 288
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     instance-of v0, v0, Landroid/widget/EditText;
 
     if-eqz v0, :cond_0
 
+    .line 289
     iget-object v1, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
@@ -175,6 +194,7 @@
     # invokes: Landroid/transition/ChangeText;->setSelection(Landroid/widget/EditText;II)V
     invoke-static {v1, v0, v2, v3}, Landroid/transition/ChangeText;->access$000(Landroid/transition/ChangeText;Landroid/widget/EditText;II)V
 
+    .line 292
     :cond_0
     iget-object v0, p0, Landroid/transition/ChangeText$6;->this$0:Landroid/transition/ChangeText;
 
@@ -185,12 +205,14 @@
 
     if-lez v0, :cond_1
 
+    .line 293
     iget-object v0, p0, Landroid/transition/ChangeText$6;->val$view:Landroid/widget/TextView;
 
     iget v1, p0, Landroid/transition/ChangeText$6;->mPausedColor:I
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
+    .line 295
     :cond_1
     return-void
 .end method

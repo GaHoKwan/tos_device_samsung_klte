@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/auditlog/CircularBuffer;)V
     .locals 0
 
+    .prologue
+    .line 205
     iput-object p1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$2;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +38,16 @@
 # virtual methods
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 4
+    .param p1, "o1"    # Ljava/lang/Object;
+    .param p2, "o2"    # Ljava/lang/Object;
 
+    .prologue
+    .line 207
     new-instance v0, Ljava/lang/Long;
 
     check-cast p1, Ljava/io/File;
 
+    .end local p1    # "o1":Ljava/lang/Object;
     invoke-virtual {p1}, Ljava/io/File;->lastModified()J
 
     move-result-wide v1
@@ -51,6 +58,7 @@
 
     check-cast p2, Ljava/io/File;
 
+    .end local p2    # "o2":Ljava/lang/Object;
     invoke-virtual {p2}, Ljava/io/File;->lastModified()J
 
     move-result-wide v2

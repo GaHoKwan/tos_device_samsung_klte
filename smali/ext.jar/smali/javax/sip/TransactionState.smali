@@ -176,7 +176,7 @@
     .line 3
     sget-object v0, Ljavax/sip/TransactionState;->$VALUES:[Ljavax/sip/TransactionState;
 
-    invoke-virtual {v0}, [Ljavax/sip/TransactionState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

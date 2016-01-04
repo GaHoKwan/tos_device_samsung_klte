@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 2561
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
@@ -34,6 +37,8 @@
 .method public run()V
     .locals 11
 
+    .prologue
+    .line 2567
     :goto_0
     :try_start_0
     monitor-enter p0
@@ -41,11 +46,14 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 2568
     :try_start_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v5
 
+    .line 2569
+    .local v5, "now":J
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mLastCpuTime:Ljava/util/concurrent/atomic/AtomicLong;
@@ -60,6 +68,8 @@
 
     sub-long v1, v7, v5
 
+    .line 2570
+    .local v1, "nextCpuDelay":J
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-wide v7, v7, Lcom/android/server/am/ActivityManagerService;->mLastWriteTime:J
@@ -70,12 +80,16 @@
 
     sub-long v3, v7, v5
 
+    .line 2573
+    .local v3, "nextWriteDelay":J
     cmp-long v7, v3, v1
 
     if-gez v7, :cond_0
 
+    .line 2574
     move-wide v1, v3
 
+    .line 2576
     :cond_0
     const-wide/16 v7, 0x0
 
@@ -83,6 +97,7 @@
 
     if-lez v7, :cond_1
 
+    .line 2577
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mProcessCpuMutexFree:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -91,13 +106,19 @@
 
     invoke-virtual {v7, v8}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 2578
     invoke-virtual {p0, v1, v2}, Ljava/lang/Object;->wait(J)V
 
+    .line 2580
     :cond_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 2583
+    .end local v1    # "nextCpuDelay":J
+    .end local v3    # "nextWriteDelay":J
+    .end local v5    # "now":J
     :goto_1
     :try_start_2
     iget-object v7, p0, Lcom/android/server/am/ActivityManagerService$4;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -108,9 +129,12 @@
 
     goto :goto_0
 
+    .line 2584
     :catch_0
     move-exception v0
 
+    .line 2585
+    .local v0, "e":Ljava/lang/Exception;
     const-string v7, "ActivityManager"
 
     const-string v8, "Unexpected exception collecting process stats"
@@ -119,6 +143,8 @@
 
     goto :goto_0
 
+    .line 2580
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v7
 
@@ -133,6 +159,7 @@
     .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_1
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
+    .line 2581
     :catch_1
     move-exception v7
 

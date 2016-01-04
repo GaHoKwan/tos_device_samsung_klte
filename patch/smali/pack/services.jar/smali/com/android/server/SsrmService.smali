@@ -12,19 +12,21 @@
 
 .field public static final COMMON_HW_VENDOR_CONFIG:Ljava/lang/String; = "Combination"
 
-.field public static final COMMON_REGION:Ljava/lang/String; = "USA"
+.field public static final COMMON_REGION:Ljava/lang/String; = "GGSM"
 
 .field public static final DISABLE_DYNAMIC_FPS:Z = false
 
 .field public static final SIOP_FILENAME:Ljava/lang/String; = "siop_jbp_empty"
 
-.field public static final SSRM_FILENAME:Ljava/lang/String; = "ssrm_kflte_vzw"
+.field public static final SSRM_FILENAME:Ljava/lang/String; = "ssrm_kflte_xx"
 
 
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

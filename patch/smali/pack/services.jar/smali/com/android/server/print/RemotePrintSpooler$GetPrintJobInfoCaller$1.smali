@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;)V
     .locals 1
 
+    .prologue
+    .line 488
     iput-object p1, p0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller$1;->this$0:Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;
 
     const/4 v0, 0x0
@@ -35,10 +37,15 @@
 # virtual methods
 .method public onGetPrintJobInfoResult(Landroid/print/PrintJobInfo;I)V
     .locals 1
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
+    .param p2, "sequence"    # I
 
+    .prologue
+    .line 491
     iget-object v0, p0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller$1;->this$0:Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfoCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
+    invoke-virtual {v0, p1, p2}, Landroid/util/TimedRemoteCaller;->onRemoteMethodResult(Ljava/lang/Object;I)V
 
+    .line 492
     return-void
 .end method

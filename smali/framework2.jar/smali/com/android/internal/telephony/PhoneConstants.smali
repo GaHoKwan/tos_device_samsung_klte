@@ -162,18 +162,23 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 68
     const/4 v0, 0x1
 
     sput v0, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_ALLOWED:I
 
+    .line 69
     const/4 v0, 0x2
 
     sput v0, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_RESTRICTED:I
 
+    .line 70
     const/4 v0, 0x3
 
     sput v0, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_UNKNOWN:I
 
+    .line 71
     const/4 v0, 0x4
 
     sput v0, Lcom/android/internal/telephony/PhoneConstants;->PRESENTATION_PAYPHONE:I
@@ -184,6 +189,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

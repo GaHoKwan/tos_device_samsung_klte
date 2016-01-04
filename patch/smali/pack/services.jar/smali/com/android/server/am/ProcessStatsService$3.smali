@@ -25,7 +25,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ProcessStatsService;Ljava/lang/String;[Landroid/os/ParcelFileDescriptor;[B)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 504
     iput-object p1, p0, Lcom/android/server/am/ProcessStatsService$3;->this$0:Lcom/android/server/am/ProcessStatsService;
 
     iput-object p3, p0, Lcom/android/server/am/ProcessStatsService$3;->val$fds:[Landroid/os/ParcelFileDescriptor;
@@ -42,6 +45,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 506
     new-instance v1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
     iget-object v2, p0, Lcom/android/server/am/ProcessStatsService$3;->val$fds:[Landroid/os/ParcelFileDescriptor;
@@ -52,21 +57,28 @@
 
     invoke-direct {v1, v2}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;-><init>(Landroid/os/ParcelFileDescriptor;)V
 
+    .line 508
+    .local v1, "fout":Ljava/io/FileOutputStream;
     :try_start_0
     iget-object v2, p0, Lcom/android/server/am/ProcessStatsService$3;->val$outData:[B
 
-    invoke-virtual {v1, v2}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v1, v2}, Ljava/io/OutputStream;->write([B)V
 
-    invoke-virtual {v1}, Ljava/io/FileOutputStream;->close()V
+    .line 509
+    invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->close()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 513
     :goto_0
     return-void
 
+    .line 510
     :catch_0
     move-exception v0
 
+    .line 511
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "ProcessStatsService"
 
     const-string v3, "Failure writing pipe"

@@ -125,7 +125,7 @@
     .line 497
     iget-object v1, p0, Landroid/media/audiofx/SoundAlive$BaseParameterListener;->this$0:Landroid/media/audiofx/SoundAlive;
 
-    invoke-virtual {v1, p3, v6}, Landroid/media/audiofx/SoundAlive;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p3, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v3
 
@@ -139,7 +139,7 @@
     .line 499
     iget-object v1, p0, Landroid/media/audiofx/SoundAlive$BaseParameterListener;->this$0:Landroid/media/audiofx/SoundAlive;
 
-    invoke-virtual {v1, p3, v7}, Landroid/media/audiofx/SoundAlive;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p3, v7}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v4
 
@@ -154,7 +154,7 @@
     .line 503
     iget-object v1, p0, Landroid/media/audiofx/SoundAlive$BaseParameterListener;->this$0:Landroid/media/audiofx/SoundAlive;
 
-    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/SoundAlive;->byteArrayToShort([BI)S
+    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([BI)S
 
     move-result v5
 
@@ -202,7 +202,7 @@
     .line 505
     iget-object v1, p0, Landroid/media/audiofx/SoundAlive$BaseParameterListener;->this$0:Landroid/media/audiofx/SoundAlive;
 
-    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/SoundAlive;->byteArrayToInt([BI)I
+    invoke-virtual {v1, p4, v6}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v5
 

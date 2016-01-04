@@ -33,7 +33,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 86
-    iput-object p1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 87
     return-void
@@ -54,10 +54,10 @@
 
     invoke-direct {v0}, Lgov/nist/javax/sip/address/AddressImpl;-><init>()V
 
-    iput-object v0, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 97
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/address/AddressImpl;->setURI(Ljavax/sip/address/URI;)V
 
@@ -80,12 +80,12 @@
 
     .line 149
     .local v0, "retval":Lgov/nist/javax/sip/header/ims/PAssociatedURI;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     if-eqz v1, :cond_0
 
     .line 150
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->clone()Ljava/lang/Object;
 
@@ -93,7 +93,7 @@
 
     check-cast v1, Lgov/nist/javax/sip/address/AddressImpl;
 
-    iput-object v1, v0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object v1, v0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 151
     :cond_0
@@ -113,7 +113,7 @@
 
     .line 110
     .local v0, "retval":Ljava/lang/StringBuffer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -128,7 +128,7 @@
 
     .line 113
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->encode()Ljava/lang/String;
 
@@ -137,7 +137,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 114
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -152,7 +152,7 @@
 
     .line 119
     :cond_1
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -171,7 +171,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -201,7 +201,7 @@
 
     .prologue
     .line 143
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getURI()Ljavax/sip/address/URI;
 
@@ -234,7 +234,7 @@
 
     .line 135
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/address/AddressImpl;->setURI(Ljavax/sip/address/URI;)V
 

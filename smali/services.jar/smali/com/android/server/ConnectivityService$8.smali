@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ConnectivityService;)V
     .locals 0
 
+    .prologue
+    .line 7554
     iput-object p1, p0, Lcom/android/server/ConnectivityService$8;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 7557
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -46,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 7558
     iget-object v0, p0, Lcom/android/server/ConnectivityService$8;->this$0:Lcom/android/server/ConnectivityService;
 
     new-instance v1, Lcom/android/server/ciq/IPConnectivityCIQ;
@@ -55,6 +62,7 @@
     # setter for: Lcom/android/server/ConnectivityService;->mCiq:Lcom/android/server/ciq/IPConnectivityCIQ;
     invoke-static {v0, v1}, Lcom/android/server/ConnectivityService;->access$6602(Lcom/android/server/ConnectivityService;Lcom/android/server/ciq/IPConnectivityCIQ;)Lcom/android/server/ciq/IPConnectivityCIQ;
 
+    .line 7560
     :cond_0
     return-void
 .end method

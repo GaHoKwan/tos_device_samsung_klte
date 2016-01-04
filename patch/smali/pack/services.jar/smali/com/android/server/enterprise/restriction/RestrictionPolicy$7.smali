@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/restriction/RestrictionPolicy;)V
     .locals 0
 
+    .prologue
+    .line 630
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$7;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 633
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 640
     :goto_0
     return-void
 
+    .line 636
     :pswitch_0
     new-instance v0, Landroid/content/Intent;
 
@@ -48,6 +55,8 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 637
+    .local v0, "intent":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$7;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
     # getter for: Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
@@ -59,6 +68,7 @@
 
     goto :goto_0
 
+    .line 633
     nop
 
     :pswitch_data_0

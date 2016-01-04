@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/voiceshell/AudioRecordHaydn;)V
     .locals 0
 
+    .prologue
+    .line 196
     iput-object p1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$1;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 199
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v2
@@ -44,6 +49,8 @@
 
     move-result v1
 
+    .line 200
+    .local v1, "iResult":I
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v2
@@ -54,6 +61,8 @@
 
     move-result v0
 
+    .line 202
+    .local v0, "cResult":S
     iget-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$1;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->TAG:Ljava/lang/String;
@@ -91,6 +100,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 204
     iget-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$1;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -100,6 +110,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 206
     iget-object v2, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$1;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -109,6 +120,7 @@
 
     invoke-interface {v2, v1, v0}, Lcom/samsung/voiceshell/VoiceEngineResultListener;->OnVerifyResult(IS)V
 
+    .line 208
     :cond_0
     return-void
 .end method

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/RCPManagerService$RCPServiceConnection;)V
     .locals 0
 
+    .prologue
+    .line 1079
     iput-object p1, p0, Lcom/android/server/RCPManagerService$RCPServiceConnection$1;->this$1:Lcom/android/server/RCPManagerService$RCPServiceConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1082
     iget-object v0, p0, Lcom/android/server/RCPManagerService$RCPServiceConnection$1;->this$1:Lcom/android/server/RCPManagerService$RCPServiceConnection;
 
     iget-object v0, v0, Lcom/android/server/RCPManagerService$RCPServiceConnection;->this$0:Lcom/android/server/RCPManagerService;
@@ -60,6 +64,7 @@
 
     if-nez v0, :cond_0
 
+    .line 1083
     iget-object v0, p0, Lcom/android/server/RCPManagerService$RCPServiceConnection$1;->this$1:Lcom/android/server/RCPManagerService$RCPServiceConnection;
 
     iget-object v0, v0, Lcom/android/server/RCPManagerService$RCPServiceConnection;->this$0:Lcom/android/server/RCPManagerService;
@@ -70,6 +75,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/RCPManagerService;->scanAndStartRCPProxy(I)V
 
+    .line 1084
     :cond_0
     return-void
 .end method

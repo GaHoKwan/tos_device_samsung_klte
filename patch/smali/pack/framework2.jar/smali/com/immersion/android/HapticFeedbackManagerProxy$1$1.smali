@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/immersion/android/HapticFeedbackManagerProxy$1;)V
     .locals 0
 
+    .prologue
+    .line 69
     iput-object p1, p0, Lcom/immersion/android/HapticFeedbackManagerProxy$1$1;->this$0:Lcom/immersion/android/HapticFeedbackManagerProxy$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 71
     # getter for: Lcom/immersion/android/HapticFeedbackManagerProxy;->sHapticFeedbackManagerProxy:Lcom/immersion/android/HapticFeedbackManagerProxy;
     invoke-static {}, Lcom/immersion/android/HapticFeedbackManagerProxy;->access$000()Lcom/immersion/android/HapticFeedbackManagerProxy;
 
@@ -53,5 +57,6 @@
     # invokes: Lcom/immersion/android/HapticFeedbackManagerProxy;->initialize(Landroid/content/Context;Landroid/os/Looper;)V
     invoke-static {v0, v1, v2}, Lcom/immersion/android/HapticFeedbackManagerProxy;->access$100(Lcom/immersion/android/HapticFeedbackManagerProxy;Landroid/content/Context;Landroid/os/Looper;)V
 
+    .line 72
     return-void
 .end method

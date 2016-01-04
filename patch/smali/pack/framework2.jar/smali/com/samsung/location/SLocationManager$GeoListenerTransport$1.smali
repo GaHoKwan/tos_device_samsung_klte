@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/samsung/location/SLocationManager$GeoListenerTransport;Lcom/samsung/location/SLocationManager;)V
     .locals 0
 
+    .prologue
+    .line 101
     iput-object p1, p0, Lcom/samsung/location/SLocationManager$GeoListenerTransport$1;->this$1:Lcom/samsung/location/SLocationManager$GeoListenerTransport;
 
     iput-object p2, p0, Lcom/samsung/location/SLocationManager$GeoListenerTransport$1;->val$this$0:Lcom/samsung/location/SLocationManager;
@@ -37,11 +39,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 104
     iget-object v0, p0, Lcom/samsung/location/SLocationManager$GeoListenerTransport$1;->this$1:Lcom/samsung/location/SLocationManager$GeoListenerTransport;
 
     # invokes: Lcom/samsung/location/SLocationManager$GeoListenerTransport;->_handleMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Lcom/samsung/location/SLocationManager$GeoListenerTransport;->access$100(Lcom/samsung/location/SLocationManager$GeoListenerTransport;Landroid/os/Message;)V
 
+    .line 105
     return-void
 .end method

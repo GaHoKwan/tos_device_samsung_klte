@@ -26,20 +26,25 @@
 .method public constructor <init>(Lcom/sec/knox/container/EnterpriseContainerService;)V
     .locals 1
 
+    .prologue
+    .line 3690
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3691
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->fraction:I
 
+    .line 3692
     new-instance v0, Ljava/util/Random;
 
     invoke-direct {v0}, Ljava/util/Random;-><init>()V
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->random:Ljava/util/Random;
 
+    .line 3693
     return-void
 .end method
 
@@ -48,6 +53,8 @@
 .method public getNextContainerRequestId()I
     .locals 3
 
+    .prologue
+    .line 3696
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->fraction:I
 
     add-int/lit8 v0, v0, 0x1
@@ -58,10 +65,12 @@
 
     if-le v0, v1, :cond_0
 
+    .line 3697
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->fraction:I
 
+    .line 3699
     :cond_0
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$RequestIdGenerator;->fraction:I
 

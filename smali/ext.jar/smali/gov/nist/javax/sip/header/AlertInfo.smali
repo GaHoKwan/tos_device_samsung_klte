@@ -52,7 +52,7 @@
     .line 122
     iget-object v1, p0, Lgov/nist/javax/sip/header/AlertInfo;->uri:Lgov/nist/javax/sip/address/GenericURI;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/address/GenericURI;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -118,7 +118,7 @@
     .line 77
     :cond_0
     :goto_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/AlertInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -133,7 +133,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/AlertInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 

@@ -117,7 +117,7 @@
     .local v2, "key":Ljava/lang/String;
     iget-object v3, p0, Landroid/app/backup/SharedPreferencesBackupHelper;->mPrefGroups:[Ljava/lang/String;
 
-    invoke-virtual {p0, v2, v3}, Landroid/app/backup/SharedPreferencesBackupHelper;->isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
+    invoke-virtual {p0, v2, v3}, Landroid/app/backup/FileBackupHelperBase;->isKeyInList(Ljava/lang/String;[Ljava/lang/String;)Z
 
     move-result v3
 
@@ -134,7 +134,7 @@
 
     .line 127
     .local v1, "f":Ljava/io/File;
-    invoke-virtual {p0, v1, p1}, Landroid/app/backup/SharedPreferencesBackupHelper;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
+    invoke-virtual {p0, v1, p1}, Landroid/app/backup/FileBackupHelperBase;->writeFile(Ljava/io/File;Landroid/app/backup/BackupDataInputStream;)Z
 
     .line 129
     .end local v1    # "f":Ljava/io/File;

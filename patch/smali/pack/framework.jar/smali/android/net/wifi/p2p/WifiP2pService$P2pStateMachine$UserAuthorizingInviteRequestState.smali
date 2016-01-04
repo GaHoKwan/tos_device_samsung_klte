@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    const-string v3, "{ what="
+    const-string/jumbo v3, "{ what="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -263,6 +263,8 @@
     goto :goto_0
 
     .line 2240
+    nop
+
     nop
 
     :pswitch_data_0

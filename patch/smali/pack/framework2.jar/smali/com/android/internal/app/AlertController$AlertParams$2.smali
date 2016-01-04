@@ -29,7 +29,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Landroid/content/Context;Landroid/database/Cursor;ZLcom/android/internal/app/AlertController$RecycleListView;Lcom/android/internal/app/AlertController;)V
     .locals 2
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # Landroid/database/Cursor;
+    .param p4, "x2"    # Z
 
+    .prologue
+    .line 903
     iput-object p1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iput-object p5, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->val$listView:Lcom/android/internal/app/AlertController$RecycleListView;
@@ -38,10 +43,13 @@
 
     invoke-direct {p0, p2, p3, p4}, Landroid/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;Z)V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertController$AlertParams$2;->getCursor()Landroid/database/Cursor;
+    .line 908
+    invoke-virtual {p0}, Landroid/widget/CursorAdapter;->getCursor()Landroid/database/Cursor;
 
     move-result-object v0
 
+    .line 909
+    .local v0, "cursor":Landroid/database/Cursor;
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mLabelColumn:Ljava/lang/String;
@@ -52,6 +60,7 @@
 
     iput v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->mLabelIndex:I
 
+    .line 910
     iget-object v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mIsCheckedColumn:Ljava/lang/String;
@@ -62,6 +71,7 @@
 
     iput v1, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->mIsCheckedIndex:I
 
+    .line 911
     return-void
 .end method
 
@@ -69,9 +79,14 @@
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
     .locals 5
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "cursor"    # Landroid/database/Cursor;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 915
     const v2, 0x1020014
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -80,14 +95,17 @@
 
     check-cast v0, Landroid/widget/CheckedTextView;
 
+    .line 916
+    .local v0, "text":Landroid/widget/CheckedTextView;
     iget v2, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->mLabelIndex:I
 
     invoke-interface {p3, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-virtual {v0, v2}, Landroid/widget/CheckedTextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 917
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->val$listView:Lcom/android/internal/app/AlertController$RecycleListView;
 
     invoke-interface {p3}, Landroid/database/Cursor;->getPosition()I
@@ -103,10 +121,12 @@
     if-ne v4, v1, :cond_0
 
     :goto_0
-    invoke-virtual {v2, v3, v1}, Lcom/android/internal/app/AlertController$RecycleListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, v3, v1}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
+    .line 919
     return-void
 
+    .line 917
     :cond_0
     const/4 v1, 0x0
 
@@ -115,7 +135,12 @@
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "cursor"    # Landroid/database/Cursor;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 923
     iget-object v0, p0, Lcom/android/internal/app/AlertController$AlertParams$2;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v0, v0, Lcom/android/internal/app/AlertController$AlertParams;->mInflater:Landroid/view/LayoutInflater;

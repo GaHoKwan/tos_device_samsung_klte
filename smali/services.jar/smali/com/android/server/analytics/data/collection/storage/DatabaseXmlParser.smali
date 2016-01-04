@@ -36,26 +36,39 @@
 # direct methods
 .method public constructor <init>(Landroid/content/res/XmlResourceParser;Lcom/android/server/analytics/data/collection/storage/TableCallback;)V
     .locals 0
+    .param p1, "parser"    # Landroid/content/res/XmlResourceParser;
+    .param p2, "cb"    # Lcom/android/server/analytics/data/collection/storage/TableCallback;
 
+    .prologue
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 66
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
 
+    .line 67
     iput-object p2, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mCallback:Lcom/android/server/analytics/data/collection/storage/TableCallback;
 
+    .line 68
     return-void
 .end method
 
 .method private getType(Ljava/lang/String;)Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
     .locals 1
+    .param p1, "type"    # Ljava/lang/String;
 
+    .prologue
+    .line 71
     if-nez p1, :cond_0
 
+    .line 73
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->BLOB:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
+    .line 84
     :goto_0
     return-object v0
 
+    .line 74
     :cond_0
     const-string v0, "int"
 
@@ -65,10 +78,12 @@
 
     if-eqz v0, :cond_1
 
+    .line 75
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->INTEGER:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
     goto :goto_0
 
+    .line 76
     :cond_1
     const-string/jumbo v0, "text"
 
@@ -78,10 +93,12 @@
 
     if-eqz v0, :cond_2
 
+    .line 77
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->TEXT:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
     goto :goto_0
 
+    .line 78
     :cond_2
     const-string v0, "numeric"
 
@@ -91,10 +108,12 @@
 
     if-eqz v0, :cond_3
 
+    .line 79
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->NUMERIC:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
     goto :goto_0
 
+    .line 80
     :cond_3
     const-string v0, "real"
 
@@ -104,10 +123,12 @@
 
     if-eqz v0, :cond_4
 
+    .line 81
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->REAL:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
     goto :goto_0
 
+    .line 84
     :cond_4
     sget-object v0, Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;->BLOB:Lcom/android/server/analytics/data/collection/storage/Column$DATA_TYPE;
 
@@ -116,7 +137,10 @@
 
 .method private isPrimaryKey(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "val"    # Ljava/lang/String;
 
+    .prologue
+    .line 88
     if-eqz p1, :cond_0
 
     const-string/jumbo v0, "true"
@@ -143,6 +167,8 @@
 .method public parseXML()V
     .locals 12
 
+    .prologue
+    .line 93
     :try_start_0
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
 
@@ -150,15 +176,21 @@
 
     move-result v7
 
+    .line 94
+    .local v7, "event":I
     const/4 v8, 0x0
 
+    .line 95
+    .local v8, "table":Lcom/android/server/analytics/data/collection/storage/Table;
     :goto_0
     const/4 v0, 0x1
 
     if-eq v7, v0, :cond_2
 
+    .line 96
     packed-switch v7, :pswitch_data_0
 
+    .line 124
     :cond_0
     :goto_1
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
@@ -169,6 +201,7 @@
 
     goto :goto_0
 
+    .line 98
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
 
@@ -176,6 +209,8 @@
 
     move-result-object v9
 
+    .line 99
+    .local v9, "tag":Ljava/lang/String;
     const-string/jumbo v0, "table"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -184,8 +219,10 @@
 
     if-eqz v0, :cond_1
 
+    .line 100
     new-instance v8, Lcom/android/server/analytics/data/collection/storage/Table;
 
+    .end local v8    # "table":Lcom/android/server/analytics/data/collection/storage/Table;
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
 
     const/4 v1, 0x0
@@ -228,6 +265,8 @@
 
     invoke-direct {v8, v0, v1, v2, v3}, Lcom/android/server/analytics/data/collection/storage/Table;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 105
+    .restart local v8    # "table":Lcom/android/server/analytics/data/collection/storage/Table;
     :cond_1
     const-string v0, "column"
 
@@ -237,6 +276,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 106
     new-instance v0, Lcom/android/server/analytics/data/collection/storage/Column;
 
     iget-object v1, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
@@ -305,18 +345,29 @@
 
     goto/16 :goto_1
 
+    .line 127
+    .end local v7    # "event":I
+    .end local v8    # "table":Lcom/android/server/analytics/data/collection/storage/Table;
+    .end local v9    # "tag":Ljava/lang/String;
     :catch_0
     move-exception v6
 
+    .line 128
+    .local v6, "e":Ljava/lang/Exception;
     const-string v0, "DatabaseXmlParser"
 
     const-string v1, "parseXML EX:"
 
     invoke-static {v0, v1, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 130
+    .end local v6    # "e":Ljava/lang/Exception;
     :cond_2
     return-void
 
+    .line 116
+    .restart local v7    # "event":I
+    .restart local v8    # "table":Lcom/android/server/analytics/data/collection/storage/Table;
     :pswitch_1
     :try_start_1
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mParser:Landroid/content/res/XmlResourceParser;
@@ -325,6 +376,8 @@
 
     move-result-object v9
 
+    .line 117
+    .restart local v9    # "tag":Ljava/lang/String;
     const-string/jumbo v0, "table"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -335,16 +388,19 @@
 
     if-eqz v8, :cond_0
 
+    .line 118
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/storage/DatabaseXmlParser;->mCallback:Lcom/android/server/analytics/data/collection/storage/TableCallback;
 
     invoke-interface {v0, v8}, Lcom/android/server/analytics/data/collection/storage/TableCallback;->onTableFound(Lcom/android/server/analytics/data/collection/storage/Table;)V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 119
     const/4 v8, 0x0
 
     goto/16 :goto_1
 
+    .line 96
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

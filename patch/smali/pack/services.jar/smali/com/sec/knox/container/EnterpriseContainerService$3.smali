@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 659
     invoke-static {}, Lcom/sec/knox/container/constants/CSState;->values()[Lcom/sec/knox/container/constants/CSState;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_DOESNOT_EXISTS:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATION_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -101,7 +103,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_LOCK_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -117,7 +119,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -133,7 +135,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -149,7 +151,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_INACTIVE:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -165,7 +167,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -181,7 +183,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_ADMIN_PWD_RESET:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -197,7 +199,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_VERIFY_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -213,7 +215,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -229,7 +231,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UNINSTALL_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -245,7 +247,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_CREATED_NOT_ACTIVE:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -261,7 +263,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INVALID:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -277,7 +279,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -293,7 +295,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -309,7 +311,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_UPGRADE_INPROGRESS_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -325,7 +327,7 @@
 
     sget-object v1, Lcom/sec/knox/container/constants/CSState;->CSSTATE_INACTIVE_UPGRADE_RESET_PWD:Lcom/sec/knox/container/constants/CSState;
 
-    invoke-virtual {v1}, Lcom/sec/knox/container/constants/CSState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

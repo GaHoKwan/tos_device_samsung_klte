@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WifiOffloadService;)V
     .locals 0
 
+    .prologue
+    .line 1355
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +35,20 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 1359
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v2, "onReceive -- wifiStateReceiver"
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1360
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -54,6 +61,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 1361
     const-string/jumbo v1, "wifi_state"
 
     const/4 v2, -0x1
@@ -62,6 +70,8 @@
 
     move-result v0
 
+    .line 1363
+    .local v0, "currentWifiState":I
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -84,6 +94,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1365
     const/4 v1, 0x2
 
     if-eq v0, v1, :cond_0
@@ -92,6 +103,7 @@
 
     if-ne v0, v1, :cond_3
 
+    .line 1367
     :cond_0
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -99,6 +111,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1368
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v1}, Lcom/android/server/WifiOffloadService;->getIntelligentWifiEnabled()Z
@@ -107,16 +120,19 @@
 
     if-eqz v1, :cond_1
 
+    .line 1369
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v2, "resetWifiOffloadTimer "
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1370
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v1}, Lcom/android/server/WifiOffloadService;->resetNeverTurnOnWifi()V
 
+    .line 1372
     :cond_1
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -131,12 +147,14 @@
 
     if-eqz v1, :cond_2
 
+    .line 1373
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v2, "Reset 5 min timer when wifi turning ON"
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1374
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->messageHandler:Landroid/os/Handler;
@@ -146,15 +164,20 @@
 
     invoke-virtual {v1, v4}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1395
+    .end local v0    # "currentWifiState":I
     :cond_2
     :goto_0
     return-void
 
+    .line 1389
+    .restart local v0    # "currentWifiState":I
     :cond_3
     if-eqz v0, :cond_4
 
     if-ne v0, v4, :cond_2
 
+    .line 1391
     :cond_4
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -162,6 +185,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1392
     iget-object v1, p0, Lcom/android/server/WifiOffloadService$7;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v2, 0x0

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
 
+    .prologue
+    .line 296
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 299
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$1;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->dismiss()V
 
+    .line 300
     return-void
 .end method

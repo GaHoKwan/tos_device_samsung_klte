@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/kioskmode/KioskModeService;)V
     .locals 0
 
+    .prologue
+    .line 598
     iput-object p1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/16 v5, -0x2710
 
+    .line 601
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v4
@@ -44,6 +50,8 @@
 
     move-result-object v2
 
+    .line 602
+    .local v2, "removedPackageName":Ljava/lang/String;
     const-string v4, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
@@ -58,18 +66,23 @@
 
     move-result v3
 
+    .line 603
+    .local v3, "userId":I
     if-ne v3, v5, :cond_1
 
+    .line 604
     const-string v4, "KioskModeService"
 
     const-string v5, "can\'t get user id"
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 636
     :cond_0
     :goto_0
     return-void
 
+    .line 608
     :cond_1
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
@@ -77,6 +90,8 @@
 
     move-result-object v1
 
+    .line 609
+    .local v1, "kioskPackage":Ljava/lang/String;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -85,6 +100,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 613
     :try_start_0
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
@@ -96,8 +112,11 @@
 
     move-result-object v0
 
+    .line 614
+    .local v0, "ai":Landroid/content/pm/ApplicationInfo;
     if-nez v0, :cond_2
 
+    .line 615
     const-string v4, "KioskModeService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -124,6 +143,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 616
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->forceTerminateKiosk(I)V
@@ -133,9 +153,12 @@
 
     goto :goto_0
 
+    .line 619
+    .end local v0    # "ai":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v4
 
+    .line 624
     :cond_2
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
@@ -152,6 +175,7 @@
 
     if-nez v4, :cond_3
 
+    .line 625
     const-string v4, "KioskModeService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -174,6 +198,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 626
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->forceTerminateKiosk(I)V
@@ -181,6 +206,7 @@
 
     goto :goto_0
 
+    .line 632
     :cond_3
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
@@ -195,6 +221,7 @@
 
     if-nez v4, :cond_0
 
+    .line 633
     iget-object v4, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$2;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->forceTerminateKiosk(I)V

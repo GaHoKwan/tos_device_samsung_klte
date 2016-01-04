@@ -23,17 +23,23 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/PowerSavingMode;Landroid/content/Context;)V
     .locals 1
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 100
     iput-object p1, p0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->this$0:Lcom/android/server/ssrm/PowerSavingMode;
 
+    .line 101
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 102
     iput-object p2, p0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->mContext:Landroid/content/Context;
 
+    .line 103
     return-void
 .end method
 
@@ -41,11 +47,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 107
     iget-object v2, p0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -63,6 +72,7 @@
     :goto_0
     sput-boolean v0, Lcom/android/server/ssrm/DeviceStatus;->sUltraPowerSavingMode:Z
 
+    .line 109
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->mContext:Landroid/content/Context;
 
     new-instance v1, Landroid/content/Intent;
@@ -73,17 +83,22 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 111
     return-void
 
     :cond_0
     move v0, v1
 
+    .line 107
     goto :goto_0
 .end method
 
 .method registerUriByName(Ljava/lang/String;)V
     .locals 3
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/android/server/ssrm/PowerSavingMode$UltraPowerSavingModeObserver;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -98,5 +113,6 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 116
     return-void
 .end method

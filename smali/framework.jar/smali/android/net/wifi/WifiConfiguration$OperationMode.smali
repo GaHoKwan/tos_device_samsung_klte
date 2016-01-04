@@ -115,7 +115,7 @@
     .line 485
     sget-object v0, Landroid/net/wifi/WifiConfiguration$OperationMode;->$VALUES:[Landroid/net/wifi/WifiConfiguration$OperationMode;
 
-    invoke-virtual {v0}, [Landroid/net/wifi/WifiConfiguration$OperationMode;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

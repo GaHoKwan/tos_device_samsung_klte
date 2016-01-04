@@ -1235,13 +1235,13 @@ para la cuenta %s"</string>
     <string name="storage_sd_card">Tarjeta SD</string>
     <string name="storage_usb">Almacenamiento USB</string>
     <string name="extract_edit_menu_button">Editar</string>
-    <string name="data_usage_warning_title">Alerta de uso de datos</string>
-    <string name="data_usage_warning_body">Pulse para ver el uso y ajustes</string>
+    <string name="data_usage_warning_title">Advertencia de uso de datos</string>
+    <string name="data_usage_warning_body">Toca para ver el uso y ajustes.</string>
     <string name="data_usage_3g_limit_title">Datos 2G-3G inhabilitados</string>
     <string name="data_usage_4g_limit_title">Datos 4G inhabilitados</string>
     <string name="data_usage_mobile_limit_title">Datos móviles inhabilitados</string>
     <string name="data_usage_wifi_limit_title">Datos Wi-Fi inhabilitados</string>
-    <string name="data_usage_limit_body">Pulse para habilitar</string>
+    <string name="data_usage_limit_body">Toca para habilitar.</string>
     <string name="data_usage_3g_limit_snoozed_title">Límite de datos 2G-3G superado</string>
     <string name="data_usage_4g_limit_snoozed_title">Límite de datos 4G superado</string>
     <string name="data_usage_mobile_limit_snoozed_title">Límite de datos móviles superado</string>

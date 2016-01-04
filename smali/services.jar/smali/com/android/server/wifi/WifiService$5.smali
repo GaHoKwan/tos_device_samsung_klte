@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiService;)V
     .locals 0
 
+    .prologue
+    .line 702
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$5;->this$0:Lcom/android/server/wifi/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 705
     iget-object v6, p0, Lcom/android/server/wifi/WifiService$5;->this$0:Lcom/android/server/wifi/WifiService;
 
     # getter for: Lcom/android/server/wifi/WifiService;->mContext:Landroid/content/Context;
@@ -51,8 +57,12 @@
 
     move-result-object v5
 
+    .line 707
+    .local v5, "generalinfonw":Ljava/lang/String;
     const/4 v2, 0x0
 
+    .line 708
+    .local v2, "generalFW":Ljava/io/FileOutputStream;
     # getter for: Lcom/android/server/wifi/WifiService;->DBG:Z
     invoke-static {}, Lcom/android/server/wifi/WifiService;->access$100()Z
 
@@ -60,6 +70,7 @@
 
     if-eqz v6, :cond_0
 
+    .line 709
     const-string v6, "WifiService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -82,6 +93,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 711
     :cond_0
     new-instance v6, Ljava/io/File;
 
@@ -92,6 +104,7 @@
     # setter for: Lcom/android/server/wifi/WifiService;->mFilePath:Ljava/io/File;
     invoke-static {v6}, Lcom/android/server/wifi/WifiService;->access$1002(Ljava/io/File;)Ljava/io/File;
 
+    .line 713
     # getter for: Lcom/android/server/wifi/WifiService;->mFilePath:Ljava/io/File;
     invoke-static {}, Lcom/android/server/wifi/WifiService;->access$1000()Ljava/io/File;
 
@@ -103,12 +116,14 @@
 
     if-eqz v6, :cond_1
 
+    .line 714
     const-string v6, "WifiService"
 
     const-string v7, "GeneralInfo file delete is called"
 
     invoke-static {v6, v7}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 715
     # getter for: Lcom/android/server/wifi/WifiService;->mFilePath:Ljava/io/File;
     invoke-static {}, Lcom/android/server/wifi/WifiService;->access$1000()Ljava/io/File;
 
@@ -116,6 +131,7 @@
 
     invoke-virtual {v6}, Ljava/io/File;->delete()Z
 
+    .line 718
     :cond_1
     :try_start_0
     new-instance v4, Ljava/io/File;
@@ -128,9 +144,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 720
+    .local v4, "generalinfofilepath":Ljava/io/File;
     :try_start_1
     invoke-virtual {v4}, Ljava/io/File;->createNewFile()Z
 
+    .line 721
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v6
@@ -142,6 +161,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 727
     :goto_0
     :try_start_2
     new-instance v3, Ljava/io/FileOutputStream;
@@ -153,58 +173,78 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 728
+    .end local v2    # "generalFW":Ljava/io/FileOutputStream;
+    .local v3, "generalFW":Ljava/io/FileOutputStream;
     :try_start_3
     invoke-virtual {v5}, Ljava/lang/String;->getBytes()[B
 
     move-result-object v6
 
-    invoke-virtual {v3, v6}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v3, v6}, Ljava/io/OutputStream;->write([B)V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     move-object v2, v3
 
+    .line 733
+    .end local v3    # "generalFW":Ljava/io/FileOutputStream;
+    .restart local v2    # "generalFW":Ljava/io/FileOutputStream;
     :goto_1
     if-eqz v2, :cond_2
 
+    .line 735
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
 
+    .line 741
     :cond_2
     :goto_2
     return-void
 
+    .line 722
     :catch_0
     move-exception v0
 
+    .line 723
+    .local v0, "e":Ljava/io/IOException;
     :try_start_5
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     goto :goto_0
 
+    .line 733
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v4    # "generalinfofilepath":Ljava/io/File;
     :catchall_0
     move-exception v6
 
     :goto_3
     if-eqz v2, :cond_3
 
+    .line 735
     :try_start_6
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
 
+    .line 733
     :cond_3
     :goto_4
     throw v6
 
+    .line 729
+    .restart local v4    # "generalinfofilepath":Ljava/io/File;
     :catch_1
     move-exception v1
 
+    .line 730
+    .local v1, "e1":Ljava/lang/Exception;
     :goto_5
     :try_start_7
     const-string v6, "WifiService"
@@ -219,7 +259,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -237,9 +277,14 @@
 
     goto :goto_1
 
+    .line 736
+    .end local v1    # "e1":Ljava/lang/Exception;
+    .end local v4    # "generalinfofilepath":Ljava/io/File;
     :catch_2
     move-exception v0
 
+    .line 737
+    .restart local v0    # "e":Ljava/io/IOException;
     const-string v7, "WifiService"
 
     const-string v8, "Failed to generalFW.close."
@@ -248,9 +293,14 @@
 
     goto :goto_4
 
+    .line 736
+    .end local v0    # "e":Ljava/io/IOException;
+    .restart local v4    # "generalinfofilepath":Ljava/io/File;
     :catch_3
     move-exception v0
 
+    .line 737
+    .restart local v0    # "e":Ljava/io/IOException;
     const-string v6, "WifiService"
 
     const-string v7, "Failed to generalFW.close."
@@ -259,17 +309,28 @@
 
     goto :goto_2
 
+    .line 733
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v2    # "generalFW":Ljava/io/FileOutputStream;
+    .restart local v3    # "generalFW":Ljava/io/FileOutputStream;
     :catchall_1
     move-exception v6
 
     move-object v2, v3
 
+    .end local v3    # "generalFW":Ljava/io/FileOutputStream;
+    .restart local v2    # "generalFW":Ljava/io/FileOutputStream;
     goto :goto_3
 
+    .line 729
+    .end local v2    # "generalFW":Ljava/io/FileOutputStream;
+    .restart local v3    # "generalFW":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v1
 
     move-object v2, v3
 
+    .end local v3    # "generalFW":Ljava/io/FileOutputStream;
+    .restart local v2    # "generalFW":Ljava/io/FileOutputStream;
     goto :goto_5
 .end method

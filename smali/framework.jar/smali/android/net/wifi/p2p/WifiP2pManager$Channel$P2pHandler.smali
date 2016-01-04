@@ -331,7 +331,7 @@
 
     move-result-object v8
 
-    const-string v9, "wpsPin"
+    const-string/jumbo v9, "wpsPin"
 
     invoke-virtual {v0, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -415,6 +415,8 @@
     goto/16 :goto_0
 
     .line 889
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x11004 -> :sswitch_0

@@ -11,18 +11,24 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 14
     const-string v0, "SEF"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 15
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 18
     return-void
 .end method
 
@@ -37,21 +43,29 @@
 
 .method public static checkAudioInJPEG(Ljava/lang/String;)Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
     .locals 7
+    .param p0, "filename"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 25
     const/4 v2, 0x0
 
+    .local v2, "qjData":Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
     move-object v0, v3
 
+    .line 26
     check-cast v0, [I
 
+    .line 27
+    .local v0, "getParsedData":[I
     invoke-static {p0}, Lcom/sec/android/secvision/sef/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
     move-result v4
 
     if-nez v4, :cond_1
 
+    .line 28
     const-string v4, "QdioJNI"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -74,23 +88,28 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 50
     :cond_0
     :goto_0
     return-object v3
 
+    .line 31
     :cond_1
     invoke-static {p0}, Lcom/sec/android/secvision/sef/QdioJNI;->ParseQdioFile(Ljava/lang/String;)[I
 
     move-result-object v0
 
+    .line 32
     if-eqz v0, :cond_0
 
+    .line 35
     array-length v4, v0
 
     rem-int/lit8 v4, v4, 0x2
 
     if-eqz v4, :cond_2
 
+    .line 36
     const-string v4, "QdioJNI"
 
     const-string v5, "Some Sound Data is broken"
@@ -99,13 +118,18 @@
 
     goto :goto_0
 
+    .line 39
     :cond_2
     new-instance v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
 
+    .end local v2    # "qjData":Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
     invoke-direct {v2}, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;-><init>()V
 
+    .line 40
+    .restart local v2    # "qjData":Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_1
     array-length v4, v0
 
@@ -113,6 +137,7 @@
 
     if-ge v1, v4, :cond_5
 
+    .line 41
     aget v4, v0, v1
 
     if-lez v4, :cond_3
@@ -123,6 +148,7 @@
 
     if-gtz v4, :cond_4
 
+    .line 42
     :cond_3
     const-string v4, "QdioJNI"
 
@@ -132,6 +158,7 @@
 
     goto :goto_0
 
+    .line 45
     :cond_4
     iget-object v4, v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->startOffset:Ljava/util/ArrayList;
 
@@ -143,6 +170,7 @@
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 46
     iget-object v4, v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->endOffset:Ljava/util/ArrayList;
 
     add-int/lit8 v5, v1, 0x1
@@ -155,14 +183,17 @@
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 47
     iget v4, v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->audio_count:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->audio_count:I
 
+    .line 48
     iput-object p0, v2, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->filename:Ljava/lang/String;
 
+    .line 40
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
@@ -170,12 +201,16 @@
     :cond_5
     move-object v3, v2
 
+    .line 50
     goto :goto_0
 .end method
 
 .method public static checkFileString(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "filename"    # Ljava/lang/String;
 
+    .prologue
+    .line 21
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -200,7 +235,11 @@
 
 .method public static copyAdioInJPEGtoPNG(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "srcFilename"    # Ljava/lang/String;
+    .param p1, "dstFilename"    # Ljava/lang/String;
 
+    .prologue
+    .line 99
     invoke-static {p0}, Lcom/sec/android/secvision/sef/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
     move-result v0
@@ -213,9 +252,11 @@
 
     if-nez v0, :cond_1
 
+    .line 100
     :cond_0
     const/4 v0, 0x0
 
+    .line 102
     :goto_0
     return v0
 
@@ -229,34 +270,44 @@
 
 .method public static getAudioStreamBuffer(Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;I)[B
     .locals 9
+    .param p0, "qdioJpegData"    # Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 55
     move-object v3, v5
 
     check-cast v3, [B
 
+    .line 56
+    .local v3, "ret":[B
     if-nez p0, :cond_0
 
+    .line 57
     const-string v6, "QdioJNI"
 
     const-string/jumbo v7, "qdioJpegData is null"
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 86
     :goto_0
     return-object v5
 
+    .line 60
     :cond_0
     iget v6, p0, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->audio_count:I
 
     if-gt v6, p1, :cond_1
 
+    .line 61
     const-string v6, "QdioJNI"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -307,6 +358,7 @@
 
     goto :goto_0
 
+    .line 67
     :cond_1
     new-instance v2, Ljava/io/FileInputStream;
 
@@ -316,22 +368,29 @@
 
     invoke-direct {v2, v6}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
 
+    .line 68
+    .local v2, "fis":Ljava/io/FileInputStream;
     invoke-virtual {p0, p1}, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->getStartOffset(I)I
 
     move-result v4
 
+    .line 69
+    .local v4, "startOffset":I
     invoke-virtual {p0, p1}, Lcom/sec/android/secvision/sef/SEF$QdioJPEGData;->getLength(I)I
 
     move-result v6
 
     add-int v1, v4, v6
 
+    .line 70
+    .local v1, "endOffset":I
     invoke-virtual {v2}, Ljava/io/FileInputStream;->available()I
 
     move-result v6
 
     if-lt v6, v1, :cond_2
 
+    .line 71
     const-string v6, "QdioJNI"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -368,10 +427,12 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 72
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
     goto :goto_0
 
+    .line 76
     :cond_2
     :try_start_0
     const-string v5, "QdioJNI"
@@ -400,6 +461,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 77
     const-string v5, "QdioJNI"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -432,38 +494,48 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 78
     sub-int v5, v1, v4
 
     new-array v3, v5, [B
 
+    .line 79
     int-to-long v5, v4
 
     invoke-virtual {v2, v5, v6}, Ljava/io/FileInputStream;->skip(J)J
 
-    invoke-virtual {v2, v3}, Ljava/io/FileInputStream;->read([B)I
+    .line 80
+    invoke-virtual {v2, v3}, Ljava/io/InputStream;->read([B)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 84
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
     :goto_1
     move-object v5, v3
 
+    .line 86
     goto/16 :goto_0
 
+    .line 81
     :catch_0
     move-exception v0
 
+    .line 82
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_1
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 84
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
     goto :goto_1
 
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v5
 
@@ -478,10 +550,14 @@
 .method public static getVersion()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 107
     invoke-static {}, Lcom/sec/android/secvision/sef/QdioJNI;->getNativeVersion()I
 
     move-result v0
 
+    .line 108
+    .local v0, "native_version":I
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -505,15 +581,19 @@
 
 .method public static isJPEG(Ljava/lang/String;)I
     .locals 4
+    .param p0, "filename"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 90
     invoke-static {p0}, Lcom/sec/android/secvision/sef/QdioJNI;->checkFileString(Ljava/lang/String;)Z
 
     move-result v1
 
     if-nez v1, :cond_1
 
+    .line 91
     const-string v1, "QdioJNI"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -536,6 +616,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 94
     :cond_0
     :goto_0
     return v0

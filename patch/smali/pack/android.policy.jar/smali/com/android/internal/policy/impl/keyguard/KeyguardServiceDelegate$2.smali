@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;)V
     .locals 0
 
+    .prologue
+    .line 146
     iput-object p1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 149
     const-string v0, "KeyguardServiceDelegate"
 
     const-string v1, "*** Keyguard connected (yay!)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 150
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     new-instance v1, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
@@ -55,6 +62,7 @@
 
     iput-object v1, v0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
 
+    .line 152
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardState:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;
@@ -66,12 +74,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 154
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->onSystemReady()V
 
+    .line 156
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
@@ -86,6 +96,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->onScreenTurnedOn(Lcom/android/internal/policy/IKeyguardShowCallback;)V
 
+    .line 158
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
@@ -98,30 +109,37 @@
 
     if-eqz v0, :cond_1
 
+    .line 159
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;->onBootCompleted()V
 
+    .line 161
     :cond_1
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 165
     const-string v0, "KeyguardServiceDelegate"
 
     const-string v1, "*** Keyguard disconnected (boo!)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 166
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$2;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceWrapper;
 
+    .line 167
     return-void
 .end method

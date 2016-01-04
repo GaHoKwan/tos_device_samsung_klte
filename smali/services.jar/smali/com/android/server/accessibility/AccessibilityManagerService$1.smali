@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 231
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +38,9 @@
 # virtual methods
 .method public onInit(I)V
     .locals 0
+    .param p1, "status"    # I
 
+    .prologue
+    .line 233
     return-void
 .end method

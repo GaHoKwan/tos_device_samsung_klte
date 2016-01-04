@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
 
+    .prologue
+    .line 820
     iput-object p1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
+    .param p1, "limitName"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 824
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     # getter for: Lcom/android/server/net/NetworkStatsService;->mContext:Landroid/content/Context;
@@ -49,6 +55,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 826
     const-string v1, "globalAlert"
 
     invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -57,8 +64,11 @@
 
     if-eqz v1, :cond_0
 
+    .line 829
     const/4 v0, 0x1
 
+    .line 830
+    .local v0, "flags":I
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     # getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
@@ -74,6 +84,7 @@
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
+    .line 833
     iget-object v1, p0, Lcom/android/server/net/NetworkStatsService$8;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     # getter for: Lcom/android/server/net/NetworkStatsService;->mHandler:Landroid/os/Handler;
@@ -89,6 +100,8 @@
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
+    .line 835
+    .end local v0    # "flags":I
     :cond_0
     return-void
 .end method

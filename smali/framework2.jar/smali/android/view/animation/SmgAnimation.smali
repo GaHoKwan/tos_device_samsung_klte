@@ -48,38 +48,49 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 15
     sget-object v0, Landroid/view/animation/SmgAnimation$AnimationType;->SMG_TRANSLATION_ANIMATION:Landroid/view/animation/SmgAnimation$AnimationType;
 
-    invoke-virtual {v0}, Landroid/view/animation/SmgAnimation$AnimationType;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
     iput v0, p0, Landroid/view/animation/SmgAnimation;->animationType:I
 
+    .line 16
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/view/animation/SmgAnimation;->curAngle:F
 
+    .line 18
     return-void
 .end method
 
 .method public static compareTo(Landroid/view/animation/SmgAnimation;Landroid/view/animation/SmgAnimation;)Z
     .locals 3
+    .param p0, "s1"    # Landroid/view/animation/SmgAnimation;
+    .param p1, "s2"    # Landroid/view/animation/SmgAnimation;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 46
     iget v1, p0, Landroid/view/animation/SmgAnimation;->animationType:I
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->animationType:I
 
     if-eq v1, v2, :cond_1
 
+    .line 74
     :cond_0
     :goto_0
     return v0
 
+    .line 50
     :cond_1
     iget v1, p0, Landroid/view/animation/SmgAnimation;->curAngle:F
 
@@ -89,6 +100,7 @@
 
     if-nez v1, :cond_0
 
+    .line 54
     iget v1, p0, Landroid/view/animation/SmgAnimation;->xAxis:F
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->xAxis:F
@@ -113,6 +125,7 @@
 
     if-nez v1, :cond_0
 
+    .line 58
     iget v1, p0, Landroid/view/animation/SmgAnimation;->pivot_x:F
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->pivot_x:F
@@ -137,6 +150,7 @@
 
     if-nez v1, :cond_0
 
+    .line 62
     iget v1, p0, Landroid/view/animation/SmgAnimation;->ratioX:I
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->ratioX:I
@@ -155,6 +169,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 66
     iget v1, p0, Landroid/view/animation/SmgAnimation;->tX:F
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->tX:F
@@ -179,6 +194,7 @@
 
     if-nez v1, :cond_0
 
+    .line 70
     iget v1, p0, Landroid/view/animation/SmgAnimation;->shaderAnimationEffect:F
 
     iget v2, p1, Landroid/view/animation/SmgAnimation;->shaderAnimationEffect:F
@@ -187,6 +203,7 @@
 
     if-nez v1, :cond_0
 
+    .line 74
     const/4 v0, 0x1
 
     goto :goto_0

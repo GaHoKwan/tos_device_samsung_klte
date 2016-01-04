@@ -321,13 +321,13 @@
 
     .line 223
     :cond_2
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->isOpen()Z
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isOpen()Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->isMarkedReusable()Z
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isMarkedReusable()Z
 
     move-result v0
 
@@ -351,7 +351,7 @@
 
     .line 236
     :cond_3
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->shutdown()V
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->shutdown()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -367,7 +367,7 @@
 
     .line 245
     .restart local v1    # "entry":Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->isMarkedReusable()Z
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isMarkedReusable()Z
 
     move-result v2
 
@@ -429,7 +429,7 @@
 
     .line 245
     .restart local v1    # "entry":Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->isMarkedReusable()Z
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isMarkedReusable()Z
 
     move-result v2
 
@@ -468,7 +468,7 @@
 
     .line 245
     .restart local v1    # "entry":Lorg/apache/http/impl/conn/tsccm/BasicPoolEntry;
-    invoke-virtual {v6}, Lorg/apache/http/impl/conn/tsccm/BasicPooledConnAdapter;->isMarkedReusable()Z
+    invoke-virtual {v6}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isMarkedReusable()Z
 
     move-result v2
 

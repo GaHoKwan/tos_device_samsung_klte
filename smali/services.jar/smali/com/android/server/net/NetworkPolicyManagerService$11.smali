@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
+    .prologue
+    .line 635
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Lcom/android/server/net/BaseNetworkObserver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public limitReached(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "limitName"    # Ljava/lang/String;
+    .param p2, "iface"    # Ljava/lang/String;
 
+    .prologue
+    .line 639
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mContext:Landroid/content/Context;
@@ -47,6 +53,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 641
     const-string v0, "globalAlert"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -55,6 +62,7 @@
 
     if-nez v0, :cond_0
 
+    .line 642
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$11;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
@@ -70,6 +78,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 644
     :cond_0
     return-void
 .end method

@@ -24,10 +24,13 @@
 .method constructor <init>(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;)V
     .locals 1
 
+    .prologue
+    .line 2141
     iput-object p1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
 
+    .line 2142
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
@@ -40,6 +43,8 @@
 .method public run()V
     .locals 13
 
+    .prologue
+    .line 2150
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
     iget-object v4, v4, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;->this$0:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler;
@@ -51,6 +56,7 @@
 
     monitor-enter v5
 
+    .line 2151
     :try_start_0
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
@@ -65,6 +71,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
+    .line 2152
     :try_start_1
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
@@ -77,6 +84,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 2153
     :try_start_2
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
@@ -102,9 +110,11 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
+    .line 2204
     :goto_0
     return-void
 
+    .line 2154
     :cond_0
     :try_start_5
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
@@ -115,6 +125,8 @@
 
     move-result-wide v1
 
+    .line 2155
+    .local v1, "curr_txbytes":J
     # getter for: Lcom/android/server/AlarmManagerServiceExt;->APP_SYNC_LOG:Z
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->access$000()Z
 
@@ -122,6 +134,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 2156
     const-string v4, "AlarmManager"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -146,6 +159,7 @@
 
     invoke-static {v4, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2157
     const-string v4, "AlarmManager"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -238,6 +252,7 @@
 
     invoke-static {v4, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2165
     :cond_1
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->this$1:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer;
 
@@ -250,6 +265,8 @@
 
     move-result-object v3
 
+    .line 2166
+    .local v3, "itList":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;>;"
     :goto_1
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -257,18 +274,22 @@
 
     if-eqz v4, :cond_5
 
+    .line 2167
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
+    .line 2169
+    .local v0, "ar":Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
     iget v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->UMCount:I
 
     add-int/lit8 v4, v4, 0x1
 
     iput v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->UMCount:I
 
+    .line 2171
     iget v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->UMCount:I
 
     iget v8, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->fgCount:I
@@ -291,6 +312,7 @@
 
     iput v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->NfgCount:I
 
+    .line 2176
     :cond_2
     :goto_2
     iget v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->UMCount:I
@@ -315,10 +337,12 @@
 
     if-le v4, v8, :cond_3
 
+    .line 2177
     const/4 v4, 0x1
 
     iput-boolean v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->isUIalarm:Z
 
+    .line 2178
     # getter for: Lcom/android/server/AlarmManagerServiceExt;->APP_SYNC_LOG:Z
     invoke-static {}, Lcom/android/server/AlarmManagerServiceExt;->access$000()Z
 
@@ -348,17 +372,23 @@
 
     invoke-static {v4, v8}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2183
     :cond_3
     const/4 v4, 0x0
 
     iput-boolean v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->isScnON:Z
 
+    .line 2184
     const/4 v4, 0x0
 
     iput-boolean v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->isMonitorON:Z
 
     goto :goto_1
 
+    .line 2201
+    .end local v0    # "ar":Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
+    .end local v1    # "curr_txbytes":J
+    .end local v3    # "itList":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;>;"
     :catchall_0
     move-exception v4
 
@@ -369,6 +399,7 @@
     :try_start_6
     throw v4
 
+    .line 2202
     :catchall_1
     move-exception v4
 
@@ -379,6 +410,7 @@
     :try_start_7
     throw v4
 
+    .line 2203
     :catchall_2
     move-exception v4
 
@@ -388,6 +420,10 @@
 
     throw v4
 
+    .line 2174
+    .restart local v0    # "ar":Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
+    .restart local v1    # "curr_txbytes":J
+    .restart local v3    # "itList":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;>;"
     :cond_4
     :try_start_8
     iget v4, v0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->UMCount:I
@@ -416,6 +452,8 @@
 
     goto :goto_2
 
+    .line 2188
+    .end local v0    # "ar":Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
     :cond_5
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
@@ -437,12 +475,14 @@
 
     if-le v4, v8, :cond_6
 
+    .line 2189
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
     const/4 v8, 0x0
 
     iput-boolean v8, v4, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->isRunPass:Z
 
+    .line 2192
     :cond_6
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
@@ -456,6 +496,7 @@
 
     if-lez v4, :cond_7
 
+    .line 2193
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
     const/4 v8, 0x1
@@ -474,16 +515,19 @@
 
     invoke-virtual {v4, v8, v9, v10}, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;->updateTrafficTimeLocked(ZJ)V
 
+    .line 2201
     :goto_3
     monitor-exit v7
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
+    .line 2202
     :try_start_9
     monitor-exit v6
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
+    .line 2203
     :try_start_a
     monitor-exit v5
     :try_end_a
@@ -491,6 +535,7 @@
 
     goto/16 :goto_0
 
+    .line 2198
     :cond_7
     :try_start_b
     iget-object v4, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
@@ -518,8 +563,12 @@
 
 .method setAlarmInfo(Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;)V
     .locals 0
+    .param p1, "almRec"    # Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
+    .prologue
+    .line 2145
     iput-object p1, p0, Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$MonitorTask;->alarmRec:Lcom/android/server/AlarmManagerServiceExt$SyncScheduler$TrafficAnalyzer$AlarmRecord;
 
+    .line 2146
     return-void
 .end method

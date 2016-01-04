@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;)V
     .locals 0
 
+    .prologue
+    .line 844
     iput-object p1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask$1;->this$0:Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 847
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v1
@@ -44,6 +49,8 @@
 
     move-result-object v0
 
+    .line 848
+    .local v0, "result":[Ljava/lang/String;
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask$1;->this$0:Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;
 
     # getter for: Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->m_listener:Lcom/sec/android/app/IWSpeechRecognizer/IWSpeechRecognizerListener;
@@ -53,6 +60,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 850
     iget-object v1, p0, Lcom/sec/android/app/IWSpeechRecognizer/AudioTask$1;->this$0:Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;
 
     # getter for: Lcom/sec/android/app/IWSpeechRecognizer/AudioTask;->m_listener:Lcom/sec/android/app/IWSpeechRecognizer/IWSpeechRecognizerListener;
@@ -62,6 +70,7 @@
 
     invoke-interface {v1, v0}, Lcom/sec/android/app/IWSpeechRecognizer/IWSpeechRecognizerListener;->onResults([Ljava/lang/String;)V
 
+    .line 852
     :cond_0
     return-void
 .end method

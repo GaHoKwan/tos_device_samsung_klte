@@ -38,7 +38,7 @@
     .line 73
     const-string v0, "application/x-www-form-urlencoded"
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 74
     return-void
@@ -77,7 +77,7 @@
     .line 59
     const-string v0, "application/x-www-form-urlencoded"
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 60
     return-void

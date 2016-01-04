@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;Ljava/io/File;)V
     .locals 0
 
+    .prologue
+    .line 278
     iput-object p1, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->this$1:Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;
 
     iput-object p2, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->val$file:Ljava/io/File;
@@ -46,27 +48,35 @@
 # virtual methods
 .method public close(Ljava/io/BufferedWriter;)V
     .locals 0
+    .param p1, "io"    # Ljava/io/BufferedWriter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 304
     invoke-virtual {p1}, Ljava/io/BufferedWriter;->close()V
 
+    .line 305
     return-void
 .end method
 
 .method public bridge synthetic close(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 278
     check-cast p1, Ljava/io/BufferedWriter;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->close(Ljava/io/BufferedWriter;)V
 
     return-void
@@ -74,27 +84,35 @@
 
 .method public flush(Ljava/io/BufferedWriter;)V
     .locals 0
+    .param p1, "io"    # Ljava/io/BufferedWriter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 298
     invoke-virtual {p1}, Ljava/io/BufferedWriter;->flush()V
 
+    .line 299
     return-void
 .end method
 
 .method public bridge synthetic flush(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 278
     check-cast p1, Ljava/io/BufferedWriter;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->flush(Ljava/io/BufferedWriter;)V
 
     return-void
@@ -108,6 +126,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 282
     new-instance v0, Ljava/io/BufferedWriter;
 
     new-instance v1, Ljava/io/FileWriter;
@@ -131,6 +151,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 278
     invoke-virtual {p0}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->open()Ljava/io/BufferedWriter;
 
     move-result-object v0
@@ -140,12 +162,15 @@
 
 .method public process(Ljava/io/BufferedWriter;)V
     .locals 3
+    .param p1, "io"    # Ljava/io/BufferedWriter;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 289
     iget-object v2, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->this$1:Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;
 
     iget-object v2, v2, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
@@ -156,6 +181,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -169,28 +195,38 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    .line 290
+    .local v1, "log":Ljava/lang/String;
+    invoke-virtual {p1, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
+    .line 291
     invoke-virtual {p1}, Ljava/io/BufferedWriter;->newLine()V
 
     goto :goto_0
 
+    .line 293
+    .end local v1    # "log":Ljava/lang/String;
     :cond_0
     invoke-virtual {p1}, Ljava/io/BufferedWriter;->flush()V
 
+    .line 294
     return-void
 .end method
 
 .method public bridge synthetic process(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 278
     check-cast p1, Ljava/io/BufferedWriter;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;->process(Ljava/io/BufferedWriter;)V
 
     return-void

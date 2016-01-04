@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;)V
     .locals 0
 
+    .prologue
+    .line 3471
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15$1;->this$1:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 3473
     const-string v0, "SamsungWindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -74,6 +78,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3477
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15$1;->this$1:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$15;
 
@@ -89,9 +94,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 3481
     :goto_0
     return-void
 
+    .line 3478
     :catch_0
     move-exception v0
 

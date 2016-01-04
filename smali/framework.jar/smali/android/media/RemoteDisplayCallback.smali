@@ -1051,7 +1051,7 @@
 
     .line 374
     :cond_1
-    const-string v5, "wlan.wfd.dongle"
+    const-string/jumbo v5, "wlan.wfd.dongle"
 
     sget-object v6, Landroid/media/RemoteDisplayCallback;->mDongleVer:Ljava/lang/String;
 
@@ -1514,6 +1514,8 @@
     goto/16 :goto_0
 
     .line 363
+    nop
+
     nop
 
     :sswitch_data_0

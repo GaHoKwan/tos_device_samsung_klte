@@ -11,8 +11,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 66
     return-void
 .end method
 
@@ -21,6 +24,8 @@
 .method protected declared-synchronized clone()Landroid/webkitsec/WebBackForwardList;
     .locals 1
 
+    .prologue
+    .line 235
     monitor-enter p0
 
     :try_start_0
@@ -48,6 +53,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 27
     invoke-virtual {p0}, Landroid/webkitsec/WebBackForwardList;->clone()Landroid/webkitsec/WebBackForwardList;
 
     move-result-object v0
@@ -58,6 +65,8 @@
 .method public declared-synchronized getCurrentIndex()I
     .locals 1
 
+    .prologue
+    .line 85
     monitor-enter p0
 
     :try_start_0
@@ -80,6 +89,8 @@
 .method public declared-synchronized getCurrentItem()Landroid/webkitsec/WebHistoryItem;
     .locals 1
 
+    .prologue
+    .line 75
     monitor-enter p0
 
     :try_start_0
@@ -101,7 +112,10 @@
 
 .method public declared-synchronized getItemAtIndex(I)Landroid/webkitsec/WebHistoryItem;
     .locals 1
+    .param p1, "index"    # I
 
+    .prologue
+    .line 101
     monitor-enter p0
 
     :try_start_0
@@ -124,6 +138,8 @@
 .method public declared-synchronized getSize()I
     .locals 1
 
+    .prologue
+    .line 110
     monitor-enter p0
 
     :try_start_0

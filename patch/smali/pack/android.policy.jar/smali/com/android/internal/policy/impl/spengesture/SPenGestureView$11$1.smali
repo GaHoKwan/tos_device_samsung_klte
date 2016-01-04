@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;)V
     .locals 0
 
+    .prologue
+    .line 2604
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +38,21 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2632
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 3
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/4 v2, 0x4
 
+    .line 2611
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -56,6 +64,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2612
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -67,6 +76,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2614
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
@@ -74,6 +84,7 @@
 
     packed-switch v0, :pswitch_data_0
 
+    .line 2624
     :goto_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
@@ -86,12 +97,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 2625
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
-    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
+    .line 2627
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
@@ -102,8 +115,10 @@
     # setter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mIsShowingGestureEffect:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$8302(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;Z)Z
 
+    .line 2628
     return-void
 
+    .line 2616
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
@@ -116,6 +131,7 @@
 
     goto :goto_0
 
+    .line 2619
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;
 
@@ -126,6 +142,7 @@
 
     goto :goto_0
 
+    .line 2614
     nop
 
     :pswitch_data_0
@@ -137,12 +154,18 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2636
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2607
     return-void
 .end method

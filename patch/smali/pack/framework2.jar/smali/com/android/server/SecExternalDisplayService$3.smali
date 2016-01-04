@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/SecExternalDisplayService;)V
     .locals 0
 
+    .prologue
+    .line 190
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$3;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 3
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 193
     iget-object v0, p0, Lcom/android/server/SecExternalDisplayService$3;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     const-string v1, "1"
@@ -50,5 +55,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/SecExternalDisplayService;->handleHTPluggedEvent(Z)V
 
+    .line 194
     return-void
 .end method

@@ -77,10 +77,10 @@
     .param p0, "state"    # Lcom/android/internal/telephony/PhoneConstants$State;
 
     .prologue
-    .line 200
+    .line 212
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$PhoneConstants$State:[I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -88,25 +88,25 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 206
+    .line 218
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 202
+    .line 214
     :pswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 204
+    .line 216
     :pswitch_1
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 200
+    .line 212
     nop
 
     :pswitch_data_0
@@ -121,29 +121,29 @@
     .param p0, "state"    # I
 
     .prologue
-    .line 215
+    .line 227
     packed-switch p0, :pswitch_data_0
 
-    .line 223
+    .line 235
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
     :goto_0
     return-object v0
 
-    .line 218
+    .line 230
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$State;->RINGING:Lcom/android/internal/telephony/PhoneConstants$State;
 
     goto :goto_0
 
-    .line 221
+    .line 233
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$State;->OFFHOOK:Lcom/android/internal/telephony/PhoneConstants$State;
 
     goto :goto_0
 
-    .line 215
+    .line 227
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1
@@ -159,10 +159,10 @@
     .param p0, "state"    # Lcom/android/internal/telephony/Phone$DataActivityState;
 
     .prologue
-    .line 266
+    .line 278
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$Phone$DataActivityState:[I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/Phone$DataActivityState;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -170,37 +170,37 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 276
+    .line 288
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 268
+    .line 280
     :pswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 270
+    .line 282
     :pswitch_1
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 272
+    .line 284
     :pswitch_2
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 274
+    .line 286
     :pswitch_3
     const/4 v0, 0x4
 
     goto :goto_0
 
-    .line 266
+    .line 278
     nop
 
     :pswitch_data_0
@@ -217,40 +217,40 @@
     .param p0, "state"    # I
 
     .prologue
-    .line 285
+    .line 297
     packed-switch p0, :pswitch_data_0
 
-    .line 295
+    .line 307
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->NONE:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     :goto_0
     return-object v0
 
-    .line 287
+    .line 299
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAIN:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     goto :goto_0
 
-    .line 289
+    .line 301
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     goto :goto_0
 
-    .line 291
+    .line 303
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAINANDOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     goto :goto_0
 
-    .line 293
+    .line 305
     :pswitch_3
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->DORMANT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
     goto :goto_0
 
-    .line 285
+    .line 297
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -265,10 +265,10 @@
     .param p0, "state"    # Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     .prologue
-    .line 232
+    .line 244
     sget-object v0, Lcom/android/internal/telephony/DefaultPhoneNotifier$1;->$SwitchMap$com$android$internal$telephony$PhoneConstants$DataState:[I
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/PhoneConstants$DataState;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -276,31 +276,31 @@
 
     packed-switch v0, :pswitch_data_0
 
-    .line 240
+    .line 252
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 234
+    .line 246
     :pswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
-    .line 236
+    .line 248
     :pswitch_1
     const/4 v0, 0x2
 
     goto :goto_0
 
-    .line 238
+    .line 250
     :pswitch_2
     const/4 v0, 0x3
 
     goto :goto_0
 
-    .line 232
+    .line 244
     nop
 
     :pswitch_data_0
@@ -316,34 +316,34 @@
     .param p0, "state"    # I
 
     .prologue
-    .line 249
+    .line 261
     packed-switch p0, :pswitch_data_0
 
-    .line 257
+    .line 269
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$DataState;->DISCONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     :goto_0
     return-object v0
 
-    .line 251
+    .line 263
     :pswitch_0
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTING:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     goto :goto_0
 
-    .line 253
+    .line 265
     :pswitch_1
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     goto :goto_0
 
-    .line 255
+    .line 267
     :pswitch_2
     sget-object v0, Lcom/android/internal/telephony/PhoneConstants$DataState;->SUSPENDED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
     goto :goto_0
 
-    .line 249
+    .line 261
     nop
 
     :pswitch_data_0
@@ -652,7 +652,7 @@
     .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
-    .line 302
+    .line 314
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
 
@@ -664,11 +664,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 306
+    .line 318
     :goto_0
     return-void
 
-    .line 303
+    .line 315
     :catch_0
     move-exception v0
 
@@ -680,7 +680,7 @@
     .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
-    .line 320
+    .line 332
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
 
@@ -696,11 +696,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 324
+    .line 336
     :goto_0
     return-void
 
-    .line 321
+    .line 333
     :catch_0
     move-exception v0
 
@@ -712,7 +712,7 @@
     .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
 
     .prologue
-    .line 312
+    .line 324
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
 
@@ -728,11 +728,35 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    .line 316
+    .line 328
     :goto_0
     return-void
 
-    .line 313
+    .line 325
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+.end method
+
+.method public notifyFdnUpdated(Lcom/android/internal/telephony/Phone;)V
+    .locals 1
+    .param p1, "sender"    # Lcom/android/internal/telephony/Phone;
+
+    .prologue
+    .line 201
+    :try_start_0
+    iget-object v0, p0, Lcom/android/internal/telephony/DefaultPhoneNotifier;->mRegistry:Lcom/android/internal/telephony/ITelephonyRegistry;
+
+    invoke-interface {v0}, Lcom/android/internal/telephony/ITelephonyRegistry;->notifyFdnUpdated()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 205
+    :goto_0
+    return-void
+
+    .line 202
     :catch_0
     move-exception v0
 

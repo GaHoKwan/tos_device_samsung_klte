@@ -973,7 +973,7 @@
 
     const-string v4, "\u0000"
 
-    const-string v5, "\ufffd"
+    const-string/jumbo v5, "\ufffd"
 
     invoke-virtual {p1, v4, v5}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 

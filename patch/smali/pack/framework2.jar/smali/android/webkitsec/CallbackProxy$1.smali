@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/CallbackProxy;)V
     .locals 0
 
+    .prologue
+    .line 817
     iput-object p1, p0, Landroid/webkitsec/CallbackProxy$1;->this$0:Landroid/webkitsec/CallbackProxy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,14 @@
 # virtual methods
 .method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 3
+    .param p1, "buttonView"    # Landroid/widget/CompoundButton;
+    .param p2, "isChecked"    # Z
 
+    .prologue
+    .line 820
     if-eqz p2, :cond_0
 
+    .line 821
     const-string v0, "CallbackProxy"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -61,6 +68,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 822
     iget-object v0, p0, Landroid/webkitsec/CallbackProxy$1;->this$0:Landroid/webkitsec/CallbackProxy;
 
     # getter for: Landroid/webkitsec/CallbackProxy;->mWebChromeClient:Landroid/webkitsec/WebChromeClient;
@@ -81,6 +89,7 @@
 
     invoke-virtual {v0, v1, p2}, Landroid/webkitsec/WebChromeClient;->setBingSearchAlertDialogCheckBoxValue(Landroid/webkitsec/WebView;Z)V
 
+    .line 824
     :cond_0
     return-void
 .end method

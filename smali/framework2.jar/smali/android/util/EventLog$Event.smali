@@ -47,15 +47,20 @@
 # direct methods
 .method constructor <init>([B)V
     .locals 2
+    .param p1, "data"    # [B
 
+    .prologue
+    .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 78
     invoke-static {p1}, Ljava/nio/ByteBuffer;->wrap([B)Ljava/nio/ByteBuffer;
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
+    .line 79
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-static {}, Ljava/nio/ByteOrder;->nativeOrder()Ljava/nio/ByteOrder;
@@ -64,20 +69,26 @@
 
     invoke-virtual {v0, v1}, Ljava/nio/ByteBuffer;->order(Ljava/nio/ByteOrder;)Ljava/nio/ByteBuffer;
 
+    .line 80
     return-void
 .end method
 
 .method private decodeObject()Ljava/lang/Object;
     .locals 9
 
+    .prologue
+    .line 120
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v6}, Ljava/nio/ByteBuffer;->get()B
 
     move-result v5
 
+    .line 121
+    .local v5, "type":B
     packed-switch v5, :pswitch_data_0
 
+    .line 147
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -102,6 +113,7 @@
 
     throw v6
 
+    .line 123
     :pswitch_0
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -113,10 +125,12 @@
 
     move-result-object v0
 
+    .line 144
     :cond_0
     :goto_0
     return-object v0
 
+    .line 126
     :pswitch_1
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -130,6 +144,7 @@
 
     goto :goto_0
 
+    .line 130
     :pswitch_2
     :try_start_0
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -138,18 +153,23 @@
 
     move-result v3
 
+    .line 131
+    .local v3, "length":I
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
-    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->position()I
+    invoke-virtual {v6}, Ljava/nio/Buffer;->position()I
 
     move-result v4
 
+    .line 132
+    .local v4, "start":I
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     add-int v7, v4, v3
 
-    invoke-virtual {v6, v7}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v6, v7}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
+    .line 133
     new-instance v0, Ljava/lang/String;
 
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
@@ -166,19 +186,27 @@
 
     goto :goto_0
 
+    .line 134
+    .end local v3    # "length":I
+    .end local v4    # "start":I
     :catch_0
     move-exception v1
 
+    .line 135
+    .local v1, "e":Ljava/io/UnsupportedEncodingException;
     const-string v6, "EventLog"
 
     const-string v7, "UTF-8 is not supported"
 
     invoke-static {v6, v7, v1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 136
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 140
+    .end local v1    # "e":Ljava/io/UnsupportedEncodingException;
     :pswitch_3
     iget-object v6, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
@@ -186,15 +214,21 @@
 
     move-result v3
 
+    .line 141
+    .restart local v3    # "length":I
     if-gez v3, :cond_1
 
     add-int/lit16 v3, v3, 0x100
 
+    .line 142
     :cond_1
     new-array v0, v3, [Ljava/lang/Object;
 
+    .line 143
+    .local v0, "array":[Ljava/lang/Object;
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
     if-ge v2, v3, :cond_0
 
@@ -208,6 +242,7 @@
 
     goto :goto_1
 
+    .line 121
     nop
 
     :pswitch_data_0
@@ -224,8 +259,10 @@
 .method public declared-synchronized getData()Ljava/lang/Object;
     .locals 5
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 106
     monitor-enter p0
 
     :try_start_0
@@ -241,14 +278,16 @@
 
     add-int/lit8 v3, v3, 0x14
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/Buffer;->limit(I)Ljava/nio/Buffer;
 
+    .line 107
     iget-object v2, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v3, 0x18
 
-    invoke-virtual {v2, v3}, Ljava/nio/ByteBuffer;->position(I)Ljava/nio/Buffer;
+    invoke-virtual {v2, v3}, Ljava/nio/Buffer;->position(I)Ljava/nio/Buffer;
 
+    .line 108
     invoke-direct {p0}, Landroid/util/EventLog$Event;->decodeObject()Ljava/lang/Object;
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
@@ -257,14 +296,18 @@
 
     move-result-object v1
 
+    .line 114
     :goto_0
     monitor-exit p0
 
     return-object v1
 
+    .line 109
     :catch_0
     move-exception v0
 
+    .line 110
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     :try_start_1
     const-string v2, "EventLog"
 
@@ -296,6 +339,8 @@
 
     goto :goto_0
 
+    .line 106
+    .end local v0    # "e":Ljava/lang/IllegalArgumentException;
     :catchall_0
     move-exception v1
 
@@ -303,9 +348,12 @@
 
     throw v1
 
+    .line 112
     :catch_1
     move-exception v0
 
+    .line 113
+    .local v0, "e":Ljava/nio/BufferUnderflowException;
     :try_start_2
     const-string v2, "EventLog"
 
@@ -341,6 +389,8 @@
 .method public getProcessId()I
     .locals 2
 
+    .prologue
+    .line 84
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/4 v1, 0x4
@@ -355,6 +405,8 @@
 .method public getTag()I
     .locals 2
 
+    .prologue
+    .line 100
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0x14
@@ -369,6 +421,8 @@
 .method public getThreadId()I
     .locals 2
 
+    .prologue
+    .line 89
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0x8
@@ -383,6 +437,8 @@
 .method public getTimeNanos()J
     .locals 4
 
+    .prologue
+    .line 94
     iget-object v0, p0, Landroid/util/EventLog$Event;->mBuffer:Ljava/nio/ByteBuffer;
 
     const/16 v1, 0xc

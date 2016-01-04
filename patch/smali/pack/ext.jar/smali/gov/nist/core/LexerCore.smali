@@ -236,7 +236,7 @@
     const/4 v1, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v1}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v0
 
@@ -255,12 +255,12 @@
     :cond_0
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 282
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v1}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -371,7 +371,7 @@
     const/4 v2, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v2}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -403,7 +403,7 @@
     const/4 v2, 0x1
 
     :try_start_1
-    invoke-virtual {p0, v2}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 637
     invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -435,7 +435,7 @@
     const/4 v3, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -473,7 +473,7 @@
     const/4 v3, 0x1
 
     :try_start_1
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 591
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -511,7 +511,7 @@
     const/4 v3, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -545,7 +545,7 @@
     const/4 v3, 0x1
 
     :try_start_1
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 615
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -574,11 +574,11 @@
 
     .prologue
     .line 653
-    iget-object v0, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v1, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v1, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     add-int/2addr v2, p1
 
@@ -607,7 +607,7 @@
     .local v1, "retval":Ljava/lang/StringBuffer;
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v2}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v2}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -626,11 +626,11 @@
     :cond_0
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 556
     :goto_1
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v0
 
@@ -658,7 +658,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -674,7 +674,7 @@
 
     move-result-object v3
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v2, v3, v4}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -690,7 +690,7 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 565
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v0
 
@@ -704,7 +704,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -720,7 +720,7 @@
 
     move-result-object v3
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v2, v3, v4}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -755,7 +755,7 @@
     .local v4, "validCharsLength":I
     :goto_0
     :try_start_0
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->hasMoreChars()Z
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->hasMoreChars()Z
 
     move-result v7
 
@@ -764,7 +764,7 @@
     .line 488
     const/4 v7, 0x0
 
-    invoke-virtual {p0, v7}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v7}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -804,7 +804,7 @@
     .line 510
     const/4 v7, 0x1
 
-    invoke-virtual {p0, v7}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_0
 
@@ -882,9 +882,9 @@
     .line 759
     new-instance v0, Ljava/text/ParseException;
 
-    iget-object v1, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v1, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v0, v1, v2}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -896,7 +896,7 @@
 
     .prologue
     .line 753
-    iget-object v0, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -928,7 +928,7 @@
 
     .prologue
     .line 747
-    iget v0, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v0, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     return v0
 .end method
@@ -938,9 +938,9 @@
 
     .prologue
     .line 701
-    iget v0, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v0, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
-    iget-object v1, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v1, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/String;->length()I
 
@@ -956,9 +956,9 @@
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v1, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v1, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
@@ -989,7 +989,7 @@
     .line 714
     .local v2, "retval":Ljava/lang/StringBuffer;
     :goto_0
-    invoke-virtual {p0, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v0
 
@@ -1004,7 +1004,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v5, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1020,7 +1020,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v5, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v3, v4, v5}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1031,7 +1031,7 @@
     if-ne v0, p1, :cond_1
 
     .line 723
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 741
     invoke-virtual {v2}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -1047,10 +1047,10 @@
     if-ne v0, v3, :cond_3
 
     .line 726
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 727
-    invoke-virtual {p0, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -1065,7 +1065,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v5, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1081,7 +1081,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v5, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v3, v4, v5}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1089,7 +1089,7 @@
 
     .line 733
     :cond_2
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 734
     invoke-virtual {v2, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -1099,7 +1099,7 @@
     .line 737
     .end local v1    # "nextchar":C
     :cond_3
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 738
     invoke-virtual {v2, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
@@ -1156,7 +1156,7 @@
 
     .prologue
     .line 687
-    iget v0, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v0, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     return v0
 .end method
@@ -1232,7 +1232,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1248,7 +1248,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1304,7 +1304,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1320,7 +1320,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1391,7 +1391,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1411,7 +1411,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1444,7 +1444,7 @@
     if-le p1, v11, :cond_c
 
     .line 238
-    invoke-virtual {p0, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -1468,7 +1468,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1484,7 +1484,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1513,7 +1513,7 @@
     iput p1, v5, Lgov/nist/core/Token;->tokenType:I
 
     .line 246
-    invoke-virtual {p0, v7}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto/16 :goto_0
 
@@ -1537,7 +1537,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1553,7 +1553,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1582,7 +1582,7 @@
     iput p1, v5, Lgov/nist/core/Token;->tokenType:I
 
     .line 255
-    invoke-virtual {p0, v7}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto/16 :goto_0
 
@@ -1593,7 +1593,7 @@
 
     .line 262
     .local v0, "ch":C
-    invoke-virtual {p0, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -1602,7 +1602,7 @@
     if-ne v3, v0, :cond_d
 
     .line 268
-    invoke-virtual {p0, v7}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto/16 :goto_0
 
@@ -1614,7 +1614,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v7, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v7, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1650,7 +1650,7 @@
 
     move-result-object v6
 
-    iget v7, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v7, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v5, v6, v7}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1667,14 +1667,14 @@
 
     .prologue
     .line 662
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 664
     .local v2, "startIdx":I
     const/4 v3, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -1691,7 +1691,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v5, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1705,7 +1705,7 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {p0, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v5
 
@@ -1717,7 +1717,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v5, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v3, v4, v5}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -1731,9 +1731,9 @@
 
     .line 679
     .local v0, "ex":Ljava/text/ParseException;
-    iget-object v3, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v3, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-virtual {v3, v2, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
@@ -1748,13 +1748,13 @@
     const/4 v3, 0x1
 
     :try_start_1
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 671
     :goto_1
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -1769,15 +1769,15 @@
     .line 673
     const/4 v3, 0x1
 
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_1
 
     .line 677
     :cond_1
-    iget-object v3, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v3, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-virtual {v3, v2, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     :try_end_1
@@ -1793,7 +1793,7 @@
 
     .prologue
     .line 145
-    iget v0, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v0, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 146
     .local v0, "oldPtr":I
@@ -1803,12 +1803,12 @@
 
     .line 147
     .local v1, "retval":Ljava/lang/String;
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
-    iput v2, p0, Lgov/nist/core/LexerCore;->savedPtr:I
+    iput v2, p0, Lgov/nist/core/StringTokenizer;->savedPtr:I
 
     .line 148
-    iput v0, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iput v0, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 149
     return-object v1
@@ -1848,7 +1848,7 @@
 
     .prologue
     .line 171
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 172
     .local v4, "old":I
@@ -1942,7 +1942,7 @@
     .end local v1    # "id":Ljava/lang/String;
     .end local v2    # "idUppercase":Ljava/lang/String;
     :cond_1
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v3
 
@@ -1993,12 +1993,12 @@
     .end local v3    # "nextChar":C
     .end local v6    # "tok":Lgov/nist/core/Token;
     :cond_4
-    iget v8, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v8, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
-    iput v8, p0, Lgov/nist/core/LexerCore;->savedPtr:I
+    iput v8, p0, Lgov/nist/core/StringTokenizer;->savedPtr:I
 
     .line 197
-    iput v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iput v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 198
     return-object v5
@@ -2018,7 +2018,7 @@
     const/4 v3, 0x1
 
     .line 526
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     add-int/lit8 v1, v2, 0x1
 
@@ -2026,7 +2026,7 @@
     .local v1, "startIdx":I
     const/4 v2, 0x0
 
-    invoke-virtual {p0, v2}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v2}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -2041,12 +2041,12 @@
 
     .line 529
     :cond_0
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 531
     :cond_1
     :goto_1
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v0
 
@@ -2055,9 +2055,9 @@
     if-ne v0, v4, :cond_2
 
     .line 543
-    iget-object v2, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v3, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v3, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     add-int/lit8 v3, v3, -0x1
 
@@ -2078,7 +2078,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v4, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2094,7 +2094,7 @@
 
     move-result-object v3
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-direct {v2, v3, v4}, Ljava/text/ParseException;-><init>(Ljava/lang/String;I)V
 
@@ -2107,7 +2107,7 @@
     if-ne v0, v2, :cond_1
 
     .line 540
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_1
 .end method
@@ -2118,7 +2118,7 @@
 
     .prologue
     .line 694
-    iput p1, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iput p1, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 695
     return-void
@@ -2146,7 +2146,7 @@
     const/4 v3, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -2184,7 +2184,7 @@
     const/4 v4, 0x0
 
     :try_start_0
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -2261,13 +2261,13 @@
 
     .prologue
     .line 373
-    iget v2, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v2, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 375
     .local v2, "startIdx":I
     :goto_0
     :try_start_0
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->hasMoreChars()Z
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->hasMoreChars()Z
 
     move-result v3
 
@@ -2276,7 +2276,7 @@
     .line 376
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -2291,7 +2291,7 @@
     .line 378
     const/4 v3, 0x1
 
-    invoke-virtual {p0, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_0
 
@@ -2310,9 +2310,9 @@
 
     .line 383
     :cond_0
-    iget-object v3, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v3, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v4, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v4, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-virtual {v3, v2, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     :try_end_0
@@ -2328,13 +2328,13 @@
 
     .prologue
     .line 431
-    iget v3, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v3, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     .line 433
     .local v3, "startIdx":I
     :goto_0
     :try_start_0
-    invoke-virtual {p0}, Lgov/nist/core/LexerCore;->hasMoreChars()Z
+    invoke-virtual {p0}, Lgov/nist/core/StringTokenizer;->hasMoreChars()Z
 
     move-result v4
 
@@ -2343,7 +2343,7 @@
     .line 434
     const/4 v4, 0x0
 
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -2358,7 +2358,7 @@
     .line 436
     const/4 v4, 0x1
 
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_0
 
@@ -2391,7 +2391,7 @@
     .line 468
     const/4 v4, 0x1
 
-    invoke-virtual {p0, v4}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_0
 
@@ -2405,9 +2405,9 @@
     .end local v1    # "isValidChar":Z
     .end local v2    # "nextChar":C
     :cond_1
-    iget-object v4, p0, Lgov/nist/core/LexerCore;->buffer:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/core/StringTokenizer;->buffer:Ljava/lang/String;
 
-    iget v5, p0, Lgov/nist/core/LexerCore;->ptr:I
+    iget v5, p0, Lgov/nist/core/StringTokenizer;->ptr:I
 
     invoke-virtual {v4, v3, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     :try_end_0

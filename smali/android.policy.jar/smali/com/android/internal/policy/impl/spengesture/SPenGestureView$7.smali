@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;)V
     .locals 0
 
+    .prologue
+    .line 880
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$7;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 883
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$7;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -54,15 +58,18 @@
 
     if-eqz v2, :cond_0
 
+    .line 884
     const-string v2, "SPenGesture"
 
     const-string v3, "gesturepad is live!!!"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 907
     :goto_0
     return-void
 
+    .line 888
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$7;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -73,6 +80,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 889
     const-string v2, "SPenGesture"
 
     const-string v3, "Now keyguard is on!!!"
@@ -83,13 +91,18 @@
 
     goto :goto_0
 
+    .line 904
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .line 905
+    .local v1, "e":Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 893
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     :try_start_1
     const-string v2, "SPenGesture"
@@ -98,38 +111,46 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 895
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 896
+    .local v0, "dvfsLockIntent":Landroid/content/Intent;
     const-string v2, "com.sec.android.intent.action.DVFS_BOOSTER"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 897
     const-string v2, "PACKAGE"
 
     const-string v3, "com.sec.android.gesturepad"
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 898
     const-string v2, "CPU"
 
     const-string v3, "MAX"
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 899
     const-string v2, "CPU_CORE_NUM"
 
     const-string v3, "4"
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 900
     const-string v2, "DURATION"
 
     const-string v3, "1500"
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 901
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$7;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mContext:Landroid/content/Context;
@@ -139,9 +160,10 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 903
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$7;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v2
 

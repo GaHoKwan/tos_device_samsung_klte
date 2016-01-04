@@ -42,7 +42,7 @@
     .line 898
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mIsDisposed:Z
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mIsDisposed:Z
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$000(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Z
 
     move-result v3
@@ -65,7 +65,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$100(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v3
@@ -78,7 +78,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$200(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v3
@@ -107,7 +107,7 @@
 
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v5}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$300(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v5
@@ -141,7 +141,7 @@
 
     iget-object v5, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mPhone:Lcom/android/internal/telephony/PhoneBase;
     invoke-static {v5}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$400(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Lcom/android/internal/telephony/PhoneBase;
 
     move-result-object v5
@@ -181,7 +181,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher$1;->this$0:Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;->access$500(Lcom/android/internal/telephony/cdma/CdmaSMSDispatcher;)Landroid/content/Context;
 
     move-result-object v3
@@ -243,7 +243,7 @@
 
     .line 935
     .local v0, "alert":Landroid/app/AlertDialog;
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v3
 
@@ -252,7 +252,7 @@
     invoke-virtual {v3, v4}, Landroid/view/Window;->setType(I)V
 
     .line 936
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
     goto/16 :goto_0
 .end method

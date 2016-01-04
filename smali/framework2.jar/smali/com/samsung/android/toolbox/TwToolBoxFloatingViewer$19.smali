@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 1088
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$19;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1090
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$19;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # invokes: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->playAnimationWakeup()V
     invoke-static {v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$4300(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
 
+    .line 1091
     return-void
 .end method

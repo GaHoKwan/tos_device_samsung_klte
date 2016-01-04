@@ -121,7 +121,7 @@
     .line 476
     iget-object v3, p0, Landroid/media/audiofx/EnvironmentalReverb$BaseParameterListener;->this$0:Landroid/media/audiofx/EnvironmentalReverb;
 
-    invoke-virtual {v3, p3, v5}, Landroid/media/audiofx/EnvironmentalReverb;->byteArrayToInt([BI)I
+    invoke-virtual {v3, p3, v5}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v1
 
@@ -136,7 +136,7 @@
     .line 479
     iget-object v3, p0, Landroid/media/audiofx/EnvironmentalReverb$BaseParameterListener;->this$0:Landroid/media/audiofx/EnvironmentalReverb;
 
-    invoke-virtual {v3, p4, v5}, Landroid/media/audiofx/EnvironmentalReverb;->byteArrayToShort([BI)S
+    invoke-virtual {v3, p4, v5}, Landroid/media/audiofx/AudioEffect;->byteArrayToShort([BI)S
 
     move-result v2
 
@@ -180,7 +180,7 @@
     .line 481
     iget-object v3, p0, Landroid/media/audiofx/EnvironmentalReverb$BaseParameterListener;->this$0:Landroid/media/audiofx/EnvironmentalReverb;
 
-    invoke-virtual {v3, p4, v5}, Landroid/media/audiofx/EnvironmentalReverb;->byteArrayToInt([BI)I
+    invoke-virtual {v3, p4, v5}, Landroid/media/audiofx/AudioEffect;->byteArrayToInt([BI)I
 
     move-result v2
 

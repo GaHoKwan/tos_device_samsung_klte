@@ -22,14 +22,18 @@
 .method public constructor <init>(Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock;)V
     .locals 1
 
+    .prologue
+    .line 203
     iput-object p1, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock$FormatChangeObserver;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock;
 
+    .line 204
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 205
     return-void
 .end method
 
@@ -37,7 +41,10 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 209
     iget-object v0, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock$FormatChangeObserver;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock;
 
     # getter for: Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$Clock;->mClockView:Landroid/widget/LinearLayout;
@@ -51,7 +58,8 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
+    .line 210
     return-void
 .end method

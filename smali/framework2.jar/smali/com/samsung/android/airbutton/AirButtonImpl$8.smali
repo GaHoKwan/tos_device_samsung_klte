@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/AirButtonImpl;)V
     .locals 0
 
+    .prologue
+    .line 1462
     iput-object p1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$8;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onCoverStateChanged(Lcom/samsung/android/cover/CoverState;)V
     .locals 3
+    .param p1, "state"    # Lcom/samsung/android/cover/CoverState;
 
+    .prologue
+    .line 1466
     const-string v0, "AirButtonImpl"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -63,16 +68,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1467
     invoke-virtual {p1}, Lcom/samsung/android/cover/CoverState;->getSwitchState()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 1468
     iget-object v0, p0, Lcom/samsung/android/airbutton/AirButtonImpl$8;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-virtual {v0}, Lcom/samsung/android/airbutton/AirButtonImpl;->hide()V
 
+    .line 1470
     :cond_0
     return-void
 .end method

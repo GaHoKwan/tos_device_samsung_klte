@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 400
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,11 +32,16 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 402
     const/4 v0, 0x0
 
     # setter for: Lcom/android/server/power/ShutdownThread;->mFake:Z
     invoke-static {v0}, Lcom/android/server/power/ShutdownThread;->access$102(Z)Z
 
+    .line 403
     return-void
 .end method

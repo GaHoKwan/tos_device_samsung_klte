@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 5727
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$17;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +38,15 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 5729
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$17;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideSIPInformationDialog()V
 
+    .line 5730
     return-void
 .end method

@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/FindActionModeCallback;)V
     .locals 0
 
+    .prologue
+    .line 99
     iput-object p1, p0, Landroid/webkitsec/FindActionModeCallback$2;->this$0:Landroid/webkitsec/FindActionModeCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,20 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 102
     const/16 v0, 0x3d
 
     if-ne p2, v0, :cond_0
 
+    .line 103
     const/4 v0, 0x1
 
+    .line 105
     :goto_0
     return v0
 

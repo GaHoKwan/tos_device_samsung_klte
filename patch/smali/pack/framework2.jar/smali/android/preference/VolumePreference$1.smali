@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/preference/VolumePreference;)V
     .locals 0
 
+    .prologue
+    .line 179
     iput-object p1, p0, Landroid/preference/VolumePreference$1;->this$0:Landroid/preference/VolumePreference;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAudioFocusChange(I)V
     .locals 3
+    .param p1, "focusChange"    # I
 
+    .prologue
+    .line 181
     const-string v0, "VolumePreference"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -59,12 +64,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 182
     packed-switch p1, :pswitch_data_0
 
+    .line 195
     :cond_0
     :goto_0
     return-void
 
+    .line 187
     :pswitch_0
     iget-object v0, p0, Landroid/preference/VolumePreference$1;->this$0:Landroid/preference/VolumePreference;
 
@@ -75,6 +83,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 188
     iget-object v0, p0, Landroid/preference/VolumePreference$1;->this$0:Landroid/preference/VolumePreference;
 
     # getter for: Landroid/preference/VolumePreference;->mSeekBarVolumizer:Landroid/preference/VolumePreference$SeekBarVolumizer;
@@ -86,6 +95,7 @@
 
     goto :goto_0
 
+    .line 182
     nop
 
     :pswitch_data_0

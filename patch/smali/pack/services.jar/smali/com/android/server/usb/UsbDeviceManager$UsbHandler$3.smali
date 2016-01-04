@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;)V
     .locals 0
 
+    .prologue
+    .line 373
     iput-object p1, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$3;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 376
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 377
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "plugged"
 
     const/4 v4, -0x1
@@ -46,12 +54,16 @@
 
     move-result v1
 
+    .line 378
+    .local v1, "chargePlug":I
     const/4 v3, 0x2
 
     if-ne v1, v3, :cond_2
 
     const/4 v2, 0x1
 
+    .line 380
+    .local v2, "usbCharge":Z
     :goto_0
     const-string v3, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
@@ -61,6 +73,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 381
     # getter for: Lcom/android/server/usb/UsbDeviceManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/usb/UsbDeviceManager;->access$200()Ljava/lang/String;
 
@@ -86,6 +99,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 384
     :cond_0
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$3;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
@@ -96,11 +110,13 @@
 
     if-eq v3, v2, :cond_1
 
+    .line 385
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$3;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     # setter for: Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->mPowerConnected:Z
     invoke-static {v3, v2}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->access$502(Lcom/android/server/usb/UsbDeviceManager$UsbHandler;Z)Z
 
+    .line 386
     iget-object v3, p0, Lcom/android/server/usb/UsbDeviceManager$UsbHandler$3;->this$1:Lcom/android/server/usb/UsbDeviceManager$UsbHandler;
 
     iget-object v3, v3, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->this$0:Lcom/android/server/usb/UsbDeviceManager;
@@ -114,9 +130,12 @@
 
     invoke-virtual {v3, v4, v2}, Lcom/android/server/usb/UsbDeviceManager$UsbHandler;->sendMessage(IZ)V
 
+    .line 388
     :cond_1
     return-void
 
+    .line 378
+    .end local v2    # "usbCharge":Z
     :cond_2
     const/4 v2, 0x0
 

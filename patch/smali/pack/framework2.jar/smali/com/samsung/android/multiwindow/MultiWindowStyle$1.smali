@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 304
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/multiwindow/MultiWindowStyle;
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 306
     new-instance v0, Lcom/samsung/android/multiwindow/MultiWindowStyle;
 
     invoke-direct {v0, p1}, Lcom/samsung/android/multiwindow/MultiWindowStyle;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 304
     invoke-virtual {p0, p1}, Lcom/samsung/android/multiwindow/MultiWindowStyle$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/multiwindow/MultiWindowStyle;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/multiwindow/MultiWindowStyle;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 310
     new-array v0, p1, [Lcom/samsung/android/multiwindow/MultiWindowStyle;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 304
     invoke-virtual {p0, p1}, Lcom/samsung/android/multiwindow/MultiWindowStyle$1;->newArray(I)[Lcom/samsung/android/multiwindow/MultiWindowStyle;
 
     move-result-object v0

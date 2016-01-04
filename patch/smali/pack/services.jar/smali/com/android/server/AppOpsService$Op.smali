@@ -52,28 +52,41 @@
 # direct methods
 .method public constructor <init>(ILjava/lang/String;II)V
     .locals 1
+    .param p1, "_uid"    # I
+    .param p2, "_packageName"    # Ljava/lang/String;
+    .param p3, "_op"    # I
+    .param p4, "_mode"    # I
 
+    .prologue
+    .line 126
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 127
     iput p1, p0, Lcom/android/server/AppOpsService$Op;->uid:I
 
+    .line 128
     iput-object p2, p0, Lcom/android/server/AppOpsService$Op;->packageName:Ljava/lang/String;
 
+    .line 129
     iput p3, p0, Lcom/android/server/AppOpsService$Op;->op:I
 
+    .line 130
     iput p4, p0, Lcom/android/server/AppOpsService$Op;->mode:I
 
+    .line 131
     new-instance v0, Lcom/android/server/PermissionDialogResult;
 
     invoke-direct {v0}, Lcom/android/server/PermissionDialogResult;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/AppOpsService$Op;->dialogResult:Lcom/android/server/PermissionDialogResult;
 
+    .line 132
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/AppOpsService$Op;->mClientTokens:Ljava/util/ArrayList;
 
+    .line 133
     return-void
 .end method

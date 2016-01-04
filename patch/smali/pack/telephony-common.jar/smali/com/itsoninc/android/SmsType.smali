@@ -123,7 +123,7 @@
     .line 3
     sget-object v0, Lcom/itsoninc/android/SmsType;->$VALUES:[Lcom/itsoninc/android/SmsType;
 
-    invoke-virtual {v0}, [Lcom/itsoninc/android/SmsType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

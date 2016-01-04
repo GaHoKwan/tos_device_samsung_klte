@@ -88,7 +88,7 @@
     :cond_0
     const-string v0, "USC"
 
-    const-string v1, "VZW"
+    const-string v1, "OPEN"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -129,7 +129,7 @@
     :cond_1
     const-string v0, "CHN"
 
-    const-string v1, "USA"
+    const-string v1, "GGSM"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

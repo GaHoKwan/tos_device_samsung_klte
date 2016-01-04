@@ -1192,7 +1192,7 @@
     .local v0, "client":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCdmaBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;
 
-    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;->disableRange(IILjava/lang/String;)Z
+    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IntRangeManager;->disableRange(IILjava/lang/String;)Z
 
     move-result v4
 
@@ -1296,7 +1296,7 @@
     .line 839
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCdmaBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/internal/telephony/IntRangeManager;->isEmpty()Z
 
     move-result v4
 
@@ -1355,13 +1355,21 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 710
+    invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->disableCdmaBroadcastRange(II)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
     .line 708
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->disableGsmBroadcastRange(II)Z
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public declared-synchronized disableGsmBroadcastRange(II)Z
@@ -1414,7 +1422,7 @@
     .local v0, "client":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCellBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;
 
-    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;->disableRange(IILjava/lang/String;)Z
+    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IntRangeManager;->disableRange(IILjava/lang/String;)Z
 
     move-result v4
 
@@ -1515,7 +1523,7 @@
     .line 776
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCellBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/internal/telephony/IntRangeManager;->isEmpty()Z
 
     move-result v4
 
@@ -1661,7 +1669,7 @@
     .local v0, "client":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCdmaBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;
 
-    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;->enableRange(IILjava/lang/String;)Z
+    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IntRangeManager;->enableRange(IILjava/lang/String;)Z
 
     move-result v4
 
@@ -1765,7 +1773,7 @@
     .line 810
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCdmaBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CdmaBroadcastRangeManager;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/internal/telephony/IntRangeManager;->isEmpty()Z
 
     move-result v4
 
@@ -1824,13 +1832,21 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 700
+    invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->enableCdmaBroadcastRange(II)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
     .line 698
     :cond_0
     invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/IccSmsInterfaceManager;->enableGsmBroadcastRange(II)Z
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public declared-synchronized enableGsmBroadcastRange(II)Z
@@ -1883,7 +1899,7 @@
     .local v0, "client":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCellBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;
 
-    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;->enableRange(IILjava/lang/String;)Z
+    invoke-virtual {v4, p1, p2, v0}, Lcom/android/internal/telephony/IntRangeManager;->enableRange(IILjava/lang/String;)Z
 
     move-result v4
 
@@ -1992,7 +2008,7 @@
     .line 740
     iget-object v4, p0, Lcom/android/internal/telephony/IccSmsInterfaceManager;->mCellBroadcastRangeManager:Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/IccSmsInterfaceManager$CellBroadcastRangeManager;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/internal/telephony/IntRangeManager;->isEmpty()Z
 
     move-result v4
 

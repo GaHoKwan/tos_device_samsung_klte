@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 6419
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
@@ -33,11 +35,21 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 6
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
+    .prologue
+    .line 6424
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
+    .line 6425
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$9;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -51,10 +63,13 @@
 
     invoke-virtual {v0, v2, v3, v4, v5}, Lcom/android/server/am/ActivityManagerService;->requestPssAllProcsLocked(JZZ)V
 
+    .line 6427
     monitor-exit v1
 
+    .line 6428
     return-void
 
+    .line 6427
     :catchall_0
     move-exception v0
 

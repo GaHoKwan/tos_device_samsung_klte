@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 425
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,18 +42,27 @@
 # virtual methods
 .method public compare(Lcom/android/server/AssetAtlasService$WorkerResult;Lcom/android/server/AssetAtlasService$WorkerResult;)I
     .locals 4
+    .param p1, "r1"    # Lcom/android/server/AssetAtlasService$WorkerResult;
+    .param p2, "r2"    # Lcom/android/server/AssetAtlasService$WorkerResult;
 
+    .prologue
+    .line 428
     iget v1, p2, Lcom/android/server/AssetAtlasService$WorkerResult;->count:I
 
     iget v2, p1, Lcom/android/server/AssetAtlasService$WorkerResult;->count:I
 
     sub-int v0, v1, v2
 
+    .line 429
+    .local v0, "delta":I
     if-eqz v0, :cond_0
 
+    .line 430
+    .end local v0    # "delta":I
     :goto_0
     return v0
 
+    .restart local v0    # "delta":I
     :cond_0
     iget v1, p1, Lcom/android/server/AssetAtlasService$WorkerResult;->width:I
 
@@ -72,11 +83,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 425
     check-cast p1, Lcom/android/server/AssetAtlasService$WorkerResult;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/AssetAtlasService$WorkerResult;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/AssetAtlasService$2;->compare(Lcom/android/server/AssetAtlasService$WorkerResult;Lcom/android/server/AssetAtlasService$WorkerResult;)I
 
     move-result v0

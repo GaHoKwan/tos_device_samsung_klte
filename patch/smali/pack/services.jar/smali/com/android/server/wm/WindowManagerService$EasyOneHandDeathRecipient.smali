@@ -25,6 +25,8 @@
 .method private constructor <init>(Lcom/android/server/wm/WindowManagerService;)V
     .locals 0
 
+    .prologue
+    .line 4092
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/WindowManagerService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/wm/WindowManagerService;
+    .param p2, "x1"    # Lcom/android/server/wm/WindowManagerService$1;
 
+    .prologue
+    .line 4092
     invoke-direct {p0, p1}, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;-><init>(Lcom/android/server/wm/WindowManagerService;)V
 
     return-void
@@ -45,6 +51,8 @@
 .method public binderDied()V
     .locals 6
 
+    .prologue
+    .line 4096
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -54,6 +62,7 @@
     :try_end_0
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 4097
     :try_start_1
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -61,6 +70,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 4098
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mEasyOneHandWatcher:Landroid/sec/easyonehand/IEasyOneHandWatcher;
@@ -73,12 +83,14 @@
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 4099
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, 0x0
 
     iput-object v2, v0, Lcom/android/server/wm/WindowManagerService;->mEasyOneHandWatcher:Landroid/sec/easyonehand/IEasyOneHandWatcher;
 
+    .line 4101
     const-string v0, "WindowManager"
 
     const-string v2, "EasyOneHand has died unexpectedly"
@@ -87,6 +99,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 4105
     :try_start_2
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -100,6 +113,7 @@
 
     invoke-virtual {v0, v2, v3, v4, v5}, Lcom/android/server/wm/WindowManagerService;->changeDisplayScale(IFFF)V
 
+    .line 4106
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$EasyOneHandDeathRecipient;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     const/4 v2, 0x0
@@ -109,14 +123,17 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 4111
     :cond_0
     :goto_0
     :try_start_3
     monitor-exit v1
 
+    .line 4116
     :goto_1
     return-void
 
+    .line 4111
     :catchall_0
     move-exception v0
 
@@ -129,11 +146,13 @@
     :try_end_4
     .catch Ljava/lang/IllegalArgumentException; {:try_start_4 .. :try_end_4} :catch_0
 
+    .line 4112
     :catch_0
     move-exception v0
 
     goto :goto_1
 
+    .line 4107
     :catch_1
     move-exception v0
 

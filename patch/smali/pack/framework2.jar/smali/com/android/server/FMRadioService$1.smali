@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
 
+    .prologue
+    .line 227
     iput-object p1, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,15 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v6, 0x0
 
     const/16 v5, 0xa
 
+    .line 229
     const-string v3, "android.media.VOLUME_CHANGED_ACTION"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -50,6 +56,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 230
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->volumeLock:Z
@@ -59,22 +66,28 @@
 
     if-nez v3, :cond_3
 
+    .line 231
     const-string v3, "android.media.EXTRA_VOLUME_STREAM_TYPE"
 
     invoke-virtual {p2, v3, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 232
+    .local v1, "stream":I
     const-string v3, "android.media.EXTRA_VOLUME_STREAM_VALUE"
 
     invoke-virtual {p2, v3, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
+    .line 234
+    .local v2, "volume":I
     const-string v3, "*** mReceiver: VOLUME_CHANGED_ACTION"
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 236
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -95,6 +108,7 @@
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 238
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -115,6 +129,7 @@
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 240
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mAudioManager:Landroid/media/AudioManager;
@@ -126,6 +141,8 @@
 
     move-result v0
 
+    .line 241
+    .local v0, "current_stream_volume":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -146,6 +163,7 @@
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 244
     if-eq v1, v5, :cond_0
 
     const/4 v3, 0x3
@@ -164,12 +182,17 @@
     :cond_0
     if-ne v2, v0, :cond_1
 
+    .line 246
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     int-to-long v4, v2
 
     invoke-virtual {v3, v4, v5}, Lcom/android/server/FMRadioService;->setVolume(J)V
 
+    .line 253
+    .end local v0    # "current_stream_volume":I
+    .end local v1    # "stream":I
+    .end local v2    # "volume":I
     :cond_1
     :goto_0
     const-string v3, "com.android.fm.volume_lock"
@@ -184,10 +207,12 @@
 
     if-eqz v3, :cond_4
 
+    .line 259
     const-string v3, "Volume Locked..."
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 260
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     const/4 v4, 0x1
@@ -195,10 +220,12 @@
     # setter for: Lcom/android/server/FMRadioService;->volumeLock:Z
     invoke-static {v3, v4}, Lcom/android/server/FMRadioService;->access$002(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 266
     :cond_2
     :goto_1
     return-void
 
+    .line 248
     :cond_3
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
@@ -210,6 +237,7 @@
 
     goto :goto_0
 
+    .line 261
     :cond_4
     const-string v3, "com.android.fm.volume_unlock"
 
@@ -223,10 +251,12 @@
 
     if-eqz v3, :cond_2
 
+    .line 262
     const-string v3, "Volume Unlocked..."
 
     invoke-static {v3}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 263
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     const/4 v4, -0x1
@@ -234,6 +264,7 @@
     # setter for: Lcom/android/server/FMRadioService;->mReturnBackVolume:I
     invoke-static {v3, v4}, Lcom/android/server/FMRadioService;->access$302(Lcom/android/server/FMRadioService;I)I
 
+    .line 264
     iget-object v3, p0, Lcom/android/server/FMRadioService$1;->this$0:Lcom/android/server/FMRadioService;
 
     # setter for: Lcom/android/server/FMRadioService;->volumeLock:Z

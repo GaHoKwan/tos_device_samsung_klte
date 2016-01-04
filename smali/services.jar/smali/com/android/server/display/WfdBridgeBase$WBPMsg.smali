@@ -57,91 +57,136 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;I)V
     .locals 1
+    .param p2, "msgType"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 244
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 245
     iput p2, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsgType:I
 
+    .line 246
     iput-object v0, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 247
     iput-object v0, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
 
+    .line 248
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;ILcom/android/server/display/WfdBridgeBase$BridgePeer;)V
     .locals 1
+    .param p2, "msgType"    # I
+    .param p3, "to"    # Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .prologue
+    .line 250
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 251
     iput p2, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsgType:I
 
+    .line 252
     iput-object p3, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 253
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
 
+    .line 254
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;ILjava/lang/String;Lcom/android/server/display/WfdBridgeBase$BridgePeer;)V
     .locals 0
+    .param p2, "msgType"    # I
+    .param p3, "msg"    # Ljava/lang/String;
+    .param p4, "to"    # Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .prologue
+    .line 256
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 257
     iput p2, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsgType:I
 
+    .line 258
     iput-object p4, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 259
     iput-object p3, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
 
+    .line 260
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;ILjava/lang/String;Lcom/android/server/display/WfdBridgeBase$BridgePeer;II)V
     .locals 0
+    .param p2, "msgType"    # I
+    .param p3, "msg"    # Ljava/lang/String;
+    .param p4, "from"    # Lcom/android/server/display/WfdBridgeBase$BridgePeer;
+    .param p5, "dev"    # I
+    .param p6, "type"    # I
 
+    .prologue
+    .line 268
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 269
     iput p2, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsgType:I
 
+    .line 270
     iput-object p4, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 271
     iput-object p3, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
 
+    .line 272
     iput p5, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mDev:I
 
+    .line 273
     iput p6, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mType:I
 
+    .line 274
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase;Ljava/lang/String;Lcom/android/server/display/WfdBridgeBase$BridgePeer;)V
     .locals 1
+    .param p2, "msg"    # Ljava/lang/String;
+    .param p3, "from"    # Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .prologue
+    .line 262
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->this$0:Lcom/android/server/display/WfdBridgeBase;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 263
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsgType:I
 
+    .line 264
     iput-object p2, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
 
+    .line 265
     iput-object p3, p0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 266
     return-void
 .end method
 
@@ -150,6 +195,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 278
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

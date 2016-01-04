@@ -39,7 +39,7 @@
 
     sget-object v1, Landroid/graphics/Atlas$Type;->SliceMinArea:Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v1}, Landroid/graphics/Atlas$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Landroid/graphics/Atlas$Type;->SliceMaxArea:Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v1}, Landroid/graphics/Atlas$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Landroid/graphics/Atlas$Type;->SliceShortAxis:Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v1}, Landroid/graphics/Atlas$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -87,7 +87,7 @@
 
     sget-object v1, Landroid/graphics/Atlas$Type;->SliceLongAxis:Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v1}, Landroid/graphics/Atlas$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

@@ -27,16 +27,25 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/os/BatteryStatsImpl;IJI)V
     .locals 0
+    .param p2, "count"    # I
+    .param p3, "totalTime"    # J
+    .param p5, "version"    # I
 
+    .prologue
+    .line 1387
     iput-object p1, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->this$0:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1388
     iput p2, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mCount:I
 
+    .line 1389
     iput-wide p3, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mTotalTime:J
 
+    .line 1390
     iput p5, p0, Lcom/android/internal/os/BatteryStatsImpl$KernelWakelockStats;->mVersion:I
 
+    .line 1391
     return-void
 .end method

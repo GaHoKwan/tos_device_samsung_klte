@@ -202,7 +202,7 @@
     if-eqz v1, :cond_1
 
     .line 75
-    const-string v1, "zeroshuttle"
+    const-string/jumbo v1, "zeroshuttle"
 
     const-string v2, "system.getInt Failed!"
 

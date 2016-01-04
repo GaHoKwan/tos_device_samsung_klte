@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/webkitsec/CallbackProxy;Landroid/webkitsec/JsResult;)V
     .locals 0
 
+    .prologue
+    .line 832
     iput-object p1, p0, Landroid/webkitsec/CallbackProxy$4;->this$0:Landroid/webkitsec/CallbackProxy;
 
     iput-object p2, p0, Landroid/webkitsec/CallbackProxy$4;->val$res:Landroid/webkitsec/JsResult;
@@ -40,10 +42,15 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "whichButton"    # I
 
+    .prologue
+    .line 836
     iget-object v0, p0, Landroid/webkitsec/CallbackProxy$4;->val$res:Landroid/webkitsec/JsResult;
 
     invoke-virtual {v0}, Landroid/webkitsec/JsResult;->confirm()V
 
+    .line 837
     return-void
 .end method

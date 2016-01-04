@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;Landroid/os/Handler;Landroid/content/ContentResolver;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 134
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput-object p3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->val$resolver:Landroid/content/ContentResolver;
@@ -37,11 +40,15 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 7
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
     const/4 v6, 0x2
 
     const/4 v1, 0x0
 
+    .line 138
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mContext:Landroid/content/Context;
@@ -62,10 +69,14 @@
 
     check-cast v0, Landroid/hardware/display/DisplayManager;
 
+    .line 140
+    .local v0, "displayManager":Landroid/hardware/display/DisplayManager;
     invoke-virtual {v0}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
 
     move-result-object v2
 
+    .line 141
+    .local v2, "wifiDisplayStatus":Landroid/hardware/display/WifiDisplayStatus;
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->val$resolver:Landroid/content/ContentResolver;
 
     const-string/jumbo v4, "wifi_display_on"
@@ -78,6 +89,8 @@
 
     const/4 v1, 0x1
 
+    .line 144
+    .local v1, "turningWifiDisplayOn":Z
     :cond_0
     const-string v3, "IpRemoteDisplayController"
 
@@ -129,6 +142,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 145
     invoke-virtual {v2}, Landroid/hardware/display/WifiDisplayStatus;->getActiveDisplayState()I
 
     move-result v3
@@ -141,6 +155,7 @@
 
     if-ne v3, v6, :cond_1
 
+    .line 148
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mRemoteDisplayConnected:Z
@@ -152,6 +167,7 @@
 
     if-nez v1, :cond_2
 
+    .line 150
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     const v4, 0x22070
@@ -159,10 +175,12 @@
     # invokes: Lcom/android/server/display/IpRemoteDisplayController;->requestPopup(I)V
     invoke-static {v3, v4}, Lcom/android/server/display/IpRemoteDisplayController;->access$200(Lcom/android/server/display/IpRemoteDisplayController;I)V
 
+    .line 160
     :cond_1
     :goto_0
     return-void
 
+    .line 153
     :cond_2
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
@@ -173,6 +191,7 @@
 
     if-eq v3, v1, :cond_1
 
+    .line 155
     const-string v3, "IpRemoteDisplayController"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -195,11 +214,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 156
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # setter for: Lcom/android/server/display/IpRemoteDisplayController;->mWifiDisplayOnSetting:Z
     invoke-static {v3, v1}, Lcom/android/server/display/IpRemoteDisplayController;->access$302(Lcom/android/server/display/IpRemoteDisplayController;Z)Z
 
+    .line 157
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$1;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # invokes: Lcom/android/server/display/IpRemoteDisplayController;->reportFeatureState()V

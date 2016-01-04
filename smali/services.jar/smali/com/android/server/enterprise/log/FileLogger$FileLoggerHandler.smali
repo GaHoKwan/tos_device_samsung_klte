@@ -23,11 +23,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/enterprise/log/FileLogger;Landroid/os/Looper;)V
     .locals 2
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 153
     iput-object p1, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
+    .line 154
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 151
     new-instance v0, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     const/4 v1, 0x0
@@ -36,6 +41,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
+    .line 155
     return-void
 .end method
 
@@ -43,11 +49,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 8
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 158
     iget v5, p1, Landroid/os/Message;->what:I
 
     packed-switch v5, :pswitch_data_0
 
+    .line 193
     const-string v5, "FileLogger"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -72,23 +82,30 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 196
     :cond_0
     :goto_0
     return-void
 
+    .line 160
     :pswitch_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
 
+    .line 161
+    .local v3, "timeStamp":J
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v2, Ljava/lang/StringBuilder;
 
+    .line 162
+    .local v2, "entry":Ljava/lang/StringBuilder;
     const/4 v5, 0x0
 
     invoke-virtual {v2, v5, v3, v4}, Ljava/lang/StringBuilder;->insert(IJ)Ljava/lang/StringBuilder;
 
+    .line 163
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     iget-object v5, v5, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;->entries:Ljava/util/List;
@@ -99,10 +116,12 @@
 
     invoke-interface {v5, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 164
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     iput-wide v3, v5, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;->lastTimeStamp:J
 
+    .line 166
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     iget-object v5, v5, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;->entries:Ljava/util/List;
@@ -115,6 +134,9 @@
 
     if-lt v5, v6, :cond_0
 
+    .line 171
+    .end local v2    # "entry":Ljava/lang/StringBuilder;
+    .end local v3    # "timeStamp":J
     :pswitch_1
     const-string v5, "FileLogger"
 
@@ -122,8 +144,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 172
     const/4 v0, 0x0
 
+    .line 173
+    .local v0, "cdl":Ljava/util/concurrent/CountDownLatch;
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     if-eqz v5, :cond_1
@@ -134,16 +159,21 @@
 
     if-eqz v5, :cond_1
 
+    .line 174
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .end local v0    # "cdl":Ljava/util/concurrent/CountDownLatch;
     check-cast v0, Ljava/util/concurrent/CountDownLatch;
 
+    .line 175
+    .restart local v0    # "cdl":Ljava/util/concurrent/CountDownLatch;
     :cond_1
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
     # invokes: Lcom/android/server/enterprise/log/FileLogger;->startLogFileWriter(Ljava/util/concurrent/CountDownLatch;)V
     invoke-static {v5, v0}, Lcom/android/server/enterprise/log/FileLogger;->access$100(Lcom/android/server/enterprise/log/FileLogger;Ljava/util/concurrent/CountDownLatch;)V
 
+    .line 177
     :try_start_0
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
@@ -158,6 +188,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 181
     :goto_1
     const-string v5, "FileLogger"
 
@@ -165,6 +196,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 183
     :try_start_1
     iget-object v5, p0, Lcom/android/server/enterprise/log/FileLogger$FileLoggerHandler;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
@@ -183,27 +215,37 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 187
     :goto_2
     if-eqz v0, :cond_0
 
+    .line 188
     invoke-virtual {v0}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
     goto :goto_0
 
+    .line 178
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    .line 179
+    .local v1, "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
+    .line 184
+    .end local v1    # "e":Ljava/lang/InterruptedException;
     :catch_1
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->printStackTrace()V
+    .line 185
+    .restart local v1    # "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 
+    .line 158
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

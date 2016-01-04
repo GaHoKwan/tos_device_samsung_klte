@@ -25,7 +25,7 @@
     .locals 3
 
     .prologue
-    .line 1211
+    .line 1206
     invoke-static {}, Lcom/android/internal/telephony/DctConstants$State;->values()[Lcom/android/internal/telephony/DctConstants$State;
 
     move-result-object v0
@@ -41,7 +41,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->RETRYING:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -57,7 +57,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->FAILED:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -73,7 +73,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->IDLE:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -89,7 +89,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->CONNECTED:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -105,7 +105,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->DISCONNECTING:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -121,7 +121,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->CONNECTING:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -137,7 +137,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$State;->SCANNING:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -164,7 +164,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$Activity;->DATAIN:Lcom/android/internal/telephony/DctConstants$Activity;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$Activity;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -180,7 +180,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$Activity;->DATAOUT:Lcom/android/internal/telephony/DctConstants$Activity;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$Activity;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -196,7 +196,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$Activity;->DATAINANDOUT:Lcom/android/internal/telephony/DctConstants$Activity;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$Activity;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -212,7 +212,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/DctConstants$Activity;->DORMANT:Lcom/android/internal/telephony/DctConstants$Activity;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/DctConstants$Activity;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -245,7 +245,7 @@
 
     goto :goto_7
 
-    .line 1211
+    .line 1206
     :catch_4
     move-exception v0
 

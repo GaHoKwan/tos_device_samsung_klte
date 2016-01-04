@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/DisplayPowerController;)V
     .locals 0
 
+    .prologue
+    .line 1812
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerController$3;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1815
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$3;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     # getter for: Lcom/android/server/power/DisplayPowerController;->mCallbacks:Lcom/android/server/power/DisplayPowerController$Callbacks;
@@ -46,6 +50,7 @@
 
     invoke-interface {v0}, Lcom/android/server/power/DisplayPowerController$Callbacks;->onStateChanged()V
 
+    .line 1816
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$3;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     # getter for: Lcom/android/server/power/DisplayPowerController;->mDisplaySuspendBlocker:Lcom/android/server/power/SuspendBlocker;
@@ -55,5 +60,6 @@
 
     invoke-interface {v0}, Lcom/android/server/power/SuspendBlocker;->release()V
 
+    .line 1817
     return-void
 .end method

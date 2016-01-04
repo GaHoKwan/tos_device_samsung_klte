@@ -257,7 +257,7 @@
 
     .line 380
     .local v0, "e":Ljava/lang/SecurityException;
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -268,7 +268,7 @@
 
     .line 383
     .local v0, "e":Ljava/lang/NoSuchMethodException;
-    invoke-virtual {v0}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -393,7 +393,7 @@
 
     .line 263
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -404,7 +404,7 @@
 
     .line 266
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -415,7 +415,7 @@
 
     .line 269
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -519,7 +519,7 @@
 
     .line 109
     .local v2, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -530,7 +530,7 @@
 
     .line 112
     .local v2, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -541,7 +541,7 @@
 
     .line 115
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -677,7 +677,7 @@
 
     .line 232
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -688,7 +688,7 @@
 
     .line 235
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -699,7 +699,7 @@
 
     .line 238
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -778,7 +778,7 @@
 
     .line 170
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -789,7 +789,7 @@
 
     .line 173
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -800,7 +800,7 @@
 
     .line 176
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -879,7 +879,7 @@
 
     .line 140
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -890,7 +890,7 @@
 
     .line 143
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -901,7 +901,7 @@
 
     .line 146
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1024,7 +1024,7 @@
 
     .line 200
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1035,7 +1035,7 @@
 
     .line 203
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1046,7 +1046,7 @@
 
     .line 206
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1125,7 +1125,7 @@
 
     .line 326
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1136,7 +1136,7 @@
 
     .line 329
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1147,7 +1147,7 @@
 
     .line 332
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1283,7 +1283,7 @@
 
     .line 78
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1294,7 +1294,7 @@
 
     .line 81
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1305,7 +1305,7 @@
 
     .line 84
     .local v1, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v1}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1412,7 +1412,7 @@
 
     .line 356
     .local v0, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1423,7 +1423,7 @@
 
     .line 359
     .local v0, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1434,7 +1434,7 @@
 
     .line 362
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1540,7 +1540,7 @@
 
     .line 295
     .local v0, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1551,7 +1551,7 @@
 
     .line 298
     .local v0, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -1562,7 +1562,7 @@
 
     .line 301
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

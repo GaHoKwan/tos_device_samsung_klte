@@ -37,11 +37,16 @@
 # direct methods
 .method public constructor <init>(Landroid/webkitsec/WebViewInputDispatcher;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 1385
     iput-object p1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
+    .line 1386
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 1387
     return-void
 .end method
 
@@ -49,15 +54,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 1391
     sget-boolean v1, Landroid/webkitsec/WebViewInputDispatcher;->DEBUG:Z
 
     if-eqz v1, :cond_0
 
+    .line 1392
     const-string v1, "WebViewInputDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -82,11 +91,13 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1394
     :cond_0
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 1419
     new-instance v1, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -113,15 +124,18 @@
 
     throw v1
 
+    .line 1396
     :pswitch_0
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
     # invokes: Landroid/webkitsec/WebViewInputDispatcher;->dispatchUiEvents(Z)V
     invoke-static {v1, v5}, Landroid/webkitsec/WebViewInputDispatcher;->access$300(Landroid/webkitsec/WebViewInputDispatcher;Z)V
 
+    .line 1421
     :goto_0
     return-void
 
+    .line 1399
     :pswitch_1
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
@@ -130,6 +144,7 @@
 
     goto :goto_0
 
+    .line 1402
     :pswitch_2
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
@@ -138,6 +153,7 @@
 
     goto :goto_0
 
+    .line 1405
     :pswitch_3
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
@@ -146,6 +162,7 @@
 
     goto :goto_0
 
+    .line 1408
     :pswitch_4
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
@@ -154,6 +171,7 @@
 
     goto :goto_0
 
+    .line 1411
     :pswitch_5
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
@@ -162,15 +180,19 @@
 
     goto :goto_0
 
+    .line 1414
     :pswitch_6
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
     iput-boolean v4, v1, Landroid/webkitsec/WebViewInputDispatcher;->mPostHitTestScheduled:Z
 
+    .line 1415
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/webkitsec/WebViewInputDispatcher$DispatchEvent;
 
+    .line 1416
+    .local v0, "d":Landroid/webkitsec/WebViewInputDispatcher$DispatchEvent;
     iget-object v1, p0, Landroid/webkitsec/WebViewInputDispatcher$UiHandler;->this$0:Landroid/webkitsec/WebViewInputDispatcher;
 
     # invokes: Landroid/webkitsec/WebViewInputDispatcher;->handleHitTestMsg(Landroid/webkitsec/WebViewInputDispatcher$DispatchEvent;)V
@@ -178,6 +200,7 @@
 
     goto :goto_0
 
+    .line 1394
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

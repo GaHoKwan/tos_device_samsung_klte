@@ -151,7 +151,7 @@
 
     sget-object v0, Lcom/samsung/javaomp/compiler/ASTOMPClauses$ScheduleType;->$VALUES:[Lcom/samsung/javaomp/compiler/ASTOMPClauses$ScheduleType;
 
-    invoke-virtual {v0}, [Lcom/samsung/javaomp/compiler/ASTOMPClauses$ScheduleType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

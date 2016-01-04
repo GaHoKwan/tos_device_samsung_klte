@@ -271,7 +271,7 @@
     .line 133
     iget-object v0, p0, Lorg/apache/http/impl/client/BasicCredentialsProvider;->credMap:Ljava/util/HashMap;
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/util/AbstractMap;->toString()Ljava/lang/String;
 
     move-result-object v0
 

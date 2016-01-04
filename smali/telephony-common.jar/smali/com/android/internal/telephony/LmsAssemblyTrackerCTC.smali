@@ -969,7 +969,7 @@
     if-eqz v0, :cond_0
 
     .line 169
-    invoke-virtual {p0, v4, v0}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->removeMessages(ILjava/lang/Object;)V
+    invoke-virtual {p0, v4, v0}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
 
     .line 170
     invoke-direct {p0, v0}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->removeQueuedLmsToken(Landroid/telephony/LmsTokenCTC;)V
@@ -1014,7 +1014,7 @@
     .local v0, "ex":Ljava/lang/RuntimeException;
     const-string v1, "LmsAssemblyTrackerCTC"
 
-    invoke-virtual {v0}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -1049,7 +1049,7 @@
     .line 182
     const/4 v0, 0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->hasMessages(I)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->hasMessages(I)Z
 
     move-result v0
 
@@ -1072,7 +1072,7 @@
     .local v0, "queuedToken":Landroid/telephony/LmsTokenCTC;
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->hasMessages(ILjava/lang/Object;)Z
+    invoke-virtual {p0, v1, v0}, Landroid/os/Handler;->hasMessages(ILjava/lang/Object;)Z
 
     move-result v2
 
@@ -1130,13 +1130,13 @@
 
     .line 161
     .local v2, "timeout":J
-    invoke-virtual {p0, v7, v1}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v7, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     .line 162
     .local v0, "msg":Landroid/os/Message;
-    invoke-virtual {p0, v0, v2, v3}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 163
     return-void

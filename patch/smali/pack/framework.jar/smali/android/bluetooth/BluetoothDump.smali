@@ -136,7 +136,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -151,7 +151,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -166,7 +166,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -181,7 +181,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 
@@ -196,7 +196,7 @@
 
     int-to-long v2, v2
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/DecimalFormat;->format(J)Ljava/lang/String;
+    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(J)Ljava/lang/String;
 
     move-result-object v2
 

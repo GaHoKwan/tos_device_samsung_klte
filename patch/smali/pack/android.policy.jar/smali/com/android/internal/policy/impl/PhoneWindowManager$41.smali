@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;I)V
     .locals 0
 
+    .prologue
+    .line 9038
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$41;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$41;->val$key:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 9041
     :try_start_0
     new-instance v1, Landroid/app/Instrumentation;
 
@@ -52,13 +56,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 9045
     :goto_0
     return-void
 
+    .line 9042
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 9043
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

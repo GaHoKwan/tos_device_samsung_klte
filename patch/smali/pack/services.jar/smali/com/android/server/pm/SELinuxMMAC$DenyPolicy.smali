@@ -17,6 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;)V
     .locals 0
+    .param p3, "seinfo"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -34,13 +35,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 1151
+    .local p1, "policyPerms":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "pkgPolicy":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;-><init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;)V
 
+    .line 1152
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;ILjava/lang/String;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 0
+    .param p3, "seinfo"    # Ljava/lang/String;
+    .param p4, "category"    # I
+    .param p5, "allowCategory"    # Ljava/lang/String;
+    .param p6, "isContainerApp"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,8 +78,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1159
+    .local p1, "policyPerms":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "pkgPolicy":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;>;"
+    .local p7, "trustedPackageNameList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p8, "noAuditPackageNameList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct/range {p0 .. p8}, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;-><init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;ILjava/lang/String;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
 
+    .line 1162
     return-void
 .end method
 
@@ -77,8 +94,11 @@
 # virtual methods
 .method public passedPolicyChecks(Landroid/content/pm/PackageParser$Package;)Z
     .locals 2
+    .param p1, "pkg"    # Landroid/content/pm/PackageParser$Package;
 
-    iget-object v0, p0, Lcom/android/server/pm/SELinuxMMAC$DenyPolicy;->pkgPolicy:Ljava/util/HashMap;
+    .prologue
+    .line 1167
+    iget-object v0, p0, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;->pkgPolicy:Ljava/util/HashMap;
 
     iget-object v1, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
@@ -88,7 +108,8 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/pm/SELinuxMMAC$DenyPolicy;->pkgPolicy:Ljava/util/HashMap;
+    .line 1168
+    iget-object v0, p0, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;->pkgPolicy:Ljava/util/HashMap;
 
     iget-object v1, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
@@ -102,6 +123,7 @@
 
     move-result v0
 
+    .line 1170
     :goto_0
     return v0
 
@@ -114,6 +136,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 1175
     const-string v0, "deny-all"
 
     return-object v0

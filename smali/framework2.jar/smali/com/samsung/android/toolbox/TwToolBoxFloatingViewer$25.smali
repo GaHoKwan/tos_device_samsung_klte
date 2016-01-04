@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 1124
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$25;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1126
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$25;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mContentResolver:Landroid/content/ContentResolver;
@@ -57,6 +61,7 @@
 
     invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
+    .line 1127
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$25;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     const/4 v1, -0x1
@@ -64,5 +69,6 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mEditAfterScreenCapture:I
     invoke-static {v0, v1}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$4902(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;I)I
 
+    .line 1128
     return-void
 .end method

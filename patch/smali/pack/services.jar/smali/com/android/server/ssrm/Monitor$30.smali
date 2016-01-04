@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 0
 
+    .prologue
+    .line 1902
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$30;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,17 +38,23 @@
 # virtual methods
 .method public execute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 1906
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$30;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mSideTouch:Lcom/android/server/ssrm/fgapps/tsp/SideTouch;
 
     if-nez v0, :cond_1
 
+    .line 1916
     :cond_0
     :goto_0
     return-void
 
+    .line 1909
     :cond_1
     const-string v0, "ON"
 
@@ -56,12 +64,14 @@
 
     if-eqz v0, :cond_2
 
+    .line 1910
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG:Ljava/lang/String;
 
     const-string v1, "SideTouch.setCameraEnable:: true"
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1911
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$30;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mSideTouch:Lcom/android/server/ssrm/fgapps/tsp/SideTouch;
@@ -72,6 +82,7 @@
 
     goto :goto_0
 
+    .line 1912
     :cond_2
     const-string v0, "OFF"
 
@@ -81,12 +92,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 1913
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG:Ljava/lang/String;
 
     const-string v1, "SideTouch.setCameraEnable:: false"
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1914
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$30;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mSideTouch:Lcom/android/server/ssrm/fgapps/tsp/SideTouch;

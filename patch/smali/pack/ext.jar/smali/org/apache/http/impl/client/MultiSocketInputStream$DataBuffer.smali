@@ -315,7 +315,7 @@
 
     iget-object v1, p0, Lorg/apache/http/impl/client/MultiSocketInputStream$DataBuffer;->dis:Ljava/io/DataInputStream;
 
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterInputStream;->close()V
 
     .line 3889
     :cond_1
@@ -331,7 +331,7 @@
     .line 3891
     iget-object v1, p0, Lorg/apache/http/impl/client/MultiSocketInputStream$DataBuffer;->dos:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
 
     .line 3893
     :cond_2
@@ -1765,7 +1765,7 @@
     :try_start_2
     iget-object v6, p0, Lorg/apache/http/impl/client/MultiSocketInputStream$DataBuffer;->mBuffer:Ljava/util/LinkedList;
 
-    invoke-virtual {v6}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v6}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v6
 

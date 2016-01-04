@@ -85,11 +85,11 @@
 
     .line 45
     :cond_1
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-super {p0, v8}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
+    invoke-super {p0, v8}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
     move-result-object v5
 

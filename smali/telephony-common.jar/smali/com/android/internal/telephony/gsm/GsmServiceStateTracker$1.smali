@@ -75,7 +75,7 @@
 
     iget-object v6, v6, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    iget-boolean v6, v6, Lcom/android/internal/telephony/gsm/GSMPhone;->mIsTheCurrentActivePhone:Z
+    iget-boolean v6, v6, Lcom/android/internal/telephony/PhoneBase;->mIsTheCurrentActivePhone:Z
 
     if-nez v6, :cond_1
 
@@ -195,7 +195,7 @@
 
     iget-object v6, v6, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    iget-object v1, v6, Lcom/android/internal/telephony/gsm/GSMPhone;->mDcTracker:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
+    iget-object v1, v6, Lcom/android/internal/telephony/PhoneBase;->mDcTracker:Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
 
     .line 491
     .local v1, "dcTracker":Lcom/android/internal/telephony/dataconnection/DcTrackerBase;
@@ -226,7 +226,7 @@
     :goto_1
     const-string v4, "CHN"
 
-    const-string v5, "USA"
+    const-string v5, "GGSM"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

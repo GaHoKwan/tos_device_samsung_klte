@@ -36,6 +36,8 @@
 .method private constructor <init>(Lcom/android/server/RCPManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2162
     iput-object p1, p0, Lcom/android/server/RCPManagerService$ExchangeDataInfo;->this$0:Lcom/android/server/RCPManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +47,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/RCPManagerService;Lcom/android/server/RCPManagerService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/RCPManagerService;
+    .param p2, "x1"    # Lcom/android/server/RCPManagerService$1;
 
+    .prologue
+    .line 2162
     invoke-direct {p0, p1}, Lcom/android/server/RCPManagerService$ExchangeDataInfo;-><init>(Lcom/android/server/RCPManagerService;)V
 
     return-void

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 0
 
+    .prologue
+    .line 2005
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$34;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,18 @@
 # virtual methods
 .method public execute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 2009
     if-nez p2, :cond_0
 
+    .line 2013
     :goto_0
     return-void
 
+    .line 2012
     :cond_0
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG:Ljava/lang/String;
 

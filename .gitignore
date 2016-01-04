@@ -1,4 +1,6 @@
 backup/*
 package/*
 temp/*
+update/*
+*.bak
 *.zip

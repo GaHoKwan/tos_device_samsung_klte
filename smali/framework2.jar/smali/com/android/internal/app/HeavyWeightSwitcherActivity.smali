@@ -37,20 +37,25 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 44
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
+    .line 123
     new-instance v0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity$1;-><init>(Lcom/android/internal/app/HeavyWeightSwitcherActivity;)V
 
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mSwitchOldListener:Landroid/view/View$OnClickListener;
 
+    .line 133
     new-instance v0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity$2;-><init>(Lcom/android/internal/app/HeavyWeightSwitcherActivity;)V
 
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mSwitchNewListener:Landroid/view/View$OnClickListener;
 
+    .line 154
     new-instance v0, Lcom/android/internal/app/HeavyWeightSwitcherActivity$3;
 
     invoke-direct {v0, p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity$3;-><init>(Lcom/android/internal/app/HeavyWeightSwitcherActivity;)V
@@ -64,16 +69,21 @@
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 10
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
     const/4 v9, 0x3
 
     const/4 v2, 0x0
 
+    .line 64
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0, v9}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->requestWindowFeature(I)Z
+    .line 66
+    invoke-virtual {p0, v9}, Landroid/app/Activity;->requestWindowFeature(I)Z
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getIntent()Landroid/content/Intent;
+    .line 68
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -87,7 +97,8 @@
 
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mStartIntent:Landroid/content/IntentSender;
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getIntent()Landroid/content/Intent;
+    .line 69
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -99,7 +110,8 @@
 
     iput-boolean v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mHasResult:Z
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getIntent()Landroid/content/Intent;
+    .line 70
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -111,7 +123,8 @@
 
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurApp:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getIntent()Landroid/content/Intent;
+    .line 71
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -123,7 +136,8 @@
 
     iput v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurTask:I
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getIntent()Landroid/content/Intent;
+    .line 72
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
@@ -135,10 +149,12 @@
 
     iput-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mNewApp:Ljava/lang/String;
 
+    .line 74
     const v0, 0x109005b
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setContentView(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
+    .line 76
     const v1, 0x1020322
 
     const v2, 0x1020323
@@ -155,6 +171,7 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setIconAndText(IIILjava/lang/String;II)V
 
+    .line 78
     const v1, 0x1020326
 
     const v2, 0x1020327
@@ -171,41 +188,51 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setIconAndText(IIILjava/lang/String;II)V
 
+    .line 81
     const v0, 0x1020321
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
+    .line 82
+    .local v7, "button":Landroid/view/View;
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mSwitchOldListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v7, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 83
     const v0, 0x1020325
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
+    .line 84
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mSwitchNewListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v7, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 85
     const v0, 0x1020300
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v7
 
+    .line 86
     iget-object v0, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCancelListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v7, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 88
     new-instance v8, Landroid/util/TypedValue;
 
     invoke-direct {v8}, Landroid/util/TypedValue;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getTheme()Landroid/content/res/Resources$Theme;
+    .line 89
+    .local v8, "out":Landroid/util/TypedValue;
+    invoke-virtual {p0}, Landroid/view/ContextThemeWrapper;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object v0
 
@@ -215,7 +242,8 @@
 
     invoke-virtual {v0, v1, v8, v2}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getWindow()Landroid/view/Window;
+    .line 90
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
@@ -223,15 +251,21 @@
 
     invoke-virtual {v0, v9, v1}, Landroid/view/Window;->setFeatureDrawableResource(II)V
 
+    .line 92
     return-void
 .end method
 
 .method setDrawable(ILandroid/graphics/drawable/Drawable;)V
     .locals 1
+    .param p1, "id"    # I
+    .param p2, "dr"    # Landroid/graphics/drawable/Drawable;
 
+    .prologue
+    .line 99
     if-eqz p2, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
+    .line 100
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -239,25 +273,39 @@
 
     invoke-virtual {v0, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 102
     :cond_0
     return-void
 .end method
 
 .method setIconAndText(IIILjava/lang/String;II)V
     .locals 6
+    .param p1, "iconId"    # I
+    .param p2, "actionId"    # I
+    .param p3, "descriptionId"    # I
+    .param p4, "packageName"    # Ljava/lang/String;
+    .param p5, "actionStr"    # I
+    .param p6, "descriptionStr"    # I
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 106
     const-string v1, ""
 
+    .line 107
+    .local v1, "appName":Ljava/lang/CharSequence;
     const/4 v0, 0x0
 
+    .line 108
+    .local v0, "appIcon":Landroid/graphics/drawable/Drawable;
     iget-object v3, p0, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->mCurApp:Ljava/lang/String;
 
     if-eqz v3, :cond_0
 
+    .line 110
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
@@ -267,48 +315,57 @@
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 112
+    .local v2, "info":Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+    invoke-virtual {v2, v3}, Landroid/content/pm/PackageItemInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getPackageManager()Landroid/content/pm/PackageManager;
+    .line 113
+    invoke-virtual {p0}, Landroid/content/ContextWrapper;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result-object v0
 
+    .line 118
+    .end local v2    # "info":Landroid/content/pm/ApplicationInfo;
     :cond_0
     :goto_0
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setDrawable(ILandroid/graphics/drawable/Drawable;)V
 
+    .line 119
     const/4 v3, 0x1
 
     new-array v3, v3, [Ljava/lang/Object;
 
     aput-object v1, v3, v5
 
-    invoke-virtual {p0, p5, v3}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, p5, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     invoke-virtual {p0, p2, v3}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setText(ILjava/lang/CharSequence;)V
 
-    invoke-virtual {p0, p6}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->getText(I)Ljava/lang/CharSequence;
+    .line 120
+    invoke-virtual {p0, p6}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v3
 
     invoke-virtual {p0, p3, v3}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->setText(ILjava/lang/CharSequence;)V
 
+    .line 121
     return-void
 
+    .line 114
     :catch_0
     move-exception v3
 
@@ -317,8 +374,12 @@
 
 .method setText(ILjava/lang/CharSequence;)V
     .locals 1
+    .param p1, "id"    # I
+    .param p2, "text"    # Ljava/lang/CharSequence;
 
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/HeavyWeightSwitcherActivity;->findViewById(I)Landroid/view/View;
+    .prologue
+    .line 95
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -326,5 +387,6 @@
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 96
     return-void
 .end method

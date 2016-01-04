@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/content/SyncManager;)V
     .locals 0
 
+    .prologue
+    .line 235
     iput-object p1, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 11
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const-wide/16 v6, 0x0
 
     const/4 v1, 0x0
 
     const/4 v2, -0x1
 
+    .line 238
     iget-object v0, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     # invokes: Lcom/android/server/content/SyncManager;->getConnectivityManager()Landroid/net/ConnectivityManager;
@@ -53,6 +59,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 239
     iget-object v0, p0, Lcom/android/server/content/SyncManager$3;->this$0:Lcom/android/server/content/SyncManager;
 
     new-instance v5, Landroid/os/Bundle;
@@ -69,6 +76,7 @@
 
     invoke-virtual/range {v0 .. v10}, Lcom/android/server/content/SyncManager;->scheduleSync(Landroid/accounts/Account;IILjava/lang/String;Landroid/os/Bundle;JJZ)V
 
+    .line 245
     :cond_0
     return-void
 .end method

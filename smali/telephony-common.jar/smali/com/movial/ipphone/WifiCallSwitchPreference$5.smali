@@ -73,7 +73,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 214
     :goto_0
@@ -83,7 +83,7 @@
     :cond_0
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference$5;->this$0:Lcom/movial/ipphone/WifiCallSwitchPreference;
 
-    invoke-virtual {v0, v2}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setChecked(Z)V
+    invoke-virtual {v0, v2}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     goto :goto_0
 .end method

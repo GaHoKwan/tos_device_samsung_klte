@@ -28,6 +28,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 793
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +37,10 @@
 
 .method synthetic constructor <init>(Landroid/view/Choreographer$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/view/Choreographer$1;
 
+    .prologue
+    .line 793
     invoke-direct {p0}, Landroid/view/Choreographer$CallbackRecord;-><init>()V
 
     return-void
@@ -45,7 +50,10 @@
 # virtual methods
 .method public run(J)V
     .locals 2
+    .param p1, "frameTimeNanos"    # J
 
+    .prologue
+    .line 800
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->token:Ljava/lang/Object;
 
     # getter for: Landroid/view/Choreographer;->FRAME_CALLBACK_TOKEN:Ljava/lang/Object;
@@ -55,15 +63,18 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 801
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->action:Ljava/lang/Object;
 
     check-cast v0, Landroid/view/Choreographer$FrameCallback;
 
     invoke-interface {v0, p1, p2}, Landroid/view/Choreographer$FrameCallback;->doFrame(J)V
 
+    .line 805
     :goto_0
     return-void
 
+    .line 803
     :cond_0
     iget-object v0, p0, Landroid/view/Choreographer$CallbackRecord;->action:Ljava/lang/Object;
 

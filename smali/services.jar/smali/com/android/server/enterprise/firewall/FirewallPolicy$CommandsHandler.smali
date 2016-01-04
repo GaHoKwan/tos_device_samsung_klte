@@ -22,10 +22,13 @@
 .method public constructor <init>(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
     .locals 0
 
+    .prologue
+    .line 1957
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 1958
     return-void
 .end method
 
@@ -33,11 +36,16 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 21
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 1962
     invoke-virtual/range {p1 .. p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v9
 
+    .line 1963
+    .local v9, "data":Landroid/os/Bundle;
     const-string v18, "command"
 
     move-object/from16 v0, v18
@@ -46,6 +54,8 @@
 
     move-result-object v3
 
+    .line 1964
+    .local v3, "command":Ljava/lang/String;
     const-string/jumbo v18, "type"
 
     const/16 v19, -0x1
@@ -58,6 +68,8 @@
 
     move-result v15
 
+    .line 1965
+    .local v15, "type":I
     const-string v18, "containerid"
 
     const/16 v19, 0x0
@@ -70,10 +82,14 @@
 
     move-result v8
 
+    .line 1967
+    .local v8, "containerId":I
     new-instance v6, Ljava/util/ArrayList;
 
     invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
 
+    .line 1968
+    .local v6, "commandStr":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     const-string v18, " "
 
     move-object/from16 v0, v18
@@ -82,25 +98,37 @@
 
     move-result-object v5
 
+    .line 1969
+    .local v5, "commandArray":[Ljava/lang/String;
     const-string v14, ""
 
+    .line 1971
+    .local v14, "result":Ljava/lang/String;
     move-object v2, v5
 
+    .local v2, "arr$":[Ljava/lang/String;
     array-length v12, v2
 
+    .local v12, "len$":I
     const/4 v11, 0x0
 
+    .local v11, "i$":I
     :goto_0
     if-ge v11, v12, :cond_0
 
     aget-object v4, v2, v11
 
+    .line 1972
+    .local v4, "commandArg":Ljava/lang/String;
     invoke-interface {v6, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 1971
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_0
 
+    .line 1976
+    .end local v4    # "commandArg":Ljava/lang/String;
     :cond_0
     :try_start_0
     new-instance v18, Ljava/lang/ProcessBuilder;
@@ -131,8 +159,11 @@
 
     move-result-object v13
 
+    .line 1979
+    .local v13, "process":Ljava/lang/Process;
     invoke-virtual {v13}, Ljava/lang/Process;->waitFor()I
 
+    .line 1980
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
@@ -146,6 +177,7 @@
 
     move-result-object v14
 
+    .line 1981
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
@@ -161,6 +193,7 @@
 
     if-nez v18, :cond_2
 
+    .line 1982
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
@@ -172,8 +205,11 @@
 
     move-result-object v16
 
+    .line 1983
+    .local v16, "userList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     const/16 v17, 0x0
 
+    .local v17, "x":I
     :goto_1
     invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
 
@@ -185,8 +221,10 @@
 
     if-ge v0, v1, :cond_2
 
+    .line 1984
     const/4 v7, 0x0
 
+    .local v7, "container":I
     :goto_2
     const/16 v18, 0x2
 
@@ -194,6 +232,7 @@
 
     if-ge v7, v0, :cond_1
 
+    .line 1985
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
@@ -236,31 +275,45 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
+    .line 1984
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
+    .line 1983
     :cond_1
     add-int/lit8 v17, v17, 0x1
 
     goto :goto_1
 
+    .line 1989
+    .end local v7    # "container":I
+    .end local v13    # "process":Ljava/lang/Process;
+    .end local v16    # "userList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .end local v17    # "x":I
     :catch_0
     move-exception v10
 
+    .line 1990
+    .local v10, "e":Ljava/io/IOException;
     const-string v18, "FirewallPolicy"
 
     const-string v19, "IOException iptables command failed "
 
     invoke-static/range {v18 .. v19}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1996
+    .end local v10    # "e":Ljava/io/IOException;
     :cond_2
     :goto_3
     return-void
 
+    .line 1991
     :catch_1
     move-exception v10
 
+    .line 1992
+    .local v10, "e":Ljava/lang/InterruptedException;
     const-string v18, "FirewallPolicy"
 
     const-string v19, "InterruptedException iptables command failed "
@@ -269,9 +322,13 @@
 
     goto :goto_3
 
+    .line 1993
+    .end local v10    # "e":Ljava/lang/InterruptedException;
     :catch_2
     move-exception v10
 
+    .line 1994
+    .local v10, "e":Ljava/lang/Exception;
     const-string v18, "FirewallPolicy"
 
     const-string v19, "Exception on CommandThread"

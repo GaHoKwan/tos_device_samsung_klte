@@ -1447,7 +1447,7 @@
     .line 31
     sget-object v0, Landroid/hardware/contextaware/ContextList$ContextType;->$VALUES:[Landroid/hardware/contextaware/ContextList$ContextType;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/ContextList$ContextType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

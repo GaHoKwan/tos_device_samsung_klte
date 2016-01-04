@@ -1098,7 +1098,7 @@
 
     .line 677
     .local v7, "next":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v7, v8}, Lgov/nist/javax/sip/header/SIPHeader;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v8}, Lgov/nist/javax/sip/header/SIPObject;->equals(Ljava/lang/Object;)Z
 
     move-result v9
 
@@ -1340,7 +1340,7 @@
     const/4 v4, 0x0
 
     .line 473
-    invoke-super {p0}, Lgov/nist/javax/sip/message/MessageObject;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1408,7 +1408,7 @@
 
     .line 485
     .local v0, "hdr":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v0}, Lgov/nist/javax/sip/header/SIPHeader;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1429,7 +1429,7 @@
     .line 490
     iget-object v3, p0, Lgov/nist/javax/sip/message/SIPMessage;->messageContentBytes:[B
 
-    invoke-virtual {v3}, [B->clone()Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1471,17 +1471,17 @@
     .line 504
     const-string v6, ""
 
-    iput-object v6, p0, Lgov/nist/javax/sip/message/SIPMessage;->stringRepresentation:Ljava/lang/String;
+    iput-object v6, p0, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     .line 505
     const-string v6, "SIPMessage:"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 506
     const-string v6, "{"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 509
     :try_start_0
@@ -1561,7 +1561,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 517
     invoke-virtual {v1, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1570,11 +1570,11 @@
 
     check-cast v6, Lgov/nist/javax/sip/header/SIPHeader;
 
-    invoke-virtual {v6}, Lgov/nist/javax/sip/header/SIPHeader;->debugDump()Ljava/lang/String;
+    invoke-virtual {v6}, Lgov/nist/javax/sip/header/SIPObject;->debugDump()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1602,36 +1602,36 @@
     :cond_1
     const-string v6, "List of headers : "
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 525
     iget-object v6, p0, Lgov/nist/javax/sip/message/SIPMessage;->headers:Ljava/util/concurrent/ConcurrentLinkedQueue;
 
-    invoke-virtual {v6}, Ljava/util/concurrent/ConcurrentLinkedQueue;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/util/AbstractCollection;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 526
     const-string v6, "messageContent = "
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 527
     const-string v6, "{"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 528
     iget-object v6, p0, Lgov/nist/javax/sip/message/SIPMessage;->messageContent:Ljava/lang/String;
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 529
     const-string v6, "}"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 530
     invoke-virtual {p0}, Lgov/nist/javax/sip/message/SIPMessage;->getContent()Ljava/lang/Object;
@@ -1649,16 +1649,16 @@
 
     move-result-object v6
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 533
     :cond_2
     const-string v6, "}"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/message/SIPMessage;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 534
-    iget-object v6, p0, Lgov/nist/javax/sip/message/SIPMessage;->stringRepresentation:Ljava/lang/String;
+    iget-object v6, p0, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     return-object v6
 .end method
@@ -1717,7 +1717,7 @@
     :cond_1
     iget-object v9, p0, Lgov/nist/javax/sip/message/SIPMessage;->unrecognizedHeaders:Ljava/util/LinkedList;
 
-    invoke-virtual {v9}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v9}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
@@ -1752,7 +1752,7 @@
     :cond_2
     iget-object v9, p0, Lgov/nist/javax/sip/message/SIPMessage;->contentLengthHeader:Lgov/nist/javax/sip/header/ContentLength;
 
-    invoke-virtual {v9}, Lgov/nist/javax/sip/header/ContentLength;->encode()Ljava/lang/String;
+    invoke-virtual {v9}, Lgov/nist/javax/sip/header/SIPHeader;->encode()Ljava/lang/String;
 
     move-result-object v9
 
@@ -1874,7 +1874,7 @@
 
     check-cast v9, Lgov/nist/javax/sip/message/SIPRequest;
 
-    invoke-virtual {v9}, Lgov/nist/javax/sip/message/SIPRequest;->isNullRequest()Z
+    invoke-virtual {v9}, Lgov/nist/javax/sip/message/SIPMessage;->isNullRequest()Z
 
     move-result v9
 
@@ -1992,7 +1992,7 @@
     .line 432
     iget-object v9, p0, Lgov/nist/javax/sip/message/SIPMessage;->contentLengthHeader:Lgov/nist/javax/sip/header/ContentLength;
 
-    invoke-virtual {v9, v2}, Lgov/nist/javax/sip/header/ContentLength;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    invoke-virtual {v9, v2}, Lgov/nist/javax/sip/header/SIPHeader;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 433
     const-string v9, "\r\n"
@@ -2151,7 +2151,7 @@
     :cond_1
     iget-object v3, p0, Lgov/nist/javax/sip/message/SIPMessage;->contentLengthHeader:Lgov/nist/javax/sip/header/ContentLength;
 
-    invoke-virtual {v3, v0}, Lgov/nist/javax/sip/header/ContentLength;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    invoke-virtual {v3, v0}, Lgov/nist/javax/sip/header/SIPHeader;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     move-result-object v3
 
@@ -2269,7 +2269,7 @@
     if-eqz v0, :cond_0
 
     .line 1615
-    invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/SIPHeader;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/SIPObject;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -2408,7 +2408,7 @@
     if-eqz v0, :cond_0
 
     .line 987
-    invoke-virtual {v0}, Lgov/nist/javax/sip/header/ContactList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v1
 
@@ -2789,7 +2789,7 @@
     .end local v1    # "name":Ljava/lang/String;
     .end local v3    # "sipHeader":Lgov/nist/javax/sip/header/SIPHeader;
     :cond_0
-    invoke-virtual {v2}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v2}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v4
 
@@ -2870,7 +2870,7 @@
 
     invoke-direct {v1}, Ljava/util/LinkedList;-><init>()V
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v1}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 
@@ -3323,7 +3323,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lgov/nist/javax/sip/header/ViaList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v0
 
@@ -3359,7 +3359,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lgov/nist/javax/sip/header/ViaList;->isEmpty()Z
+    invoke-virtual {v5}, Lgov/nist/javax/sip/header/SIPHeaderList;->isEmpty()Z
 
     move-result v5
 
@@ -3370,7 +3370,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lgov/nist/javax/sip/header/ViaList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v5}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v4
 
@@ -3692,7 +3692,7 @@
     .line 1573
     iget-object v0, p0, Lgov/nist/javax/sip/message/SIPMessage;->unrecognizedHeaders:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
@@ -4013,7 +4013,7 @@
 
     .line 297
     .local v7, "myHeader":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v7, v1}, Lgov/nist/javax/sip/header/SIPHeader;->match(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Lgov/nist/javax/sip/header/SIPObject;->match(Ljava/lang/Object;)Z
 
     move-result v12
 
@@ -4069,7 +4069,7 @@
 
     .line 311
     .restart local v7    # "myHeader":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v7, v1}, Lgov/nist/javax/sip/header/SIPHeader;->match(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Lgov/nist/javax/sip/header/SIPObject;->match(Ljava/lang/Object;)Z
 
     move-result v12
 
@@ -4216,7 +4216,7 @@
 
     .line 345
     .local v5, "sipHdr":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v5, v0}, Lgov/nist/javax/sip/header/SIPHeader;->merge(Ljava/lang/Object;)V
+    invoke-virtual {v5, v0}, Lgov/nist/core/GenericObject;->merge(Ljava/lang/Object;)V
 
     goto :goto_1
 
@@ -5526,7 +5526,7 @@
 
     .line 1015
     .local v2, "via":Lgov/nist/javax/sip/header/Via;
-    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/header/ViaList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     goto :goto_0
 

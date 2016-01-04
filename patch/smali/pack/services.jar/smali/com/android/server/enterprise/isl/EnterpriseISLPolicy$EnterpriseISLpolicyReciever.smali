@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;)V
     .locals 0
 
+    .prologue
+    .line 168
     iput-object p1, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$EnterpriseISLpolicyReciever;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 171
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$000()Z
 
@@ -50,11 +56,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 172
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$EnterpriseISLpolicyReciever;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     # invokes: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->sendBroadcastToMDM(Landroid/content/Context;Landroid/content/Intent;)V
     invoke-static {v0, p1, p2}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$200(Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;Landroid/content/Context;Landroid/content/Intent;)V
 
+    .line 173
     return-void
 .end method

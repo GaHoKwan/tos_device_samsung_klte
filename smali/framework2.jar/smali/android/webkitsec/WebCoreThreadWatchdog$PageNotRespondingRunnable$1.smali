@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;)V
     .locals 0
 
+    .prologue
+    .line 273
     iput-object p1, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable$1;->this$1:Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 276
     iget-object v0, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable$1;->this$1:Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
     # getter for: Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mWatchdogHandler:Landroid/os/Handler;
@@ -61,5 +66,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 279
     return-void
 .end method

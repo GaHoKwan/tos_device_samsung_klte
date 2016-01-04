@@ -879,7 +879,7 @@
 
     .line 186
     .local v1, "i":Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
@@ -938,7 +938,7 @@
     .line 23
     sget-object v0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->$VALUES:[Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -954,7 +954,7 @@
 
     .prologue
     .line 163
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubErrors;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

@@ -43,19 +43,19 @@
     const/16 v5, 0xa
 
     .line 88
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 89
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xfff
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 90
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -63,7 +63,7 @@
 
     .line 91
     .local v2, "type":Lgov/nist/core/Token;
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -77,11 +77,11 @@
     .line 96
     :goto_0
     :try_start_0
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -91,16 +91,16 @@
     invoke-virtual {p0, p1}, Lgov/nist/javax/sip/parser/ChallengeParser;->parseParameter(Lgov/nist/javax/sip/header/AuthenticationHeader;)V
 
     .line 98
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 99
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -118,14 +118,14 @@
     .line 102
     .restart local v1    # "la":C
     :cond_1
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x2c
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 103
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ChallengeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -161,20 +161,20 @@
     .line 69
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ChallengeParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 71
     :cond_0
     const/16 v1, 0x3d
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ChallengeParser;->nameValue(C)Lgov/nist/core/NameValue;
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->nameValue(C)Lgov/nist/core/NameValue;
 
     move-result-object v0
 
     .line 72
     .local v0, "nv":Lgov/nist/core/NameValue;
-    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -186,7 +186,7 @@
     .line 75
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ChallengeParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 78
     :cond_1
@@ -204,7 +204,7 @@
     .line 75
     const-string v2, "parseParameter"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ChallengeParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 74
     :cond_2

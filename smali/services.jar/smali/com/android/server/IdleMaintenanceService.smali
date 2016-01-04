@@ -55,8 +55,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
     const/high16 v2, 0x40000000    # 2.0f
 
+    .line 55
     const-class v0, Lcom/android/server/IdleMaintenanceService;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -65,6 +67,7 @@
 
     sput-object v0, Lcom/android/server/IdleMaintenanceService;->LOG_TAG:Ljava/lang/String;
 
+    .line 79
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.ACTION_IDLE_MAINTENANCE_START"
@@ -73,10 +76,12 @@
 
     sput-object v0, Lcom/android/server/IdleMaintenanceService;->sIdleMaintenanceStartIntent:Landroid/content/Intent;
 
+    .line 80
     sget-object v0, Lcom/android/server/IdleMaintenanceService;->sIdleMaintenanceStartIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 85
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.ACTION_IDLE_MAINTENANCE_END"
@@ -85,26 +90,36 @@
 
     sput-object v0, Lcom/android/server/IdleMaintenanceService;->sIdleMaintenanceEndIntent:Landroid/content/Intent;
 
+    .line 86
     sget-object v0, Lcom/android/server/IdleMaintenanceService;->sIdleMaintenanceEndIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 87
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/BatteryService;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "batteryService"    # Lcom/android/server/BatteryService;
 
+    .prologue
+    .line 107
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 103
     const-wide/16 v2, -0x1
 
     iput-wide v2, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
+    .line 108
     iput-object p1, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
+    .line 109
     iput-object p2, p0, Lcom/android/server/IdleMaintenanceService;->mBatteryService:Lcom/android/server/BatteryService;
 
+    .line 111
     const-string v2, "alarm"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -115,6 +130,7 @@
 
     iput-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mAlarmService:Landroid/app/AlarmManager;
 
+    .line 113
     const-string v2, "power"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -123,6 +139,8 @@
 
     check-cast v1, Landroid/os/PowerManager;
 
+    .line 114
+    .local v1, "powerManager":Landroid/os/PowerManager;
     const/4 v2, 0x1
 
     sget-object v3, Lcom/android/server/IdleMaintenanceService;->LOG_TAG:Ljava/lang/String;
@@ -133,6 +151,7 @@
 
     iput-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    .line 116
     new-instance v2, Landroid/os/Handler;
 
     iget-object v3, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
@@ -145,16 +164,20 @@
 
     iput-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mHandler:Landroid/os/Handler;
 
+    .line 118
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "com.android.server.IdleMaintenanceService.action.UPDATE_IDLE_MAINTENANCE_STATE"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 119
+    .local v0, "intent":Landroid/content/Intent;
     const/high16 v2, 0x40000000    # 2.0f
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 120
     iget-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
     const/4 v3, 0x0
@@ -167,16 +190,20 @@
 
     iput-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mUpdateIdleMaintenanceStatePendingIntent:Landroid/app/PendingIntent;
 
+    .line 123
     iget-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {p0, v2}, Lcom/android/server/IdleMaintenanceService;->register(Landroid/os/Handler;)V
 
+    .line 124
     return-void
 .end method
 
 .method private batteryLevelAndMaintenanceTimeoutPermitsIdleMaintenanceRunning()Z
     .locals 4
 
+    .prologue
+    .line 271
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mBatteryService:Lcom/android/server/BatteryService;
 
     invoke-virtual {v0}, Lcom/android/server/BatteryService;->getBatteryLevel()I
@@ -214,7 +241,10 @@
 
 .method private deviceStatePermitsIdleMaintenanceStart(Z)Z
     .locals 6
+    .param p1, "noisy"    # Z
 
+    .prologue
+    .line 232
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->isBatteryCharging()Z
 
     move-result v2
@@ -223,6 +253,8 @@
 
     const/16 v1, 0x1e
 
+    .line 235
+    .local v1, "minBatteryLevel":I
     :goto_0
     iget-wide v2, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
@@ -242,25 +274,34 @@
 
     const/4 v0, 0x1
 
+    .line 237
+    .local v0, "allowed":Z
     :goto_1
     if-nez v0, :cond_0
 
     if-eqz p1, :cond_0
 
+    .line 238
     const-string v2, "IdleMaintenance"
 
     const-string v3, "Idle maintenance not allowed due to power"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 240
     :cond_0
     return v0
 
+    .line 232
+    .end local v0    # "allowed":Z
+    .end local v1    # "minBatteryLevel":I
     :cond_1
     const/16 v1, 0x50
 
     goto :goto_0
 
+    .line 235
+    .restart local v1    # "minBatteryLevel":I
     :cond_2
     const/4 v0, 0x0
 
@@ -270,6 +311,8 @@
 .method private getNextIdleMaintenanceIntervalStartFromNow()J
     .locals 4
 
+    .prologue
+    .line 211
     iget-wide v0, p0, Lcom/android/server/IdleMaintenanceService;->mLastIdleMaintenanceStartTimeMillis:J
 
     const-wide/32 v2, 0x5265c00
@@ -288,6 +331,8 @@
 .method private isBatteryCharging()Z
     .locals 1
 
+    .prologue
+    .line 277
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mBatteryService:Lcom/android/server/BatteryService;
 
     invoke-virtual {v0}, Lcom/android/server/BatteryService;->getPlugType()I
@@ -317,7 +362,10 @@
 
 .method private lastRunPermitsIdleMaintenanceStart(Z)Z
     .locals 5
+    .param p1, "noisy"    # Z
 
+    .prologue
+    .line 256
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
@@ -334,20 +382,26 @@
 
     const/4 v0, 0x1
 
+    .line 258
+    .local v0, "allowed":Z
     :goto_0
     if-nez v0, :cond_0
 
     if-eqz p1, :cond_0
 
+    .line 259
     const-string v1, "IdleMaintenance"
 
     const-string v2, "Idle maintenance not allowed due time since last"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 261
     :cond_0
     return v0
 
+    .line 256
+    .end local v0    # "allowed":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -357,6 +411,8 @@
 .method private lastUserActivityPermitsIdleMaintenanceRunning()Z
     .locals 4
 
+    .prologue
+    .line 266
     iget-wide v0, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
     const-wide/16 v2, -0x1
@@ -378,7 +434,10 @@
 
 .method private lastUserActivityPermitsIdleMaintenanceStart(Z)Z
     .locals 5
+    .param p1, "noisy"    # Z
 
+    .prologue
+    .line 245
     iget-wide v1, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
     const-wide/16 v3, -0x1
@@ -403,20 +462,26 @@
 
     const/4 v0, 0x1
 
+    .line 248
+    .local v0, "allowed":Z
     :goto_0
     if-nez v0, :cond_0
 
     if-eqz p1, :cond_0
 
+    .line 249
     const-string v1, "IdleMaintenance"
 
     const-string v2, "Idle maintenance not allowed due to last user activity"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 251
     :cond_0
     return v0
 
+    .line 245
+    .end local v0    # "allowed":Z
     :cond_1
     const/4 v0, 0x0
 
@@ -425,13 +490,18 @@
 
 .method private scheduleUpdateIdleMaintenanceState(J)V
     .locals 5
+    .param p1, "delayMillis"    # J
 
+    .prologue
+    .line 153
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
     add-long v0, v2, p1
 
+    .line 154
+    .local v0, "triggetRealTimeMillis":J
     iget-object v2, p0, Lcom/android/server/IdleMaintenanceService;->mAlarmService:Landroid/app/AlarmManager;
 
     const/4 v3, 0x2
@@ -440,18 +510,22 @@
 
     invoke-virtual {v2, v3, v0, v1, v4}, Landroid/app/AlarmManager;->set(IJLandroid/app/PendingIntent;)V
 
+    .line 156
     return-void
 .end method
 
 .method private sendIdleMaintenanceEndIntent()V
     .locals 9
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 226
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 227
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
     sget-object v1, Lcom/android/server/IdleMaintenanceService;->sIdleMaintenanceEndIntent:Landroid/content/Intent;
@@ -470,18 +544,22 @@
 
     invoke-virtual/range {v0 .. v8}, Landroid/content/Context;->sendOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
+    .line 229
     return-void
 .end method
 
 .method private sendIdleMaintenanceStartIntent()V
     .locals 9
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 216
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 218
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -491,6 +569,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 221
     :goto_0
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
@@ -510,8 +589,10 @@
 
     invoke-virtual/range {v0 .. v8}, Landroid/content/Context;->sendOrderedBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;Landroid/content/BroadcastReceiver;Landroid/os/Handler;ILjava/lang/String;Landroid/os/Bundle;)V
 
+    .line 223
     return-void
 
+    .line 219
     :catch_0
     move-exception v0
 
@@ -521,28 +602,35 @@
 .method private unscheduleUpdateIdleMaintenanceState()V
     .locals 2
 
+    .prologue
+    .line 159
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mAlarmService:Landroid/app/AlarmManager;
 
     iget-object v1, p0, Lcom/android/server/IdleMaintenanceService;->mUpdateIdleMaintenanceStatePendingIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v0, v1}, Landroid/app/AlarmManager;->cancel(Landroid/app/PendingIntent;)V
 
+    .line 160
     return-void
 .end method
 
 .method private updateIdleMaintenanceState(Z)V
     .locals 8
+    .param p1, "noisy"    # Z
 
+    .prologue
     const-wide/32 v1, 0x4100a0
 
     const/4 v5, 0x1
 
     const/4 v6, 0x0
 
+    .line 163
     iget-boolean v0, p0, Lcom/android/server/IdleMaintenanceService;->mIdleMaintenanceStarted:Z
 
     if-eqz v0, :cond_3
 
+    .line 166
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->lastUserActivityPermitsIdleMaintenanceRunning()Z
 
     move-result v0
@@ -555,11 +643,14 @@
 
     if-nez v0, :cond_1
 
+    .line 168
     :cond_0
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->unscheduleUpdateIdleMaintenanceState()V
 
+    .line 169
     iput-boolean v6, p0, Lcom/android/server/IdleMaintenanceService;->mIdleMaintenanceStarted:Z
 
+    .line 170
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -581,20 +672,24 @@
     :goto_0
     invoke-static/range {v0 .. v5}, Lcom/android/server/EventLogTags;->writeIdleMaintenanceWindowFinish(JJII)V
 
+    .line 173
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->sendIdleMaintenanceEndIntent()V
 
+    .line 178
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->batteryLevelAndMaintenanceTimeoutPermitsIdleMaintenanceRunning()Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
+    .line 179
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->getNextIdleMaintenanceIntervalStartFromNow()J
 
     move-result-wide v0
 
     invoke-direct {p0, v0, v1}, Lcom/android/server/IdleMaintenanceService;->scheduleUpdateIdleMaintenanceState(J)V
 
+    .line 208
     :cond_1
     :goto_1
     return-void
@@ -602,8 +697,10 @@
     :cond_2
     move v5, v6
 
+    .line 170
     goto :goto_0
 
+    .line 183
     :cond_3
     invoke-direct {p0, p1}, Lcom/android/server/IdleMaintenanceService;->deviceStatePermitsIdleMaintenanceStart(Z)Z
 
@@ -623,10 +720,13 @@
 
     if-eqz v0, :cond_5
 
+    .line 188
     invoke-direct {p0, v1, v2}, Lcom/android/server/IdleMaintenanceService;->scheduleUpdateIdleMaintenanceState(J)V
 
+    .line 189
     iput-boolean v5, p0, Lcom/android/server/IdleMaintenanceService;->mIdleMaintenanceStarted:Z
 
+    .line 190
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
@@ -648,12 +748,14 @@
     :goto_2
     invoke-static/range {v0 .. v5}, Lcom/android/server/EventLogTags;->writeIdleMaintenanceWindowStart(JJII)V
 
+    .line 193
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/IdleMaintenanceService;->mLastIdleMaintenanceStartTimeMillis:J
 
+    .line 194
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->sendIdleMaintenanceStartIntent()V
 
     goto :goto_1
@@ -661,8 +763,10 @@
     :cond_4
     move v5, v6
 
+    .line 190
     goto :goto_2
 
+    .line 195
     :cond_5
     invoke-direct {p0, p1}, Lcom/android/server/IdleMaintenanceService;->lastUserActivityPermitsIdleMaintenanceStart(Z)Z
 
@@ -670,16 +774,19 @@
 
     if-eqz v0, :cond_1
 
+    .line 196
     invoke-direct {p0, p1}, Lcom/android/server/IdleMaintenanceService;->lastRunPermitsIdleMaintenanceStart(Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_6
 
+    .line 200
     invoke-direct {p0, v1, v2}, Lcom/android/server/IdleMaintenanceService;->scheduleUpdateIdleMaintenanceState(J)V
 
     goto :goto_1
 
+    .line 204
     :cond_6
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->getNextIdleMaintenanceIntervalStartFromNow()J
 
@@ -694,15 +801,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const-wide/32 v7, 0x4100a0
 
     const/4 v5, 0x0
 
+    .line 286
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 287
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -711,16 +824,20 @@
 
     if-eqz v3, :cond_1
 
+    .line 294
     iget-boolean v3, p0, Lcom/android/server/IdleMaintenanceService;->mIdleMaintenanceStarted:Z
 
     if-eqz v3, :cond_0
 
+    .line 295
     invoke-direct {p0, v5}, Lcom/android/server/IdleMaintenanceService;->updateIdleMaintenanceState(Z)V
 
+    .line 326
     :cond_0
     :goto_0
     return-void
 
+    .line 297
     :cond_1
     const-string v3, "android.intent.action.SCREEN_ON"
 
@@ -738,17 +855,21 @@
 
     if-eqz v3, :cond_3
 
+    .line 299
     :cond_2
     const-wide/16 v3, -0x1
 
     iput-wide v3, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
+    .line 302
     invoke-direct {p0}, Lcom/android/server/IdleMaintenanceService;->unscheduleUpdateIdleMaintenanceState()V
 
+    .line 305
     invoke-direct {p0, v5}, Lcom/android/server/IdleMaintenanceService;->updateIdleMaintenanceState(Z)V
 
     goto :goto_0
 
+    .line 306
     :cond_3
     const-string v3, "android.intent.action.SCREEN_OFF"
 
@@ -766,6 +887,7 @@
 
     if-eqz v3, :cond_5
 
+    .line 308
     :cond_4
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -773,10 +895,12 @@
 
     iput-wide v3, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
+    .line 312
     invoke-direct {p0, v7, v8}, Lcom/android/server/IdleMaintenanceService;->scheduleUpdateIdleMaintenanceState(J)V
 
     goto :goto_0
 
+    .line 313
     :cond_5
     const-string v3, "com.android.server.IdleMaintenanceService.action.UPDATE_IDLE_MAINTENANCE_STATE"
 
@@ -786,10 +910,12 @@
 
     if-eqz v3, :cond_6
 
+    .line 314
     invoke-direct {p0, v5}, Lcom/android/server/IdleMaintenanceService;->updateIdleMaintenanceState(Z)V
 
     goto :goto_0
 
+    .line 315
     :cond_6
     const-string v3, "com.android.server.IdleMaintenanceService.action.FORCE_IDLE_MAINTENANCE"
 
@@ -799,6 +925,7 @@
 
     if-eqz v3, :cond_7
 
+    .line 316
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v3
@@ -807,22 +934,28 @@
 
     sub-long v1, v3, v5
 
+    .line 317
+    .local v1, "now":J
     sub-long v3, v1, v7
 
     iput-wide v3, p0, Lcom/android/server/IdleMaintenanceService;->mLastUserActivityElapsedTimeMillis:J
 
+    .line 318
     const-wide/32 v3, 0x5265c00
 
     sub-long v3, v1, v3
 
     iput-wide v3, p0, Lcom/android/server/IdleMaintenanceService;->mLastIdleMaintenanceStartTimeMillis:J
 
+    .line 319
     const/4 v3, 0x1
 
     invoke-direct {p0, v3}, Lcom/android/server/IdleMaintenanceService;->updateIdleMaintenanceState(Z)V
 
     goto :goto_0
 
+    .line 320
+    .end local v1    # "now":J
     :cond_7
     const-string v3, "android.intent.action.ACTION_IDLE_MAINTENANCE_START"
 
@@ -840,6 +973,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 324
     :cond_8
     iget-object v3, p0, Lcom/android/server/IdleMaintenanceService;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -850,35 +984,46 @@
 
 .method public register(Landroid/os/Handler;)V
     .locals 6
+    .param p1, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 127
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 130
+    .local v3, "intentFilter":Landroid/content/IntentFilter;
     const-string v0, "com.android.server.IdleMaintenanceService.action.UPDATE_IDLE_MAINTENANCE_STATE"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 133
     const-string v0, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 136
     const-string v0, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 137
     const-string v0, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 140
     const-string v0, "android.intent.action.DREAMING_STARTED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 141
     const-string v0, "android.intent.action.DREAMING_STOPPED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 143
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
@@ -891,14 +1036,19 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    .line 146
     new-instance v3, Landroid/content/IntentFilter;
 
+    .end local v3    # "intentFilter":Landroid/content/IntentFilter;
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 147
+    .restart local v3    # "intentFilter":Landroid/content/IntentFilter;
     const-string v0, "com.android.server.IdleMaintenanceService.action.FORCE_IDLE_MAINTENANCE"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 148
     iget-object v0, p0, Lcom/android/server/IdleMaintenanceService;->mContext:Landroid/content/Context;
 
     sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
@@ -911,5 +1061,6 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    .line 150
     return-void
 .end method

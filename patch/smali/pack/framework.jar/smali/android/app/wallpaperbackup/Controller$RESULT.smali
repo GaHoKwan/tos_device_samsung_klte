@@ -129,7 +129,7 @@
     .line 380
     sget-object v0, Landroid/app/wallpaperbackup/Controller$RESULT;->$VALUES:[Landroid/app/wallpaperbackup/Controller$RESULT;
 
-    invoke-virtual {v0}, [Landroid/app/wallpaperbackup/Controller$RESULT;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

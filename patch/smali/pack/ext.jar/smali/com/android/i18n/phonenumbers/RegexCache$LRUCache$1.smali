@@ -58,7 +58,7 @@
     .line 60
     .local p0, "this":Lcom/android/i18n/phonenumbers/RegexCache$LRUCache$1;, "Lcom/android/i18n/phonenumbers/RegexCache$LRUCache.1;"
     .local p1, "eldest":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<TK;TV;>;"
-    invoke-virtual {p0}, Lcom/android/i18n/phonenumbers/RegexCache$LRUCache$1;->size()I
+    invoke-virtual {p0}, Ljava/util/HashMap;->size()I
 
     move-result v0
 

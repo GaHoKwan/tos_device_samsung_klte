@@ -17,20 +17,27 @@
 .method public constructor <init>(Lcom/absolute/android/persistservice/ad;Ljava/lang/String;)V
     .locals 1
 
+    .prologue
+    .line 412
     iput-object p1, p0, Lcom/absolute/android/persistservice/af;->a:Lcom/absolute/android/persistservice/ad;
 
+    .line 413
     const/16 v0, 0x6c4
 
     invoke-direct {p0, p2, v0}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
+    .line 414
     iput-object p2, p0, Lcom/absolute/android/persistservice/af;->c:Ljava/lang/String;
 
+    .line 415
     return-void
 .end method
 
 .method static synthetic a(Lcom/absolute/android/persistservice/af;)Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 405
     iget-object v0, p0, Lcom/absolute/android/persistservice/af;->c:Ljava/lang/String;
 
     return-object v0
@@ -41,10 +48,13 @@
 .method public final onEvent(ILjava/lang/String;)V
     .locals 3
 
+    .prologue
+    .line 423
     if-nez p2, :cond_0
 
     iget-object v0, p0, Lcom/absolute/android/persistservice/af;->c:Ljava/lang/String;
 
+    .line 428
     :goto_0
     const v1, 0xffff
 
@@ -52,9 +62,11 @@
 
     sparse-switch v1, :sswitch_data_0
 
+    .line 440
     :goto_1
     return-void
 
+    .line 423
     :cond_0
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -76,6 +88,7 @@
 
     goto :goto_0
 
+    .line 430
     :sswitch_0
     iget-object v1, p0, Lcom/absolute/android/persistservice/af;->a:Lcom/absolute/android/persistservice/ad;
 
@@ -83,6 +96,7 @@
 
     goto :goto_1
 
+    .line 437
     :sswitch_1
     iget-object v1, p0, Lcom/absolute/android/persistservice/af;->a:Lcom/absolute/android/persistservice/ad;
 
@@ -92,6 +106,7 @@
 
     goto :goto_1
 
+    .line 428
     nop
 
     :sswitch_data_0

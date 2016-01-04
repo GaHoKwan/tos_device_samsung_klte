@@ -40,32 +40,45 @@
 .method static constructor <clinit>()V
     .locals 0
 
+    .prologue
+    .line 42
     invoke-static {}, Lcom/google/android/gles_jni/GLImpl;->_nativeClassInit()V
 
+    .line 43
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_colorPointer:Ljava/nio/Buffer;
 
+    .line 46
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_normalPointer:Ljava/nio/Buffer;
 
+    .line 47
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_texCoordPointer:Ljava/nio/Buffer;
 
+    .line 48
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_vertexPointer:Ljava/nio/Buffer;
 
+    .line 49
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_pointSizePointerOES:Ljava/nio/Buffer;
 
+    .line 50
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_matrixIndexPointerOES:Ljava/nio/Buffer;
 
+    .line 51
     iput-object v0, p0, Lcom/google/android/gles_jni/GLImpl;->_weightPointerOES:Ljava/nio/Buffer;
 
+    .line 60
     return-void
 .end method
 
@@ -74,17 +87,26 @@
 
 .method private static allowIndirectBuffers(Ljava/lang/String;)Z
     .locals 9
+    .param p0, "appName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v7, 0x0
 
+    .line 67
     const/4 v2, 0x0
 
+    .line 68
+    .local v2, "result":Z
     const/4 v3, 0x0
 
+    .line 69
+    .local v3, "version":I
     invoke-static {}, Landroid/app/AppGlobals;->getPackageManager()Landroid/content/pm/IPackageManager;
 
     move-result-object v1
 
+    .line 71
+    .local v1, "pm":Landroid/content/pm/IPackageManager;
     const/4 v4, 0x0
 
     :try_start_0
@@ -96,12 +118,17 @@
 
     move-result-object v0
 
+    .line 72
+    .local v0, "applicationInfo":Landroid/content/pm/ApplicationInfo;
     if-eqz v0, :cond_0
 
+    .line 73
     iget v3, v0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 78
+    .end local v0    # "applicationInfo":Landroid/content/pm/ApplicationInfo;
     :cond_0
     :goto_0
     const-string v4, "OpenGLES"
@@ -128,15 +155,19 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 81
     const/4 v4, 0x3
 
     if-gt v3, v4, :cond_1
 
+    .line 82
     const/4 v2, 0x1
 
+    .line 84
     :cond_1
     return v2
 
+    .line 75
     :catch_0
     move-exception v4
 
@@ -261,7 +292,13 @@
 
 .method public glColorPointer(IIILjava/nio/Buffer;)V
     .locals 6
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 212
     invoke-virtual {p4}, Ljava/nio/Buffer;->remaining()I
 
     move-result v5
@@ -278,6 +315,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gles_jni/GLImpl;->glColorPointerBounds(IIILjava/nio/Buffer;I)V
 
+    .line 219
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_1
@@ -297,8 +335,10 @@
     :cond_0
     if-ltz p3, :cond_1
 
+    .line 224
     iput-object p4, p0, Lcom/google/android/gles_jni/GLImpl;->_colorPointer:Ljava/nio/Buffer;
 
+    .line 226
     :cond_1
     return-void
 .end method
@@ -557,7 +597,11 @@
 
 .method public glGetPointerv(I[Ljava/nio/Buffer;)V
     .locals 2
+    .param p1, "pname"    # I
+    .param p2, "params"    # [Ljava/nio/Buffer;
 
+    .prologue
+    .line 63
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "glGetPointerv"
@@ -575,11 +619,16 @@
 
 .method public glGetString(I)Ljava/lang/String;
     .locals 1
+    .param p1, "name"    # I
 
+    .prologue
+    .line 496
     invoke-virtual {p0, p1}, Lcom/google/android/gles_jni/GLImpl;->_glGetString(I)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 499
+    .local v0, "returnValue":Ljava/lang/String;
     return-object v0
 .end method
 
@@ -735,7 +784,13 @@
 
 .method public glMatrixIndexPointerOES(IIILjava/nio/Buffer;)V
     .locals 6
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 1841
     invoke-virtual {p4}, Ljava/nio/Buffer;->remaining()I
 
     move-result v5
@@ -752,6 +807,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gles_jni/GLImpl;->glMatrixIndexPointerOESBounds(IIILjava/nio/Buffer;I)V
 
+    .line 1848
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
@@ -784,8 +840,10 @@
     :cond_1
     if-ltz p3, :cond_2
 
+    .line 1856
     iput-object p4, p0, Lcom/google/android/gles_jni/GLImpl;->_matrixIndexPointerOES:Ljava/nio/Buffer;
 
+    .line 1858
     :cond_2
     return-void
 .end method
@@ -822,13 +880,19 @@
 
 .method public glNormalPointer(IILjava/nio/Buffer;)V
     .locals 1
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 784
     invoke-virtual {p3}, Ljava/nio/Buffer;->remaining()I
 
     move-result v0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gles_jni/GLImpl;->glNormalPointerBounds(IILjava/nio/Buffer;I)V
 
+    .line 790
     const/16 v0, 0x1406
 
     if-eq p1, v0, :cond_0
@@ -848,8 +912,10 @@
     :cond_0
     if-ltz p2, :cond_1
 
+    .line 795
     iput-object p3, p0, Lcom/google/android/gles_jni/GLImpl;->_normalPointer:Ljava/nio/Buffer;
 
+    .line 797
     :cond_1
     return-void
 .end method
@@ -886,13 +952,19 @@
 
 .method public glPointSizePointerOES(IILjava/nio/Buffer;)V
     .locals 1
+    .param p1, "type"    # I
+    .param p2, "stride"    # I
+    .param p3, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 1607
     invoke-virtual {p3}, Ljava/nio/Buffer;->remaining()I
 
     move-result v0
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/google/android/gles_jni/GLImpl;->glPointSizePointerOESBounds(IILjava/nio/Buffer;I)V
 
+    .line 1613
     const/16 v0, 0x1406
 
     if-eq p1, v0, :cond_0
@@ -904,8 +976,10 @@
     :cond_0
     if-ltz p2, :cond_1
 
+    .line 1616
     iput-object p3, p0, Lcom/google/android/gles_jni/GLImpl;->_pointSizePointerOES:Ljava/nio/Buffer;
 
+    .line 1618
     :cond_1
     return-void
 .end method
@@ -975,7 +1049,13 @@
 
 .method public glTexCoordPointer(IIILjava/nio/Buffer;)V
     .locals 6
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 977
     invoke-virtual {p4}, Ljava/nio/Buffer;->remaining()I
 
     move-result v5
@@ -992,6 +1072,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gles_jni/GLImpl;->glTexCoordPointerBounds(IIILjava/nio/Buffer;I)V
 
+    .line 984
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
@@ -1024,8 +1105,10 @@
     :cond_1
     if-ltz p3, :cond_2
 
+    .line 992
     iput-object p4, p0, Lcom/google/android/gles_jni/GLImpl;->_texCoordPointer:Ljava/nio/Buffer;
 
+    .line 994
     :cond_2
     return-void
 .end method
@@ -1128,7 +1211,13 @@
 
 .method public glVertexPointer(IIILjava/nio/Buffer;)V
     .locals 6
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 1122
     invoke-virtual {p4}, Ljava/nio/Buffer;->remaining()I
 
     move-result v5
@@ -1145,6 +1234,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gles_jni/GLImpl;->glVertexPointerBounds(IIILjava/nio/Buffer;I)V
 
+    .line 1129
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
@@ -1177,8 +1267,10 @@
     :cond_1
     if-ltz p3, :cond_2
 
+    .line 1137
     iput-object p4, p0, Lcom/google/android/gles_jni/GLImpl;->_vertexPointer:Ljava/nio/Buffer;
 
+    .line 1139
     :cond_2
     return-void
 .end method
@@ -1191,7 +1283,13 @@
 
 .method public glWeightPointerOES(IIILjava/nio/Buffer;)V
     .locals 6
+    .param p1, "size"    # I
+    .param p2, "type"    # I
+    .param p3, "stride"    # I
+    .param p4, "pointer"    # Ljava/nio/Buffer;
 
+    .prologue
+    .line 1885
     invoke-virtual {p4}, Ljava/nio/Buffer;->remaining()I
 
     move-result v5
@@ -1208,5 +1306,6 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/google/android/gles_jni/GLImpl;->glWeightPointerOESBounds(IIILjava/nio/Buffer;I)V
 
+    .line 1892
     return-void
 .end method

@@ -25,10 +25,13 @@
 .method constructor <init>(Lcom/android/internal/util/AsyncChannel;)V
     .locals 0
 
+    .prologue
+    .line 938
     iput-object p1, p0, Lcom/android/internal/util/AsyncChannel$DeathMonitor;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 939
     return-void
 .end method
 
@@ -37,6 +40,8 @@
 .method public binderDied()V
     .locals 2
 
+    .prologue
+    .line 942
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel$DeathMonitor;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     const/4 v1, 0x4
@@ -44,5 +49,6 @@
     # invokes: Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$600(Lcom/android/internal/util/AsyncChannel;I)V
 
+    .line 943
     return-void
 .end method

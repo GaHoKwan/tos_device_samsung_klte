@@ -122,7 +122,7 @@
 
     int-to-long v1, v1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/movial/ipphone/IPCallTracker$1;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
     goto :goto_0
 

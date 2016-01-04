@@ -49,6 +49,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x6
 
     const/4 v6, 0x4
@@ -59,14 +60,17 @@
 
     const/4 v3, 0x1
 
+    .line 34
     const-string v0, ""
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->COUNTRY_DATE_STRING:Ljava/lang/String;
 
+    .line 45
     const-string v0, ""
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->COUNTRY_TIME_STRING:Ljava/lang/String;
 
+    .line 52
     const-string v0, "([[:space:]](\\+[0-9]+[\\- \\.\u00ad]*)?(\\([0-9]+\\)[\\- \\.\u00ad]*)?([0-9][0-9\\- \\.\u00ad][0-9\\- \\.\u00ad]+[0-9])[[:space:]])"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -75,6 +79,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->PHONE_NUMBER:Ljava/util/regex/Pattern;
 
+    .line 54
     const-string v0, "((\\+[0-9]+[\\-\\.\u00ad]*)?(\\([0-9]+\\)[\\-\\.\u00ad]*)?([0-9][0-9\\-\\.\u00ad][0-9\\-\\.\u00ad]+[0-9]))"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -83,6 +88,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->REFACTORING_PHONE_NUMBER:Ljava/util/regex/Pattern;
 
+    .line 56
     const-string v0, "((\\+[0-9]+[\\-\\.\u00ad]*)?(\\([0-9]+\\)[\\-\\.\u00ad]*)?([0-9][0-9\\-\\.\u00ad][0-9\\-\\.\u00ad]+[0-9]))"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -91,6 +97,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->PHONE_NUMBER_WEAK:Ljava/util/regex/Pattern;
 
+    .line 58
     const-string v0, "(\u00ad)"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -99,6 +106,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->HYPHEN:Ljava/util/regex/Pattern;
 
+    .line 63
     const-string v0, "([a-zA-Z0-9\\+\\.\\_\\%\\-\\+\u00ad]{1,256}[[:space:]]?\\@[[:space:]]?[a-zA-Z0-9][a-zA-Z0-9\\-\u00ad]{0,64}([[:space:]]?\\.[[:space:]]?[a-zA-Z0-9][a-zA-Z0-9\\-\u00ad]{0,25})+)"
 
     invoke-static {v0}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -107,12 +115,14 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->EMAIL_ADDRESS_WEAK:Ljava/util/regex/Pattern;
 
+    .line 91
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
+    .line 94
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Jan"
@@ -123,6 +133,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 95
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "January"
@@ -133,6 +144,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 96
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Feb"
@@ -143,6 +155,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 97
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "February"
@@ -153,6 +166,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 98
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Mar"
@@ -163,6 +177,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 99
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "March"
@@ -173,6 +188,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 100
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Apr"
@@ -183,6 +199,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 101
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "April"
@@ -193,6 +210,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 102
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "May"
@@ -205,6 +223,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 103
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Jun"
@@ -215,6 +234,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 104
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "June"
@@ -225,6 +245,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 105
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Jul"
@@ -237,6 +258,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 106
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "July"
@@ -249,6 +271,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 107
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Aug"
@@ -261,6 +284,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 108
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "August"
@@ -273,6 +297,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 109
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Sep"
@@ -285,6 +310,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 110
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "September"
@@ -297,6 +323,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 111
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Octo"
@@ -309,6 +336,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 112
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "October"
@@ -321,6 +349,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 113
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Nov"
@@ -333,6 +362,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 114
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "November"
@@ -345,6 +375,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 115
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "Dec"
@@ -357,6 +388,7 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 116
     sget-object v0, Landroid/util/secutil/SmartPatterns;->globalDateMap:Ljava/util/Map;
 
     const-string v1, "December"
@@ -369,12 +401,15 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 117
     return-void
 .end method
 
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -382,7 +417,10 @@
 
 .method public static getCountryDateString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 71
     const v0, 0x1040112
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -394,7 +432,10 @@
 
 .method public static getCountryTimeString(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 75
     const v0, 0x1040113
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -406,7 +447,10 @@
 
 .method public static getSmartPatternsForDate(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 79
     const v0, 0x1040112
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -415,6 +459,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->COUNTRY_DATE_STRING:Ljava/lang/String;
 
+    .line 80
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -444,7 +489,10 @@
 
 .method public static getSmartPatternsForTime(Landroid/content/Context;)Ljava/util/regex/Pattern;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 84
     const v0, 0x1040113
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -453,6 +501,7 @@
 
     sput-object v0, Landroid/util/secutil/SmartPatterns;->COUNTRY_TIME_STRING:Ljava/lang/String;
 
+    .line 85
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

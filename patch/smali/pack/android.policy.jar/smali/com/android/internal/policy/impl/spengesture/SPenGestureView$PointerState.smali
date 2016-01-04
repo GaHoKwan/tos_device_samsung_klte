@@ -40,26 +40,33 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/16 v1, 0x20
 
+    .line 236
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 237
     iput v1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->ESTIMATE_TRACE_DEFAULT_SIZE:I
 
+    .line 238
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
+    .line 239
     new-array v0, v1, [F
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceY:[F
 
+    .line 242
     new-instance v0, Landroid/view/MotionEvent$PointerCoords;
 
     invoke-direct {v0}, Landroid/view/MotionEvent$PointerCoords;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mCoords:Landroid/view/MotionEvent$PointerCoords;
 
+    .line 246
     new-instance v0, Landroid/view/VelocityTracker$Estimator;
 
     invoke-direct {v0}, Landroid/view/VelocityTracker$Estimator;-><init>()V
@@ -71,7 +78,10 @@
 
 .method static synthetic access$2800(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;)Z
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
 
+    .prologue
+    .line 236
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mCurDown:Z
 
     return v0
@@ -79,7 +89,11 @@
 
 .method static synthetic access$2802(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;Z)Z
     .locals 0
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
+    .param p1, "x1"    # Z
 
+    .prologue
+    .line 236
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mCurDown:Z
 
     return p1
@@ -87,7 +101,10 @@
 
 .method static synthetic access$2900(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;)Landroid/view/MotionEvent$PointerCoords;
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
 
+    .prologue
+    .line 236
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mCoords:Landroid/view/MotionEvent$PointerCoords;
 
     return-object v0
@@ -95,7 +112,11 @@
 
 .method static synthetic access$3002(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;I)I
     .locals 0
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 236
     iput p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mToolType:I
 
     return p1
@@ -103,7 +124,10 @@
 
 .method static synthetic access$3100(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;)I
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
 
+    .prologue
+    .line 236
     iget v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     return v0
@@ -111,7 +135,10 @@
 
 .method static synthetic access$3200(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;)[F
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
 
+    .prologue
+    .line 236
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
     return-object v0
@@ -119,7 +146,10 @@
 
 .method static synthetic access$3300(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;)[F
     .locals 1
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;
 
+    .prologue
+    .line 236
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceY:[F
 
     return-object v0
@@ -129,39 +159,57 @@
 # virtual methods
 .method public addTrace(FF)V
     .locals 6
+    .param p1, "x"    # F
+    .param p2, "y"    # F
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 253
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
     array-length v2, v3
 
+    .line 254
+    .local v2, "traceCapacity":I
     iget v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     if-ne v3, v2, :cond_0
 
+    .line 255
     mul-int/lit8 v2, v2, 0x2
 
+    .line 256
     new-array v0, v2, [F
 
+    .line 257
+    .local v0, "newTraceX":[F
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
     iget v4, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     invoke-static {v3, v5, v0, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 258
     iput-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
+    .line 260
     new-array v1, v2, [F
 
+    .line 261
+    .local v1, "newTraceY":[F
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceY:[F
 
     iget v4, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     invoke-static {v3, v5, v1, v5, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 262
     iput-object v1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceY:[F
 
+    .line 265
+    .end local v0    # "newTraceX":[F
+    .end local v1    # "newTraceY":[F
     :cond_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceX:[F
 
@@ -169,27 +217,33 @@
 
     aput p1, v3, v4
 
+    .line 266
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceY:[F
 
     iget v4, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     aput p2, v3, v4
 
+    .line 267
     iget v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
     add-int/lit8 v3, v3, 0x1
 
     iput v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
+    .line 268
     return-void
 .end method
 
 .method public clearTrace()V
     .locals 1
 
+    .prologue
+    .line 249
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$PointerState;->mTraceCount:I
 
+    .line 250
     return-void
 .end method

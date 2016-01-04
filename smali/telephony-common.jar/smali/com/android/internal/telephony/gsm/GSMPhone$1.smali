@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 281
+    .line 285
     iput-object p1, p0, Lcom/android/internal/telephony/gsm/GSMPhone$1;->this$0:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,11 +40,11 @@
     .locals 1
 
     .prologue
-    .line 284
+    .line 288
     iget-object v0, p0, Lcom/android/internal/telephony/gsm/GSMPhone$1;->this$0:Lcom/android/internal/telephony/gsm/GSMPhone;
 
     invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GSMPhone;->exitEmergencyCallbackMode()V
 
-    .line 285
+    .line 289
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WifiOffloadService;)V
     .locals 0
 
+    .prologue
+    .line 543
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,19 +35,26 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 547
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v4, "onReceive -- WiFiTimerReceiver"
 
     invoke-virtual {v2, v4}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 548
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 549
+    .local v0, "action":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -68,6 +77,7 @@
 
     invoke-virtual {v2, v4}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 551
     const-string v2, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -76,6 +86,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 552
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->mContext:Landroid/content/Context;
@@ -95,8 +106,11 @@
 
     move-result-object v1
 
+    .line 554
+    .local v1, "currentBatteryStatus":Landroid/content/Intent;
     if-eqz v1, :cond_0
 
+    .line 555
     iget-object v4, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v2, 0x2
@@ -116,12 +130,14 @@
     :goto_0
     iput-boolean v2, v4, Lcom/android/server/WifiOffloadService;->mIsBatteryCharging:Z
 
+    .line 558
     :cond_0
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     # setter for: Lcom/android/server/WifiOffloadService;->isBootCompleted:Z
     invoke-static {v2, v3}, Lcom/android/server/WifiOffloadService;->access$402(Lcom/android/server/WifiOffloadService;Z)Z
 
+    .line 559
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v2}, Lcom/android/server/WifiOffloadService;->getIntelligentWifiEnabled()Z
@@ -130,10 +146,12 @@
 
     if-eqz v2, :cond_1
 
+    .line 560
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v2}, Lcom/android/server/WifiOffloadService;->startDataActivityTimer()V
 
+    .line 562
     :cond_1
     iget-object v2, p0, Lcom/android/server/WifiOffloadService$2;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -144,9 +162,13 @@
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    .line 565
+    .end local v1    # "currentBatteryStatus":Landroid/content/Intent;
     :cond_2
     return-void
 
+    .line 555
+    .restart local v1    # "currentBatteryStatus":Landroid/content/Intent;
     :cond_3
     const/4 v2, 0x0
 

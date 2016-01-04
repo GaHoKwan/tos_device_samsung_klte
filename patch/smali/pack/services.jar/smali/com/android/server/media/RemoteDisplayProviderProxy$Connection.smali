@@ -28,19 +28,25 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/media/RemoteDisplayProviderProxy;Landroid/media/IRemoteDisplayProvider;)V
     .locals 1
+    .param p2, "provider"    # Landroid/media/IRemoteDisplayProvider;
 
+    .prologue
+    .line 329
     iput-object p1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 330
     iput-object p2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
+    .line 331
     new-instance v0, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
     invoke-direct {v0, p0}, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;-><init>(Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;)V
 
     iput-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
+    .line 332
     return-void
 .end method
 
@@ -48,7 +54,11 @@
 # virtual methods
 .method public adjustVolume(Ljava/lang/String;I)V
     .locals 3
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "volume"    # I
 
+    .prologue
+    .line 390
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -56,12 +66,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 394
     :goto_0
     return-void
 
+    .line 391
     :catch_0
     move-exception v0
 
+    .line 392
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to adjust display volume."
@@ -74,6 +88,8 @@
 .method public binderDied()V
     .locals 2
 
+    .prologue
+    .line 398
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
@@ -87,12 +103,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 404
     return-void
 .end method
 
 .method public connect(Ljava/lang/String;)V
     .locals 3
+    .param p1, "id"    # Ljava/lang/String;
 
+    .prologue
+    .line 366
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -100,12 +120,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 370
     :goto_0
     return-void
 
+    .line 367
     :catch_0
     move-exception v0
 
+    .line 368
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to connect to display."
@@ -117,7 +141,10 @@
 
 .method public disconnect(Ljava/lang/String;)V
     .locals 3
+    .param p1, "id"    # Ljava/lang/String;
 
+    .prologue
+    .line 374
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -125,12 +152,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 378
     :goto_0
     return-void
 
+    .line 375
     :catch_0
     move-exception v0
 
+    .line 376
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to disconnect from display."
@@ -143,6 +174,8 @@
 .method public dispose()V
     .locals 2
 
+    .prologue
+    .line 352
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
     invoke-interface {v0}, Landroid/media/IRemoteDisplayProvider;->asBinder()Landroid/os/IBinder;
@@ -153,16 +186,21 @@
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 353
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
     invoke-virtual {v0}, Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;->dispose()V
 
+    .line 354
     return-void
 .end method
 
 .method postStateChanged(Landroid/media/RemoteDisplayState;)V
     .locals 2
+    .param p1, "state"    # Landroid/media/RemoteDisplayState;
 
+    .prologue
+    .line 407
     iget-object v0, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
@@ -176,14 +214,17 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 413
     return-void
 .end method
 
 .method public register()Z
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 336
     :try_start_0
     iget-object v2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -195,12 +236,14 @@
 
     invoke-interface {v2, p0, v3}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
 
+    .line 337
     iget-object v2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
     iget-object v3, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mCallback:Lcom/android/server/media/RemoteDisplayProviderProxy$ProviderCallback;
 
     invoke-interface {v2, v3}, Landroid/media/IRemoteDisplayProvider;->setCallback(Landroid/media/IRemoteDisplayCallback;)V
 
+    .line 338
     iget-object v2, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->this$0:Lcom/android/server/media/RemoteDisplayProviderProxy;
 
     # getter for: Lcom/android/server/media/RemoteDisplayProviderProxy;->mHandler:Landroid/os/Handler;
@@ -216,14 +259,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 344
     const/4 v1, 0x1
 
+    .line 348
     :goto_0
     return v1
 
+    .line 345
     :catch_0
     move-exception v0
 
+    .line 346
+    .local v0, "ex":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->binderDied()V
 
     goto :goto_0
@@ -231,7 +279,10 @@
 
 .method public setDiscoveryMode(I)V
     .locals 3
+    .param p1, "mode"    # I
 
+    .prologue
+    .line 358
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -239,12 +290,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 362
     :goto_0
     return-void
 
+    .line 359
     :catch_0
     move-exception v0
 
+    .line 360
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to set discovery mode."
@@ -256,7 +311,11 @@
 
 .method public setVolume(Ljava/lang/String;I)V
     .locals 3
+    .param p1, "id"    # Ljava/lang/String;
+    .param p2, "volume"    # I
 
+    .prologue
+    .line 382
     :try_start_0
     iget-object v1, p0, Lcom/android/server/media/RemoteDisplayProviderProxy$Connection;->mProvider:Landroid/media/IRemoteDisplayProvider;
 
@@ -264,12 +323,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 386
     :goto_0
     return-void
 
+    .line 383
     :catch_0
     move-exception v0
 
+    .line 384
+    .local v0, "ex":Landroid/os/RemoteException;
     const-string v1, "RemoteDisplayProvider"
 
     const-string v2, "Failed to deliver request to set display volume."

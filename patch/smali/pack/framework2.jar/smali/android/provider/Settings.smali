@@ -161,6 +161,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 877
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
@@ -173,14 +175,19 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 11649
     return-void
 .end method
 
 .method static synthetic access$000()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 86
     sget-object v0, Landroid/provider/Settings;->mLocationSettingsLock:Ljava/lang/Object;
 
     return-object v0
@@ -188,7 +195,10 @@
 
 .method public static getGTalkDeviceId(J)Ljava/lang/String;
     .locals 2
+    .param p0, "androidId"    # J
 
+    .prologue
+    .line 11881
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

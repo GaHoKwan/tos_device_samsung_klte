@@ -25,9 +25,13 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/firewall/IntentFirewall;Ljava/io/File;)V
     .locals 2
+    .param p2, "monitoredDir"    # Ljava/io/File;
 
+    .prologue
+    .line 548
     iput-object p1, p0, Lcom/android/server/firewall/IntentFirewall$RuleObserver;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
+    .line 549
     invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
@@ -36,6 +40,7 @@
 
     invoke-direct {p0, v0, v1}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
+    .line 550
     return-void
 .end method
 
@@ -43,9 +48,13 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 4
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 554
     const-string v0, ".xml"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
@@ -54,12 +63,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 558
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$RuleObserver;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
     iget-object v0, v0, Lcom/android/server/firewall/IntentFirewall;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 559
     iget-object v0, p0, Lcom/android/server/firewall/IntentFirewall$RuleObserver;->this$0:Lcom/android/server/firewall/IntentFirewall;
 
     iget-object v0, v0, Lcom/android/server/firewall/IntentFirewall;->mHandler:Landroid/os/Handler;
@@ -68,6 +79,7 @@
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 561
     :cond_0
     return-void
 .end method

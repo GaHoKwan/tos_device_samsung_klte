@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2920
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$9;->this$0:Lcom/android/server/NotificationManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,8 +38,12 @@
 # virtual methods
 .method public onCompletion(Landroid/media/MediaPlayer;)V
     .locals 0
+    .param p1, "mp"    # Landroid/media/MediaPlayer;
 
+    .prologue
+    .line 2922
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
 
+    .line 2923
     return-void
 .end method

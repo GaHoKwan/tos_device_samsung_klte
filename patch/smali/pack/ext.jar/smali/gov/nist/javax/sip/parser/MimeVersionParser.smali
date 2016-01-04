@@ -47,7 +47,7 @@
     .line 68
     const-string v4, "MimeVersionParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/MimeVersionParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 69
     :cond_0
@@ -60,18 +60,18 @@
     const/16 v4, 0x80c
 
     :try_start_0
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/MimeVersionParser;->headerName(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 73
     const-string v4, "MIME-Version"
 
-    invoke-virtual {v2, v4}, Lgov/nist/javax/sip/header/MimeVersion;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v2, v4}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 76
     :try_start_1
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/MimeVersionParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -86,14 +86,14 @@
     invoke-virtual {v2, v4}, Lgov/nist/javax/sip/header/MimeVersion;->setMajorVersion(I)V
 
     .line 78
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/MimeVersionParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x2e
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 79
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/MimeVersionParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -112,12 +112,12 @@
 
     .line 85
     :try_start_2
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/MimeVersionParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 87
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/MimeVersionParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0xa
 
@@ -133,7 +133,7 @@
     .line 92
     const-string v4, "MimeVersionParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/MimeVersionParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 89
     :cond_1
@@ -148,11 +148,11 @@
     .line 83
     .local v0, "ex":Ljavax/sip/InvalidArgumentException;
     :try_start_3
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/MimeVersionParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 
@@ -172,7 +172,7 @@
     .line 92
     const-string v5, "MimeVersionParser.parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/MimeVersionParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 91
     :cond_2

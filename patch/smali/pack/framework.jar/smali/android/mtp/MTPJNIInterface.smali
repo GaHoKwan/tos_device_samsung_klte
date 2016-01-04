@@ -4343,7 +4343,7 @@
 
     .line 1425
     .local v31, "composerColumn_audio":I
-    const-string v2, "year"
+    const-string/jumbo v2, "year"
 
     move-object/from16 v0, p1
 
@@ -5128,7 +5128,7 @@
 
     iget-object v2, v0, Landroid/mtp/MTPJNIInterface;->resolution:Ljava/lang/String;
 
-    const-string v3, "x"
+    const-string/jumbo v3, "x"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
@@ -8110,7 +8110,7 @@
     move-result-object v14
 
     .line 1282
-    const-string v0, "|"
+    const-string/jumbo v0, "|"
 
     invoke-virtual {v14, v0}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 

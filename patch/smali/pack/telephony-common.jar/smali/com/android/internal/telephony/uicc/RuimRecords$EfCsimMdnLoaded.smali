@@ -111,7 +111,7 @@
     :cond_0
     const-string v2, "CRI"
 
-    const-string v3, "VZW"
+    const-string v3, "OPEN"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

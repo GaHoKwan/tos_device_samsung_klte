@@ -49,7 +49,7 @@
     .line 70
     const-string v9, "RetryAfterParser.parse"
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v9}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 72
     :cond_0
@@ -62,10 +62,10 @@
     const/16 v9, 0x819
 
     :try_start_0
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->headerName(I)V
+    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 77
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
     :try_end_0
@@ -90,16 +90,16 @@
 
     .line 87
     :try_start_2
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 88
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v9, v10}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v9
 
@@ -108,7 +108,7 @@
     if-ne v9, v10, :cond_1
 
     .line 89
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->comment()Ljava/lang/String;
 
@@ -121,43 +121,43 @@
     .line 92
     .end local v0    # "comment":Ljava/lang/String;
     :cond_1
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 94
     :goto_0
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v10, 0x0
 
-    invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v9, v10}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v9
 
     if-ne v9, v11, :cond_4
 
     .line 95
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v10, 0x3b
 
     invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 96
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 97
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v10, 0xfff
 
     invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 98
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -179,19 +179,19 @@
     if-eqz v9, :cond_3
 
     .line 101
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v10, 0x3d
 
     invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 102
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 103
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
     :try_end_2
@@ -217,7 +217,7 @@
     .end local v2    # "duration":I
     :goto_1
     :try_start_4
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_4
@@ -239,7 +239,7 @@
     .line 125
     const-string v10, "RetryAfterParser.parse"
 
-    invoke-virtual {p0, v10}, Lgov/nist/javax/sip/parser/RetryAfterParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v10}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 124
     :cond_2
@@ -253,11 +253,11 @@
     .line 82
     .local v3, "ex":Ljava/lang/NumberFormatException;
     :try_start_5
-    invoke-virtual {v3}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v9
 
@@ -270,11 +270,11 @@
 
     .line 84
     .local v3, "ex":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v3}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v9
 
@@ -289,11 +289,11 @@
 
     .line 108
     .local v3, "ex":Ljava/lang/NumberFormatException;
-    invoke-virtual {v3}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v9
 
@@ -306,11 +306,11 @@
 
     .line 110
     .local v3, "ex":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v3}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v9
 
@@ -319,31 +319,31 @@
     .line 113
     .end local v3    # "ex":Ljavax/sip/InvalidArgumentException;
     :cond_3
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 114
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v10, 0x3d
 
     invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 115
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 116
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v10, 0xfff
 
     invoke-virtual {v9, v10}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 117
-    iget-object v9, p0, Lgov/nist/javax/sip/parser/RetryAfterParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v9, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v9}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -357,7 +357,7 @@
 
     .line 119
     .local v6, "secondValue":Ljava/lang/String;
-    invoke-virtual {v4, v8, v6}, Lgov/nist/javax/sip/header/RetryAfter;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v4, v8, v6}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
@@ -375,7 +375,7 @@
     .line 125
     const-string v9, "RetryAfterParser.parse"
 
-    invoke-virtual {p0, v9}, Lgov/nist/javax/sip/parser/RetryAfterParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v9}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 128
     :cond_5

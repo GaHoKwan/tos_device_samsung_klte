@@ -55,7 +55,7 @@
     .line 1666
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v1, "yyyy-MM-dd HH:mm:ss.SSS"
+    const-string/jumbo v1, "yyyy-MM-dd HH:mm:ss.SSS"
 
     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 

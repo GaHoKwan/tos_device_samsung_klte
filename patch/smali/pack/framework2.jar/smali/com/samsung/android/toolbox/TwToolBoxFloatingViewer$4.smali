@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 390
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$4;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 393
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$4;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
@@ -45,9 +49,11 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 397
     :goto_0
     return-void
 
+    .line 394
     :catch_0
     move-exception v0
 

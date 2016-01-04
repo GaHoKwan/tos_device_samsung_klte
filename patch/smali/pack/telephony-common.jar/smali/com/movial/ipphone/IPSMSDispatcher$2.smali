@@ -199,7 +199,7 @@
 
     const/16 v10, 0x64
 
-    invoke-virtual {v9, v10}, Lcom/movial/ipphone/IPSMSDispatcher;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v9, v10}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v6
 
@@ -271,7 +271,7 @@
 
     const/4 v10, 0x1
 
-    invoke-virtual {v9, v10, v1}, Lcom/movial/ipphone/IPInboundSmsHandler;->sendMessage(ILjava/lang/Object;)V
+    invoke-virtual {v9, v10, v1}, Lcom/android/internal/util/StateMachine;->sendMessage(ILjava/lang/Object;)V
 
     goto/16 :goto_0
 

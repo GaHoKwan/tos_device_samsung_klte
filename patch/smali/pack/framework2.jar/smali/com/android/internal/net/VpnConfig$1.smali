@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 181
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,59 +42,72 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/net/VpnConfig;
     .locals 3
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 184
     new-instance v0, Lcom/android/internal/net/VpnConfig;
 
     invoke-direct {v0}, Lcom/android/internal/net/VpnConfig;-><init>()V
 
+    .line 185
+    .local v0, "config":Lcom/android/internal/net/VpnConfig;
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->user:Ljava/lang/String;
 
+    .line 186
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->interfaze:Ljava/lang/String;
 
+    .line 187
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->session:Ljava/lang/String;
 
+    .line 188
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Lcom/android/internal/net/VpnConfig;->mtu:I
 
+    .line 189
     iget-object v1, v0, Lcom/android/internal/net/VpnConfig;->addresses:Ljava/util/List;
 
     sget-object v2, Landroid/net/LinkAddress;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
 
+    .line 190
     iget-object v1, v0, Lcom/android/internal/net/VpnConfig;->routes:Ljava/util/List;
 
     sget-object v2, Landroid/net/RouteInfo;->CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-virtual {p1, v1, v2}, Landroid/os/Parcel;->readTypedList(Ljava/util/List;Landroid/os/Parcelable$Creator;)V
 
+    .line 191
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->dnsServers:Ljava/util/List;
 
+    .line 192
     invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->searchDomains:Ljava/util/List;
 
+    .line 193
     const/4 v1, 0x0
 
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->readParcelable(Ljava/lang/ClassLoader;)Landroid/os/Parcelable;
@@ -103,12 +118,14 @@
 
     iput-object v1, v0, Lcom/android/internal/net/VpnConfig;->configureIntent:Landroid/app/PendingIntent;
 
+    .line 194
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v1
 
     iput-wide v1, v0, Lcom/android/internal/net/VpnConfig;->startTime:J
 
+    .line 195
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -120,8 +137,10 @@
     :goto_0
     iput-boolean v1, v0, Lcom/android/internal/net/VpnConfig;->legacy:Z
 
+    .line 196
     return-object v0
 
+    .line 195
     :cond_0
     const/4 v1, 0x0
 
@@ -130,7 +149,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 181
     invoke-virtual {p0, p1}, Lcom/android/internal/net/VpnConfig$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/net/VpnConfig;
 
     move-result-object v0
@@ -140,7 +162,10 @@
 
 .method public newArray(I)[Lcom/android/internal/net/VpnConfig;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 201
     new-array v0, p1, [Lcom/android/internal/net/VpnConfig;
 
     return-object v0
@@ -148,7 +173,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 181
     invoke-virtual {p0, p1}, Lcom/android/internal/net/VpnConfig$1;->newArray(I)[Lcom/android/internal/net/VpnConfig;
 
     move-result-object v0

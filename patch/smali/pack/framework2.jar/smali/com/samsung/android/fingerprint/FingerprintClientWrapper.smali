@@ -17,14 +17,19 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 1067
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientWrapper:Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
+    .line 1068
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientSpecBuilder:Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;
 
+    .line 1069
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
+    .line 1070
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mToken:Landroid/os/IBinder;
 
     return-void
@@ -33,20 +38,26 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 1085
     invoke-direct {p0}, Lcom/samsung/android/fingerprint/IFingerprintClient$Stub;-><init>()V
 
+    .line 1086
     const-string v0, "FingerprintIdentifyDialog"
 
     const-string v1, "Create FingerprintClientWrapper"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1087
     return-void
 .end method
 
 .method static declared-synchronized init()V
     .locals 3
 
+    .prologue
+    .line 1103
     const-class v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
     monitor-enter v1
@@ -58,28 +69,34 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1104
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientWrapper:Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
+    .line 1105
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientSpecBuilder:Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;
 
+    .line 1106
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
+    .line 1107
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mToken:Landroid/os/IBinder;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1108
     monitor-exit v1
 
     return-void
 
+    .line 1103
     :catchall_0
     move-exception v0
 
@@ -90,7 +107,12 @@
 
 .method static declared-synchronized registerClient(Lcom/samsung/android/fingerprint/FingerprintManager;Landroid/os/Handler;I)Landroid/os/IBinder;
     .locals 4
+    .param p0, "fingerprintManager"    # Lcom/samsung/android/fingerprint/FingerprintManager;
+    .param p1, "handler"    # Landroid/os/Handler;
+    .param p2, "securityLevel"    # I
 
+    .prologue
+    .line 1073
     const-class v2, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
     monitor-enter v2
@@ -98,16 +120,19 @@
     :try_start_0
     sput-object p1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
+    .line 1075
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientWrapper:Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
     if-nez v1, :cond_0
 
+    .line 1076
     new-instance v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
     invoke-direct {v1}, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;-><init>()V
 
     sput-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientWrapper:Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
+    .line 1077
     new-instance v1, Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;
 
     const-string v3, "com.samsung.android.fingerprint.FingerprintIdentifyDialog"
@@ -120,12 +145,15 @@
 
     sput-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientSpecBuilder:Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;
 
+    .line 1078
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientSpecBuilder:Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;
 
     invoke-virtual {v1}, Lcom/samsung/android/fingerprint/FingerprintManager$FingerprintClientSpecBuilder;->build()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 1079
+    .local v0, "clientSpec":Landroid/os/Bundle;
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mFingerprintClientWrapper:Lcom/samsung/android/fingerprint/FingerprintClientWrapper;
 
     invoke-virtual {p0, v1, v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->registerClient(Lcom/samsung/android/fingerprint/IFingerprintClient;Landroid/os/Bundle;)Landroid/os/IBinder;
@@ -134,6 +162,8 @@
 
     sput-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mToken:Landroid/os/IBinder;
 
+    .line 1082
+    .end local v0    # "clientSpec":Landroid/os/Bundle;
     :cond_0
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mToken:Landroid/os/IBinder;
     :try_end_0
@@ -143,6 +173,7 @@
 
     return-object v1
 
+    .line 1073
     :catchall_0
     move-exception v1
 
@@ -154,10 +185,13 @@
 .method static unregisterClient()V
     .locals 1
 
+    .prologue
+    .line 1100
     const/4 v0, 0x0
 
     sput-object v0, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
+    .line 1101
     return-void
 .end method
 
@@ -165,20 +199,26 @@
 # virtual methods
 .method public onFingerprintEvent(Lcom/samsung/android/fingerprint/FingerprintEvent;)V
     .locals 4
+    .param p1, "evt"    # Lcom/samsung/android/fingerprint/FingerprintEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1091
     move-object v0, p1
 
+    .line 1092
+    .local v0, "event":Lcom/samsung/android/fingerprint/FingerprintEvent;
     if-eqz v0, :cond_0
 
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
     if-eqz v1, :cond_0
 
+    .line 1093
     sget-object v1, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
 
     sget-object v2, Lcom/samsung/android/fingerprint/FingerprintClientWrapper;->mHandler:Landroid/os/Handler;
@@ -191,9 +231,11 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 1097
     :goto_0
     return-void
 
+    .line 1095
     :cond_0
     const-string v1, "FingerprintIdentifyDialog"
 

@@ -35,7 +35,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 67
-    iput-object p1, p0, Lgov/nist/javax/sip/header/Route;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 68
     return-void
@@ -71,7 +71,7 @@
     const/4 v0, 0x1
 
     .line 91
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Route;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -90,7 +90,7 @@
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 94
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Route;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1, p1}, Lgov/nist/javax/sip/address/AddressImpl;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -101,7 +101,7 @@
 
     .line 99
     :goto_1
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Route;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -115,7 +115,7 @@
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 101
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Route;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -133,7 +133,7 @@
     .line 97
     .restart local v0    # "addrFlag":Z
     :cond_2
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Route;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1, p1}, Lgov/nist/javax/sip/address/AddressImpl;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -172,7 +172,7 @@
 
     .prologue
     .line 76
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Route;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getHostPort()Lgov/nist/core/HostPort;
 

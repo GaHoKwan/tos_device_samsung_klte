@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/AlarmManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1897
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -32,15 +34,20 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 14
+    .locals 13
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 1900
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1915
     :goto_0
     return-void
 
+    .line 1902
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -49,17 +56,8 @@
 
     goto :goto_0
 
+    .line 1906
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
-
-    # getter for: Lcom/android/server/AlarmManagerService;->mLock:Ljava/lang/Object;
-    invoke-static {v0}, Lcom/android/server/AlarmManagerService;->access$800(Lcom/android/server/AlarmManagerService;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    monitor-enter v13
-
-    :try_start_0
     const-string v0, "AlarmManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -99,6 +97,7 @@
 
     invoke-static {v0, v1}, Lcom/sec/android/emergencymode/Elog;->v(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1907
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->mPendingAlarmList:Ljava/util/ArrayList;
@@ -110,6 +109,7 @@
 
     move-result-object v11
 
+    .local v11, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
@@ -123,6 +123,8 @@
 
     check-cast v12, Lcom/android/server/AlarmManagerService$PrevAlarm;
 
+    .line 1908
+    .local v12, "pa":Lcom/android/server/AlarmManagerService$PrevAlarm;
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
 
     iget v1, v12, Lcom/android/server/AlarmManagerService$PrevAlarm;->mType:I
@@ -143,6 +145,7 @@
 
     invoke-virtual/range {v0 .. v10}, Lcom/android/server/AlarmManagerService;->set(IJJJLandroid/app/PendingIntent;ZLandroid/os/WorkSource;)V
 
+    .line 1909
     const-string v0, "AlarmManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -185,17 +188,9 @@
 
     goto :goto_1
 
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v13
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
-
+    .line 1911
+    .end local v12    # "pa":Lcom/android/server/AlarmManagerService$PrevAlarm;
     :cond_0
-    :try_start_1
     iget-object v0, p0, Lcom/android/server/AlarmManagerService$2;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->mPendingAlarmList:Ljava/util/ArrayList;
@@ -205,14 +200,9 @@
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    monitor-exit v13
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
     goto/16 :goto_0
 
-    nop
-
+    .line 1900
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

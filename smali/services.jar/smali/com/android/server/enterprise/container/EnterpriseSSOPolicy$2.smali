@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;)V
     .locals 0
 
+    .prologue
+    .line 268
     iput-object p1, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public declared-synchronized onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 270
     monitor-enter p0
 
     :try_start_0
@@ -69,11 +75,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 271
     :cond_0
     invoke-static {p2}, Lcom/centrify/auth/aidl/IEnterpriseSecurityManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/centrify/auth/aidl/IEnterpriseSecurityManager;
 
     move-result-object v1
 
+    .line 272
+    .local v1, "ssoService1":Lcom/centrify/auth/aidl/IEnterpriseSecurityManager;
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$000()Z
 
@@ -81,8 +90,10 @@
 
     if-eqz v2, :cond_1
 
+    .line 273
     if-eqz v1, :cond_1
 
+    .line 274
     const-string v2, "EnterpriseSSOPolicyService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -105,6 +116,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 276
     :cond_1
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
@@ -115,18 +127,22 @@
 
     iput-object v1, v2, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$SSOInterfaceList1;->ssoInterface:Lcom/centrify/auth/aidl/IEnterpriseSecurityManager;
 
+    .line 277
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v2, "sso.enterprise.container.setup.success"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 278
+    .local v0, "mIntent":Landroid/content/Intent;
     const-string v2, "containerid"
 
     const/4 v3, 0x1
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 279
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mContext:Landroid/content/Context;
@@ -136,6 +152,7 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 280
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     const/4 v3, 0x1
@@ -145,10 +162,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 281
     monitor-exit p0
 
     return-void
 
+    .line 270
+    .end local v0    # "mIntent":Landroid/content/Intent;
+    .end local v1    # "ssoService1":Lcom/centrify/auth/aidl/IEnterpriseSecurityManager;
     :catchall_0
     move-exception v2
 
@@ -159,9 +180,12 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 6
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 284
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$000()Z
 
@@ -191,19 +215,25 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 285
     :cond_0
     const/4 v1, 0x0
 
+    .line 286
+    .local v1, "result":I
     new-instance v0, Landroid/content/Intent;
 
     const-string/jumbo v2, "sso.enterprise.container.disconnected"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 287
+    .local v0, "mIntent":Landroid/content/Intent;
     const-string v2, "containerid"
 
     invoke-virtual {v0, v2, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 288
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mContext:Landroid/content/Context;
@@ -213,6 +243,7 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 289
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOInterfaceList1:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$SSOInterfaceList1;
@@ -224,6 +255,7 @@
 
     iput-object v3, v2, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$SSOInterfaceList1;->ssoInterface:Lcom/centrify/auth/aidl/IEnterpriseSecurityManager;
 
+    .line 290
     iget-object v2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$2;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # invokes: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->bindSSOInterfaces(I)I
@@ -231,6 +263,7 @@
 
     move-result v1
 
+    .line 291
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$000()Z
 
@@ -260,6 +293,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 292
     :cond_1
     return-void
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
     .locals 0
+    .param p2, "x0"    # Landroid/graphics/drawable/AnimationDrawable;
 
+    .prologue
+    .line 810
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;-><init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
@@ -34,6 +37,8 @@
 .method onAnimationEnd()V
     .locals 1
 
+    .prologue
+    .line 814
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # getter for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mIsFinishedScanning:Z
@@ -43,6 +48,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 815
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # getter for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mIsSucceed:Z
@@ -52,13 +58,16 @@
 
     if-nez v0, :cond_0
 
+    .line 816
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->startFailedAnimation()V
 
+    .line 823
     :goto_0
     return-void
 
+    .line 818
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
@@ -66,6 +75,7 @@
 
     goto :goto_0
 
+    .line 821
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$8;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 

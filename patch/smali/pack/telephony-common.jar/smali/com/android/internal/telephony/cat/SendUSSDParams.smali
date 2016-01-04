@@ -83,7 +83,7 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/telephony/cat/SendUSSDParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;[B)V
 
     .line 320
-    invoke-virtual {p0, p4}, Lcom/android/internal/telephony/cat/SendUSSDParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p4}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 321
     return-void

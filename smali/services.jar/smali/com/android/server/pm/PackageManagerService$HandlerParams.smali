@@ -29,17 +29,23 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Landroid/os/UserHandle;)V
     .locals 1
+    .param p2, "user"    # Landroid/os/UserHandle;
 
+    .prologue
+    .line 9766
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 9761
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->mRetries:I
 
+    .line 9767
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->mUser:Landroid/os/UserHandle;
 
+    .line 9768
     return-void
 .end method
 
@@ -48,6 +54,8 @@
 .method getUser()Landroid/os/UserHandle;
     .locals 1
 
+    .prologue
+    .line 9771
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->mUser:Landroid/os/UserHandle;
 
     return-object v0
@@ -70,16 +78,22 @@
 .method final serviceError()V
     .locals 0
 
+    .prologue
+    .line 9799
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleServiceError()V
 
+    .line 9800
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleReturnCode()V
 
+    .line 9801
     return-void
 .end method
 
 .method final startCopy()Z
     .locals 4
 
+    .prologue
+    .line 9779
     :try_start_0
     iget v2, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->mRetries:I
 
@@ -91,51 +105,66 @@
 
     if-le v2, v3, :cond_0
 
+    .line 9780
     const-string v2, "PackageManager"
 
     const-string v3, "Failed to invoke remote methods on default container service. Giving up"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 9781
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     const/16 v3, 0xb
 
-    invoke-virtual {v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 9782
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleServiceError()V
 
+    .line 9783
     const/4 v1, 0x0
 
+    .line 9794
     :goto_0
     return v1
 
+    .line 9785
     :cond_0
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleStartCopy()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 9786
     const/4 v1, 0x1
 
+    .line 9793
+    .local v1, "res":Z
     :goto_1
     invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$HandlerParams;->handleReturnCode()V
 
     goto :goto_0
 
+    .line 9788
+    .end local v1    # "res":Z
     :catch_0
     move-exception v0
 
+    .line 9790
+    .local v0, "e":Landroid/os/RemoteException;
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$HandlerParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
     const/16 v3, 0xa
 
-    invoke-virtual {v2, v3}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->sendEmptyMessage(I)Z
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 9791
     const/4 v1, 0x0
 
+    .restart local v1    # "res":Z
     goto :goto_1
 .end method

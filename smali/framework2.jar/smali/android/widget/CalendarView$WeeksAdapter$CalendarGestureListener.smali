@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/widget/CalendarView$WeeksAdapter;)V
     .locals 0
 
+    .prologue
+    .line 1556
     iput-object p1, p0, Landroid/widget/CalendarView$WeeksAdapter$CalendarGestureListener;->this$1:Landroid/widget/CalendarView$WeeksAdapter;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "e"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 1559
     const/4 v0, 0x1
 
     return v0

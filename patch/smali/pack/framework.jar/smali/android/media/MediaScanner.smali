@@ -6955,8 +6955,6 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v1, v13, v0, v5, v7}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-
     .line 2645
     .end local v13    # "_uri":Landroid/net/Uri;
     .end local v15    # "defaultRing":Ljava/lang/String;

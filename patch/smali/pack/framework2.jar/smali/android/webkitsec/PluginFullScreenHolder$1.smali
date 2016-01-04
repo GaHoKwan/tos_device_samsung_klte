@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/PluginFullScreenHolder;)V
     .locals 0
 
+    .prologue
+    .line 134
     iput-object p1, p0, Landroid/webkitsec/PluginFullScreenHolder$1;->this$0:Landroid/webkitsec/PluginFullScreenHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public onCustomViewHidden()V
     .locals 4
 
+    .prologue
+    .line 137
     iget-object v0, p0, Landroid/webkitsec/PluginFullScreenHolder$1;->this$0:Landroid/webkitsec/PluginFullScreenHolder;
 
     # getter for: Landroid/webkitsec/PluginFullScreenHolder;->mWebView:Landroid/webkitsec/WebViewClassic;
@@ -54,6 +58,7 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 140
     iget-object v0, p0, Landroid/webkitsec/PluginFullScreenHolder$1;->this$0:Landroid/webkitsec/PluginFullScreenHolder;
 
     # getter for: Landroid/webkitsec/PluginFullScreenHolder;->mWebView:Landroid/webkitsec/WebViewClassic;
@@ -78,6 +83,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/webkitsec/WebViewCore;->sendMessage(III)V
 
+    .line 143
     # getter for: Landroid/webkitsec/PluginFullScreenHolder;->mLayout:Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;
     invoke-static {}, Landroid/webkitsec/PluginFullScreenHolder;->access$300()Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;
 
@@ -90,13 +96,15 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;->removeView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
+    .line 144
     const/4 v0, 0x0
 
     # setter for: Landroid/webkitsec/PluginFullScreenHolder;->mLayout:Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;
     invoke-static {v0}, Landroid/webkitsec/PluginFullScreenHolder;->access$302(Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;)Landroid/webkitsec/PluginFullScreenHolder$CustomFrameLayout;
 
+    .line 147
     iget-object v0, p0, Landroid/webkitsec/PluginFullScreenHolder$1;->this$0:Landroid/webkitsec/PluginFullScreenHolder;
 
     # getter for: Landroid/webkitsec/PluginFullScreenHolder;->mWebView:Landroid/webkitsec/WebViewClassic;
@@ -110,5 +118,6 @@
 
     invoke-virtual {v0}, Landroid/webkitsec/ViewManager;->showAll()V
 
+    .line 148
     return-void
 .end method

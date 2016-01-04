@@ -89,11 +89,11 @@
     <string name="widget_default_package_name" />
     <string name="widget_default_class_name" />
     <string name="default_wallpaper_component">@null</string>
-    <string name="config_networkLocationProviderPackageName">com.baidu.map.location</string>
+    <string name="config_networkLocationProviderPackageName">com.google.android.location</string>
     <string name="config_fusedLocationProviderPackageName">com.android.location.fused</string>
     <string name="config_geocoderProviderPackageName">@null</string>
     <string name="config_geofenceProviderPackageName">@null</string>
-    <string name="config_geocodeProviderPackageName">com.baidu.map.location</string>
+    <string name="config_geocodeProviderPackageName">com.google.android.location</string>
     <string name="config_geofenceProvider">com.qualcomm.location</string>
     <string name="config_datause_iface">rmnet0</string>
     <string name="default_sms_application">com.android.mms</string>
@@ -287,7 +287,7 @@
     <string name="system_ui_date_pattern">@string/icu_abbrev_wday_month_day_no_year</string>
     <string name="keyguard_fmm_font_sans_serif_light">sans-serif-light</string>
     <string name="keyguard_fmm_font_sans_serif">sans-serif</string>
-    <string name="china_country_name">中国</string>
+    <string name="china_country_name">china</string>
     <string name="byteShort">B</string>
     <string name="kilobyteShort">KB</string>
     <string name="megabyteShort">MB</string>
@@ -500,7 +500,7 @@
     <string name="global_actions_airplane_mode_on_status">Enabled</string>
     <string name="global_actions_airplane_mode_off_status">Disabled</string>
     <string name="global_actions_airplane_mode_on_status_confirm">Flight mode allows you to turn off calling, messaging and data network features. It also turns off connectivity features such as Wi-Fi and Bluetooth. To use Wi-Fi and Bluetooth, turn them on in Settings or on the notification panel.</string>
-    <string name="global_actions_airplane_mode_on_status_confirm_body">Airplane mode turns off calling, messaging, and mobile network functions.</string>
+    <string name="global_actions_airplane_mode_on_status_confirm_body">Flight mode allows you to disable calling, messaging, and mobile networks functions</string>
     <string name="global_actions_airplane_mode_off_status_confirm">Flight mode will be disabled</string>
     <string name="global_actions_airplane_mode_off_usb3_status_confirm">Turning off Flight mode will end your USB 3.0 connection and stop any ongoing data transfers</string>
     <string name="global_actions_airplane_mode_off_usb3_yes">End USB 3.0</string>
@@ -2166,13 +2166,13 @@ for account %s."</string>
     <string name="storage_external_sd_card">External SD card</string>
     <string name="storage_usb">USB storage</string>
     <string name="extract_edit_menu_button">Edit</string>
-    <string name="data_usage_warning_title">Data usage alert</string>
-    <string name="data_usage_warning_body">Tap to view usage and settings</string>
+    <string name="data_usage_warning_title">Data usage warning</string>
+    <string name="data_usage_warning_body">Touch to view usage and settings.</string>
     <string name="data_usage_3g_limit_title">2G-3G data disabled</string>
     <string name="data_usage_4g_limit_title">4G data disabled</string>
     <string name="data_usage_mobile_limit_title">Mobile data disabled</string>
     <string name="data_usage_wifi_limit_title">Wi-Fi data disabled</string>
-    <string name="data_usage_limit_body">Tap to re-enable</string>
+    <string name="data_usage_limit_body">Touch to enable.</string>
     <string name="data_usage_3g_limit_snoozed_title">2G-3G data limit exceeded</string>
     <string name="data_usage_4g_limit_snoozed_title">4G data limit exceeded</string>
     <string name="data_usage_mobile_limit_snoozed_title">Mobile data limit exceeded</string>
@@ -2706,7 +2706,7 @@ Listening at high volume for long periods may damage your hearing."</string>
     <string name="ssrm_notification_permission_label">SSRM Notification Permission</string>
     <string name="ssrm_notification_permission_desc">Allow application to send SSRM Notification messages. This permission is only available to Samsung preload applications.</string>
     <string name="vzw_cooldown_mode">Unable to open application. The device is overheating.</string>
-    <string name="vzw_cooldown_mode_kill">Your phone is getting too hot, so some apps have been closed to help it cool down.</string>
+    <string name="vzw_cooldown_mode_kill">%s application closed. The device is overheating.</string>
     <string name="vzw_cooldown_mode_attention">Attention</string>
     <string name="vzw_cooldown_mode_ok">OK</string>
     <string name="batt_cooldown_mode">Unable to open this application. Your device is overheating.</string>
@@ -2804,8 +2804,8 @@ booker"</string>
     <string name="s_view_cover_temp_unit">°</string>
     <string name="select_background_color">Set S View window colour</string>
     <string name="cmas_cmas_test_message">Test Alert</string>
-    <string name="unknown">Unavailable</string>
-    <string name="private_num">Restricted</string>
+    <string name="unknown">Unknown</string>
+    <string name="private_num">Private number</string>
     <string name="payphone">Pay phone</string>
     <string name="kg_failed_1_attempt_at_auto_wipe">"You only have one attempt left to unlock your device before it is reset to factory mode. This will erase all data, including files and downloaded apps.
 
@@ -2816,9 +2816,9 @@ To turn off this feature, go to Settings > Auto factory reset"</string>
     <string name="scrapbook_guide_text">Draw a line around the content you want to save.</string>
     <string name="scrapbook_guide_title">Scrapbooker</string>
     <string name="scrapbook_guide_do_not_show_again">Do not show again</string>
-    <string name="cu_usimtoolkit">USIM卡应用</string>
-    <string name="cu_usimtoolkit1">USIM卡应用1</string>
-    <string name="cu_usimtoolkit2">USIM卡应用2</string>
+    <string name="cu_usimtoolkit">USIM Toolkit</string>
+    <string name="cu_usimtoolkit1">USIM Toolkit1</string>
+    <string name="cu_usimtoolkit2">USIM Toolkit2</string>
     <string name="global_actions_talkback_title">TalkBack</string>
     <string name="turn_off_talkback_exclusive_options_content">TalkBack and the options below cannot both be enabled. The options below will be disabled.</string>
     <string name="air_motion_title">Air browse</string>

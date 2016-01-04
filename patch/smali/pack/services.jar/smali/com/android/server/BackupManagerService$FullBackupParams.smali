@@ -33,24 +33,41 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Landroid/os/ParcelFileDescriptor;ZZZZZ[Ljava/lang/String;)V
     .locals 0
+    .param p2, "output"    # Landroid/os/ParcelFileDescriptor;
+    .param p3, "saveApks"    # Z
+    .param p4, "saveObbs"    # Z
+    .param p5, "saveShared"    # Z
+    .param p6, "doAllApps"    # Z
+    .param p7, "doSystem"    # Z
+    .param p8, "pkgList"    # [Ljava/lang/String;
 
+    .prologue
+    .line 434
     iput-object p1, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0, p1}, Lcom/android/server/BackupManagerService$FullParams;-><init>(Lcom/android/server/BackupManagerService;)V
 
-    iput-object p2, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->fd:Landroid/os/ParcelFileDescriptor;
+    .line 435
+    iput-object p2, p0, Lcom/android/server/BackupManagerService$FullParams;->fd:Landroid/os/ParcelFileDescriptor;
 
+    .line 436
     iput-boolean p3, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->includeApks:Z
 
+    .line 437
     iput-boolean p4, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->includeObbs:Z
 
+    .line 438
     iput-boolean p5, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->includeShared:Z
 
+    .line 439
     iput-boolean p6, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->allApps:Z
 
+    .line 440
     iput-boolean p7, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->includeSystem:Z
 
+    .line 441
     iput-object p8, p0, Lcom/android/server/BackupManagerService$FullBackupParams;->packages:[Ljava/lang/String;
 
+    .line 442
     return-void
 .end method

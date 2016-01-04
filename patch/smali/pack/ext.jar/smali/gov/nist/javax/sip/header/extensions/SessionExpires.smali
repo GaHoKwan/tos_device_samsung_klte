@@ -48,7 +48,7 @@
 
     .line 88
     .local v0, "retval":Ljava/lang/String;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/SessionExpires;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -71,7 +71,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/extensions/SessionExpires;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -105,7 +105,7 @@
 
     .prologue
     .line 95
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/SessionExpires;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "refresher"
 
@@ -168,7 +168,7 @@
 
     .prologue
     .line 99
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/SessionExpires;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "refresher"
 

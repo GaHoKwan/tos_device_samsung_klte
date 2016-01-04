@@ -47,31 +47,31 @@
 
     .line 59
     .local v0, "c":Lgov/nist/javax/sip/header/CSeq;
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x82e
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 60
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 61
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x3a
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 62
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 63
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -86,12 +86,12 @@
     invoke-virtual {v0, v4, v5}, Lgov/nist/javax/sip/header/CSeq;->setSeqNumber(J)V
 
     .line 65
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 66
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/CSeqParser;->method()Ljava/lang/String;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->method()Ljava/lang/String;
 
     move-result-object v4
 
@@ -104,12 +104,12 @@
     invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/CSeq;->setMethod(Ljava/lang/String;)V
 
     .line 71
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 72
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0xa
 
@@ -135,7 +135,7 @@
     .line 76
     const-string v4, "Number format exception"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/CSeqParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 
@@ -151,11 +151,11 @@
     invoke-static {v1}, Lgov/nist/core/Debug;->printStackTrace(Ljava/lang/Exception;)V
 
     .line 79
-    invoke-virtual {v1}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/CSeqParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 

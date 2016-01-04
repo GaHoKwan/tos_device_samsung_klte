@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
     .locals 0
+    .param p2, "x0"    # Landroid/graphics/drawable/AnimationDrawable;
 
+    .prologue
+    .line 862
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;-><init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
@@ -34,8 +37,10 @@
 .method onAnimationEnd()V
     .locals 4
 
+    .prologue
     const/4 v2, 0x4
 
+    .line 865
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # getter for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mTryCount:I
@@ -47,12 +52,14 @@
 
     if-gt v0, v1, :cond_2
 
+    .line 866
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-boolean v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mEnablePassword:Z
 
     if-nez v0, :cond_1
 
+    .line 867
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mAnimationImage:Landroid/widget/ImageView;
@@ -65,18 +72,21 @@
 
     if-eqz v0, :cond_0
 
+    .line 868
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mAnimationImage:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 869
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mUnlockButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
+    .line 870
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mInfoImage:Landroid/widget/ImageView;
@@ -85,6 +95,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 871
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
@@ -105,6 +116,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->setAnimationTextandImage(Ljava/lang/String;Landroid/graphics/drawable/Drawable;)V
 
+    .line 872
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # getter for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mHandler:Landroid/os/Handler;
@@ -120,10 +132,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 890
     :cond_0
     :goto_0
     return-void
 
+    .line 880
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
@@ -145,10 +159,12 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 881
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->showAlternativePasswordBox()V
 
+    .line 882
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mFm:Lcom/samsung/android/fingerprint/FingerprintManager;
@@ -157,16 +173,19 @@
 
     goto :goto_0
 
+    .line 886
     :cond_2
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-virtual {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->startStandbyAnimation()V
 
+    .line 887
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # operator-- for: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mTryCount:I
     invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->access$410(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)I
 
+    .line 888
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$10;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # invokes: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->identify()Z

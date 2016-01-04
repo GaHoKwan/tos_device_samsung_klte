@@ -103,7 +103,7 @@
     <color name="keyguard_avatar_nick_color">#ffffffff</color>
     <color name="keyguard_avatar_frame_pressed_color">#ff35b5e5</color>
     <color name="accessibility_focus_highlight">#80ffff00</color>
-    <color name="config_defaultNotificationColor">#ff00ff00</color>
+    <color name="config_defaultNotificationColor">#ffffffff</color>
     <color name="tw_secondary_text_color">#ff5397c7</color>
     <color name="tw_dialog_title_text_color_holo_dark">#fff5f5f5</color>
     <color name="tw_dialog_title_shadow_color_holo_dark">#75000000</color>

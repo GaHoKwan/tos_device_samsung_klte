@@ -47,7 +47,7 @@
     .line 68
     const-string v3, "RSeqParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/RSeqParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 69
     :cond_0
@@ -60,15 +60,15 @@
     const/16 v3, 0x83c
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/RSeqParser;->headerName(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 73
     const-string v3, "RSeq"
 
-    invoke-virtual {v2, v3}, Lgov/nist/javax/sip/header/RSeq;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 75
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/RSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
     :try_end_0
@@ -90,12 +90,12 @@
 
     .line 81
     :try_start_2
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/RSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 83
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/RSeqParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xa
 
@@ -111,7 +111,7 @@
     .line 88
     const-string v3, "RSeqParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/RSeqParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 85
     :cond_1
@@ -124,11 +124,11 @@
     .line 79
     .local v0, "ex":Ljavax/sip/InvalidArgumentException;
     :try_start_3
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/RSeqParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v3
 
@@ -149,7 +149,7 @@
     .line 88
     const-string v4, "RSeqParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/RSeqParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 87
     :cond_2

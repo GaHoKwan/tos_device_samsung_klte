@@ -22,8 +22,11 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 566
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 570
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$registerCardCallback$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/widget/LockPatternUtils$registerCardCallback$1;-><init>(Lcom/android/internal/widget/LockPatternUtils$registerCardCallback;)V

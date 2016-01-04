@@ -28,22 +28,22 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 45
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->initialize()V
 
     .line 46
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->clear()V
 
     .line 47
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p2}, Landroid/hardware/contextaware/manager/ContextComponent;->enableForStart(I)V
 
     .line 48
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->registerApPowerObserver()V
 
@@ -53,7 +53,7 @@
     if-ne p2, v0, :cond_0
 
     .line 51
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyFaultDetectionResult()V
 
@@ -72,17 +72,17 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 65
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->clear()V
 
     .line 66
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->unregisterApPowerObserver()V
 
     .line 67
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p2}, Landroid/hardware/contextaware/manager/ContextComponent;->disableForStop(I)V
 
@@ -92,13 +92,13 @@
     if-ne p2, v0, :cond_0
 
     .line 70
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyFaultDetectionResult()V
 
     .line 73
     :cond_0
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/InterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0}, Landroid/hardware/contextaware/manager/ContextComponent;->terminate()V
 

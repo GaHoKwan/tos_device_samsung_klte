@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/email/ExchangeAccountPolicy;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 1278
     iput-object p1, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$1;->this$0:Lcom/android/server/enterprise/email/ExchangeAccountPolicy;
 
     iput-object p2, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$1;->val$sync:Ljava/lang/Object;
@@ -37,7 +39,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1281
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -46,6 +52,8 @@
 
     move-result v0
 
+    .line 1282
+    .local v0, "containerId":I
     # getter for: Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->mDeviceId:[Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/email/ExchangeAccountPolicy;->access$000()[Ljava/lang/String;
 
@@ -59,25 +67,31 @@
 
     aput-object v2, v1, v0
 
+    .line 1284
     const-string v1, "ExchangeAccountPolicy"
 
     const-string v2, "getDeviceId() EX : onReceive "
 
     invoke-static {v1, v2}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1286
     iget-object v2, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$1;->val$sync:Ljava/lang/Object;
 
     monitor-enter v2
 
+    .line 1287
     :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/email/ExchangeAccountPolicy$1;->val$sync:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->notifyAll()V
 
+    .line 1288
     monitor-exit v2
 
+    .line 1289
     return-void
 
+    .line 1288
     :catchall_0
     move-exception v1
 

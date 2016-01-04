@@ -37,12 +37,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 3325
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "IGNORE"
@@ -51,6 +53,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->IGNORE:Lcom/android/server/BackupManagerService$RestorePolicy;
 
+    .line 3326
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "ACCEPT"
@@ -59,6 +62,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT:Lcom/android/server/BackupManagerService$RestorePolicy;
 
+    .line 3327
     new-instance v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     const-string v1, "ACCEPT_IF_APK"
@@ -67,6 +71,7 @@
 
     sput-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT_IF_APK:Lcom/android/server/BackupManagerService$RestorePolicy;
 
+    .line 3324
     const/4 v0, 0x3
 
     new-array v0, v0, [Lcom/android/server/BackupManagerService$RestorePolicy;
@@ -96,6 +101,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 3324
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +110,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/BackupManagerService$RestorePolicy;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 3324
     const-class v0, Lcom/android/server/BackupManagerService$RestorePolicy;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -118,9 +128,11 @@
 .method public static values()[Lcom/android/server/BackupManagerService$RestorePolicy;
     .locals 1
 
+    .prologue
+    .line 3324
     sget-object v0, Lcom/android/server/BackupManagerService$RestorePolicy;->$VALUES:[Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    invoke-virtual {v0}, [Lcom/android/server/BackupManagerService$RestorePolicy;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

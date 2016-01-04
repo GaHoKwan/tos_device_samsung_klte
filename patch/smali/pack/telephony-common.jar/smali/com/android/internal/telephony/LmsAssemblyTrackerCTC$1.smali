@@ -44,7 +44,7 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/LmsAssemblyTrackerCTC;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     .line 70
     return-void

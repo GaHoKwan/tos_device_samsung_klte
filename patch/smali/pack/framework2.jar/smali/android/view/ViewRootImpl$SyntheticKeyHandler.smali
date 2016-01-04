@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/view/ViewRootImpl;)V
     .locals 0
 
+    .prologue
+    .line 5656
     iput-object p1, p0, Landroid/view/ViewRootImpl$SyntheticKeyHandler;->this$0:Landroid/view/ViewRootImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,23 +35,29 @@
 # virtual methods
 .method public process(Landroid/view/KeyEvent;)Z
     .locals 14
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/16 v0, 0x17
 
     const/4 v6, 0x4
 
+    .line 5663
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
     sparse-switch v1, :sswitch_data_0
 
+    .line 5701
     :goto_0
     const/4 v0, 0x0
 
+    .line 5708
     :goto_1
     return v0
 
+    .line 5668
     :sswitch_0
     iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticKeyHandler;->this$0:Landroid/view/ViewRootImpl;
 
@@ -57,6 +65,8 @@
 
     if-eqz v1, :cond_0
 
+    .line 5704
+    .local v6, "keyCode":I
     :goto_2
     iget-object v13, p0, Landroid/view/ViewRootImpl$SyntheticKeyHandler;->this$0:Landroid/view/ViewRootImpl;
 
@@ -104,15 +114,19 @@
 
     invoke-virtual {v13, v0}, Landroid/view/ViewRootImpl;->enqueueInputEvent(Landroid/view/InputEvent;)V
 
+    .line 5708
     const/4 v0, 0x1
 
     goto :goto_1
 
+    .end local v6    # "keyCode":I
     :cond_0
     move v6, v0
 
+    .line 5668
     goto :goto_2
 
+    .line 5673
     :sswitch_1
     iget-object v1, p0, Landroid/view/ViewRootImpl$SyntheticKeyHandler;->this$0:Landroid/view/ViewRootImpl;
 
@@ -122,19 +136,29 @@
 
     move v6, v0
 
+    .line 5675
+    .restart local v6    # "keyCode":I
     :cond_1
     goto :goto_2
 
+    .line 5695
+    .end local v6    # "keyCode":I
     :sswitch_2
     const/16 v6, 0x17
 
+    .line 5696
+    .restart local v6    # "keyCode":I
     goto :goto_2
 
+    .line 5699
+    .end local v6    # "keyCode":I
     :sswitch_3
     const/16 v6, 0x52
 
+    .restart local v6    # "keyCode":I
     goto :goto_0
 
+    .line 5663
     :sswitch_data_0
     .sparse-switch
         0x60 -> :sswitch_0

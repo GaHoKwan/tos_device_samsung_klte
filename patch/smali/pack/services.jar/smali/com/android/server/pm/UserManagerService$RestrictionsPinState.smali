@@ -30,6 +30,8 @@
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;)V
     .locals 0
 
+    .prologue
+    .line 159
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$RestrictionsPinState;->this$0:Lcom/android/server/pm/UserManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

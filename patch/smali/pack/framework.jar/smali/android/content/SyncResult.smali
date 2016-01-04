@@ -304,7 +304,7 @@
     .line 215
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
-    const-string v1, "you are not allowed to clear the ALREADY_IN_PROGRESS SyncStats"
+    const-string/jumbo v1, "you are not allowed to clear the ALREADY_IN_PROGRESS SyncStats"
 
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
@@ -673,7 +673,7 @@
     if-eqz v1, :cond_9
 
     .line 315
-    const-string v1, "x1"
+    const-string/jumbo v1, "x1"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 

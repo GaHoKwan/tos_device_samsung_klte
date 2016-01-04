@@ -342,7 +342,7 @@
 
     .line 159
     .local v0, "e":Ljava/lang/SecurityException;
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -353,7 +353,7 @@
 
     .line 162
     .local v0, "e":Ljava/lang/NoSuchMethodException;
-    invoke-virtual {v0}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -529,7 +529,7 @@
 
     .line 50
     .restart local v2    # "e":Ljava/lang/ClassNotFoundException;
-    invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 51
     sget-object v4, Lorg/apache/http/impl/client/secgbaclient/remote/ServiceConnection;->Log:Lorg/apache/http/impl/client/secgbaclient/util/GbaLogger;
@@ -550,7 +550,7 @@
 
     .line 60
     .local v2, "e":Ljava/lang/SecurityException;
-    invoke-virtual {v2}, Ljava/lang/SecurityException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -561,7 +561,7 @@
 
     .line 62
     .local v2, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -572,7 +572,7 @@
 
     .line 64
     .local v2, "e":Ljava/lang/ClassNotFoundException;
-    invoke-virtual {v2}, Ljava/lang/ClassNotFoundException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -583,7 +583,7 @@
 
     .line 66
     .local v2, "e":Ljava/lang/NoSuchMethodException;
-    invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -594,7 +594,7 @@
 
     .line 68
     .local v2, "e":Ljava/lang/InstantiationException;
-    invoke-virtual {v2}, Ljava/lang/InstantiationException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -605,7 +605,7 @@
 
     .line 70
     .local v2, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
@@ -616,7 +616,7 @@
 
     .line 72
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_1
 
@@ -630,7 +630,7 @@
 
     .line 82
     .local v2, "e":Ljava/lang/NoSuchMethodException;
-    invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 
@@ -641,7 +641,7 @@
 
     .line 87
     .local v2, "e":Ljava/lang/SecurityException;
-    invoke-virtual {v2}, Ljava/lang/SecurityException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -652,7 +652,7 @@
 
     .line 89
     .local v2, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v2}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -663,7 +663,7 @@
 
     .line 91
     .local v2, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -674,7 +674,7 @@
 
     .line 93
     .local v2, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v2}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -687,7 +687,7 @@
 
     .line 101
     .local v2, "e":Ljava/lang/InstantiationException;
-    invoke-virtual {v2}, Ljava/lang/InstantiationException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_4
 
@@ -698,7 +698,7 @@
 
     .line 103
     .local v2, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_4
 .end method
@@ -808,7 +808,7 @@
 
     .line 137
     .local v0, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -836,7 +836,7 @@
 
     .line 140
     .local v0, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -847,7 +847,7 @@
 
     .line 143
     .local v0, "e":Ljava/lang/reflect/InvocationTargetException;
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

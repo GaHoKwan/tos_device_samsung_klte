@@ -27,6 +27,8 @@
 .method constructor <init>([Ljava/lang/String;Ldalvik/system/VMRuntime;)V
     .locals 0
 
+    .prologue
+    .line 565
     iput-object p1, p0, Lcom/android/internal/os/ZygoteInit$3;->val$classList:[Ljava/lang/String;
 
     iput-object p2, p0, Lcom/android/internal/os/ZygoteInit$3;->val$runtime:Ldalvik/system/VMRuntime;
@@ -41,24 +43,35 @@
 .method public run()V
     .locals 15
 
+    .prologue
+    .line 567
     const/4 v11, -0x4
 
     invoke-static {v11}, Landroid/os/Process;->setThreadPriority(I)V
 
+    .line 570
     const/4 v11, 0x1
 
     sput-boolean v11, Lcom/android/internal/os/ZygoteInit;->parallelPCThread1running:Z
 
+    .line 571
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v4
 
+    .line 572
+    .local v4, "startTime":J
     const-wide/16 v7, 0x0
 
+    .line 573
+    .local v7, "time1":J
     const-wide/16 v9, 0x0
 
+    .line 575
+    .local v9, "time2":J
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     # getter for: Lcom/android/internal/os/ZygoteInit;->numberOfPreloadClassesforThread1:I
     invoke-static {}, Lcom/android/internal/os/ZygoteInit;->access$100()I
@@ -67,12 +80,16 @@
 
     if-ge v1, v11, :cond_6
 
+    .line 576
     iget-object v11, p0, Lcom/android/internal/os/ZygoteInit$3;->val$classList:[Ljava/lang/String;
 
     aget-object v3, v11, v1
 
+    .line 582
+    .local v3, "line":Ljava/lang/String;
     const/4 v2, 0x0
 
+    .local v2, "j":I
     :goto_1
     :try_start_0
     sget-object v11, Lcom/android/internal/os/ZygoteInit;->postLoadClasses:[Ljava/lang/String;
@@ -81,6 +98,7 @@
 
     if-ge v2, v11, :cond_0
 
+    .line 585
     sget-object v11, Lcom/android/internal/os/ZygoteInit;->postLoadClasses:[Ljava/lang/String;
 
     aget-object v11, v11, v2
@@ -91,6 +109,7 @@
 
     if-eqz v11, :cond_2
 
+    .line 587
     const-string v11, "Zygote"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -113,25 +132,31 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 588
     const/4 v3, 0x0
 
+    .line 592
     :cond_0
     if-nez v3, :cond_3
 
+    .line 575
     :cond_1
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 582
     :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 595
     :cond_3
     invoke-static {v3}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
+    .line 603
     invoke-static {}, Landroid/os/Debug;->getGlobalAllocSize()I
 
     move-result v11
@@ -143,6 +168,7 @@
 
     if-le v11, v12, :cond_1
 
+    .line 605
     const-string v11, "Zygote"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -169,14 +195,18 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 608
     invoke-static {}, Ljava/lang/System;->gc()V
 
+    .line 609
     iget-object v11, p0, Lcom/android/internal/os/ZygoteInit$3;->val$runtime:Ldalvik/system/VMRuntime;
 
     invoke-virtual {v11}, Ldalvik/system/VMRuntime;->runFinalizationSync()V
 
+    .line 610
     invoke-static {}, Landroid/os/Debug;->resetGlobalAllocSize()V
 
+    .line 611
     const-string v11, "Zygote"
 
     const-string v12, "!@GC end"
@@ -188,9 +218,12 @@
 
     goto :goto_2
 
+    .line 613
     :catch_0
     move-exception v0
 
+    .line 614
+    .local v0, "e":Ljava/lang/ClassNotFoundException;
     const-string v11, "Zygote"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -215,9 +248,13 @@
 
     goto :goto_2
 
+    .line 615
+    .end local v0    # "e":Ljava/lang/ClassNotFoundException;
     :catch_1
     move-exception v6
 
+    .line 616
+    .local v6, "t":Ljava/lang/Throwable;
     const-string v11, "Zygote"
 
     new-instance v12, Ljava/lang/StringBuilder;
@@ -246,33 +283,44 @@
 
     invoke-static {v11, v12, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 618
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v11
 
     invoke-static {v11}, Landroid/os/Process;->killProcess(I)V
 
+    .line 619
     const/16 v11, 0xa
 
     invoke-static {v11}, Ljava/lang/System;->exit(I)V
 
+    .line 620
     instance-of v11, v6, Ljava/lang/Error;
 
     if-eqz v11, :cond_4
 
+    .line 621
     check-cast v6, Ljava/lang/Error;
 
+    .end local v6    # "t":Ljava/lang/Throwable;
     throw v6
 
+    .line 623
+    .restart local v6    # "t":Ljava/lang/Throwable;
     :cond_4
     instance-of v11, v6, Ljava/lang/RuntimeException;
 
     if-eqz v11, :cond_5
 
+    .line 624
     check-cast v6, Ljava/lang/RuntimeException;
 
+    .end local v6    # "t":Ljava/lang/Throwable;
     throw v6
 
+    .line 626
+    .restart local v6    # "t":Ljava/lang/Throwable;
     :cond_5
     new-instance v11, Ljava/lang/RuntimeException;
 
@@ -280,6 +328,10 @@
 
     throw v11
 
+    .line 629
+    .end local v2    # "j":I
+    .end local v3    # "line":Ljava/lang/String;
+    .end local v6    # "t":Ljava/lang/Throwable;
     :cond_6
     const-string v11, "Zygote"
 
@@ -330,10 +382,12 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 631
     const/4 v11, 0x0
 
     sput-boolean v11, Lcom/android/internal/os/ZygoteInit;->parallelPCThread1running:Z
 
+    .line 632
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v11
@@ -343,5 +397,6 @@
     # setter for: Lcom/android/internal/os/ZygoteInit;->thread1time:I
     invoke-static {v11}, Lcom/android/internal/os/ZygoteInit;->access$302(I)I
 
+    .line 633
     return-void
 .end method

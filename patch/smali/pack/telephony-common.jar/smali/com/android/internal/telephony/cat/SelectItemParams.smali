@@ -52,7 +52,7 @@
     invoke-direct {p0, p1, p2, p3}, Lcom/android/internal/telephony/cat/SelectItemParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Menu;Z)V
 
     .line 201
-    invoke-virtual {p0, p4}, Lcom/android/internal/telephony/cat/SelectItemParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p4}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 202
     return-void

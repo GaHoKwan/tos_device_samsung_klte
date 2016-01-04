@@ -40,13 +40,20 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/ILEDManager;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "service"    # Landroid/os/ILEDManager;
 
+    .prologue
+    .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 44
     iput-object p1, p0, Landroid/os/LEDManager;->mContext:Landroid/content/Context;
 
+    .line 45
     iput-object p2, p0, Landroid/os/LEDManager;->mService:Landroid/os/ILEDManager;
 
+    .line 46
     return-void
 .end method
 
@@ -54,13 +61,18 @@
 # virtual methods
 .method public getLED(I)Landroid/os/LEDManager$LED;
     .locals 1
+    .param p1, "id"    # I
 
+    .prologue
+    .line 50
     const/4 v0, 0x4
 
     if-lt p1, v0, :cond_0
 
+    .line 51
     const/4 v0, 0x0
 
+    .line 53
     :goto_0
     return-object v0
 

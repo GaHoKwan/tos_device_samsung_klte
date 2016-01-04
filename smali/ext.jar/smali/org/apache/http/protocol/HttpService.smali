@@ -151,7 +151,7 @@
 
     .line 227
     :goto_0
-    invoke-virtual {p1}, Lorg/apache/http/HttpException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -169,7 +169,7 @@
     .local v0, "entity":Lorg/apache/http/entity/ByteArrayEntity;
     const-string v2, "text/plain; charset=US-ASCII"
 
-    invoke-virtual {v0, v2}, Lorg/apache/http/entity/ByteArrayEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {v0, v2}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 230
     invoke-interface {p2, v0}, Lorg/apache/http/HttpResponse;->setEntity(Lorg/apache/http/HttpEntity;)V

@@ -282,7 +282,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p2}, Ljava/text/ParseException;->getLocalizedMessage()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/Throwable;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -478,7 +478,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/header/SIPHeader;->toString()Ljava/lang/String;
 
     move-result-object v7
 
@@ -509,7 +509,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v2}, Lgov/nist/javax/sip/header/ContentLength;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lgov/nist/javax/sip/header/SIPHeader;->toString()Ljava/lang/String;
 
     move-result-object v7
 
@@ -574,7 +574,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v2}, Lgov/nist/javax/sip/header/ContentLength;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Lgov/nist/javax/sip/header/SIPHeader;->toString()Ljava/lang/String;
 
     move-result-object v7
 
@@ -997,18 +997,18 @@
     .local v9, "peerport":I
     if-nez v9, :cond_0
 
-    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPResponse;->getContactHeaders()Lgov/nist/javax/sip/header/ContactList;
+    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPMessage;->getContactHeaders()Lgov/nist/javax/sip/header/ContactList;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
     .line 365
-    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPResponse;->getContactHeaders()Lgov/nist/javax/sip/header/ContactList;
+    invoke-virtual {p1}, Lgov/nist/javax/sip/message/SIPMessage;->getContactHeaders()Lgov/nist/javax/sip/header/ContactList;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lgov/nist/javax/sip/header/ContactList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual {v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v8
 

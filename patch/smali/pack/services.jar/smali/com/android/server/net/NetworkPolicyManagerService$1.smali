@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
+    .prologue
+    .line 433
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/app/IProcessObserver$Stub;-><init>()V
@@ -33,7 +35,12 @@
 # virtual methods
 .method public onForegroundActivitiesChanged(IIZ)V
     .locals 3
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "foregroundActivities"    # Z
 
+    .prologue
+    .line 436
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
@@ -53,18 +60,28 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 438
     return-void
 .end method
 
 .method public onImportanceChanged(III)V
     .locals 0
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "importance"    # I
 
+    .prologue
+    .line 442
     return-void
 .end method
 
 .method public onProcessDied(II)V
     .locals 2
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
 
+    .prologue
+    .line 446
     iget-object v0, p0, Lcom/android/server/net/NetworkPolicyManagerService$1;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mHandler:Landroid/os/Handler;
@@ -80,5 +97,6 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 447
     return-void
 .end method

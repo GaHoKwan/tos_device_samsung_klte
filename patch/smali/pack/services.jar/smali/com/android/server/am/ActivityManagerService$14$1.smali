@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService$14;)V
     .locals 0
 
+    .prologue
+    .line 11222
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 11224
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$14;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v1
 
+    .line 11225
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
@@ -52,10 +57,12 @@
 
     iput-boolean v2, v0, Lcom/android/server/am/ActivityManagerService;->mDidUpdate:Z
 
+    .line 11226
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 11227
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$14;->val$doneReceivers:Ljava/util/ArrayList;
@@ -63,6 +70,7 @@
     # invokes: Lcom/android/server/am/ActivityManagerService;->writeLastDonePreBootReceivers(Ljava/util/ArrayList;)V
     invoke-static {v0}, Lcom/android/server/am/ActivityManagerService;->access$900(Ljava/util/ArrayList;)V
 
+    .line 11228
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$14;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -83,6 +91,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->showBootMessage(Ljava/lang/CharSequence;Z)V
 
+    .line 11231
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$14$1;->this$1:Lcom/android/server/am/ActivityManagerService$14;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService$14;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -93,8 +102,10 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/ActivityManagerService;->systemReady(Ljava/lang/Runnable;)V
 
+    .line 11232
     return-void
 
+    .line 11226
     :catchall_0
     move-exception v0
 

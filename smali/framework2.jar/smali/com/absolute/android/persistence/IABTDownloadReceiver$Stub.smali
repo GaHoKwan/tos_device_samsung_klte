@@ -35,25 +35,35 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 21
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    .line 22
     const-string v0, "com.absolute.android.persistence.IABTDownloadReceiver"
 
-    invoke-virtual {p0, p0, v0}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
+    .line 23
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lcom/absolute/android/persistence/IABTDownloadReceiver;
     .locals 2
+    .param p0, "obj"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 30
     if-nez p0, :cond_0
 
+    .line 31
     const/4 v0, 0x0
 
+    .line 37
     :goto_0
     return-object v0
 
+    .line 33
     :cond_0
     const-string v1, "com.absolute.android.persistence.IABTDownloadReceiver"
 
@@ -61,19 +71,24 @@
 
     move-result-object v0
 
+    .line 34
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Lcom/absolute/android/persistence/IABTDownloadReceiver;
 
     if-eqz v1, :cond_1
 
+    .line 35
     check-cast v0, Lcom/absolute/android/persistence/IABTDownloadReceiver;
 
     goto :goto_0
 
+    .line 37
     :cond_1
     new-instance v0, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;
 
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -84,21 +99,30 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
+    .prologue
+    .line 41
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 7
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x1
 
+    .line 45
     sparse-switch p1, :sswitch_data_0
 
+    .line 85
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v6
@@ -106,6 +130,7 @@
     :goto_0
     return v6
 
+    .line 49
     :sswitch_0
     const-string v0, "com.absolute.android.persistence.IABTDownloadReceiver"
 
@@ -113,38 +138,55 @@
 
     goto :goto_0
 
+    .line 54
     :sswitch_1
     const-string v0, "com.absolute.android.persistence.IABTDownloadReceiver"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 56
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 58
+    .local v1, "_arg0":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
 
+    .line 60
+    .local v2, "_arg1":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
+    .line 62
+    .local v3, "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v4
 
+    .line 63
+    .local v4, "_arg3":I
     invoke-virtual {p0, v1, v2, v3, v4}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->onDownloadProgress(Ljava/lang/String;III)V
 
+    .line 64
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto :goto_0
 
+    .line 69
+    .end local v1    # "_arg0":Ljava/lang/String;
+    .end local v2    # "_arg1":I
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":I
     :sswitch_2
     const-string v0, "com.absolute.android.persistence.IABTDownloadReceiver"
 
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 71
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -153,36 +195,54 @@
 
     move v1, v6
 
+    .line 73
+    .local v1, "_arg0":Z
     :goto_1
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 75
+    .local v2, "_arg1":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v3
 
+    .line 77
+    .restart local v3    # "_arg2":I
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 79
+    .local v4, "_arg3":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v5
 
+    .local v5, "_arg4":Ljava/lang/String;
     move-object v0, p0
 
+    .line 80
     invoke-virtual/range {v0 .. v5}, Lcom/absolute/android/persistence/IABTDownloadReceiver$Stub;->onDownloadResult(ZLjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V
 
+    .line 81
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto :goto_0
 
+    .line 71
+    .end local v1    # "_arg0":Z
+    .end local v2    # "_arg1":Ljava/lang/String;
+    .end local v3    # "_arg2":I
+    .end local v4    # "_arg3":Ljava/lang/String;
+    .end local v5    # "_arg4":Ljava/lang/String;
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_1
 
+    .line 45
     nop
 
     :sswitch_data_0

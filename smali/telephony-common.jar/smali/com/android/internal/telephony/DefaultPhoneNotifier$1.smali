@@ -27,7 +27,7 @@
     .locals 3
 
     .prologue
-    .line 266
+    .line 278
     invoke-static {}, Lcom/android/internal/telephony/Phone$DataActivityState;->values()[Lcom/android/internal/telephony/Phone$DataActivityState;
 
     move-result-object v0
@@ -43,7 +43,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAIN:Lcom/android/internal/telephony/Phone$DataActivityState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Phone$DataActivityState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -59,7 +59,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Phone$DataActivityState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -75,7 +75,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DATAINANDOUT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Phone$DataActivityState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -91,7 +91,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/Phone$DataActivityState;->DORMANT:Lcom/android/internal/telephony/Phone$DataActivityState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/Phone$DataActivityState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -101,7 +101,7 @@
     :try_end_3
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_5
 
-    .line 232
+    .line 244
     :goto_3
     invoke-static {}, Lcom/android/internal/telephony/PhoneConstants$DataState;->values()[Lcom/android/internal/telephony/PhoneConstants$DataState;
 
@@ -118,7 +118,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTING:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$DataState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -134,7 +134,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$DataState;->CONNECTED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$DataState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -150,7 +150,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$DataState;->SUSPENDED:Lcom/android/internal/telephony/PhoneConstants$DataState;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$DataState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -160,7 +160,7 @@
     :try_end_6
     .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_2
 
-    .line 200
+    .line 212
     :goto_6
     invoke-static {}, Lcom/android/internal/telephony/PhoneConstants$State;->values()[Lcom/android/internal/telephony/PhoneConstants$State;
 
@@ -177,7 +177,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->RINGING:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -193,7 +193,7 @@
 
     sget-object v1, Lcom/android/internal/telephony/PhoneConstants$State;->OFFHOOK:Lcom/android/internal/telephony/PhoneConstants$State;
 
-    invoke-virtual {v1}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -216,7 +216,7 @@
 
     goto :goto_7
 
-    .line 232
+    .line 244
     :catch_2
     move-exception v0
 
@@ -232,7 +232,7 @@
 
     goto :goto_4
 
-    .line 266
+    .line 278
     :catch_5
     move-exception v0
 

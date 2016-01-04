@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
     .locals 0
 
+    .prologue
+    .line 330
     iput-object p1, p0, Lcom/android/server/print/RemotePrintService$6;->this$0:Lcom/android/server/print/RemotePrintService;
 
     iput-object p2, p0, Lcom/android/server/print/RemotePrintService$6;->val$priorityList:Ljava/util/List;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 333
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService$6;->this$0:Lcom/android/server/print/RemotePrintService;
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$6;->val$priorityList:Ljava/util/List;
@@ -48,5 +52,6 @@
     # invokes: Lcom/android/server/print/RemotePrintService;->handleStartPrinterDiscovery(Ljava/util/List;)V
     invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$600(Lcom/android/server/print/RemotePrintService;Ljava/util/List;)V
 
+    .line 334
     return-void
 .end method

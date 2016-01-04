@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 204
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$1;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public inKeyguardRestrictedKeyInputMode()Z
     .locals 1
 
+    .prologue
+    .line 208
     const/4 v0, 0x0
 
     return v0
@@ -45,6 +49,8 @@
 .method public isKeyguardLocked()Z
     .locals 1
 
+    .prologue
+    .line 206
     const/4 v0, 0x0
 
     return v0
@@ -53,6 +59,8 @@
 .method public isKeyguardSecure()Z
     .locals 1
 
+    .prologue
+    .line 207
     const/4 v0, 0x0
 
     return v0
@@ -61,6 +69,8 @@
 .method public isKeyguardShowing()Z
     .locals 1
 
+    .prologue
+    .line 205
     const/4 v0, 0x0
 
     return v0

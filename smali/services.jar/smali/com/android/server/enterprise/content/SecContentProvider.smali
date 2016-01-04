@@ -117,6 +117,8 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
+    .line 84
     new-instance v0, Landroid/content/UriMatcher;
 
     const/4 v1, -0x1
@@ -125,6 +127,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
+    .line 85
     sget-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     const-string v1, "com.sec.knox.provider"
@@ -135,6 +138,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 86
     sget-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     const-string v1, "com.sec.knox.provider"
@@ -145,6 +149,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 87
     sget-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     const-string v1, "com.sec.knox.provider"
@@ -155,6 +160,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 88
     sget-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     const-string v1, "com.sec.knox.provider"
@@ -165,6 +171,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 89
     sget-object v0, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     const-string v1, "com.sec.knox.provider"
@@ -175,12 +182,15 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 90
     return-void
 .end method
 
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Landroid/content/ContentProvider;-><init>()V
 
     return-void
@@ -188,7 +198,12 @@
 
 .method public static notifyPolicyChangesAsUser(Landroid/content/Context;Ljava/lang/String;I)V
     .locals 6
+    .param p0, "cxt"    # Landroid/content/Context;
+    .param p1, "scope"    # Ljava/lang/String;
+    .param p2, "userId"    # I
 
+    .prologue
+    .line 498
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -211,10 +226,14 @@
 
     move-result-object v0
 
+    .line 499
+    .local v0, "content_uri":Landroid/net/Uri;
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
+    .line 500
+    .local v1, "token":J
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -225,8 +244,10 @@
 
     invoke-virtual {v3, v0, v4, v5, p2}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;ZI)V
 
+    .line 501
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 502
     return-void
 .end method
 
@@ -234,7 +255,12 @@
 # virtual methods
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 1
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "selection"    # Ljava/lang/String;
+    .param p3, "selectionArgs"    # [Ljava/lang/String;
 
+    .prologue
+    .line 481
     const/4 v0, 0x0
 
     return v0
@@ -242,7 +268,10 @@
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 1
+    .param p1, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 487
     const/4 v0, 0x0
 
     return-object v0
@@ -250,13 +279,19 @@
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 13
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 408
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v9
 
+    .line 410
+    .local v9, "callingUid":I
     sget-object v1, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
@@ -265,6 +300,7 @@
 
     packed-switch v1, :pswitch_data_0
 
+    .line 475
     :cond_0
     :goto_0
     :pswitch_0
@@ -272,6 +308,7 @@
 
     return-object v1
 
+    .line 422
     :pswitch_1
     const-string v1, "firewall_policy"
 
@@ -281,14 +318,19 @@
 
     check-cast v12, Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
+    .line 425
+    .local v12, "lFirewallPolicy":Lcom/android/server/enterprise/firewall/FirewallPolicy;
     if-eqz v12, :cond_0
 
+    .line 426
     const-string v1, "API"
 
     invoke-virtual {p2, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
+    .line 427
+    .local v8, "api":Ljava/lang/String;
     if-eqz v8, :cond_0
 
     const-string v1, "saveURLBlockedReport"
@@ -299,6 +341,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 428
     new-instance v1, Landroid/app/enterprise/ContextInfo;
 
     invoke-direct {v1, v9}, Landroid/app/enterprise/ContextInfo;-><init>(I)V
@@ -313,6 +356,9 @@
 
     goto :goto_0
 
+    .line 438
+    .end local v8    # "api":Ljava/lang/String;
+    .end local v12    # "lFirewallPolicy":Lcom/android/server/enterprise/firewall/FirewallPolicy;
     :pswitch_2
     const-string v1, "certificate_policy"
 
@@ -322,20 +368,27 @@
 
     check-cast v11, Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
+    .line 441
+    .local v11, "lCertificatePolicy":Lcom/android/server/enterprise/certificate/CertificatePolicy;
     if-eqz v11, :cond_0
 
+    .line 442
     const-string v1, "API"
 
     invoke-virtual {p2, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
+    .line 443
+    .restart local v8    # "api":Ljava/lang/String;
     const-string v1, "fail"
 
     invoke-virtual {p2, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v10
 
+    .line 444
+    .local v10, "fail":Ljava/lang/Integer;
     if-eqz v8, :cond_0
 
     const-string v1, "notifyCertificateFailure"
@@ -348,6 +401,7 @@
 
     if-eqz v10, :cond_0
 
+    .line 445
     const-string v1, "module"
 
     invoke-virtual {p2, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
@@ -362,6 +416,10 @@
 
     goto :goto_0
 
+    .line 457
+    .end local v8    # "api":Ljava/lang/String;
+    .end local v10    # "fail":Ljava/lang/Integer;
+    .end local v11    # "lCertificatePolicy":Lcom/android/server/enterprise/certificate/CertificatePolicy;
     :pswitch_3
     const-string v1, "auditlog"
 
@@ -371,8 +429,11 @@
 
     check-cast v0, Lcom/android/server/enterprise/auditlog/AuditLogService;
 
+    .line 460
+    .local v0, "lAuditLogService":Lcom/android/server/enterprise/auditlog/AuditLogService;
     if-eqz v0, :cond_0
 
+    .line 461
     new-instance v1, Landroid/app/enterprise/ContextInfo;
 
     invoke-direct {v1, v9}, Landroid/app/enterprise/ContextInfo;-><init>(I)V
@@ -443,6 +504,7 @@
 
     goto :goto_1
 
+    .line 410
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -456,12 +518,15 @@
 .method public onCreate()Z
     .locals 1
 
+    .prologue
+    .line 150
     invoke-virtual {p0}, Lcom/android/server/enterprise/content/SecContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/enterprise/content/SecContentProvider;->mContext:Landroid/content/Context;
 
+    .line 151
     const/4 v0, 0x1
 
     return v0
@@ -469,11 +534,20 @@
 
 .method public query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 26
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "sortOrder"    # Ljava/lang/String;
 
+    .prologue
+    .line 157
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v12
 
+    .line 159
+    .local v12, "callingUid":I
     sget-object v22, Lcom/android/server/enterprise/content/SecContentProvider;->URI_MATCHER:Landroid/content/UriMatcher;
 
     move-object/from16 v0, v22
@@ -486,6 +560,7 @@
 
     packed-switch v22, :pswitch_data_0
 
+    .line 402
     :cond_0
     :pswitch_0
     const/16 v22, 0x0
@@ -493,6 +568,7 @@
     :goto_0
     return-object v22
 
+    .line 162
     :pswitch_1
     const-string v22, "browser_policy"
 
@@ -502,8 +578,11 @@
 
     check-cast v16, Lcom/android/server/enterprise/browser/BrowserPolicy;
 
+    .line 165
+    .local v16, "lBrowserPolicy":Lcom/android/server/enterprise/browser/BrowserPolicy;
     if-eqz v16, :cond_0
 
+    .line 166
     if-eqz p3, :cond_1
 
     const-string v22, "getHttpProxy"
@@ -518,6 +597,7 @@
 
     if-eqz v22, :cond_1
 
+    .line 167
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -532,6 +612,8 @@
 
     move-result-object v19
 
+    .line 170
+    .local v19, "proxy":Ljava/lang/String;
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -556,6 +638,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 173
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -576,6 +659,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 178
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -584,6 +668,8 @@
 
     goto :goto_0
 
+    .line 180
+    .end local v19    # "proxy":Ljava/lang/String;
     :cond_1
     if-eqz p3, :cond_2
 
@@ -599,6 +685,7 @@
 
     if-eqz v22, :cond_2
 
+    .line 181
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -617,6 +704,8 @@
 
     move-result v4
 
+    .line 186
+    .local v4, "bAutoFill":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -641,6 +730,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 190
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -665,6 +755,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 195
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -673,6 +764,8 @@
 
     goto/16 :goto_0
 
+    .line 197
+    .end local v4    # "bAutoFill":Z
     :cond_2
     if-eqz p3, :cond_3
 
@@ -688,6 +781,7 @@
 
     if-eqz v22, :cond_3
 
+    .line 199
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -706,6 +800,8 @@
 
     move-result v5
 
+    .line 204
+    .local v5, "bCookiesSettings":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -730,6 +826,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 207
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -754,6 +851,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 212
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -762,6 +860,8 @@
 
     goto/16 :goto_0
 
+    .line 213
+    .end local v5    # "bCookiesSettings":Z
     :cond_3
     if-eqz p3, :cond_4
 
@@ -777,6 +877,7 @@
 
     if-eqz v22, :cond_4
 
+    .line 215
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -795,6 +896,8 @@
 
     move-result v9
 
+    .line 220
+    .local v9, "bJavaScriptSetting":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -819,6 +922,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 224
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -843,6 +947,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 229
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -851,6 +956,8 @@
 
     goto/16 :goto_0
 
+    .line 231
+    .end local v9    # "bJavaScriptSetting":Z
     :cond_4
     if-eqz p3, :cond_0
 
@@ -866,6 +973,7 @@
 
     if-eqz v22, :cond_0
 
+    .line 233
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -884,6 +992,8 @@
 
     move-result v10
 
+    .line 238
+    .local v10, "bPopupSettings":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -908,6 +1018,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 241
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -932,6 +1043,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 246
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -940,6 +1052,9 @@
 
     goto/16 :goto_0
 
+    .line 255
+    .end local v10    # "bPopupSettings":Z
+    .end local v16    # "lBrowserPolicy":Lcom/android/server/enterprise/browser/BrowserPolicy;
     :pswitch_2
     const-string/jumbo v22, "smartcard_browser_policy"
 
@@ -949,8 +1064,11 @@
 
     check-cast v18, Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;
 
+    .line 258
+    .local v18, "lSmartCardBrowserPolicy":Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;
     if-eqz v18, :cond_0
 
+    .line 259
     if-eqz p3, :cond_5
 
     const-string v22, "isAuthenticationEnabled"
@@ -965,6 +1083,7 @@
 
     if-eqz v22, :cond_5
 
+    .line 261
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -979,6 +1098,8 @@
 
     move-result v8
 
+    .line 265
+    .local v8, "bIsAuthenticationEnabled":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1003,6 +1124,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 269
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1027,6 +1149,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 274
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1035,6 +1158,8 @@
 
     goto/16 :goto_0
 
+    .line 276
+    .end local v8    # "bIsAuthenticationEnabled":Z
     :cond_5
     if-eqz p3, :cond_0
 
@@ -1050,16 +1175,19 @@
 
     if-eqz v22, :cond_0
 
+    .line 279
     invoke-static/range {p4 .. p4}, Ljava/lang/reflect/Array;->getLength(Ljava/lang/Object;)I
 
     move-result v22
 
     if-gtz v22, :cond_6
 
+    .line 280
     const/16 v22, 0x0
 
     goto/16 :goto_0
 
+    .line 282
     :cond_6
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
@@ -1091,6 +1219,8 @@
 
     move-result-object v20
 
+    .line 287
+    .local v20, "sGetClientCertificateAlias":Ljava/lang/String;
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1115,6 +1245,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 292
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1135,6 +1266,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 297
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1143,6 +1275,9 @@
 
     goto/16 :goto_0
 
+    .line 303
+    .end local v18    # "lSmartCardBrowserPolicy":Lcom/android/server/enterprise/smartcard/SmartCardBrowserPolicy;
+    .end local v20    # "sGetClientCertificateAlias":Ljava/lang/String;
     :pswitch_3
     const-string v22, "firewall_policy"
 
@@ -1152,8 +1287,11 @@
 
     check-cast v17, Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
+    .line 306
+    .local v17, "lFirewallPolicy":Lcom/android/server/enterprise/firewall/FirewallPolicy;
     if-eqz v17, :cond_0
 
+    .line 308
     if-eqz p3, :cond_7
 
     const-string v22, "getURLFilterEnabled"
@@ -1168,6 +1306,7 @@
 
     if-eqz v22, :cond_7
 
+    .line 310
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -1186,6 +1325,8 @@
 
     move-result v6
 
+    .line 314
+    .local v6, "bGetURLFilterEnabled":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1210,6 +1351,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 318
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1234,6 +1376,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 323
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1242,6 +1385,8 @@
 
     goto/16 :goto_0
 
+    .line 325
+    .end local v6    # "bGetURLFilterEnabled":Z
     :cond_7
     if-eqz p3, :cond_9
 
@@ -1257,6 +1402,7 @@
 
     if-eqz v22, :cond_9
 
+    .line 329
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -1275,6 +1421,8 @@
 
     move-result-object v21
 
+    .line 332
+    .local v21, "urFilterList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1299,6 +1447,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 337
     if-eqz v21, :cond_8
 
     invoke-interface/range {v21 .. v21}, Ljava/util/List;->isEmpty()Z
@@ -1307,10 +1456,12 @@
 
     if-nez v22, :cond_8
 
+    .line 340
     invoke-interface/range {v21 .. v21}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v14
 
+    .local v14, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v14}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1324,6 +1475,8 @@
 
     check-cast v13, Ljava/lang/String;
 
+    .line 341
+    .local v13, "filterList":Ljava/lang/String;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1346,6 +1499,9 @@
 
     goto :goto_1
 
+    .line 347
+    .end local v13    # "filterList":Ljava/lang/String;
+    .end local v14    # "i$":Ljava/util/Iterator;
     :cond_8
     move-object/from16 v0, p0
 
@@ -1355,6 +1511,8 @@
 
     goto/16 :goto_0
 
+    .line 349
+    .end local v21    # "urFilterList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :cond_9
     if-eqz p3, :cond_0
 
@@ -1370,6 +1528,7 @@
 
     if-eqz v22, :cond_0
 
+    .line 353
     new-instance v22, Landroid/app/enterprise/ContextInfo;
 
     move-object/from16 v0, v22
@@ -1392,6 +1551,8 @@
 
     move-result-object v11
 
+    .line 357
+    .local v11, "bUrlFilterReportEnable":Ljava/lang/Boolean;
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1416,6 +1577,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 361
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1436,6 +1598,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 366
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1444,6 +1607,9 @@
 
     goto/16 :goto_0
 
+    .line 377
+    .end local v11    # "bUrlFilterReportEnable":Ljava/lang/Boolean;
+    .end local v17    # "lFirewallPolicy":Lcom/android/server/enterprise/firewall/FirewallPolicy;
     :pswitch_4
     const-string v22, "auditlog"
 
@@ -1453,8 +1619,11 @@
 
     check-cast v15, Lcom/android/server/enterprise/auditlog/AuditLogService;
 
+    .line 380
+    .local v15, "lAuditLogService":Lcom/android/server/enterprise/auditlog/AuditLogService;
     if-eqz v15, :cond_0
 
+    .line 381
     if-eqz p3, :cond_0
 
     const-string v22, "isAuditLogEnabled"
@@ -1469,10 +1638,13 @@
 
     if-eqz v22, :cond_0
 
+    .line 383
     invoke-virtual {v15}, Lcom/android/server/enterprise/auditlog/AuditLogService;->isAuditServiceRunning()Z
 
     move-result v7
 
+    .line 386
+    .local v7, "bIsAuditLogEnabled":Z
     new-instance v22, Landroid/database/MatrixCursor;
 
     const/16 v23, 0x1
@@ -1497,6 +1669,7 @@
 
     iput-object v0, v1, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
 
+    .line 389
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1521,6 +1694,7 @@
 
     invoke-virtual/range {v22 .. v23}, Landroid/database/MatrixCursor;->addRow([Ljava/lang/Object;)V
 
+    .line 394
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/enterprise/content/SecContentProvider;->mCursor:Landroid/database/MatrixCursor;
@@ -1529,6 +1703,7 @@
 
     goto/16 :goto_0
 
+    .line 159
     nop
 
     :pswitch_data_0
@@ -1543,7 +1718,13 @@
 
 .method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 1
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
 
+    .prologue
+    .line 494
     const/4 v0, 0x0
 
     return v0

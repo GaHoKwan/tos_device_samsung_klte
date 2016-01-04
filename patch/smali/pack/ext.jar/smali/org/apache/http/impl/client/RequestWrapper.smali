@@ -53,7 +53,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {p0, v2}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 77
     instance-of v2, p1, Lorg/apache/http/client/methods/HttpUriRequest;
@@ -234,7 +234,7 @@
     return-object v0
 
     :cond_0
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual {p0}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v0
 
@@ -350,7 +350,7 @@
 
     .prologue
     .line 97
-    iget-object v0, p0, Lorg/apache/http/impl/client/RequestWrapper;->headergroup:Lorg/apache/http/message/HeaderGroup;
+    iget-object v0, p0, Lorg/apache/http/message/AbstractHttpMessage;->headergroup:Lorg/apache/http/message/HeaderGroup;
 
     invoke-virtual {v0}, Lorg/apache/http/message/HeaderGroup;->clear()V
 
@@ -361,7 +361,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/impl/client/RequestWrapper;->setHeaders([Lorg/apache/http/Header;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/message/AbstractHttpMessage;->setHeaders([Lorg/apache/http/Header;)V
 
     .line 99
     return-void

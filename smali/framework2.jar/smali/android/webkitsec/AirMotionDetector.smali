@@ -46,27 +46,38 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "motionType"    # I
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v1, 0x0
 
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 21
     const-string v0, "ir_provider"
 
     iput-object v0, p0, Landroid/webkitsec/AirMotionDetector;->AIR_MOTION_PROVIDER:Ljava/lang/String;
 
+    .line 24
     iput-object v2, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
+    .line 25
     iput-boolean v1, p0, Landroid/webkitsec/AirMotionDetector;->mConnected:Z
 
+    .line 26
     iput-object v2, p0, Landroid/webkitsec/AirMotionDetector;->mContext:Landroid/content/Context;
 
+    .line 27
     iput v1, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
+    .line 50
     iput-object p1, p0, Landroid/webkitsec/AirMotionDetector;->mContext:Landroid/content/Context;
 
+    .line 51
     new-instance v0, Landroid/webkitsec/AirMotionDetector$AirMotionSettings;
 
     iget-object v1, p0, Landroid/webkitsec/AirMotionDetector;->mContext:Landroid/content/Context;
@@ -75,6 +86,7 @@
 
     iput-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionSettings:Landroid/webkitsec/AirMotionDetector$AirMotionSettings;
 
+    .line 52
     return-void
 .end method
 
@@ -83,19 +95,24 @@
 .method public destoryAirMotionDetector()V
     .locals 2
 
+    .prologue
+    .line 85
     const-string v0, "AirMotionDetector"
 
     const-string v1, "Destory AirMotionDetector."
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 86
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     if-nez v0, :cond_0
 
+    .line 90
     :goto_0
     return-void
 
+    .line 89
     :cond_0
     const/4 v0, 0x0
 
@@ -108,18 +125,23 @@
 
 .method public onGestureEvent(Lcom/samsung/android/service/gesture/GestureEvent;)V
     .locals 2
+    .param p1, "event"    # Lcom/samsung/android/service/gesture/GestureEvent;
 
+    .prologue
+    .line 119
     invoke-virtual {p1}, Lcom/samsung/android/service/gesture/GestureEvent;->getEvent()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    .line 151
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 121
     :pswitch_1
     const-string v0, "AirMotionDetector"
 
@@ -127,16 +149,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 122
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     if-eqz v0, :cond_0
 
+    .line 123
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     invoke-virtual {v0}, Landroid/webkitsec/AirMotionDetector$AirMotionListener;->onLeft()V
 
     goto :goto_0
 
+    .line 127
     :pswitch_2
     const-string v0, "AirMotionDetector"
 
@@ -144,16 +169,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 128
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     if-eqz v0, :cond_0
 
+    .line 129
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     invoke-virtual {v0}, Landroid/webkitsec/AirMotionDetector$AirMotionListener;->onRight()V
 
     goto :goto_0
 
+    .line 133
     :pswitch_3
     const-string v0, "AirMotionDetector"
 
@@ -161,16 +189,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 134
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     if-eqz v0, :cond_0
 
+    .line 135
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     invoke-virtual {v0}, Landroid/webkitsec/AirMotionDetector$AirMotionListener;->onUp()V
 
     goto :goto_0
 
+    .line 139
     :pswitch_4
     const-string v0, "AirMotionDetector"
 
@@ -178,16 +209,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 140
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     if-eqz v0, :cond_0
 
+    .line 141
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     invoke-virtual {v0}, Landroid/webkitsec/AirMotionDetector$AirMotionListener;->onDown()V
 
     goto :goto_0
 
+    .line 145
     :pswitch_5
     const-string v0, "AirMotionDetector"
 
@@ -197,6 +231,7 @@
 
     goto :goto_0
 
+    .line 119
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_2
@@ -211,24 +246,30 @@
 .method public onServiceConnected()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 94
     const-string v0, "AirMotionDetector"
 
     const-string v1, " Service is connected"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 95
     iput-boolean v2, p0, Landroid/webkitsec/AirMotionDetector;->mConnected:Z
 
+    .line 96
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
     if-eqz v0, :cond_0
 
+    .line 97
     iget v0, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
     if-nez v0, :cond_1
 
+    .line 98
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
@@ -237,15 +278,18 @@
 
     invoke-virtual {v0, p0, v1, v2}, Lcom/samsung/android/service/gesture/GestureManager;->registerListener(Lcom/samsung/android/service/gesture/GestureListener;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 106
     :cond_0
     :goto_0
     return-void
 
+    .line 99
     :cond_1
     iget v0, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
     if-ne v0, v2, :cond_2
 
+    .line 100
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
@@ -256,6 +300,7 @@
 
     goto :goto_0
 
+    .line 102
     :cond_2
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
@@ -269,32 +314,42 @@
 .method public onServiceDisconnected()V
     .locals 2
 
+    .prologue
+    .line 110
     const-string v0, "AirMotionDetector"
 
     const-string v1, " Service is disconnected"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 112
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
 
     invoke-virtual {v0, p0, v1}, Lcom/samsung/android/service/gesture/GestureManager;->unregisterListener(Lcom/samsung/android/service/gesture/GestureListener;Ljava/lang/String;)V
 
+    .line 113
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
+    .line 114
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkitsec/AirMotionDetector;->mConnected:Z
 
+    .line 115
     return-void
 .end method
 
 .method public setAirMotionLintener(Landroid/webkitsec/AirMotionDetector$AirMotionListener;I)V
     .locals 3
+    .param p1, "listener"    # Landroid/webkitsec/AirMotionDetector$AirMotionListener;
+    .param p2, "motionType"    # I
 
+    .prologue
+    .line 56
     const-string v0, "AirMotionDetector"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -327,26 +382,32 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 57
     if-nez p1, :cond_1
 
+    .line 58
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
+    .line 59
     iget-boolean v0, p0, Landroid/webkitsec/AirMotionDetector;->mConnected:Z
 
     if-eqz v0, :cond_0
 
+    .line 60
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
 
     invoke-virtual {v0, p0, v1}, Lcom/samsung/android/service/gesture/GestureManager;->unregisterListener(Lcom/samsung/android/service/gesture/GestureListener;Ljava/lang/String;)V
 
+    .line 82
     :cond_0
     :goto_0
     return-void
 
+    .line 62
     :cond_1
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionSettings:Landroid/webkitsec/AirMotionDetector$AirMotionSettings;
 
@@ -356,10 +417,12 @@
 
     if-eqz v0, :cond_5
 
+    .line 63
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     if-nez v0, :cond_2
 
+    .line 64
     new-instance v0, Lcom/samsung/android/service/gesture/GestureManager;
 
     iget-object v1, p0, Landroid/webkitsec/AirMotionDetector;->mContext:Landroid/content/Context;
@@ -372,19 +435,24 @@
 
     iput-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
+    .line 66
     :cond_2
     iput-object p1, p0, Landroid/webkitsec/AirMotionDetector;->mAirMotionListener:Landroid/webkitsec/AirMotionDetector$AirMotionListener;
 
+    .line 67
     iput p2, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
+    .line 69
     iget-boolean v0, p0, Landroid/webkitsec/AirMotionDetector;->mConnected:Z
 
     if-eqz v0, :cond_0
 
+    .line 70
     iget v0, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
     if-nez v0, :cond_3
 
+    .line 71
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
@@ -395,6 +463,7 @@
 
     goto :goto_0
 
+    .line 72
     :cond_3
     iget v0, p0, Landroid/webkitsec/AirMotionDetector;->mMotionType:I
 
@@ -402,6 +471,7 @@
 
     if-ne v0, v1, :cond_4
 
+    .line 73
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
     const-string v1, "ir_provider"
@@ -412,6 +482,7 @@
 
     goto :goto_0
 
+    .line 75
     :cond_4
     iget-object v0, p0, Landroid/webkitsec/AirMotionDetector;->mGestureManager:Lcom/samsung/android/service/gesture/GestureManager;
 
@@ -421,6 +492,7 @@
 
     goto :goto_0
 
+    .line 79
     :cond_5
     invoke-virtual {p0}, Landroid/webkitsec/AirMotionDetector;->destoryAirMotionDetector()V
 

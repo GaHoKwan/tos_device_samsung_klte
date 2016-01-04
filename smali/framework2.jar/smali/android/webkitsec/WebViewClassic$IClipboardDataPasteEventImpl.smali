@@ -27,10 +27,13 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic;)V
     .locals 1
 
+    .prologue
+    .line 1311
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;->this$0:Landroid/webkitsec/WebViewClassic;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1312
     new-instance v0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl$1;-><init>(Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;)V
@@ -45,6 +48,8 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
+    .prologue
+    .line 1330
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;->mBinder:Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;
 
     return-object v0
@@ -52,9 +57,14 @@
 
 .method public onClipboardDataPaste(Landroid/sec/clipboard/data/ClipboardData;)V
     .locals 3
+    .param p1, "data"    # Landroid/sec/clipboard/data/ClipboardData;
 
+    .prologue
+    .line 1319
     move-object v0, p1
 
+    .line 1321
+    .local v0, "dataInner":Landroid/sec/clipboard/data/ClipboardData;
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;->this$0:Landroid/webkitsec/WebViewClassic;
 
     iget-object v1, v1, Landroid/webkitsec/WebViewClassic;->mPrivateHandler:Landroid/os/Handler;
@@ -65,5 +75,6 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 1326
     return-void
 .end method

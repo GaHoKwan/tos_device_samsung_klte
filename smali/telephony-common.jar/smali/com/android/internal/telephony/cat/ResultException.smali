@@ -31,7 +31,7 @@
     .line 36
     sget-object v0, Lcom/android/internal/telephony/cat/ResultException$1;->$SwitchMap$com$android$internal$telephony$cat$ResultCode:[I
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/cat/ResultCode;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

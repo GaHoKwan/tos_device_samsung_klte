@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TextView;)V
     .locals 0
 
+    .prologue
+    .line 9611
     iput-object p1, p0, Landroid/widget/TextView$3;->this$0:Landroid/widget/TextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 9614
     iget-object v0, p0, Landroid/widget/TextView$3;->this$0:Landroid/widget/TextView;
 
     # invokes: Landroid/widget/TextView;->updateTextServicesLocaleLocked()V
     invoke-static {v0}, Landroid/widget/TextView;->access$300(Landroid/widget/TextView;)V
 
+    .line 9615
     return-void
 .end method

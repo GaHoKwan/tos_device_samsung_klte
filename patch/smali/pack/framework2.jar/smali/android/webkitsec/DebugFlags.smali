@@ -65,12 +65,15 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 57
     sput-boolean v2, Landroid/webkitsec/DebugFlags;->WEB_TOUCH_LOG:Z
 
+    .line 58
     const-string v0, "1"
 
     const-string v3, "debug.browser.channelscroll"
@@ -90,6 +93,7 @@
     :goto_0
     sput-boolean v0, Landroid/webkitsec/DebugFlags;->CHANNEL_SCROLL_ENABLE:Z
 
+    .line 59
     const-string v0, "1"
 
     const-string v3, "debug.browser.touchperformance"
@@ -109,6 +113,7 @@
     :goto_1
     sput-boolean v0, Landroid/webkitsec/DebugFlags;->ENABLE_TOUCH_PERFORMANCE_PATCH:Z
 
+    .line 64
     const-string/jumbo v0, "webkit.debug"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -117,6 +122,7 @@
 
     sput v0, Landroid/webkitsec/DebugFlags;->DEBUG_SETTING:I
 
+    .line 66
     const-string/jumbo v0, "webkit.samsungselection"
 
     const/4 v3, 0x2
@@ -127,6 +133,7 @@
 
     sput v0, Landroid/webkitsec/DebugFlags;->ENABLE_SAMSUNG_SELECTION:I
 
+    .line 67
     const-string/jumbo v0, "webkit.drag"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -135,6 +142,7 @@
 
     sput v0, Landroid/webkitsec/DebugFlags;->ENABLE_DRAG:I
 
+    .line 68
     const-string/jumbo v0, "webkit.magnifier.usebitmap"
 
     invoke-static {v0, v2}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
@@ -148,17 +156,21 @@
     :cond_0
     move v0, v2
 
+    .line 58
     goto :goto_0
 
     :cond_1
     move v0, v2
 
+    .line 59
     goto :goto_1
 .end method
 
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

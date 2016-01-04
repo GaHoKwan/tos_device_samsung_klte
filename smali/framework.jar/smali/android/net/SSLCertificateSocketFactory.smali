@@ -441,7 +441,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "yes"
+    const-string/jumbo v0, "yes"
 
     const-string v1, "socket.relaxsslcheck"
 

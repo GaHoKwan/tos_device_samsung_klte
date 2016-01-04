@@ -55,31 +55,31 @@
     .line 75
     const-string v2, "ServiceRouteParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 78
     :cond_0
     :try_start_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x848
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 79
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 80
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x3a
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 81
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -94,33 +94,33 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 85
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/ims/ServiceRouteList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 86
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 87
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
     if-ne v2, v4, :cond_2
 
     .line 88
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x2c
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 89
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -140,7 +140,7 @@
     .line 98
     const-string v3, "ServiceRouteParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 97
     :cond_1
@@ -150,11 +150,11 @@
     .restart local v0    # "serviceRoute":Lgov/nist/javax/sip/header/ims/ServiceRoute;
     :cond_2
     :try_start_1
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -172,7 +172,7 @@
     .line 98
     const-string v2, "ServiceRouteParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 95
     :cond_3
@@ -183,7 +183,7 @@
     :try_start_2
     const-string v2, "unexpected char"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/ServiceRouteParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v2
 

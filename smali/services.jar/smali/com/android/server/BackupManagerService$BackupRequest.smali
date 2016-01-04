@@ -23,13 +23,18 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService;Ljava/lang/String;)V
     .locals 0
+    .param p2, "pkgName"    # Ljava/lang/String;
 
+    .prologue
+    .line 258
     iput-object p1, p0, Lcom/android/server/BackupManagerService$BackupRequest;->this$0:Lcom/android/server/BackupManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 259
     iput-object p2, p0, Lcom/android/server/BackupManagerService$BackupRequest;->packageName:Ljava/lang/String;
 
+    .line 260
     return-void
 .end method
 
@@ -38,6 +43,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 263
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

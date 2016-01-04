@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TimePicker;)V
     .locals 0
 
+    .prologue
+    .line 305
     iput-object p1, p0, Landroid/widget/TimePicker$6;->this$0:Landroid/widget/TimePicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,18 +38,24 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 307
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    .line 312
     :goto_0
     const/4 v0, 0x0
 
     return v0
 
+    .line 309
     :pswitch_0
     iget-object v0, p0, Landroid/widget/TimePicker$6;->this$0:Landroid/widget/TimePicker;
 
@@ -56,6 +64,7 @@
 
     goto :goto_0
 
+    .line 307
     nop
 
     :pswitch_data_0

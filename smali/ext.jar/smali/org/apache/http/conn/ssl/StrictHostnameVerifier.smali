@@ -41,7 +41,7 @@
     .line 61
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, p2, p3, v0}, Lorg/apache/http/conn/ssl/StrictHostnameVerifier;->verify(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V
+    invoke-virtual {p0, p1, p2, p3, v0}, Lorg/apache/http/conn/ssl/AbstractVerifier;->verify(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V
 
     .line 62
     return-void

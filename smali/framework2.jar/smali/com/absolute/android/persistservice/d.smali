@@ -13,6 +13,8 @@
 .method private constructor <init>(Lcom/absolute/android/persistservice/ABTPersistenceService;)V
     .locals 0
 
+    .prologue
+    .line 3531
     iput-object p1, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -23,6 +25,8 @@
 .method synthetic constructor <init>(Lcom/absolute/android/persistservice/ABTPersistenceService;B)V
     .locals 0
 
+    .prologue
+    .line 3531
     invoke-direct {p0, p1}, Lcom/absolute/android/persistservice/d;-><init>(Lcom/absolute/android/persistservice/ABTPersistenceService;)V
 
     return-void
@@ -31,18 +35,23 @@
 .method private a()V
     .locals 2
 
+    .prologue
+    .line 3537
     iget-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
     if-nez v0, :cond_0
 
+    .line 3539
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 3540
     const-string v1, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 3542
     iget-object v1, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v1}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c(Lcom/absolute/android/persistservice/ABTPersistenceService;)Landroid/content/Context;
@@ -51,10 +60,12 @@
 
     invoke-virtual {v1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 3543
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
+    .line 3545
     :cond_0
     return-void
 .end method
@@ -62,6 +73,8 @@
 .method static synthetic a(Lcom/absolute/android/persistservice/d;)V
     .locals 2
 
+    .prologue
+    .line 3531
     iget-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
     if-nez v0, :cond_0
@@ -93,10 +106,13 @@
 .method private b()V
     .locals 1
 
+    .prologue
+    .line 3548
     iget-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
     if-eqz v0, :cond_0
 
+    .line 3549
     iget-object v0, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c(Lcom/absolute/android/persistservice/ABTPersistenceService;)Landroid/content/Context;
@@ -105,10 +121,12 @@
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
+    .line 3550
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
+    .line 3552
     :cond_0
     return-void
 .end method
@@ -118,6 +136,8 @@
 .method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
 
+    .prologue
+    .line 3561
     const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -130,6 +150,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 3562
     const-string v0, "connectivity"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -138,10 +159,12 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
+    .line 3564
     invoke-virtual {v0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v0
 
+    .line 3565
     if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->isConnected()Z
@@ -150,6 +173,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 3566
     iget-object v0, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->j(Lcom/absolute/android/persistservice/ABTPersistenceService;)Ljava/util/HashSet;
@@ -158,6 +182,7 @@
 
     monitor-enter v1
 
+    .line 3567
     :try_start_0
     iget-object v0, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
@@ -169,6 +194,7 @@
 
     move-result-object v2
 
+    .line 3568
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -176,12 +202,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 3569
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
+    .line 3575
     iget-object v3, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-static {v3, v0}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c(Lcom/absolute/android/persistservice/ABTPersistenceService;Ljava/lang/String;)V
@@ -190,6 +218,7 @@
 
     goto :goto_0
 
+    .line 3579
     :catchall_0
     move-exception v0
 
@@ -197,6 +226,7 @@
 
     throw v0
 
+    .line 3577
     :cond_0
     :try_start_1
     iget-object v0, p0, Lcom/absolute/android/persistservice/d;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
@@ -207,6 +237,7 @@
 
     invoke-virtual {v0}, Ljava/util/HashSet;->clear()V
 
+    .line 3578
     iget-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
     if-eqz v0, :cond_1
@@ -223,11 +254,13 @@
 
     iput-boolean v0, p0, Lcom/absolute/android/persistservice/d;->b:Z
 
+    .line 3579
     :cond_1
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 3582
     :cond_2
     return-void
 .end method

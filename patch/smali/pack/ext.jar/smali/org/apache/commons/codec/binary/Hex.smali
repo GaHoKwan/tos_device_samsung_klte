@@ -338,7 +338,7 @@
     .local v1, "e":Ljava/lang/ClassCastException;
     new-instance v2, Lorg/apache/commons/codec/DecoderException;
 
-    invoke-virtual {v1}, Ljava/lang/ClassCastException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -428,7 +428,7 @@
     .local v1, "e":Ljava/lang/ClassCastException;
     new-instance v2, Lorg/apache/commons/codec/EncoderException;
 
-    invoke-virtual {v1}, Ljava/lang/ClassCastException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

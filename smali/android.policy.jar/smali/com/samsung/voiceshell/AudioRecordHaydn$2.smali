@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/voiceshell/AudioRecordHaydn;)V
     .locals 0
 
+    .prologue
+    .line 226
     iput-object p1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$2;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 229
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$2;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -43,10 +48,13 @@
 
     if-eqz v1, :cond_0
 
+    .line 231
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 233
+    .local v0, "b":Landroid/os/Bundle;
     const-string v1, "spectrum_value"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
@@ -55,6 +63,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 234
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$2;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;
@@ -70,10 +79,14 @@
 
     invoke-interface {v1, v2}, Lcom/samsung/voiceshell/VoiceEngineResultListener;->OnSpectrumData([I)V
 
+    .line 239
+    .end local v0    # "b":Landroid/os/Bundle;
     :cond_0
     :goto_0
     return-void
 
+    .line 235
+    .restart local v0    # "b":Landroid/os/Bundle;
     :cond_1
     const-string v1, "rms_value"
 
@@ -83,6 +96,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 236
     iget-object v1, p0, Lcom/samsung/voiceshell/AudioRecordHaydn$2;->this$0:Lcom/samsung/voiceshell/AudioRecordHaydn;
 
     # getter for: Lcom/samsung/voiceshell/AudioRecordHaydn;->mResultListener:Lcom/samsung/voiceshell/VoiceEngineResultListener;

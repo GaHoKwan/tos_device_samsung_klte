@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/widget/ProgressBar;)V
     .locals 0
 
+    .prologue
+    .line 1322
     iput-object p1, p0, Landroid/widget/ProgressBar$AccessibilityEventSender;->this$0:Landroid/widget/ProgressBar;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/widget/ProgressBar;Landroid/widget/ProgressBar$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/widget/ProgressBar;
+    .param p2, "x1"    # Landroid/widget/ProgressBar$1;
 
+    .prologue
+    .line 1322
     invoke-direct {p0, p1}, Landroid/widget/ProgressBar$AccessibilityEventSender;-><init>(Landroid/widget/ProgressBar;)V
 
     return-void
@@ -45,11 +51,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1324
     iget-object v0, p0, Landroid/widget/ProgressBar$AccessibilityEventSender;->this$0:Landroid/widget/ProgressBar;
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->sendAccessibilityEvent(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->sendAccessibilityEvent(I)V
 
+    .line 1325
     return-void
 .end method

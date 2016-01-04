@@ -24,6 +24,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 46
     const-string v0, "content://com.android.contacts.groups"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -32,6 +34,7 @@
 
     sput-object v0, Landroid/provider/LocalGroups;->AUTHORITY_URI:Landroid/net/Uri;
 
+    .line 48
     sget-object v0, Landroid/provider/LocalGroups;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "local-groups"
@@ -48,7 +51,10 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 59
     return-void
 .end method

@@ -1978,7 +1978,7 @@
 
     move-result-object v14
 
-    const-string v15, "x"
+    const-string/jumbo v15, "x"
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2000,7 +2000,7 @@
 
     move-result-object v14
 
-    const-string v15, "x"
+    const-string/jumbo v15, "x"
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

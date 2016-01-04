@@ -30,6 +30,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 43
     sget-object v0, Landroid/provider/SecurityContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "password"
@@ -46,7 +48,10 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 38
     return-void
 .end method

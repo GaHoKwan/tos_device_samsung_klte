@@ -29,21 +29,28 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;I)V
     .locals 1
+    .param p2, "adminUid"    # I
 
+    .prologue
+    .line 519
     iput-object p1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->this$0:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 516
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->mAdminUid:I
 
+    .line 517
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->mService:Landroid/os/IBinder;
 
+    .line 520
     iput p2, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->mAdminUid:I
 
+    .line 521
     return-void
 .end method
 
@@ -52,6 +59,8 @@
 .method public binderDied()V
     .locals 2
 
+    .prologue
+    .line 555
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$100()Ljava/lang/String;
 
@@ -61,6 +70,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 556
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -85,6 +95,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 557
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -98,18 +109,24 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 559
     :cond_0
     return-void
 .end method
 
 .method public declared-synchronized onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 525
     monitor-enter p0
 
     :try_start_0
     iput-object p2, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->mService:Landroid/os/IBinder;
 
+    .line 526
     iget-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->this$0:Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;
 
     invoke-static {p2}, Lcom/sec/enterprise/knox/certenroll/ICertEnrollmentService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sec/enterprise/knox/certenroll/ICertEnrollmentService;
@@ -119,6 +136,7 @@
     # setter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepService:Lcom/sec/enterprise/knox/certenroll/ICertEnrollmentService;
     invoke-static {v1, v2}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$302(Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;Lcom/sec/enterprise/knox/certenroll/ICertEnrollmentService;)Lcom/sec/enterprise/knox/certenroll/ICertEnrollmentService;
 
+    .line 527
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -143,6 +161,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 528
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -156,6 +175,7 @@
 
     invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 529
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -176,6 +196,7 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 530
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$100()Ljava/lang/String;
 
@@ -221,6 +242,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 536
     :goto_0
     const/4 v1, 0x0
 
@@ -230,11 +252,13 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 540
     :goto_1
     monitor-exit p0
 
     return-void
 
+    .line 532
     :cond_0
     :try_start_2
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
@@ -257,6 +281,7 @@
 
     invoke-interface {v1, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 533
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$100()Ljava/lang/String;
 
@@ -304,6 +329,7 @@
 
     goto :goto_0
 
+    .line 525
     :catchall_0
     move-exception v1
 
@@ -311,9 +337,12 @@
 
     throw v1
 
+    .line 537
     :catch_0
     move-exception v0
 
+    .line 538
+    .local v0, "e":Landroid/os/RemoteException;
     :try_start_3
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
     :try_end_3
@@ -324,11 +353,16 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 4
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 545
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 546
+    .local v0, "packageName":Ljava/lang/String;
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$100()Ljava/lang/String;
 
@@ -372,6 +406,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 547
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -396,12 +431,14 @@
 
     if-eqz v1, :cond_0
 
+    .line 548
     iget-object v1, p0, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy$SCEPConnection;->mService:Landroid/os/IBinder;
 
     const/4 v2, 0x0
 
     invoke-interface {v1, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 549
     # getter for: Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->mScepServiceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/scep/EnterpriseCertEnrollPolicy;->access$400()Ljava/util/Map;
 
@@ -415,6 +452,7 @@
 
     invoke-interface {v1, v2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 551
     :cond_0
     return-void
 .end method

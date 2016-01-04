@@ -737,7 +737,7 @@
     .line 4262
     .end local v17    # "time":J
     :cond_4
-    const-string v19, "}"
+    const-string/jumbo v19, "}"
 
     move-object/from16 v0, v16
 

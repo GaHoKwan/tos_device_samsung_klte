@@ -33,7 +33,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 48
-    iput-object p1, p0, Lgov/nist/javax/sip/header/ims/PServedUser;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 49
     return-void
@@ -68,7 +68,7 @@
 
     .line 130
     .local v0, "retval":Ljava/lang/StringBuffer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PServedUser;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->encode()Ljava/lang/String;
 
@@ -77,7 +77,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 132
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PServedUser;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v2, "regstate"
 
@@ -114,7 +114,7 @@
 
     .line 136
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PServedUser;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v2, "sescase"
 
@@ -175,14 +175,14 @@
 
     .line 153
     .local v0, "psu":Lgov/nist/javax/sip/header/ims/PServedUserHeader;
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/ims/PServedUser;->getAddress()Ljavax/sip/address/Address;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/header/AddressParametersHeader;->getAddress()Ljavax/sip/address/Address;
 
     move-result-object v1
 
     check-cast p1, Lgov/nist/javax/sip/header/ims/PServedUser;
 
     .end local p1    # "other":Ljava/lang/Object;
-    invoke-virtual {p1}, Lgov/nist/javax/sip/header/ims/PServedUser;->getAddress()Ljavax/sip/address/Address;
+    invoke-virtual {p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->getAddress()Ljavax/sip/address/Address;
 
     move-result-object v2
 
@@ -209,7 +209,7 @@
     .line 58
     const-string v0, "regstate"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PServedUser;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -223,7 +223,7 @@
     .line 63
     const-string v0, "sescase"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PServedUser;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -260,7 +260,7 @@
     :try_start_0
     const-string v1, "regstate"
 
-    invoke-virtual {p0, v1, p1}, Lgov/nist/javax/sip/header/ims/PServedUser;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -274,7 +274,7 @@
 
     .line 75
     .local v0, "e":Ljava/text/ParseException;
-    invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -298,7 +298,7 @@
 
     .line 84
     .local v0, "e":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -344,7 +344,7 @@
     :try_start_0
     const-string v1, "sescase"
 
-    invoke-virtual {p0, v1, p1}, Lgov/nist/javax/sip/header/ims/PServedUser;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -358,7 +358,7 @@
 
     .line 105
     .local v0, "e":Ljava/text/ParseException;
-    invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -382,7 +382,7 @@
 
     .line 113
     .local v0, "e":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

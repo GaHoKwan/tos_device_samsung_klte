@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 0
 
+    .prologue
+    .line 250
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$1;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,19 +38,24 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 253
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$1;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
     if-eqz v0, :cond_0
 
+    .line 254
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$1;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
+    .line 257
     :cond_0
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$1;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -61,11 +68,13 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/sec/ClippedDataPickerDialog;->createClearConfirmDialog(Landroid/content/Context;)V
 
+    .line 258
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$1;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
+    .line 259
     return-void
 .end method

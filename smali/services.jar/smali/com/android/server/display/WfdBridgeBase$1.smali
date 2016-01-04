@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 495
     invoke-static {}, Lcom/android/server/display/CmdInfo$CmdType;->values()[Lcom/android/server/display/CmdInfo$CmdType;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Lcom/android/server/display/CmdInfo$CmdType;->START_PLAYER:Lcom/android/server/display/CmdInfo$CmdType;
 
-    invoke-virtual {v1}, Lcom/android/server/display/CmdInfo$CmdType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Lcom/android/server/display/CmdInfo$CmdType;->START_SOURCE:Lcom/android/server/display/CmdInfo$CmdType;
 
-    invoke-virtual {v1}, Lcom/android/server/display/CmdInfo$CmdType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Lcom/android/server/display/CmdInfo$CmdType;->SET_BUSY_FLAG:Lcom/android/server/display/CmdInfo$CmdType;
 
-    invoke-virtual {v1}, Lcom/android/server/display/CmdInfo$CmdType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

@@ -601,22 +601,6 @@
 
     invoke-static {v0, v1}, Landroid/app/ContextImpl;->registerService(Ljava/lang/String;Landroid/app/ContextImpl$ServiceFetcher;)V
 
-    .line 766
-    const-string v0, "ContextImpl"
-
-    const-string v1, "offload flag"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 767
-    const-string v0, "wifioffload"
-
-    new-instance v1, Landroid/app/ContextImpl$51;
-
-    invoke-direct {v1}, Landroid/app/ContextImpl$51;-><init>()V
-
-    invoke-static {v0, v1}, Landroid/app/ContextImpl;->registerService(Ljava/lang/String;Landroid/app/ContextImpl$ServiceFetcher;)V
-
     .line 778
     const-string v0, "wifip2p"
 
@@ -2911,11 +2895,13 @@
 
     .line 2295
     :pswitch_2
-    const-string v0, "write"
+    const-string/jumbo v0, "write"
 
     goto :goto_0
 
     .line 2288
+    nop
+
     nop
 
     :pswitch_data_0
@@ -5363,7 +5349,7 @@
     const/4 v1, 0x0
 
     .line 2041
-    const-string v2, "VZW"
+    const-string v2, ""
 
     const-string v3, "KT"
 

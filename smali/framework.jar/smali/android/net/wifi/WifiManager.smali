@@ -4427,7 +4427,7 @@
     .line 1420
     const-string v4, "dialog_type"
 
-    const-string v6, "wlan_enable_warning"
+    const-string/jumbo v6, "wlan_enable_warning"
 
     invoke-virtual {v3, v4, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

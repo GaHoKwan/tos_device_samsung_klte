@@ -15,14 +15,18 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 60
     const/4 v0, 0x6
 
     invoke-direct {p0, v0}, Landroid/sec/clipboard/data/ClipboardData;-><init>(I)V
 
+    .line 57
     const-string v0, ""
 
     iput-object v0, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
+    .line 61
     return-void
 .end method
 
@@ -31,8 +35,12 @@
 .method public GetIntent()Landroid/content/Intent;
     .locals 4
 
+    .prologue
+    .line 136
     const/4 v1, 0x0
 
+    .line 138
+    .local v1, "intent":Landroid/content/Intent;
     :try_start_0
     iget-object v2, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
@@ -44,26 +52,36 @@
 
     move-result-object v1
 
+    .line 143
     :goto_0
     return-object v1
 
+    .line 139
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/net/URISyntaxException;->printStackTrace()V
+    .line 141
+    .local v0, "e":Ljava/net/URISyntaxException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public SetAlternateFormat(ILandroid/sec/clipboard/data/ClipboardData;)Z
     .locals 5
+    .param p1, "format"    # I
+    .param p2, "altData"    # Landroid/sec/clipboard/data/ClipboardData;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 75
     invoke-super {p0, p1, p2}, Landroid/sec/clipboard/data/ClipboardData;->SetAlternateFormat(ILandroid/sec/clipboard/data/ClipboardData;)Z
 
     move-result v0
 
+    .line 76
+    .local v0, "Result":Z
     if-eqz v0, :cond_0
 
     iget-object v3, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
@@ -85,41 +103,66 @@
     :cond_0
     move v1, v0
 
+    .line 107
+    .end local v0    # "Result":Z
+    .end local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
+    .local v1, "Result":Z
     :goto_0
     return v1
 
+    .line 78
+    .end local v1    # "Result":Z
+    .restart local v0    # "Result":Z
+    .restart local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
     :cond_1
     packed-switch p1, :pswitch_data_0
 
+    .end local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
     :goto_1
     move v1, v0
 
+    .line 107
+    .end local v0    # "Result":Z
+    .restart local v1    # "Result":Z
     goto :goto_0
 
+    .line 81
+    .end local v1    # "Result":Z
+    .restart local v0    # "Result":Z
+    .restart local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
     :pswitch_0
     const/4 v0, 0x0
 
+    .line 82
     goto :goto_1
 
+    .line 84
     :pswitch_1
     const/4 v0, 0x0
 
+    .line 85
     goto :goto_1
 
+    .line 87
     :pswitch_2
     const/4 v0, 0x0
 
+    .line 88
     goto :goto_1
 
+    .line 90
     :pswitch_3
     const/4 v0, 0x0
 
+    .line 91
     goto :goto_1
 
+    .line 94
     :pswitch_4
     :try_start_0
     check-cast p2, Landroid/sec/clipboard/data/list/ClipboardDataIntent;
 
+    .end local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
     iget-object v3, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
     const/4 v4, 0x1
@@ -136,20 +179,28 @@
 
     goto :goto_1
 
+    .line 95
     :catch_0
     move-exception v2
 
+    .line 97
+    .local v2, "e":Ljava/net/URISyntaxException;
     const/4 v0, 0x0
 
-    invoke-virtual {v2}, Ljava/net/URISyntaxException;->printStackTrace()V
+    .line 98
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
+    .line 102
+    .end local v2    # "e":Ljava/net/URISyntaxException;
+    .restart local p2    # "altData":Landroid/sec/clipboard/data/ClipboardData;
     :pswitch_5
     const/4 v0, 0x0
 
     goto :goto_1
 
+    .line 78
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0
@@ -163,9 +214,12 @@
 
 .method public SetIntent(Landroid/content/Intent;)Z
     .locals 2
+    .param p1, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 123
     if-eqz p1, :cond_0
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
@@ -178,12 +232,15 @@
 
     if-nez v1, :cond_1
 
+    .line 124
     :cond_0
     const/4 v0, 0x0
 
+    .line 127
     :goto_0
     return v0
 
+    .line 126
     :cond_1
     invoke-virtual {p1, v0}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
 
@@ -197,18 +254,24 @@
 .method public clearData()V
     .locals 1
 
+    .prologue
+    .line 117
     const-string v0, ""
 
     iput-object v0, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
+    .line 118
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 152
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_0
@@ -219,9 +282,12 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 153
     :cond_0
     const/4 v0, 0x0
 
+    .line 154
+    .local v0, "Result":Z
     invoke-super {p0, p1}, Landroid/sec/clipboard/data/ClipboardData;->equals(Ljava/lang/Object;)Z
 
     move-result v4
@@ -230,9 +296,15 @@
 
     move v1, v0
 
+    .line 165
+    .end local v0    # "Result":Z
+    .local v1, "Result":I
     :goto_0
     return v1
 
+    .line 157
+    .end local v1    # "Result":I
+    .restart local v0    # "Result":Z
     :cond_1
     instance-of v4, p1, Landroid/sec/clipboard/data/list/ClipboardDataIntent;
 
@@ -240,13 +312,19 @@
 
     move v1, v0
 
+    .line 158
+    .restart local v1    # "Result":I
     goto :goto_0
 
+    .end local v1    # "Result":I
     :cond_2
     move-object v2, p1
 
+    .line 160
     check-cast v2, Landroid/sec/clipboard/data/list/ClipboardDataIntent;
 
+    .line 162
+    .local v2, "trgData":Landroid/sec/clipboard/data/list/ClipboardDataIntent;
     iget-object v4, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
     invoke-virtual {v2}, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->GetIntent()Landroid/content/Intent;
@@ -268,8 +346,12 @@
     :goto_1
     move v1, v0
 
+    .line 165
+    .restart local v1    # "Result":I
     goto :goto_0
 
+    .line 162
+    .end local v1    # "Result":I
     :cond_3
     const/4 v0, 0x0
 
@@ -278,7 +360,10 @@
 
 .method protected readFormSource(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 180
     const-class v0, Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getClassLoader()Ljava/lang/ClassLoader;
@@ -293,14 +378,17 @@
 
     iput-object v0, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
+    .line 181
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
     const/16 v3, 0x14
 
+    .line 186
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -346,7 +434,11 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 171
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -357,12 +449,15 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 172
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/sec/clipboard/data/ClipboardData;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 173
     iget-object v0, p0, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->mValue:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeValue(Ljava/lang/Object;)V
 
+    .line 175
     return-void
 .end method

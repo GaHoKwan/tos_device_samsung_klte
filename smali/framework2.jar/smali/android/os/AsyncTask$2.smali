@@ -29,6 +29,9 @@
 .method constructor <init>(Landroid/os/AsyncTask;)V
     .locals 1
 
+    .prologue
+    .line 282
+    .local p0, "this":Landroid/os/AsyncTask$2;, "Landroid/os/AsyncTask.2;"
     iput-object p1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     const/4 v0, 0x0
@@ -54,6 +57,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 284
+    .local p0, "this":Landroid/os/AsyncTask$2;, "Landroid/os/AsyncTask.2;"
     iget-object v0, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     # getter for: Landroid/os/AsyncTask;->mTaskInvoked:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -65,15 +71,17 @@
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 286
     const/16 v0, 0xa
 
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
+    .line 288
     iget-object v0, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
     iget-object v1, p0, Landroid/os/AsyncTask$2;->this$0:Landroid/os/AsyncTask;
 
-    iget-object v2, p0, Landroid/os/AsyncTask$2;->mParams:[Ljava/lang/Object;
+    iget-object v2, p0, Landroid/os/AsyncTask$WorkerRunnable;->mParams:[Ljava/lang/Object;
 
     invoke-virtual {v1, v2}, Landroid/os/AsyncTask;->doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
 

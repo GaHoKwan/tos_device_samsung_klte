@@ -64,6 +64,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -74,6 +75,7 @@
 
     const/4 v4, 0x0
 
+    .line 9
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_REBOOT"
@@ -82,6 +84,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_REBOOT:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 10
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_CREATE_CONTAINER"
@@ -90,6 +93,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_CREATE_CONTAINER:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 11
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_CREATION_FAILURE"
@@ -98,6 +102,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_CREATION_FAILURE:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 12
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_CREATION_SUCCESS"
@@ -106,6 +111,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_CREATION_SUCCESS:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 13
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_VERIFY_PWD_TIMEOUT"
@@ -114,6 +120,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_VERIFY_PWD_TIMEOUT:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 14
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_LOCK_CONTAINER"
@@ -126,6 +133,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_LOCK_CONTAINER:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 15
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_UNLOCK_CONTAINER"
@@ -138,6 +146,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_UNLOCK_CONTAINER:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 16
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_RESET_PWD_TIMEOUT"
@@ -150,6 +159,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_RESET_PWD_TIMEOUT:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 17
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_CHANGE_PWD"
@@ -162,6 +172,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_CHANGE_PWD:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 18
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_VERIFY_PWD_SUCCESS"
@@ -174,6 +185,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_VERIFY_PWD_SUCCESS:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 19
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_CHANGE_PWD_ADMIN"
@@ -186,6 +198,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_CHANGE_PWD_ADMIN:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 20
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_UNINSTALL_COMPLETED"
@@ -198,6 +211,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_UNINSTALL_COMPLETED:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 21
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_UNINSTALL_CONTAINER"
@@ -210,6 +224,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_UNINSTALL_CONTAINER:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 22
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_ACTIVATE_CONTAINER"
@@ -222,6 +237,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_ACTIVATE_CONTAINER:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 23
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_UPGRADE"
@@ -234,6 +250,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_UPGRADE:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 24
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_UPGRADE_COMPLETED"
@@ -246,6 +263,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_UPGRADE_COMPLETED:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 25
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_ADMIN_RESET_PASSWORD"
@@ -258,6 +276,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_ADMIN_RESET_PASSWORD:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 26
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_HIBERNATE_UNMOUNT_TIMEOUT"
@@ -270,6 +289,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_HIBERNATE_UNMOUNT_TIMEOUT:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 27
     new-instance v0, Lcom/sec/knox/container/constants/CSEvent;
 
     const-string v1, "CSEVENT_INVALID"
@@ -282,6 +302,7 @@
 
     sput-object v0, Lcom/sec/knox/container/constants/CSEvent;->CSEVENT_INVALID:Lcom/sec/knox/container/constants/CSEvent;
 
+    .line 7
     const/16 v0, 0x13
 
     new-array v0, v0, [Lcom/sec/knox/container/constants/CSEvent;
@@ -403,6 +424,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 30
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     const/4 v0, -0x1
@@ -414,12 +437,15 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 31
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput p3, p0, Lcom/sec/knox/container/constants/CSEvent;->id:I
@@ -429,7 +455,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/sec/knox/container/constants/CSEvent;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 7
     const-class v0, Lcom/sec/knox/container/constants/CSEvent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -444,9 +473,11 @@
 .method public static values()[Lcom/sec/knox/container/constants/CSEvent;
     .locals 1
 
+    .prologue
+    .line 7
     sget-object v0, Lcom/sec/knox/container/constants/CSEvent;->$VALUES:[Lcom/sec/knox/container/constants/CSEvent;
 
-    invoke-virtual {v0}, [Lcom/sec/knox/container/constants/CSEvent;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -460,6 +491,8 @@
 .method public getId()I
     .locals 1
 
+    .prologue
+    .line 32
     iget v0, p0, Lcom/sec/knox/container/constants/CSEvent;->id:I
 
     return v0

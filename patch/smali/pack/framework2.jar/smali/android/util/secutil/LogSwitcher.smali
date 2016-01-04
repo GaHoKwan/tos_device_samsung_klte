@@ -21,20 +21,28 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 7
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
+    .line 9
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecVLog:Z
 
+    .line 10
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecDLog:Z
 
+    .line 11
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecILog:Z
 
+    .line 12
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecWLog:Z
 
+    .line 13
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecELog:Z
 
+    .line 19
     :try_start_0
     const-string v0, "1"
 
@@ -52,31 +60,38 @@
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
+    .line 23
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecVLog:Z
 
+    .line 24
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecDLog:Z
 
+    .line 25
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecILog:Z
 
+    .line 26
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecWLog:Z
 
+    .line 27
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingGlobalLog:Z
 
     sput-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecELog:Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 31
     :goto_0
     return-void
 
+    .line 28
     :catch_0
     move-exception v0
 
@@ -86,6 +101,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

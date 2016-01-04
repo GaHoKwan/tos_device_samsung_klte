@@ -27,15 +27,21 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Ljava/lang/String;)V
     .locals 2
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 601
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxCharacter;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
+    .line 602
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxMenu;-><init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Ljava/lang/String;)V
 
+    .line 597
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxCharacter;->characterType:I
 
+    .line 603
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mResources:Landroid/content/res/Resources;
     invoke-static {p1}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$3100(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)Landroid/content/res/Resources;
 
@@ -49,6 +55,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxCharacter;->backgroundOpen:Landroid/graphics/drawable/Drawable;
 
+    .line 604
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxCharacter;->backgroundOpen:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getMinimumWidth()I
@@ -58,6 +65,7 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->FIXED_MAIN_ITEM_WIDTH:I
     invoke-static {p1, v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$3202(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;I)I
 
+    .line 605
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$ToolBoxCharacter;->backgroundOpen:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getMinimumHeight()I
@@ -67,5 +75,6 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->FIXED_MAIN_ITEM_HEIGHT:I
     invoke-static {p1, v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$3302(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;I)I
 
+    .line 606
     return-void
 .end method

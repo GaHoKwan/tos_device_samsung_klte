@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 280
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,14 +29,21 @@
 # virtual methods
 .method public onClickHandler(Landroid/view/View;Landroid/app/PendingIntent;Landroid/content/Intent;)Z
     .locals 10
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p3, "fillInIntent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v9, 0x0
 
+    .line 285
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
+    .line 286
+    .local v0, "context":Landroid/content/Context;
     const/4 v1, 0x0
 
     const/4 v2, 0x0
@@ -51,6 +60,8 @@
 
     move-result-object v8
 
+    .line 289
+    .local v8, "opts":Landroid/app/ActivityOptions;
     invoke-virtual {p2}, Landroid/app/PendingIntent;->getIntentSender()Landroid/content/IntentSender;
 
     move-result-object v1
@@ -72,14 +83,20 @@
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 301
     const/4 v1, 0x1
 
+    .end local v0    # "context":Landroid/content/Context;
+    .end local v8    # "opts":Landroid/app/ActivityOptions;
     :goto_0
     return v1
 
+    .line 293
     :catch_0
     move-exception v7
 
+    .line 294
+    .local v7, "e":Landroid/content/IntentSender$SendIntentException;
     const-string v1, "RemoteViews"
 
     const-string v2, "Cannot send pending intent: "
@@ -88,11 +105,16 @@
 
     move v1, v9
 
+    .line 295
     goto :goto_0
 
+    .line 296
+    .end local v7    # "e":Landroid/content/IntentSender$SendIntentException;
     :catch_1
     move-exception v7
 
+    .line 297
+    .local v7, "e":Ljava/lang/Exception;
     const-string v1, "RemoteViews"
 
     const-string v2, "Cannot send pending intent due to unknown exception: "
@@ -101,5 +123,6 @@
 
     move v1, v9
 
+    .line 299
     goto :goto_0
 .end method

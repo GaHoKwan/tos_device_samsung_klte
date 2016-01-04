@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/NotificationManagerService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 3120
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
+    .line 3121
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 3122
     return-void
 .end method
 
@@ -34,8 +39,10 @@
 .method observe()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 3125
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
@@ -52,6 +59,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 3127
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mContext:Landroid/content/Context;
@@ -68,26 +76,34 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 3129
     invoke-virtual {p0}, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->update()V
 
+    .line 3130
     return-void
 .end method
 
 .method public onChange(Z)V
     .locals 0
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 3134
     invoke-virtual {p0}, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->update()V
 
+    .line 3135
     return-void
 .end method
 
 .method public update()V
     .locals 6
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 3138
     const-string v3, "STATUSBAR-NotificationService"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -158,6 +174,7 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3141
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupSettingsObserver;->this$0:Lcom/android/server/NotificationManagerService;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService;->mPickupPlayer:Lcom/android/server/NotificationManagerService$PickupPlayer;
@@ -197,11 +214,13 @@
     :goto_2
     invoke-virtual {v0, v1}, Lcom/android/server/NotificationManagerService$PickupPlayer;->setPickupMotionEnabled(Z)V
 
+    .line 3144
     return-void
 
     :cond_0
     move v0, v2
 
+    .line 3138
     goto :goto_0
 
     :cond_1
@@ -212,5 +231,6 @@
     :cond_2
     move v1, v2
 
+    .line 3141
     goto :goto_2
 .end method

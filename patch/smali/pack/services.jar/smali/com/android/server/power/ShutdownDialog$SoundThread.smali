@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/power/ShutdownDialog;)V
     .locals 1
 
+    .prologue
+    .line 552
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     const/4 v0, 0x0
@@ -33,7 +35,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/ShutdownDialog;Lcom/android/server/power/ShutdownDialog$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/power/ShutdownDialog;
+    .param p2, "x1"    # Lcom/android/server/power/ShutdownDialog$1;
 
+    .prologue
+    .line 552
     invoke-direct {p0, p1}, Lcom/android/server/power/ShutdownDialog$SoundThread;-><init>(Lcom/android/server/power/ShutdownDialog;)V
 
     return-void
@@ -44,8 +50,10 @@
 .method public run()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 555
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -55,17 +63,21 @@
 
     if-nez v1, :cond_0
 
+    .line 556
     const-string v1, "ShutdownDialog"
 
     const-string v2, "MediaPlayer is null"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v3, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
+    .line 557
+    iput-boolean v3, p0, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->running:Z
 
+    .line 572
     :goto_0
     return-void
 
+    .line 561
     :cond_0
     :try_start_0
     const-string v1, "ShutdownDialog"
@@ -74,6 +86,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 562
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -83,6 +96,7 @@
 
     invoke-virtual {v1}, Landroid/media/MediaPlayer;->start()V
 
+    .line 563
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->mp:Landroid/media/MediaPlayer;
@@ -102,14 +116,18 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
 
+    .line 571
     :goto_1
-    iput-boolean v3, p0, Lcom/android/server/power/ShutdownDialog$SoundThread;->running:Z
+    iput-boolean v3, p0, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->running:Z
 
     goto :goto_0
 
+    .line 564
     :catch_0
     move-exception v0
 
+    .line 565
+    .local v0, "e":Ljava/lang/IllegalStateException;
     const-string v1, "ShutdownDialog"
 
     const-string/jumbo v2, "sound thread IllegalStateException"
@@ -118,9 +136,13 @@
 
     goto :goto_1
 
+    .line 566
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v0
 
+    .line 567
+    .local v0, "e":Ljava/lang/InterruptedException;
     const-string v1, "ShutdownDialog"
 
     const-string/jumbo v2, "sound thread InterruptedException"
@@ -129,9 +151,13 @@
 
     goto :goto_1
 
+    .line 568
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :catch_2
     move-exception v0
 
+    .line 569
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "ShutdownDialog"
 
     const-string/jumbo v2, "sound thread exception"

@@ -226,7 +226,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 425
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->clear()V
 
     .line 426
     return-void
@@ -240,7 +240,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 404
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->disable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->disable()V
 
     .line 406
     sget-object v0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->mPassiveCurrentPosition:Landroid/hardware/contextaware/utilbundle/CaPassiveCurrentPositionManager;
@@ -286,7 +286,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 379
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->enable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->enable()V
 
     .line 381
     sget-object v0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->mPassiveCurrentPosition:Landroid/hardware/contextaware/utilbundle/CaPassiveCurrentPositionManager;
@@ -667,7 +667,7 @@
 
     .line 207
     .local v0, "names":[Ljava/lang/String;
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v6
 
@@ -732,7 +732,7 @@
 
     .line 215
     .local v2, "time_tempdata":J
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v6
 
@@ -753,7 +753,7 @@
     if-lez v4, :cond_1
 
     .line 221
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->notifyObserver()V
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     :cond_1
     move v6, v4
@@ -813,7 +813,7 @@
 
     .line 247
     .local v1, "activityType":I
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v5
 
@@ -832,7 +832,7 @@
 
     .line 250
     .local v0, "accuracy":I
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v5
 
@@ -1174,7 +1174,7 @@
     .line 365
     const/16 v12, 0x16
 
-    invoke-virtual {p0, v12, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/handler/builtin/ActivityTrackerProvider;->sendCommonValueToSensorHub(B[B)Z
+    invoke-virtual {p0, v12, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->sendCommonValueToSensorHub(B[B)Z
 
     .line 367
     return-void

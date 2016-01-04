@@ -39,6 +39,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;Landroid/view/Surface;Landroid/view/Surface;Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplay;III)V
     .locals 0
 
+    .prologue
+    .line 1950
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/WifiDisplayController$26;->val$oldSurface:Landroid/view/Surface;
@@ -65,6 +67,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 1953
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$oldSurface:Landroid/view/Surface;
 
     if-eqz v0, :cond_4
@@ -75,6 +79,7 @@
 
     if-eq v0, v1, :cond_4
 
+    .line 1954
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;
@@ -84,12 +89,14 @@
 
     invoke-interface {v0}, Lcom/android/server/display/WifiDisplayController$Listener;->onDisplayDisconnected()V
 
+    .line 1965
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$display:Landroid/hardware/display/WifiDisplay;
 
     if-eqz v0, :cond_3
 
+    .line 1966
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$display:Landroid/hardware/display/WifiDisplay;
 
     iget-object v1, p0, Lcom/android/server/display/WifiDisplayController$26;->val$oldDisplay:Landroid/hardware/display/WifiDisplay;
@@ -100,6 +107,7 @@
 
     if-nez v0, :cond_6
 
+    .line 1967
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;
@@ -111,6 +119,7 @@
 
     invoke-interface {v0, v1}, Lcom/android/server/display/WifiDisplayController$Listener;->onDisplayConnecting(Landroid/hardware/display/WifiDisplay;)V
 
+    .line 1973
     :cond_1
     :goto_1
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$surface:Landroid/view/Surface;
@@ -123,6 +132,7 @@
 
     if-eq v0, v1, :cond_2
 
+    .line 1974
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;
@@ -149,6 +159,7 @@
 
     invoke-interface/range {v0 .. v6}, Lcom/android/server/display/WifiDisplayController$Listener;->onDisplayConnected(Landroid/hardware/display/WifiDisplay;Landroid/view/Surface;IIII)V
 
+    .line 1976
     :cond_2
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
@@ -168,6 +179,7 @@
 
     if-eqz v0, :cond_3
 
+    .line 1977
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     const v1, 0x22074
@@ -175,9 +187,11 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->requestPopup(I)V
     invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->access$2400(Lcom/android/server/display/WifiDisplayController;I)V
 
+    .line 1979
     :cond_3
     return-void
 
+    .line 1955
     :cond_4
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$oldDisplay:Landroid/hardware/display/WifiDisplay;
 
@@ -193,6 +207,7 @@
 
     if-nez v0, :cond_0
 
+    .line 1956
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mConnectedMode:I
@@ -215,12 +230,14 @@
 
     if-gt v0, v1, :cond_5
 
+    .line 1958
     const-string v0, "WifiDisplayController"
 
     const-string v1, "connected by change player or nfc, disable wifi_display_on"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1959
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mContext:Landroid/content/Context;
@@ -238,6 +255,7 @@
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 1962
     :cond_5
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
@@ -250,6 +268,7 @@
 
     goto/16 :goto_0
 
+    .line 1968
     :cond_6
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->val$display:Landroid/hardware/display/WifiDisplay;
 
@@ -261,6 +280,7 @@
 
     if-nez v0, :cond_1
 
+    .line 1971
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$26;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # getter for: Lcom/android/server/display/WifiDisplayController;->mListener:Lcom/android/server/display/WifiDisplayController$Listener;

@@ -118,7 +118,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/ReferTo;->encode()Ljava/lang/String;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/header/SIPHeader;->encode()Ljava/lang/String;
 
     move-result-object v6
 
@@ -158,7 +158,7 @@
     .line 56
     const/16 v1, 0x842
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ReferToParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 57
     new-instance v0, Lgov/nist/javax/sip/header/ReferTo;
@@ -170,7 +170,7 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 59
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ReferToParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0xa
 

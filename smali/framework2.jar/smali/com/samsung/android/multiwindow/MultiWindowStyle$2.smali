@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(I)V
     .locals 0
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 646
     invoke-direct {p0, p1}, Lcom/samsung/android/multiwindow/MultiWindowStyle;-><init>(I)V
 
     return-void
@@ -27,7 +30,11 @@
 # virtual methods
 .method public setOption(II)V
     .locals 1
+    .param p1, "option"    # I
+    .param p2, "mask"    # I
 
+    .prologue
+    .line 656
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     invoke-direct {v0}, Ljava/lang/IllegalAccessError;-><init>()V
@@ -37,7 +44,11 @@
 
 .method public setOption(IZ)V
     .locals 1
+    .param p1, "option"    # I
+    .param p2, "value"    # Z
 
+    .prologue
+    .line 660
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     invoke-direct {v0}, Ljava/lang/IllegalAccessError;-><init>()V
@@ -47,7 +58,11 @@
 
 .method public setTo(Lcom/samsung/android/multiwindow/MultiWindowStyle;Z)V
     .locals 1
+    .param p1, "other"    # Lcom/samsung/android/multiwindow/MultiWindowStyle;
+    .param p2, "includeUniqueOptions"    # Z
 
+    .prologue
+    .line 664
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     invoke-direct {v0}, Ljava/lang/IllegalAccessError;-><init>()V
@@ -57,7 +72,10 @@
 
 .method public setType(I)V
     .locals 1
+    .param p1, "type"    # I
 
+    .prologue
+    .line 648
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     invoke-direct {v0}, Ljava/lang/IllegalAccessError;-><init>()V
@@ -67,7 +85,10 @@
 
 .method public setZone(I)V
     .locals 1
+    .param p1, "zone"    # I
 
+    .prologue
+    .line 652
     new-instance v0, Ljava/lang/IllegalAccessError;
 
     invoke-direct {v0}, Ljava/lang/IllegalAccessError;-><init>()V

@@ -212,7 +212,7 @@
 
     .line 142
     .local v0, "charset":Ljava/lang/String;
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/BasicScheme;->isProxy()Z
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/AuthSchemeBase;->isProxy()Z
 
     move-result v1
 
@@ -264,7 +264,7 @@
 
     .prologue
     .line 95
-    invoke-super {p0, p1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->processChallenge(Lorg/apache/http/Header;)V
+    invoke-super {p0, p1}, Lorg/apache/http/impl/auth/AuthSchemeBase;->processChallenge(Lorg/apache/http/Header;)V
 
     .line 96
     const/4 v0, 0x1

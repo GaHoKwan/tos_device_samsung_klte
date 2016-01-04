@@ -7109,7 +7109,7 @@
 
     .line 4766
     .local v0, "bundle":Landroid/os/Bundle;
-    const-string v2, "wpsPin"
+    const-string/jumbo v2, "wpsPin"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

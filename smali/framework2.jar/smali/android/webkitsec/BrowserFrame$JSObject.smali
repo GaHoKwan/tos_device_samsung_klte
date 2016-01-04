@@ -25,14 +25,21 @@
 # direct methods
 .method public constructor <init>(Landroid/webkitsec/BrowserFrame;Ljava/lang/Object;Z)V
     .locals 0
+    .param p2, "object"    # Ljava/lang/Object;
+    .param p3, "requireAnnotation"    # Z
 
+    .prologue
+    .line 113
     iput-object p1, p0, Landroid/webkitsec/BrowserFrame$JSObject;->this$0:Landroid/webkitsec/BrowserFrame;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 114
     iput-object p2, p0, Landroid/webkitsec/BrowserFrame$JSObject;->object:Ljava/lang/Object;
 
+    .line 115
     iput-boolean p3, p0, Landroid/webkitsec/BrowserFrame$JSObject;->requireAnnotation:Z
 
+    .line 116
     return-void
 .end method

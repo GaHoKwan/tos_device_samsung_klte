@@ -13,7 +13,7 @@
     invoke-direct {p0, p1}, Lgov/nist/javax/sip/parser/AddressParametersParser;-><init>(Lgov/nist/javax/sip/parser/Lexer;)V
 
     .line 51
-    iput-object p1, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iput-object p1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     .line 52
     return-void
@@ -55,7 +55,7 @@
     .line 56
     const/16 v4, 0x827
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ContactParser;->headerName(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 57
     new-instance v3, Lgov/nist/javax/sip/header/ContactList;
@@ -71,18 +71,18 @@
 
     .line 60
     .local v0, "contact":Lgov/nist/javax/sip/header/Contact;
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v4
 
     if-ne v4, v8, :cond_2
 
     .line 61
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v4, v6}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v6}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -104,7 +104,7 @@
 
     .line 63
     :cond_0
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4, v8}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
@@ -114,17 +114,17 @@
     .line 71
     .end local v2    # "next":C
     :goto_1
-    invoke-virtual {v3, v0}, Lgov/nist/javax/sip/header/ContactList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v3, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 72
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 73
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -133,12 +133,12 @@
     if-ne v1, v9, :cond_3
 
     .line 75
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4, v9}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 76
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/ContactParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -174,7 +174,7 @@
     :cond_5
     const-string v4, "unexpected char"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ContactParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 

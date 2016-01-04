@@ -52,7 +52,7 @@
     .line 70
     const-string v2, "AssertedIdentityParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 72
     :cond_0
@@ -65,7 +65,7 @@
     const/16 v2, 0x849
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 78
     new-instance v1, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;
@@ -76,40 +76,40 @@
     .local v1, "pai":Lgov/nist/javax/sip/header/ims/PAssertedIdentity;
     const-string v2, "P-Asserted-Identity"
 
-    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 81
     invoke-super {p0, v1}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 82
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ims/PAssertedIdentityList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 84
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 85
     :goto_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
     if-ne v2, v4, :cond_2
 
     .line 87
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x2c
 
     invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 88
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -124,10 +124,10 @@
     invoke-super {p0, v1}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 92
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ims/PAssertedIdentityList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 94
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -147,7 +147,7 @@
     .line 105
     const-string v3, "AssertedIdentityParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 104
     :cond_1
@@ -157,12 +157,12 @@
     .restart local v1    # "pai":Lgov/nist/javax/sip/header/ims/PAssertedIdentity;
     :cond_2
     :try_start_1
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 97
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0xa
 
@@ -178,7 +178,7 @@
     .line 105
     const-string v2, "AssertedIdentityParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PAssertedIdentityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 99
     :cond_3

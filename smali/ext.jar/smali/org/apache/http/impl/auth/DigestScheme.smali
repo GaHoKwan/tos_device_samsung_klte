@@ -135,7 +135,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v21
 
@@ -147,7 +147,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v14
 
@@ -159,7 +159,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -171,7 +171,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v10
 
@@ -183,7 +183,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -241,7 +241,7 @@
 
     move-object/from16 v1, v22
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -877,7 +877,7 @@
 
     .line 386
     .local v1, "buffer":Lorg/apache/http/util/CharArrayBuffer;
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/DigestScheme;->isProxy()Z
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/AuthSchemeBase;->isProxy()Z
 
     move-result v12
 
@@ -897,7 +897,7 @@
     .line 393
     const-string v12, "uri"
 
-    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
@@ -905,7 +905,7 @@
     .local v11, "uri":Ljava/lang/String;
     const-string v12, "realm"
 
-    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
@@ -913,7 +913,7 @@
     .local v8, "realm":Ljava/lang/String;
     const-string v12, "nonce"
 
-    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -921,7 +921,7 @@
     .local v4, "nonce":Ljava/lang/String;
     const-string v12, "opaque"
 
-    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -933,7 +933,7 @@
     .local v9, "response":Ljava/lang/String;
     const-string v12, "algorithm"
 
-    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v12}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1421,7 +1421,7 @@
 
     .line 231
     :cond_1
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/DigestScheme;->getParameters()Ljava/util/Map;
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameters()Ljava/util/Map;
 
     move-result-object v2
 
@@ -1438,7 +1438,7 @@
     invoke-interface {v2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 232
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/DigestScheme;->getParameters()Ljava/util/Map;
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameters()Ljava/util/Map;
 
     move-result-object v2
 
@@ -1457,7 +1457,7 @@
     .line 233
     const-string v2, "charset"
 
-    invoke-virtual {p0, v2}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1475,7 +1475,7 @@
     move-result-object v0
 
     .line 236
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/DigestScheme;->getParameters()Ljava/util/Map;
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameters()Ljava/util/Map;
 
     move-result-object v2
 
@@ -1515,7 +1515,7 @@
     .line 168
     const-string v1, "stale"
 
-    invoke-virtual {p0, v1}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1559,7 +1559,7 @@
 
     .prologue
     .line 195
-    invoke-virtual {p0}, Lorg/apache/http/impl/auth/DigestScheme;->getParameters()Ljava/util/Map;
+    invoke-virtual {p0}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameters()Ljava/util/Map;
 
     move-result-object v0
 
@@ -1582,12 +1582,12 @@
     const/4 v5, 0x1
 
     .line 126
-    invoke-super {p0, p1}, Lorg/apache/http/impl/auth/RFC2617Scheme;->processChallenge(Lorg/apache/http/Header;)V
+    invoke-super {p0, p1}, Lorg/apache/http/impl/auth/AuthSchemeBase;->processChallenge(Lorg/apache/http/Header;)V
 
     .line 128
     const-string v4, "realm"
 
-    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1606,7 +1606,7 @@
     :cond_0
     const-string v4, "nonce"
 
-    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -1629,7 +1629,7 @@
     .local v2, "unsupportedQop":Z
     const-string v4, "qop"
 
-    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/DigestScheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v4}, Lorg/apache/http/impl/auth/RFC2617Scheme;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;)V
     .locals 0
 
+    .prologue
+    .line 1312
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl$1;->this$1:Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;
 
     invoke-direct {p0}, Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;-><init>()V
@@ -33,10 +35,14 @@
 # virtual methods
 .method public onClipboardDataPaste(Landroid/sec/clipboard/data/ClipboardData;)V
     .locals 1
+    .param p1, "data"    # Landroid/sec/clipboard/data/ClipboardData;
 
+    .prologue
+    .line 1314
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl$1;->this$1:Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;
 
     invoke-virtual {v0, p1}, Landroid/webkitsec/WebViewClassic$IClipboardDataPasteEventImpl;->onClipboardDataPaste(Landroid/sec/clipboard/data/ClipboardData;)V
 
+    .line 1315
     return-void
 .end method

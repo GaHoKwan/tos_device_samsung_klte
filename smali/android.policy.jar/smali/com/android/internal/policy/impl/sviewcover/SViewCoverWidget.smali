@@ -24,10 +24,13 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 70
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget;->DBG:Z
 
+    .line 71
     const-string v0, "SViewCoverWidget"
 
     sput-object v0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget;->TAG:Ljava/lang/String;
@@ -38,14 +41,19 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 448
     return-void
 .end method
 
 .method static synthetic access$000()Z
     .locals 1
 
+    .prologue
+    .line 64
     sget-boolean v0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget;->DBG:Z
 
     return v0
@@ -54,6 +62,8 @@
 .method static synthetic access$100()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 64
     sget-object v0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget;->TAG:Ljava/lang/String;
 
     return-object v0

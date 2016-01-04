@@ -39,7 +39,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptEncoding;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/SIPHeader;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     move-result-object v0
 
@@ -67,11 +67,11 @@
 
     .line 101
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AcceptEncoding;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AcceptEncoding;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -86,7 +86,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lgov/nist/javax/sip/header/AcceptEncoding;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -116,7 +116,7 @@
     .line 113
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AcceptEncoding;->getParameterAsFloat(Ljava/lang/String;)F
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsFloat(Ljava/lang/String;)F
 
     move-result v0
 

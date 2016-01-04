@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WallpaperManagerService;)V
     .locals 0
 
+    .prologue
+    .line 573
     iput-object p1, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +35,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v8, 0x0
 
     const/16 v7, -0x2710
 
+    .line 576
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 577
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.intent.action.USER_REMOVED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -50,6 +58,7 @@
 
     if-eqz v5, :cond_1
 
+    .line 578
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     const-string v6, "android.intent.extra.user_handle"
@@ -60,10 +69,12 @@
 
     invoke-virtual {v5, v6}, Lcom/android/server/WallpaperManagerService;->onRemoveUser(I)V
 
+    .line 601
     :cond_0
     :goto_0
     return-void
 
+    .line 581
     :cond_1
     const-string v5, "android.intent.action.USER_ADDED"
 
@@ -73,16 +84,20 @@
 
     if-eqz v5, :cond_0
 
+    .line 582
     const-string v5, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 583
+    .local v1, "newUserId":I
     const/16 v5, 0x64
 
     if-lt v1, v5, :cond_0
 
+    .line 584
     const-string v5, "WallpaperService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -105,12 +120,15 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 585
     new-instance v2, Lcom/android/server/WallpaperManagerService$PersonaObserver;
 
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {v2, v5, v1}, Lcom/android/server/WallpaperManagerService$PersonaObserver;-><init>(Lcom/android/server/WallpaperManagerService;I)V
 
+    .line 586
+    .local v2, "observer":Lcom/android/server/WallpaperManagerService$PersonaObserver;
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     # getter for: Lcom/android/server/WallpaperManagerService;->mPersonaManager:Landroid/os/PersonaManager;
@@ -120,6 +138,7 @@
 
     invoke-virtual {v5, v1, v2}, Landroid/os/PersonaManager;->registerObserver(ILandroid/content/pm/IPersonaObserver;)V
 
+    .line 587
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     # invokes: Lcom/android/server/WallpaperManagerService;->getContainerList()Ljava/util/List;
@@ -127,6 +146,8 @@
 
     move-result-object v4
 
+    .line 588
+    .local v4, "personaList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PersonaInfo;>;"
     if-eqz v4, :cond_0
 
     invoke-interface {v4}, Ljava/util/List;->size()I
@@ -137,12 +158,15 @@
 
     if-ne v5, v6, :cond_0
 
+    .line 589
     new-instance v3, Lcom/android/server/WallpaperManagerService$PersonaObserver;
 
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {v3, v5, v8}, Lcom/android/server/WallpaperManagerService$PersonaObserver;-><init>(Lcom/android/server/WallpaperManagerService;I)V
 
+    .line 590
+    .local v3, "ownerObserver":Lcom/android/server/WallpaperManagerService$PersonaObserver;
     iget-object v5, p0, Lcom/android/server/WallpaperManagerService$1;->this$0:Lcom/android/server/WallpaperManagerService;
 
     # getter for: Lcom/android/server/WallpaperManagerService;->mPersonaManager:Landroid/os/PersonaManager;

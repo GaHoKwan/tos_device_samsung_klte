@@ -37,6 +37,8 @@
 .method protected constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, 0x0
@@ -48,7 +50,10 @@
 
 .method public constructor <init>(Lcom/android/internal/os/IDropBoxManagerService;)V
     .locals 0
+    .param p1, "service"    # Lcom/android/internal/os/IDropBoxManagerService;
 
+    .prologue
+    .line 254
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
@@ -60,7 +65,12 @@
 # virtual methods
 .method public addData(Ljava/lang/String;[BI)V
     .locals 7
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "data"    # [B
+    .param p3, "flags"    # I
 
+    .prologue
+    .line 283
     if-nez p2, :cond_0
 
     new-instance v0, Ljava/lang/NullPointerException;
@@ -71,6 +81,7 @@
 
     throw v0
 
+    .line 284
     :cond_0
     :try_start_0
     iget-object v6, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
@@ -91,9 +102,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 285
     :goto_0
     return-void
 
+    .line 284
     :catch_0
     move-exception v0
 
@@ -102,12 +115,17 @@
 
 .method public addFile(Ljava/lang/String;Ljava/io/File;I)V
     .locals 6
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "file"    # Ljava/io/File;
+    .param p3, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 297
     if-nez p2, :cond_0
 
     new-instance v1, Ljava/lang/NullPointerException;
@@ -118,6 +136,7 @@
 
     throw v1
 
+    .line 298
     :cond_0
     new-instance v0, Landroid/os/DropBoxManager$Entry;
 
@@ -131,6 +150,8 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/os/DropBoxManager$Entry;-><init>(Ljava/lang/String;JLjava/io/File;I)V
 
+    .line 300
+    .local v0, "entry":Landroid/os/DropBoxManager$Entry;
     :try_start_0
     iget-object v1, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
 
@@ -139,14 +160,18 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 304
     invoke-virtual {v0}, Landroid/os/DropBoxManager$Entry;->close()V
 
+    .line 306
     :goto_0
     return-void
 
+    .line 301
     :catch_0
     move-exception v1
 
+    .line 304
     invoke-virtual {v0}, Landroid/os/DropBoxManager$Entry;->close()V
 
     goto :goto_0
@@ -161,7 +186,11 @@
 
 .method public addText(Ljava/lang/String;Ljava/lang/String;)V
     .locals 4
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "data"    # Ljava/lang/String;
 
+    .prologue
+    .line 272
     :try_start_0
     iget-object v0, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
 
@@ -175,9 +204,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 273
     :goto_0
     return-void
 
+    .line 272
     :catch_0
     move-exception v0
 
@@ -186,7 +217,11 @@
 
 .method public getNextEntry(Ljava/lang/String;J)Landroid/os/DropBoxManager$Entry;
     .locals 2
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msec"    # J
 
+    .prologue
+    .line 330
     :try_start_0
     iget-object v1, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
 
@@ -202,6 +237,7 @@
     :catch_0
     move-exception v0
 
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -209,7 +245,10 @@
 
 .method public isTagEnabled(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "tag"    # Ljava/lang/String;
 
+    .prologue
+    .line 317
     :try_start_0
     iget-object v1, p0, Landroid/os/DropBoxManager;->mService:Lcom/android/internal/os/IDropBoxManagerService;
 
@@ -225,6 +264,7 @@
     :catch_0
     move-exception v0
 
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v1, 0x0
 
     goto :goto_0

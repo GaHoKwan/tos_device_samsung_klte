@@ -31,21 +31,34 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/widget/SignView;FFJIF)V
     .locals 0
+    .param p2, "x"    # F
+    .param p3, "y"    # F
+    .param p4, "time"    # J
+    .param p6, "tag"    # I
+    .param p7, "pressure"    # F
 
+    .prologue
+    .line 1283
     iput-object p1, p0, Lcom/android/internal/widget/SignView$SignatureInput;->this$0:Lcom/android/internal/widget/SignView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1284
     iput p2, p0, Lcom/android/internal/widget/SignView$SignatureInput;->mX:F
 
+    .line 1285
     iput p3, p0, Lcom/android/internal/widget/SignView$SignatureInput;->mY:F
 
+    .line 1286
     iput-wide p4, p0, Lcom/android/internal/widget/SignView$SignatureInput;->mTime:J
 
+    .line 1287
     iput p7, p0, Lcom/android/internal/widget/SignView$SignatureInput;->mPressure:F
 
+    .line 1288
     iput p6, p0, Lcom/android/internal/widget/SignView$SignatureInput;->mTag:I
 
+    .line 1289
     return-void
 .end method
 
@@ -54,6 +67,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 1293
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

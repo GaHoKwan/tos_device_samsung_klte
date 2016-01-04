@@ -79,7 +79,7 @@
     .line 143
     sget-object v0, Landroid/graphics/Atlas$1;->$SwitchMap$android$graphics$Atlas$Type:[I
 
-    invoke-virtual {p0}, Landroid/graphics/Atlas$Type;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v2
 

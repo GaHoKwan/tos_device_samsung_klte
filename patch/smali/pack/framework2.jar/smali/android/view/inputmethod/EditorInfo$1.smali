@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 403
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,29 +42,37 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/view/inputmethod/EditorInfo;
     .locals 2
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 405
     new-instance v0, Landroid/view/inputmethod/EditorInfo;
 
     invoke-direct {v0}, Landroid/view/inputmethod/EditorInfo;-><init>()V
 
+    .line 406
+    .local v0, "res":Landroid/view/inputmethod/EditorInfo;
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
+    .line 407
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
 
+    .line 408
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->privateImeOptions:Ljava/lang/String;
 
+    .line 409
     sget-object v1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -73,30 +83,35 @@
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->actionLabel:Ljava/lang/CharSequence;
 
+    .line 410
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->actionId:I
 
+    .line 411
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->initialSelStart:I
 
+    .line 412
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->initialSelEnd:I
 
+    .line 413
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->initialCapsMode:I
 
+    .line 414
     sget-object v1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -107,6 +122,7 @@
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->hintText:Ljava/lang/CharSequence;
 
+    .line 415
     sget-object v1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
 
     invoke-interface {v1, p1}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
@@ -117,36 +133,44 @@
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->label:Ljava/lang/CharSequence;
 
+    .line 416
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->packageName:Ljava/lang/String;
 
+    .line 417
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
 
     iput v1, v0, Landroid/view/inputmethod/EditorInfo;->fieldId:I
 
+    .line 418
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->fieldName:Ljava/lang/String;
 
+    .line 419
     invoke-virtual {p1}, Landroid/os/Parcel;->readBundle()Landroid/os/Bundle;
 
     move-result-object v1
 
     iput-object v1, v0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
+    .line 420
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 403
     invoke-virtual {p0, p1}, Landroid/view/inputmethod/EditorInfo$1;->createFromParcel(Landroid/os/Parcel;)Landroid/view/inputmethod/EditorInfo;
 
     move-result-object v0
@@ -156,7 +180,10 @@
 
 .method public newArray(I)[Landroid/view/inputmethod/EditorInfo;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 424
     new-array v0, p1, [Landroid/view/inputmethod/EditorInfo;
 
     return-object v0
@@ -164,7 +191,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 403
     invoke-virtual {p0, p1}, Landroid/view/inputmethod/EditorInfo$1;->newArray(I)[Landroid/view/inputmethod/EditorInfo;
 
     move-result-object v0

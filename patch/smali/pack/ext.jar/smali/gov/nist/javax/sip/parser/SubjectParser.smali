@@ -53,22 +53,22 @@
     .line 67
     const-string v2, "SubjectParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SubjectParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 70
     :cond_0
     const/16 v2, 0x825
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SubjectParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 72
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SubjectParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 74
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/SubjectParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getRest()Ljava/lang/String;
 
@@ -92,7 +92,7 @@
     .line 79
     const-string v2, "SubjectParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/SubjectParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 82
     :cond_1
@@ -110,7 +110,7 @@
     .line 79
     const-string v3, "SubjectParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/SubjectParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 78
     :cond_2

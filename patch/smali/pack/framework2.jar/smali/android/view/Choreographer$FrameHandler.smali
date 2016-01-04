@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Landroid/view/Choreographer;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 697
     iput-object p1, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
+    .line 698
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 699
     return-void
 .end method
 
@@ -33,11 +38,15 @@
 # virtual methods
 .method public getMessageName(Landroid/os/Message;)Ljava/lang/String;
     .locals 1
+    .param p1, "message"    # Landroid/os/Message;
 
+    .prologue
+    .line 721
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 726
     invoke-super {p0, p1}, Landroid/os/Handler;->getMessageName(Landroid/os/Message;)Ljava/lang/String;
 
     move-result-object v0
@@ -45,21 +54,25 @@
     :goto_0
     return-object v0
 
+    .line 722
     :pswitch_0
     const-string v0, "MSG_DO_FRAME"
 
     goto :goto_0
 
+    .line 723
     :pswitch_1
     const-string v0, "MSG_DO_SCHEDULE_VSYNC"
 
     goto :goto_0
 
+    .line 724
     :pswitch_2
     const-string v0, "MSG_DO_SCHEDULE_CALLBACK"
 
     goto :goto_0
 
+    .line 721
     nop
 
     :pswitch_data_0
@@ -72,16 +85,21 @@
 
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 703
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 717
     :goto_0
     return-void
 
+    .line 705
     :pswitch_0
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -93,6 +111,7 @@
 
     goto :goto_0
 
+    .line 708
     :pswitch_1
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -100,6 +119,7 @@
 
     goto :goto_0
 
+    .line 711
     :pswitch_2
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -109,6 +129,7 @@
 
     goto :goto_0
 
+    .line 714
     :pswitch_3
     iget-object v0, p0, Landroid/view/Choreographer$FrameHandler;->this$0:Landroid/view/Choreographer;
 
@@ -119,6 +140,7 @@
 
     goto :goto_0
 
+    .line 703
     nop
 
     :pswitch_data_0

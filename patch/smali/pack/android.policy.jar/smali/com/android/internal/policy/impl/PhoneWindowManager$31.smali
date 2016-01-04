@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/view/WindowManagerPolicy$ScreenOnListener;)V
     .locals 0
 
+    .prologue
+    .line 7174
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$31;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$31;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
@@ -40,7 +42,10 @@
 # virtual methods
 .method public onShown(Landroid/os/IBinder;)V
     .locals 2
+    .param p1, "windowToken"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 7177
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$31;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$31;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
@@ -48,5 +53,6 @@
     # invokes: Lcom/android/internal/policy/impl/PhoneWindowManager;->waitForKeyguardWindowDrawn(Landroid/os/IBinder;Landroid/view/WindowManagerPolicy$ScreenOnListener;)V
     invoke-static {v0, p1, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$2500(Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/IBinder;Landroid/view/WindowManagerPolicy$ScreenOnListener;)V
 
+    .line 7178
     return-void
 .end method

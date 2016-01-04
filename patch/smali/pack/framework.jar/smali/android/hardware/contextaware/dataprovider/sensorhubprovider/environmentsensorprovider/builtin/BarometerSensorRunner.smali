@@ -34,7 +34,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 91
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->clear()V
 
     .line 93
     const/4 v0, 0x0
@@ -58,7 +58,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 204
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->disable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->disable()V
 
     .line 205
     return-void
@@ -72,7 +72,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 191
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->enable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->enable()V
 
     .line 192
     return-void
@@ -158,7 +158,7 @@
 
     .prologue
     .line 216
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/builtin/BarometerSensorRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -169,7 +169,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 217
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -201,7 +201,7 @@
     const/4 v6, -0x1
 
     .line 117
-    invoke-virtual {p1}, [B->clone()Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -372,7 +372,7 @@
 
     .line 151
     .local v1, "names":[Ljava/lang/String;
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v6
 
@@ -385,7 +385,7 @@
     invoke-virtual {v6, v7, v8}, Landroid/hardware/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;[I)V
 
     .line 153
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorProvider;->notifyObserver()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     move v3, v4
 

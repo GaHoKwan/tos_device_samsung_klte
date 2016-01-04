@@ -28,18 +28,23 @@
 .method private constructor <init>(Lcom/android/server/enterprise/application/ApplicationUsage;)V
     .locals 3
 
+    .prologue
     const-wide/16 v1, 0x0
 
+    .line 135
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$AppForeGroundUsage;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 136
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/enterprise/application/ApplicationUsage$AppForeGroundUsage;->appLaunchCount:I
 
+    .line 137
     iput-wide v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$AppForeGroundUsage;->appLastLaunchTime:J
 
+    .line 138
     iput-wide v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$AppForeGroundUsage;->appLastPausetime:J
 
     return-void
@@ -47,7 +52,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/enterprise/application/ApplicationUsage;Lcom/android/server/enterprise/application/ApplicationUsage$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/enterprise/application/ApplicationUsage;
+    .param p2, "x1"    # Lcom/android/server/enterprise/application/ApplicationUsage$1;
 
+    .prologue
+    .line 135
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationUsage$AppForeGroundUsage;-><init>(Lcom/android/server/enterprise/application/ApplicationUsage;)V
 
     return-void

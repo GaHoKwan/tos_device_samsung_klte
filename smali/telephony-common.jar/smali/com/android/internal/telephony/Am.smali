@@ -123,7 +123,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -148,7 +148,7 @@
     .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -198,7 +198,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -223,7 +223,7 @@
     .local v0, "e":Ljava/lang/Exception;
     sget-object v1, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    invoke-virtual {v0, v1}, Ljava/lang/Exception;->printStackTrace(Ljava/io/PrintStream;)V
+    invoke-virtual {v0, v1}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintStream;)V
 
     .line 89
     const/4 v1, 0x1
@@ -3783,7 +3783,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -3808,7 +3808,7 @@
     .local v0, "e":Ljava/lang/Exception;
     sget-object v3, Ljava/lang/System;->err:Ljava/io/PrintStream;
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -5821,7 +5821,7 @@
 
     iget-object v1, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v1, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     move-object/from16 v18, v0
 

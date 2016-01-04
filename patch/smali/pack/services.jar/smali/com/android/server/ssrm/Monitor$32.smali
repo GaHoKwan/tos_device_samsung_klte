@@ -27,10 +27,13 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 1
 
+    .prologue
+    .line 1945
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$32;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1947
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
@@ -42,11 +45,15 @@
 # virtual methods
 .method public execute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 1951
     if-eqz p2, :cond_1
 
     const-string v0, "1"
@@ -57,22 +64,27 @@
 
     if-eqz v0, :cond_1
 
+    .line 1952
     invoke-static {v2}, Lcom/android/server/ssrm/fgapps/FgAppListener;->onBrowserDashModeForAll(Z)V
 
+    .line 1953
     const-string v0, "HeavyUserScenario"
 
     invoke-static {v0, v2}, Lcom/android/server/ssrm/ConditionUpdateHelper;->onSsrmStatusChanged(Ljava/lang/String;Z)V
 
+    .line 1955
     iget v0, p0, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
+    .line 1956
     iget v0, p0, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
     if-ne v0, v2, :cond_0
 
+    .line 1957
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/android/server/ssrm/Monitor$32$1;
@@ -83,17 +95,21 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 1991
     :cond_0
     :goto_0
     return-void
 
+    .line 1987
     :cond_1
     invoke-static {v1}, Lcom/android/server/ssrm/fgapps/FgAppListener;->onBrowserDashModeForAll(Z)V
 
+    .line 1988
     const-string v0, "HeavyUserScenario"
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/ConditionUpdateHelper;->onSsrmStatusChanged(Ljava/lang/String;Z)V
 
+    .line 1989
     iput v1, p0, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
     goto :goto_0

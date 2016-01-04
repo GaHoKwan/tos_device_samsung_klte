@@ -1,0 +1,6 @@
+com.sec.android.app.shealth
+com.android.contacts
+com.android.phone
+com.android.wallpaper.livepicker
+com.changba
+com.jingdong.app.mall

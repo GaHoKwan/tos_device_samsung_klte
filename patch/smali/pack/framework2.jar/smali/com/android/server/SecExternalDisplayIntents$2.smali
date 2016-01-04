@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 253
     invoke-static {}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->values()[Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_HDMI:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_RearCamera:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_FrontCamera:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_CameraStop:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -101,7 +103,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_RVF:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -117,7 +119,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_WFD:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -133,7 +135,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStart:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -149,7 +151,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStart2:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -165,7 +167,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStart3:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -181,7 +183,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStop:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -197,7 +199,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStop2:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -213,7 +215,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_AlarmStop3:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -229,7 +231,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_SideSync:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -245,7 +247,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_SideSyncDC:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -261,7 +263,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_ScreenRecorder:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -277,7 +279,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_ScreenRecorder2:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -293,7 +295,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_SmartDock:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -309,7 +311,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_ScreenLocked:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -325,7 +327,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_ScreenUnlocked:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -341,7 +343,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_HMT_AID:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -357,7 +359,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_DUAL_SCAN:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -373,7 +375,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_CPUMINLOCK_ACQUIRE:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -389,7 +391,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_CPUMINLOCK_RELEASE:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -405,7 +407,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_GPUMINLOCK_ACQUIRE:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -421,7 +423,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_GPUMINLOCK_RELEASE:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -437,7 +439,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_HMT_ON:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -453,7 +455,7 @@
 
     sget-object v1, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->EDS_INTENT_STEREO_RENDER:Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
-    invoke-virtual {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

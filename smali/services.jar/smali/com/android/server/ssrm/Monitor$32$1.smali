@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor$32;)V
     .locals 0
 
+    .prologue
+    .line 1957
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,12 @@
 .method public run()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x1
 
     const/4 v5, 0x0
 
+    .line 1960
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
     iget-object v1, v1, Lcom/android/server/ssrm/Monitor$32;->this$0:Lcom/android/server/ssrm/Monitor;
@@ -51,6 +55,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/server/ssrm/Monitor;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1963
     :goto_0
     const-wide/32 v1, 0x927c0
 
@@ -59,6 +64,7 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1967
     :goto_1
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
@@ -66,6 +72,7 @@
 
     if-le v1, v6, :cond_0
 
+    .line 1968
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
     iget v2, v1, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
@@ -74,6 +81,7 @@
 
     iput v2, v1, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
+    .line 1969
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
     iget-object v1, v1, Lcom/android/server/ssrm/Monitor$32;->this$0:Lcom/android/server/ssrm/Monitor;
@@ -106,13 +114,18 @@
 
     goto :goto_0
 
+    .line 1964
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    .line 1965
+    .local v0, "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
+    .line 1972
+    .end local v0    # "e":Ljava/lang/InterruptedException;
     :cond_0
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
@@ -120,16 +133,20 @@
 
     if-ne v1, v6, :cond_1
 
+    .line 1973
     invoke-static {v5}, Lcom/android/server/ssrm/fgapps/FgAppListener;->onBrowserDashModeForAll(Z)V
 
+    .line 1974
     const-string v1, "HeavyUserScenario"
 
     invoke-static {v1, v5}, Lcom/android/server/ssrm/ConditionUpdateHelper;->onSsrmStatusChanged(Ljava/lang/String;Z)V
 
+    .line 1977
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$32$1;->this$1:Lcom/android/server/ssrm/Monitor$32;
 
     iput v5, v1, Lcom/android/server/ssrm/Monitor$32;->mBrowserDashCount:I
 
+    .line 1983
     :cond_1
     return-void
 .end method

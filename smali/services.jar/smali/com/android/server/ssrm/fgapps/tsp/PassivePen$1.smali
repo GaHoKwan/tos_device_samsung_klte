@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/tsp/PassivePen;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 41
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/tsp/PassivePen$1;->this$0:Lcom/android/server/ssrm/fgapps/tsp/PassivePen;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,15 +36,20 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 44
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 53
     :cond_0
     :goto_0
     return-void
 
+    .line 46
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/PassivePen$1;->this$0:Lcom/android/server/ssrm/fgapps/tsp/PassivePen;
 
@@ -51,6 +59,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 47
     const-string v0, "SSRMv2:TSP:PassivePen"
 
     const-string/jumbo v1, "stylus_enable,1"
@@ -59,6 +68,7 @@
 
     goto :goto_0
 
+    .line 44
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

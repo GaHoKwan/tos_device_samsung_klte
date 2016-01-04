@@ -1,0 +1,7 @@
+android
+com.android.providers.applications
+com.sec.android.app.clockpackage
+com.sec.android.widgetapp.alarmclock
+com.sec.phone
+com.sec.android.app.factorymode
+com.lidroid.contacts

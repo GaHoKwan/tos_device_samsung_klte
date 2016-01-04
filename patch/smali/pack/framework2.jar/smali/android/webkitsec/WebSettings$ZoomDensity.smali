@@ -49,6 +49,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x4
 
     const/4 v7, 0x3
@@ -59,6 +60,7 @@
 
     const/4 v4, 0x0
 
+    .line 101
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "XXXFAR"
@@ -69,6 +71,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->XXXFAR:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 102
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "XXFAR"
@@ -79,6 +82,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->XXFAR:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 103
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "XFAR"
@@ -89,6 +93,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->XFAR:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 104
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "FAR"
@@ -99,6 +104,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->FAR:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 105
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "SFAR"
@@ -109,6 +115,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->SFAR:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 106
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "MEDIUM"
@@ -121,6 +128,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->MEDIUM:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 107
     new-instance v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     const-string v1, "CLOSE"
@@ -133,6 +141,7 @@
 
     sput-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->CLOSE:Landroid/webkitsec/WebSettings$ZoomDensity;
 
+    .line 100
     const/4 v0, 0x7
 
     new-array v0, v0, [Landroid/webkitsec/WebSettings$ZoomDensity;
@@ -176,22 +185,30 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "size"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 108
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 109
     iput p3, p0, Landroid/webkitsec/WebSettings$ZoomDensity;->value:I
 
+    .line 110
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/webkitsec/WebSettings$ZoomDensity;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 100
     const-class v0, Landroid/webkitsec/WebSettings$ZoomDensity;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -206,9 +223,11 @@
 .method public static values()[Landroid/webkitsec/WebSettings$ZoomDensity;
     .locals 1
 
+    .prologue
+    .line 100
     sget-object v0, Landroid/webkitsec/WebSettings$ZoomDensity;->$VALUES:[Landroid/webkitsec/WebSettings$ZoomDensity;
 
-    invoke-virtual {v0}, [Landroid/webkitsec/WebSettings$ZoomDensity;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -222,6 +241,8 @@
 .method public getValue()I
     .locals 1
 
+    .prologue
+    .line 116
     iget v0, p0, Landroid/webkitsec/WebSettings$ZoomDensity;->value:I
 
     return v0

@@ -22,26 +22,34 @@
 .method public constructor <init>(Lcom/android/server/AlarmManagerService;)V
     .locals 2
 
+    .prologue
+    .line 1919
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
+    .line 1920
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 1921
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 1922
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 1923
     const-string v1, "android.intent.action.EMERGENCY_STATE_CHANGED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 1924
     # getter for: Lcom/android/server/AlarmManagerService;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/server/AlarmManagerService;->access$700(Lcom/android/server/AlarmManagerService;)Landroid/content/Context;
 
@@ -49,6 +57,7 @@
 
     invoke-virtual {v1, p0, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 1925
     return-void
 .end method
 
@@ -56,9 +65,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1929
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -71,6 +84,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 1930
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->mEmergencyMgr:Lcom/sec/android/emergencymode/EmergencyManager;
@@ -106,10 +120,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 1945
     :cond_0
     :goto_0
     return-void
 
+    .line 1934
     :cond_1
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
@@ -124,6 +140,7 @@
 
     goto :goto_0
 
+    .line 1935
     :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -137,6 +154,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 1936
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->mEmergencyMgr:Lcom/sec/android/emergencymode/EmergencyManager;
@@ -159,6 +177,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 1938
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->emergencyAlarmHandler:Landroid/os/Handler;
@@ -170,6 +189,7 @@
 
     goto :goto_0
 
+    .line 1939
     :cond_3
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -183,16 +203,20 @@
 
     if-eqz v1, :cond_0
 
+    .line 1940
     const-string v1, "reason"
 
     invoke-virtual {p2, v1, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
+    .line 1941
+    .local v0, "reason":I
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
 
+    .line 1942
     iget-object v1, p0, Lcom/android/server/AlarmManagerService$EmergencyReceiver;->this$0:Lcom/android/server/AlarmManagerService;
 
     # getter for: Lcom/android/server/AlarmManagerService;->emergencyAlarmHandler:Landroid/os/Handler;

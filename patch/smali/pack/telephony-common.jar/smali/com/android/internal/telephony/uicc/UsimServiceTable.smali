@@ -55,7 +55,7 @@
 
     .prologue
     .line 197
-    invoke-virtual {p1}, Lcom/android/internal/telephony/uicc/UsimServiceTable$UsimService;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
@@ -72,7 +72,7 @@
 
     .prologue
     .line 216
-    invoke-virtual {p1}, Lcom/android/internal/telephony/uicc/UsimServiceTable$SimService;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
@@ -89,7 +89,7 @@
 
     .prologue
     .line 212
-    invoke-virtual {p1}, Lcom/android/internal/telephony/uicc/UsimServiceTable$SimService;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

@@ -39,7 +39,7 @@
 
     sget-object v1, Landroid/hardware/display/DisplayManager$WfdAppState;->SETUP:Landroid/hardware/display/DisplayManager$WfdAppState;
 
-    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$WfdAppState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Landroid/hardware/display/DisplayManager$WfdAppState;->PAUSE:Landroid/hardware/display/DisplayManager$WfdAppState;
 
-    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$WfdAppState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Landroid/hardware/display/DisplayManager$WfdAppState;->RESUME:Landroid/hardware/display/DisplayManager$WfdAppState;
 
-    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$WfdAppState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -87,7 +87,7 @@
 
     sget-object v1, Landroid/hardware/display/DisplayManager$WfdAppState;->TEARDOWN:Landroid/hardware/display/DisplayManager$WfdAppState;
 
-    invoke-virtual {v1}, Landroid/hardware/display/DisplayManager$WfdAppState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

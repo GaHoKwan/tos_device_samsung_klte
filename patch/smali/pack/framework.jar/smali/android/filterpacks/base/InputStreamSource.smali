@@ -126,7 +126,7 @@
     .line 88
     const-string v7, "data"
 
-    invoke-virtual {p0, v7, v6}, Landroid/filterpacks/base/InputStreamSource;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
+    invoke-virtual {p0, v7, v6}, Landroid/filterfw/core/Filter;->pushOutput(Ljava/lang/String;Landroid/filterfw/core/Frame;)V
 
     .line 91
     invoke-virtual {v6}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
@@ -134,7 +134,7 @@
     .line 94
     const-string v7, "data"
 
-    invoke-virtual {p0, v7}, Landroid/filterpacks/base/InputStreamSource;->closeOutputPort(Ljava/lang/String;)V
+    invoke-virtual {p0, v7}, Landroid/filterfw/core/Filter;->closeOutputPort(Ljava/lang/String;)V
 
     .line 95
     return-void
@@ -161,7 +161,7 @@
 
     move-result-object v8
 
-    invoke-virtual {v4}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v9
 
@@ -214,7 +214,7 @@
 
     iget-object v2, p0, Landroid/filterpacks/base/InputStreamSource;->mOutputFormat:Landroid/filterfw/core/MutableFrameFormat;
 
-    invoke-virtual {p0, v1, v2}, Landroid/filterpacks/base/InputStreamSource;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v1, v2}, Landroid/filterfw/core/Filter;->addOutputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     .line 60
     return-void

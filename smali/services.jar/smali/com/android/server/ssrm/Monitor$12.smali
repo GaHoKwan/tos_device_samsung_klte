@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 821
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$12;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/ssrm/Monitor$CustomSettingWriter;-><init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
@@ -43,8 +46,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     const/4 v1, 0x1
 
+    .line 824
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG_SIOP:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -57,7 +63,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/ssrm/Monitor$12;->mName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/ssrm/settings/SettingWriter;->mName:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -83,6 +89,7 @@
 
     invoke-static {v0, v2}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 825
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$12;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v2, v0, Lcom/android/server/ssrm/Monitor;->mLimiter:Lcom/android/server/ssrm/Limiter;
@@ -104,14 +111,17 @@
     :goto_0
     invoke-virtual {v2, v0}, Lcom/android/server/ssrm/Limiter;->limitCameraStart(Z)V
 
+    .line 826
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$12;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mLimiter:Lcom/android/server/ssrm/Limiter;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/Limiter;->broadcastSiopChangedIntent()V
 
+    .line 827
     return-void
 
+    .line 825
     :cond_0
     const/4 v0, 0x0
 

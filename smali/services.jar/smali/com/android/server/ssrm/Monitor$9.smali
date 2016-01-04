@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 793
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$9;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/ssrm/Monitor$CustomSettingWriter;-><init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
@@ -43,5 +46,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 797
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     return-void
 .end method

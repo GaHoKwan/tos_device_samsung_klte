@@ -55,9 +55,9 @@
 
     .line 46
     .local v6, "result":Ljava/nio/ByteBuffer;
-    iget-object v2, p0, Landroid/net/dhcp/DhcpDeclinePacket;->mClientIp:Ljava/net/InetAddress;
+    iget-object v2, p0, Landroid/net/dhcp/DhcpPacket;->mClientIp:Ljava/net/InetAddress;
 
-    iget-object v3, p0, Landroid/net/dhcp/DhcpDeclinePacket;->mYourIp:Ljava/net/InetAddress;
+    iget-object v3, p0, Landroid/net/dhcp/DhcpPacket;->mYourIp:Ljava/net/InetAddress;
 
     const/4 v7, 0x1
 
@@ -71,10 +71,10 @@
 
     move v5, p3
 
-    invoke-virtual/range {v0 .. v8}, Landroid/net/dhcp/DhcpDeclinePacket;->fillInPacket(ILjava/net/InetAddress;Ljava/net/InetAddress;SSLjava/nio/ByteBuffer;BZ)V
+    invoke-virtual/range {v0 .. v8}, Landroid/net/dhcp/DhcpPacket;->fillInPacket(ILjava/net/InetAddress;Ljava/net/InetAddress;SSLjava/nio/ByteBuffer;BZ)V
 
     .line 48
-    invoke-virtual {v6}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
+    invoke-virtual {v6}, Ljava/nio/Buffer;->flip()Ljava/nio/Buffer;
 
     .line 49
     return-object v6
@@ -86,9 +86,9 @@
 
     .prologue
     .line 63
-    iget-object v0, p0, Landroid/net/dhcp/DhcpDeclinePacket;->mClientMac:[B
+    iget-object v0, p0, Landroid/net/dhcp/DhcpPacket;->mClientMac:[B
 
-    iget-object v1, p0, Landroid/net/dhcp/DhcpDeclinePacket;->mRequestedIp:Ljava/net/InetAddress;
+    iget-object v1, p0, Landroid/net/dhcp/DhcpPacket;->mRequestedIp:Ljava/net/InetAddress;
 
     invoke-interface {p1, v0, v1}, Landroid/net/dhcp/DhcpStateMachine;->onDeclineReceived([BLjava/net/InetAddress;)V
 

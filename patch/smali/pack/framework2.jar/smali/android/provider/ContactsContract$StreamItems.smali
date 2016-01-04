@@ -42,6 +42,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 3257
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items"
@@ -52,6 +54,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 3272
     sget-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "photo"
@@ -62,6 +65,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$StreamItems;->CONTENT_PHOTO_URI:Landroid/net/Uri;
 
+    .line 3278
     sget-object v0, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "stream_items_limit"
@@ -78,7 +82,10 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3250
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3251
     return-void
 .end method

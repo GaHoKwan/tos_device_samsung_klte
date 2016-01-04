@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/certificate/CertificatePolicy;)V
     .locals 0
 
+    .prologue
+    .line 234
     iput-object p1, p0, Lcom/android/server/enterprise/certificate/CertificatePolicy$1;->this$0:Lcom/android/server/enterprise/certificate/CertificatePolicy;
 
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -43,6 +45,8 @@
 .method protected initialValue()Ljava/lang/Boolean;
     .locals 1
 
+    .prologue
+    .line 236
     const/4 v0, 0x0
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -55,6 +59,8 @@
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
     .locals 1
 
+    .prologue
+    .line 234
     invoke-virtual {p0}, Lcom/android/server/enterprise/certificate/CertificatePolicy$1;->initialValue()Ljava/lang/Boolean;
 
     move-result-object v0

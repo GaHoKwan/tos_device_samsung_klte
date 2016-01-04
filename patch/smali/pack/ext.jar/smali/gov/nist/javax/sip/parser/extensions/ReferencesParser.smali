@@ -47,14 +47,14 @@
     .line 39
     const-string v2, "ReasonParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 42
     :cond_0
     const/16 v2, 0x862
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 43
     new-instance v1, Lgov/nist/javax/sip/header/extensions/References;
@@ -63,12 +63,12 @@
 
     .line 44
     .local v1, "references":Lgov/nist/javax/sip/header/extensions/References;
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 46
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->byteStringNoSemicolon()Ljava/lang/String;
 
@@ -91,7 +91,7 @@
     .line 53
     const-string v2, "ReferencesParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 50
     :cond_1
@@ -110,7 +110,7 @@
     .line 53
     const-string v3, "ReferencesParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/extensions/ReferencesParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 52
     :cond_2

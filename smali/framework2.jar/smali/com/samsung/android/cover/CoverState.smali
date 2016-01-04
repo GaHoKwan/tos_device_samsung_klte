@@ -131,6 +131,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 340
     new-instance v0, Lcom/samsung/android/cover/CoverState$1;
 
     invoke-direct {v0}, Lcom/samsung/android/cover/CoverState$1;-><init>()V
@@ -143,82 +145,122 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 250
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 251
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 252
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 253
     iput v1, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 254
     iput v1, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 255
     iput v1, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 256
     return-void
 .end method
 
 .method public constructor <init>(III)V
     .locals 1
+    .param p1, "defaultType"    # I
+    .param p2, "defaultWidthPixel"    # I
+    .param p3, "defaultHeightPixel"    # I
 
+    .prologue
+    .line 266
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 267
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 268
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 269
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 270
     iput p2, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 271
     iput p3, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 272
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 0
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 296
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 297
     invoke-direct {p0, p1}, Lcom/samsung/android/cover/CoverState;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 298
     return-void
 .end method
 
 .method public constructor <init>(ZIIII)V
     .locals 0
+    .param p1, "switchState"    # Z
+    .param p2, "type"    # I
+    .param p3, "color"    # I
+    .param p4, "widthPixel"    # I
+    .param p5, "heightPixel"    # I
 
+    .prologue
+    .line 283
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 284
     iput-boolean p1, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 285
     iput p2, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 286
     iput p3, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 287
     iput p4, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 288
     iput p5, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 289
     return-void
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "src"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 330
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v1
@@ -228,32 +270,38 @@
     :goto_0
     iput-boolean v0, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 331
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 332
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 333
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 334
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 335
     return-void
 
+    .line 330
     :cond_0
     const/4 v0, 0x0
 
@@ -267,6 +315,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 307
     const/4 v0, 0x0
 
     return v0
@@ -275,6 +325,8 @@
 .method public getColor()I
     .locals 1
 
+    .prologue
+    .line 411
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
     return v0
@@ -283,6 +335,8 @@
 .method public getSwitchState()Z
     .locals 1
 
+    .prologue
+    .line 385
     iget-boolean v0, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
     return v0
@@ -291,6 +345,8 @@
 .method public getType()I
     .locals 1
 
+    .prologue
+    .line 398
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
     return v0
@@ -299,6 +355,8 @@
 .method public getWindowHeight()I
     .locals 1
 
+    .prologue
+    .line 437
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
     return v0
@@ -307,6 +365,8 @@
 .method public getWindowWidth()I
     .locals 1
 
+    .prologue
+    .line 424
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
     return v0
@@ -314,47 +374,69 @@
 
 .method public setColor(I)V
     .locals 0
+    .param p1, "color"    # I
 
+    .prologue
+    .line 415
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 416
     return-void
 .end method
 
 .method public setSwitchState(Z)V
     .locals 0
+    .param p1, "switchState"    # Z
 
+    .prologue
+    .line 389
     iput-boolean p1, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 390
     return-void
 .end method
 
 .method public setType(I)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
+    .line 402
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 403
     return-void
 .end method
 
 .method public setWindowHeight(I)V
     .locals 0
+    .param p1, "height"    # I
 
+    .prologue
+    .line 441
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 442
     return-void
 .end method
 
 .method public setWindowWidth(I)V
     .locals 0
+    .param p1, "width"    # I
 
+    .prologue
+    .line 428
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 429
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 359
     const-string v0, "CoverState(switchState=%b type=%d color=%d widthPixel=%d heightPixel=%d)"
 
     const/4 v1, 0x5
@@ -420,35 +502,57 @@
 
 .method public updateCoverState(ZIIII)V
     .locals 0
+    .param p1, "switchState"    # Z
+    .param p2, "type"    # I
+    .param p3, "color"    # I
+    .param p4, "widthPixel"    # I
+    .param p5, "heightPixel"    # I
 
+    .prologue
+    .line 366
     iput-boolean p1, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
+    .line 367
     iput p2, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
+    .line 368
     iput p3, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
+    .line 369
     iput p4, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 370
     iput p5, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 371
     return-void
 .end method
 
 .method public updateCoverWindowSize(II)V
     .locals 0
+    .param p1, "widthPixel"    # I
+    .param p2, "heightPixel"    # I
 
+    .prologue
+    .line 374
     iput p1, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
+    .line 375
     iput p2, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
+    .line 376
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 317
     iget-boolean v0, p0, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
     if-eqz v0, :cond_0
@@ -458,24 +562,30 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 318
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->type:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 319
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->color:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 320
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->widthPixel:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 321
     iget v0, p0, Lcom/samsung/android/cover/CoverState;->heightPixel:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 322
     return-void
 
+    .line 317
     :cond_0
     const/4 v0, 0x0
 

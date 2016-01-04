@@ -70,75 +70,75 @@
 
     const/4 v1, -0x1
 
-    .line 610
+    .line 602
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 611
+    .line 603
     const-string v0, ""
 
     iput-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->state:Ljava/lang/String;
 
-    .line 612
+    .line 604
     const-string v0, ""
 
     iput-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->state:Ljava/lang/String;
 
-    .line 613
+    .line 605
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcStep:I
 
-    .line 614
+    .line 606
     const/4 v0, 0x1
 
     iput v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcTrigger:I
 
-    .line 615
+    .line 607
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcId:I
 
-    .line 616
+    .line 608
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->error:I
 
-    .line 617
+    .line 609
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->bytes:I
 
-    .line 618
+    .line 610
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->rssi:I
 
-    .line 619
+    .line 611
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->dataRate:I
 
-    .line 620
+    .line 612
     iput-boolean v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->detection:Z
 
-    .line 621
+    .line 613
     iput-boolean v2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->avoidance:Z
 
-    .line 622
+    .line 614
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->apIndex:I
 
-    .line 623
+    .line 615
     const-string v0, ""
 
     iput-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->ssid:Ljava/lang/String;
 
-    .line 624
+    .line 616
     const-string v0, ""
 
     iput-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->bssid:Ljava/lang/String;
 
-    .line 625
+    .line 617
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->line:I
 
-    .line 626
+    .line 618
     iput v1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->poorLinkLine:I
 
-    .line 627
+    .line 619
     const/4 v0, 0x0
 
     iput-object v0, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->currentDnsList:Ljava/util/List;
 
-    .line 628
+    .line 620
     return-void
 .end method
 
@@ -160,53 +160,53 @@
     .param p15, "poorLinkLine"    # I
 
     .prologue
-    .line 630
+    .line 622
     iput-object p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->this$0:Landroid/net/wifi/WifiWatchdogStateMachine;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 631
+    .line 623
     iput-object p2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->state:Ljava/lang/String;
 
-    .line 632
+    .line 624
     iput p3, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcStep:I
 
-    .line 633
+    .line 625
     iput p4, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->qcId:I
 
-    .line 634
+    .line 626
     iput p5, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->error:I
 
-    .line 635
+    .line 627
     iput p6, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->bytes:I
 
-    .line 636
+    .line 628
     iput p7, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->rssi:I
 
-    .line 637
+    .line 629
     iput p8, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->dataRate:I
 
-    .line 638
+    .line 630
     iput-boolean p9, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->detection:Z
 
-    .line 639
+    .line 631
     iput-boolean p10, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->avoidance:Z
 
-    .line 640
+    .line 632
     iput p11, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->apIndex:I
 
-    .line 641
+    .line 633
     iput-object p12, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->ssid:Ljava/lang/String;
 
-    .line 642
+    .line 634
     iput-object p13, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->bssid:Ljava/lang/String;
 
-    .line 643
+    .line 635
     iput p14, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->line:I
 
-    .line 644
+    .line 636
     iput p15, p0, Landroid/net/wifi/WifiWatchdogStateMachine$QcFailHistory;->poorLinkLine:I
 
-    .line 645
+    .line 637
     return-void
 .end method

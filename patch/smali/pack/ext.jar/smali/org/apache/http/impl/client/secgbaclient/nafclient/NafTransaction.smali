@@ -1283,7 +1283,7 @@
 
     .line 143
     .local v17, "e":Ljava/io/UnsupportedEncodingException;
-    invoke-virtual/range {v17 .. v17}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_2
 

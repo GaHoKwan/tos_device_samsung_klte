@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/keystore/TimaKeystoreService;)V
     .locals 0
 
+    .prologue
+    .line 181
     iput-object p1, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$KeystoreReceiver;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 185
     # getter for: Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->access$000()Z
 
@@ -41,6 +47,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 186
     # getter for: Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->access$100()Ljava/lang/String;
 
@@ -70,6 +77,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 187
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -83,6 +91,7 @@
 
     if-eqz v3, :cond_2
 
+    .line 189
     # getter for: Lcom/android/server/enterprise/keystore/TimaKeystoreService;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->access$000()Z
 
@@ -90,6 +99,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 190
     # getter for: Lcom/android/server/enterprise/keystore/TimaKeystoreService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->access$100()Ljava/lang/String;
 
@@ -99,6 +109,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 192
     :cond_1
     const-string v3, "android.intent.extra.REPLACING"
 
@@ -110,16 +121,21 @@
 
     if-nez v3, :cond_2
 
+    .line 193
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
 
+    .line 194
+    .local v2, "uri":Landroid/net/Uri;
     if-eqz v2, :cond_3
 
     invoke-virtual {v2}, Landroid/net/Uri;->getSchemeSpecificPart()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 196
+    .local v0, "packageName":Ljava/lang/String;
     :goto_0
     const-string v3, "android.intent.extra.UID"
 
@@ -129,14 +145,22 @@
 
     move-result v1
 
+    .line 197
+    .local v1, "uid":I
     iget-object v3, p0, Lcom/android/server/enterprise/keystore/TimaKeystoreService$KeystoreReceiver;->this$0:Lcom/android/server/enterprise/keystore/TimaKeystoreService;
 
     # invokes: Lcom/android/server/enterprise/keystore/TimaKeystoreService;->deletePackageRecord(ILjava/lang/String;)Z
     invoke-static {v3, v1, v0}, Lcom/android/server/enterprise/keystore/TimaKeystoreService;->access$200(Lcom/android/server/enterprise/keystore/TimaKeystoreService;ILjava/lang/String;)Z
 
+    .line 212
+    .end local v0    # "packageName":Ljava/lang/String;
+    .end local v1    # "uid":I
+    .end local v2    # "uri":Landroid/net/Uri;
     :cond_2
     return-void
 
+    .line 194
+    .restart local v2    # "uri":Landroid/net/Uri;
     :cond_3
     const/4 v0, 0x0
 

@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
+    .prologue
+    .line 3278
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     iput p2, p0, Lcom/android/server/pm/PersonaManagerService$5;->val$userHandle:I
@@ -37,7 +39,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 3282
     const-string v0, "PersonaManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,11 +68,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3286
     new-instance v0, Lcom/android/server/pm/PersonaManagerService$5$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/pm/PersonaManagerService$5$1;-><init>(Lcom/android/server/pm/PersonaManagerService$5;)V
 
-    invoke-virtual {v0}, Lcom/android/server/pm/PersonaManagerService$5$1;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 3299
     return-void
 .end method

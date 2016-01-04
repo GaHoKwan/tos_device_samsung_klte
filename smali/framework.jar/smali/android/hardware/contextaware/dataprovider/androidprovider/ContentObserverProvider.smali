@@ -86,7 +86,7 @@
 
     .prologue
     .line 59
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getContext()Landroid/content/Context;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -103,7 +103,7 @@
 
     .line 64
     :cond_0
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getContext()Landroid/content/Context;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -131,7 +131,7 @@
 
     .prologue
     .line 138
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getContext()Landroid/content/Context;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
@@ -227,7 +227,7 @@
 
     .prologue
     .line 163
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/ContentObserverProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v0
 
@@ -242,7 +242,7 @@
     invoke-virtual {v0, v1, p1}, Landroid/hardware/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;I)V
 
     .line 164
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/ContentObserverProvider;->notifyObserver()V
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     .line 165
     return-void

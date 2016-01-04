@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/smartbonding/SmartBondingService;)V
     .locals 0
 
+    .prologue
+    .line 3242
     iput-object p1, p0, Lcom/samsung/smartbonding/SmartBondingService$2;->this$0:Lcom/samsung/smartbonding/SmartBondingService;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 2
+    .param p1, "state"    # Landroid/telephony/ServiceState;
 
+    .prologue
+    .line 3245
     # getter for: Lcom/samsung/smartbonding/SmartBondingService;->DBG:Z
     invoke-static {}, Lcom/samsung/smartbonding/SmartBondingService;->access$000()Z
 
@@ -62,6 +67,7 @@
     # invokes: Lcom/samsung/smartbonding/SmartBondingService;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/samsung/smartbonding/SmartBondingService;->access$100(Ljava/lang/String;)V
 
+    .line 3246
     :cond_0
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getRoaming()Z
 
@@ -69,6 +75,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 3247
     # getter for: Lcom/samsung/smartbonding/SmartBondingService;->DBG:Z
     invoke-static {}, Lcom/samsung/smartbonding/SmartBondingService;->access$000()Z
 
@@ -81,6 +88,7 @@
     # invokes: Lcom/samsung/smartbonding/SmartBondingService;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/samsung/smartbonding/SmartBondingService;->access$100(Ljava/lang/String;)V
 
+    .line 3248
     :cond_1
     iget-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$2;->this$0:Lcom/samsung/smartbonding/SmartBondingService;
 
@@ -88,6 +96,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/smartbonding/SmartBondingService;->setSBEnabled(Z)V
 
+    .line 3250
     :cond_2
     return-void
 .end method

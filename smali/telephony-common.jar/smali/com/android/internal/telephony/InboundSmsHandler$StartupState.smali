@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 420
+    .line 416
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsHandler$StartupState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -40,28 +40,28 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 423
+    .line 419
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
-    .line 438
+    .line 434
     :pswitch_0
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 426
+    .line 422
     :pswitch_1
     iget-object v1, p0, Lcom/android/internal/telephony/InboundSmsHandler$StartupState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
-    # invokes: Lcom/android/internal/telephony/InboundSmsHandler;->deferMessage(Landroid/os/Message;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->deferMessage(Landroid/os/Message;)V
     invoke-static {v1, p1}, Lcom/android/internal/telephony/InboundSmsHandler;->access$000(Lcom/android/internal/telephony/InboundSmsHandler;Landroid/os/Message;)V
 
     goto :goto_0
 
-    .line 430
+    .line 426
     :pswitch_2
     iget-object v1, p0, Lcom/android/internal/telephony/InboundSmsHandler$StartupState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -69,12 +69,12 @@
 
     iget-object v2, v2, Lcom/android/internal/telephony/InboundSmsHandler;->mIdleState:Lcom/android/internal/telephony/InboundSmsHandler$IdleState;
 
-    # invokes: Lcom/android/internal/telephony/InboundSmsHandler;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/InboundSmsHandler;->access$100(Lcom/android/internal/telephony/InboundSmsHandler;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 
-    .line 423
+    .line 419
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_1

@@ -166,7 +166,7 @@
     .line 434
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$MatchType;->$VALUES:[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$MatchType;
 
-    invoke-virtual {v0}, [Lcom/android/i18n/phonenumbers/PhoneNumberUtil$MatchType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

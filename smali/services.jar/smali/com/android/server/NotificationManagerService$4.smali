@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService;Lcom/android/server/NotificationManagerService$NotificationListenerInfo;Landroid/service/notification/StatusBarNotification;)V
     .locals 0
 
+    .prologue
+    .line 935
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$4;->this$0:Lcom/android/server/NotificationManagerService;
 
     iput-object p2, p0, Lcom/android/server/NotificationManagerService$4;->val$info:Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
@@ -45,11 +47,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 938
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$4;->val$info:Lcom/android/server/NotificationManagerService$NotificationListenerInfo;
 
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$4;->val$sbn_light:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v0, v1}, Lcom/android/server/NotificationManagerService$NotificationListenerInfo;->notifyRemovedIfUserMatch(Landroid/service/notification/StatusBarNotification;)V
 
+    .line 939
     return-void
 .end method

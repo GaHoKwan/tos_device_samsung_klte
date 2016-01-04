@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/sec/knox/container/EnterpriseContainerService;)V
     .locals 0
 
+    .prologue
+    .line 577
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerService$1;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public declared-synchronized onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 579
     monitor-enter p0
 
     :try_start_0
@@ -49,6 +55,7 @@
     # setter for: Lcom/sec/knox/container/EnterpriseContainerService;->mRedexService:Lcom/samsung/redexmobile/IReDexService;
     invoke-static {v0, v1}, Lcom/sec/knox/container/EnterpriseContainerService;->access$002(Lcom/sec/knox/container/EnterpriseContainerService;Lcom/samsung/redexmobile/IReDexService;)Lcom/samsung/redexmobile/IReDexService;
 
+    .line 580
     const-string v0, "EnterpriseContainerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -80,10 +87,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 581
     monitor-exit p0
 
     return-void
 
+    .line 579
     :catchall_0
     move-exception v0
 
@@ -94,13 +103,17 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 584
     const-string v0, "EnterpriseContainerService"
 
     const-string v1, "Redex Service has unexpectedly disconnected"
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 585
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$1;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     const/4 v1, 0x0
@@ -108,5 +121,6 @@
     # setter for: Lcom/sec/knox/container/EnterpriseContainerService;->mRedexService:Lcom/samsung/redexmobile/IReDexService;
     invoke-static {v0, v1}, Lcom/sec/knox/container/EnterpriseContainerService;->access$002(Lcom/sec/knox/container/EnterpriseContainerService;Lcom/samsung/redexmobile/IReDexService;)Lcom/samsung/redexmobile/IReDexService;
 
+    .line 586
     return-void
 .end method

@@ -27,17 +27,28 @@
 # direct methods
 .method constructor <init>(Landroid/graphics/Atlas$Type;III)V
     .locals 0
+    .param p1, "type"    # Landroid/graphics/Atlas$Type;
+    .param p2, "width"    # I
+    .param p3, "height"    # I
+    .param p4, "count"    # I
 
+    .prologue
+    .line 641
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 642
     iput-object p1, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->type:Landroid/graphics/Atlas$Type;
 
+    .line 643
     iput p2, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->width:I
 
+    .line 644
     iput p3, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->height:I
 
+    .line 645
     iput p4, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->count:I
 
+    .line 646
     return-void
 .end method
 
@@ -46,6 +57,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 650
     const-string v0, "%s %dx%d"
 
     const/4 v1, 0x3
@@ -56,7 +69,7 @@
 
     iget-object v3, p0, Lcom/android/server/AssetAtlasService$WorkerResult;->type:Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v3}, Landroid/graphics/Atlas$Type;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v3
 

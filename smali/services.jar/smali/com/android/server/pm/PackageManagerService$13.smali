@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ILandroid/content/pm/IPackageDataObserver;)V
     .locals 0
 
+    .prologue
+    .line 13310
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$13;->val$packageName:Ljava/lang/String;
@@ -49,12 +51,15 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 13312
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v3, v3, Lcom/android/server/pm/PackageManagerService;->mHandler:Lcom/android/server/pm/PackageManagerService$PackageHandler;
 
-    invoke-virtual {v3, p0}, Lcom/android/server/pm/PackageManagerService$PackageHandler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v3, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 13313
     const-string v3, "PackageManager"
 
     const-string v4, "MSG"
@@ -67,12 +72,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 13315
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v4, v3, Lcom/android/server/pm/PackageManagerService;->mInstallLock:Ljava/lang/Object;
 
     monitor-enter v4
 
+    .line 13316
     :try_start_0
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -85,10 +92,13 @@
 
     move-result v2
 
+    .line 13317
+    .local v2, "succeeded":Z
     monitor-exit v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 13318
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$13;->val$packageName:Ljava/lang/String;
@@ -100,8 +110,10 @@
     # invokes: Lcom/android/server/pm/PackageManagerService;->clearExternalStorageDataSync(Ljava/lang/String;IZ)V
     invoke-static {v3, v4, v5, v6}, Lcom/android/server/pm/PackageManagerService;->access$5200(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;IZ)V
 
+    .line 13319
     if-eqz v2, :cond_0
 
+    .line 13321
     const-string v3, "devicestoragemonitor"
 
     invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -110,15 +122,21 @@
 
     check-cast v0, Lcom/android/server/DeviceStorageMonitorService;
 
+    .line 13323
+    .local v0, "dsm":Lcom/android/server/DeviceStorageMonitorService;
     if-eqz v0, :cond_0
 
+    .line 13324
     invoke-virtual {v0}, Lcom/android/server/DeviceStorageMonitorService;->updateMemory()V
 
+    .line 13327
+    .end local v0    # "dsm":Lcom/android/server/DeviceStorageMonitorService;
     :cond_0
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
     if-eqz v3, :cond_1
 
+    .line 13329
     :try_start_1
     const-string v3, "PackageManager"
 
@@ -148,6 +166,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 13330
     const-string v3, "PackageManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -170,6 +189,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 13331
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$13;->val$observer:Landroid/content/pm/IPackageDataObserver;
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$13;->val$packageName:Ljava/lang/String;
@@ -178,10 +198,13 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 13336
     :cond_1
     :goto_0
     return-void
 
+    .line 13317
+    .end local v2    # "succeeded":Z
     :catchall_0
     move-exception v3
 
@@ -192,9 +215,13 @@
 
     throw v3
 
+    .line 13332
+    .restart local v2    # "succeeded":Z
     :catch_0
     move-exception v1
 
+    .line 13333
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "PackageManager"
 
     const-string v4, "Observer no longer exists."

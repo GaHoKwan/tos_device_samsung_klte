@@ -90,7 +90,7 @@
     .line 8
     sget-object v0, Ljavax/sip/DialogState;->EARLY:Ljavax/sip/DialogState;
 
-    invoke-virtual {v0}, Ljavax/sip/DialogState;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
@@ -99,7 +99,7 @@
     .line 9
     sget-object v0, Ljavax/sip/DialogState;->CONFIRMED:Ljavax/sip/DialogState;
 
-    invoke-virtual {v0}, Ljavax/sip/DialogState;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
@@ -108,7 +108,7 @@
     .line 10
     sget-object v0, Ljavax/sip/DialogState;->TERMINATED:Ljavax/sip/DialogState;
 
-    invoke-virtual {v0}, Ljavax/sip/DialogState;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 
@@ -204,7 +204,7 @@
     .line 3
     sget-object v0, Ljavax/sip/DialogState;->$VALUES:[Ljavax/sip/DialogState;
 
-    invoke-virtual {v0}, [Ljavax/sip/DialogState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -220,7 +220,7 @@
 
     .prologue
     .line 22
-    invoke-virtual {p0}, Ljavax/sip/DialogState;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

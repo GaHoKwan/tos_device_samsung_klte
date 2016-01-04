@@ -280,7 +280,7 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual {v8, v9}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v8, v9}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -293,7 +293,7 @@
 
     const/4 v9, 0x1
 
-    invoke-virtual {v8, v9}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {v8, v9}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 65
     iget-object v8, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
@@ -313,7 +313,7 @@
 
     const/4 v9, 0x0
 
-    invoke-virtual {v8, v9}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v8, v9}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v8
 
@@ -506,7 +506,7 @@
 
     iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v1}, Lgov/nist/core/LexerCore;->peekLine()Ljava/lang/String;
+    invoke-virtual {v1}, Lgov/nist/core/StringTokenizer;->peekLine()Ljava/lang/String;
 
     move-result-object v1
 

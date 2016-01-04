@@ -134,7 +134,7 @@
 
     .line 180
     :cond_3
-    iget-object v0, p0, Lgov/nist/javax/sip/header/SubscriptionState;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -148,7 +148,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 182
-    iget-object v0, p0, Lgov/nist/javax/sip/header/SubscriptionState;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 

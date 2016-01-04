@@ -26,6 +26,8 @@
 
 .field public static final TAG_CSCFEATURE_RIL_CHECKNETLOCKMCCONLY4:Ljava/lang/String; = "CscFeature_RIL_CheckNetLockMccOnly4"
 
+.field public static final TAG_CSCFEATURE_RIL_CONFIG_ALWAYS_ON_APN:Ljava/lang/String; = "CscFeature_RIL_ConfigAlwaysOnApn"
+
 .field public static final TAG_CSCFEATURE_RIL_CONFIG_APN_SERVERINFO:Ljava/lang/String; = "CscFeature_RIL_ConfigApnServerInfo"
 
 .field public static final TAG_CSCFEATURE_RIL_CONFIG_MULTIPLE_APN4TETHERING:Ljava/lang/String; = "CscFeature_RIL_ConfigMultipleApn4Tethering"
@@ -222,6 +224,8 @@
 
 .field public static final TAG_CSCFEATURE_RIL_VOICENUMBER_INIT_BY:Ljava/lang/String; = "CscFeature_RIL_VoiceNumberInitBy"
 
+.field public static final TAG_CSCFEATURE_RIL_VOLTECALL_FOR_SSUSSD:Ljava/lang/String; = "CscFeature_RIL_VoltecallForSsussd"
+
 .field public static final TAG_CSCFEATURE_RIL_WAP_PUSH_CTC:Ljava/lang/String; = "CscFeature_RIL_WapPushCtc"
 
 .field public static final TAG_CSCFEATURE_RIL_WAP_PUSH_DS_NOTIFICATION_MYPHONEHBOOK:Ljava/lang/String; = "CscFeature_RIL_WapPushDsNotificationMyPhonebook"
@@ -233,6 +237,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

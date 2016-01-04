@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
 
+    .prologue
+    .line 1078
     iput-object p1, p0, Lcom/android/server/FMRadioService$14;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,19 +38,26 @@
 # virtual methods
 .method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 4
+    .param p1, "motionEvent"    # Landroid/hardware/motion/MREvent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1082
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
+    .line 1083
+    .local v0, "motion":I
     packed-switch v0, :pswitch_data_0
 
+    .line 1095
     :cond_0
     :goto_0
     return-void
 
+    .line 1085
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/FMRadioService$14;->this$0:Lcom/android/server/FMRadioService;
 
@@ -81,10 +90,12 @@
 
     if-nez v1, :cond_0
 
+    .line 1088
     const-string v1, "FLIP_TOP_TO_BOTTOM : mute"
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 1089
     iget-object v1, p0, Lcom/android/server/FMRadioService$14;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mAudioManager:Landroid/media/AudioManager;
@@ -98,6 +109,7 @@
 
     goto :goto_0
 
+    .line 1083
     :pswitch_data_0
     .packed-switch 0xa
         :pswitch_0

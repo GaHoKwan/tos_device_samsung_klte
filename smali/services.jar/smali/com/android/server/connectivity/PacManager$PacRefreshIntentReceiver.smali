@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
 
+    .prologue
+    .line 129
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager$PacRefreshIntentReceiver;->this$0:Lcom/android/server/connectivity/PacManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 131
     invoke-static {}, Lcom/android/server/IoThread;->getHandler()Landroid/os/Handler;
 
     move-result-object v0
@@ -47,5 +53,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 132
     return-void
 .end method

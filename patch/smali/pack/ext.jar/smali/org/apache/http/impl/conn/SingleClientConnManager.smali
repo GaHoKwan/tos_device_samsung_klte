@@ -198,7 +198,7 @@
 
     iget-object v3, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->uniquePoolEntry:Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;
 
-    iget-object v3, v3, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v3, v3, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v3}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
@@ -365,7 +365,7 @@
     .line 228
     iget-object v5, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->uniquePoolEntry:Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;
 
-    iget-object v5, v5, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v5, v5, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v5}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
@@ -428,7 +428,7 @@
     :try_start_1
     iget-object v5, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->uniquePoolEntry:Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;
 
-    iget-object v5, v5, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v5, v5, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v5}, Lorg/apache/http/conn/OperatedClientConnection;->getSocket()Ljava/net/Socket;
 
@@ -593,7 +593,7 @@
 
     .line 289
     :cond_2
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->getManager()Lorg/apache/http/conn/ClientConnectionManager;
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->getManager()Lorg/apache/http/conn/ClientConnectionManager;
 
     move-result-object v1
 
@@ -617,7 +617,7 @@
     :try_start_0
     iget-object v4, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->uniquePoolEntry:Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;
 
-    iget-object v4, v4, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v4, v4, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v4}, Lorg/apache/http/conn/OperatedClientConnection;->getSocket()Ljava/net/Socket;
 
@@ -636,7 +636,7 @@
 
     .line 306
     :cond_4
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->isOpen()Z
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isOpen()Z
 
     move-result v4
 
@@ -646,7 +646,7 @@
 
     if-nez v4, :cond_5
 
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->isMarkedReusable()Z
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->isMarkedReusable()Z
 
     move-result v4
 
@@ -671,14 +671,14 @@
 
     .line 317
     :cond_6
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->shutdown()V
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->shutdown()V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     .line 325
     :cond_7
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->detach()V
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
     .line 326
     const/4 v4, 0x0
@@ -747,7 +747,7 @@
 
     .line 325
     :cond_9
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->detach()V
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
     .line 326
     const/4 v4, 0x0
@@ -794,7 +794,7 @@
     :catchall_0
     move-exception v4
 
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->detach()V
+    invoke-virtual {v2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
     .line 326
     const/4 v5, 0x0
@@ -876,7 +876,7 @@
     .line 396
     iget-object v1, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->managedConn:Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;
 
-    invoke-virtual {v1}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->detach()V
+    invoke-virtual {v1}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
     .line 399
     :try_start_0
@@ -922,7 +922,7 @@
     .line 372
     iget-object v1, p0, Lorg/apache/http/impl/conn/SingleClientConnManager;->managedConn:Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;
 
-    invoke-virtual {v1}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->detach()V
+    invoke-virtual {v1}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;->detach()V
 
     .line 375
     :cond_0

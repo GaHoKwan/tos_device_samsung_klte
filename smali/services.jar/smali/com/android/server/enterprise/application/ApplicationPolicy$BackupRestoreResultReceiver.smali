@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
     .locals 0
 
+    .prologue
+    .line 5795
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/enterprise/application/ApplicationPolicy;Lcom/android/server/enterprise/application/ApplicationPolicy$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/enterprise/application/ApplicationPolicy;
+    .param p2, "x1"    # Lcom/android/server/enterprise/application/ApplicationPolicy$1;
 
+    .prologue
+    .line 5795
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;-><init>(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
 
     return-void
@@ -41,13 +47,18 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 5798
     const-string v0, "ApplicationPolicy"
 
     const-string v1, "onReceiveResult "
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 5799
     const-string v0, "edm.intent.action.backup.result"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -60,12 +71,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 5800
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     iget-object v1, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mBackupLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 5801
     :try_start_0
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -80,18 +93,22 @@
     # setter for: Lcom/android/server/enterprise/application/ApplicationPolicy;->mBackupReturnCode:I
     invoke-static {v0, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->access$1902(Lcom/android/server/enterprise/application/ApplicationPolicy;I)I
 
+    .line 5803
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mBackupLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
+    .line 5804
     monitor-exit v1
 
+    .line 5812
     :cond_0
     :goto_0
     return-void
 
+    .line 5804
     :catchall_0
     move-exception v0
 
@@ -101,6 +118,7 @@
 
     throw v0
 
+    .line 5805
     :cond_1
     const-string v0, "edm.intent.action.restore.result"
 
@@ -114,12 +132,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 5806
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     iget-object v1, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mRestoreLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 5807
     :try_start_1
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
@@ -134,12 +154,14 @@
     # setter for: Lcom/android/server/enterprise/application/ApplicationPolicy;->mRestoreReturnCode:I
     invoke-static {v0, v2}, Lcom/android/server/enterprise/application/ApplicationPolicy;->access$2002(Lcom/android/server/enterprise/application/ApplicationPolicy;I)I
 
+    .line 5809
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$BackupRestoreResultReceiver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     iget-object v0, v0, Lcom/android/server/enterprise/application/ApplicationPolicy;->mRestoreLock:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
+    .line 5810
     monitor-exit v1
 
     goto :goto_0

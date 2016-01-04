@@ -17,9 +17,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/sec/knox/container/util/DaemonEvent;)V
     .locals 0
+    .param p1, "command"    # Ljava/lang/String;
+    .param p2, "event"    # Lcom/sec/knox/container/util/DaemonEvent;
 
+    .prologue
+    .line 430
     invoke-direct {p0, p1, p2}, Lcom/sec/knox/container/util/DaemonConnectorException;-><init>(Ljava/lang/String;Lcom/sec/knox/container/util/DaemonEvent;)V
 
+    .line 431
     return-void
 .end method
 
@@ -28,9 +33,11 @@
 .method public rethrowAsParcelableException()Ljava/lang/IllegalArgumentException;
     .locals 2
 
+    .prologue
+    .line 435
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p0}, Lcom/sec/knox/container/util/DaemonConnector$DaemonArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 

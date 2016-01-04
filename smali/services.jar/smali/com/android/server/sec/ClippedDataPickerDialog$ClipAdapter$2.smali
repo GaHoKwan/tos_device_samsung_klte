@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;)V
     .locals 0
 
+    .prologue
+    .line 2181
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$2;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +38,15 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 7
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 2185
     iget-object v5, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$2;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     iget-object v5, v5, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
@@ -49,10 +55,12 @@
 
     if-eqz v5, :cond_1
 
+    .line 2214
     :cond_0
     :goto_0
     return v3
 
+    .line 2188
     :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -60,14 +68,19 @@
 
     if-ne v5, v4, :cond_2
 
+    .line 2190
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
+    .line 2191
+    .local v2, "outRect":Landroid/graphics/Rect;
     invoke-virtual {p1, v2}, Landroid/view/View;->getHitRect(Landroid/graphics/Rect;)V
 
+    .line 2192
     invoke-virtual {p1, v3}, Landroid/view/View;->setPressed(Z)V
 
+    .line 2194
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v5
@@ -86,18 +99,22 @@
 
     if-eqz v5, :cond_0
 
+    .line 2195
     iget-object v5, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$2;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     iget-object v5, v5, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v5, v5, Lcom/android/server/sec/ClippedDataPickerDialog;->mGrid:Lcom/android/server/sec/ClippedDataPickerGridView;
 
-    invoke-virtual {v5, p1}, Lcom/android/server/sec/ClippedDataPickerGridView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v5, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
 
     move-result v1
 
+    .line 2197
+    .local v1, "index":I
     invoke-virtual {p1, v3}, Landroid/view/View;->playSoundEffect(I)V
 
+    .line 2199
     :try_start_0
     iget-object v3, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$2;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
@@ -124,15 +141,23 @@
     :goto_1
     move v3, v4
 
+    .line 2207
     goto :goto_0
 
+    .line 2200
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 2202
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 
+    .line 2209
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "index":I
+    .end local v2    # "outRect":Landroid/graphics/Rect;
     :cond_2
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -140,10 +165,12 @@
 
     if-nez v5, :cond_3
 
+    .line 2210
     invoke-virtual {p1, v4}, Landroid/view/View;->setPressed(Z)V
 
     goto :goto_0
 
+    .line 2211
     :cond_3
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -161,6 +188,7 @@
 
     if-ne v4, v5, :cond_0
 
+    .line 2212
     :cond_4
     invoke-virtual {p1, v3}, Landroid/view/View;->setPressed(Z)V
 

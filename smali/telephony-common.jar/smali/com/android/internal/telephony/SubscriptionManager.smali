@@ -2227,7 +2227,7 @@
     invoke-direct {p0, v3}, Lcom/android/internal/telephony/SubscriptionManager;->resetCurrentSubscription(Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;)V
 
     .line 804
-    invoke-virtual {v3}, Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;->ordinal()I
+    invoke-virtual {v3}, Ljava/lang/Enum;->ordinal()I
 
     move-result v7
 
@@ -3651,7 +3651,7 @@
 
     iget-object v4, v8, Lcom/android/internal/telephony/Subscription;->subStatus:Lcom/android/internal/telephony/Subscription$SubscriptionStatus;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Subscription$SubscriptionStatus;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -3935,7 +3935,7 @@
 
     iget-object v4, v8, Lcom/android/internal/telephony/Subscription;->subStatus:Lcom/android/internal/telephony/Subscription$SubscriptionStatus;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/Subscription$SubscriptionStatus;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -3951,11 +3951,11 @@
     .line 649
     const/16 v0, 0xb
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/SubscriptionManager;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/SubscriptionManager;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 650
     return-void
@@ -4648,13 +4648,13 @@
     .line 302
     const/4 v2, 0x2
 
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/SubscriptionManager;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
     const-wide/16 v3, 0x64
 
-    invoke-virtual {p0, v2, v3, v4}, Lcom/android/internal/telephony/SubscriptionManager;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v2, v3, v4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     .line 303
     iput-boolean v6, p0, Lcom/android/internal/telephony/SubscriptionManager;->mFlagAllCardsInfo:Z
@@ -5135,7 +5135,7 @@
 
     iget-object v6, p1, Lcom/android/internal/telephony/SubscriptionData;->subscription:[Lcom/android/internal/telephony/Subscription;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v7
 
@@ -5208,7 +5208,7 @@
     :goto_3
     iget-object v5, p1, Lcom/android/internal/telephony/SubscriptionData;->subscription:[Lcom/android/internal/telephony/Subscription;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 
@@ -5252,7 +5252,7 @@
     .restart local v2    # "newSub":Lcom/android/internal/telephony/Subscription;
     iget-object v5, p1, Lcom/android/internal/telephony/SubscriptionData;->subscription:[Lcom/android/internal/telephony/Subscription;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 
@@ -5284,7 +5284,7 @@
 
     iget-object v5, p1, Lcom/android/internal/telephony/SubscriptionData;->subscription:[Lcom/android/internal/telephony/Subscription;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/SubscriptionManager$SubscriptionId;->ordinal()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 

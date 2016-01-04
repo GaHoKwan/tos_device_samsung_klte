@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/widget/AdapterViewFlipper;)V
     .locals 0
 
+    .prologue
+    .line 77
     iput-object p1, p0, Landroid/widget/AdapterViewFlipper$1;->this$0:Landroid/widget/AdapterViewFlipper;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,21 +35,31 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 80
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 82
+    .local v0, "action":Ljava/lang/String;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
+    .line 83
+    .local v2, "curThread":Ljava/lang/Thread;
     invoke-virtual {v2}, Ljava/lang/Thread;->getName()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 85
+    .local v1, "curThName":Ljava/lang/String;
     const-string v3, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -56,11 +68,13 @@
 
     if-eqz v3, :cond_3
 
+    .line 86
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper$1;->this$0:Landroid/widget/AdapterViewFlipper;
 
     # setter for: Landroid/widget/AdapterViewFlipper;->mUserPresent:Z
     invoke-static {v3, v5}, Landroid/widget/AdapterViewFlipper;->access$002(Landroid/widget/AdapterViewFlipper;Z)Z
 
+    .line 88
     const-string/jumbo v3, "main"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -77,16 +91,19 @@
 
     if-eqz v3, :cond_2
 
+    .line 89
     :cond_0
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper$1;->this$0:Landroid/widget/AdapterViewFlipper;
 
     # invokes: Landroid/widget/AdapterViewFlipper;->updateRunning()V
     invoke-static {v3}, Landroid/widget/AdapterViewFlipper;->access$100(Landroid/widget/AdapterViewFlipper;)V
 
+    .line 102
     :cond_1
     :goto_0
     return-void
 
+    .line 92
     :cond_2
     const-string v3, "ViewFlipper"
 
@@ -96,6 +113,7 @@
 
     goto :goto_0
 
+    .line 93
     :cond_3
     const-string v3, "android.intent.action.SCREEN_ON"
 
@@ -105,6 +123,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 94
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper$1;->this$0:Landroid/widget/AdapterViewFlipper;
 
     const/4 v4, 0x1
@@ -112,6 +131,7 @@
     # setter for: Landroid/widget/AdapterViewFlipper;->mUserPresent:Z
     invoke-static {v3, v4}, Landroid/widget/AdapterViewFlipper;->access$002(Landroid/widget/AdapterViewFlipper;Z)Z
 
+    .line 96
     const-string/jumbo v3, "main"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -128,6 +148,7 @@
 
     if-eqz v3, :cond_5
 
+    .line 97
     :cond_4
     iget-object v3, p0, Landroid/widget/AdapterViewFlipper$1;->this$0:Landroid/widget/AdapterViewFlipper;
 
@@ -136,6 +157,7 @@
 
     goto :goto_0
 
+    .line 100
     :cond_5
     const-string v3, "ViewFlipper"
 

@@ -55,20 +55,25 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 77
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/HarmonyEASService$ThirdPartyAppDetails;->mThirdPartyPackageMap:Ljava/util/HashMap;
 
+    .line 78
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/HarmonyEASService$ThirdPartyAppDetails;->mHashValueToPkgNameMap:Ljava/util/HashMap;
 
+    .line 79
     new-instance v0, Ljava/util/HashSet;
 
     invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
@@ -80,7 +85,10 @@
 
 .method synthetic constructor <init>(Lcom/android/server/HarmonyEASService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/HarmonyEASService$1;
 
+    .prologue
+    .line 74
     invoke-direct {p0}, Lcom/android/server/HarmonyEASService$ThirdPartyAppDetails;-><init>()V
 
     return-void

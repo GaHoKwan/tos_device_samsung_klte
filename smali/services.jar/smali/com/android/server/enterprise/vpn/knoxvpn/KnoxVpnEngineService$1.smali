@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;)V
     .locals 0
 
+    .prologue
+    .line 3034
     iput-object p1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService$1;->this$0:Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;
 
     invoke-direct {p0}, Landroid/content/pm/ISystemPersonaObserver$Stub;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onPersonaActive(I)V
     .locals 3
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 3037
     # getter for: Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->access$000()Z
 
@@ -66,13 +71,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3038
     :cond_0
     return-void
 .end method
 
 .method public onRemovePersona(I)V
     .locals 3
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 3042
     # getter for: Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->access$000()Z
 
@@ -105,13 +114,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3043
     :cond_0
     return-void
 .end method
 
 .method public onResetPersona(I)V
     .locals 3
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 3047
     # getter for: Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->access$000()Z
 
@@ -144,13 +157,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3048
     :cond_0
     return-void
 .end method
 
 .method public onSwitchPersona(IIZ)V
     .locals 3
+    .param p1, "fromPersonaId"    # I
+    .param p2, "toPersonaId"    # I
+    .param p3, "removingFlag"    # Z
 
+    .prologue
+    .line 3056
     # getter for: Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnEngineService;->access$100()Ljava/lang/String;
 
@@ -176,5 +195,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3057
     return-void
 .end method

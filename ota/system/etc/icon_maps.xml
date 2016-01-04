@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="com.android.contacts.ic_launcher_contacts.png">com.android.contacts.activities.DialtactsActivity.png</entry>
+    <entry key="com.android.contacts.ic_launcher_phone.png">com.android.contacts.activities.TwelveKeyDialer.png</entry>
+    <entry key="com.lidroid.fileexplorer.png">com.android.fileexplorer.png</entry>
+    <entry key="com.android.gallery3d.png">com.miui.gallery.png</entry>
+    <entry key="com.google.android.apps.maps.places_icon.png">com.google.android.maps.PlacesActivity.png</entry>
+    <entry key="com.google.android.apps.maps.ic_navigation.png">com.google.android.maps.driveabout.app.DestinationActivity.png</entry>
+    <entry key="eu.chainfire.supersu.png">com.miui.uac.png</entry>
+    <entry key="com.lidroid.lockscreen.png">com.miui.lock.png</entry>
+    <entry key="com.lidroid.market.png">com.miui.supermarket.png</entry>
+</properties>

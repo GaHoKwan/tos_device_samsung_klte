@@ -12,23 +12,32 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "fname"    # Ljava/lang/String;
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 27
     iput-object p1, p0, Lcom/android/server/power/LibQmg;->fname:Ljava/lang/String;
 
+    .line 28
     return-void
 .end method
 
 .method private alreadyOpen()Z
     .locals 1
 
+    .prologue
+    .line 77
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     if-eqz v0, :cond_0
 
+    .line 78
     const/4 v0, 0x1
 
+    .line 80
     :goto_0
     return v0
 
@@ -72,18 +81,22 @@
 .method public close()I
     .locals 1
 
+    .prologue
+    .line 70
     invoke-direct {p0}, Lcom/android/server/power/LibQmg;->alreadyOpen()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 71
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0}, Lcom/android/server/power/LibQmg;->qmgClose(I)I
 
     move-result v0
 
+    .line 73
     :goto_0
     return v0
 
@@ -96,10 +109,13 @@
 .method public ensureQmgHandle()V
     .locals 1
 
+    .prologue
+    .line 31
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     if-nez v0, :cond_0
 
+    .line 32
     iget-object v0, p0, Lcom/android/server/power/LibQmg;->fname:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/server/power/LibQmg;->qmgOpen(Ljava/lang/String;)I
@@ -108,6 +124,7 @@
 
     iput v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
+    .line 34
     :cond_0
     return-void
 .end method
@@ -115,8 +132,11 @@
 .method public getCurrentFrame()I
     .locals 1
 
+    .prologue
+    .line 47
     invoke-virtual {p0}, Lcom/android/server/power/LibQmg;->ensureQmgHandle()V
 
+    .line 48
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0}, Lcom/android/server/power/LibQmg;->qmgGetCurrentFrame(I)I
@@ -129,18 +149,25 @@
 .method public getDelayTime()I
     .locals 2
 
+    .prologue
+    .line 57
     invoke-virtual {p0}, Lcom/android/server/power/LibQmg;->ensureQmgHandle()V
 
+    .line 58
     iget v1, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v1}, Lcom/android/server/power/LibQmg;->qmgGetDelayTime(I)I
 
     move-result v0
 
+    .line 59
+    .local v0, "delayTime":I
     if-gtz v0, :cond_0
 
+    .line 60
     const/16 v0, 0x42
 
+    .line 62
     :cond_0
     return v0
 .end method
@@ -148,8 +175,11 @@
 .method public getHeight()I
     .locals 1
 
+    .prologue
+    .line 42
     invoke-virtual {p0}, Lcom/android/server/power/LibQmg;->ensureQmgHandle()V
 
+    .line 43
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0}, Lcom/android/server/power/LibQmg;->qmgGetHeight(I)I
@@ -162,8 +192,11 @@
 .method public getWidth()I
     .locals 1
 
+    .prologue
+    .line 37
     invoke-virtual {p0}, Lcom/android/server/power/LibQmg;->ensureQmgHandle()V
 
+    .line 38
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0}, Lcom/android/server/power/LibQmg;->qmgGetWidth(I)I
@@ -175,12 +208,15 @@
 
 .method public loadFrame(Landroid/graphics/Bitmap;)I
     .locals 1
+    .param p1, "b"    # Landroid/graphics/Bitmap;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 66
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0, p1}, Lcom/android/server/power/LibQmg;->qmgLoadBitmap(ILandroid/graphics/Bitmap;)I
@@ -192,9 +228,13 @@
 
 .method public setCurrentFrame(I)I
     .locals 1
+    .param p1, "frameNum"    # I
 
+    .prologue
+    .line 52
     invoke-virtual {p0}, Lcom/android/server/power/LibQmg;->ensureQmgHandle()V
 
+    .line 53
     iget v0, p0, Lcom/android/server/power/LibQmg;->handle:I
 
     invoke-static {v0, p1}, Lcom/android/server/power/LibQmg;->qmgSetCurrentFrame(II)I
@@ -207,6 +247,8 @@
 .method public toString()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 85
     const-string v0, "fname:%s, handle:%d, w:%d, h:%d, d:%d"
 
     const/4 v1, 0x5

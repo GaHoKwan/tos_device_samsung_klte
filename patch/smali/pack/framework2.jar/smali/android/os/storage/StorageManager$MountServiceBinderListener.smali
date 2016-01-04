@@ -22,6 +22,8 @@
 .method private constructor <init>(Landroid/os/storage/StorageManager;)V
     .locals 0
 
+    .prologue
+    .line 93
     iput-object p1, p0, Landroid/os/storage/StorageManager$MountServiceBinderListener;->this$0:Landroid/os/storage/StorageManager;
 
     invoke-direct {p0}, Landroid/os/storage/IMountServiceListener$Stub;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Landroid/os/storage/StorageManager;Landroid/os/storage/StorageManager$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/os/storage/StorageManager;
+    .param p2, "x1"    # Landroid/os/storage/StorageManager$1;
 
+    .prologue
+    .line 93
     invoke-direct {p0, p1}, Landroid/os/storage/StorageManager$MountServiceBinderListener;-><init>(Landroid/os/storage/StorageManager;)V
 
     return-void
@@ -41,7 +47,12 @@
 # virtual methods
 .method public onStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "path"    # Ljava/lang/String;
+    .param p2, "oldState"    # Ljava/lang/String;
+    .param p3, "newState"    # Ljava/lang/String;
 
+    .prologue
+    .line 102
     iget-object v2, p0, Landroid/os/storage/StorageManager$MountServiceBinderListener;->this$0:Landroid/os/storage/StorageManager;
 
     # getter for: Landroid/os/storage/StorageManager;->mListeners:Ljava/util/List;
@@ -53,11 +64,15 @@
 
     move-result v1
 
+    .line 103
+    .local v1, "size":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 104
     iget-object v2, p0, Landroid/os/storage/StorageManager$MountServiceBinderListener;->this$0:Landroid/os/storage/StorageManager;
 
     # getter for: Landroid/os/storage/StorageManager;->mListeners:Ljava/util/List;
@@ -73,17 +88,22 @@
 
     invoke-virtual {v2, p1, p2, p3}, Landroid/os/storage/StorageManager$ListenerDelegate;->sendStorageStateChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 103
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 106
     :cond_0
     return-void
 .end method
 
 .method public onUsbMassStorageConnectionChanged(Z)V
     .locals 3
+    .param p1, "available"    # Z
 
+    .prologue
+    .line 95
     iget-object v2, p0, Landroid/os/storage/StorageManager$MountServiceBinderListener;->this$0:Landroid/os/storage/StorageManager;
 
     # getter for: Landroid/os/storage/StorageManager;->mListeners:Ljava/util/List;
@@ -95,11 +115,15 @@
 
     move-result v1
 
+    .line 96
+    .local v1, "size":I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_0
     if-ge v0, v1, :cond_0
 
+    .line 97
     iget-object v2, p0, Landroid/os/storage/StorageManager$MountServiceBinderListener;->this$0:Landroid/os/storage/StorageManager;
 
     # getter for: Landroid/os/storage/StorageManager;->mListeners:Ljava/util/List;
@@ -115,10 +139,12 @@
 
     invoke-virtual {v2, p1}, Landroid/os/storage/StorageManager$ListenerDelegate;->sendShareAvailabilityChanged(Z)V
 
+    .line 96
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
+    .line 99
     :cond_0
     return-void
 .end method

@@ -339,7 +339,7 @@
 
     .line 305
     .local v3, "sb":Ljava/lang/StringBuilder;
-    const-string v4, "{"
+    const-string/jumbo v4, "{"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -419,7 +419,7 @@
     .line 318
     .end local v0    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Ljava/lang/String;>;"
     :cond_1
-    const-string v4, "}"
+    const-string/jumbo v4, "}"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

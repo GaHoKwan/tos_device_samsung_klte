@@ -35,18 +35,28 @@
 # direct methods
 .method public constructor <init>(III)V
     .locals 1
+    .param p1, "start"    # I
+    .param p2, "end"    # I
+    .param p3, "selectTextPtr"    # I
 
+    .prologue
+    .line 1160
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1168
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkitsec/WebViewCore$TextSelectionData;->mSelectionReason:I
 
+    .line 1161
     iput p1, p0, Landroid/webkitsec/WebViewCore$TextSelectionData;->mStart:I
 
+    .line 1162
     iput p2, p0, Landroid/webkitsec/WebViewCore$TextSelectionData;->mEnd:I
 
+    .line 1163
     iput p3, p0, Landroid/webkitsec/WebViewCore$TextSelectionData;->mSelectTextPtr:I
 
+    .line 1164
     return-void
 .end method

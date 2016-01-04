@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService$PickupPlayer$1;)V
     .locals 0
 
+    .prologue
+    .line 3169
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 3171
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
@@ -50,12 +54,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 3172
     const-string v0, "STATUSBAR-NotificationService"
 
     const-string v1, "Pickup - mInCall is true, vibration will be returned."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3181
     :goto_0
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
@@ -74,6 +80,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 3182
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
@@ -87,9 +94,11 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 3183
     :cond_0
     return-void
 
+    .line 3174
     :cond_1
     const-string v0, "STATUSBAR-NotificationService"
 
@@ -97,6 +106,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3175
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
@@ -134,6 +144,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/SystemVibrator;->vibrateImmVibe([BI)V
 
+    .line 3177
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;
@@ -149,6 +160,7 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mPlckupIntent:Landroid/content/Intent;
     invoke-static {v0, v1}, Lcom/android/server/NotificationManagerService;->access$5402(Lcom/android/server/NotificationManagerService;Landroid/content/Intent;)Landroid/content/Intent;
 
+    .line 3178
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$PickupPlayer$1$1;->this$2:Lcom/android/server/NotificationManagerService$PickupPlayer$1;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$PickupPlayer$1;->this$1:Lcom/android/server/NotificationManagerService$PickupPlayer;

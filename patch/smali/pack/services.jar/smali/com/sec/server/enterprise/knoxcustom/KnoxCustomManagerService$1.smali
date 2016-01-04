@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
     .locals 0
 
+    .prologue
+    .line 228
     iput-object p1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$1;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 232
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -46,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 233
     iget-object v0, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$1;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     invoke-virtual {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getSealedState()Z
@@ -54,11 +61,13 @@
 
     if-eqz v0, :cond_0
 
+    .line 234
     iget-object v0, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$1;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     # invokes: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->startSealedMode()V
     invoke-static {v0}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->access$000(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
 
+    .line 237
     :cond_0
     return-void
 .end method

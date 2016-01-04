@@ -41,15 +41,20 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 33
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->DEBUG:Z
 
+    .line 34
     invoke-static {}, Landroid/os/Debug;->isProductShip()I
 
     move-result v2
@@ -61,26 +66,33 @@
     :cond_0
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->SAFE_DEBUG:Z
 
+    .line 46
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mControlZoomRingKey:Z
 
+    .line 47
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mZoomMoveActionList:Ljava/util/ArrayList;
 
+    .line 50
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
+    .line 51
     return-void
 .end method
 
 .method private getAudioManager()Landroid/media/AudioManager;
     .locals 2
 
+    .prologue
+    .line 113
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mAudioManager:Landroid/media/AudioManager;
 
     if-nez v0, :cond_0
 
+    .line 114
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
@@ -93,6 +105,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mAudioManager:Landroid/media/AudioManager;
 
+    .line 116
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mAudioManager:Landroid/media/AudioManager;
 
@@ -102,10 +115,13 @@
 .method private getKeyguardManager()Landroid/app/KeyguardManager;
     .locals 2
 
+    .prologue
+    .line 105
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mKeyguardManager:Landroid/app/KeyguardManager;
 
     if-nez v0, :cond_0
 
+    .line 106
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
     const-string v1, "keyguard"
@@ -118,6 +134,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mKeyguardManager:Landroid/app/KeyguardManager;
 
+    .line 109
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mKeyguardManager:Landroid/app/KeyguardManager;
 
@@ -127,6 +144,8 @@
 .method private isControlZoomRing()Z
     .locals 1
 
+    .prologue
+    .line 120
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mControlZoomRingKey:Z
 
     return v0
@@ -135,8 +154,10 @@
 .method private isDeviceProvisioned()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 203
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -160,12 +181,15 @@
 .method private isRotateZoomRingtoLaunchApp()Z
     .locals 5
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 177
     monitor-enter p0
 
+    .line 178
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mZoomMoveActionList:Ljava/util/ArrayList;
 
@@ -173,10 +197,13 @@
 
     move-result v0
 
+    .line 179
+    .local v0, "size":I
     const/16 v1, 0x8
 
     if-ne v0, v1, :cond_0
 
+    .line 180
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mZoomMoveActionList:Ljava/util/ArrayList;
 
     const/4 v4, 0x0
@@ -209,20 +236,26 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 183
     monitor-exit p0
 
     move v1, v2
 
+    .line 188
     :goto_0
     return v1
 
+    .line 186
     :cond_0
     monitor-exit p0
 
     move v1, v3
 
+    .line 188
     goto :goto_0
 
+    .line 186
+    .end local v0    # "size":I
     :catchall_0
     move-exception v1
 
@@ -235,7 +268,11 @@
 
 .method private isZoomRingKeyEvent(II)Z
     .locals 1
+    .param p1, "keyCode"    # I
+    .param p2, "scanCode"    # I
 
+    .prologue
+    .line 139
     const/16 v0, 0xa8
 
     if-ne p1, v0, :cond_0
@@ -253,9 +290,11 @@
 
     if-ne p2, v0, :cond_2
 
+    .line 141
     :cond_1
     const/4 v0, 0x1
 
+    .line 143
     :goto_0
     return v0
 
@@ -268,6 +307,8 @@
 .method private launchModeDialApp()V
     .locals 3
 
+    .prologue
+    .line 192
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->SAFE_DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -278,6 +319,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 193
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
@@ -291,6 +333,8 @@
 
     move-result-object v0
 
+    .line 195
+    .local v0, "intent":Landroid/content/Intent;
     if-eqz v0, :cond_1
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->isDeviceProvisioned()Z
@@ -299,13 +343,16 @@
 
     if-eqz v1, :cond_1
 
+    .line 196
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
+    .line 200
     :goto_0
     return-void
 
+    .line 198
     :cond_1
     const-string v1, "SamsungZoomRingController"
 
@@ -318,11 +365,17 @@
 
 .method private onInputZoomRingMoveAction(IIZ)V
     .locals 3
+    .param p1, "action"    # I
+    .param p2, "repeatCount"    # I
+    .param p3, "canceled"    # Z
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 151
     monitor-enter p0
 
+    .line 152
     if-ne p1, v2, :cond_0
 
     :try_start_0
@@ -334,11 +387,14 @@
 
     if-nez v0, :cond_0
 
+    .line 153
     monitor-exit p0
 
+    .line 167
     :goto_0
     return-void
 
+    .line 155
     :cond_0
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->isControlZoomRing()Z
 
@@ -350,13 +406,16 @@
 
     if-eqz p2, :cond_2
 
+    .line 156
     :cond_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->resetZoomMoveActionList()V
 
+    .line 157
     monitor-exit p0
 
     goto :goto_0
 
+    .line 166
     :catchall_0
     move-exception v0
 
@@ -366,6 +425,7 @@
 
     throw v0
 
+    .line 159
     :cond_2
     :try_start_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mZoomMoveActionList:Ljava/util/ArrayList;
@@ -376,16 +436,20 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 161
     if-ne p1, v2, :cond_3
 
+    .line 162
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->isRotateZoomRingtoLaunchApp()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
+    .line 163
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->launchModeDialApp()V
 
+    .line 166
     :cond_3
     monitor-exit p0
     :try_end_1
@@ -397,6 +461,8 @@
 .method private resetZoomMoveActionList()V
     .locals 2
 
+    .prologue
+    .line 170
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->SAFE_DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -407,18 +473,23 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 171
     :cond_0
     monitor-enter p0
 
+    .line 172
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mZoomMoveActionList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
+    .line 173
     monitor-exit p0
 
+    .line 174
     return-void
 
+    .line 173
     :catchall_0
     move-exception v0
 
@@ -431,21 +502,28 @@
 
 .method private setStateControlZoomRing(I)V
     .locals 1
+    .param p1, "action"    # I
 
+    .prologue
+    .line 124
     if-nez p1, :cond_0
 
+    .line 125
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mControlZoomRingKey:Z
 
+    .line 133
     :goto_0
     return-void
 
+    .line 127
     :cond_0
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mControlZoomRingKey:Z
 
+    .line 128
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->resetZoomMoveActionList()V
 
     goto :goto_0
@@ -455,7 +533,10 @@
 # virtual methods
 .method public handleKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 1
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 54
     const/high16 v0, -0x80000000
 
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->handleKeyEvent(Landroid/view/KeyEvent;I)Z
@@ -467,27 +548,40 @@
 
 .method public handleKeyEvent(Landroid/view/KeyEvent;I)Z
     .locals 8
+    .param p1, "event"    # Landroid/view/KeyEvent;
+    .param p2, "streamType"    # I
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 58
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v0
 
+    .line 59
+    .local v0, "action":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v2
 
+    .line 60
+    .local v2, "keyCode":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getScanCode()I
 
     move-result v4
 
+    .line 61
+    .local v4, "scanCode":I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result v3
 
+    .line 63
+    .local v3, "repeatCount":I
     sparse-switch v2, :sswitch_data_0
 
+    .line 101
     :cond_0
     const/4 v5, 0x0
 
@@ -495,6 +589,7 @@
     :goto_0
     return v5
 
+    .line 66
     :sswitch_0
     invoke-direct {p0, v2, v4}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->isZoomRingKeyEvent(II)Z
 
@@ -502,6 +597,7 @@
 
     if-eqz v6, :cond_2
 
+    .line 68
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->getKeyguardManager()Landroid/app/KeyguardManager;
 
     move-result-object v6
@@ -512,13 +608,16 @@
 
     if-nez v6, :cond_0
 
+    .line 73
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->setStateControlZoomRing(I)V
 
     goto :goto_0
 
+    .line 75
     :cond_2
     if-nez v0, :cond_3
 
+    .line 76
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->getAudioManager()Landroid/media/AudioManager;
 
     move-result-object v6
@@ -527,6 +626,7 @@
 
     goto :goto_0
 
+    .line 78
     :cond_3
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isCanceled()Z
 
@@ -534,6 +634,7 @@
 
     if-nez v6, :cond_1
 
+    .line 79
     iget-object v6, p0, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->mContext:Landroid/content/Context;
 
     const-string v7, "audio"
@@ -544,8 +645,11 @@
 
     check-cast v1, Landroid/media/AudioManager;
 
+    .line 81
+    .local v1, "audioManager":Landroid/media/AudioManager;
     if-eqz v1, :cond_1
 
+    .line 82
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->getAudioManager()Landroid/media/AudioManager;
 
     move-result-object v6
@@ -554,6 +658,8 @@
 
     goto :goto_0
 
+    .line 91
+    .end local v1    # "audioManager":Landroid/media/AudioManager;
     :sswitch_1
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->getKeyguardManager()Landroid/app/KeyguardManager;
 
@@ -565,12 +671,14 @@
 
     if-nez v6, :cond_0
 
+    .line 95
     invoke-direct {p0}, Lcom/android/internal/policy/impl/sec/SamsungZoomKeyController;->isControlZoomRing()Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
+    .line 96
     invoke-virtual {p1}, Landroid/view/KeyEvent;->isCanceled()Z
 
     move-result v6
@@ -579,6 +687,7 @@
 
     goto :goto_0
 
+    .line 63
     :sswitch_data_0
     .sparse-switch
         0xa8 -> :sswitch_0

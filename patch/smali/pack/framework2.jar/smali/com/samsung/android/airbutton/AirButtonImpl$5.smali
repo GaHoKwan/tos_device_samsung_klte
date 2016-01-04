@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/AirButtonImpl;)V
     .locals 0
 
+    .prologue
+    .line 1314
     iput-object p1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,10 @@
 .method public run()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 1317
     iget-object v2, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mParentView:Landroid/view/View;
@@ -48,10 +52,12 @@
 
     if-nez v2, :cond_1
 
+    .line 1328
     :cond_0
     :goto_0
     return-void
 
+    .line 1320
     :cond_1
     const/4 v2, 0x2
 
@@ -59,6 +65,8 @@
 
     fill-array-data v1, :array_0
 
+    .line 1321
+    .local v1, "viewLocation":[I
     iget-object v2, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mParentView:Landroid/view/View;
@@ -68,6 +76,7 @@
 
     invoke-virtual {v2, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
+    .line 1323
     aget v2, v1, v5
 
     iget-object v3, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
@@ -76,6 +85,8 @@
 
     sub-int v0, v2, v3
 
+    .line 1325
+    .local v0, "adjustedYPosition":I
     const-string v2, "AirButtonImpl"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -110,6 +121,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1326
     iget-object v2, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mAirButtonView:Lcom/samsung/android/airbutton/view/AbsAirButtonView;
@@ -119,6 +131,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 1327
     iget-object v2, p0, Lcom/samsung/android/airbutton/AirButtonImpl$5;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mAirButtonView:Lcom/samsung/android/airbutton/view/AbsAirButtonView;
@@ -141,6 +154,7 @@
 
     goto :goto_0
 
+    .line 1320
     :array_0
     .array-data 4
         0x0

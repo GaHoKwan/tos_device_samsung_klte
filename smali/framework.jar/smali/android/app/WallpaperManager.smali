@@ -713,7 +713,7 @@
 
     .prologue
     .line 1299
-    const v0, 0x10802bd
+    const v0, 0x10802bc
 
     invoke-virtual {p0, v0}, Landroid/app/WallpaperManager;->setResource(I)V
 
@@ -924,7 +924,7 @@
     .line 586
     new-instance v17, Ljava/io/BufferedInputStream;
 
-    const v5, 0x10802bd
+    const v5, 0x10802bc
 
     move-object/from16 v0, v22
 
@@ -1035,7 +1035,7 @@
     new-instance v17, Ljava/io/BufferedInputStream;
 
     .end local v17    # "is":Ljava/io/InputStream;
-    const v5, 0x10802bd
+    const v5, 0x10802bc
 
     move-object/from16 v0, v22
 
@@ -1273,7 +1273,7 @@
     new-instance v17, Ljava/io/BufferedInputStream;
 
     .end local v17    # "is":Ljava/io/InputStream;
-    const v5, 0x10802bd
+    const v5, 0x10802bc
 
     move-object/from16 v0, v22
 

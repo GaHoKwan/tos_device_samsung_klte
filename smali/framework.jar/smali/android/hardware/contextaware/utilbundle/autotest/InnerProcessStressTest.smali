@@ -32,7 +32,7 @@
     .local v5, "packet":[B
     :cond_0
     :try_start_0
-    invoke-virtual {p0}, Landroid/hardware/contextaware/utilbundle/autotest/InnerProcessStressTest;->getDelayTime()I
+    invoke-virtual {p0}, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTest;->getDelayTime()I
 
     move-result v6
 

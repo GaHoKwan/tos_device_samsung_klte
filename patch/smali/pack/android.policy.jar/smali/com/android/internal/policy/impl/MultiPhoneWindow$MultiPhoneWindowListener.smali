@@ -37,18 +37,24 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/MultiPhoneWindow;)V
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 903
     iput-object p1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 899
     iput v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->interporation:I
 
+    .line 900
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->moving:Z
 
+    .line 901
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->sipHiding:Z
 
+    .line 904
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$000(Lcom/android/internal/policy/impl/MultiPhoneWindow;)Landroid/content/Context;
 
@@ -66,16 +72,23 @@
 
     iput v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->interporation:I
 
+    .line 905
     return-void
 .end method
 
 .method private action_down(II)V
     .locals 2
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
+    .prologue
+    .line 1004
     iput p1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveX:I
 
+    .line 1005
     iput p2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveY:I
 
+    .line 1006
     iget-object v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->getState()I
@@ -87,6 +100,7 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 1007
     iget-object v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mTmpBound:Landroid/graphics/Rect;
@@ -102,6 +116,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
+    .line 1008
     iget-object v0, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -114,21 +129,30 @@
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->showGuide(Landroid/graphics/Rect;)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$1000(Lcom/android/internal/policy/impl/MultiPhoneWindow;Landroid/graphics/Rect;)V
 
+    .line 1010
     :cond_0
     return-void
 .end method
 
 .method private action_move(II)V
     .locals 4
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
+    .prologue
+    .line 1013
     iget v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveX:I
 
     sub-int v0, p1, v2
 
+    .line 1014
+    .local v0, "dx":I
     iget v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveY:I
 
     sub-int v1, p2, v2
 
+    .line 1016
+    .local v1, "dy":I
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->getState()I
@@ -140,6 +164,7 @@
 
     if-ne v2, v3, :cond_0
 
+    .line 1017
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     const/4 v3, 0x1
@@ -147,13 +172,17 @@
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->moveStackBound(IIZ)V
     invoke-static {v2, v0, v1, v3}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$3400(Lcom/android/internal/policy/impl/MultiPhoneWindow;IIZ)V
 
+    .line 1022
     :goto_0
     iput p1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveX:I
 
+    .line 1023
     iput p2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveY:I
 
+    .line 1024
     return-void
 
+    .line 1019
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -164,6 +193,7 @@
 
     invoke-virtual {v2, v0, v1}, Landroid/graphics/Rect;->offset(II)V
 
+    .line 1020
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -181,15 +211,23 @@
 
 .method private action_up(II)V
     .locals 5
+    .param p1, "x"    # I
+    .param p2, "y"    # I
 
+    .prologue
+    .line 1027
     iget v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveX:I
 
     sub-int v0, p1, v2
 
+    .line 1028
+    .local v0, "dx":I
     iget v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveY:I
 
     sub-int v1, p2, v2
 
+    .line 1030
+    .local v1, "dy":I
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->getState()I
@@ -201,6 +239,7 @@
 
     if-ne v2, v3, :cond_0
 
+    .line 1031
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     const/4 v3, 0x0
@@ -208,9 +247,11 @@
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->moveStackBound(IIZ)V
     invoke-static {v2, v0, v1, v3}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$3400(Lcom/android/internal/policy/impl/MultiPhoneWindow;IIZ)V
 
+    .line 1037
     :goto_0
     return-void
 
+    .line 1033
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -221,6 +262,7 @@
 
     invoke-virtual {v2, v0, v1}, Landroid/graphics/Rect;->offset(II)V
 
+    .line 1034
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -242,20 +284,25 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 909
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
 
     packed-switch v1, :pswitch_data_0
 
+    .line 939
     :cond_0
     :goto_0
     :pswitch_0
     return-void
 
+    .line 911
     :pswitch_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -266,6 +313,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 912
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mMultiWindowFacade:Lcom/samsung/android/multiwindow/MultiWindowFacade;
@@ -284,6 +332,7 @@
 
     goto :goto_0
 
+    .line 914
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -291,6 +340,7 @@
 
     goto :goto_0
 
+    .line 919
     :pswitch_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -301,6 +351,7 @@
 
     goto :goto_0
 
+    .line 923
     :pswitch_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -311,6 +362,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 924
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mMultiWindowExitListener:Lcom/samsung/android/sdk/multiwindow/SMultiWindowListener$ExitListener;
@@ -333,6 +385,7 @@
 
     if-nez v1, :cond_2
 
+    .line 926
     const-string v1, "MultiPhoneWindow"
 
     const-string v2, "onWindowExit return false"
@@ -341,12 +394,14 @@
 
     goto :goto_0
 
+    .line 930
     :cond_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->forceHideInputMethod()Z
     invoke-static {v1}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$600(Lcom/android/internal/policy/impl/MultiPhoneWindow;)Z
 
+    .line 932
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -361,9 +416,12 @@
 
     goto :goto_0
 
+    .line 933
     :catch_0
     move-exception v0
 
+    .line 934
+    .local v0, "e":Ljava/lang/IllegalStateException;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mActivity:Landroid/app/Activity;
@@ -375,6 +433,7 @@
 
     goto :goto_0
 
+    .line 909
     :pswitch_data_0
     .packed-switch 0x1020354
         :pswitch_1
@@ -387,9 +446,13 @@
 
 .method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 4
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1041
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result v1
@@ -398,10 +461,12 @@
 
     if-eq v1, v2, :cond_1
 
+    .line 1054
     :cond_0
     :goto_0
     return v3
 
+    .line 1046
     :cond_1
     :try_start_0
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
@@ -412,6 +477,7 @@
 
     if-ne v1, v2, :cond_2
 
+    .line 1047
     const/4 v1, 0x5
 
     const/4 v2, -0x1
@@ -422,9 +488,12 @@
 
     goto :goto_0
 
+    .line 1051
     :catch_0
     move-exception v0
 
+    .line 1052
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v1, "MultiPhoneWindow"
 
     const-string v2, "Failed to change Pen Point to HOVERING_SPENICON_DEFAULT"
@@ -433,6 +502,8 @@
 
     goto :goto_0
 
+    .line 1048
+    .end local v0    # "e":Landroid/os/RemoteException;
     :cond_2
     :try_start_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
@@ -443,6 +514,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 1049
     const/4 v1, 0x1
 
     const/4 v2, -0x1
@@ -456,13 +528,17 @@
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 5
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v4, 0x4
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 945
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v3
@@ -471,20 +547,25 @@
 
     move v1, v2
 
+    .line 1001
     :cond_0
     :goto_0
     return v1
 
+    .line 947
     :pswitch_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->initStackBound(Z)V
     invoke-static {v3, v1}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$400(Lcom/android/internal/policy/impl/MultiPhoneWindow;Z)V
 
+    .line 948
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->moving:Z
 
+    .line 949
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->sipHiding:Z
 
+    .line 950
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->forceHideInputMethod()Z
@@ -494,10 +575,12 @@
 
     if-eqz v3, :cond_1
 
+    .line 951
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->sipHiding:Z
 
     goto :goto_0
 
+    .line 954
     :cond_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -506,12 +589,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getVisibility()I
+    invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
     if-nez v3, :cond_2
 
+    .line 955
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mWindowIconic:Landroid/widget/ImageView;
@@ -519,8 +603,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v1}, Landroid/widget/ImageView;->setPressed(Z)V
+    invoke-virtual {v3, v1}, Landroid/view/View;->setPressed(Z)V
 
+    .line 957
     :cond_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -531,6 +616,7 @@
 
     if-eqz v3, :cond_3
 
+    .line 958
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mGuideView:Lcom/android/internal/policy/impl/GuideView;
@@ -540,6 +626,7 @@
 
     invoke-virtual {v3, v2}, Lcom/android/internal/policy/impl/GuideView;->setType(I)V
 
+    .line 960
     :cond_3
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
@@ -557,11 +644,13 @@
 
     goto :goto_0
 
+    .line 964
     :pswitch_1
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->sipHiding:Z
 
     if-nez v2, :cond_0
 
+    .line 967
     iget v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->lastMoveX:I
 
     int-to-float v2, v2
@@ -606,9 +695,11 @@
 
     if-lez v2, :cond_0
 
+    .line 969
     :cond_4
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->moving:Z
 
+    .line 970
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
@@ -625,17 +716,21 @@
 
     goto/16 :goto_0
 
+    .line 976
     :pswitch_2
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->sipHiding:Z
 
     if-nez v3, :cond_0
 
+    .line 979
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->moving:Z
 
     if-eqz v3, :cond_7
 
+    .line 980
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->moving:Z
 
+    .line 981
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v3
@@ -650,6 +745,7 @@
 
     invoke-direct {p0, v3, v4}, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->action_up(II)V
 
+    .line 991
     :cond_5
     :goto_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -659,12 +755,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/widget/ImageView;->getVisibility()I
+    invoke-virtual {v3}, Landroid/view/View;->getVisibility()I
 
     move-result v3
 
     if-nez v3, :cond_6
 
+    .line 992
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mWindowIconic:Landroid/widget/ImageView;
@@ -672,8 +769,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setPressed(Z)V
+    invoke-virtual {v3, v2}, Landroid/view/View;->setPressed(Z)V
 
+    .line 993
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # getter for: Lcom/android/internal/policy/impl/MultiPhoneWindow;->mWindowIconic:Landroid/widget/ImageView;
@@ -681,8 +779,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->playSoundEffect(I)V
+    invoke-virtual {v3, v2}, Landroid/view/View;->playSoundEffect(I)V
 
+    .line 995
     :cond_6
     iget-object v2, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -691,6 +790,7 @@
 
     goto/16 :goto_0
 
+    .line 982
     :cond_7
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
@@ -701,6 +801,7 @@
 
     if-ne v3, v4, :cond_5
 
+    .line 987
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->getMultiWindowStyle()Lcom/samsung/android/multiwindow/MultiWindowStyle;
@@ -708,8 +809,11 @@
 
     move-result-object v0
 
+    .line 988
+    .local v0, "multiWindowStyle":Lcom/samsung/android/multiwindow/MultiWindowStyle;
     invoke-virtual {v0, v4, v2}, Lcom/samsung/android/multiwindow/MultiWindowStyle;->setOption(IZ)V
 
+    .line 989
     iget-object v3, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MultiPhoneWindowListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -724,6 +828,7 @@
 
     goto :goto_1
 
+    .line 945
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

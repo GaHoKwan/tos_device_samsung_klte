@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 777
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$7;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/ssrm/Monitor$CustomSettingWriter;-><init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
@@ -43,6 +46,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 780
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$7;->this$0:Lcom/android/server/ssrm/Monitor;
 
     sget-object v1, Lcom/android/server/ssrm/Monitor;->TAG_SIOP:Ljava/lang/String;
@@ -57,7 +63,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/ssrm/Monitor$7;->mName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/ssrm/settings/SettingWriter;->mName:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -83,6 +89,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/ssrm/Monitor;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 781
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$7;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v1, v0, Lcom/android/server/ssrm/Monitor;->mLimiter:Lcom/android/server/ssrm/Limiter;
@@ -99,5 +106,6 @@
 
     invoke-virtual {v1, v0}, Lcom/android/server/ssrm/Limiter;->limitArmCoreNum(I)V
 
+    .line 782
     return-void
 .end method

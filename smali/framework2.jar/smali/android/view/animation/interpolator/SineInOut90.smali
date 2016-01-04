@@ -14,8 +14,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x3
 
+    .line 9
     const/4 v0, 0x5
 
     new-array v0, v0, [[F
@@ -101,16 +103,24 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 13
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "attrs"    # Landroid/util/AttributeSet;
 
+    .prologue
+    .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 16
     return-void
 .end method
 
@@ -118,17 +128,24 @@
 # virtual methods
 .method public getInterpolation(F)F
     .locals 13
+    .param p1, "input"    # F
 
+    .prologue
     const/4 v12, 0x0
 
     const/high16 v11, 0x3f800000    # 1.0f
 
+    .line 20
     div-float v0, p1, v11
 
+    .line 21
+    .local v0, "_loc_5":F
     sget-object v6, Landroid/view/animation/interpolator/SineInOut90;->segments:[[F
 
     array-length v1, v6
 
+    .line 22
+    .local v1, "_loc_6":I
     int-to-float v6, v1
 
     mul-float/2addr v6, v0
@@ -141,6 +158,8 @@
 
     double-to-int v4, v6
 
+    .line 23
+    .local v4, "_loc_9":I
     sget-object v6, Landroid/view/animation/interpolator/SineInOut90;->segments:[[F
 
     array-length v6, v6
@@ -153,6 +172,7 @@
 
     add-int/lit8 v4, v6, -0x1
 
+    .line 25
     :cond_0
     int-to-float v6, v4
 
@@ -168,10 +188,14 @@
 
     mul-float v2, v6, v7
 
+    .line 26
+    .local v2, "_loc_7":F
     sget-object v6, Landroid/view/animation/interpolator/SineInOut90;->segments:[[F
 
     aget-object v3, v6, v4
 
+    .line 27
+    .local v3, "_loc_8":[F
     const/4 v6, 0x0
 
     aget v7, v3, v12
@@ -212,5 +236,7 @@
 
     add-float v5, v6, v7
 
+    .line 29
+    .local v5, "ret":F
     return v5
 .end method

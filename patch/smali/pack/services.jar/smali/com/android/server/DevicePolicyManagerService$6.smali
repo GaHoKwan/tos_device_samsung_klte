@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;Landroid/os/RemoteCallback;)V
     .locals 0
 
+    .prologue
+    .line 3004
     iput-object p1, p0, Lcom/android/server/DevicePolicyManagerService$6;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iput-object p2, p0, Lcom/android/server/DevicePolicyManagerService$6;->val$result:Landroid/os/RemoteCallback;
@@ -37,13 +39,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 3008
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DevicePolicyManagerService$6;->val$result:Landroid/os/RemoteCallback;
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Lcom/android/server/DevicePolicyManagerService$6;->getResultExtras(Z)Landroid/os/Bundle;
+    invoke-virtual {p0, v1}, Landroid/content/BroadcastReceiver;->getResultExtras(Z)Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -51,9 +57,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 3011
     :goto_0
     return-void
 
+    .line 3009
     :catch_0
     move-exception v0
 

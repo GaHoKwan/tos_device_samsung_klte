@@ -16,7 +16,7 @@
     invoke-direct {p0}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>()V
 
     .line 87
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/SecurityAgree;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ";"
 
@@ -35,7 +35,7 @@
     invoke-direct {p0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 78
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/SecurityAgree;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ";"
 
@@ -101,7 +101,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/SecurityAgree;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->equalParameters(Ljavax/sip/header/Parameters;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->equalParameters(Ljavax/sip/header/Parameters;)Z
 
     move-result v2
 
@@ -172,7 +172,7 @@
     .line 285
     const-string v0, "alg"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -186,7 +186,7 @@
     .line 277
     const-string v0, "ealg"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -200,7 +200,7 @@
     .line 301
     const-string v0, "mod"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -214,7 +214,7 @@
     .line 325
     const-string v0, "port-c"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -232,7 +232,7 @@
     .line 333
     const-string v0, "port-s"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -250,7 +250,7 @@
     .line 341
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -268,7 +268,7 @@
     .line 293
     const-string v0, "prot"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -282,7 +282,7 @@
     .line 309
     const-string v0, "spi-c"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -300,7 +300,7 @@
     .line 317
     const-string v0, "spi-s"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -552,7 +552,7 @@
     :cond_0
     const-string v0, "port-c"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;I)V
 
     .line 230
     return-void
@@ -584,7 +584,7 @@
     :cond_0
     const-string v0, "port-s"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;I)V
 
     .line 243
     return-void
@@ -620,7 +620,7 @@
     :cond_0
     const-string v0, "q"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Ljava/lang/String;F)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;F)V
 
     .line 259
     return-void
@@ -684,7 +684,7 @@
     :cond_0
     const-string v0, "spi-c"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;I)V
 
     .line 204
     return-void
@@ -716,7 +716,7 @@
     :cond_0
     const-string v0, "spi-s"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;I)V
 
     .line 217
     return-void

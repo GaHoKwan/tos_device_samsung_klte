@@ -1934,10 +1934,10 @@
 
     invoke-static {v8, v9}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1187
+    .line 1185
     :cond_2
     :goto_2
-    invoke-interface {v5}, Lcom/android/internal/telephony/Phone;->acceptCall()V
+    invoke-interface {v5, p2}, Lcom/android/internal/telephony/Phone;->acceptCall(I)V
 
     .line 1192
     iput-boolean v7, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
@@ -4907,8 +4907,27 @@
     .local v0, "audioManager":Landroid/media/AudioManager;
     const/4 v7, 0x0
 
-    .line 571
+    .line 565
     .local v7, "networkType":I
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getImsPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_1
+
+    .line 566
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getImsPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/internal/telephony/ims/ImsPhone;
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/ims/ImsPhone;->getImsRegisteredNetworkType()I
+
+    move-result v7
+
+    .line 571
+    :cond_1
     sget-object v10, Lcom/android/internal/telephony/PhoneConstants$State;->IDLE:Lcom/android/internal/telephony/PhoneConstants$State;
 
     .line 586
@@ -4920,7 +4939,7 @@
     .line 590
     sget-object v12, Lcom/android/internal/telephony/CallManager$2;->$SwitchMap$com$android$internal$telephony$PhoneConstants$State:[I
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/PhoneConstants$State;->ordinal()I
+    invoke-virtual {v10}, Ljava/lang/Enum;->ordinal()I
 
     move-result v13
 
@@ -4929,7 +4948,7 @@
     packed-switch v12, :pswitch_data_0
 
     .line 962
-    :cond_1
+    :cond_2
     :goto_1
     const/4 v12, 0x0
 
@@ -4941,20 +4960,20 @@
     :pswitch_0
     const-string v12, "KOR"
 
-    const-string v13, ""
+    const-string v13, "SIN"
 
     invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v12
 
-    if-eqz v12, :cond_2
+    if-eqz v12, :cond_3
 
     .line 593
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
 
     move-result v12
 
-    if-nez v12, :cond_2
+    if-nez v12, :cond_3
 
     .line 594
     const/4 v12, 0x0
@@ -4962,10 +4981,10 @@
     iput-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
     .line 598
-    :cond_2
+    :cond_3
     iget-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
-    if-eqz v12, :cond_6
+    if-eqz v12, :cond_d
 
     .line 599
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getRingingPhone()Lcom/android/internal/telephony/Phone;
@@ -4986,7 +5005,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_5
 
     .line 602
     const/4 v6, 0x4
@@ -5015,57 +5034,113 @@
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 661
-    instance-of v12, v11, Lcom/movial/ipphone/IPPhone;
+    .line 612
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
 
-    if-nez v12, :cond_3
+    move-result-object v12
 
-    instance-of v12, v11, Lcom/android/internal/telephony/sip/SipPhone;
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->isImsCall()Z
 
-    if-nez v12, :cond_3
+    move-result v12
 
-    .line 664
-    const-string v12, "realcall=on"
+    if-eqz v12, :cond_c
 
-    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
-
-    .line 665
+    .line 613
     const-string v12, "CallManager"
 
-    const-string v13, "setAudioMode : realcall=on"
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "setAudioMode : RINGING : IMS : networkType : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 676
-    :cond_3
+    .line 614
+    if-nez v7, :cond_a
+
+    .line 615
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveRingingCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->getCallType()Lcom/android/internal/telephony/Call$CallType;
+
+    move-result-object v12
+
+    sget-object v13, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_VOICE:Lcom/android/internal/telephony/Call$CallType;
+
+    if-ne v12, v13, :cond_8
+
+    .line 616
+    const-string v12, "IMS_AP"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_7
+
+    .line 617
+    const-string v12, "voipWifiCalling=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 618
+    const/4 v6, 0x3
+
+    .line 619
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 675
+    :cond_4
+    :goto_3
     const/4 v12, 0x0
 
     iput-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mPreAcceptCallforAudio:Z
 
-    .line 678
+    .line 677
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
 
     move-result v12
 
-    if-eq v12, v6, :cond_1
+    if-eq v12, v6, :cond_2
 
-    .line 692
+    .line 691
     const/4 v12, 0x0
 
     const/4 v13, 0x2
 
     invoke-virtual {v0, v12, v13}, Landroid/media/AudioManager;->requestAudioFocusForCall(II)V
 
-    .line 693
+    .line 692
     invoke-virtual {v0, v6}, Landroid/media/AudioManager;->setMode(I)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     .line 603
-    :cond_4
+    :cond_5
     instance-of v12, v11, Lcom/android/internal/telephony/sip/SipPhone;
 
-    if-nez v12, :cond_5
+    if-nez v12, :cond_6
 
     .line 607
     const/4 v6, 0x2
@@ -5073,67 +5148,207 @@
     goto :goto_2
 
     .line 605
-    :cond_5
+    :cond_6
     const/4 v6, 0x3
 
     goto :goto_2
 
-    .line 698
+    .line 621
+    :cond_7
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 622
+    const-string v12, "VoLTEstate=voice"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 623
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=on, VoLTEstate=voice"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    .line 626
+    :cond_8
+    const-string v12, "IMS_HYBRID_QCT"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_9
+
+    .line 627
+    const/4 v6, 0x2
+
+    .line 628
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 629
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 631
+    :cond_9
+    const-string v12, "VoLTEstate=video"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 632
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : VoLTEstate=video"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 633
+    const-string v12, "IMS_HYBRID_CMC"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_4
+
+    .line 634
+    const/4 v6, 0x3
+
+    goto :goto_3
+
+    .line 637
+    :cond_a
+    const/4 v12, 0x1
+
+    if-ne v7, v12, :cond_b
+
+    .line 638
+    const-string v12, "voipWifiCalling=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 639
+    const/4 v6, 0x3
+
+    .line 640
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    .line 642
+    :cond_b
+    const-string v12, "CallManager"
+
+    const-string v13, "other case"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    .line 645
+    :cond_c
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : RINGING : CS"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 646
+    instance-of v12, v11, Lcom/movial/ipphone/IPPhone;
+
+    if-nez v12, :cond_4
+
+    instance-of v12, v11, Lcom/android/internal/telephony/sip/SipPhone;
+
+    if-nez v12, :cond_4
+
+    .line 649
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 650
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    .line 697
     .end local v6    # "mode":I
     .end local v11    # "ringingPhone":Lcom/android/internal/telephony/Phone;
-    :cond_6
+    :cond_d
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
 
     move-result v4
 
-    .line 699
+    .line 698
     .local v4, "curAudioMode":I
     const/4 v12, 0x1
 
-    if-eq v4, v12, :cond_7
+    if-eq v4, v12, :cond_e
 
-    .line 704
+    .line 703
     const/4 v12, 0x2
 
     const/4 v13, 0x2
 
     invoke-virtual {v0, v12, v13}, Landroid/media/AudioManager;->requestAudioFocusForCall(II)V
 
-    .line 707
+    .line 706
     iget-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mSpeedUpAudioForMtCall:Z
 
-    if-nez v12, :cond_7
+    if-nez v12, :cond_e
 
-    .line 708
+    .line 707
     const/4 v12, 0x1
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setMode(I)V
 
-    .line 712
-    :cond_7
+    .line 711
+    :cond_e
     iget-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mSpeedUpAudioForMtCall:Z
 
-    if-eqz v12, :cond_1
+    if-eqz v12, :cond_2
 
     const/4 v12, 0x2
 
-    if-eq v4, v12, :cond_1
+    if-eq v4, v12, :cond_2
 
-    .line 713
+    .line 712
     const/4 v12, 0x2
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setMode(I)V
 
     goto/16 :goto_1
 
-    .line 717
+    .line 716
     .end local v4    # "curAudioMode":I
     :pswitch_1
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v9
 
-    .line 718
+    .line 717
     .local v9, "offhookPhone":Lcom/android/internal/telephony/Phone;
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCallState()Lcom/android/internal/telephony/Call$State;
 
@@ -5141,15 +5356,15 @@
 
     sget-object v13, Lcom/android/internal/telephony/Call$State;->IDLE:Lcom/android/internal/telephony/Call$State;
 
-    if-ne v12, v13, :cond_8
+    if-ne v12, v13, :cond_f
 
-    .line 721
+    .line 720
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getBgPhone()Lcom/android/internal/telephony/Phone;
 
     move-result-object v9
 
-    .line 725
-    :cond_8
+    .line 724
+    :cond_f
     invoke-interface {v9}, Lcom/android/internal/telephony/Phone;->getForegroundCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v12
@@ -5158,51 +5373,51 @@
 
     move-result-object v2
 
-    .line 726
+    .line 725
     .local v2, "connection":Lcom/android/internal/telephony/Connection;
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_19
 
-    .line 727
+    .line 726
     iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
 
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    .line 728
+    .line 727
     invoke-virtual {v2}, Lcom/android/internal/telephony/Connection;->getCallDetails()Lcom/android/internal/telephony/CallDetails;
 
     move-result-object v12
 
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    .line 729
+    .line 728
     iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    if-nez v12, :cond_9
+    if-nez v12, :cond_10
 
-    .line 730
+    .line 729
     invoke-virtual {v2}, Lcom/android/internal/telephony/Connection;->getOldCallDetails()Lcom/android/internal/telephony/CallDetails;
 
     move-result-object v12
 
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    .line 737
-    :cond_9
-    :goto_3
+    .line 736
+    :cond_10
+    :goto_4
     const/4 v1, 0x0
 
-    .line 738
+    .line 737
     .local v1, "callDetailChange":Z
     iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
 
     iget-object v13, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    if-eq v12, v13, :cond_a
+    if-eq v12, v13, :cond_11
 
-    .line 739
+    .line 738
     const/4 v1, 0x1
 
-    .line 740
+    .line 739
     const-string v12, "CallManager"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -5245,17 +5460,17 @@
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 744
-    :cond_a
+    .line 743
+    :cond_11
     const/4 v8, 0x2
 
-    .line 745
+    .line 744
     .local v8, "newAudioMode":I
     instance-of v12, v9, Lcom/android/internal/telephony/sip/SipPhone;
 
-    if-nez v12, :cond_11
+    if-nez v12, :cond_1a
 
-    .line 750
+    .line 749
     invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
     move-result-object v12
@@ -5264,12 +5479,12 @@
 
     move-result v12
 
-    if-eqz v12, :cond_b
+    if-eqz v12, :cond_12
 
-    .line 751
+    .line 750
     const/4 v8, 0x4
 
-    .line 752
+    .line 751
     const-string v12, "IMS_HYBRID_CMC"
 
     const-string v13, "IMS_HYBRID_QCT"
@@ -5278,82 +5493,187 @@
 
     move-result v12
 
-    if-eqz v12, :cond_b
+    if-eqz v12, :cond_12
 
-    .line 753
+    .line 752
     const/4 v8, 0x3
 
-    .line 754
+    .line 753
     const-string v12, "VoLTEstate=video"
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 755
+    .line 754
     const-string v12, "CallManager"
 
     const-string v13, "setAudioMode : VoLTEstate=video"
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 759
-    :cond_b
-    :goto_4
+    .line 758
+    :cond_12
+    :goto_5
     const/4 v5, 0x0
 
-    .line 788
+    .line 787
     .local v5, "epdgCall":Z
     invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
 
     move-result v12
 
-    if-ne v12, v8, :cond_c
+    if-ne v12, v8, :cond_13
 
     iget-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mSpeedUpAudioForMtCall:Z
 
-    if-nez v12, :cond_c
+    if-nez v12, :cond_13
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_18
 
-    .line 791
-    :cond_c
+    .line 790
+    :cond_13
     const/4 v12, 0x0
 
     const/4 v13, 0x2
 
     invoke-virtual {v0, v12, v13}, Landroid/media/AudioManager;->requestAudioFocusForCall(II)V
 
-    .line 794
-    if-nez v5, :cond_e
+    .line 793
+    if-nez v5, :cond_17
 
     const/4 v12, 0x2
 
-    if-eq v8, v12, :cond_d
+    if-eq v8, v12, :cond_14
 
     const/4 v12, 0x4
 
-    if-eq v8, v12, :cond_d
+    if-eq v8, v12, :cond_14
 
     const/4 v12, 0x3
 
-    if-ne v8, v12, :cond_e
+    if-ne v8, v12, :cond_17
 
-    .line 876
-    :cond_d
-    instance-of v12, v9, Lcom/movial/ipphone/IPPhone;
+    .line 795
+    :cond_14
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
 
-    if-nez v12, :cond_e
+    move-result-object v12
 
-    instance-of v12, v9, Lcom/android/internal/telephony/sip/SipPhone;
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->isImsCall()Z
 
-    if-nez v12, :cond_e
+    move-result v12
 
-    .line 879
-    const-string v12, "realcall=on"
+    if-nez v12, :cond_15
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFirstActiveBgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->isImsCall()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_21
+
+    .line 796
+    :cond_15
+    const-string v12, "CallManager"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "setAudioMode : OFFHOOK : IMS : networkType : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    const-string v14, "newAudioMode : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 797
+    if-nez v7, :cond_1e
+
+    .line 798
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->getCallDetails()Lcom/android/internal/telephony/CallDetails;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_17
+
+    .line 799
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->getCallDetails()Lcom/android/internal/telephony/CallDetails;
+
+    move-result-object v12
+
+    iget v12, v12, Lcom/android/internal/telephony/CallDetails;->call_type:I
+
+    if-nez v12, :cond_1c
+
+    .line 800
+    const-string v12, "IMS_AP"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1b
+
+    .line 801
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
+
+    move-result v12
+
+    const/4 v13, 0x3
+
+    if-eq v12, v13, :cond_16
+
+    .line 802
+    const-string v12, "voipWifiCalling=on"
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
+    .line 803
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 805
+    :cond_16
+    const/4 v8, 0x3
+
     .line 892
-    :cond_e
+    :cond_17
+    :goto_6
     invoke-virtual {v0, v8}, Landroid/media/AudioManager;->setMode(I)V
 
     .line 893
@@ -5400,52 +5720,275 @@
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 896
-    :cond_f
+    :cond_18
     const/4 v12, 0x0
 
     iput-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mSpeedUpAudioForMtCall:Z
 
     goto/16 :goto_1
 
-    .line 733
+    .line 732
     .end local v1    # "callDetailChange":Z
     .end local v5    # "epdgCall":Z
     .end local v8    # "newAudioMode":I
-    :cond_10
+    :cond_19
     const/4 v12, 0x0
 
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    .line 734
+    .line 733
     const/4 v12, 0x0
 
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
-    .line 747
+    .line 746
     .restart local v1    # "callDetailChange":Z
     .restart local v8    # "newAudioMode":I
-    :cond_11
+    :cond_1a
     const/4 v8, 0x3
 
-    .line 748
+    .line 747
     const-string v12, "realcall=off"
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 749
+    .line 748
     const-string v12, "CallManager"
 
     const-string v13, "setAudioMode : realcall=off"
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto/16 :goto_5
+
+    .line 807
+    .restart local v5    # "epdgCall":Z
+    :cond_1b
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 808
+    const-string v12, "VoLTEstate=voice"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 809
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=on, VoLTEstate=voice"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 810
+    const/4 v8, 0x2
+
+    goto :goto_6
+
+    .line 813
+    :cond_1c
+    const/4 v8, 0x4
+
+    .line 815
+    const-string v12, "VoLTEstate=video"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 816
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : VoLTEstate=video"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 817
+    const-string v12, "IMS_HYBRID_QCT"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1d
+
+    .line 818
+    const/4 v8, 0x2
+
+    .line 819
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 820
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 822
+    :cond_1d
+    const-string v12, "IMS_HYBRID_CMC"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_17
+
+    .line 823
+    const/4 v8, 0x3
+
+    goto/16 :goto_6
+
+    .line 827
+    :cond_1e
+    const/4 v12, 0x1
+
+    if-ne v7, v12, :cond_20
+
+    .line 828
+    invoke-virtual {v0}, Landroid/media/AudioManager;->getMode()I
+
+    move-result v12
+
+    const/4 v13, 0x3
+
+    if-eq v12, v13, :cond_1f
+
+    .line 829
+    const-string v12, "voipWifiCalling=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 830
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 832
+    :cond_1f
+    const/4 v8, 0x3
+
+    goto/16 :goto_6
+
+    .line 834
+    :cond_20
+    const-string v12, "CallManager"
+
+    const-string v13, "other case"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 835
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->getCallType()Lcom/android/internal/telephony/Call$CallType;
+
+    move-result-object v12
+
+    sget-object v13, Lcom/android/internal/telephony/Call$CallType;->IMS_CALL_VOICE:Lcom/android/internal/telephony/Call$CallType;
+
+    if-ne v12, v13, :cond_17
+
+    .line 836
+    const-string v12, "VoLTEstate=voice"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 837
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 838
+    const/4 v8, 0x2
+
+    .line 839
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : VoLTEstate=voice, realcall=on"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_6
+
+    .line 843
+    :cond_21
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : OFFHOOK : CS"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 844
+    iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
+
+    if-eqz v12, :cond_22
+
+    iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mOldCallDetail:Lcom/android/internal/telephony/CallDetails;
+
+    iget v12, v12, Lcom/android/internal/telephony/CallDetails;->call_domain:I
+
+    const/4 v13, 0x2
+
+    if-ne v12, v13, :cond_22
+
+    iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
+
+    if-eqz v12, :cond_22
+
+    iget-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
+
+    iget v12, v12, Lcom/android/internal/telephony/CallDetails;->call_domain:I
+
+    const/4 v13, 0x1
+
+    if-ne v12, v13, :cond_22
+
+    .line 847
+    const-string v12, "VoLTEstate=srvcc"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 855
+    :cond_22
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v12
+
+    instance-of v12, v12, Lcom/movial/ipphone/IPPhone;
+
+    if-nez v12, :cond_17
+
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getFgPhone()Lcom/android/internal/telephony/Phone;
+
+    move-result-object v12
+
+    instance-of v12, v12, Lcom/android/internal/telephony/sip/SipPhone;
+
+    if-nez v12, :cond_17
+
+    .line 858
+    const-string v12, "realcall=on"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    goto/16 :goto_6
 
     .line 899
     .end local v1    # "callDetailChange":Z
     .end local v2    # "connection":Lcom/android/internal/telephony/Connection;
+    .end local v5    # "epdgCall":Z
     .end local v8    # "newAudioMode":I
     .end local v9    # "offhookPhone":Lcom/android/internal/telephony/Phone;
     :pswitch_2
@@ -5453,28 +5996,90 @@
 
     move-result v12
 
-    if-eqz v12, :cond_12
+    if-eqz v12, :cond_25
 
-    .line 944
-    const-string v12, "CallManager"
+    .line 902
+    const-string v12, "VoLTEstate"
 
-    const-string v13, "setAudioMode : IDLE : CS"
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->getParameters(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v12
 
-    .line 945
-    const-string v12, "realcall=off"
+    const-string v13, "off"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_23
+
+    .line 903
+    const-string v12, "VoLTEstate=off"
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
 
-    .line 946
+    .line 904
     const-string v12, "CallManager"
 
-    const-string v13, "setAudioMode : realcall=off"
+    const-string v13, "setAudioMode : VoLTEstate=off"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 906
+    :cond_23
+    invoke-virtual {p0}, Lcom/android/internal/telephony/CallManager;->getActiveFgCall()Lcom/android/internal/telephony/Call;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/internal/telephony/Call;->isImsCall()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_29
+
+    .line 907
+    const-string v12, "CallManager"
+
+    new-instance v13, Ljava/lang/StringBuilder;
+
+    invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "setAudioMode : IDLE : IMS : networkType : "
+
+    invoke-virtual {v13, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 908
+    const/4 v12, 0x1
+
+    if-ne v7, v12, :cond_26
+
+    .line 909
+    const-string v12, "voipWifiCalling=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 910
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=off"
 
     invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 949
+    :cond_24
+    :goto_7
     const/4 v12, 0x0
 
     invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setMode(I)V
@@ -5483,7 +6088,7 @@
     invoke-virtual {v0}, Landroid/media/AudioManager;->abandonAudioFocusForCall()V
 
     .line 954
-    :cond_12
+    :cond_25
     const/4 v12, 0x0
 
     iput-boolean v12, p0, Lcom/android/internal/telephony/CallManager;->mSpeedUpAudioForMtCall:Z
@@ -5499,6 +6104,142 @@
     iput-object v12, p0, Lcom/android/internal/telephony/CallManager;->mNewCallDetail:Lcom/android/internal/telephony/CallDetails;
 
     goto/16 :goto_1
+
+    .line 912
+    :cond_26
+    const-string v12, "IMS_AP"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_27
+
+    .line 913
+    const-string v12, "voipWifiCalling=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 914
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : voipWifiCalling=off"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_7
+
+    .line 916
+    :cond_27
+    const-string v12, "IMS_HYBRID_QCT"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_28
+
+    const-string v12, "IMS_HYBRID_CMC"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_24
+
+    .line 918
+    :cond_28
+    const-string v12, "realcall=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    .line 919
+    const-string v12, "CallManager"
+
+    const-string v13, "setAudioMode : realcall=off"
+
+    invoke-static {v12, v13}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_7
+
+    .line 924
+    :cond_29
+    const/4 v12, 0x1
+
+    if-ne v7, v12, :cond_2a
+
+    .line 925
+    const-string v12, "voipWifiCalling=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    goto :goto_7
+
+    .line 926
+    :cond_2a
+    if-nez v7, :cond_2d
+
+    .line 927
+    const-string v12, "IMS_AP"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_2b
+
+    .line 928
+    const-string v12, "voipWifiCalling=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    goto :goto_7
+
+    .line 930
+    :cond_2b
+    const-string v12, "IMS_HYBRID_QCT"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_2c
+
+    const-string v12, "IMS_HYBRID_CMC"
+
+    const-string v13, "IMS_HYBRID_QCT"
+
+    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_24
+
+    .line 932
+    :cond_2c
+    const-string v12, "realcall=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    goto :goto_7
+
+    .line 936
+    :cond_2d
+    const-string v12, "realcall=off"
+
+    invoke-virtual {v0, v12}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
+
+    goto/16 :goto_7
 
     .line 590
     nop

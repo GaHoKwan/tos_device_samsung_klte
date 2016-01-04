@@ -199,7 +199,7 @@
     .line 215
     iget-object v5, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider$2;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;
 
-    invoke-virtual {v5}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;->getContextValueNames()[Ljava/lang/String;
+    invoke-virtual {v5}, Landroid/hardware/contextaware/manager/ContextProvider;->getContextValueNames()[Ljava/lang/String;
 
     move-result-object v3
 
@@ -297,7 +297,7 @@
     .line 223
     iget-object v5, p0, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider$2;->this$0:Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;
 
-    invoke-virtual {v5}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;->notifyObserver()V
+    invoke-virtual {v5}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     goto/16 :goto_0
 .end method

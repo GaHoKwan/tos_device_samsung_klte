@@ -425,7 +425,7 @@
 
     const-string v3, "setBackgroundResource"
 
-    const v4, 0x108063e
+    const v4, 0x108063d
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/widget/RemoteViews;->setInt(ILjava/lang/String;I)V
 

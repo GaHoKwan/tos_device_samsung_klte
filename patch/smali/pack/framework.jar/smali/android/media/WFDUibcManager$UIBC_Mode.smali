@@ -130,7 +130,7 @@
     .line 86
     sget-object v0, Landroid/media/WFDUibcManager$UIBC_Mode;->$VALUES:[Landroid/media/WFDUibcManager$UIBC_Mode;
 
-    invoke-virtual {v0}, [Landroid/media/WFDUibcManager$UIBC_Mode;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;Landroid/sec/clipboard/data/ClipboardData;I)V
     .locals 0
 
+    .prologue
+    .line 1230
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iput-object p2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
@@ -45,8 +47,12 @@
 .method public run()V
     .locals 9
 
+    .prologue
+    .line 1233
     const-string v3, ""
 
+    .line 1234
+    .local v3, "sendData":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     invoke-virtual {v6}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
@@ -55,21 +61,28 @@
 
     packed-switch v6, :pswitch_data_0
 
+    .line 1263
     :cond_0
     :goto_0
     :pswitch_0
     const/4 v1, 0x0
 
+    .line 1264
+    .local v1, "intent":Landroid/content/Intent;
     iget v6, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$currentMode:I
 
     if-nez v6, :cond_2
 
+    .line 1265
     new-instance v1, Landroid/content/Intent;
 
+    .end local v1    # "intent":Landroid/content/Intent;
     const-string v6, "android.intent.action.CLIPBOARD_TO_MEMO_INSERT"
 
     invoke-direct {v1, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1270
+    .restart local v1    # "intent":Landroid/content/Intent;
     :goto_1
     if-eqz v1, :cond_3
 
@@ -82,20 +95,24 @@
 
     if-eqz v6, :cond_3
 
+    .line 1271
     const/16 v6, 0x20
 
     invoke-virtual {v1, v6}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
+    .line 1272
     const-string/jumbo v6, "title"
 
     const-string v7, ""
 
     invoke-virtual {v1, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1273
     const-string v6, "content"
 
     invoke-virtual {v1, v6, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1274
     iget-object v6, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mContext:Landroid/content/Context;
@@ -105,17 +122,23 @@
 
     invoke-virtual {v6, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 1278
     :cond_1
     :goto_2
     return-void
 
+    .line 1236
+    .end local v1    # "intent":Landroid/content/Intent;
     :pswitch_1
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     check-cast v4, Landroid/sec/clipboard/data/list/ClipboardDataText;
 
+    .line 1237
+    .local v4, "textData":Landroid/sec/clipboard/data/list/ClipboardDataText;
     if-eqz v4, :cond_0
 
+    .line 1238
     invoke-virtual {v4}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetText()Ljava/lang/CharSequence;
 
     move-result-object v6
@@ -126,26 +149,36 @@
 
     goto :goto_0
 
+    .line 1242
+    .end local v4    # "textData":Landroid/sec/clipboard/data/list/ClipboardDataText;
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     check-cast v0, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
 
+    .line 1243
+    .local v0, "htmlData":Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     if-eqz v0, :cond_0
 
+    .line 1244
     invoke-virtual {v0}, Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;->getText()Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_0
 
+    .line 1248
+    .end local v0    # "htmlData":Landroid/sec/clipboard/data/list/ClipboardDataHTMLFragment;
     :pswitch_3
     iget-object v5, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     check-cast v5, Landroid/sec/clipboard/data/list/ClipboardDataUri;
 
+    .line 1249
+    .local v5, "uriData":Landroid/sec/clipboard/data/list/ClipboardDataUri;
     if-eqz v5, :cond_0
 
+    .line 1250
     invoke-virtual {v5}, Landroid/sec/clipboard/data/list/ClipboardDataUri;->GetUri()Landroid/net/Uri;
 
     move-result-object v6
@@ -156,13 +189,18 @@
 
     goto :goto_0
 
+    .line 1254
+    .end local v5    # "uriData":Landroid/sec/clipboard/data/list/ClipboardDataUri;
     :pswitch_4
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$7;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     check-cast v2, Landroid/sec/clipboard/data/list/ClipboardDataIntent;
 
+    .line 1255
+    .local v2, "intentData":Landroid/sec/clipboard/data/list/ClipboardDataIntent;
     if-eqz v2, :cond_0
 
+    .line 1256
     invoke-virtual {v2}, Landroid/sec/clipboard/data/list/ClipboardDataIntent;->GetIntent()Landroid/content/Intent;
 
     move-result-object v6
@@ -173,15 +211,21 @@
 
     goto :goto_0
 
+    .line 1267
+    .end local v2    # "intentData":Landroid/sec/clipboard/data/list/ClipboardDataIntent;
+    .restart local v1    # "intent":Landroid/content/Intent;
     :cond_2
     new-instance v1, Landroid/content/Intent;
 
+    .end local v1    # "intent":Landroid/content/Intent;
     const-string v6, "sec_container_1.android.intent.action.CLIPBOARD_TO_MEMO_INSERT"
 
     invoke-direct {v1, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .restart local v1    # "intent":Landroid/content/Intent;
     goto :goto_1
 
+    .line 1276
     :cond_3
     sget-boolean v6, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -250,6 +294,7 @@
 
     goto/16 :goto_2
 
+    .line 1234
     nop
 
     :pswitch_data_0

@@ -47,6 +47,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 28
     const-string v0, "eng"
 
     sget-object v1, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -57,10 +59,12 @@
 
     sput-boolean v0, Lcom/android/server/ssrm/DevSysProperty;->DEBUG:Z
 
+    .line 52
     const-string v0, ""
 
     sput-object v0, Lcom/android/server/ssrm/DevSysProperty;->sSsrmModeList:Ljava/lang/String;
 
+    .line 56
     const-string v0, ""
 
     sput-object v0, Lcom/android/server/ssrm/DevSysProperty;->sSsrmFgAppListeners:Ljava/lang/String;
@@ -71,8 +75,11 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 119
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/data/system/ssrm_tts_debug"
@@ -85,6 +92,7 @@
 
     iput-boolean v0, p0, Lcom/android/server/ssrm/DevSysProperty;->mTtsFeature:Z
 
+    .line 121
     const-string/jumbo v0, "true"
 
     const-string v1, "ro.product_ship"
@@ -106,7 +114,10 @@
 
 .method public static addFgAppListeners(Ljava/lang/String;)V
     .locals 2
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 103
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -133,12 +144,16 @@
 
     sput-object v0, Lcom/android/server/ssrm/DevSysProperty;->sSsrmFgAppListeners:Ljava/lang/String;
 
+    .line 104
     return-void
 .end method
 
 .method public static addMode(Ljava/lang/String;)V
     .locals 2
+    .param p0, "feature"    # Ljava/lang/String;
 
+    .prologue
+    .line 95
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -165,6 +180,7 @@
 
     sput-object v0, Lcom/android/server/ssrm/DevSysProperty;->sSsrmModeList:Ljava/lang/String;
 
+    .line 96
     return-void
 .end method
 
@@ -173,12 +189,16 @@
 .method getApTemperature()I
     .locals 3
 
+    .prologue
+    .line 59
     const-string v1, "dev.ssrm.ap_temp"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 60
+    .local v0, "result":Ljava/lang/String;
     sget-boolean v1, Lcom/android/server/ssrm/DevSysProperty;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -193,9 +213,11 @@
 
     if-ge v1, v2, :cond_1
 
+    .line 61
     :cond_0
     const/16 v1, -0x3e7
 
+    .line 63
     :goto_0
     return v1
 
@@ -210,12 +232,16 @@
 .method getBatteryLevel()I
     .locals 3
 
+    .prologue
+    .line 77
     const-string v1, "dev.ssrm.bat_level"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 78
+    .local v0, "result":Ljava/lang/String;
     sget-boolean v1, Lcom/android/server/ssrm/DevSysProperty;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -230,9 +256,11 @@
 
     if-ge v1, v2, :cond_1
 
+    .line 79
     :cond_0
     const/16 v1, -0x3e7
 
+    .line 81
     :goto_0
     return v1
 
@@ -247,12 +275,16 @@
 .method getBatteryTemperature()I
     .locals 3
 
+    .prologue
+    .line 68
     const-string v1, "dev.ssrm.bat_temp"
 
     invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 69
+    .local v0, "result":Ljava/lang/String;
     sget-boolean v1, Lcom/android/server/ssrm/DevSysProperty;->DEBUG:Z
 
     if-eqz v1, :cond_0
@@ -267,9 +299,11 @@
 
     if-ge v1, v2, :cond_1
 
+    .line 70
     :cond_0
     const/16 v1, -0x3e7
 
+    .line 72
     :goto_0
     return v1
 
@@ -284,6 +318,8 @@
 .method public isTtsFeatureEnabled()Z
     .locals 1
 
+    .prologue
+    .line 124
     iget-boolean v0, p0, Lcom/android/server/ssrm/DevSysProperty;->mShipBuild:Z
 
     if-nez v0, :cond_0
@@ -305,7 +341,10 @@
 
 .method setPredictedSurfaceTemperatue(I)V
     .locals 3
+    .param p1, "pst"    # I
 
+    .prologue
+    .line 86
     const-string v0, "dev.ssrm.pst"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -328,12 +367,16 @@
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 87
     return-void
 .end method
 
 .method setSsrmInitResult(Z)V
     .locals 2
+    .param p1, "success"    # Z
 
+    .prologue
+    .line 90
     const-string v1, "dev.ssrm.init"
 
     if-eqz p1, :cond_0
@@ -343,8 +386,10 @@
     :goto_0
     invoke-static {v1, v0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 92
     return-void
 
+    .line 90
     :cond_0
     const-string v0, "0"
 
@@ -354,6 +399,8 @@
 .method writeFgAppListenersToSystemProperty()V
     .locals 5
 
+    .prologue
+    .line 108
     :try_start_0
     new-instance v1, Ljava/io/File;
 
@@ -361,17 +408,22 @@
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 109
+    .local v1, "f":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
+    .line 110
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
+    .line 112
     :cond_0
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
+    .line 113
     const-string v2, "SSRMv2:DevSysProperty"
 
     invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -384,13 +436,18 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 117
+    .end local v1    # "f":Ljava/io/File;
     :goto_0
     return-void
 
+    .line 114
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    .line 115
+    .local v0, "e":Ljava/io/IOException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -398,11 +455,14 @@
 .method writeModeToSystemProperty()V
     .locals 2
 
+    .prologue
+    .line 99
     const-string v0, "dev.ssrm.mode"
 
     sget-object v1, Lcom/android/server/ssrm/DevSysProperty;->sSsrmModeList:Ljava/lang/String;
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 100
     return-void
 .end method

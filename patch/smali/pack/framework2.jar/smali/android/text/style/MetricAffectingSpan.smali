@@ -18,8 +18,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 26
     invoke-direct {p0}, Landroid/text/style/CharacterStyle;-><init>()V
 
+    .line 50
     return-void
 .end method
 
@@ -28,6 +31,8 @@
 .method public bridge synthetic getUnderlying()Landroid/text/style/CharacterStyle;
     .locals 1
 
+    .prologue
+    .line 26
     invoke-virtual {p0}, Landroid/text/style/MetricAffectingSpan;->getUnderlying()Landroid/text/style/MetricAffectingSpan;
 
     move-result-object v0
@@ -38,6 +43,8 @@
 .method public getUnderlying()Landroid/text/style/MetricAffectingSpan;
     .locals 0
 
+    .prologue
+    .line 39
     return-object p0
 .end method
 

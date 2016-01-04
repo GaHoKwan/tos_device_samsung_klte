@@ -152,7 +152,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "{{"
+    const-string/jumbo v1, "{{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    const-string v1, "}}"
+    const-string/jumbo v1, "}}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -183,7 +183,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "{{"
+    const-string/jumbo v1, "{{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -193,7 +193,7 @@
 
     move-result-object v0
 
-    const-string v1, "}}"
+    const-string/jumbo v1, "}}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -478,7 +478,7 @@
     :cond_2
     new-instance v1, Ljava/util/StringTokenizer;
 
-    const-string v4, "|"
+    const-string/jumbo v4, "|"
 
     invoke-direct {v1, p0, v4}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 

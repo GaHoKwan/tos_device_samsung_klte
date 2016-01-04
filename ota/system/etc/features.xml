@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <!-- tab用true和 false来描述，表示是否显示 -->
+    <!-- 一般选项用0,1来描述，0表示不显示，1表示显示 -->
+    <!-- PreferenceCategory可以用 0，1，2来描述，0表示不显示，2表示包括下面的子选项一起显示，1表示显示自己，并且子选项由自己配置 -->
+    <entry key="tab_status_bar">true</entry>
+    <entry key="tab_telocation">false</entry>
+    <entry key="tab_phone">true</entry>
+    <entry key="tab_others">true</entry>
+ 
+    <!-- 状态栏 -->
+    <entry key="status_bar_general">1</entry>
+    <entry key="status_bar_transparent">0</entry>
+    <entry key="lidroid_status_bar_color">0</entry>
+    <entry key="lidroid_power_widget_visible">1</entry>
+    <entry key="status_bar_brightness_control">0</entry>
+    <entry key="killer_white_list">1</entry>
+    <entry key="power_widget">2</entry>
+    <entry key="nav_bar_general">0</entry>
+    <entry key="toggleNavBar">false</entry>
+
+    <entry key="status_bar_widget">1</entry>
+    <entry key="lidroid_memCleanView">1</entry>
+    <entry key="lidroid_backWidget">0</entry>
+    <entry key="lidroid_homeWidget">1</entry>
+    <entry key="lidroid_powerWidget">1</entry>
+    <entry key="netspeed_widget">1</entry>
+    <entry key="cpu_usage_widget">1</entry>
+    <entry key="status_bar_week">1</entry>
+
+    <!-- 通话及相关 -->
+    <entry key="phone">1</entry>
+    <entry key="lidroid_recin">1</entry>
+    <entry key="lidroid_recout">1</entry>
+    <entry key="increasing_ring">1</entry>
+    <entry key="noisesuppression">0</entry>
+    
+    <!-- 归属地及自动拨号 -->
+    <entry key="telocation">0</entry>
+    <entry key="autodial">0</entry>
+    
+    <!-- 锁屏及相关 -->
+    <entry key="keyguard">1</entry>
+    <entry key="lockscreen_style_pref">0</entry>
+    <entry key="inkeffect">0</entry>
+    <entry key="lidroid_inkeffect_color">0</entry>
+    <entry key="disable_keyguard_vibrate">0</entry>
+    <entry key="lidroid_keyguard_torch">1</entry>
+
+    <!-- 其它 -->
+    <entry key="others">1</entry>
+    <entry key="lidroid_disable_stk_dialog_auto_open">1</entry>
+    <entry key="lidroid_menu_key_long_press_exit">1</entry>
+    <entry key="lidroid_wallpaper_fixed">0</entry>
+    <entry key="smart_window">0</entry>
+    <entry key="apps_dpi">1</entry>
+    <entry key="up_slide_app">0</entry>
+    <entry key="ops_settings">0</entry>
+    <entry key="test_settings">1</entry>
+    <entry key="hw_module_test">1</entry>
+
+    <!-- ota相关 -->
+    <entry key="cat_ota">2</entry>
+    <entry key="versions">2</entry>
+</properties>

@@ -26,8 +26,11 @@
 .method constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 5937
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 5938
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -36,10 +39,12 @@
 
     iput-wide v0, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mStartTime:J
 
+    .line 5939
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mIsPrinted:Z
 
+    .line 5940
     return-void
 .end method
 
@@ -47,7 +52,11 @@
 # virtual methods
 .method printLapTime(Ljava/lang/String;J)V
     .locals 6
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "limitTime"    # J
 
+    .prologue
+    .line 5955
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -56,16 +65,20 @@
 
     sub-long v0, v2, v4
 
+    .line 5956
+    .local v0, "executionTime":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
 
     iput-wide v2, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mLapTime:J
 
+    .line 5958
     cmp-long v2, v0, p2
 
     if-ltz v2, :cond_0
 
+    .line 5959
     const-string v2, "PowerManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -104,17 +117,23 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 5961
     :cond_0
     return-void
 .end method
 
 .method printTotalTime(Ljava/lang/String;J)V
     .locals 6
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "limitTime"    # J
 
+    .prologue
+    .line 5943
     iget-boolean v2, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mIsPrinted:Z
 
     if-nez v2, :cond_1
 
+    .line 5944
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -123,10 +142,13 @@
 
     sub-long v0, v2, v4
 
+    .line 5946
+    .local v0, "executionTime":J
     cmp-long v2, v0, p2
 
     if-ltz v2, :cond_0
 
+    .line 5947
     const-string v2, "PowerManagerService"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -165,11 +187,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 5950
     :cond_0
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mIsPrinted:Z
 
+    .line 5952
+    .end local v0    # "executionTime":J
     :cond_1
     return-void
 .end method
@@ -177,6 +202,8 @@
 .method resetTime()V
     .locals 2
 
+    .prologue
+    .line 5965
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -185,9 +212,11 @@
 
     iput-wide v0, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mStartTime:J
 
+    .line 5966
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/power/PowerManagerService$TimeMeasurement;->mIsPrinted:Z
 
+    .line 5967
     return-void
 .end method

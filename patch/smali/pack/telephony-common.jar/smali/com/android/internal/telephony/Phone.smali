@@ -288,7 +288,7 @@
     .line 201
     const-string v0, "CTC"
 
-    const-string v1, "VZW"
+    const-string v1, "OPEN"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -551,6 +551,9 @@
 .method public abstract getCallBarringOption(Ljava/lang/String;Landroid/os/Message;)V
 .end method
 
+.method public abstract getCallBarringOption(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Message;)V
+.end method
+
 .method public abstract getCallDomain(Lcom/android/internal/telephony/Call;)I
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -563,6 +566,9 @@
 .end method
 
 .method public abstract getCallForwardingOption(ILandroid/os/Message;)V
+.end method
+
+.method public abstract getCallForwardingOption(ILjava/lang/String;ILandroid/os/Message;)V
 .end method
 
 .method public abstract getCallType(Lcom/android/internal/telephony/Call;)I
@@ -1121,6 +1127,9 @@
 .end method
 
 .method public abstract setUnitTestMode(Z)V
+.end method
+
+.method public abstract setVoiceDomainPref(ILandroid/os/Message;)V
 .end method
 
 .method public abstract setVoiceMailNumber(Ljava/lang/String;Ljava/lang/String;Landroid/os/Message;)V

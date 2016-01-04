@@ -1,4 +1,4 @@
-.class public final Landroid/content/res/Resources$Theme;
+.class public Landroid/content/res/Resources$Theme;
 .super Ljava/lang/Object;
 .source "Resources.java"
 

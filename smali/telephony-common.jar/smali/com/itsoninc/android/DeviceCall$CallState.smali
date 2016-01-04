@@ -185,7 +185,7 @@
     .line 4
     sget-object v0, Lcom/itsoninc/android/DeviceCall$CallState;->$VALUES:[Lcom/itsoninc/android/DeviceCall$CallState;
 
-    invoke-virtual {v0}, [Lcom/itsoninc/android/DeviceCall$CallState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

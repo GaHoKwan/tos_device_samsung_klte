@@ -30,16 +30,24 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1899
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2058
     return-void
 .end method
 
 .method public static final query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;)Landroid/database/Cursor;
     .locals 6
+    .param p0, "cr"    # Landroid/content/ContentResolver;
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "projection"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1907
     const-string v5, "_display_name"
 
     move-object v0, p0

@@ -52,7 +52,7 @@
     invoke-direct {p0}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>()V
 
     .line 94
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationHeader;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ","
 
@@ -71,7 +71,7 @@
     invoke-direct {p0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 88
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationHeader;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ","
 
@@ -93,7 +93,7 @@
 
     .prologue
     .line 157
-    iget-object v0, p0, Lgov/nist/javax/sip/header/AuthenticationHeader;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ","
 
@@ -116,7 +116,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lgov/nist/javax/sip/header/AuthenticationHeader;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -140,7 +140,7 @@
     .line 307
     const-string v0, "algorithm"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -154,7 +154,7 @@
     .line 533
     const-string v0, "ck"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -168,7 +168,7 @@
     .line 433
     const-string v0, "cnonce"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -182,7 +182,7 @@
     .line 391
     const-string v0, "domain"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -196,7 +196,7 @@
     .line 521
     const-string v0, "ik"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -210,7 +210,7 @@
     .line 550
     const-string v0, "integrity-protected"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -224,7 +224,7 @@
     .line 243
     const-string v0, "nonce"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -238,7 +238,7 @@
     .line 437
     const-string v0, "nc"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameterAsHexInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsHexInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -252,7 +252,7 @@
     .line 363
     const-string v0, "opaque"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -266,7 +266,7 @@
     .line 335
     const-string v0, "qop"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -280,7 +280,7 @@
     .line 213
     const-string v0, "realm"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -294,7 +294,7 @@
     .line 463
     const-string v0, "response"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameterValue(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterValue(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -320,7 +320,7 @@
     .line 279
     const-string v0, "uri"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameterAsURI(Ljava/lang/String;)Lgov/nist/javax/sip/address/GenericURI;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsURI(Ljava/lang/String;)Lgov/nist/javax/sip/address/GenericURI;
 
     move-result-object v0
 
@@ -334,7 +334,7 @@
     .line 490
     const-string v0, "username"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -348,7 +348,7 @@
     .line 414
     const-string v0, "stale"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->getParameterAsBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -1040,7 +1040,7 @@
 
     invoke-direct {v0, v1, v2}, Lgov/nist/core/NameValue;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     .line 404
     return-void

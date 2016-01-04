@@ -21,13 +21,18 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Landroid/content/Context;)V
     .locals 1
+    .param p2, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 2511
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$MyOrientationListenerForPenGesture;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
+    .line 2512
     iget-object v0, p1, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mHandler:Landroid/os/Handler;
 
     invoke-direct {p0, p2, v0}, Lcom/android/internal/policy/impl/WindowOrientationListener;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
+    .line 2513
     return-void
 .end method
 
@@ -35,7 +40,10 @@
 # virtual methods
 .method public onProposedRotationChanged(I)V
     .locals 3
+    .param p1, "rotation"    # I
 
+    .prologue
+    .line 2517
     const-string v0, "SamsungWindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -58,10 +66,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2521
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$MyOrientationListenerForPenGesture;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->updateWacomOffset(I)V
     invoke-static {v0, p1}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->access$800(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;I)V
 
+    .line 2522
     return-void
 .end method

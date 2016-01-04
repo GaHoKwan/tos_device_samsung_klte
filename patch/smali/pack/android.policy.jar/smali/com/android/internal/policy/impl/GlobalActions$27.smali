@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 0
 
+    .prologue
+    .line 2158
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,17 +35,22 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 2160
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 2200
     :cond_0
     :goto_0
     return-void
 
+    .line 2162
     :pswitch_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -54,6 +61,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 2163
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mDialog:Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;
@@ -61,8 +69,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
+    .line 2165
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -80,12 +89,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->isShowing()Z
+    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
+    .line 2166
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialog:Landroid/app/AlertDialog;
@@ -93,8 +103,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
+    .line 2168
     :cond_2
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsCoverOpen:Z
     invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$2600()Z
@@ -103,6 +114,7 @@
 
     if-nez v1, :cond_0
 
+    .line 2169
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialogSViewCoverDialog:Landroid/app/GlobalActionsSViewCoverDialog;
@@ -119,12 +131,13 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/GlobalActionsSViewCoverDialog;->isShowing()Z
+    invoke-virtual {v1}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 2170
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialogSViewCoverDialog:Landroid/app/GlobalActionsSViewCoverDialog;
@@ -132,10 +145,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/app/GlobalActionsSViewCoverDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
     goto :goto_0
 
+    .line 2175
     :pswitch_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -146,6 +160,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 2176
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
@@ -153,10 +168,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
     goto :goto_0
 
+    .line 2180
     :pswitch_2
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -165,8 +181,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
+    .line 2181
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # invokes: Lcom/android/internal/policy/impl/GlobalActions;->handleShow()V
@@ -174,6 +191,7 @@
 
     goto :goto_0
 
+    .line 2184
     :pswitch_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -184,6 +202,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 2185
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneModeOn:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
@@ -200,6 +219,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->updateState(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)V
 
+    .line 2187
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -210,6 +230,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 2188
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
@@ -217,27 +238,33 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
     goto/16 :goto_0
 
+    .line 2192
     :pswitch_4
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 2193
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "com.samsung.cover.STATE_CHANGE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 2194
     const-string v1, "suppressCoverUI"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 2195
     const-string v1, "miniModeUI"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 2196
     const-string v2, "sender"
 
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -246,6 +273,7 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 2197
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$27;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -257,6 +285,7 @@
 
     goto/16 :goto_0
 
+    .line 2160
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

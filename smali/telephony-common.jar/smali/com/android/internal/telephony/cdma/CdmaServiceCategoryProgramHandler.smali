@@ -31,7 +31,7 @@
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->mScpResultsReceiver:Landroid/content/BroadcastReceiver;
 
     .line 55
-    iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     .line 56
     iput-object p2, p0, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->mCi:Lcom/android/internal/telephony/CommandsInterface;
@@ -47,7 +47,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->log(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -59,7 +59,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -71,7 +71,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -83,7 +83,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -95,7 +95,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -108,7 +108,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     return-void
 .end method
@@ -132,7 +132,7 @@
     .line 99
     const-string v0, "handleServiceCategoryProgramData: program data list is null!"
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     .line 100
     const/4 v0, 0x0
@@ -153,7 +153,7 @@
     .local v1, "intent":Landroid/content/Intent;
     const-string v0, "sender"
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/cdma/SmsMessage;->getOriginatingAddress()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v2
 
@@ -165,7 +165,7 @@
     invoke-virtual {v1, v0, v9}, Landroid/content/Intent;->putParcelableArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
     .line 107
-    iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     const-string v2, "android.permission.RECEIVE_SMS"
 
@@ -173,7 +173,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->mScpResultsReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getHandler()Landroid/os/Handler;
 
     move-result-object v5
 
@@ -202,7 +202,7 @@
 
     .line 69
     .local v0, "handler":Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;
-    invoke-virtual {v0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->start()V
+    invoke-virtual {v0}, Lcom/android/internal/util/StateMachine;->start()V
 
     .line 70
     return-object v0
@@ -265,7 +265,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cdma/CdmaServiceCategoryProgramHandler;->loge(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;)V
 
     .line 86
     const/4 v0, 0x0

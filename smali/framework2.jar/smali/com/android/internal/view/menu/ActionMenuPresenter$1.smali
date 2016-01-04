@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/view/menu/ActionMenuPresenter;Landroid/view/View;Lcom/android/internal/view/menu/MenuItemImpl;)V
     .locals 0
+    .param p2, "x0"    # Landroid/view/View;
 
+    .prologue
+    .line 301
     iput-object p1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     iput-object p3, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->val$item:Lcom/android/internal/view/menu/MenuItemImpl;
@@ -38,6 +41,8 @@
 .method public getPopup()Landroid/widget/ListPopupWindow;
     .locals 1
 
+    .prologue
+    .line 304
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     # getter for: Lcom/android/internal/view/menu/ActionMenuPresenter;->mActionButtonPopup:Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;
@@ -54,7 +59,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter$ActionButtonSubmenu;->getPopup()Landroid/widget/ListPopupWindow;
+    invoke-virtual {v0}, Lcom/android/internal/view/menu/MenuPopupHelper;->getPopup()Landroid/widget/ListPopupWindow;
 
     move-result-object v0
 
@@ -70,6 +75,8 @@
 .method protected onForwardingStarted()Z
     .locals 2
 
+    .prologue
+    .line 309
     iget-object v1, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->val$item:Lcom/android/internal/view/menu/MenuItemImpl;
@@ -90,6 +97,8 @@
 .method protected onForwardingStopped()Z
     .locals 1
 
+    .prologue
+    .line 314
     iget-object v0, p0, Lcom/android/internal/view/menu/ActionMenuPresenter$1;->this$0:Lcom/android/internal/view/menu/ActionMenuPresenter;
 
     invoke-virtual {v0}, Lcom/android/internal/view/menu/ActionMenuPresenter;->dismissPopupMenus()Z

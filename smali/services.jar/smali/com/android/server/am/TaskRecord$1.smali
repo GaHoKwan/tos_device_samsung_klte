@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/am/TaskRecord;Lcom/android/server/am/TaskAccessInfo;)V
     .locals 0
 
+    .prologue
+    .line 444
     iput-object p1, p0, Lcom/android/server/am/TaskRecord$1;->this$0:Lcom/android/server/am/TaskRecord;
 
     iput-object p2, p0, Lcom/android/server/am/TaskRecord$1;->val$thumbs:Lcom/android/server/am/TaskAccessInfo;
@@ -37,7 +39,10 @@
 # virtual methods
 .method public getThumbnail(I)Landroid/graphics/Bitmap;
     .locals 4
+    .param p1, "index"    # I
 
+    .prologue
+    .line 447
     if-ltz p1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/am/TaskRecord$1;->val$thumbs:Lcom/android/server/am/TaskAccessInfo;
@@ -50,12 +55,15 @@
 
     if-lt p1, v2, :cond_1
 
+    .line 448
     :cond_0
     const/4 v2, 0x0
 
+    .line 455
     :goto_0
     return-object v2
 
+    .line 450
     :cond_1
     iget-object v2, p0, Lcom/android/server/am/TaskRecord$1;->val$thumbs:Lcom/android/server/am/TaskAccessInfo;
 
@@ -67,12 +75,16 @@
 
     check-cast v1, Lcom/android/server/am/TaskAccessInfo$SubTask;
 
+    .line 451
+    .local v1, "sub":Lcom/android/server/am/TaskAccessInfo$SubTask;
     iget-object v2, p0, Lcom/android/server/am/TaskRecord$1;->this$0:Lcom/android/server/am/TaskRecord;
 
     iget-object v2, v2, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
 
     iget-object v0, v2, Lcom/android/server/am/ActivityStack;->mResumedActivity:Lcom/android/server/am/ActivityRecord;
 
+    .line 452
+    .local v0, "resumedActivity":Lcom/android/server/am/ActivityRecord;
     if-eqz v0, :cond_2
 
     iget-object v2, v0, Lcom/android/server/am/ActivityRecord;->thumbHolder:Lcom/android/server/am/ThumbnailHolder;
@@ -81,6 +93,7 @@
 
     if-ne v2, v3, :cond_2
 
+    .line 453
     iget-object v2, p0, Lcom/android/server/am/TaskRecord$1;->this$0:Lcom/android/server/am/TaskRecord;
 
     iget-object v2, v2, Lcom/android/server/am/TaskRecord;->stack:Lcom/android/server/am/ActivityStack;
@@ -91,6 +104,7 @@
 
     goto :goto_0
 
+    .line 455
     :cond_2
     iget-object v2, v1, Lcom/android/server/am/TaskAccessInfo$SubTask;->holder:Lcom/android/server/am/ThumbnailHolder;
 

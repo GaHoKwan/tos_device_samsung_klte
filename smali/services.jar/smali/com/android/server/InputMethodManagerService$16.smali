@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 5732
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$16;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 5735
     :try_start_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$16;->this$0:Lcom/android/server/InputMethodManagerService;
 
@@ -54,6 +60,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 5736
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$16;->this$0:Lcom/android/server/InputMethodManagerService;
 
     # getter for: Lcom/android/server/InputMethodManagerService;->mDefaultSIP:Ljava/lang/String;
@@ -78,14 +85,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 5740
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$16;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/InputMethodManagerService;->hideSIPInformationDialog()V
 
+    .line 5741
     return-void
 
+    .line 5738
     :catch_0
     move-exception v0
 

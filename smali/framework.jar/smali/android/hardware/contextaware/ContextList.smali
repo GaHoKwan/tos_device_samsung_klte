@@ -108,7 +108,7 @@
 
     .line 322
     .local v2, "i":Landroid/hardware/contextaware/ContextList$ContextType;
-    invoke-virtual {v2}, Landroid/hardware/contextaware/ContextList$ContextType;->ordinal()I
+    invoke-virtual {v2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
@@ -192,7 +192,7 @@
     if-eqz v5, :cond_1
 
     .line 303
-    invoke-virtual {v1}, Landroid/hardware/contextaware/ContextList$ContextType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 

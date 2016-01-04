@@ -14,15 +14,24 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "uid"    # I
+    .param p3, "cid"    # I
 
+    .prologue
+    .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 51
     iput-object p1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;->mPackageName:Ljava/lang/String;
 
+    .line 52
     iput p2, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;->mUid:I
 
+    .line 53
     iput p3, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;->mCid:I
 
+    .line 54
     return-void
 .end method
 
@@ -31,6 +40,8 @@
 .method public declared-synchronized getCid()I
     .locals 1
 
+    .prologue
+    .line 73
     monitor-enter p0
 
     :try_start_0
@@ -53,6 +64,8 @@
 .method public declared-synchronized getPackageName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 57
     monitor-enter p0
 
     :try_start_0
@@ -75,6 +88,8 @@
 .method public declared-synchronized getUid()I
     .locals 1
 
+    .prologue
+    .line 65
     monitor-enter p0
 
     :try_start_0
@@ -96,7 +111,10 @@
 
 .method public declared-synchronized setCid(I)V
     .locals 1
+    .param p1, "cid"    # I
 
+    .prologue
+    .line 77
     monitor-enter p0
 
     :try_start_0
@@ -104,10 +122,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 78
     monitor-exit p0
 
     return-void
 
+    .line 77
     :catchall_0
     move-exception v0
 
@@ -118,7 +138,10 @@
 
 .method public declared-synchronized setPackageName(Ljava/lang/String;)V
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 61
     monitor-enter p0
 
     :try_start_0
@@ -126,10 +149,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 62
     monitor-exit p0
 
     return-void
 
+    .line 61
     :catchall_0
     move-exception v0
 
@@ -140,7 +165,10 @@
 
 .method public declared-synchronized setUid(I)V
     .locals 1
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 69
     monitor-enter p0
 
     :try_start_0
@@ -148,10 +176,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 70
     monitor-exit p0
 
     return-void
 
+    .line 69
     :catchall_0
     move-exception v0
 

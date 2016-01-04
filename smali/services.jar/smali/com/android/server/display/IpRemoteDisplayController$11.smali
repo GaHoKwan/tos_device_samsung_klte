@@ -41,6 +41,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;Landroid/view/Surface;Landroid/view/Surface;Landroid/hardware/display/WifiDisplay;Landroid/hardware/display/WifiDisplay;IIII)V
     .locals 0
 
+    .prologue
+    .line 640
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->val$oldSurface:Landroid/view/Surface;
@@ -69,6 +71,8 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 643
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->val$oldSurface:Landroid/view/Surface;
 
     if-eqz v0, :cond_2
@@ -79,6 +83,7 @@
 
     if-eq v0, v1, :cond_2
 
+    .line 644
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mListener:Lcom/android/server/display/IpRemoteDisplayController$Listener;
@@ -88,12 +93,14 @@
 
     invoke-interface {v0}, Lcom/android/server/display/IpRemoteDisplayController$Listener;->onDisplayDisconnected()V
 
+    .line 650
     :cond_0
     :goto_0
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->val$display:Landroid/hardware/display/WifiDisplay;
 
     if-eqz v0, :cond_1
 
+    .line 651
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->val$surface:Landroid/view/Surface;
 
     if-eqz v0, :cond_1
@@ -104,12 +111,15 @@
 
     if-eq v0, v1, :cond_1
 
+    .line 652
     const-string v0, "ro.board.platform"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
+    .line 653
+    .local v7, "platform":Ljava/lang/String;
     const-string v0, "IpRemoteDisplayController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -132,6 +142,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 654
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mListener:Lcom/android/server/display/IpRemoteDisplayController$Listener;
@@ -153,9 +164,12 @@
 
     invoke-interface/range {v0 .. v6}, Lcom/android/server/display/IpRemoteDisplayController$Listener;->onDisplayConnected(Landroid/hardware/display/WifiDisplay;Landroid/view/Surface;IIII)V
 
+    .line 657
+    .end local v7    # "platform":Ljava/lang/String;
     :cond_1
     return-void
 
+    .line 645
     :cond_2
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->val$oldDisplay:Landroid/hardware/display/WifiDisplay;
 
@@ -171,12 +185,14 @@
 
     if-nez v0, :cond_0
 
+    .line 646
     const-string v0, "IpRemoteDisplayController"
 
     const-string v1, "advertiseDisplay failed"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 647
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$11;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mListener:Lcom/android/server/display/IpRemoteDisplayController$Listener;

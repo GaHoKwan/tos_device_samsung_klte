@@ -149,7 +149,7 @@
     .line 445
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->$VALUES:[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;
 
-    invoke-virtual {v0}, [Lcom/android/i18n/phonenumbers/PhoneNumberUtil$ValidationResult;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

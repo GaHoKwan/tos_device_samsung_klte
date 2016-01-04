@@ -35,8 +35,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 45
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mAction:I
@@ -49,6 +52,8 @@
 .method public getAction()I
     .locals 1
 
+    .prologue
+    .line 86
     iget v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mAction:I
 
     return v0
@@ -57,6 +62,8 @@
 .method public getIpAddress()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 60
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mIpAddress:Ljava/lang/String;
 
     return-object v0
@@ -65,6 +72,8 @@
 .method public getPort()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 73
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mPort:Ljava/lang/String;
 
     return-object v0
@@ -72,9 +81,12 @@
 
 .method public setAction(I)Z
     .locals 2
+    .param p1, "action"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 77
     if-eq p1, v0, :cond_0
 
     const/4 v1, 0x2
@@ -99,9 +111,11 @@
 
     if-ne p1, v1, :cond_1
 
+    .line 79
     :cond_0
     iput p1, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mAction:I
 
+    .line 82
     :goto_0
     return v0
 
@@ -113,7 +127,10 @@
 
 .method public setIpAddress(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "ipAddress"    # Ljava/lang/String;
 
+    .prologue
+    .line 51
     iget v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mAction:I
 
     if-eqz v0, :cond_0
@@ -124,11 +141,14 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 53
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mIpAddress:Ljava/lang/String;
 
+    .line 54
     const/4 v0, 0x1
 
+    .line 56
     :goto_0
     return v0
 
@@ -140,7 +160,10 @@
 
 .method public setPort(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "port"    # Ljava/lang/String;
 
+    .prologue
+    .line 64
     iget v0, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mAction:I
 
     if-eqz v0, :cond_0
@@ -151,11 +174,14 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 66
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRuleAction;->mPort:Ljava/lang/String;
 
+    .line 67
     const/4 v0, 0x1
 
+    .line 69
     :goto_0
     return v0
 

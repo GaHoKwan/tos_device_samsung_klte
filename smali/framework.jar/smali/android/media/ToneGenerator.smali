@@ -8,15 +8,15 @@
 
 .field public static final MIN_VOLUME:I = 0x0
 
-.field public static final TONE_CALL_ALERT_ALARM:I = 0x73
+.field public static final TONE_CALL_ALERT_ALARM:I = 0x74
 
-.field public static final TONE_CALL_ALERT_MESSAGE:I = 0x72
+.field public static final TONE_CALL_ALERT_MESSAGE:I = 0x73
 
-.field public static final TONE_CALL_ALERT_MINUTEMINDER:I = 0x74
+.field public static final TONE_CALL_ALERT_MINUTEMINDER:I = 0x75
 
-.field public static final TONE_CALL_CONNECTION:I = 0x6f
+.field public static final TONE_CALL_CONNECTION:I = 0x70
 
-.field public static final TONE_CALL_DISCONNECTION:I = 0x70
+.field public static final TONE_CALL_DISCONNECTION:I = 0x71
 
 .field public static final TONE_CDMA_ABBR_ALERT:I = 0x61
 
@@ -188,7 +188,7 @@
 
 .field public static final TONE_LOCAL_CW:I = 0x63
 
-.field public static final TONE_LOW_BATTERY:I = 0x71
+.field public static final TONE_LOW_BATTERY:I = 0x72
 
 .field public static final TONE_PROP_ACK:I = 0x19
 
@@ -203,6 +203,8 @@
 .field public static final TONE_SECOND_CALL_END:I = 0x67
 
 .field public static final TONE_SECOND_CALL_WAITING:I = 0x66
+
+.field public static final TONE_SINGTEL_SUP_RINGTONE:I = 0x6a
 
 .field public static final TONE_SUPERVISORY_CH:I = 0x64
 
@@ -232,15 +234,15 @@
 
 .field public static final TONE_SUP_RINGTONE:I = 0x17
 
-.field public static final TONE_UTK_PROP_ACK:I = 0x6d
+.field public static final TONE_UTK_PROP_ACK:I = 0x6e
 
-.field public static final TONE_UTK_PROP_BEEP:I = 0x6c
+.field public static final TONE_UTK_PROP_BEEP:I = 0x6d
 
-.field public static final TONE_UTK_PROP_NACK:I = 0x6e
+.field public static final TONE_UTK_PROP_NACK:I = 0x6f
 
-.field public static final TONE_UTK_SUP_RADIO_ACK:I = 0x6a
+.field public static final TONE_UTK_SUP_RADIO_ACK:I = 0x6b
 
-.field public static final TONE_UTK_SUP_RADIO_NOTAVAIL:I = 0x6b
+.field public static final TONE_UTK_SUP_RADIO_NOTAVAIL:I = 0x6c
 
 
 # instance fields
@@ -254,13 +256,13 @@
     .param p2, "volume"    # I
 
     .prologue
-    .line 806
+    .line 814
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 807
+    .line 815
     invoke-direct {p0, p1, p2}, Landroid/media/ToneGenerator;->native_setup(II)V
 
-    .line 808
+    .line 816
     return-void
 .end method
 
@@ -276,7 +278,7 @@
     .locals 0
 
     .prologue
-    .line 962
+    .line 970
     invoke-direct {p0}, Landroid/media/ToneGenerator;->native_finalize()V
 
     return-void
@@ -296,7 +298,7 @@
     .param p1, "toneType"    # I
 
     .prologue
-    .line 917
+    .line 925
     const/4 v0, -0x1
 
     invoke-virtual {p0, p1, v0}, Landroid/media/ToneGenerator;->startTone(II)Z

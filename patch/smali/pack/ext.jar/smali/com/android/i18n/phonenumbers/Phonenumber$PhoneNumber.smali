@@ -594,7 +594,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->hashCode()I
+    invoke-virtual {v4}, Ljava/lang/Enum;->hashCode()I
 
     move-result v4
 

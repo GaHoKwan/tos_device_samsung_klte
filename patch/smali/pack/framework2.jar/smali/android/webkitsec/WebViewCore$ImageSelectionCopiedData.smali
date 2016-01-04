@@ -30,15 +30,19 @@
 .method constructor <init>(Landroid/webkitsec/WebViewCore;)V
     .locals 1
 
+    .prologue
+    .line 4766
     iput-object p1, p0, Landroid/webkitsec/WebViewCore$ImageSelectionCopiedData;->this$0:Landroid/webkitsec/WebViewCore;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 4767
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v0, p0, Landroid/webkitsec/WebViewCore$ImageSelectionCopiedData;->imageRect:Landroid/graphics/Rect;
 
+    .line 4769
     return-void
 .end method

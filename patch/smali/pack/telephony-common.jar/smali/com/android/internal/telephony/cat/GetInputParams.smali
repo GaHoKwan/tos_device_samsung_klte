@@ -40,7 +40,7 @@
     invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/cat/GetInputParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/Input;)V
 
     .line 236
-    invoke-virtual {p0, p3}, Lcom/android/internal/telephony/cat/GetInputParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p3}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 237
     return-void

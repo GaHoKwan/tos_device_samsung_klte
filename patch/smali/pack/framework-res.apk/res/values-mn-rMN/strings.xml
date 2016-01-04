@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webviewchromium_actionbar_share">Хуваалцах</string>
+    <string name="webviewchromium_actionbar_web_search">Веб хайлт</string>
+    <string name="webviewchromium_accessibility_content_view">Веб Харагдац</string>
+    <string name="webviewchromium_date_picker_dialog_set">Тохируулах</string>
+    <string name="webviewchromium_date_picker_dialog_clear">Цэвэрлэх</string>
+    <string name="webviewchromium_date_picker_dialog_title">Огноо тохируулах</string>
+    <string name="webviewchromium_date_time_picker_dialog_title">Огноо болон цагийг тохируулах</string>
+    <string name="webviewchromium_month_picker_dialog_title">Сарыг тохируулах</string>
+    <string name="webviewchromium_week_picker_dialog_title">7 хоног тохируулах</string>
+    <string name="webviewchromium_accessibility_datetime_picker_date">Огноо</string>
+    <string name="webviewchromium_accessibility_datetime_picker_time">Цаг</string>
+    <string name="webviewchromium_accessibility_date_picker_month">Сар</string>
+    <string name="webviewchromium_accessibility_date_picker_week">7 хоног</string>
+    <string name="webviewchromium_accessibility_date_picker_year">Жил</string>
+    <string name="webviewchromium_media_player_error_title">Видео тоглуулах боломжгүй</string>
+    <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Уучлаарай, энэ видеог энэ төхөөрөмж дээр урсгалаар гаргах боломжгүй.</string>
+    <string name="webviewchromium_media_player_error_text_unknown">Уучлаарай, энэ видеог тоглуулах боломжгүй.</string>
+    <string name="webviewchromium_media_player_error_button">Тийм</string>
+    <string name="webviewchromium_media_player_loading_video">Видеог ачааллаж байна</string>
+    <string name="webviewchromium_color_picker_button_more">Цааш</string>
+    <string name="webviewchromium_color_picker_hue">Өнгө</string>
+    <string name="webviewchromium_color_picker_saturation">Өнгө ялгалт</string>
+    <string name="webviewchromium_color_picker_value">Утга</string>
+    <string name="webviewchromium_color_picker_button_set">Тохируулах</string>
+    <string name="webviewchromium_color_picker_button_cancel">Цуцлах</string>
+    <string name="webviewchromium_color_picker_dialog_title">Өнгө сонгох</string>
+    <string name="webviewchromium_low_memory_error">Санах ой бага байгаагаас шалтгаалан өмнөх үйлдлийг гүйцээх боломжгүй байна</string>
+    <string name="webviewchromium_opening_file_error">Сонгосон файлыг нээж чадсангүй</string>
+    <string name="webviewchromium_private_browsing_warning">Андройдын энэ хувилбар дээр энэ функц дэмжигдээгүй.</string>
+</resources>

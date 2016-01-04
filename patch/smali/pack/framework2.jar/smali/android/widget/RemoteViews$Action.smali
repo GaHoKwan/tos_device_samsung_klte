@@ -33,6 +33,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 311
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 
 .method synthetic constructor <init>(Landroid/widget/RemoteViews$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/widget/RemoteViews$1;
 
+    .prologue
+    .line 311
     invoke-direct {p0}, Landroid/widget/RemoteViews$Action;-><init>()V
 
     return-void
@@ -59,6 +64,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 320
     const/4 v0, 0x0
 
     return v0
@@ -70,6 +77,8 @@
 .method public getUniqueKey()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 342
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -98,6 +107,8 @@
 .method public mergeBehavior()I
     .locals 1
 
+    .prologue
+    .line 336
     const/4 v0, 0x0
 
     return v0
@@ -105,12 +116,18 @@
 
 .method public setBitmapCache(Landroid/widget/RemoteViews$BitmapCache;)V
     .locals 0
+    .param p1, "bitmapCache"    # Landroid/widget/RemoteViews$BitmapCache;
 
+    .prologue
+    .line 333
     return-void
 .end method
 
 .method public updateMemoryUsageEstimate(Landroid/widget/RemoteViews$MemoryUsageCounter;)V
     .locals 0
+    .param p1, "counter"    # Landroid/widget/RemoteViews$MemoryUsageCounter;
 
+    .prologue
+    .line 329
     return-void
 .end method

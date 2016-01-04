@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/TwilightService;)V
     .locals 0
 
+    .prologue
+    .line 544
     iput-object p1, p0, Lcom/android/server/TwilightService$2;->this$0:Lcom/android/server/TwilightService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,24 +38,38 @@
 # virtual methods
 .method public onLocationChanged(Landroid/location/Location;)V
     .locals 0
+    .param p1, "location"    # Landroid/location/Location;
 
+    .prologue
+    .line 546
     return-void
 .end method
 
 .method public onProviderDisabled(Ljava/lang/String;)V
     .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
 
+    .prologue
+    .line 549
     return-void
 .end method
 
 .method public onProviderEnabled(Ljava/lang/String;)V
     .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
 
+    .prologue
+    .line 552
     return-void
 .end method
 
 .method public onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 0
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 555
     return-void
 .end method

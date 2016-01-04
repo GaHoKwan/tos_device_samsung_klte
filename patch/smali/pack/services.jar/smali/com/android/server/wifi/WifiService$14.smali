@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiService;)V
     .locals 0
 
+    .prologue
+    .line 4308
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -32,130 +34,97 @@
 
 # virtual methods
 .method public onDataConnectionStateChanged(II)V
-    .locals 10
+    .locals 6
+    .param p1, "state"    # I
+    .param p2, "networkType"    # I
 
-    const/4 v9, 0x0
+    .prologue
+    const/4 v5, 0x0
 
-    const v8, 0x26017
+    const v4, 0x26017
 
-    const/16 v7, 0xd
+    const/4 v3, 0x0
 
-    const/4 v6, 0x0
+    .line 4310
+    const-string v0, "WifiService"
 
-    const-string v3, "WifiService"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "onDataConnectionStateChanged: state -"
 
-    const-string v5, "onDataConnectionStateChanged: state -"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    move-result-object v1
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    const-string v5, ", networkType - "
+    const-string v2, ", networkType - "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
     invoke-static {p2}, Landroid/telephony/TelephonyManager;->getNetworkTypeName(I)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v3, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
+    .line 4334
+    const/16 v0, 0xd
 
-    invoke-virtual {v3}, Lcom/android/server/wifi/WifiService;->getWifiApEnabledState()I
+    if-ne p2, v0, :cond_0
 
-    move-result v2
-
-    const/16 v3, 0xc
-
-    if-eq v2, v3, :cond_0
-
-    if-ne v2, v7, :cond_2
-
-    :cond_0
-    const/4 v1, 0x5
-
-    if-ne p2, v7, :cond_1
-
-    const/16 v1, 0xa
-
-    :cond_1
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
-
-    # getter for: Lcom/android/server/wifi/WifiService;->mNwService:Landroid/os/INetworkManagementService;
-    invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$3700(Lcom/android/server/wifi/WifiService;)Landroid/os/INetworkManagementService;
-
-    move-result-object v3
-
-    invoke-interface {v3, v1}, Landroid/os/INetworkManagementService;->setMaxClient(I)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :cond_2
-    :goto_0
-    if-ne p2, v7, :cond_3
-
-    iget-object v3, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
+    .line 4335
+    iget-object v0, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
 
     # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
-    invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$500(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
+    invoke-static {v0}, Lcom/android/server/wifi/WifiService;->access$500(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
-    move-result-object v3
+    move-result-object v0
 
-    const/4 v4, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v3, v8, v4, v6, v9}, Lcom/android/server/wifi/WifiController;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v4, v1, v3, v5}, Lcom/android/internal/util/StateMachine;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    :goto_1
+    .line 4340
+    :goto_0
     return-void
 
-    :catch_0
-    move-exception v0
-
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v3, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
+    .line 4337
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wifi/WifiService$14;->this$0:Lcom/android/server/wifi/WifiService;
 
     # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
-    invoke-static {v3}, Lcom/android/server/wifi/WifiService;->access$500(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
+    invoke-static {v0}, Lcom/android/server/wifi/WifiService;->access$500(Lcom/android/server/wifi/WifiService;)Lcom/android/server/wifi/WifiController;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3, v8, v6, v6, v9}, Lcom/android/server/wifi/WifiController;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v4, v3, v3, v5}, Lcom/android/internal/util/StateMachine;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_1
+    goto :goto_0
 .end method

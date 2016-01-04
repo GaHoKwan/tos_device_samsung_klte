@@ -79,7 +79,7 @@
     .line 536
     iget-object v1, p0, Lgov/nist/javax/sip/header/Via;->sentProtocol:Lgov/nist/javax/sip/header/Protocol;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/Protocol;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -121,7 +121,7 @@
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lgov/nist/javax/sip/header/Via;->setParameter(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;I)V
 
     .line 541
     :cond_2
@@ -169,7 +169,7 @@
     invoke-virtual {v0, p1}, Lgov/nist/core/HostPort;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 263
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Via;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -183,7 +183,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 265
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Via;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -313,7 +313,7 @@
 
     if-ne v3, v4, :cond_2
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Via;->equalParameters(Ljavax/sip/header/Parameters;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->equalParameters(Ljavax/sip/header/Parameters;)Z
 
     move-result v3
 
@@ -339,7 +339,7 @@
     .line 513
     const-string v0, "branch"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Via;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -435,7 +435,7 @@
     .line 454
     const-string v0, "maddr"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Via;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -527,7 +527,7 @@
     .line 351
     const-string v1, "rport"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/Via;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -569,7 +569,7 @@
     .line 486
     const-string v0, "received"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Via;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -655,7 +655,7 @@
     .line 427
     const-string v1, "ttl"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/Via;->getParameterAsInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -695,7 +695,7 @@
 
     .prologue
     .line 167
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Via;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     return-object v0
 .end method
@@ -795,7 +795,7 @@
     :cond_1
     const-string v0, "branch"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/Via;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 531
     return-void
@@ -937,7 +937,7 @@
 
     .line 475
     .local v1, "nameValue":Lgov/nist/core/NameValue;
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/Via;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     .line 477
     return-void
@@ -1110,7 +1110,7 @@
     :cond_0
     const-string v0, "received"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/Via;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 504
     return-void
@@ -1178,7 +1178,7 @@
 
     invoke-direct {v0, v1, v2}, Lgov/nist/core/NameValue;-><init>(Ljava/lang/String;Ljava/lang/Object;)V
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Via;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     .line 445
     return-void

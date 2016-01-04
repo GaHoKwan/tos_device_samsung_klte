@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
 
+    .prologue
+    .line 1868
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1871
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     const/4 v1, 0x0
@@ -44,10 +48,12 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWifiP2pConnected:Z
     invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->access$4502(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 1872
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayController$22;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     # invokes: Lcom/android/server/display/WifiDisplayController;->updateSettings()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayController;->access$000(Lcom/android/server/display/WifiDisplayController;)V
 
+    .line 1873
     return-void
 .end method

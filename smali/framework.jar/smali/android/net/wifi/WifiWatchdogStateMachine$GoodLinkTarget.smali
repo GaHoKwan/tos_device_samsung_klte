@@ -30,18 +30,18 @@
     .param p3, "time"    # I
 
     .prologue
-    .line 4898
+    .line 4913
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 4899
+    .line 4914
     iput p1, p0, Landroid/net/wifi/WifiWatchdogStateMachine$GoodLinkTarget;->RSSI_ADJ_DBM:I
 
-    .line 4900
+    .line 4915
     iput p2, p0, Landroid/net/wifi/WifiWatchdogStateMachine$GoodLinkTarget;->SAMPLE_COUNT:I
 
-    .line 4901
+    .line 4916
     iput p3, p0, Landroid/net/wifi/WifiWatchdogStateMachine$GoodLinkTarget;->REDUCE_TIME_MS:I
 
-    .line 4902
+    .line 4917
     return-void
 .end method

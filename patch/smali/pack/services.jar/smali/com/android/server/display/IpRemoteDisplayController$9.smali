@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;Ljava/net/InetAddress;I)V
     .locals 0
 
+    .prologue
+    .line 540
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$9;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/IpRemoteDisplayController$9;->val$addr:Ljava/net/InetAddress;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 544
     :try_start_0
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$9;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
@@ -65,19 +69,24 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 549
     :goto_0
     return-void
 
+    .line 545
     :catch_0
     move-exception v0
 
+    .line 546
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "IpRemoteDisplayController"
 
     const-string v2, "Failed to enable WifiDisplay"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 547
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

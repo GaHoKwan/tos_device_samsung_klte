@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/SurfaceView;)V
     .locals 0
 
+    .prologue
+    .line 144
     iput-object p1, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public onScrollChanged()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 147
     iget-object v0, p0, Landroid/view/SurfaceView$2;->this$0:Landroid/view/SurfaceView;
 
     # invokes: Landroid/view/SurfaceView;->updateWindow(ZZ)V
     invoke-static {v0, v1, v1}, Landroid/view/SurfaceView;->access$000(Landroid/view/SurfaceView;ZZ)V
 
+    .line 148
     return-void
 .end method

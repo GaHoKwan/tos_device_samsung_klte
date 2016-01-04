@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;ZI)V
     .locals 0
 
+    .prologue
+    .line 2576
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->val$isDownGesture:Z
@@ -44,21 +46,28 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2664
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/high16 v3, 0x42480000    # 50.0f
 
     const/4 v2, 0x4
 
+    .line 2584
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->val$isDownGesture:Z
 
     if-eqz v0, :cond_0
 
+    .line 2585
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -66,8 +75,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
+    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
+    .line 2586
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -77,8 +87,9 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
+    .line 2587
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -99,12 +110,14 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setY(F)V
 
+    .line 2589
     iget v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->val$key:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 2601
     :goto_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -113,7 +126,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -121,6 +134,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
+    .line 2602
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -128,7 +142,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -168,6 +182,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->translationY(F)Landroid/view/ViewPropertyAnimator;
 
+    .line 2603
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -175,7 +190,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -183,6 +198,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
+    .line 2604
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -190,7 +206,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
 
@@ -200,9 +216,11 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
+    .line 2661
     :goto_1
     return-void
 
+    .line 2591
     :pswitch_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -226,6 +244,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 2592
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -233,10 +252,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setX(F)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setX(F)V
 
     goto :goto_0
 
+    .line 2595
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -262,6 +282,7 @@
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
+    .line 2596
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -303,10 +324,11 @@
 
     sub-float/2addr v1, v3
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setX(F)V
 
     goto/16 :goto_0
 
+    .line 2641
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -317,6 +339,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 2642
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mGestureEffectImgView:Landroid/widget/ImageView;
@@ -326,11 +349,13 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2644
     :cond_1
     iget v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->val$key:I
 
     packed-switch v0, :pswitch_data_1
 
+    .line 2656
     :goto_2
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -342,10 +367,12 @@
 
     if-eqz v0, :cond_2
 
+    .line 2657
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
-    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
+    .line 2659
     :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -356,6 +383,7 @@
 
     goto/16 :goto_1
 
+    .line 2646
     :pswitch_3
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -366,6 +394,7 @@
 
     goto :goto_2
 
+    .line 2649
     :pswitch_4
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -374,6 +403,7 @@
 
     goto :goto_2
 
+    .line 2589
     nop
 
     :pswitch_data_0
@@ -382,6 +412,7 @@
         :pswitch_1
     .end packed-switch
 
+    .line 2644
     :pswitch_data_1
     .packed-switch 0x0
         :pswitch_3
@@ -392,13 +423,19 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2667
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 1
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2579
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$11;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     # getter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mSPenVibrator:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;
@@ -408,5 +445,6 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$SPenVibrator;->playVibrator()V
 
+    .line 2580
     return-void
 .end method

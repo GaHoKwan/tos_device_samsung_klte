@@ -476,7 +476,7 @@
     invoke-super {p0, p1}, Landroid/app/AlertDialog;->onRestoreInstanceState(Landroid/os/Bundle;)V
 
     .line 297
-    const-string v3, "year"
+    const-string/jumbo v3, "year"
 
     invoke-virtual {p1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -519,7 +519,7 @@
 
     .line 288
     .local v0, "state":Landroid/os/Bundle;
-    const-string v1, "year"
+    const-string/jumbo v1, "year"
 
     iget-object v2, p0, Landroid/app/DatePickerDialog;->mDatePicker:Landroid/widget/DatePicker;
 

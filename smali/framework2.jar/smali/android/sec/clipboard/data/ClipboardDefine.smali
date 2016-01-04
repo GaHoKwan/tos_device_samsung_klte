@@ -67,22 +67,28 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 86
     const-string v0, ""
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEFAULT_PATH:Ljava/lang/String;
 
+    .line 87
     const-string v0, "_thum.jpg"
 
     sput-object v0, Landroid/sec/clipboard/data/ClipboardDefine;->THUMBNAIL_SUFFIX:Ljava/lang/String;
 
+    .line 90
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
+    .line 91
     const/4 v0, 0x0
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->INFO_DEBUG:Z
 
+    .line 103
     const-string v0, "1"
 
     const-string/jumbo v1, "ro.config.knox"
@@ -99,6 +105,7 @@
 
     sput-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->SUPPORT_KNOX:Z
 
+    .line 111
     const-string v0, "americano"
 
     const-string/jumbo v1, "ro.build.scafe"
@@ -119,6 +126,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

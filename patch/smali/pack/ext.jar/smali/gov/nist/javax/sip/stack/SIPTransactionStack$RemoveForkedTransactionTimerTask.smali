@@ -54,7 +54,7 @@
 
     iget-object v1, p0, Lgov/nist/javax/sip/stack/SIPTransactionStack$RemoveForkedTransactionTimerTask;->clientTransaction:Lgov/nist/javax/sip/stack/SIPClientTransaction;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPClientTransaction;->getTransactionId()Ljava/lang/String;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPTransaction;->getTransactionId()Ljava/lang/String;
 
     move-result-object v1
 

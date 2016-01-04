@@ -66,7 +66,7 @@
 
     .prologue
     .line 208
-    invoke-super {p0}, Lgov/nist/javax/sip/header/SIPObject;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -81,7 +81,7 @@
     .line 210
     iget-object v1, p0, Lgov/nist/javax/sip/header/RequestLine;->uri:Lgov/nist/javax/sip/address/GenericURI;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/address/GenericURI;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 

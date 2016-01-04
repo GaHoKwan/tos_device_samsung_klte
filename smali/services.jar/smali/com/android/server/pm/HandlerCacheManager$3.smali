@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/android/server/pm/HandlerCacheManager;III)V
     .locals 0
 
+    .prologue
+    .line 298
     iput-object p1, p0, Lcom/android/server/pm/HandlerCacheManager$3;->this$0:Lcom/android/server/pm/HandlerCacheManager;
 
     iput p2, p0, Lcom/android/server/pm/HandlerCacheManager$3;->val$personaId:I
@@ -49,16 +51,20 @@
 .method public run()V
     .locals 9
 
+    .prologue
+    .line 301
     const-string v6, "HandlerCacheManager"
 
     const-string v7, "onStateChange()"
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 302
     const-class v7, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v7
 
+    .line 303
     :try_start_0
     new-instance v4, Ljava/lang/Integer;
 
@@ -66,6 +72,8 @@
 
     invoke-direct {v4, v6}, Ljava/lang/Integer;-><init>(I)V
 
+    .line 304
+    .local v4, "personInt":Ljava/lang/Integer;
     # getter for: Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
     invoke-static {}, Lcom/android/server/pm/HandlerCacheManager;->access$000()Ljava/util/HashMap;
 
@@ -77,6 +85,8 @@
 
     check-cast v2, Ljava/util/HashMap;
 
+    .line 306
+    .local v2, "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     if-eqz v2, :cond_0
 
     invoke-virtual {v2}, Ljava/util/HashMap;->isEmpty()Z
@@ -85,14 +95,18 @@
 
     if-nez v6, :cond_0
 
+    .line 307
     invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
     move-result-object v3
 
+    .line 309
+    .local v3, "observers":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/content/pm/IPersonaObserver;>;"
     invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -108,6 +122,8 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 312
+    .local v1, "observer":Landroid/content/pm/IPersonaObserver;
     :try_start_1
     iget v6, p0, Lcom/android/server/pm/HandlerCacheManager$3;->val$state:I
 
@@ -120,14 +136,24 @@
 
     goto :goto_0
 
+    .line 313
     :catch_0
     move-exception v5
 
+    .line 314
+    .local v5, "re":Landroid/os/RemoteException;
     :try_start_2
-    invoke-virtual {v5}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 318
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "observer":Landroid/content/pm/IPersonaObserver;
+    .end local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
+    .end local v3    # "observers":Ljava/util/Collection;, "Ljava/util/Collection<Landroid/content/pm/IPersonaObserver;>;"
+    .end local v4    # "personInt":Ljava/lang/Integer;
+    .end local v5    # "re":Landroid/os/RemoteException;
     :catchall_0
     move-exception v6
 
@@ -137,11 +163,14 @@
 
     throw v6
 
+    .restart local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
+    .restart local v4    # "personInt":Ljava/lang/Integer;
     :cond_0
     :try_start_3
     monitor-exit v7
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 319
     return-void
 .end method

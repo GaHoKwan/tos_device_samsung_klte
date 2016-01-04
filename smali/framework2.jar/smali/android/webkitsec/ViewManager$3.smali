@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/ViewManager;)V
     .locals 0
 
+    .prologue
+    .line 272
     iput-object p1, p0, Landroid/webkitsec/ViewManager$3;->this$0:Landroid/webkitsec/ViewManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 274
     iget-object v2, p0, Landroid/webkitsec/ViewManager$3;->this$0:Landroid/webkitsec/ViewManager;
 
     const/4 v3, 0x1
@@ -44,6 +48,7 @@
     # setter for: Landroid/webkitsec/ViewManager;->mReadyToDraw:Z
     invoke-static {v2, v3}, Landroid/webkitsec/ViewManager;->access$402(Landroid/webkitsec/ViewManager;Z)Z
 
+    .line 275
     iget-object v2, p0, Landroid/webkitsec/ViewManager$3;->this$0:Landroid/webkitsec/ViewManager;
 
     # getter for: Landroid/webkitsec/ViewManager;->mChildren:Ljava/util/ArrayList;
@@ -55,6 +60,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -68,6 +74,8 @@
 
     check-cast v1, Landroid/webkitsec/ViewManager$ChildView;
 
+    .line 276
+    .local v1, "v":Landroid/webkitsec/ViewManager$ChildView;
     iget-object v2, v1, Landroid/webkitsec/ViewManager$ChildView;->mView:Landroid/view/View;
 
     const/4 v3, 0x0
@@ -76,6 +84,8 @@
 
     goto :goto_0
 
+    .line 278
+    .end local v1    # "v":Landroid/webkitsec/ViewManager$ChildView;
     :cond_0
     return-void
 .end method

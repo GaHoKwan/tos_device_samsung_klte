@@ -82,7 +82,7 @@
 
     .line 179
     .local v0, "mythread":Ljava/lang/Thread;
-    invoke-virtual {p2}, Lgov/nist/javax/sip/stack/UDPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p2}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v1
 
@@ -143,7 +143,7 @@
     iput-object p1, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     .line 206
-    invoke-virtual {p2}, Lgov/nist/javax/sip/stack/UDPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p2}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v1
 
@@ -216,7 +216,7 @@
     iput-object p4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     .line 232
-    invoke-virtual {p4}, Lgov/nist/javax/sip/stack/UDPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p4}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
@@ -561,7 +561,7 @@
     .local v3, "keepalive":Ljava/net/DatagramPacket;
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v5, v0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v5, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -684,7 +684,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v13}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v13}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -750,7 +750,7 @@
 
     move-object/from16 v1, v18
 
-    invoke-virtual {v0, v1, v13}, Lgov/nist/javax/sip/stack/UDPMessageChannel;->createBadReqRes(Ljava/lang/String;Ljava/text/ParseException;)Ljava/lang/String;
+    invoke-virtual {v0, v1, v13}, Lgov/nist/javax/sip/stack/MessageChannel;->createBadReqRes(Ljava/lang/String;Ljava/text/ParseException;)Ljava/lang/String;
 
     move-result-object v9
 
@@ -1057,7 +1057,7 @@
     if-eqz v5, :cond_c
 
     .line 419
-    invoke-virtual/range {v22 .. v22}, Lgov/nist/javax/sip/header/ViaList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual/range {v22 .. v22}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v21
 
@@ -1131,7 +1131,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v5}, Lgov/nist/javax/sip/header/Via;->hasParameter(Ljava/lang/String;)Z
+    invoke-virtual {v0, v5}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameter(Ljava/lang/String;)Z
 
     move-result v15
 
@@ -1171,7 +1171,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v5, v6}, Lgov/nist/javax/sip/header/Via;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v5, v6}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 440
     :cond_a
@@ -1190,7 +1190,7 @@
 
     move-object/from16 v0, v21
 
-    invoke-virtual {v0, v5, v6}, Lgov/nist/javax/sip/header/Via;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v5, v6}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
     .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_2
 
@@ -1261,7 +1261,7 @@
     iput v5, v0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->peerPort:I
 
     .line 454
-    invoke-virtual/range {v22 .. v22}, Lgov/nist/javax/sip/header/ViaList;->getFirst()Ljavax/sip/header/Header;
+    invoke-virtual/range {v22 .. v22}, Lgov/nist/javax/sip/header/SIPHeaderList;->getFirst()Ljavax/sip/header/Header;
 
     move-result-object v5
 
@@ -1355,7 +1355,7 @@
 
     .prologue
     .line 827
-    iget-object v0, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v0, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
@@ -1469,7 +1469,7 @@
 
     .prologue
     .line 836
-    iget-object v0, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v0, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v0, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -1710,7 +1710,7 @@
 
     iget-object v1, v1, Lgov/nist/javax/sip/stack/SIPTransactionStack;->serverLogger:Lgov/nist/core/ServerLogger;
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/UDPMessageChannel;->getPeerHostPort()Lgov/nist/core/HostPort;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/MessageChannel;->getPeerHostPort()Lgov/nist/core/HostPort;
 
     move-result-object v2
 
@@ -1865,7 +1865,7 @@
 
     .line 501
     .local v13, "sipServerTx":Lgov/nist/javax/sip/stack/SIPServerTransaction;
-    invoke-virtual {v13}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->passToListener()Z
+    invoke-virtual {v13}, Lgov/nist/javax/sip/stack/SIPTransaction;->passToListener()Z
 
     move-result v1
 
@@ -1947,7 +1947,7 @@
 
     .line 501
     .restart local v13    # "sipServerTx":Lgov/nist/javax/sip/stack/SIPServerTransaction;
-    invoke-virtual {v13}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->passToListener()Z
+    invoke-virtual {v13}, Lgov/nist/javax/sip/stack/SIPTransaction;->passToListener()Z
 
     move-result v2
 
@@ -2234,7 +2234,7 @@
     if-eq v4, v8, :cond_6
 
     .line 258
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -2246,20 +2246,20 @@
     :cond_2
     :goto_0
     :try_start_0
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
     iget-object v4, v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;->messageQueue:Ljava/util/LinkedList;
 
-    invoke-virtual {v4}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v4
 
     if-eqz v4, :cond_5
 
     .line 262
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -2297,7 +2297,7 @@
     invoke-virtual {v3}, Lgov/nist/core/ThreadAuditor$ThreadHandle;->ping()V
 
     .line 278
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -2321,7 +2321,7 @@
     .line 282
     .local v1, "ex":Ljava/lang/InterruptedException;
     :try_start_2
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -2348,7 +2348,7 @@
     .line 286
     :cond_5
     :try_start_3
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -2606,7 +2606,7 @@
 
     move-object v3, p1
 
-    invoke-virtual/range {v2 .. v7}, Lgov/nist/javax/sip/stack/UDPMessageChannel;->logMessage(Lgov/nist/javax/sip/message/SIPMessage;Ljava/net/InetAddress;IJ)V
+    invoke-virtual/range {v2 .. v7}, Lgov/nist/javax/sip/stack/MessageChannel;->logMessage(Lgov/nist/javax/sip/message/SIPMessage;Ljava/net/InetAddress;IJ)V
 
     .line 668
     :cond_2
@@ -2749,7 +2749,7 @@
 
     move-object v3, p1
 
-    invoke-virtual/range {v2 .. v7}, Lgov/nist/javax/sip/stack/UDPMessageChannel;->logMessage(Lgov/nist/javax/sip/message/SIPMessage;Ljava/net/InetAddress;IJ)V
+    invoke-virtual/range {v2 .. v7}, Lgov/nist/javax/sip/stack/MessageChannel;->logMessage(Lgov/nist/javax/sip/message/SIPMessage;Ljava/net/InetAddress;IJ)V
 
     .line 663
     :cond_6
@@ -3075,7 +3075,7 @@
     .line 771
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v3, v0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v3, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 
@@ -3231,7 +3231,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, v0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     invoke-virtual {v4}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
@@ -3494,7 +3494,7 @@
     if-eqz v4, :cond_5
 
     .line 713
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/UDPMessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageChannel;->messageProcessor:Lgov/nist/javax/sip/stack/MessageProcessor;
 
     check-cast v4, Lgov/nist/javax/sip/stack/UDPMessageProcessor;
 

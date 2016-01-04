@@ -21,11 +21,19 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 0
+    .param p2, "lockMode"    # I
+    .param p3, "tag"    # Ljava/lang/String;
+    .param p4, "binder"    # Landroid/os/IBinder;
+    .param p5, "ws"    # Landroid/os/WorkSource;
 
+    .prologue
+    .line 3867
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$WifiLock;->this$0:Lcom/android/server/wifi/WifiService;
 
+    .line 3868
     invoke-direct/range {p0 .. p5}, Lcom/android/server/wifi/WifiService$DeathRecipient;-><init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
 
+    .line 3869
     return-void
 .end method
 
@@ -34,24 +42,30 @@
 .method public binderDied()V
     .locals 3
 
+    .prologue
+    .line 3872
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$WifiLock;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget-object v1, v0, Lcom/android/server/wifi/WifiService;->mLocks:Lcom/android/server/wifi/WifiService$LockList;
 
     monitor-enter v1
 
+    .line 3873
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$WifiLock;->this$0:Lcom/android/server/wifi/WifiService;
 
-    iget-object v2, p0, Lcom/android/server/wifi/WifiService$WifiLock;->mBinder:Landroid/os/IBinder;
+    iget-object v2, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     # invokes: Lcom/android/server/wifi/WifiService;->releaseWifiLockLocked(Landroid/os/IBinder;)Z
     invoke-static {v0, v2}, Lcom/android/server/wifi/WifiService;->access$2600(Lcom/android/server/wifi/WifiService;Landroid/os/IBinder;)Z
 
+    .line 3874
     monitor-exit v1
 
+    .line 3875
     return-void
 
+    .line 3874
     :catchall_0
     move-exception v0
 
@@ -65,6 +79,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 3878
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -75,7 +91,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wifi/WifiService$WifiLock;->mTag:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mTag:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -87,7 +103,7 @@
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/server/wifi/WifiService$WifiLock;->mMode:I
+    iget v1, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mMode:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -99,7 +115,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wifi/WifiService$WifiLock;->mBinder:Landroid/os/IBinder;
+    iget-object v1, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

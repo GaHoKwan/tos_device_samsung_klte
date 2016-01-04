@@ -15,6 +15,11 @@ chmod 666 /dev/mobicore-user
 chown system.system /dev/mobicore
 chown radio.system /dev/mobicore-user
 
+# TL binary folder
+mkdir -p /data/app/mcRegistry
+chown system.system /data/app/mcRegistry
+chmod 775 /data/app/mcRegistry
+
 # mobicore trustlets
 ln -s /system/app/mcRegistry/07010000000000000000000000000000.tlbin /data/app/mcRegistry/07010000000000000000000000000000.tlbin
 chown system.system /data/app/mcRegistry/07010000000000000000000000000000.tlbin

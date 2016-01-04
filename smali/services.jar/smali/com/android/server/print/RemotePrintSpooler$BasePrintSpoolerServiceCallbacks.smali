@@ -18,6 +18,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 546
     invoke-direct {p0}, Landroid/print/IPrintSpoolerCallbacks$Stub;-><init>()V
 
     return-void
@@ -25,7 +27,10 @@
 
 .method synthetic constructor <init>(Lcom/android/server/print/RemotePrintSpooler$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/print/RemotePrintSpooler$1;
 
+    .prologue
+    .line 546
     invoke-direct {p0}, Lcom/android/server/print/RemotePrintSpooler$BasePrintSpoolerServiceCallbacks;-><init>()V
 
     return-void
@@ -35,18 +40,27 @@
 # virtual methods
 .method public onCancelPrintJobResult(ZI)V
     .locals 0
+    .param p1, "canceled"    # Z
+    .param p2, "sequence"    # I
 
+    .prologue
+    .line 561
     return-void
 .end method
 
 .method public onGetPrintJobInfoResult(Landroid/print/PrintJobInfo;I)V
     .locals 0
+    .param p1, "printJob"    # Landroid/print/PrintJobInfo;
+    .param p2, "sequence"    # I
 
+    .prologue
+    .line 556
     return-void
 .end method
 
 .method public onGetPrintJobInfosResult(Ljava/util/List;I)V
     .locals 0
+    .param p2, "sequence"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,17 +71,28 @@
         }
     .end annotation
 
+    .prologue
+    .line 551
+    .local p1, "printJobIds":Ljava/util/List;, "Ljava/util/List<Landroid/print/PrintJobInfo;>;"
     return-void
 .end method
 
 .method public onSetPrintJobStateResult(ZI)V
     .locals 0
+    .param p1, "success"    # Z
+    .param p2, "sequece"    # I
 
+    .prologue
+    .line 566
     return-void
 .end method
 
 .method public onSetPrintJobTagResult(ZI)V
     .locals 0
+    .param p1, "success"    # Z
+    .param p2, "sequence"    # I
 
+    .prologue
+    .line 571
     return-void
 .end method

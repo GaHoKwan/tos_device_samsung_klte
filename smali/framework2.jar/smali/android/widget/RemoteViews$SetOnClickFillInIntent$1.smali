@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnClickFillInIntent;Landroid/widget/RemoteViews$OnClickHandler;)V
     .locals 0
 
+    .prologue
+    .line 467
     iput-object p1, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->this$1:Landroid/widget/RemoteViews$SetOnClickFillInIntent;
 
     iput-object p2, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->val$handler:Landroid/widget/RemoteViews$OnClickHandler;
@@ -40,13 +42,18 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 5
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 470
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
     check-cast v0, Landroid/view/View;
 
+    .line 472
+    .local v0, "parent":Landroid/view/View;
     :goto_0
     if-eqz v0, :cond_0
 
@@ -58,14 +65,18 @@
 
     if-nez v3, :cond_0
 
+    .line 473
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
+    .end local v0    # "parent":Landroid/view/View;
     check-cast v0, Landroid/view/View;
 
+    .restart local v0    # "parent":Landroid/view/View;
     goto :goto_0
 
+    .line 476
     :cond_0
     instance-of v3, v0, Landroid/appwidget/AppWidgetHostView;
 
@@ -73,6 +84,7 @@
 
     if-nez v0, :cond_2
 
+    .line 479
     :cond_1
     const-string v3, "RemoteViews"
 
@@ -80,9 +92,11 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 496
     :goto_1
     return-void
 
+    .line 484
     :cond_2
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -92,6 +106,7 @@
 
     if-nez v3, :cond_3
 
+    .line 485
     const-string v3, "RemoteViews"
 
     const-string v4, "Attempting setOnClickFillInIntent without calling setPendingIntentTemplate on parent."
@@ -100,6 +115,7 @@
 
     goto :goto_1
 
+    .line 490
     :cond_3
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -107,17 +123,22 @@
 
     check-cast v1, Landroid/app/PendingIntent;
 
+    .line 492
+    .local v1, "pendingIntent":Landroid/app/PendingIntent;
     # invokes: Landroid/widget/RemoteViews;->getSourceBounds(Landroid/view/View;)Landroid/graphics/Rect;
     invoke-static {p1}, Landroid/widget/RemoteViews;->access$200(Landroid/view/View;)Landroid/graphics/Rect;
 
     move-result-object v2
 
+    .line 494
+    .local v2, "rect":Landroid/graphics/Rect;
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->this$1:Landroid/widget/RemoteViews$SetOnClickFillInIntent;
 
     iget-object v3, v3, Landroid/widget/RemoteViews$SetOnClickFillInIntent;->fillInIntent:Landroid/content/Intent;
 
     invoke-virtual {v3, v2}, Landroid/content/Intent;->setSourceBounds(Landroid/graphics/Rect;)V
 
+    .line 495
     iget-object v3, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->val$handler:Landroid/widget/RemoteViews$OnClickHandler;
 
     iget-object v4, p0, Landroid/widget/RemoteViews$SetOnClickFillInIntent$1;->this$1:Landroid/widget/RemoteViews$SetOnClickFillInIntent;

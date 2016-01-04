@@ -22,7 +22,7 @@
 
     .prologue
     .line 64
-    invoke-virtual {p1}, Lcom/android/internal/telephony/CommandException$Error;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -416,7 +416,7 @@
     .line 143
     iget-object v0, p0, Lcom/android/internal/telephony/CommandException;->mError:Lcom/android/internal/telephony/CommandException$Error;
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/CommandException$Error;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

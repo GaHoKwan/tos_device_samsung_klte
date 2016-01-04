@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/MultiWindowManagerService;)V
     .locals 0
 
+    .prologue
+    .line 961
     iput-object p1, p0, Lcom/android/server/am/MultiWindowManagerService$4;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,16 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 964
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.android.action.NOTIFY_MULTIDISPLAY_STATUS"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 965
+    .local v0, "multiDisplayIntent":Landroid/content/Intent;
     const-string v1, "com.samsung.android.extra.MULTIDISPLAY_STATUS"
 
     iget-object v2, p0, Lcom/android/server/am/MultiWindowManagerService$4;->this$0:Lcom/android/server/am/MultiWindowManagerService;
@@ -54,6 +60,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 966
     iget-object v1, p0, Lcom/android/server/am/MultiWindowManagerService$4;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mContext:Landroid/content/Context;
@@ -65,5 +72,6 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 967
     return-void
 .end method

@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
+    .param p1, "activityManagerService"    # Lcom/android/server/am/ActivityManagerService;
 
+    .prologue
+    .line 2436
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    .line 2437
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$GraphicsBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
+    .line 2438
     return-void
 .end method
 
@@ -33,7 +38,12 @@
 # virtual methods
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 2442
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$GraphicsBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     const-string v1, "android.permission.DUMP"
@@ -44,6 +54,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2444
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -94,9 +105,11 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    .line 2451
     :goto_0
     return-void
 
+    .line 2450
     :cond_0
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$GraphicsBinder;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 

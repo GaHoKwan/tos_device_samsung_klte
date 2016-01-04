@@ -17,9 +17,14 @@
 # direct methods
 .method public constructor <init>(II)V
     .locals 0
+    .param p1, "height"    # I
+    .param p2, "width"    # I
 
+    .prologue
+    .line 427
     invoke-direct {p0, p1, p2}, Lcom/android/server/smartclip/SmartClipView$CroppingMatrix$MarkingPolicy;-><init>(II)V
 
+    .line 428
     return-void
 .end method
 
@@ -27,8 +32,12 @@
 # virtual methods
 .method public calulate(II)I
     .locals 1
+    .param p1, "y"    # I
+    .param p2, "x"    # I
 
-    iget v0, p0, Lcom/android/server/smartclip/SmartClipView$CroppingMatrix$PortraitMarkingPolicy;->mWidth:I
+    .prologue
+    .line 431
+    iget v0, p0, Lcom/android/server/smartclip/SmartClipView$CroppingMatrix$MarkingPolicy;->mWidth:I
 
     mul-int/2addr v0, p1
 

@@ -853,7 +853,7 @@
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 808
-    const-string v10, "with flags 0x"
+    const-string/jumbo v10, "with flags 0x"
 
     invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

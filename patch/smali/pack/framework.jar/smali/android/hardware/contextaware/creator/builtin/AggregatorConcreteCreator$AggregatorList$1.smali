@@ -40,7 +40,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AggregatorConcreteCreator$AggregatorList$1;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -56,7 +56,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AggregatorConcreteCreator$AggregatorList$1;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 
@@ -67,7 +67,7 @@
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AggregatorConcreteCreator$AggregatorList$1;->makeListForContextCreation()Ljava/util/concurrent/CopyOnWriteArrayList;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AggregatorConcreteCreator$AggregatorList;->makeListForContextCreation()Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v4
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/hardware/contextaware/creator/builtin/AggregatorConcreteCreator$AggregatorList$1;->name()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v1
 

@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/AccessibilityInjector;)V
     .locals 0
 
+    .prologue
+    .line 417
     iput-object p1, p0, Landroid/webkitsec/AccessibilityInjector$1;->this$0:Landroid/webkitsec/AccessibilityInjector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 420
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -44,6 +48,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 421
     # getter for: Landroid/webkitsec/AccessibilityInjector;->TAG:Ljava/lang/String;
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$100()Ljava/lang/String;
 
@@ -86,11 +91,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 424
     :cond_0
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$1;->this$0:Landroid/webkitsec/AccessibilityInjector;
 
     # invokes: Landroid/webkitsec/AccessibilityInjector;->injectJavaScript()V
     invoke-static {v0}, Landroid/webkitsec/AccessibilityInjector;->access$300(Landroid/webkitsec/AccessibilityInjector;)V
 
+    .line 425
     return-void
 .end method

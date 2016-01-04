@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TimePicker;)V
     .locals 0
 
+    .prologue
+    .line 187
     iput-object p1, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +38,16 @@
 # virtual methods
 .method public onValueChange(Landroid/widget/NumberPicker;II)V
     .locals 3
+    .param p1, "spinner"    # Landroid/widget/NumberPicker;
+    .param p2, "oldVal"    # I
+    .param p3, "newVal"    # I
 
+    .prologue
     const/16 v2, 0xc
 
     const/16 v1, 0xb
 
+    .line 192
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
     invoke-virtual {v0}, Landroid/widget/TimePicker;->is24HourView()Z
@@ -49,6 +56,7 @@
 
     if-nez v0, :cond_2
 
+    .line 193
     if-ne p2, v1, :cond_0
 
     if-eq p3, v2, :cond_1
@@ -58,6 +66,7 @@
 
     if-ne p3, v1, :cond_2
 
+    .line 195
     :cond_1
     iget-object v1, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
@@ -76,19 +85,23 @@
     # setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v1, v0}, Landroid/widget/TimePicker;->access$002(Landroid/widget/TimePicker;Z)Z
 
+    .line 196
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
     # invokes: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)V
 
+    .line 199
     :cond_2
     iget-object v0, p0, Landroid/widget/TimePicker$2;->this$0:Landroid/widget/TimePicker;
 
     # invokes: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
+    .line 200
     return-void
 
+    .line 195
     :cond_3
     const/4 v0, 0x0
 

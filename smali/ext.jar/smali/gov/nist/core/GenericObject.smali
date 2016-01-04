@@ -372,7 +372,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [Ljava/lang/Object;
 
-    invoke-virtual {p0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -399,7 +399,7 @@
 
     check-cast v5, [C
 
-    invoke-virtual {v5}, [C->clone()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -416,7 +416,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [B
 
-    invoke-virtual {p0}, [B->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -436,7 +436,7 @@
 
     check-cast v5, [Z
 
-    invoke-virtual {v5}, [Z->clone()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -454,7 +454,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [S
 
-    invoke-virtual {p0}, [S->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -473,7 +473,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [I
 
-    invoke-virtual {p0}, [I->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -492,7 +492,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [J
 
-    invoke-virtual {p0}, [J->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -511,7 +511,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [F
 
-    invoke-virtual {p0}, [F->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -530,7 +530,7 @@
     .end local p0    # "obj":Ljava/lang/Object;
     check-cast p0, [D
 
-    invoke-virtual {p0}, [D->clone()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2748,7 +2748,7 @@
 
     .line 282
     .local v7, "ex1":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v7}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 

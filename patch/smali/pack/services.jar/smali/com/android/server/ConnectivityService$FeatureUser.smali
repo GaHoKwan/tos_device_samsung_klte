@@ -36,35 +36,48 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ConnectivityService;ILjava/lang/String;Landroid/os/IBinder;)V
     .locals 3
+    .param p2, "type"    # I
+    .param p3, "feature"    # Ljava/lang/String;
+    .param p4, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 1616
     iput-object p1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
+    .line 1617
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1618
     iput p2, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mNetworkType:I
 
+    .line 1619
     iput-object p3, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mFeature:Ljava/lang/String;
 
+    .line 1620
     iput-object p4, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
+    .line 1621
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
+    .line 1622
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v1
 
     iput v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mUid:I
 
+    .line 1623
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mCreateTime:J
 
+    .line 1626
     :try_start_0
     iget-object v1, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
@@ -74,12 +87,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1630
     :goto_0
     return-void
 
+    .line 1627
     :catch_0
     move-exception v0
 
+    .line 1628
+    .local v0, "e":Landroid/os/RemoteException;
     invoke-virtual {p0}, Lcom/android/server/ConnectivityService$FeatureUser;->binderDied()V
 
     goto :goto_0
@@ -90,6 +107,8 @@
 .method public binderDied()V
     .locals 5
 
+    .prologue
+    .line 1637
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -161,6 +180,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->log(Ljava/lang/String;)V
     invoke-static {v0}, Lcom/android/server/ConnectivityService;->access$500(Ljava/lang/String;)V
 
+    .line 1640
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v1, 0x0
@@ -168,12 +188,15 @@
     # invokes: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$600(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
+    .line 1641
     return-void
 .end method
 
 .method public expire()V
     .locals 2
 
+    .prologue
+    .line 1649
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->this$0:Lcom/android/server/ConnectivityService;
 
     const/4 v1, 0x0
@@ -181,12 +204,19 @@
     # invokes: Lcom/android/server/ConnectivityService;->stopUsingNetworkFeature(Lcom/android/server/ConnectivityService$FeatureUser;Z)I
     invoke-static {v0, p0, v1}, Lcom/android/server/ConnectivityService;->access$600(Lcom/android/server/ConnectivityService;Lcom/android/server/ConnectivityService$FeatureUser;Z)I
 
+    .line 1650
     return-void
 .end method
 
 .method public isSameUser(IIILjava/lang/String;)Z
     .locals 1
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "networkType"    # I
+    .param p4, "feature"    # Ljava/lang/String;
 
+    .prologue
+    .line 1659
     iget v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mPid:I
 
     if-ne v0, p1, :cond_0
@@ -207,8 +237,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 1661
     const/4 v0, 0x1
 
+    .line 1663
     :goto_0
     return v0
 
@@ -220,11 +252,15 @@
 
 .method public isSameUser(Lcom/android/server/ConnectivityService$FeatureUser;)Z
     .locals 4
+    .param p1, "u"    # Lcom/android/server/ConnectivityService$FeatureUser;
 
+    .prologue
+    .line 1653
     if-nez p1, :cond_0
 
     const/4 v0, 0x0
 
+    .line 1655
     :goto_0
     return v0
 
@@ -247,6 +283,8 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
+    .prologue
+    .line 1667
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -333,11 +371,14 @@
 .method unlinkDeathRecipient()V
     .locals 2
 
+    .prologue
+    .line 1633
     iget-object v0, p0, Lcom/android/server/ConnectivityService$FeatureUser;->mBinder:Landroid/os/IBinder;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 1634
     return-void
 .end method

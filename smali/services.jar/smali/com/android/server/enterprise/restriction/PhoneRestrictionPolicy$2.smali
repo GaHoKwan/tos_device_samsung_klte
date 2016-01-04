@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;)V
     .locals 0
 
+    .prologue
+    .line 2355
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 2357
     const-string v0, "PhoneRestrictionPolicy"
 
     const-string v1, "Trying to connect to EnterpriseSimPin Service"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 2358
     iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
     # getter for: Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mSimPinHandler:Landroid/os/Handler;
@@ -52,6 +57,7 @@
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 2359
     iget-object v0, p0, Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy$2;->this$0:Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;
 
     # getter for: Lcom/android/server/enterprise/restriction/PhoneRestrictionPolicy;->mContext:Landroid/content/Context;
@@ -76,5 +82,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
+    .line 2361
     return-void
 .end method

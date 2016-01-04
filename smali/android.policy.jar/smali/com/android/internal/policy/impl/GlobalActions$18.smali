@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;)V
     .locals 0
 
+    .prologue
+    .line 1429
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$18;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,14 @@
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .locals 4
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 1432
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$18;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mKnoxCustomManager:Landroid/app/enterprise/knoxcustom/KnoxCustomManager;
@@ -52,6 +59,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 1433
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v1
@@ -62,6 +70,7 @@
 
     if-ne p2, v1, :cond_0
 
+    .line 1434
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mSealedModeOptionShown:Z
     invoke-static {}, Lcom/android/internal/policy/impl/GlobalActions;->access$3300()Z
 
@@ -69,9 +78,11 @@
 
     if-nez v1, :cond_0
 
+    .line 1436
     # setter for: Lcom/android/internal/policy/impl/GlobalActions;->mSealedModeOptionShown:Z
     invoke-static {v0}, Lcom/android/internal/policy/impl/GlobalActions;->access$3302(Z)Z
 
+    .line 1437
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$18;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
@@ -93,6 +104,7 @@
 
     invoke-virtual {v1, v2, v3}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
+    .line 1438
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$18;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHandler:Landroid/os/Handler;
@@ -102,6 +114,7 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 1443
     :goto_0
     return v0
 

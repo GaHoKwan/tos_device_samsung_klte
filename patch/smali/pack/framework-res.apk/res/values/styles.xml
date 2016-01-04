@@ -2260,7 +2260,7 @@
         <item name="buttonStyleSmall">@style/Widget.DeviceDefault.Button.Small</item>
         <item name="buttonStyleInset">@style/Widget.DeviceDefault.Button.Inset</item>
         <item name="buttonStyleToggle">@style/Widget.DeviceDefault.Button.Toggle</item>
-        <item name="windowBackground">@drawable/tw_screen_background_selector_dark</item>
+        <item name="windowBackground">@drawable/tw_background_dark</item>
         <item name="windowTitleStyle">@style/WindowTitle.DeviceDefault</item>
         <item name="windowTitleBackgroundStyle">@style/WindowTitleBackground.DeviceDefault</item>
         <item name="alertDialogStyle">@style/AlertDialog.DeviceDefault</item>
@@ -2485,7 +2485,7 @@
         <item name="buttonStyleSmall">@style/Widget.DeviceDefault.Light.Button.Small</item>
         <item name="buttonStyleInset">@style/Widget.DeviceDefault.Light.Button.Inset</item>
         <item name="buttonStyleToggle">@style/Widget.DeviceDefault.Light.Button.Toggle</item>
-        <item name="windowBackground">@drawable/tw_screen_background_selector_light</item>
+        <item name="windowBackground">@drawable/tw_background_light</item>
         <item name="windowContentOverlay">@null</item>
         <item name="windowTitleStyle">@style/WindowTitle.DeviceDefault</item>
         <item name="windowTitleBackgroundStyle">@style/WindowTitleBackground.DeviceDefault</item>

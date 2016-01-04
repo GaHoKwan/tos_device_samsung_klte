@@ -50,8 +50,11 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 1189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1198
     const v0, 0x6633b5e5
 
     iput v0, p0, Landroid/webkitsec/WebViewCore$WebKitHitTest;->mTapHighlightColor:I

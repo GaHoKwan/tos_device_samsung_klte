@@ -22,36 +22,50 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 369
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 361
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 370
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 371
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/StrictMode$ThreadPolicy;)V
     .locals 1
+    .param p1, "policy"    # Landroid/os/StrictMode$ThreadPolicy;
 
+    .prologue
+    .line 376
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 361
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 377
     iget v0, p1, Landroid/os/StrictMode$ThreadPolicy;->mask:I
 
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 378
     return-void
 .end method
 
 .method private disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 2
+    .param p1, "bit"    # I
 
+    .prologue
+    .line 516
     iget v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
     xor-int/lit8 v1, p1, -0x1
@@ -60,18 +74,23 @@
 
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 517
     return-object p0
 .end method
 
 .method private enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
+    .param p1, "bit"    # I
 
+    .prologue
+    .line 511
     iget v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
+    .line 512
     return-object p0
 .end method
 
@@ -80,6 +99,8 @@
 .method public build()Landroid/os/StrictMode$ThreadPolicy;
     .locals 3
 
+    .prologue
+    .line 530
     iget v0, p0, Landroid/os/StrictMode$ThreadPolicy$Builder;->mMask:I
 
     if-eqz v0, :cond_0
@@ -90,8 +111,10 @@
 
     if-nez v0, :cond_0
 
+    .line 533
     invoke-virtual {p0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->penaltyLog()Landroid/os/StrictMode$ThreadPolicy$Builder;
 
+    .line 535
     :cond_0
     new-instance v0, Landroid/os/StrictMode$ThreadPolicy;
 
@@ -107,6 +130,8 @@
 .method public detectAll()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 387
     const/16 v0, 0xf
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -119,6 +144,8 @@
 .method public detectCustomSlowCalls()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 429
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -131,6 +158,8 @@
 .method public detectDiskReads()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 415
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -143,6 +172,8 @@
 .method public detectDiskWrites()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 443
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -155,6 +186,8 @@
 .method public detectNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 401
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -167,6 +200,8 @@
 .method public penaltyDeath()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 471
     const/16 v0, 0x40
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -179,6 +214,8 @@
 .method public penaltyDeathOnNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 483
     const/16 v0, 0x200
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -191,6 +228,8 @@
 .method public penaltyDialog()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 458
     const/16 v0, 0x20
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -203,6 +242,8 @@
 .method public penaltyDropBox()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 507
     const/16 v0, 0x80
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -215,6 +256,8 @@
 .method public penaltyFlashScreen()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 490
     const/16 v0, 0x800
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -227,6 +270,8 @@
 .method public penaltyLog()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 497
     const/16 v0, 0x10
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->enable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -239,6 +284,8 @@
 .method public permitAll()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 394
     const/16 v0, 0xf
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -251,6 +298,8 @@
 .method public permitCustomSlowCalls()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 436
     const/16 v0, 0x8
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -263,6 +312,8 @@
 .method public permitDiskReads()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 422
     const/4 v0, 0x2
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -275,6 +326,8 @@
 .method public permitDiskWrites()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 450
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -287,6 +340,8 @@
 .method public permitNetwork()Landroid/os/StrictMode$ThreadPolicy$Builder;
     .locals 1
 
+    .prologue
+    .line 408
     const/4 v0, 0x4
 
     invoke-direct {p0, v0}, Landroid/os/StrictMode$ThreadPolicy$Builder;->disable(I)Landroid/os/StrictMode$ThreadPolicy$Builder;

@@ -35,6 +35,7 @@
 .method public constructor <init>(Landroid/webkitsec/WebViewClassic;)V
     .locals 11
 
+    .prologue
     const/4 v10, 0x4
 
     const/4 v9, 0x3
@@ -45,14 +46,17 @@
 
     const/4 v6, 0x0
 
+    .line 7794
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->this$0:Landroid/webkitsec/WebViewClassic;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
 
+    .line 7797
     const/16 v3, 0x32
 
     iput v3, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorGridColWidth:I
 
+    .line 7800
     new-array v0, v8, [[Ljava/lang/String;
 
     const/16 v3, 0x8
@@ -143,21 +147,27 @@
 
     aput-object v3, v0, v7
 
+    .line 7803
+    .local v0, "colors":[[Ljava/lang/String;
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v3, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorList:Ljava/util/List;
 
+    .line 7806
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     array-length v3, v0
 
     if-ge v1, v3, :cond_1
 
+    .line 7807
     const/4 v2, 0x0
 
+    .local v2, "j":I
     :goto_1
     aget-object v3, v0, v1
 
@@ -165,6 +175,7 @@
 
     if-ge v2, v3, :cond_0
 
+    .line 7808
     iget-object v3, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorList:Ljava/util/List;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -199,15 +210,19 @@
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 7807
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 7806
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 7811
+    .end local v2    # "j":I
     :cond_1
     return-void
 .end method
@@ -217,6 +232,8 @@
 .method public getCount()I
     .locals 1
 
+    .prologue
+    .line 7831
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
@@ -228,13 +245,18 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 7835
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorList:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 7836
+    .local v0, "CLarray":[Ljava/lang/Object;
     aget-object v1, v0, p1
 
     return-object v1
@@ -242,7 +264,10 @@
 
 .method public getItemId(I)J
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 7840
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -250,9 +275,15 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 7816
     if-nez p2, :cond_0
 
+    .line 7817
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -263,6 +294,8 @@
 
     invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
+    .line 7819
+    .local v0, "imageView":Landroid/widget/ImageView;
     new-instance v1, Landroid/widget/AbsListView$LayoutParams;
 
     iget v2, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorGridColWidth:I
@@ -271,8 +304,9 @@
 
     invoke-direct {v1, v2, v3}, Landroid/widget/AbsListView$LayoutParams;-><init>(II)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 7824
     :goto_0
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerAdapter;->colorList:Ljava/util/List;
 
@@ -286,16 +320,21 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundColor(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundColor(I)V
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setId(I)V
+    .line 7825
+    invoke-virtual {v0, p1}, Landroid/view/View;->setId(I)V
 
+    .line 7827
     return-object v0
 
+    .end local v0    # "imageView":Landroid/widget/ImageView;
     :cond_0
     move-object v0, p2
 
+    .line 7822
     check-cast v0, Landroid/widget/ImageView;
 
+    .restart local v0    # "imageView":Landroid/widget/ImageView;
     goto :goto_0
 .end method

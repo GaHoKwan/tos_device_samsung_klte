@@ -175,7 +175,7 @@
     .line 43
     sget-object v0, Landroid/hardware/contextaware/creator/builtin/SensorHubParserConcreteCreator$SensorHubNonLibParserList;->$VALUES:[Landroid/hardware/contextaware/creator/builtin/SensorHubParserConcreteCreator$SensorHubNonLibParserList;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/creator/builtin/SensorHubParserConcreteCreator$SensorHubNonLibParserList;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -209,7 +209,7 @@
     if-eqz v0, :cond_0
 
     .line 108
-    invoke-virtual {v0, p1, p2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
+    invoke-virtual {v0, p1, p2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
 
     .line 110
     :cond_0

@@ -40,6 +40,8 @@
 .method public constructor <init>(Landroid/sec/enterprise/BrowserPolicy;)V
     .locals 0
 
+    .prologue
+    .line 46
     iput-object p1, p0, Landroid/sec/enterprise/BrowserPolicy$BrowserSetting;->this$0:Landroid/sec/enterprise/BrowserPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

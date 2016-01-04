@@ -138,7 +138,7 @@
 
     move-result-object v1
 
-    iget v2, p3, Lcom/movial/ipphone/SessionCall;->index:I
+    iget v2, p3, Lcom/android/internal/telephony/DriverCall;->index:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -164,7 +164,7 @@
 
     iget-object v1, p0, Lcom/movial/ipphone/IPConnection;->owner:Lcom/movial/ipphone/IPCallTracker;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/IPCallTracker;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -173,12 +173,12 @@
     iput-object v0, p0, Lcom/movial/ipphone/IPConnection;->h:Landroid/os/Handler;
 
     .line 186
-    iget-object v0, p3, Lcom/movial/ipphone/SessionCall;->number:Ljava/lang/String;
+    iget-object v0, p3, Lcom/android/internal/telephony/DriverCall;->number:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/movial/ipphone/IPConnection;->address:Ljava/lang/String;
 
     .line 187
-    iget-object v0, p3, Lcom/movial/ipphone/SessionCall;->name:Ljava/lang/String;
+    iget-object v0, p3, Lcom/android/internal/telephony/DriverCall;->name:Ljava/lang/String;
 
     iput-object v0, p0, Lcom/movial/ipphone/IPConnection;->cnapName:Ljava/lang/String;
 
@@ -196,7 +196,7 @@
     iput-wide v0, p0, Lcom/movial/ipphone/IPConnection;->createTime:J
 
     .line 193
-    iget v0, p3, Lcom/movial/ipphone/SessionCall;->index:I
+    iget v0, p3, Lcom/android/internal/telephony/DriverCall;->index:I
 
     iput v0, p0, Lcom/movial/ipphone/IPConnection;->index:I
 
@@ -204,7 +204,7 @@
     iput-boolean v3, p0, Lcom/movial/ipphone/IPConnection;->inConf:Z
 
     .line 196
-    iget v0, p3, Lcom/movial/ipphone/SessionCall;->numberPresentation:I
+    iget v0, p3, Lcom/android/internal/telephony/DriverCall;->numberPresentation:I
 
     iput v0, p0, Lcom/movial/ipphone/IPConnection;->numberPresentation:I
 
@@ -289,7 +289,7 @@
 
     iget-object v1, p0, Lcom/movial/ipphone/IPConnection;->owner:Lcom/movial/ipphone/IPCallTracker;
 
-    invoke-virtual {v1}, Lcom/movial/ipphone/IPCallTracker;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -436,7 +436,7 @@
 
     iget-object v0, p0, Lcom/movial/ipphone/IPConnection;->parent:Lcom/movial/ipphone/IPCall;
 
-    iget-object v0, v0, Lcom/movial/ipphone/IPCall;->mState:Lcom/android/internal/telephony/Call$State;
+    iget-object v0, v0, Lcom/android/internal/telephony/Call;->mState:Lcom/android/internal/telephony/Call$State;
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->DIALING:Lcom/android/internal/telephony/Call$State;
 
@@ -444,7 +444,7 @@
 
     iget-object v0, p0, Lcom/movial/ipphone/IPConnection;->parent:Lcom/movial/ipphone/IPCall;
 
-    iget-object v0, v0, Lcom/movial/ipphone/IPCall;->mState:Lcom/android/internal/telephony/Call$State;
+    iget-object v0, v0, Lcom/android/internal/telephony/Call;->mState:Lcom/android/internal/telephony/Call$State;
 
     sget-object v1, Lcom/android/internal/telephony/Call$State;->ALERTING:Lcom/android/internal/telephony/Call$State;
 
@@ -561,7 +561,7 @@
     .line 270
     sget-object v0, Lcom/movial/ipphone/IPConnection$1;->$SwitchMap$com$movial$ipphone$SessionCall$State:[I
 
-    invoke-virtual {p1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -1560,7 +1560,7 @@
     .line 304
     sget-object v0, Lcom/movial/ipphone/IPConnection$1;->$SwitchMap$com$movial$ipphone$SessionCall$State:[I
 
-    invoke-virtual {p1}, Lcom/movial/ipphone/SessionCall$State;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -1871,7 +1871,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v8
 

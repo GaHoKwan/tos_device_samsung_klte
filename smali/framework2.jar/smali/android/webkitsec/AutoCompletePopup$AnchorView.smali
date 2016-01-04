@@ -17,16 +17,22 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 37
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
+    .line 38
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/webkitsec/AutoCompletePopup$AnchorView;->setFocusable(Z)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setFocusable(Z)V
 
+    .line 39
     const/4 v0, 0x4
 
-    invoke-virtual {p0, v0}, Landroid/webkitsec/AutoCompletePopup$AnchorView;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
+    .line 40
     return-void
 .end method

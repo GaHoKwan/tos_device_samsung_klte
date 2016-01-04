@@ -77,7 +77,7 @@
     .line 78
     const-string v2, "image"
 
-    invoke-virtual {p0, v2}, Landroid/filterpacks/imageproc/ToGrayFilter;->getInputFormat(Ljava/lang/String;)Landroid/filterfw/core/FrameFormat;
+    invoke-virtual {p0, v2}, Landroid/filterfw/core/Filter;->getInputFormat(Ljava/lang/String;)Landroid/filterfw/core/FrameFormat;
 
     move-result-object v2
 
@@ -166,14 +166,14 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ToGrayFilter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addMaskedInputPort(Ljava/lang/String;Landroid/filterfw/core/FrameFormat;)V
 
     .line 68
     const-string v0, "image"
 
     const-string v1, "image"
 
-    invoke-virtual {p0, v0, v1}, Landroid/filterpacks/imageproc/ToGrayFilter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Landroid/filterfw/core/Filter;->addOutputBasedOnInput(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 69
     return-void

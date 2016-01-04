@@ -3792,7 +3792,7 @@
 
     .line 724
     :cond_7
-    const-string v7, "wlan0"
+    const-string/jumbo v7, "wlan0"
 
     invoke-virtual {v7, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

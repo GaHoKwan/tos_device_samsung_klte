@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/BrowserFrame$2;)V
     .locals 0
 
+    .prologue
+    .line 1296
     iput-object p1, p0, Landroid/webkitsec/BrowserFrame$2$1;->this$1:Landroid/webkitsec/BrowserFrame$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1298
     iget-object v0, p0, Landroid/webkitsec/BrowserFrame$2$1;->this$1:Landroid/webkitsec/BrowserFrame$2;
 
     iget-boolean v0, v0, Landroid/webkitsec/BrowserFrame$2;->isCanceled:Z
 
     if-nez v0, :cond_0
 
+    .line 1300
     iget-object v0, p0, Landroid/webkitsec/BrowserFrame$2$1;->this$1:Landroid/webkitsec/BrowserFrame$2;
 
     iget-object v0, v0, Landroid/webkitsec/BrowserFrame$2;->this$0:Landroid/webkitsec/BrowserFrame;
@@ -54,6 +59,7 @@
     # invokes: Landroid/webkitsec/BrowserFrame;->nativeSslCertErrorProceed(I)V
     invoke-static {v0, v1}, Landroid/webkitsec/BrowserFrame;->access$200(Landroid/webkitsec/BrowserFrame;I)V
 
+    .line 1302
     :cond_0
     return-void
 .end method

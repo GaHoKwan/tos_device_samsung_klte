@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;Ljava/net/InetAddress;I)V
     .locals 0
 
+    .prologue
+    .line 431
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$7;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/IpRemoteDisplayController$7;->val$addr:Ljava/net/InetAddress;
@@ -45,10 +47,16 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 435
     const/4 v3, 0x0
 
+    .line 436
+    .local v3, "mUri":Landroid/net/Uri;
     const/16 v2, 0x1c44
 
+    .line 437
+    .local v2, "mCtrlPort":I
     :try_start_0
     iget-object v5, p0, Lcom/android/server/display/IpRemoteDisplayController$7;->val$addr:Ljava/net/InetAddress;
 
@@ -56,32 +64,43 @@
 
     move-result-object v0
 
+    .line 439
+    .local v0, "SourceAddress":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 440
     const-string v5, "IpRemoteDisplayController"
 
     const-string v6, "Failed to launch WfdPlayer, addr is null"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 459
+    .end local v0    # "SourceAddress":Ljava/lang/String;
     :goto_0
     return-void
 
+    .line 444
+    .restart local v0    # "SourceAddress":Ljava/lang/String;
     :cond_0
     new-instance v4, Landroid/content/Intent;
 
     invoke-direct {v4}, Landroid/content/Intent;-><init>()V
 
+    .line 445
+    .local v4, "tempIntent":Landroid/content/Intent;
     const-string v5, "com.sec.allsharecastplayer"
 
     const-string v6, "com.sec.allsharecastplayer.WfdPlayer"
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 446
     const/high16 v5, 0x30800000
 
     invoke-virtual {v4, v5}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
+    .line 450
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -114,6 +133,7 @@
 
     move-result-object v3
 
+    .line 451
     const-string v5, "IpRemoteDisplayController"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -136,14 +156,17 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 452
     invoke-virtual {v4, v3}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
+    .line 453
     const-string v5, "launchMode"
 
     iget v6, p0, Lcom/android/server/display/IpRemoteDisplayController$7;->val$deviceType:I
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 454
     iget-object v5, p0, Lcom/android/server/display/IpRemoteDisplayController$7;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mContext:Landroid/content/Context;
@@ -157,9 +180,14 @@
 
     goto :goto_0
 
+    .line 456
+    .end local v0    # "SourceAddress":Ljava/lang/String;
+    .end local v4    # "tempIntent":Landroid/content/Intent;
     :catch_0
     move-exception v1
 
+    .line 457
+    .local v1, "e":Ljava/lang/Exception;
     const-string v5, "IpRemoteDisplayController"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -172,7 +200,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v7
 

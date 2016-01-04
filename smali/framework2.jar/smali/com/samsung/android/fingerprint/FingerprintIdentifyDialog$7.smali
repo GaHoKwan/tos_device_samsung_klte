@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
     .locals 0
+    .param p2, "x0"    # Landroid/graphics/drawable/AnimationDrawable;
 
+    .prologue
+    .line 792
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$7;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$AnimationDrawableListener;-><init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;Landroid/graphics/drawable/AnimationDrawable;)V
@@ -34,5 +37,7 @@
 .method onAnimationEnd()V
     .locals 0
 
+    .prologue
+    .line 796
     return-void
 .end method

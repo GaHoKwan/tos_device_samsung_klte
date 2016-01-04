@@ -43,16 +43,21 @@
 .method constructor <init>(Lcom/android/server/power/DisplayPowerController;)V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 2064
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerController$10;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2073
     iput v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
+    .line 2074
     iput v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mTiltDistrust:I
 
+    .line 2075
     const/4 v0, 0x5
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mCnt:I
@@ -62,34 +67,42 @@
 
 .method private handleAccelerationDistrust(F)V
     .locals 2
+    .param p1, "deviation"    # F
 
+    .prologue
+    .line 2093
     const/high16 v0, 0x3fc00000    # 1.5f
 
     cmpl-float v0, p1, v0
 
     if-lez v0, :cond_1
 
+    .line 2094
     iget v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
     const/4 v1, 0x5
 
     if-ge v0, v1, :cond_0
 
+    .line 2095
     iget v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
+    .line 2100
     :cond_0
     :goto_0
     return-void
 
+    .line 2097
     :cond_1
     iget v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
     if-lez v0, :cond_0
 
+    .line 2098
     iget v0, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
     add-int/lit8 v0, v0, -0x1
@@ -101,7 +114,12 @@
 
 .method private lowpassFilter(FFF)F
     .locals 2
+    .param p1, "newValue"    # F
+    .param p2, "oldValue"    # F
+    .param p3, "alpha"    # F
 
+    .prologue
+    .line 2078
     mul-float v0, p3, p1
 
     const/high16 v1, 0x3f800000    # 1.0f
@@ -117,7 +135,11 @@
 
 .method private tiltAngle(FF)F
     .locals 2
+    .param p1, "z"    # F
+    .param p2, "magnitude"    # F
 
+    .prologue
+    .line 2089
     div-float v0, p1, p2
 
     float-to-double v0, v0
@@ -137,7 +159,12 @@
 
 .method private vectorMagnitude(FFF)F
     .locals 2
+    .param p1, "x"    # F
+    .param p2, "y"    # F
+    .param p3, "z"    # F
 
+    .prologue
+    .line 2081
     mul-float v0, p1, p1
 
     mul-float v1, p2, p2
@@ -163,35 +190,50 @@
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
+    .prologue
+    .line 2133
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 9
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
+    .prologue
+    .line 2111
     iget-object v7, p1, Landroid/hardware/SensorEvent;->values:[F
 
     const/4 v8, 0x0
 
     aget v4, v7, v8
 
+    .line 2112
+    .local v4, "x":F
     iget-object v7, p1, Landroid/hardware/SensorEvent;->values:[F
 
     const/4 v8, 0x1
 
     aget v5, v7, v8
 
+    .line 2113
+    .local v5, "y":F
     iget-object v7, p1, Landroid/hardware/SensorEvent;->values:[F
 
     const/4 v8, 0x2
 
     aget v6, v7, v8
 
+    .line 2114
+    .local v6, "z":F
     invoke-direct {p0, v4, v5, v6}, Lcom/android/server/power/DisplayPowerController$10;->vectorMagnitude(FFF)F
 
     move-result v2
 
+    .line 2115
+    .local v2, "magnitude":F
     const v7, 0x411ce80a
 
     sub-float v7, v2, v7
@@ -200,31 +242,42 @@
 
     move-result v1
 
+    .line 2117
+    .local v1, "deviation":F
     invoke-direct {p0, v1}, Lcom/android/server/power/DisplayPowerController$10;->handleAccelerationDistrust(F)V
 
+    .line 2118
     const/high16 v7, 0x3fc00000    # 1.5f
 
     cmpg-float v7, v2, v7
 
     if-gez v7, :cond_0
 
+    .line 2129
     :goto_0
     return-void
 
+    .line 2123
     :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
+    .line 2124
+    .local v0, "alpha":F
     iget v7, p0, Lcom/android/server/power/DisplayPowerController$10;->mAccelerationDistrust:I
 
     if-lez v7, :cond_1
 
+    .line 2125
     const v0, 0x3dba2e8c
 
+    .line 2127
     :cond_1
     invoke-direct {p0, v6, v2}, Lcom/android/server/power/DisplayPowerController$10;->tiltAngle(FF)F
 
     move-result v3
 
+    .line 2128
+    .local v3, "newTiltAngle":F
     iget-object v7, p0, Lcom/android/server/power/DisplayPowerController$10;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     iget-object v8, p0, Lcom/android/server/power/DisplayPowerController$10;->this$0:Lcom/android/server/power/DisplayPowerController;

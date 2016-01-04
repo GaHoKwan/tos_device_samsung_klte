@@ -1212,7 +1212,7 @@
 
     .line 715
     .local v3, "e":Ljava/lang/ArrayIndexOutOfBoundsException;
-    invoke-virtual {v3}, Ljava/lang/ArrayIndexOutOfBoundsException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
@@ -1424,7 +1424,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {p0, v3, p1, v4}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v3, p1, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v3
 
@@ -1518,7 +1518,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {p0, v3, p1, v4}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v3, p1, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v3
 
@@ -1580,7 +1580,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0, v2, p1, v3}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v3}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v2
 
@@ -1648,7 +1648,7 @@
 
     const/4 v4, 0x0
 
-    invoke-virtual {p0, v3, p1, v4}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v3, p1, v4}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v3
 
@@ -1788,7 +1788,7 @@
 
     move-object/from16 v0, p2
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 
@@ -1951,7 +1951,7 @@
 
     move-object/from16 v0, p2
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 
@@ -1995,7 +1995,7 @@
 
     move-object/from16 v0, p2
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 
@@ -2129,7 +2129,7 @@
 
     move-object/from16 v0, p3
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 
@@ -2343,7 +2343,7 @@
 
     move-object/from16 v0, p3
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 
@@ -2369,7 +2369,7 @@
 
     move-object/from16 v0, p3
 
-    invoke-virtual {p0, v2, p1, v8, v0}, Lcom/android/internal/telephony/uicc/AdnRecordCache;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v2, p1, v8, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v6
 

@@ -323,7 +323,7 @@
 
     const-string v5, "has invalid value"
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -529,7 +529,7 @@
 
     const-string v11, "has invalid x component"
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v12
 
@@ -556,7 +556,7 @@
 
     const-string v17, "has invalid y component"
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 

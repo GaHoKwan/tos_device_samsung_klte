@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/os/OEMEncryption;)V
     .locals 0
 
+    .prologue
+    .line 181
     iput-object p1, p0, Landroid/os/OEMEncryption$3;->this$0:Landroid/os/OEMEncryption;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 185
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v2
@@ -48,14 +54,18 @@
 
     if-eqz v2, :cond_2
 
+    .line 186
     const/4 v1, -0x1
 
+    .line 187
+    .local v1, "nfc_state":I
     const-string v2, "OEMEncryption"
 
     const-string/jumbo v3, "nfc state"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 188
     const-string v2, "lockstate"
 
     const/4 v3, -0x1
@@ -64,6 +74,7 @@
 
     move-result v1
 
+    .line 189
     const-string v2, "OEMEncryption"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -86,10 +97,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 191
     if-eq v1, v5, :cond_0
 
     if-nez v1, :cond_1
 
+    .line 192
     :cond_0
     :try_start_0
     iget-object v2, p0, Landroid/os/OEMEncryption$3;->this$0:Landroid/os/OEMEncryption;
@@ -103,13 +116,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 203
+    .end local v1    # "nfc_state":I
     :cond_1
     :goto_0
     return-void
 
+    .line 195
+    .restart local v1    # "nfc_state":I
     :catch_0
     move-exception v0
 
+    .line 196
+    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "OEMEncryption"
 
     const-string v3, "Exception caught in 3LM service"
@@ -118,6 +137,9 @@
 
     goto :goto_0
 
+    .line 200
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "nfc_state":I
     :cond_2
     const-string v2, "OEMEncryption"
 
@@ -125,6 +147,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 201
     iget-object v2, p0, Landroid/os/OEMEncryption$3;->this$0:Landroid/os/OEMEncryption;
 
     # getter for: Landroid/os/OEMEncryption;->handler:Landroid/os/Handler;

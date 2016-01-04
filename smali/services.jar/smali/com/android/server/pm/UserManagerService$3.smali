@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/pm/UserManagerService;I)V
     .locals 0
 
+    .prologue
+    .line 1273
     iput-object p1, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
     iput p2, p0, Lcom/android/server/pm/UserManagerService$3;->val$userHandle:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1276
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
     # getter for: Lcom/android/server/pm/UserManagerService;->mPackagesLock:Ljava/lang/Object;
@@ -50,6 +54,7 @@
 
     monitor-enter v1
 
+    .line 1277
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/UserManagerService$3;->this$0:Lcom/android/server/pm/UserManagerService;
 
@@ -62,10 +67,13 @@
 
     invoke-virtual {v0, v2}, Landroid/util/SparseBooleanArray;->delete(I)V
 
+    .line 1278
     monitor-exit v1
 
+    .line 1279
     return-void
 
+    .line 1278
     :catchall_0
     move-exception v0
 

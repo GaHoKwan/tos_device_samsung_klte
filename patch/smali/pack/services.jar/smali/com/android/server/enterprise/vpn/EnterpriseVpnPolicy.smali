@@ -50,47 +50,60 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 11
+    .param p1, "ctx"    # Landroid/content/Context;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 116
     invoke-direct {p0}, Landroid/app/enterprise/IEnterpriseVpnPolicy$Stub;-><init>()V
 
+    .line 497
     new-instance v0, Ljava/util/Hashtable;
 
     invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mProxyConnections:Ljava/util/Map;
 
+    .line 515
     new-instance v0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$1;-><init>(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mEnterpriseVpnReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 532
     new-instance v0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$2;
 
     invoke-direct {v0, p0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$2;-><init>(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mPackageReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 117
     iput-object p1, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
+    .line 118
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 119
+    .local v3, "filter":Landroid/content/IntentFilter;
     const-string v0, "edm.intent.action.ACTION_EDM_BOOT_COMPLETED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 120
     const-string v0, "android.intent.action.USER_STARTED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 121
     const-string v0, "android.intent.action.USER_STOPPED"
 
     invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 122
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mEnterpriseVpnReceiver:Landroid/content/BroadcastReceiver;
@@ -101,22 +114,28 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    .line 124
     new-instance v8, Landroid/content/IntentFilter;
 
     invoke-direct {v8}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 125
+    .local v8, "packageFilter":Landroid/content/IntentFilter;
     const-string v0, "android.intent.action.PACKAGE_ADDED"
 
     invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 126
     const-string v0, "android.intent.action.PACKAGE_REMOVED"
 
     invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 128
     const-string v0, "package"
 
     invoke-virtual {v8, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
+    .line 129
     iget-object v5, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mPackageReceiver:Landroid/content/BroadcastReceiver;
@@ -129,12 +148,16 @@
 
     invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
+    .line 130
     return-void
 .end method
 
 .method static synthetic access$000(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)Landroid/content/Context;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;
 
+    .prologue
+    .line 88
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -142,7 +165,10 @@
 
 .method static synthetic access$100(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)Ljava/util/Map;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;
 
+    .prologue
+    .line 88
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mProxyConnections:Ljava/util/Map;
 
     return-object v0
@@ -150,7 +176,10 @@
 
 .method static synthetic access$200(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;
 
+    .prologue
+    .line 88
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mLooperThread:Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
     return-object v0
@@ -158,7 +187,11 @@
 
 .method static synthetic access$300(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;I)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 88
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->addProxyConnectionAsUser(I)V
 
     return-void
@@ -166,7 +199,11 @@
 
 .method static synthetic access$400(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;I)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 88
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->removeProxyConnectionAsUser(I)V
 
     return-void
@@ -174,7 +211,10 @@
 
 .method private addProxyConnectionAsUser(I)V
     .locals 8
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 564
     :try_start_0
     const-string v6, "android"
 
@@ -184,6 +224,8 @@
 
     move-result-object v0
 
+    .line 565
+    .local v0, "ctx":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v6
@@ -194,8 +236,11 @@
 
     move-result-object v4
 
+    .line 566
+    .local v4, "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     invoke-interface {v4}, Ljava/util/List;->size()I
 
@@ -203,12 +248,15 @@
 
     if-ge v2, v6, :cond_0
 
+    .line 567
     invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/PackageInfo;
 
+    .line 569
+    .local v3, "p":Landroid/content/pm/PackageInfo;
     iget-object v6, v3, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
     const-string v7, "com.cisco.anyconnect.vpn.android.avf"
@@ -219,10 +267,13 @@
 
     if-eqz v6, :cond_1
 
+    .line 570
     new-instance v5, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
 
     invoke-direct {v5, p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;-><init>(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;I)V
 
+    .line 571
+    .local v5, "proxyConn":Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mProxyConnections:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -231,22 +282,41 @@
 
     invoke-interface {v6, v7, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 572
     invoke-virtual {v5}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;->startConnection()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 579
+    .end local v0    # "ctx":Landroid/content/Context;
+    .end local v2    # "i":I
+    .end local v3    # "p":Landroid/content/pm/PackageInfo;
+    .end local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
+    .end local v5    # "proxyConn":Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
     :cond_0
     :goto_1
     return-void
 
+    .line 566
+    .restart local v0    # "ctx":Landroid/content/Context;
+    .restart local v2    # "i":I
+    .restart local v3    # "p":Landroid/content/pm/PackageInfo;
+    .restart local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 576
+    .end local v0    # "ctx":Landroid/content/Context;
+    .end local v2    # "i":I
+    .end local v3    # "p":Landroid/content/pm/PackageInfo;
+    .end local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     :catch_0
     move-exception v1
 
+    .line 577
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
@@ -254,13 +324,22 @@
 
 .method private createContextForSpecifiedUser(Ljava/lang/String;II)Landroid/content/Context;
     .locals 6
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "flags"    # I
+    .param p3, "userId"    # I
 
+    .prologue
+    .line 602
     const/4 v0, 0x0
 
+    .line 603
+    .local v0, "context":Landroid/content/Context;
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
 
+    .line 605
+    .local v2, "token":J
     :try_start_0
     iget-object v4, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
@@ -275,14 +354,19 @@
 
     move-result-object v0
 
+    .line 611
     :goto_0
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 613
     return-object v0
 
+    .line 607
     :catch_0
     move-exception v1
 
+    .line 608
+    .local v1, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_1
     const-string v4, "Cisco_Vpn_Policy"
 
@@ -290,12 +374,15 @@
 
     invoke-static {v4, v5, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
+    .line 609
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto :goto_0
 
+    .line 611
+    .end local v1    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :catchall_0
     move-exception v4
 
@@ -306,7 +393,10 @@
 
 .method private enforceEnterpriseVpnPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
     .locals 2
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
 
+    .prologue
+    .line 112
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -323,10 +413,13 @@
 .method private getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
     .locals 2
 
+    .prologue
+    .line 100
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     if-nez v0, :cond_0
 
+    .line 101
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mContext:Landroid/content/Context;
 
     const-string v1, "enterprise_policy"
@@ -339,6 +432,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 104
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -348,12 +442,16 @@
 .method private getLooperThread()Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
     .locals 1
 
+    .prologue
+    .line 649
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mLooperThread:Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
     if-nez v0, :cond_0
 
+    .line 650
     invoke-direct {p0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->initLooperThread()V
 
+    .line 652
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mLooperThread:Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
@@ -362,15 +460,22 @@
 
 .method private getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
     .locals 5
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
 
+    .prologue
+    .line 504
     const/4 v1, 0x0
 
+    .line 506
+    .local v1, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     iget v3, p1, Landroid/app/enterprise/ContextInfo;->mCallerUid:I
 
     invoke-static {v3}, Landroid/os/UserHandle;->getUserId(I)I
 
     move-result v2
 
+    .line 507
+    .local v2, "userId":I
     iget-object v3, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mProxyConnections:Ljava/util/Map;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -383,12 +488,16 @@
 
     check-cast v0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
 
+    .line 508
+    .local v0, "conn":Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
     if-eqz v0, :cond_0
 
+    .line 509
     invoke-virtual {v0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;->getPreparedCiscoInterface()Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v1
 
+    .line 511
     :cond_0
     return-object v1
 .end method
@@ -396,6 +505,8 @@
 .method private declared-synchronized initLooperThread()V
     .locals 2
 
+    .prologue
+    .line 656
     monitor-enter p0
 
     :try_start_0
@@ -403,16 +514,19 @@
 
     if-nez v0, :cond_0
 
+    .line 657
     new-instance v0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
     invoke-direct {v0, p0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;-><init>(Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;)V
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mLooperThread:Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
+    .line 658
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mLooperThread:Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$LooperThread;->start()V
 
+    .line 659
     const-string v0, "Cisco_Vpn_Policy"
 
     const-string v1, "init looper thread called "
@@ -421,11 +535,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 661
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 656
     :catchall_0
     move-exception v0
 
@@ -436,7 +552,10 @@
 
 .method private removeProxyConnectionAsUser(I)V
     .locals 8
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 583
     :try_start_0
     const-string v6, "android"
 
@@ -446,6 +565,8 @@
 
     move-result-object v0
 
+    .line 584
+    .local v0, "ctx":Landroid/content/Context;
     invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v6
@@ -456,8 +577,11 @@
 
     move-result-object v4
 
+    .line 585
+    .local v4, "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     invoke-interface {v4}, Ljava/util/List;->size()I
 
@@ -465,12 +589,15 @@
 
     if-ge v2, v6, :cond_0
 
+    .line 586
     invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Landroid/content/pm/PackageInfo;
 
+    .line 588
+    .local v3, "p":Landroid/content/pm/PackageInfo;
     iget-object v6, v3, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
     const-string v7, "com.cisco.anyconnect.vpn.android.avf"
@@ -481,6 +608,7 @@
 
     if-eqz v6, :cond_1
 
+    .line 589
     iget-object v6, p0, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->mProxyConnections:Ljava/util/Map;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -493,24 +621,45 @@
 
     check-cast v5, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
 
+    .line 590
+    .local v5, "proxyConn":Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
     if-eqz v5, :cond_0
 
+    .line 591
     invoke-virtual {v5}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;->stopConnection()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 599
+    .end local v0    # "ctx":Landroid/content/Context;
+    .end local v2    # "i":I
+    .end local v3    # "p":Landroid/content/pm/PackageInfo;
+    .end local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
+    .end local v5    # "proxyConn":Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy$ProxyServiceConnection;
     :cond_0
     :goto_1
     return-void
 
+    .line 585
+    .restart local v0    # "ctx":Landroid/content/Context;
+    .restart local v2    # "i":I
+    .restart local v3    # "p":Landroid/content/pm/PackageInfo;
+    .restart local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     :cond_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 596
+    .end local v0    # "ctx":Landroid/content/Context;
+    .end local v2    # "i":I
+    .end local v3    # "p":Landroid/content/pm/PackageInfo;
+    .end local v4    # "packsInfo":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PackageInfo;>;"
     :catch_0
     move-exception v1
 
+    .line 597
+    .local v1, "e":Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_1
@@ -520,6 +669,8 @@
 # virtual methods
 .method public declared-synchronized getAllEnterpriseVpnConnections(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 6
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -533,6 +684,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 270
     monitor-enter p0
 
     :try_start_0
@@ -540,16 +693,20 @@
 
     move-result-object p1
 
+    .line 272
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 273
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Object;>;"
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 277
     :try_start_1
     const-string v3, "anyconnect"
 
@@ -559,18 +716,23 @@
 
     if-eqz v3, :cond_1
 
+    .line 279
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 280
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_0
 
+    .line 281
     invoke-interface {v2}, Landroid/app/enterprise/IEnterpriseVpnInterface;->getAllConnections()Ljava/util/List;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 282
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -580,11 +742,15 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 300
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :goto_0
     monitor-exit p0
 
     return-object v1
 
+    .line 285
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_0
     const/4 v3, 0x1
 
@@ -598,9 +764,13 @@
 
     goto :goto_0
 
+    .line 295
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 296
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_3
     const-string v3, "Cisco_Vpn_Policy"
 
@@ -628,6 +798,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 297
     const/4 v3, 0x1
 
     const/4 v4, 0x3
@@ -638,6 +809,9 @@
 
     goto :goto_0
 
+    .line 270
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Object;>;"
     :catchall_0
     move-exception v3
 
@@ -645,6 +819,8 @@
 
     throw v3
 
+    .line 291
+    .restart local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Object;>;"
     :cond_1
     const/4 v3, 0x1
 
@@ -661,6 +837,8 @@
 
 .method public getClientCertificates(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -676,20 +854,26 @@
         }
     .end annotation
 
+    .prologue
     const/4 v6, 0x1
 
+    .line 355
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->enforceEnterpriseVpnPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 357
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 358
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/util/List<Landroid/app/enterprise/CertificateInfo;>;>;"
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 362
     :try_start_0
     const-string v3, "anyconnect"
 
@@ -699,27 +883,36 @@
 
     if-eqz v3, :cond_1
 
+    .line 363
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 364
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_0
 
+    .line 365
     invoke-interface {v2}, Landroid/app/enterprise/IEnterpriseVpnInterface;->getCertificates()Ljava/util/List;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 366
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
     invoke-virtual {v1, v3, v4}, Landroid/app/enterprise/EnterpriseResponseData;->setStatus(II)V
 
+    .line 384
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :goto_0
     return-object v1
 
+    .line 369
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_0
     const/4 v3, 0x1
 
@@ -731,9 +924,13 @@
 
     goto :goto_0
 
+    .line 379
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 380
+    .local v0, "e":Ljava/lang/Exception;
     const-string v3, "Cisco_Vpn_Policy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -760,12 +957,15 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 381
     const/4 v3, 0x3
 
     invoke-virtual {v1, v6, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setStatus(II)V
 
     goto :goto_0
 
+    .line 375
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_1
     const/4 v3, 0x1
 
@@ -781,6 +981,9 @@
 
 .method public declared-synchronized getEnterpriseVpnConnection(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 6
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -795,6 +998,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 185
     monitor-enter p0
 
     :try_start_0
@@ -802,16 +1007,20 @@
 
     move-result-object p1
 
+    .line 187
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 188
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Landroid/app/enterprise/EnterpriseVpnConnection;>;"
     const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 192
     :try_start_1
     const-string v3, "anyconnect"
 
@@ -821,18 +1030,23 @@
 
     if-eqz v3, :cond_1
 
+    .line 194
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 195
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_0
 
+    .line 196
     invoke-interface {v2, p3}, Landroid/app/enterprise/IEnterpriseVpnInterface;->getConnection(Ljava/lang/String;)Landroid/app/enterprise/EnterpriseVpnConnection;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 197
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -842,11 +1056,15 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 215
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :goto_0
     monitor-exit p0
 
     return-object v1
 
+    .line 200
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_0
     const/4 v3, 0x1
 
@@ -860,9 +1078,13 @@
 
     goto :goto_0
 
+    .line 210
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 211
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_3
     const-string v3, "Cisco_Vpn_Policy"
 
@@ -900,6 +1122,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 212
     const/4 v3, 0x1
 
     const/4 v4, 0x3
@@ -910,6 +1133,9 @@
 
     goto :goto_0
 
+    .line 185
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Landroid/app/enterprise/EnterpriseVpnConnection;>;"
     :catchall_0
     move-exception v3
 
@@ -917,6 +1143,8 @@
 
     throw v3
 
+    .line 206
+    .restart local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Landroid/app/enterprise/EnterpriseVpnConnection;>;"
     :cond_1
     const/4 v3, 0x1
 
@@ -933,6 +1161,10 @@
 
 .method public installClientCertificate(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;[BLjava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 7
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "vpnType"    # Ljava/lang/String;
+    .param p3, "pkcs12Blob"    # [B
+    .param p4, "password"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -948,36 +1180,45 @@
         }
     .end annotation
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v6, 0x1
 
+    .line 310
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->enforceEnterpriseVpnPermission(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/ContextInfo;
 
     move-result-object p1
 
+    .line 312
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 313
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v3
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 315
     if-eqz p3, :cond_0
 
     if-nez p4, :cond_1
 
+    .line 316
     :cond_0
     const/16 v3, 0x9
 
     invoke-virtual {v1, v6, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setStatus(II)V
 
+    .line 346
     :goto_0
     return-object v1
 
+    .line 323
     :cond_1
     :try_start_0
     const-string v3, "anyconnect"
@@ -988,12 +1229,16 @@
 
     if-eqz v3, :cond_3
 
+    .line 325
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 326
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_2
 
+    .line 327
     invoke-interface {v2, p3, p4}, Landroid/app/enterprise/IEnterpriseVpnInterface;->installCertificate([BLjava/lang/String;)Z
 
     move-result v3
@@ -1004,6 +1249,7 @@
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 328
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -1014,9 +1260,13 @@
 
     goto :goto_0
 
+    .line 341
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 342
+    .local v0, "e":Ljava/lang/Exception;
     const-string v3, "Cisco_Vpn_Policy"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1043,12 +1293,16 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 343
     const/4 v3, 0x3
 
     invoke-virtual {v1, v6, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setStatus(II)V
 
     goto :goto_0
 
+    .line 331
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_2
     const/4 v3, 0x1
 
@@ -1059,6 +1313,8 @@
 
     goto :goto_0
 
+    .line 337
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_3
     const/4 v3, 0x1
 
@@ -1073,24 +1329,36 @@
 
 .method public onAdminAdded(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 389
     return-void
 .end method
 
 .method public onAdminRemoved(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 393
     return-void
 .end method
 
 .method public onPreAdminRemoval(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 401
     return-void
 .end method
 
 .method public declared-synchronized removeEnterpriseVpnConnection(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;Ljava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 6
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "type"    # Ljava/lang/String;
+    .param p3, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1105,6 +1373,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 225
     monitor-enter p0
 
     :try_start_0
@@ -1112,10 +1382,13 @@
 
     move-result-object p1
 
+    .line 227
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 228
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
     const/4 v3, 0x0
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -1124,6 +1397,7 @@
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 230
     if-eqz p3, :cond_0
 
     invoke-virtual {p3}, Ljava/lang/String;->isEmpty()Z
@@ -1132,6 +1406,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 231
     :cond_0
     const/4 v3, 0x1
 
@@ -1141,11 +1416,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 261
     :goto_0
     monitor-exit p0
 
     return-object v1
 
+    .line 238
     :cond_1
     :try_start_1
     const-string v3, "anyconnect"
@@ -1156,12 +1433,16 @@
 
     if-eqz v3, :cond_3
 
+    .line 240
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 241
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_2
 
+    .line 242
     invoke-interface {v2, p3}, Landroid/app/enterprise/IEnterpriseVpnInterface;->removeConnection(Ljava/lang/String;)Z
 
     move-result v3
@@ -1172,6 +1453,7 @@
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 243
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -1183,9 +1465,13 @@
 
     goto :goto_0
 
+    .line 256
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 257
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_2
     const-string v3, "Cisco_Vpn_Policy"
 
@@ -1223,6 +1509,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 258
     const/4 v3, 0x1
 
     const/4 v4, 0x3
@@ -1233,6 +1520,9 @@
 
     goto :goto_0
 
+    .line 225
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
     :catchall_0
     move-exception v3
 
@@ -1240,6 +1530,9 @@
 
     throw v3
 
+    .line 246
+    .restart local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_2
     const/4 v3, 0x1
 
@@ -1250,6 +1543,8 @@
 
     goto :goto_0
 
+    .line 252
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_3
     const/4 v3, 0x1
 
@@ -1265,6 +1560,9 @@
 
 .method public declared-synchronized setEnterpriseVpnConnection(Landroid/app/enterprise/ContextInfo;Landroid/app/enterprise/EnterpriseVpnConnection;Ljava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
     .locals 6
+    .param p1, "cxtInfo"    # Landroid/app/enterprise/ContextInfo;
+    .param p2, "eVpn"    # Landroid/app/enterprise/EnterpriseVpnConnection;
+    .param p3, "oldName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1279,6 +1577,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 139
     monitor-enter p0
 
     :try_start_0
@@ -1286,10 +1586,13 @@
 
     move-result-object p1
 
+    .line 141
     new-instance v1, Landroid/app/enterprise/EnterpriseResponseData;
 
     invoke-direct {v1}, Landroid/app/enterprise/EnterpriseResponseData;-><init>()V
 
+    .line 142
+    .local v1, "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
     const/4 v3, 0x0
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -1298,8 +1601,10 @@
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 144
     if-nez p2, :cond_0
 
+    .line 145
     const/4 v3, 0x1
 
     const/16 v4, 0x9
@@ -1308,11 +1613,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 175
     :goto_0
     monitor-exit p0
 
     return-object v1
 
+    .line 152
     :cond_0
     :try_start_1
     const-string v3, "anyconnect"
@@ -1325,12 +1632,16 @@
 
     if-eqz v3, :cond_2
 
+    .line 154
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/vpn/EnterpriseVpnPolicy;->getService(Landroid/app/enterprise/ContextInfo;)Landroid/app/enterprise/IEnterpriseVpnInterface;
 
     move-result-object v2
 
+    .line 155
+    .local v2, "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     if-eqz v2, :cond_1
 
+    .line 156
     invoke-interface {v2, p2, p3}, Landroid/app/enterprise/IEnterpriseVpnInterface;->createConnection(Landroid/app/enterprise/EnterpriseVpnConnection;Ljava/lang/String;)Z
 
     move-result v3
@@ -1341,6 +1652,7 @@
 
     invoke-virtual {v1, v3}, Landroid/app/enterprise/EnterpriseResponseData;->setData(Ljava/lang/Object;)V
 
+    .line 157
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -1352,9 +1664,13 @@
 
     goto :goto_0
 
+    .line 170
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :catch_0
     move-exception v0
 
+    .line 171
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_2
     const-string v3, "Cisco_Vpn_Policy"
 
@@ -1394,6 +1710,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 172
     const/4 v3, 0x1
 
     const/4 v4, 0x3
@@ -1404,6 +1721,9 @@
 
     goto :goto_0
 
+    .line 139
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
     :catchall_0
     move-exception v3
 
@@ -1411,6 +1731,9 @@
 
     throw v3
 
+    .line 160
+    .restart local v1    # "responseData":Landroid/app/enterprise/EnterpriseResponseData;, "Landroid/app/enterprise/EnterpriseResponseData<Ljava/lang/Boolean;>;"
+    .restart local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_1
     const/4 v3, 0x1
 
@@ -1421,6 +1744,8 @@
 
     goto :goto_0
 
+    .line 166
+    .end local v2    # "service":Landroid/app/enterprise/IEnterpriseVpnInterface;
     :cond_2
     const/4 v3, 0x1
 
@@ -1437,5 +1762,7 @@
 .method public systemReady()V
     .locals 0
 
+    .prologue
+    .line 397
     return-void
 .end method

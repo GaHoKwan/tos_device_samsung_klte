@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/smartclip/SpenGestureManagerService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 775
     iput-object p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService$SettingsObserverForSPen;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
+    .line 776
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 777
     return-void
 .end method
 
@@ -34,8 +39,10 @@
 .method observe()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 780
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->access$200()Landroid/content/Context;
 
@@ -45,6 +52,8 @@
 
     move-result-object v0
 
+    .line 781
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const-string v1, "lock_screen_quick_note"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -53,6 +62,7 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 782
     const-string v1, "haptic_feedback_enabled"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -61,18 +71,22 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
+    .line 783
     return-void
 .end method
 
 .method public onChange(Z)V
     .locals 7
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v6, -0x2
 
     const/4 v3, 0x0
 
+    .line 785
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->access$200()Landroid/content/Context;
 
@@ -92,6 +106,8 @@
 
     move v0, v2
 
+    .line 786
+    .local v0, "SNoteEnable":Z
     :goto_0
     iget-object v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService$SettingsObserverForSPen;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
@@ -102,6 +118,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 787
     iget-object v4, p0, Lcom/android/server/smartclip/SpenGestureManagerService$SettingsObserverForSPen;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mSmartClipView:Lcom/android/server/smartclip/SmartClipView;
@@ -111,6 +128,7 @@
 
     invoke-virtual {v4, v0}, Lcom/android/server/smartclip/SmartClipView;->setDoubleTapStateBySettingMenu(Z)V
 
+    .line 789
     :cond_0
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/smartclip/SpenGestureManagerService;->access$200()Landroid/content/Context;
@@ -131,6 +149,8 @@
 
     move v1, v2
 
+    .line 790
+    .local v1, "bHapticEnabled":Z
     :goto_1
     iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService$SettingsObserverForSPen;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
@@ -141,6 +161,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 791
     iget-object v2, p0, Lcom/android/server/smartclip/SpenGestureManagerService$SettingsObserverForSPen;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     # getter for: Lcom/android/server/smartclip/SpenGestureManagerService;->mSmartClipView:Lcom/android/server/smartclip/SmartClipView;
@@ -150,16 +171,22 @@
 
     invoke-virtual {v2, v1}, Lcom/android/server/smartclip/SmartClipView;->setHapticEnabled(Z)V
 
+    .line 792
     :cond_1
     return-void
 
+    .end local v0    # "SNoteEnable":Z
+    .end local v1    # "bHapticEnabled":Z
     :cond_2
     move v0, v3
 
+    .line 785
     goto :goto_0
 
+    .restart local v0    # "SNoteEnable":Z
     :cond_3
     move v1, v3
 
+    .line 789
     goto :goto_1
 .end method

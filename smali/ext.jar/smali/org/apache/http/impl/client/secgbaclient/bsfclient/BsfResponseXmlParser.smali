@@ -204,7 +204,7 @@
 
     .prologue
     .line 46
-    invoke-virtual {p0, p1}, Lorg/apache/http/impl/client/secgbaclient/bsfclient/BsfResponseXmlParser;->getDoc(Lorg/apache/http/HttpResponse;)Lorg/w3c/dom/Document;
+    invoke-virtual {p0, p1}, Lorg/apache/http/impl/client/secgbaclient/parser/HttpResponseXmlParser;->getDoc(Lorg/apache/http/HttpResponse;)Lorg/w3c/dom/Document;
 
     move-result-object v2
 

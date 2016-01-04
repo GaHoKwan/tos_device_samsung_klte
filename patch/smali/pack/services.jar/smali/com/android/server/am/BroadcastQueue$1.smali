@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/BroadcastQueue;)V
     .locals 0
 
+    .prologue
+    .line 161
     iput-object p1, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,16 +35,21 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 163
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 175
     :goto_0
     return-void
 
+    .line 167
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -50,6 +57,7 @@
 
     goto :goto_0
 
+    .line 170
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -57,6 +65,7 @@
 
     monitor-enter v1
 
+    .line 171
     :try_start_0
     iget-object v0, p0, Lcom/android/server/am/BroadcastQueue$1;->this$0:Lcom/android/server/am/BroadcastQueue;
 
@@ -64,6 +73,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/server/am/BroadcastQueue;->broadcastTimeoutLocked(Z)V
 
+    .line 172
     monitor-exit v1
 
     goto :goto_0
@@ -77,6 +87,7 @@
 
     throw v0
 
+    .line 163
     nop
 
     :pswitch_data_0

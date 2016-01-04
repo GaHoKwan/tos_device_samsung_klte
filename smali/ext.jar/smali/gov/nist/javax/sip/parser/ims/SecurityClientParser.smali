@@ -42,13 +42,13 @@
     .line 65
     const-string v2, "SecuriryClient parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/SecurityClientParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 68
     const/16 v2, 0x85a
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/SecurityClientParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 69
     new-instance v0, Lgov/nist/javax/sip/header/ims/SecurityClient;
@@ -69,7 +69,7 @@
     .local v1, "secClientList":Lgov/nist/javax/sip/header/ims/SecurityClientList;
     const-string v2, "SecuriryClient parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/SecurityClientParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 72
     return-object v1
@@ -82,7 +82,7 @@
 
     const-string v3, "SecuriryClient parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/SecurityClientParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     throw v2
 .end method

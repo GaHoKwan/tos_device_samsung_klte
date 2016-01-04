@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/NotificationManagerService$7;)V
     .locals 0
 
+    .prologue
+    .line 2291
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,14 +39,17 @@
 .method public binderDied()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 2293
     const-string v0, "STATUSBAR-NotificationService"
 
     const-string v1, "binderDied()"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2294
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$7;->this$0:Lcom/android/server/NotificationManagerService;
@@ -56,6 +61,7 @@
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 2295
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$7;->this$0:Lcom/android/server/NotificationManagerService;
@@ -65,6 +71,7 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mNotificationPlayerBinder:Landroid/os/IBinder;
     invoke-static {v0, v1}, Lcom/android/server/NotificationManagerService;->access$4802(Lcom/android/server/NotificationManagerService;Landroid/os/IBinder;)Landroid/os/IBinder;
 
+    .line 2297
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$7;->this$0:Lcom/android/server/NotificationManagerService;
@@ -80,6 +87,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2298
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
     iget-object v0, v0, Lcom/android/server/NotificationManagerService$7;->this$0:Lcom/android/server/NotificationManagerService;
@@ -91,6 +99,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/NotificationManagerService$OverTurnPlayer;->unregister()V
 
+    .line 2300
     :cond_0
     iget-object v0, p0, Lcom/android/server/NotificationManagerService$7$2;->this$1:Lcom/android/server/NotificationManagerService$7;
 
@@ -99,5 +108,6 @@
     # setter for: Lcom/android/server/NotificationManagerService;->mIsPlaying:Z
     invoke-static {v0, v2}, Lcom/android/server/NotificationManagerService;->access$1002(Lcom/android/server/NotificationManagerService;Z)Z
 
+    .line 2301
     return-void
 .end method

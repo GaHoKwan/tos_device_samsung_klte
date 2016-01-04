@@ -52,12 +52,16 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 396
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 397
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
+    .line 398
     return-void
 .end method
 
@@ -66,6 +70,8 @@
 .method public getExtra()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 432
     iget-object v0, p0, Landroid/webkit/WebView$HitTestResult;->mExtra:Ljava/lang/String;
 
     return-object v0
@@ -74,6 +80,8 @@
 .method public getType()I
     .locals 1
 
+    .prologue
+    .line 421
     iget v0, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
     return v0
@@ -81,16 +89,24 @@
 
 .method public setExtra(Ljava/lang/String;)V
     .locals 0
+    .param p1, "extra"    # Ljava/lang/String;
 
+    .prologue
+    .line 411
     iput-object p1, p0, Landroid/webkit/WebView$HitTestResult;->mExtra:Ljava/lang/String;
 
+    .line 412
     return-void
 .end method
 
 .method public setType(I)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
+    .line 404
     iput p1, p0, Landroid/webkit/WebView$HitTestResult;->mType:I
 
+    .line 405
     return-void
 .end method

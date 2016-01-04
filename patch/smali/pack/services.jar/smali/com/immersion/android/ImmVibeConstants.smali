@@ -11,6 +11,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x2
 
     const/4 v7, 0x1
@@ -21,6 +22,7 @@
 
     const/16 v4, 0x2c
 
+    .line 7
     new-array v0, v8, [[[B
 
     const/16 v1, 0xe
@@ -1889,6 +1891,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

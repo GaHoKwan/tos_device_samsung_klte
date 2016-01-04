@@ -132,7 +132,7 @@
     .line 608
     sget-object v0, Landroid/net/wifi/WifiConfiguration$IpAssignment;->$VALUES:[Landroid/net/wifi/WifiConfiguration$IpAssignment;
 
-    invoke-virtual {v0}, [Landroid/net/wifi/WifiConfiguration$IpAssignment;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

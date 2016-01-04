@@ -95,7 +95,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 298
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->clear()V
 
     .line 299
     return-void
@@ -109,7 +109,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 311
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->clearAccordingToRequest()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->clearAccordingToRequest()V
 
     .line 312
     return-void
@@ -173,7 +173,7 @@
 
     .line 94
     .local v16, "nLenHumid":I
-    invoke-virtual/range {p0 .. p0}, Landroid/hardware/contextaware/aggregator/builtin/TemperatureHumidityAggregator;->getLoggingStatus()I
+    invoke-virtual/range {p0 .. p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->getLoggingStatus()I
 
     move-result v20
 
@@ -645,7 +645,7 @@
 
     .prologue
     .line 323
-    invoke-virtual {p0}, Landroid/hardware/contextaware/aggregator/builtin/TemperatureHumidityAggregator;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/aggregator/Aggregator;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -656,7 +656,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 324
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/Aggregator;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -769,7 +769,7 @@
 
     .line 174
     :cond_0
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v5
 
@@ -780,7 +780,7 @@
     invoke-virtual {v5, v6, v1}, Landroid/hardware/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;[D)V
 
     .line 175
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v5
 
@@ -791,7 +791,7 @@
     invoke-virtual {v5, v6, v0}, Landroid/hardware/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;[D)V
 
     .line 177
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->notifyObserver()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     .line 178
     return-void
@@ -815,7 +815,7 @@
 
     .prologue
     .line 264
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->getTimeStampForApStatus()J
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeStampForApStatus()J
 
     move-result-wide v2
 
@@ -853,7 +853,7 @@
     iput-wide v0, p0, Landroid/hardware/contextaware/aggregator/builtin/TemperatureHumidityAggregator;->mSleepTime:J
 
     .line 267
-    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/EnvironmentSensorAggregator;->updateApSleep()V
+    invoke-super {p0}, Landroid/hardware/contextaware/aggregator/Aggregator;->updateApSleep()V
 
     .line 268
     return-void

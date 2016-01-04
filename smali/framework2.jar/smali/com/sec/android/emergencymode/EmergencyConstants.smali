@@ -149,6 +149,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 74
     const/16 v0, 0x9
 
     new-array v0, v0, [I
@@ -157,6 +159,7 @@
 
     sput-object v0, Lcom/sec/android/emergencymode/EmergencyConstants;->RGBCMYArray:[I
 
+    .line 115
     const-string v0, "content://com.sec.android.emergencymode/whitelist"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -165,6 +168,7 @@
 
     sput-object v0, Lcom/sec/android/emergencymode/EmergencyConstants;->URI_WHITELIST:Landroid/net/Uri;
 
+    .line 116
     const-string v0, "content://com.sec.android.emergencymode/prefsettings"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -173,6 +177,7 @@
 
     sput-object v0, Lcom/sec/android/emergencymode/EmergencyConstants;->URI_PREFSETTINGS:Landroid/net/Uri;
 
+    .line 117
     const-string v0, "content://com.sec.android.emergencymode/disabledpkg"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -181,6 +186,7 @@
 
     sput-object v0, Lcom/sec/android/emergencymode/EmergencyConstants;->URI_DISABLEDPKG:Landroid/net/Uri;
 
+    .line 118
     const-string v0, "content://com.sec.android.emergencymode/alarm"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -189,6 +195,7 @@
 
     sput-object v0, Lcom/sec/android/emergencymode/EmergencyConstants;->URI_ALARM:Landroid/net/Uri;
 
+    .line 119
     const-string v0, "content://com.sec.android.emergencymode/ecclist"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -199,6 +206,7 @@
 
     return-void
 
+    .line 74
     :array_0
     .array-data 4
         0x4cb3
@@ -216,6 +224,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

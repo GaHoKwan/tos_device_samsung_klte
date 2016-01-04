@@ -47,7 +47,7 @@
 
     .prologue
     .line 79
-    invoke-super {p0}, Lgov/nist/javax/sip/stack/SIPStackTimerTask;->cancel()Z
+    invoke-super {p0}, Ljava/util/TimerTask;->cancel()Z
 
     move-result v0
 

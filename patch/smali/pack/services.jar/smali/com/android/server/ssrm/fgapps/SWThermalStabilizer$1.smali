@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;)V
     .locals 0
 
+    .prologue
+    .line 81
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 84
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     sget v1, Lcom/android/server/ssrm/Monitor;->mSurfaceTemperature:I
 
     iput v1, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPST:I
 
+    .line 85
     # getter for: Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->access$000()Ljava/lang/String;
 
@@ -72,12 +77,14 @@
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/fgapps/FgAppListener;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 86
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget-boolean v0, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPSTControlModeEnable:Z
 
     if-eqz v0, :cond_0
 
+    .line 87
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget v0, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPST:I
@@ -88,12 +95,14 @@
 
     if-lt v0, v1, :cond_2
 
+    .line 88
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget-boolean v0, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPSTControlStarted:Z
 
     if-eqz v0, :cond_1
 
+    .line 89
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
@@ -102,6 +111,7 @@
 
     iput v1, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPeriod:I
 
+    .line 90
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
@@ -110,6 +120,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->SSHeatControl(Z)V
 
+    .line 105
     :goto_0
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
@@ -123,9 +134,11 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 107
     :cond_0
     return-void
 
+    .line 92
     :cond_1
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
@@ -135,6 +148,7 @@
 
     iput v1, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPeriod:I
 
+    .line 93
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     const/4 v1, 0x1
@@ -143,6 +157,7 @@
 
     goto :goto_0
 
+    .line 96
     :cond_2
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
@@ -150,6 +165,7 @@
 
     if-eqz v0, :cond_3
 
+    .line 97
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget v0, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPST:I
@@ -160,6 +176,7 @@
 
     if-lt v0, v1, :cond_4
 
+    .line 98
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
@@ -168,6 +185,7 @@
 
     iput v1, v0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;->mPeriod:I
 
+    .line 103
     :cond_3
     :goto_1
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
@@ -180,6 +198,7 @@
 
     goto :goto_0
 
+    .line 100
     :cond_4
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/SWThermalStabilizer$1;->this$0:Lcom/android/server/ssrm/fgapps/SWThermalStabilizer;
 

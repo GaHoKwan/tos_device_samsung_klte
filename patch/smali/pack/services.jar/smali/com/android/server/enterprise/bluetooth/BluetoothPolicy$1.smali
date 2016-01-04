@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;)V
     .locals 0
 
+    .prologue
+    .line 132
     iput-object p1, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 135
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 136
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.bluetooth.adapter.action.STATE_CHANGED"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -48,6 +56,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 137
     const-string v2, "android.bluetooth.adapter.extra.STATE"
 
     const/high16 v3, -0x80000000
@@ -56,6 +65,8 @@
 
     move-result v1
 
+    .line 139
+    .local v1, "state":I
     const/16 v2, 0xa
 
     if-ne v1, v2, :cond_1
@@ -69,32 +80,40 @@
 
     if-eqz v2, :cond_1
 
+    .line 140
     const-string v2, "BluetoothPolicyService"
 
     const-string v3, "***** Restarting Bluetooth *****"
 
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 141
     iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
     # setter for: Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->mRestart:Z
     invoke-static {v2, v4}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->access$002(Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;Z)Z
 
+    .line 142
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/bluetooth/BluetoothAdapter;->enable()Z
 
+    .line 151
+    .end local v1    # "state":I
     :cond_0
     :goto_0
     return-void
 
+    .line 145
+    .restart local v1    # "state":I
     :cond_1
     const/16 v2, 0xc
 
     if-ne v1, v2, :cond_0
 
+    .line 146
     iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
     invoke-virtual {v2, v4}, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->isDesktopConnectivityEnabled(Z)Z
@@ -103,6 +122,7 @@
 
     if-nez v2, :cond_0
 
+    .line 147
     iget-object v2, p0, Lcom/android/server/enterprise/bluetooth/BluetoothPolicy$1;->this$0:Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;
 
     # invokes: Lcom/android/server/enterprise/bluetooth/BluetoothPolicy;->disableDesktopConnectivity()V

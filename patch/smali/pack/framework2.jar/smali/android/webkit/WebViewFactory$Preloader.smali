@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 43
     :try_start_0
     # invokes: Landroid/webkit/WebViewFactory;->getFactoryClass()Ljava/lang/Class;
     invoke-static {}, Landroid/webkit/WebViewFactory;->access$000()Ljava/lang/Class;
@@ -38,12 +40,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 47
+    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     return-void
 
+    .line 44
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v0
 
+    .line 45
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "WebViewFactory"
 
     const-string v2, "error preloading provider"
@@ -56,6 +64,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

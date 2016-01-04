@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 4
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -17,6 +19,8 @@
 .method public onAdminRemoved()Z
     .locals 1
 
+    .prologue
+    .line 7
     invoke-virtual {p0}, Lcom/android/server/enterprise/EdmCache;->updateCache()Z
 
     move-result v0
@@ -27,6 +31,8 @@
 .method public systemReady()Z
     .locals 1
 
+    .prologue
+    .line 11
     invoke-virtual {p0}, Lcom/android/server/enterprise/EdmCache;->updateCache()Z
 
     move-result v0

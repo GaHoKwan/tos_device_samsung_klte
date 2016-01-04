@@ -42,7 +42,7 @@
 
     const/4 v1, -0x1
 
-    iput v1, v0, Landroid/database/MergeCursor;->mPos:I
+    iput v1, v0, Landroid/database/AbstractCursor;->mPos:I
 
     .line 34
     return-void
@@ -57,7 +57,7 @@
 
     const/4 v1, -0x1
 
-    iput v1, v0, Landroid/database/MergeCursor;->mPos:I
+    iput v1, v0, Landroid/database/AbstractCursor;->mPos:I
 
     .line 39
     return-void

@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/AdaptiveDisplayColorService;)V
     .locals 0
 
+    .prologue
+    .line 252
     iput-object p1, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/AdaptiveDisplayColorService;Lcom/android/server/AdaptiveDisplayColorService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/AdaptiveDisplayColorService;
+    .param p2, "x1"    # Lcom/android/server/AdaptiveDisplayColorService$1;
 
+    .prologue
+    .line 252
     invoke-direct {p0, p1}, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;-><init>(Lcom/android/server/AdaptiveDisplayColorService;)V
 
     return-void
@@ -41,15 +47,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 255
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 257
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -58,6 +70,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 258
     const-string v4, "keyguard"
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -66,6 +79,8 @@
 
     check-cast v1, Landroid/app/KeyguardManager;
 
+    .line 259
+    .local v1, "keyGuardManager":Landroid/app/KeyguardManager;
     if-eqz v1, :cond_0
 
     invoke-virtual {v1}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
@@ -74,21 +89,26 @@
 
     if-eqz v4, :cond_0
 
+    .line 260
     iget-object v4, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # setter for: Lcom/android/server/AdaptiveDisplayColorService;->isLockScreenOn:Z
     invoke-static {v4, v3}, Lcom/android/server/AdaptiveDisplayColorService;->access$102(Lcom/android/server/AdaptiveDisplayColorService;Z)Z
 
+    .line 261
     :cond_0
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # invokes: Lcom/android/server/AdaptiveDisplayColorService;->boot_complete()V
     invoke-static {v3}, Lcom/android/server/AdaptiveDisplayColorService;->access$200(Lcom/android/server/AdaptiveDisplayColorService;)V
 
+    .line 296
+    .end local v1    # "keyGuardManager":Landroid/app/KeyguardManager;
     :cond_1
     :goto_0
     return-void
 
+    .line 264
     :cond_2
     const-string v5, "android.intent.action.SCREEN_ON"
 
@@ -98,6 +118,7 @@
 
     if-eqz v5, :cond_4
 
+    .line 265
     const-string v4, "keyguard"
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -106,6 +127,8 @@
 
     check-cast v1, Landroid/app/KeyguardManager;
 
+    .line 266
+    .restart local v1    # "keyGuardManager":Landroid/app/KeyguardManager;
     if-eqz v1, :cond_3
 
     invoke-virtual {v1}, Landroid/app/KeyguardManager;->isKeyguardLocked()Z
@@ -114,11 +137,13 @@
 
     if-eqz v4, :cond_3
 
+    .line 267
     iget-object v4, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # setter for: Lcom/android/server/AdaptiveDisplayColorService;->isLockScreenOn:Z
     invoke-static {v4, v3}, Lcom/android/server/AdaptiveDisplayColorService;->access$102(Lcom/android/server/AdaptiveDisplayColorService;Z)Z
 
+    .line 268
     :cond_3
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
@@ -127,6 +152,8 @@
 
     goto :goto_0
 
+    .line 271
+    .end local v1    # "keyGuardManager":Landroid/app/KeyguardManager;
     :cond_4
     const-string v5, "android.intent.action.SCREEN_OFF"
 
@@ -136,6 +163,7 @@
 
     if-eqz v5, :cond_5
 
+    .line 272
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # invokes: Lcom/android/server/AdaptiveDisplayColorService;->receive_screen_off_intent()V
@@ -143,6 +171,7 @@
 
     goto :goto_0
 
+    .line 275
     :cond_5
     const-string v5, "android.intent.action.USER_PRESENT"
 
@@ -152,6 +181,7 @@
 
     if-eqz v5, :cond_6
 
+    .line 276
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # setter for: Lcom/android/server/AdaptiveDisplayColorService;->isLockScreenOn:Z
@@ -159,6 +189,7 @@
 
     goto :goto_0
 
+    .line 279
     :cond_6
     const-string v5, "com.sec.android.action.NOTIFY_MULTIWINDOW_STATUS"
 
@@ -168,6 +199,7 @@
 
     if-eqz v5, :cond_7
 
+    .line 280
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     const-string v5, "com.sec.android.extra.MULTIWINDOW_RUNNING"
@@ -181,6 +213,7 @@
 
     goto :goto_0
 
+    .line 283
     :cond_7
     const-string v5, "android.intent.action.EMERGENCY_STATE_CHANGED"
 
@@ -190,12 +223,15 @@
 
     if-eqz v5, :cond_9
 
+    .line 284
     const-string v3, "reason"
 
     invoke-virtual {p2, v3, v4}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
+    .line 285
+    .local v2, "reason":I
     const/4 v3, 0x3
 
     if-eq v2, v3, :cond_8
@@ -204,6 +240,7 @@
 
     if-ne v2, v3, :cond_1
 
+    .line 287
     :cond_8
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
@@ -212,6 +249,8 @@
 
     goto :goto_0
 
+    .line 291
+    .end local v2    # "reason":I
     :cond_9
     const-string v5, "com.sec.android.intent.action.SSRM_MDNIE_CHANGED"
 
@@ -221,6 +260,7 @@
 
     if-eqz v5, :cond_1
 
+    .line 292
     iget-object v5, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
@@ -241,6 +281,7 @@
     # setter for: Lcom/android/server/AdaptiveDisplayColorService;->mEbookScenarioEnabled:Z
     invoke-static {v5, v3}, Lcom/android/server/AdaptiveDisplayColorService;->access$702(Lcom/android/server/AdaptiveDisplayColorService;Z)Z
 
+    .line 293
     iget-object v3, p0, Lcom/android/server/AdaptiveDisplayColorService$ScreenWatchingReceiver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # invokes: Lcom/android/server/AdaptiveDisplayColorService;->receive_ebookmode_intent()V
@@ -251,5 +292,6 @@
     :cond_a
     move v3, v4
 
+    .line 292
     goto :goto_1
 .end method

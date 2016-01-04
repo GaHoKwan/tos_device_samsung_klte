@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$ColorPickerDialog;)V
     .locals 0
 
+    .prologue
+    .line 7779
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$2;->this$1:Landroid/webkitsec/WebViewClassic$ColorPickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 7781
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$2;->this$1:Landroid/webkitsec/WebViewClassic$ColorPickerDialog;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -46,5 +51,6 @@
     # invokes: Landroid/webkitsec/WebViewClassic;->updateColor(I)V
     invoke-static {v0, v1}, Landroid/webkitsec/WebViewClassic;->access$3900(Landroid/webkitsec/WebViewClassic;I)V
 
+    .line 7782
     return-void
 .end method

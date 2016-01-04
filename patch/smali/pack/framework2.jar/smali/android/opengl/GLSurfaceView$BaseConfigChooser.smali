@@ -26,25 +26,33 @@
 # direct methods
 .method public constructor <init>(Landroid/opengl/GLSurfaceView;[I)V
     .locals 1
+    .param p2, "configSpec"    # [I
 
+    .prologue
+    .line 858
     iput-object p1, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->this$0:Landroid/opengl/GLSurfaceView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 859
     invoke-direct {p0, p2}, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->filterConfigSpec([I)[I
 
     move-result-object v0
 
     iput-object v0, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->mConfigSpec:[I
 
+    .line 860
     return-void
 .end method
 
 .method private filterConfigSpec([I)[I
     .locals 5
+    .param p1, "configSpec"    # [I
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 894
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->this$0:Landroid/opengl/GLSurfaceView;
 
     # getter for: Landroid/opengl/GLSurfaceView;->mEGLContextClientVersion:I
@@ -56,30 +64,41 @@
 
     if-eq v2, v3, :cond_0
 
+    .line 906
+    .end local p1    # "configSpec":[I
     :goto_0
     return-object p1
 
+    .line 900
+    .restart local p1    # "configSpec":[I
     :cond_0
     array-length v0, p1
 
+    .line 901
+    .local v0, "len":I
     add-int/lit8 v2, v0, 0x2
 
     new-array v1, v2, [I
 
+    .line 902
+    .local v1, "newConfigSpec":[I
     add-int/lit8 v2, v0, -0x1
 
     invoke-static {p1, v4, v1, v4, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 903
     add-int/lit8 v2, v0, -0x1
 
     const/16 v3, 0x3040
 
     aput v3, v1, v2
 
+    .line 904
     const/4 v2, 0x4
 
     aput v2, v1, v0
 
+    .line 905
     add-int/lit8 v2, v0, 0x1
 
     const/16 v3, 0x3038
@@ -88,6 +107,7 @@
 
     move-object p1, v1
 
+    .line 906
     goto :goto_0
 .end method
 
@@ -95,13 +115,19 @@
 # virtual methods
 .method public chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;)Ljavax/microedition/khronos/egl/EGLConfig;
     .locals 7
+    .param p1, "egl"    # Ljavax/microedition/khronos/egl/EGL10;
+    .param p2, "display"    # Ljavax/microedition/khronos/egl/EGLDisplay;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 863
     const/4 v0, 0x1
 
     new-array v5, v0, [I
 
+    .line 864
+    .local v5, "num_config":[I
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->mConfigSpec:[I
 
     const/4 v3, 0x0
@@ -116,6 +142,7 @@
 
     if-nez v0, :cond_0
 
+    .line 866
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "eglChooseConfig failed"
@@ -124,11 +151,15 @@
 
     throw v0
 
+    .line 869
     :cond_0
     aget v4, v5, v4
 
+    .line 871
+    .local v4, "numConfigs":I
     if-gtz v4, :cond_1
 
+    .line 872
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "No configs match configSpec"
@@ -137,9 +168,12 @@
 
     throw v0
 
+    .line 876
     :cond_1
     new-array v3, v4, [Ljavax/microedition/khronos/egl/EGLConfig;
 
+    .line 877
+    .local v3, "configs":[Ljavax/microedition/khronos/egl/EGLConfig;
     iget-object v2, p0, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->mConfigSpec:[I
 
     move-object v0, p1
@@ -152,6 +186,7 @@
 
     if-nez v0, :cond_2
 
+    .line 879
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "eglChooseConfig#2 failed"
@@ -160,13 +195,17 @@
 
     throw v0
 
+    .line 881
     :cond_2
     invoke-virtual {p0, p1, p2, v3}, Landroid/opengl/GLSurfaceView$BaseConfigChooser;->chooseConfig(Ljavax/microedition/khronos/egl/EGL10;Ljavax/microedition/khronos/egl/EGLDisplay;[Ljavax/microedition/khronos/egl/EGLConfig;)Ljavax/microedition/khronos/egl/EGLConfig;
 
     move-result-object v6
 
+    .line 882
+    .local v6, "config":Ljavax/microedition/khronos/egl/EGLConfig;
     if-nez v6, :cond_3
 
+    .line 883
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "No config chosen"
@@ -175,6 +214,7 @@
 
     throw v0
 
+    .line 885
     :cond_3
     return-object v6
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/NetworkTimeUpdateService;)V
     .locals 0
 
+    .prologue
+    .line 245
     iput-object p1, p0, Lcom/android/server/NetworkTimeUpdateService$3;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 249
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 250
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,6 +54,7 @@
 
     if-eqz v3, :cond_1
 
+    .line 252
     const-string v3, "connectivity"
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -54,12 +63,17 @@
 
     check-cast v1, Landroid/net/ConnectivityManager;
 
+    .line 254
+    .local v1, "connManager":Landroid/net/ConnectivityManager;
     invoke-virtual {v1}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object v2
 
+    .line 255
+    .local v2, "netInfo":Landroid/net/NetworkInfo;
     if-eqz v2, :cond_1
 
+    .line 257
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
 
     move-result-object v3
@@ -84,6 +98,7 @@
 
     if-ne v3, v4, :cond_1
 
+    .line 260
     :cond_0
     iget-object v3, p0, Lcom/android/server/NetworkTimeUpdateService$3;->this$0:Lcom/android/server/NetworkTimeUpdateService;
 
@@ -100,6 +115,9 @@
 
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
 
+    .line 264
+    .end local v1    # "connManager":Landroid/net/ConnectivityManager;
+    .end local v2    # "netInfo":Landroid/net/NetworkInfo;
     :cond_1
     return-void
 .end method

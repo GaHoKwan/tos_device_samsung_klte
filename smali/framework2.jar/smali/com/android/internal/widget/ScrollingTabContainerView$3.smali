@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
     .locals 0
 
+    .prologue
+    .line 698
     iput-object p1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$3;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onTouchModeChanged(Z)V
     .locals 4
+    .param p1, "isInTouchMode"    # Z
 
+    .prologue
+    .line 701
     if-nez p1, :cond_0
 
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$3;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
@@ -48,6 +53,7 @@
 
     if-eq v1, p1, :cond_0
 
+    .line 702
     const-string v1, "ScrollingTabContainerView"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -93,6 +99,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 703
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$3;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->isTabHasFocus()Z
@@ -101,6 +108,7 @@
 
     if-nez v1, :cond_0
 
+    .line 704
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$3;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
@@ -115,17 +123,22 @@
 
     move-result v2
 
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
+    .line 705
+    .local v0, "tabView":Landroid/view/View;
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
+    .line 708
+    .end local v0    # "tabView":Landroid/view/View;
     :cond_0
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$3;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # setter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mIsInTouchMode:Z
     invoke-static {v1, p1}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$502(Lcom/android/internal/widget/ScrollingTabContainerView;Z)Z
 
+    .line 709
     return-void
 .end method

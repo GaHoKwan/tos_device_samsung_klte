@@ -96,26 +96,32 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 35
     const/4 v0, -0x1
 
     sput v0, Lcom/android/server/pm/HandlerCacheManager;->mCurrentPersona:I
 
+    .line 36
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
+    .line 37
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
+    .line 38
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
+    .line 39
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -128,14 +134,19 @@
 .method private constructor <init>()V
     .locals 3
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 40
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handlerThread:Landroid/os/HandlerThread;
 
+    .line 47
     sput-object p0, Lcom/android/server/pm/HandlerCacheManager;->sInstance:Lcom/android/server/pm/HandlerCacheManager;
 
+    .line 48
     new-instance v0, Landroid/os/HandlerThread;
 
     const-string v1, "HandlerCacheManager"
@@ -146,10 +157,12 @@
 
     iput-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handlerThread:Landroid/os/HandlerThread;
 
+    .line 50
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handlerThread:Landroid/os/HandlerThread;
 
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 51
     new-instance v0, Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/android/server/pm/HandlerCacheManager;->handlerThread:Landroid/os/HandlerThread;
@@ -162,12 +175,15 @@
 
     iput-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
+    .line 52
     return-void
 .end method
 
 .method static synthetic access$000()Ljava/util/HashMap;
     .locals 1
 
+    .prologue
+    .line 25
     sget-object v0, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     return-object v0
@@ -175,26 +191,35 @@
 
 .method public static declared-synchronized getHandler(Ljava/lang/String;)Ljava/lang/Object;
     .locals 5
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 63
     const-class v2, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v2
 
     const/4 v0, 0x0
 
+    .line 65
+    .local v0, "mBinder":Ljava/lang/Object;
     :try_start_0
     sget-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
     if-eqz v1, :cond_3
 
+    .line 66
     sget-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 67
     if-eqz v0, :cond_2
 
+    .line 77
+    .end local v0    # "mBinder":Ljava/lang/Object;
     :goto_0
     if-nez v0, :cond_1
 
@@ -210,16 +235,19 @@
 
     if-lez v1, :cond_1
 
+    .line 80
     sget-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
     if-nez v1, :cond_0
 
+    .line 81
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
     sput-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
+    .line 82
     const-string v1, "HandlerCacheManager"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -244,6 +272,7 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 84
     sget-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v3, Ljava/lang/Integer;
@@ -256,6 +285,7 @@
 
     invoke-virtual {v1, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 87
     :cond_0
     const-string v1, "HandlerCacheManager"
 
@@ -281,23 +311,30 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 90
     new-instance v0, Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
 
     sget v1, Lcom/android/server/pm/HandlerCacheManager;->mCurrentPersona:I
 
     invoke-direct {v0, v1}, Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;-><init>(I)V
 
+    .line 91
+    .local v0, "mBinder":Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
     sget-object v1, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 94
+    .end local v0    # "mBinder":Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
     :cond_1
     monitor-exit v2
 
     return-object v0
 
+    .line 71
+    .local v0, "mBinder":Ljava/lang/Object;
     :cond_2
     :try_start_1
     const-string v1, "HandlerCacheManager"
@@ -332,6 +369,8 @@
 
     goto/16 :goto_0
 
+    .line 63
+    .end local v0    # "mBinder":Ljava/lang/Object;
     :catchall_0
     move-exception v1
 
@@ -339,6 +378,8 @@
 
     throw v1
 
+    .line 74
+    .restart local v0    # "mBinder":Ljava/lang/Object;
     :cond_3
     :try_start_2
     const-string v1, "HandlerCacheManager"
@@ -354,7 +395,11 @@
 
 .method public static declared-synchronized getHandlerForPersona(ILjava/lang/String;)Ljava/lang/Object;
     .locals 6
+    .param p0, "personaId"    # I
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 99
     const-class v3, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v3
@@ -382,10 +427,15 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 100
     const/4 v0, 0x0
 
+    .line 101
+    .local v0, "mBinder":Ljava/lang/Object;
     const/4 v1, 0x0
 
+    .line 102
+    .local v1, "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     sget-object v2, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v4, Ljava/lang/Integer;
@@ -396,16 +446,22 @@
 
     move-result-object v1
 
+    .end local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     check-cast v1, Ljava/util/HashMap;
 
+    .line 103
+    .restart local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     if-eqz v1, :cond_3
 
+    .line 104
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 105
     if-eqz v0, :cond_2
 
+    .line 106
     const-string v2, "HandlerCacheManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -438,6 +494,8 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 115
+    .end local v0    # "mBinder":Ljava/lang/Object;
     :goto_0
     if-nez v0, :cond_1
 
@@ -451,12 +509,17 @@
 
     if-lez p0, :cond_1
 
+    .line 118
     if-nez v1, :cond_0
 
+    .line 119
     new-instance v1, Ljava/util/HashMap;
 
+    .end local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
+    .line 120
+    .restart local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v2, "HandlerCacheManager"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -479,6 +542,7 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 122
     sget-object v2, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v4, Ljava/lang/Integer;
@@ -487,6 +551,7 @@
 
     invoke-virtual {v2, v4, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 125
     :cond_0
     const-string v2, "HandlerCacheManager"
 
@@ -510,19 +575,26 @@
 
     invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 128
     new-instance v0, Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
 
     invoke-direct {v0, p0}, Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;-><init>(I)V
 
+    .line 129
+    .local v0, "mBinder":Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 132
+    .end local v0    # "mBinder":Lcom/android/server/pm/HandlerCacheManager$QueueableStateHandler;
     :cond_1
     monitor-exit v3
 
     return-object v0
 
+    .line 109
+    .local v0, "mBinder":Ljava/lang/Object;
     :cond_2
     :try_start_1
     const-string v2, "HandlerCacheManager"
@@ -557,6 +629,9 @@
 
     goto :goto_0
 
+    .line 99
+    .end local v0    # "mBinder":Ljava/lang/Object;
+    .end local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     :catchall_0
     move-exception v2
 
@@ -564,6 +639,9 @@
 
     throw v2
 
+    .line 112
+    .restart local v0    # "mBinder":Ljava/lang/Object;
+    .restart local v1    # "sTempCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     :cond_3
     :try_start_2
     const-string v2, "HandlerCacheManager"
@@ -580,6 +658,8 @@
 .method public static declared-synchronized getInstance()Lcom/android/server/pm/HandlerCacheManager;
     .locals 2
 
+    .prologue
+    .line 55
     const-class v1, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v1
@@ -589,12 +669,14 @@
 
     if-nez v0, :cond_0
 
+    .line 56
     new-instance v0, Lcom/android/server/pm/HandlerCacheManager;
 
     invoke-direct {v0}, Lcom/android/server/pm/HandlerCacheManager;-><init>()V
 
     sput-object v0, Lcom/android/server/pm/HandlerCacheManager;->sInstance:Lcom/android/server/pm/HandlerCacheManager;
 
+    .line 58
     :cond_0
     sget-object v0, Lcom/android/server/pm/HandlerCacheManager;->sInstance:Lcom/android/server/pm/HandlerCacheManager;
     :try_end_0
@@ -604,6 +686,7 @@
 
     return-object v0
 
+    .line 55
     :catchall_0
     move-exception v0
 
@@ -614,7 +697,13 @@
 
 .method public static declared-synchronized registerHandler(ILjava/lang/String;Ljava/lang/Object;Landroid/content/pm/IPersonaObserver;)V
     .locals 7
+    .param p0, "personaId"    # I
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "mHandler"    # Ljava/lang/Object;
+    .param p3, "observerCallback"    # Landroid/content/pm/IPersonaObserver;
 
+    .prologue
+    .line 145
     const-class v4, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v4
@@ -652,6 +741,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 147
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -664,6 +754,8 @@
 
     check-cast v2, Ljava/util/HashMap;
 
+    .line 150
+    .local v2, "sPersonaCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -676,12 +768,18 @@
 
     check-cast v1, Ljava/util/HashMap;
 
+    .line 153
+    .local v1, "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     if-nez v2, :cond_0
 
+    .line 154
     new-instance v2, Ljava/util/HashMap;
 
+    .end local v2    # "sPersonaCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
+    .line 155
+    .restart local v2    # "sPersonaCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     const-string v3, "HandlerCacheManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -704,6 +802,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 157
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -712,13 +811,18 @@
 
     invoke-virtual {v3, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 160
     :cond_0
     if-nez v1, :cond_1
 
+    .line 161
     new-instance v1, Ljava/util/HashMap;
 
+    .end local v1    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
+    .line 162
+    .restart local v1    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -727,40 +831,50 @@
 
     invoke-virtual {v3, v5, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 166
     :cond_1
     if-eqz p2, :cond_3
 
     if-eqz p1, :cond_3
 
+    .line 167
     const-string v3, "HandlerCacheManager"
 
     const-string v5, " registerHandler adding to map"
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 169
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
+    .line 170
+    .local v0, "existingHandler":Ljava/lang/Object;
     if-eqz v0, :cond_2
 
     instance-of v3, v0, Lcom/android/server/pm/HandlerCacheManager$QueueableHandler;
 
     if-eqz v3, :cond_2
 
+    .line 172
     const-string v3, "HandlerCacheManager"
 
     const-string v5, " registerHandler existingHandler is QueueableHandler"
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 174
     check-cast v0, Lcom/android/server/pm/HandlerCacheManager$QueueableHandler;
 
+    .end local v0    # "existingHandler":Ljava/lang/Object;
     invoke-interface {v0, p2}, Lcom/android/server/pm/HandlerCacheManager$QueueableHandler;->dequeueTo(Ljava/lang/Object;)V
 
+    .line 178
     :cond_2
     invoke-virtual {v2, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 179
     const-string v3, "HandlerCacheManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -787,8 +901,10 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 180
     if-eqz p3, :cond_3
 
+    .line 181
     const-string v3, "HandlerCacheManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -821,13 +937,16 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 183
     invoke-virtual {v1, p1, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 188
     :cond_3
     sget v3, Lcom/android/server/pm/HandlerCacheManager;->mCurrentPersona:I
 
     if-ne v3, p0, :cond_4
 
+    .line 189
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->sCache:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -844,11 +963,15 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 192
     :cond_4
     monitor-exit v4
 
     return-void
 
+    .line 145
+    .end local v1    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
+    .end local v2    # "sPersonaCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     :catchall_0
     move-exception v3
 
@@ -859,7 +982,12 @@
 
 .method public static declared-synchronized registerObserver(ILjava/lang/String;Landroid/content/pm/IPersonaObserver;)V
     .locals 7
+    .param p0, "personaId"    # I
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "observerCallback"    # Landroid/content/pm/IPersonaObserver;
 
+    .prologue
+    .line 197
     const-class v4, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v4
@@ -887,6 +1015,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 199
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -899,12 +1028,18 @@
 
     check-cast v2, Ljava/util/HashMap;
 
+    .line 202
+    .local v2, "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     if-nez v2, :cond_0
 
+    .line 203
     new-instance v2, Ljava/util/HashMap;
 
+    .end local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
+    .line 204
+    .restart local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -913,17 +1048,21 @@
 
     invoke-virtual {v3, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 207
     :cond_0
     if-eqz p2, :cond_1
 
+    .line 208
     const-string v3, "HandlerCacheManager"
 
     const-string v5, "registerObserver() added observerCallback "
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 209
     invoke-virtual {v2, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 212
     :cond_1
     invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
@@ -933,6 +1072,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -946,6 +1086,8 @@
 
     check-cast v0, Landroid/content/pm/IPersonaObserver;
 
+    .line 213
+    .local v0, "callback":Landroid/content/pm/IPersonaObserver;
     const-string v3, "HandlerCacheManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -976,6 +1118,10 @@
 
     goto :goto_0
 
+    .line 197
+    .end local v0    # "callback":Landroid/content/pm/IPersonaObserver;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     :catchall_0
     move-exception v3
 
@@ -983,6 +1129,9 @@
 
     throw v3
 
+    .line 215
+    .restart local v1    # "i$":Ljava/util/Iterator;
+    .restart local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     :cond_2
     :try_start_1
     const-string v3, "HandlerCacheManager"
@@ -993,6 +1142,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 216
     monitor-exit v4
 
     return-void
@@ -1000,7 +1150,10 @@
 
 .method public static declared-synchronized setCurrentUser(I)V
     .locals 3
+    .param p0, "personaId"    # I
 
+    .prologue
+    .line 138
     const-class v1, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v1
@@ -1020,14 +1173,17 @@
 
     sput-object v0, Lcom/android/server/pm/HandlerCacheManager;->sCurrentCache:Ljava/util/HashMap;
 
+    .line 139
     sput p0, Lcom/android/server/pm/HandlerCacheManager;->mCurrentPersona:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 140
     monitor-exit v1
 
     return-void
 
+    .line 138
     :catchall_0
     move-exception v0
 
@@ -1038,7 +1194,12 @@
 
 .method public static declared-synchronized unregisterObserver(ILjava/lang/String;Landroid/content/pm/IPersonaObserver;)V
     .locals 7
+    .param p0, "personaId"    # I
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "observerCallback"    # Landroid/content/pm/IPersonaObserver;
 
+    .prologue
+    .line 221
     const-class v4, Lcom/android/server/pm/HandlerCacheManager;
 
     monitor-enter v4
@@ -1066,6 +1227,7 @@
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 223
     sget-object v3, Lcom/android/server/pm/HandlerCacheManager;->observerCacheSets:Ljava/util/HashMap;
 
     new-instance v5, Ljava/lang/Integer;
@@ -1078,18 +1240,24 @@
 
     check-cast v2, Ljava/util/HashMap;
 
+    .line 226
+    .local v2, "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     if-eqz v2, :cond_2
 
+    .line 228
     if-eqz p2, :cond_0
 
+    .line 229
     const-string v3, "HandlerCacheManager"
 
     const-string/jumbo v5, "unregisterObserver() removed observerCallback "
 
     invoke-static {v3, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 230
     invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 233
     :cond_0
     invoke-virtual {v2}, Ljava/util/HashMap;->values()Ljava/util/Collection;
 
@@ -1099,6 +1267,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1112,6 +1281,8 @@
 
     check-cast v0, Landroid/content/pm/IPersonaObserver;
 
+    .line 234
+    .local v0, "callback":Landroid/content/pm/IPersonaObserver;
     const-string v3, "HandlerCacheManager"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1142,6 +1313,10 @@
 
     goto :goto_0
 
+    .line 221
+    .end local v0    # "callback":Landroid/content/pm/IPersonaObserver;
+    .end local v1    # "i$":Ljava/util/Iterator;
+    .end local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     :catchall_0
     move-exception v3
 
@@ -1149,6 +1324,9 @@
 
     throw v3
 
+    .line 236
+    .restart local v1    # "i$":Ljava/util/Iterator;
+    .restart local v2    # "observerCache":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Landroid/content/pm/IPersonaObserver;>;"
     :cond_1
     :try_start_1
     const-string v3, "HandlerCacheManager"
@@ -1159,6 +1337,8 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 238
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_2
     monitor-exit v4
 
@@ -1169,7 +1349,10 @@
 # virtual methods
 .method public onFirstBoot(I)V
     .locals 2
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 327
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$4;
@@ -1178,12 +1361,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 351
     return-void
 .end method
 
 .method public onInit(I)V
     .locals 2
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 269
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$2;
@@ -1192,18 +1379,24 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 294
     return-void
 .end method
 
 .method public onKeyGuardStateChanged(IZ)V
     .locals 2
+    .param p1, "personaId"    # I
+    .param p2, "state"    # Z
 
+    .prologue
+    .line 386
     const-string v0, "HandlerCacheManager"
 
     const-string v1, "onKeyGuardStateChanged() handler.post()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 387
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$6;
@@ -1212,12 +1405,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 408
     return-void
 .end method
 
 .method public onPersonaSwitch(I)V
     .locals 2
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 242
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$1;
@@ -1226,18 +1423,23 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 266
     return-void
 .end method
 
 .method public onSessionExpired(I)V
     .locals 2
+    .param p1, "personaId"    # I
 
+    .prologue
+    .line 355
     const-string v0, "HandlerCacheManager"
 
     const-string v1, "onSessionExpired() handler.post()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 358
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$5;
@@ -1246,12 +1448,18 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 382
     return-void
 .end method
 
 .method public onStateChange(III)V
     .locals 2
+    .param p1, "personaId"    # I
+    .param p2, "state"    # I
+    .param p3, "oldState"    # I
 
+    .prologue
+    .line 298
     iget-object v0, p0, Lcom/android/server/pm/HandlerCacheManager;->handler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/pm/HandlerCacheManager$3;
@@ -1260,5 +1468,6 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 323
     return-void
 .end method

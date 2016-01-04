@@ -84,7 +84,7 @@
 
     .line 64
     .local v0, "retVal":Ljava/lang/String;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -107,7 +107,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -149,7 +149,7 @@
 
     .prologue
     .line 144
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-nez v0, :cond_0
 
@@ -163,7 +163,7 @@
     :cond_0
     const-string v0, "from-tag"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/extensions/Join;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -175,7 +175,7 @@
 
     .prologue
     .line 112
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-nez v0, :cond_0
 
@@ -189,7 +189,7 @@
     :cond_0
     const-string v0, "to-tag"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/extensions/Join;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -203,7 +203,7 @@
     .line 163
     const-string v0, "from-tag"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/extensions/Join;->hasParameter(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameter(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -217,7 +217,7 @@
     .line 131
     const-string v0, "to-tag"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/extensions/Join;->hasParameter(Ljava/lang/String;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameter(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -229,7 +229,7 @@
 
     .prologue
     .line 169
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "from-tag"
 
@@ -244,7 +244,7 @@
 
     .prologue
     .line 137
-    iget-object v0, p0, Lgov/nist/javax/sip/header/extensions/Join;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "to-tag"
 
@@ -329,7 +329,7 @@
     :cond_1
     const-string v0, "from-tag"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/extensions/Join;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 158
     return-void
@@ -386,7 +386,7 @@
     :cond_1
     const-string v0, "to-tag"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/extensions/Join;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 126
     return-void

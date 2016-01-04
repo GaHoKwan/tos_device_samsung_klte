@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/internal/util/FileRotator;Lcom/android/internal/util/FileRotator$Reader;Lcom/android/internal/util/FileRotator$Writer;)V
     .locals 0
 
+    .prologue
+    .line 205
     iput-object p1, p0, Lcom/android/internal/util/FileRotator$1;->this$0:Lcom/android/internal/util/FileRotator;
 
     iput-object p2, p0, Lcom/android/internal/util/FileRotator$1;->val$reader:Lcom/android/internal/util/FileRotator$Reader;
@@ -44,28 +46,36 @@
 # virtual methods
 .method public read(Ljava/io/InputStream;)V
     .locals 1
+    .param p1, "in"    # Ljava/io/InputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 213
     iget-object v0, p0, Lcom/android/internal/util/FileRotator$1;->val$reader:Lcom/android/internal/util/FileRotator$Reader;
 
     invoke-interface {v0, p1}, Lcom/android/internal/util/FileRotator$Reader;->read(Ljava/io/InputStream;)V
 
+    .line 214
     return-void
 .end method
 
 .method public reset()V
     .locals 0
 
+    .prologue
+    .line 209
     return-void
 .end method
 
 .method public shouldWrite()Z
     .locals 1
 
+    .prologue
+    .line 218
     const/4 v0, 0x1
 
     return v0
@@ -73,15 +83,19 @@
 
 .method public write(Ljava/io/OutputStream;)V
     .locals 1
+    .param p1, "out"    # Ljava/io/OutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 223
     iget-object v0, p0, Lcom/android/internal/util/FileRotator$1;->val$writer:Lcom/android/internal/util/FileRotator$Writer;
 
     invoke-interface {v0, p1}, Lcom/android/internal/util/FileRotator$Writer;->write(Ljava/io/OutputStream;)V
 
+    .line 224
     return-void
 .end method

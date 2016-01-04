@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TabHost;)V
     .locals 0
 
+    .prologue
+    .line 136
     iput-object p1, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,15 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 138
     sparse-switch p2, :sswitch_data_0
 
+    .line 148
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
@@ -48,8 +56,9 @@
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->requestFocus(I)Z
+    invoke-virtual {v0, v1}, Landroid/view/View;->requestFocus(I)Z
 
+    .line 149
     iget-object v0, p0, Landroid/widget/TabHost$1;->this$0:Landroid/widget/TabHost;
 
     # getter for: Landroid/widget/TabHost;->mTabContent:Landroid/widget/FrameLayout;
@@ -57,18 +66,20 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p3}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    invoke-virtual {v0, p3}, Landroid/view/ViewGroup;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
     :goto_0
     return v0
 
+    .line 145
     :sswitch_0
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 138
     :sswitch_data_0
     .sparse-switch
         0x13 -> :sswitch_0

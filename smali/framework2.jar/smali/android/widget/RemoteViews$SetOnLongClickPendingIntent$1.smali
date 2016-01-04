@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;)V
     .locals 0
 
+    .prologue
+    .line 3174
     iput-object p1, p0, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$1;->this$1:Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,12 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 8
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const/4 v7, 0x1
 
+    .line 3176
     # getter for: Landroid/widget/RemoteViews;->mIsLongClick:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViews;->access$1000()Ljava/util/HashMap;
 
@@ -61,6 +66,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 3180
     :cond_0
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -87,12 +93,16 @@
     :try_end_0
     .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 3188
     :goto_0
     return v7
 
+    .line 3184
     :catch_0
     move-exception v6
 
+    .line 3185
+    .local v6, "e":Landroid/content/IntentSender$SendIntentException;
     const-string v0, "RemoteViews"
 
     const-string v1, "Cannot send pending intent: "

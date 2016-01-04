@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 757
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,11 +42,19 @@
 # virtual methods
 .method public compare(Lcom/android/server/pm/PackageManagerService$VerifierPackage;Lcom/android/server/pm/PackageManagerService$VerifierPackage;)I
     .locals 5
+    .param p1, "v1"    # Lcom/android/server/pm/PackageManagerService$VerifierPackage;
+    .param p2, "v2"    # Lcom/android/server/pm/PackageManagerService$VerifierPackage;
 
+    .prologue
+    .line 759
     iget-wide v0, p1, Lcom/android/server/pm/PackageManagerService$VerifierPackage;->firstInstallTime:J
 
+    .line 760
+    .local v0, "t1":J
     iget-wide v2, p2, Lcom/android/server/pm/PackageManagerService$VerifierPackage;->firstInstallTime:J
 
+    .line 761
+    .local v2, "t2":J
     cmp-long v4, v0, v2
 
     if-lez v4, :cond_0
@@ -71,11 +81,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 757
     check-cast p1, Lcom/android/server/pm/PackageManagerService$VerifierPackage;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/pm/PackageManagerService$VerifierPackage;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$1;->compare(Lcom/android/server/pm/PackageManagerService$VerifierPackage;Lcom/android/server/pm/PackageManagerService$VerifierPackage;)I
 
     move-result v0

@@ -3262,7 +3262,7 @@
 
     .line 375
     .local v0, "id":I
-    const-string v1, "www.google.com"
+    const-string/jumbo v1, "www.google.com"
 
     invoke-direct {p0, v1}, Landroid/net/DnsPinger;->updateDnsResultMap(Ljava/lang/String;)V
 
@@ -3277,7 +3277,7 @@
 
     move-result v3
 
-    const-string v4, "www.google.com"
+    const-string/jumbo v4, "www.google.com"
 
     invoke-direct {v2, p0, p1, v3, v4}, Landroid/net/DnsPinger$DnsArg;-><init>(Landroid/net/DnsPinger;Ljava/net/InetAddress;ILjava/lang/String;)V
 

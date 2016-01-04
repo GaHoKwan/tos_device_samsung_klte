@@ -788,7 +788,7 @@
 
     move-result-object v23
 
-    const v24, 0x10802bd
+    const v24, 0x10802bc
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
     :try_end_4

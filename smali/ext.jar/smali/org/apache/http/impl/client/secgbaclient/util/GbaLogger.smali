@@ -21,7 +21,7 @@
     .line 35
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/impl/client/secgbaclient/util/GbaLogger;->setLevel(I)V
+    invoke-virtual {p0, v0}, Lorg/apache/commons/logging/impl/SimpleLog;->setLevel(I)V
 
     .line 37
     return-void
@@ -65,7 +65,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/impl/client/secgbaclient/util/GbaLogger;->debug(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lorg/apache/commons/logging/impl/SimpleLog;->debug(Ljava/lang/Object;)V
 
     .line 44
     return-void
@@ -107,7 +107,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/impl/client/secgbaclient/util/GbaLogger;->error(Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lorg/apache/commons/logging/impl/SimpleLog;->error(Ljava/lang/Object;)V
 
     .line 51
     return-void

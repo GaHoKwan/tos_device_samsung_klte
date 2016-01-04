@@ -17,7 +17,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 57
     invoke-direct {p0, p1}, Lcom/android/server/firewall/FilterFactory;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -27,6 +30,7 @@
 # virtual methods
 .method public newFilter(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/firewall/Filter;
     .locals 5
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -34,16 +38,21 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 60
     const-string/jumbo v1, "type"
 
     invoke-interface {p1, v4, v1}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 61
+    .local v0, "typeString":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 62
     new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 
     const-string/jumbo v2, "type attribute must be specified for <sender>"
@@ -52,6 +61,7 @@
 
     throw v1
 
+    .line 65
     :cond_0
     const-string/jumbo v1, "system"
 
@@ -61,14 +71,17 @@
 
     if-eqz v1, :cond_1
 
+    .line 66
     # getter for: Lcom/android/server/firewall/SenderFilter;->SYSTEM:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$000()Lcom/android/server/firewall/Filter;
 
     move-result-object v1
 
+    .line 72
     :goto_0
     return-object v1
 
+    .line 67
     :cond_1
     const-string/jumbo v1, "signature"
 
@@ -78,6 +91,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 68
     # getter for: Lcom/android/server/firewall/SenderFilter;->SIGNATURE:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$100()Lcom/android/server/firewall/Filter;
 
@@ -85,6 +99,7 @@
 
     goto :goto_0
 
+    .line 69
     :cond_2
     const-string/jumbo v1, "system|signature"
 
@@ -94,6 +109,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 70
     # getter for: Lcom/android/server/firewall/SenderFilter;->SYSTEM_OR_SIGNATURE:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$200()Lcom/android/server/firewall/Filter;
 
@@ -101,6 +117,7 @@
 
     goto :goto_0
 
+    .line 71
     :cond_3
     const-string/jumbo v1, "userId"
 
@@ -110,6 +127,7 @@
 
     if-eqz v1, :cond_4
 
+    .line 72
     # getter for: Lcom/android/server/firewall/SenderFilter;->USER_ID:Lcom/android/server/firewall/Filter;
     invoke-static {}, Lcom/android/server/firewall/SenderFilter;->access$300()Lcom/android/server/firewall/Filter;
 
@@ -117,6 +135,7 @@
 
     goto :goto_0
 
+    .line 74
     :cond_4
     new-instance v1, Lorg/xmlpull/v1/XmlPullParserException;
 

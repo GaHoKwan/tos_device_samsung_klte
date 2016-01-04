@@ -36,6 +36,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 37
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -68,14 +70,19 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 654
     return-void
 .end method
 
 .method static synthetic access$100()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 36
     sget-object v0, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     return-object v0
@@ -83,12 +90,16 @@
 
 .method static synthetic access$700(Lcom/android/server/connectivity/VpnNamespace;Ljava/lang/String;)Z
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/connectivity/VpnNamespace;
+    .param p1, "x1"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 36
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/VpnNamespace;->checkIf(Ljava/lang/String;)Z
 
     move-result v0
@@ -98,16 +109,21 @@
 
 .method private declared-synchronized checkIf(Ljava/lang/String;)Z
     .locals 4
+    .param p1, "name"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 98
     monitor-enter p0
 
     const/4 v1, -0x1
 
+    .line 100
+    .local v1, "idx":I
     :try_start_0
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
 
@@ -117,6 +133,8 @@
 
     invoke-direct {v0, p0, v2, v3}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;-><init>(Lcom/android/server/connectivity/VpnNamespace;Ljava/lang/String;Lcom/android/server/connectivity/VpnNamespace$1;)V
 
+    .line 102
+    .local v0, "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     sget-object v2, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETIFIDX:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {v0, v2, p1}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;Ljava/lang/String;)Ljava/lang/Object;
@@ -129,8 +147,10 @@
 
     move-result v1
 
+    .line 103
     invoke-virtual {v0}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->destroy()V
 
+    .line 104
     iget-object v2, p0, Lcom/android/server/connectivity/VpnNamespace;->nsIfIdx:Ljava/lang/Integer;
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -147,6 +167,8 @@
 
     return v2
 
+    .line 98
+    .end local v0    # "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     :catchall_0
     move-exception v2
 
@@ -157,12 +179,17 @@
 
 .method private setAddresses(Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;ILcom/android/internal/net/VpnConfig;)V
     .locals 9
+    .param p1, "cmd"    # Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
+    .param p2, "idx"    # I
+    .param p3, "cfg"    # Lcom/android/internal/net/VpnConfig;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 114
     iget-object v6, p3, Lcom/android/internal/net/VpnConfig;->addresses:Ljava/util/List;
 
     if-eqz v6, :cond_0
@@ -175,6 +202,7 @@
 
     if-eqz v6, :cond_1
 
+    .line 115
     :cond_0
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
@@ -184,15 +212,19 @@
 
     throw v6
 
+    .line 118
     :cond_1
     const/4 v1, 0x0
 
+    .line 120
+    .local v1, "count":I
     iget-object v6, p3, Lcom/android/internal/net/VpnConfig;->addresses:Ljava/util/List;
 
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_2
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -207,11 +239,15 @@
 
     check-cast v4, Landroid/net/LinkAddress;
 
+    .line 126
+    .local v4, "lAddr":Landroid/net/LinkAddress;
     :try_start_0
     invoke-static {p2, v4}, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->fromLinkAddress(ILandroid/net/LinkAddress;)Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
 
     move-result-object v0
 
+    .line 127
+    .local v0, "a":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     sget-object v6, Lcom/android/server/connectivity/VpnNamespace$Cmd;->SETIFCONFIG:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {p1, v6, v0}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;)Ljava/lang/Object;
@@ -227,15 +263,23 @@
 
     move-result v5
 
+    .line 129
+    .local v5, "res":I
     if-nez v5, :cond_2
 
+    .line 130
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 132
+    .end local v0    # "a":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
+    .end local v5    # "res":I
     :catch_0
     move-exception v2
 
+    .line 133
+    .local v2, "e":Ljava/io/IOException;
     sget-object v6, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -260,9 +304,13 @@
 
     goto :goto_0
 
+    .line 134
+    .end local v2    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v2
 
+    .line 135
+    .local v2, "e":Ljava/lang/IllegalArgumentException;
     sget-object v6, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -297,9 +345,13 @@
 
     goto :goto_0
 
+    .line 138
+    .end local v2    # "e":Ljava/lang/IllegalArgumentException;
+    .end local v4    # "lAddr":Landroid/net/LinkAddress;
     :cond_3
     if-gtz v1, :cond_4
 
+    .line 139
     sget-object v6, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -324,6 +376,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 140
     new-instance v6, Ljava/io/IOException;
 
     const-string v7, "none of the proveded network addresses could be set"
@@ -332,13 +385,19 @@
 
     throw v6
 
+    .line 142
     :cond_4
     return-void
 .end method
 
 .method private setRoutes(Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;ILcom/android/internal/net/VpnConfig;)V
     .locals 8
+    .param p1, "cmd"    # Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
+    .param p2, "idx"    # I
+    .param p3, "cfg"    # Lcom/android/internal/net/VpnConfig;
 
+    .prologue
+    .line 151
     iget-object v5, p3, Lcom/android/internal/net/VpnConfig;->routes:Ljava/util/List;
 
     if-eqz v5, :cond_0
@@ -351,6 +410,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 152
     :cond_0
     sget-object v5, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
@@ -358,9 +418,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 173
     :cond_1
     return-void
 
+    .line 156
     :cond_2
     iget-object v5, p3, Lcom/android/internal/net/VpnConfig;->routes:Ljava/util/List;
 
@@ -368,6 +430,7 @@
 
     move-result-object v2
 
+    .local v2, "i$":Ljava/util/Iterator;
     :cond_3
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -382,17 +445,24 @@
 
     check-cast v4, Landroid/net/RouteInfo;
 
+    .line 162
+    .local v4, "route":Landroid/net/RouteInfo;
     :try_start_0
     invoke-virtual {v4}, Landroid/net/RouteInfo;->getDestination()Landroid/net/LinkAddress;
 
     move-result-object v3
 
+    .line 163
+    .local v3, "lAddr":Landroid/net/LinkAddress;
     if-eqz v3, :cond_3
 
+    .line 164
     invoke-static {p2, v3}, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->fromLinkAddress(ILandroid/net/LinkAddress;)Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
 
     move-result-object v0
 
+    .line 165
+    .local v0, "a":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     sget-object v5, Lcom/android/server/connectivity/VpnNamespace$Cmd;->SETROUTE:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {p1, v5, v0}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;)Ljava/lang/Object;
@@ -408,9 +478,14 @@
 
     goto :goto_0
 
+    .line 167
+    .end local v0    # "a":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
+    .end local v3    # "lAddr":Landroid/net/LinkAddress;
     :catch_0
     move-exception v1
 
+    .line 168
+    .local v1, "e":Ljava/io/IOException;
     sget-object v5, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -435,9 +510,13 @@
 
     goto :goto_0
 
+    .line 169
+    .end local v1    # "e":Ljava/io/IOException;
     :catch_1
     move-exception v1
 
+    .line 170
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     sget-object v5, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -478,6 +557,8 @@
 .method declared-synchronized close()V
     .locals 1
 
+    .prologue
+    .line 80
     monitor-enter p0
 
     :try_start_0
@@ -485,21 +566,25 @@
 
     if-eqz v0, :cond_0
 
+    .line 81
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
 
     invoke-virtual {v0}, Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;->quit()V
 
+    .line 82
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 84
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 80
     :catchall_0
     move-exception v0
 
@@ -510,12 +595,17 @@
 
 .method declared-synchronized establish(Ljava/lang/String;Lcom/android/internal/net/VpnConfig;Lcom/android/server/connectivity/Vpn;)V
     .locals 3
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "config"    # Lcom/android/internal/net/VpnConfig;
+    .param p3, "vpn"    # Lcom/android/server/connectivity/Vpn;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 56
     monitor-enter p0
 
     :try_start_0
@@ -527,10 +617,13 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;-><init>(Lcom/android/server/connectivity/VpnNamespace;Ljava/lang/String;Lcom/android/server/connectivity/VpnNamespace$1;)V
 
+    .line 58
+    .local v0, "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$Cmd;->PUSHIF:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {v0, v1, p1}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;Ljava/lang/String;)Ljava/lang/Object;
 
+    .line 61
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETIFIDX:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {v0, v1, p1}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;Ljava/lang/String;)Ljava/lang/Object;
@@ -541,6 +634,7 @@
 
     iput-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsIfIdx:Ljava/lang/Integer;
 
+    .line 62
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$Cmd;->GETVMID:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     invoke-virtual {v0, v1}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;)Ljava/lang/Object;
@@ -551,6 +645,7 @@
 
     iput-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsVmId:Ljava/lang/Integer;
 
+    .line 64
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsIfIdx:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -559,6 +654,7 @@
 
     invoke-direct {p0, v0, v1, p2}, Lcom/android/server/connectivity/VpnNamespace;->setAddresses(Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;ILcom/android/internal/net/VpnConfig;)V
 
+    .line 65
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsIfIdx:Ljava/lang/Integer;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -567,29 +663,35 @@
 
     invoke-direct {p0, v0, v1, p2}, Lcom/android/server/connectivity/VpnNamespace;->setRoutes(Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;ILcom/android/internal/net/VpnConfig;)V
 
+    .line 67
     invoke-virtual {v0}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->destroy()V
 
+    .line 68
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
 
     if-nez v1, :cond_0
 
+    .line 69
     new-instance v1, Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
 
     invoke-direct {v1, p0, p1, p3}, Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;-><init>(Lcom/android/server/connectivity/VpnNamespace;Ljava/lang/String;Lcom/android/server/connectivity/Vpn;)V
 
     iput-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
 
+    .line 70
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
 
-    invoke-virtual {v1}, Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;->start()V
+    invoke-virtual {v1}, Ljava/lang/Thread;->start()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 74
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 72
     :cond_0
     :try_start_1
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace;->nsMon:Lcom/android/server/connectivity/VpnNamespace$TunnelMonitorThread;
@@ -600,6 +702,8 @@
 
     goto :goto_0
 
+    .line 56
+    .end local v0    # "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     :catchall_0
     move-exception v1
 
@@ -616,6 +720,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 87
     monitor-enter p0
 
     :try_start_0
@@ -627,6 +733,8 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;-><init>(Lcom/android/server/connectivity/VpnNamespace;Ljava/lang/String;Lcom/android/server/connectivity/VpnNamespace$1;)V
 
+    .line 88
+    .local v0, "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$Cmd;->REMOVEIF:Lcom/android/server/connectivity/VpnNamespace$Cmd;
 
     iget-object v2, p0, Lcom/android/server/connectivity/VpnNamespace;->nsIfIdx:Ljava/lang/Integer;
@@ -637,6 +745,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->execute(Lcom/android/server/connectivity/VpnNamespace$Cmd;I)Ljava/lang/Object;
 
+    .line 89
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -667,14 +776,18 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 90
     invoke-virtual {v0}, Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;->destroy()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 91
     monitor-exit p0
 
     return-void
 
+    .line 87
+    .end local v0    # "cmd":Lcom/android/server/connectivity/VpnNamespace$VpnSvrCommand;
     :catchall_0
     move-exception v1
 

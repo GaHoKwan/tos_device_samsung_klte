@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/HTML5VideoView;)V
     .locals 0
 
+    .prologue
+    .line 102
     iput-object p1, p0, Landroid/webkitsec/HTML5VideoView$1;->this$0:Landroid/webkitsec/HTML5VideoView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,17 +38,22 @@
 # virtual methods
 .method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 2
+    .param p1, "motionEvent"    # Landroid/hardware/motion/MREvent;
 
+    .prologue
+    .line 105
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
     packed-switch v0, :pswitch_data_0
 
+    .line 113
     :cond_0
     :goto_0
     return-void
 
+    .line 107
     :pswitch_0
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoView$1;->this$0:Landroid/webkitsec/HTML5VideoView;
 
@@ -56,12 +63,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 108
     const-string v0, "HTML5VideoView"
 
     const-string v1, "MRListener() - Pause by Turn Over"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 109
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoView$1;->this$0:Landroid/webkitsec/HTML5VideoView;
 
     iget-object v1, p0, Landroid/webkitsec/HTML5VideoView$1;->this$0:Landroid/webkitsec/HTML5VideoView;
@@ -72,6 +81,7 @@
 
     goto :goto_0
 
+    .line 105
     nop
 
     :pswitch_data_0

@@ -66,6 +66,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 35
     invoke-static {}, Landroid/os/Debug;->isProductShip()I
 
     move-result v0
@@ -77,6 +79,7 @@
     :goto_0
     sput-boolean v0, Lcom/samsung/android/secretmode/SecretModeManager;->DEBUG:Z
 
+    .line 107
     new-instance v0, Landroid/content/ComponentName;
 
     const-string v1, "com.samsung.android.personalpage.service"
@@ -89,6 +92,7 @@
 
     return-void
 
+    .line 35
     :cond_0
     const/4 v0, 0x0
 
@@ -98,6 +102,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -105,7 +111,10 @@
 
 .method public static getPersonalPageRoot(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 118
     const-string v0, "/storage/Private"
 
     return-object v0
@@ -113,9 +122,12 @@
 
 .method public static getSecretDir(Landroid/content/Context;)Ljava/lang/String;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 113
     const-string v0, "/storage/Private"
 
     return-object v0
@@ -124,6 +136,8 @@
 .method public static isPersonalPageMode()Z
     .locals 3
 
+    .prologue
+    .line 181
     const-string/jumbo v1, "sys.samsung.personalpage.mode"
 
     const-string v2, "0"
@@ -132,6 +146,8 @@
 
     move-result-object v0
 
+    .line 183
+    .local v0, "result":Ljava/lang/String;
     const-string v1, "1"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -143,23 +159,31 @@
 
 .method public static isPersonalPageMounted(Landroid/content/Context;)Z
     .locals 8
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 128
     const/4 v1, 0x0
 
+    .line 130
+    .local v1, "isMouted":Z
     if-nez p0, :cond_1
 
+    .line 131
     const-string v5, "SecretModeManager"
 
     const-string v6, "isPersonalPageMounted: context is null"
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 160
     :cond_0
     :goto_0
     return v4
 
+    .line 135
     :cond_1
     const-string/jumbo v5, "storage"
 
@@ -169,10 +193,13 @@
 
     check-cast v2, Landroid/os/storage/StorageManager;
 
+    .line 137
+    .local v2, "mStorageMgr":Landroid/os/storage/StorageManager;
     sget-boolean v5, Lcom/samsung/android/secretmode/SecretModeManager;->DEBUG:Z
 
     if-eqz v5, :cond_2
 
+    .line 138
     const-string v5, "SecretModeManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -199,6 +226,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 141
     :cond_2
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
@@ -212,6 +240,7 @@
 
     if-nez v5, :cond_0
 
+    .line 145
     const-string v5, "0"
 
     const-string/jumbo v6, "sys.samsung.personalpage.mode"
@@ -228,8 +257,10 @@
 
     if-nez v5, :cond_0
 
+    .line 149
     if-eqz v2, :cond_3
 
+    .line 151
     :try_start_0
     const-string v4, "/storage/Private"
 
@@ -237,6 +268,8 @@
 
     move-result-object v3
 
+    .line 152
+    .local v3, "status":Ljava/lang/String;
     const-string/jumbo v4, "mounted"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -247,17 +280,23 @@
 
     if-eqz v4, :cond_3
 
+    .line 153
     const/4 v1, 0x1
 
+    .end local v3    # "status":Ljava/lang/String;
     :cond_3
     :goto_1
     move v4, v1
 
+    .line 160
     goto :goto_0
 
+    .line 155
     :catch_0
     move-exception v0
 
+    .line 156
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     goto :goto_1
@@ -265,9 +304,12 @@
 
 .method public static isSecretDirMounted(Landroid/content/Context;)Z
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 123
     invoke-static {p0}, Lcom/samsung/android/secretmode/SecretModeManager;->isPersonalPageMounted(Landroid/content/Context;)Z
 
     move-result v0
@@ -280,6 +322,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 171
     invoke-static {}, Lcom/samsung/android/secretmode/SecretModeManager;->isPersonalPageMode()Z
 
     move-result v0
@@ -289,35 +333,49 @@
 
 .method public static showVisualCue(Landroid/content/Context;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)Z
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "success"    # Landroid/app/PendingIntent;
+    .param p2, "fail"    # Landroid/app/PendingIntent;
 
+    .prologue
+    .line 188
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "com.samsung.android.personalpage.action.SHOW_VISUAL_CUE"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 189
+    .local v1, "intent":Landroid/content/Intent;
     sget-object v2, Lcom/samsung/android/secretmode/SecretModeManager;->SECRETMODE_SERVICE:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
+    .line 190
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .line 191
+    .local v0, "data":Landroid/os/Bundle;
     const-string v2, "SuccessPendingIntent"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 192
     const-string v2, "FailPendingIntent"
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 193
     const-string v2, "PendingIntentData"
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
+    .line 194
     invoke-virtual {p0, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
+    .line 196
     const/4 v2, 0x1
 
     return v2

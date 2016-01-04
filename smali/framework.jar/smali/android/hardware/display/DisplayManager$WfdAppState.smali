@@ -145,7 +145,7 @@
     .line 391
     sget-object v0, Landroid/hardware/display/DisplayManager$WfdAppState;->$VALUES:[Landroid/hardware/display/DisplayManager$WfdAppState;
 
-    invoke-virtual {v0}, [Landroid/hardware/display/DisplayManager$WfdAppState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

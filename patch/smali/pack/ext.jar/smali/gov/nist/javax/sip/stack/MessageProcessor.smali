@@ -333,7 +333,7 @@
 
     .line 179
     .local v0, "ex":Ljava/text/ParseException;
-    invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v2, v3
 
@@ -347,7 +347,7 @@
 
     .line 182
     .local v0, "ex":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v2, v3
 

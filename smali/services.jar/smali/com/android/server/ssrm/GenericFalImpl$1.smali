@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 133
     invoke-static {}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->values()[Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ADONIS:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ADONISPRIME:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ADONISPRIME2:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->HELSINKY:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -101,7 +103,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ADONISMINI:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -117,7 +119,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->EXYNOS4:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -133,7 +135,7 @@
 
     sget-object v1, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->PXA1088:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

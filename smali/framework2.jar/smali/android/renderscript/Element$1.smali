@@ -24,6 +24,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 948
     invoke-static {}, Landroid/renderscript/Element$DataKind;->values()[Landroid/renderscript/Element$DataKind;
 
     move-result-object v0
@@ -39,7 +41,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_LA:Landroid/renderscript/Element$DataKind;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataKind;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +57,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_RGB:Landroid/renderscript/Element$DataKind;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataKind;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +73,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_RGBA:Landroid/renderscript/Element$DataKind;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataKind;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -87,7 +89,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataKind;->PIXEL_DEPTH:Landroid/renderscript/Element$DataKind;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataKind;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -97,6 +99,7 @@
     :try_end_3
     .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_b
 
+    .line 878
     :goto_3
     invoke-static {}, Landroid/renderscript/Element$DataType;->values()[Landroid/renderscript/Element$DataType;
 
@@ -113,7 +116,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->FLOAT_32:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -129,7 +132,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->FLOAT_64:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -145,7 +148,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_8:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -161,7 +164,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_16:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -177,7 +180,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_32:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -193,7 +196,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->SIGNED_64:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -209,7 +212,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_8:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -225,7 +228,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_16:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -241,7 +244,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_32:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -257,7 +260,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->UNSIGNED_64:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -273,7 +276,7 @@
 
     sget-object v1, Landroid/renderscript/Element$DataType;->BOOLEAN:Landroid/renderscript/Element$DataType;
 
-    invoke-virtual {v1}, Landroid/renderscript/Element$DataType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -341,6 +344,7 @@
 
     goto/16 :goto_4
 
+    .line 948
     :catch_b
     move-exception v0
 

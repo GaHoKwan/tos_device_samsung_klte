@@ -39,14 +39,18 @@
 .method constructor <init>(Lcom/android/server/DeviceManager3LMService;)V
     .locals 1
 
+    .prologue
+    .line 1819
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService$RulesEngine;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1817
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/DeviceManager3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
+    .line 1819
     return-void
 .end method
 
@@ -65,16 +69,27 @@
         }
     .end annotation
 
+    .prologue
+    .line 1867
+    .local p1, "regexMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     return-void
 .end method
 
 .method public checkPolicy(Ljava/lang/String;Z)Z
     .locals 3
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "def"    # Z
 
+    .prologue
+    .line 1900
     move v1, p2
 
+    .line 1901
+    .local v1, "returnCode":Z
     const/4 v0, 0x0
 
+    .line 1904
+    .local v0, "longestRegexStrMatch":I
     const/4 v2, 0x1
 
     return v2
@@ -83,6 +98,8 @@
 .method public isInitialized()Z
     .locals 1
 
+    .prologue
+    .line 1823
     const/4 v0, 0x0
 
     return v0
@@ -101,6 +118,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 1884
+    .local p1, "regexPermMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v0, 0x1
 
     return v0
@@ -108,7 +128,11 @@
 
 .method public updatePolicy(Ljava/lang/String;Z)Z
     .locals 1
+    .param p1, "regex"    # Ljava/lang/String;
+    .param p2, "permitted"    # Z
 
+    .prologue
+    .line 1837
     const/4 v0, 0x0
 
     return v0

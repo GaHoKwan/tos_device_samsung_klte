@@ -39,7 +39,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->WALK:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->VEHICLE:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->STATIONARY:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -87,7 +87,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_NOT_AVAILABLE:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -103,7 +103,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_AVAILABLE:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -119,7 +119,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->START:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -135,7 +135,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_REQ:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -151,7 +151,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_FOUND_NETWORK:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -167,7 +167,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_FOUND_GPS:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -183,7 +183,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_REQ_GPS_TIMEOUT:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -199,7 +199,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->STOP:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -215,7 +215,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_REQ_NLP_TIMEOUT:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -231,7 +231,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->CHECK_GPS_WIFI:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -247,7 +247,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_PASSIVE_AVAILABLE:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -263,7 +263,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_FOUND_BATCH:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -279,7 +279,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_BATCH_TIMEOUT:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -295,7 +295,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_FOUND_PASSIVE:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -311,7 +311,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_BATCH_STARTED:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -327,7 +327,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->LOC_MGR_RETRY:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -343,7 +343,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->PASSIVE_INACTIVE_TIMEOUT:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -359,7 +359,7 @@
 
     sget-object v1, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->GPS_BATCH_ENDED:Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/lpp/LppLocationManager$Msg;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

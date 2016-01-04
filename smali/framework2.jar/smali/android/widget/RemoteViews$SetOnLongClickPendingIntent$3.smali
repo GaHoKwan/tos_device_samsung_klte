@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;)V
     .locals 0
 
+    .prologue
+    .line 3248
     iput-object p1, p0, Landroid/widget/RemoteViews$SetOnLongClickPendingIntent$3;->this$1:Landroid/widget/RemoteViews$SetOnLongClickPendingIntent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,17 +38,24 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 9
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 3250
     const/16 v0, 0x42
 
     if-eq p2, v0, :cond_1
 
+    .line 3278
     :cond_0
     :goto_0
     return v8
 
+    .line 3251
     :cond_1
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
@@ -56,6 +65,7 @@
 
     goto :goto_0
 
+    .line 3253
     :pswitch_0
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getRepeatCount()I
 
@@ -63,6 +73,7 @@
 
     if-nez v0, :cond_0
 
+    .line 3254
     # getter for: Landroid/widget/RemoteViews;->mIsLongClick:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViews;->access$1000()Ljava/util/HashMap;
 
@@ -87,6 +98,7 @@
 
     goto :goto_0
 
+    .line 3260
     :pswitch_1
     # getter for: Landroid/widget/RemoteViews;->mIsLongClick:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViews;->access$1000()Ljava/util/HashMap;
@@ -110,14 +122,17 @@
 
     check-cast v7, Ljava/lang/Boolean;
 
+    .local v7, "isLongClick":Ljava/lang/Boolean;
     if-eqz v7, :cond_0
 
+    .line 3261
     invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 3263
     # getter for: Landroid/widget/RemoteViews;->mIsLongClick:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViews;->access$1000()Ljava/util/HashMap;
 
@@ -133,6 +148,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 3266
     :try_start_0
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
@@ -160,9 +176,12 @@
 
     goto :goto_0
 
+    .line 3270
     :catch_0
     move-exception v6
 
+    .line 3271
+    .local v6, "e":Landroid/content/IntentSender$SendIntentException;
     const-string v0, "RemoteViews"
 
     const-string v1, "Cannot send pending intent: "
@@ -171,6 +190,7 @@
 
     goto :goto_0
 
+    .line 3251
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

@@ -24,7 +24,7 @@
 
     .prologue
     .line 69
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.allow-circular-redirects"
 
@@ -40,7 +40,7 @@
 
     .prologue
     .line 53
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.connection-manager.factory-object"
 
@@ -56,7 +56,7 @@
 
     .prologue
     .line 49
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.connection-manager.factory-class-name"
 
@@ -72,7 +72,7 @@
 
     .prologue
     .line 77
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.cookie-policy"
 
@@ -97,7 +97,7 @@
     .prologue
     .line 85
     .local p1, "headers":Ljava/util/Collection;, "Ljava/util/Collection<Lorg/apache/http/Header;>;"
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.default-headers"
 
@@ -113,7 +113,7 @@
 
     .prologue
     .line 89
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.default-host"
 
@@ -129,7 +129,7 @@
 
     .prologue
     .line 73
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.handle-authentication"
 
@@ -145,7 +145,7 @@
 
     .prologue
     .line 57
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.handle-redirects"
 
@@ -161,7 +161,7 @@
 
     .prologue
     .line 65
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.max-redirects"
 
@@ -177,7 +177,7 @@
 
     .prologue
     .line 61
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.protocol.reject-relative-redirect"
 
@@ -193,7 +193,7 @@
 
     .prologue
     .line 81
-    iget-object v0, p0, Lorg/apache/http/client/params/ClientParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.virtual-host"
 

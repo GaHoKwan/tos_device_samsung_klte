@@ -47,9 +47,9 @@
 
     .line 54
     .local v0, "retval":Lgov/nist/javax/sip/header/AllowList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/AllowList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/AllowList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     .line 55
     return-object v0
@@ -75,7 +75,7 @@
 
     .line 82
     .local v2, "ll":Ljava/util/LinkedList;, "Ljava/util/LinkedList<Ljava/lang/String;>;"
-    iget-object v3, p0, Lgov/nist/javax/sip/header/AllowList;->hlist:Ljava/util/List;
+    iget-object v3, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -109,7 +109,7 @@
     .line 87
     .end local v0    # "a":Lgov/nist/javax/sip/header/Allow;
     :cond_0
-    invoke-virtual {v2}, Ljava/util/LinkedList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v2}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v3
 
@@ -166,7 +166,7 @@
     invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/Allow;->setMethod(Ljava/lang/String;)V
 
     .line 110
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/AllowList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     goto :goto_0
 

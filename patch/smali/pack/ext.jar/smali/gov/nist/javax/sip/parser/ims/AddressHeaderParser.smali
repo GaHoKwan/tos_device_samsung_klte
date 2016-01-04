@@ -43,13 +43,13 @@
     .line 58
     const-string v3, "AddressHeaderParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/AddressHeaderParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 60
     :try_start_0
     new-instance v1, Lgov/nist/javax/sip/parser/AddressParser;
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/ims/AddressHeaderParser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
 
     move-result-object v3
 
@@ -73,7 +73,7 @@
     .line 68
     const-string v3, "AddressParametersParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/AddressHeaderParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 70
     return-void
@@ -98,7 +98,7 @@
 
     const-string v4, "AddressParametersParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ims/AddressHeaderParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     throw v3
 .end method

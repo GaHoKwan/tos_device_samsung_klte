@@ -41,17 +41,17 @@
 
     .prologue
     .line 53
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 54
     :goto_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v1, v2}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -60,19 +60,19 @@
     if-ne v1, v2, :cond_0
 
     .line 55
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {v1, v2}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 57
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 58
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/ParametersParser;->nameValue()Lgov/nist/core/NameValue;
+    invoke-virtual {p0}, Lgov/nist/core/ParserCore;->nameValue()Lgov/nist/core/NameValue;
 
     move-result-object v0
 
@@ -81,7 +81,7 @@
     invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
 
     .line 61
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -108,12 +108,12 @@
 
     .line 71
     :goto_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 72
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/ParametersParser;->nameValue()Lgov/nist/core/NameValue;
+    invoke-virtual {p0}, Lgov/nist/core/ParserCore;->nameValue()Lgov/nist/core/NameValue;
 
     move-result-object v0
 
@@ -132,16 +132,16 @@
     invoke-virtual {p1, v2, v1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 75
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 76
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v1, v2}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v1
 
@@ -154,11 +154,11 @@
 
     .line 77
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {v1, v2}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     goto :goto_0
 .end method

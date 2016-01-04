@@ -24,8 +24,11 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 48
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/PermissionDialogResult$Result;->mHasResult:Z
@@ -38,8 +41,11 @@
 .method public get()I
     .locals 1
 
+    .prologue
+    .line 37
     monitor-enter p0
 
+    .line 38
     :goto_0
     :try_start_0
     iget-boolean v0, p0, Lcom/android/server/PermissionDialogResult$Result;->mHasResult:Z
@@ -48,6 +54,7 @@
 
     if-nez v0, :cond_0
 
+    .line 40
     :try_start_1
     invoke-virtual {p0}, Ljava/lang/Object;->wait()V
     :try_end_1
@@ -56,21 +63,25 @@
 
     goto :goto_0
 
+    .line 41
     :catch_0
     move-exception v0
 
     goto :goto_0
 
+    .line 44
     :cond_0
     :try_start_2
     monitor-exit p0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 45
     iget v0, p0, Lcom/android/server/PermissionDialogResult$Result;->mResult:I
 
     return v0
 
+    .line 44
     :catchall_0
     move-exception v0
 
@@ -84,22 +95,31 @@
 
 .method public set(I)V
     .locals 1
+    .param p1, "res"    # I
 
+    .prologue
+    .line 29
     monitor-enter p0
 
+    .line 30
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/PermissionDialogResult$Result;->mHasResult:Z
 
+    .line 31
     iput p1, p0, Lcom/android/server/PermissionDialogResult$Result;->mResult:I
 
+    .line 32
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
+    .line 33
     monitor-exit p0
 
+    .line 34
     return-void
 
+    .line 33
     :catchall_0
     move-exception v0
 

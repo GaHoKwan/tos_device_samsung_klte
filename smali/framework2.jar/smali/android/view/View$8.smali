@@ -26,7 +26,10 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 19178
     invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
@@ -36,7 +39,10 @@
 # virtual methods
 .method public get(Landroid/view/View;)Ljava/lang/Float;
     .locals 1
+    .param p1, "object"    # Landroid/view/View;
 
+    .prologue
+    .line 19186
     invoke-virtual {p1}, Landroid/view/View;->getRotation()F
 
     move-result v0
@@ -50,9 +56,13 @@
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 19178
     check-cast p1, Landroid/view/View;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Landroid/view/View$8;->get(Landroid/view/View;)Ljava/lang/Float;
 
     move-result-object v0
@@ -62,17 +72,27 @@
 
 .method public setValue(Landroid/view/View;F)V
     .locals 0
+    .param p1, "object"    # Landroid/view/View;
+    .param p2, "value"    # F
 
+    .prologue
+    .line 19181
     invoke-virtual {p1, p2}, Landroid/view/View;->setRotation(F)V
 
+    .line 19182
     return-void
 .end method
 
 .method public bridge synthetic setValue(Ljava/lang/Object;F)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # F
 
+    .prologue
+    .line 19178
     check-cast p1, Landroid/view/View;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Landroid/view/View$8;->setValue(Landroid/view/View;F)V
 
     return-void

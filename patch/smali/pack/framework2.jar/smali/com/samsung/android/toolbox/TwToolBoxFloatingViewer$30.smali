@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 1511
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$30;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 3
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 1514
     :try_start_0
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
@@ -44,6 +49,8 @@
 
     check-cast v0, Ljava/lang/Integer;
 
+    .line 1515
+    .local v0, "value":Ljava/lang/Integer;
     iget-object v1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$30;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
@@ -53,15 +60,19 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mMainCharacterDegree:I
     invoke-static {v1, v2}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$5302(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;I)I
 
+    .line 1516
     iget-object v1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$30;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
-    invoke-virtual {v1}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->invalidate()V
+    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1519
+    .end local v0    # "value":Ljava/lang/Integer;
     :goto_0
     return-void
 
+    .line 1517
     :catch_0
     move-exception v1
 

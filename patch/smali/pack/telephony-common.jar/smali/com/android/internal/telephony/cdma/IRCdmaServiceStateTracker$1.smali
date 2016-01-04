@@ -48,7 +48,7 @@
     .local v0, "action":Ljava/lang/String;
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mCr:Landroid/content/ContentResolver;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mCr:Landroid/content/ContentResolver;
 
     const-string v11, "airplane_mode_on"
 
@@ -107,7 +107,7 @@
     .line 844
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isPwrSaveModeTimerRunning()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isPwrSaveModeTimerRunning()Z
 
     move-result v10
 
@@ -134,11 +134,11 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v12, 0x1
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
+    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/ServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
 
     .line 1069
     :cond_1
@@ -159,11 +159,11 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v12, 0x0
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
+    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/ServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
 
     goto :goto_1
 
@@ -270,9 +270,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isGlobalMode(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->isGlobalMode(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v10
 
@@ -282,9 +282,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->globalNoSvcChkTimerRequired(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->globalNoSvcChkTimerRequired(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v10
 
@@ -292,7 +292,7 @@
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isChinaAreas()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isChinaAreas()Z
 
     move-result v10
 
@@ -301,7 +301,7 @@
     .line 873
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isPwrSaveModeRequired()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isPwrSaveModeRequired()Z
 
     move-result v10
 
@@ -312,11 +312,11 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v12, 0x1
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->startPwrSaveModeTimer(Lcom/android/internal/telephony/PhoneBase;I)V
+    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/ServiceStateTracker;->startPwrSaveModeTimer(Lcom/android/internal/telephony/PhoneBase;I)V
 
     .line 883
     :goto_2
@@ -327,7 +327,7 @@
     .line 884
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const-string v11, "ril.mIsSwitchedToCdma"
 
@@ -350,7 +350,7 @@
 
     const/4 v11, 0x1
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->incNetSrchCnt(I)V
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->incNetSrchCnt(I)V
 
     goto :goto_2
 
@@ -372,9 +372,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isGlobalMode(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->isGlobalMode(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v10
 
@@ -382,7 +382,7 @@
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isChinaAreas()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isChinaAreas()Z
 
     move-result v10
 
@@ -392,9 +392,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isSlot1CdmaActive(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->isSlot1CdmaActive(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v10
 
@@ -402,7 +402,7 @@
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isSlot1DualCard()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isSlot1DualCard()Z
 
     move-result v10
 
@@ -453,7 +453,7 @@
     .line 902
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isPwrSaveModeTimerRunning()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isPwrSaveModeTimerRunning()Z
 
     move-result v10
 
@@ -480,11 +480,11 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v12, 0x1
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
+    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/ServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
 
     goto/16 :goto_1
 
@@ -494,11 +494,11 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const/4 v12, 0x0
 
-    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
+    invoke-virtual {v10, v11, v12}, Lcom/android/internal/telephony/ServiceStateTracker;->processPwrSaveModeExpdTimer(Lcom/android/internal/telephony/PhoneBase;Z)V
 
     goto/16 :goto_1
 
@@ -657,9 +657,9 @@
     :goto_3
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
+    invoke-virtual {v10}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v10
 
@@ -670,9 +670,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->stopSimCardMngLaunchTimer(Lcom/android/internal/telephony/PhoneBase;)V
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->stopSimCardMngLaunchTimer(Lcom/android/internal/telephony/PhoneBase;)V
 
     .line 940
     const/4 v10, 0x1
@@ -716,7 +716,7 @@
     .line 946
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    # getter for: Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    # getter for: Lcom/android/internal/telephony/ServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
     invoke-static {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->access$1000(Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;)Lcom/android/internal/telephony/CommandsInterface;
 
     move-result-object v10
@@ -725,7 +725,7 @@
 
     const/16 v12, 0x3c
 
-    invoke-virtual {v11, v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v11, v12}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v11
 
@@ -734,14 +734,14 @@
     .line 947
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->getSubscriptionInfoAndStartPollingThreads()V
+    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->getSubscriptionInfoAndStartPollingThreads()V
 
     .line 949
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CDMAPhone;->getContext()Landroid/content/Context;
+    invoke-virtual {v10}, Lcom/android/internal/telephony/PhoneBase;->getContext()Landroid/content/Context;
 
     move-result-object v10
 
@@ -803,9 +803,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isCdmaManSel(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->isCdmaManSel(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v8
 
@@ -835,7 +835,7 @@
 
     iget-object v12, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v12}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isSlot1DualCard()Z
+    invoke-virtual {v12}, Lcom/android/internal/telephony/ServiceStateTracker;->isSlot1DualCard()Z
 
     move-result v12
 
@@ -865,9 +865,9 @@
 
     iget-object v11, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v11, v11, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v11, v11, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
-    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->globalNoSvcChkTimerRequired(Lcom/android/internal/telephony/PhoneBase;)Z
+    invoke-virtual {v10, v11}, Lcom/android/internal/telephony/ServiceStateTracker;->globalNoSvcChkTimerRequired(Lcom/android/internal/telephony/PhoneBase;)Z
 
     move-result v10
 
@@ -891,7 +891,7 @@
 
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->isSlot1DualCard()Z
+    invoke-virtual {v10}, Lcom/android/internal/telephony/ServiceStateTracker;->isSlot1DualCard()Z
 
     move-result v10
 
@@ -908,7 +908,7 @@
     .line 1010
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const-string v11, "ril.fakeDispCanceled"
 
@@ -924,7 +924,7 @@
     .line 1012
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->updateSpnDisplay()V
+    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->updateSpnDisplay()V
 
     goto/16 :goto_1
 
@@ -960,7 +960,7 @@
     .line 1021
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->pollState()V
+    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->pollState()V
 
     goto/16 :goto_1
 
@@ -1214,7 +1214,7 @@
     .line 1058
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    iget-object v10, v10, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
+    iget-object v10, v10, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->mPhone:Lcom/android/internal/telephony/cdma/CDMAPhone;
 
     const-string v11, "ril.fakeDispCanceled"
 
@@ -1230,7 +1230,7 @@
     .line 1060
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;
 
-    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;->updateSpnDisplay()V
+    invoke-virtual {v10}, Lcom/android/internal/telephony/cdma/CdmaServiceStateTracker;->updateSpnDisplay()V
 
     .line 1061
     iget-object v10, p0, Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker$1;->this$0:Lcom/android/internal/telephony/cdma/IRCdmaServiceStateTracker;

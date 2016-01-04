@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/security/SecurityPolicy;[Landroid/os/storage/StorageVolume;Ljava/lang/Object;)V
     .locals 0
 
+    .prologue
+    .line 370
     iput-object p1, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
     iput-object p2, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$storageVolumes:[Landroid/os/storage/StorageVolume;
@@ -41,13 +43,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v4, 0x1
 
+    .line 372
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 373
+    .local v0, "action":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
@@ -56,6 +64,8 @@
 
     move-result-object v2
 
+    .line 375
+    .local v2, "path":Ljava/lang/String;
     const-string v3, "android.intent.action.MEDIA_MOUNTED"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -78,10 +88,12 @@
 
     if-eqz v3, :cond_0
 
+    .line 376
     iget-object v4, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$lock:Ljava/lang/Object;
 
     monitor-enter v4
 
+    .line 378
     :try_start_0
     iget-object v3, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
@@ -90,6 +102,7 @@
     # setter for: Lcom/android/server/enterprise/security/SecurityPolicy;->mMediaFormatRet:Z
     invoke-static {v3, v5}, Lcom/android/server/enterprise/security/SecurityPolicy;->access$302(Lcom/android/server/enterprise/security/SecurityPolicy;Z)Z
 
+    .line 379
     iget-object v3, p0, Lcom/android/server/enterprise/security/SecurityPolicy$2;->val$lock:Ljava/lang/Object;
 
     invoke-virtual {v3}, Ljava/lang/Object;->notify()V
@@ -97,16 +110,21 @@
     .catch Ljava/lang/IllegalMonitorStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 383
     :goto_0
     :try_start_1
     monitor-exit v4
 
+    .line 385
     :cond_0
     return-void
 
+    .line 380
     :catch_0
     move-exception v1
 
+    .line 381
+    .local v1, "e":Ljava/lang/IllegalMonitorStateException;
     const-string v3, "SecurityPolicy"
 
     const-string v5, "formatStorageCard - IllegalMonitorStateException"
@@ -115,6 +133,8 @@
 
     goto :goto_0
 
+    .line 383
+    .end local v1    # "e":Ljava/lang/IllegalMonitorStateException;
     :catchall_0
     move-exception v3
 

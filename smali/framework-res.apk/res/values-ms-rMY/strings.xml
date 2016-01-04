@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webviewchromium_actionbar_share">Kongsi</string>
+    <string name="webviewchromium_actionbar_web_search">Carian Web</string>
+    <string name="webviewchromium_accessibility_content_view">Paparan Web</string>
+    <string name="webviewchromium_date_picker_dialog_set">Tetapkan</string>
+    <string name="webviewchromium_date_picker_dialog_clear">Kosongkan</string>
+    <string name="webviewchromium_date_picker_dialog_title">Tetapkan tarikh</string>
+    <string name="webviewchromium_date_time_picker_dialog_title">Tetapkan tarikh dan masa</string>
+    <string name="webviewchromium_month_picker_dialog_title">Tetapkan bulan</string>
+    <string name="webviewchromium_week_picker_dialog_title">Tetapkan minggu</string>
+    <string name="webviewchromium_accessibility_datetime_picker_date">Tarikh</string>
+    <string name="webviewchromium_accessibility_datetime_picker_time">Masa</string>
+    <string name="webviewchromium_accessibility_date_picker_month">Bulan</string>
+    <string name="webviewchromium_accessibility_date_picker_week">Minggu</string>
+    <string name="webviewchromium_accessibility_date_picker_year">Tahun</string>
+    <string name="webviewchromium_media_player_error_title">Tidak boleh memainkan video</string>
+    <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Maaf, video ini tidak sah untuk penstriman ke peranti ini.</string>
+    <string name="webviewchromium_media_player_error_text_unknown">Maaf, video ini tidak boleh dimainkan.</string>
+    <string name="webviewchromium_media_player_error_button">OK</string>
+    <string name="webviewchromium_media_player_loading_video">Memuatkan video</string>
+    <string name="webviewchromium_color_picker_button_more">Lagi</string>
+    <string name="webviewchromium_color_picker_hue">Rona</string>
+    <string name="webviewchromium_color_picker_saturation">Ketepuan</string>
+    <string name="webviewchromium_color_picker_value">Nilai</string>
+    <string name="webviewchromium_color_picker_button_set">Tetapkan</string>
+    <string name="webviewchromium_color_picker_button_cancel">Batal</string>
+    <string name="webviewchromium_color_picker_dialog_title">Pilih warna</string>
+    <string name="webviewchromium_low_memory_error">Tidak dapat menyelesaikan operasi sebelumnya akibat memori rendah</string>
+    <string name="webviewchromium_opening_file_error">Gagal membuka fail yang dipilih</string>
+    <string name="webviewchromium_private_browsing_warning">Fungsi ini tidak disokong dalam Android versi ini.</string>
+</resources>

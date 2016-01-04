@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/usb/UsbStorageNotification;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "l"    # Landroid/os/Looper;
 
+    .prologue
+    .line 206
     iput-object p1, p0, Lcom/android/server/usb/UsbStorageNotification$StorageNotificationHandler;->this$0:Lcom/android/server/usb/UsbStorageNotification;
 
+    .line 207
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 208
     return-void
 .end method
 
@@ -33,19 +38,26 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 211
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 218
     :goto_0
     return-void
 
+    .line 213
     :pswitch_0
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Ljava/lang/String;
 
+    .line 214
+    .local v0, "path1":Ljava/lang/String;
     const-string v1, "UsbStorageNotification"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -68,6 +80,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 215
     iget-object v1, p0, Lcom/android/server/usb/UsbStorageNotification$StorageNotificationHandler;->this$0:Lcom/android/server/usb/UsbStorageNotification;
 
     # getter for: Lcom/android/server/usb/UsbStorageNotification;->mContext:Landroid/content/Context;
@@ -87,6 +100,7 @@
 
     goto :goto_0
 
+    .line 211
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

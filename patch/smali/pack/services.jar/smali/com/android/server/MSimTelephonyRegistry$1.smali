@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/MSimTelephonyRegistry;)V
     .locals 0
 
+    .prologue
+    .line 147
     iput-object p1, p0, Lcom/android/server/MSimTelephonyRegistry$1;->this$0:Lcom/android/server/MSimTelephonyRegistry;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 150
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 160
     :cond_0
     return-void
 
+    .line 152
     :pswitch_0
     const-string v2, "MSimTelephonyRegistry"
 
@@ -66,6 +73,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 153
     invoke-static {}, Landroid/telephony/MSimTelephonyManager;->getDefault()Landroid/telephony/MSimTelephonyManager;
 
     move-result-object v2
@@ -74,11 +82,15 @@
 
     move-result v0
 
+    .line 154
+    .local v0, "numPhones":I
     const/4 v1, 0x0
 
+    .local v1, "sub":I
     :goto_0
     if-ge v1, v0, :cond_0
 
+    .line 155
     iget-object v2, p0, Lcom/android/server/MSimTelephonyRegistry$1;->this$0:Lcom/android/server/MSimTelephonyRegistry;
 
     iget-object v3, p0, Lcom/android/server/MSimTelephonyRegistry$1;->this$0:Lcom/android/server/MSimTelephonyRegistry;
@@ -92,10 +104,12 @@
 
     invoke-virtual {v2, v3, v1}, Lcom/android/server/MSimTelephonyRegistry;->notifyCellLocation(Landroid/os/Bundle;I)V
 
+    .line 154
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 150
     nop
 
     :pswitch_data_0

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/SecSCTimeReceiver;)V
     .locals 0
 
+    .prologue
+    .line 226
     iput-object p1, p0, Lcom/android/server/SecSCTimeReceiver$1;->this$0:Lcom/android/server/SecSCTimeReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,10 @@
 .method public run()V
     .locals 7
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 229
     iget-object v3, p0, Lcom/android/server/SecSCTimeReceiver$1;->this$0:Lcom/android/server/SecSCTimeReceiver;
 
     # getter for: Lcom/android/server/SecSCTimeReceiver;->mcontext:Landroid/content/Context;
@@ -56,16 +60,21 @@
 
     move-result v0
 
+    .line 231
+    .local v0, "autoEnable":I
     if-ne v0, v5, :cond_0
 
+    .line 232
     iget-object v3, p0, Lcom/android/server/SecSCTimeReceiver$1;->this$0:Lcom/android/server/SecSCTimeReceiver;
 
     # invokes: Lcom/android/server/SecSCTimeReceiver;->sec_sctime_handleAutoTimeUpdation()V
     invoke-static {v3}, Lcom/android/server/SecSCTimeReceiver;->access$100(Lcom/android/server/SecSCTimeReceiver;)V
 
+    .line 240
     :goto_0
     return-void
 
+    .line 235
     :cond_0
     const-string v3, "SecSCTimeReceiver"
 
@@ -73,12 +82,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 236
     const-string v3, "SecSCTimeReceiver"
 
     const-string v4, "call sec_sctime_nitzReceived()"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 237
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -87,6 +98,8 @@
 
     div-long v1, v3, v5
 
+    .line 238
+    .local v1, "systemtime":J
     # invokes: Lcom/android/server/SecSCTimeReceiver;->sec_sctime_nitzReceived(J)V
     invoke-static {v1, v2}, Lcom/android/server/SecSCTimeReceiver;->access$200(J)V
 

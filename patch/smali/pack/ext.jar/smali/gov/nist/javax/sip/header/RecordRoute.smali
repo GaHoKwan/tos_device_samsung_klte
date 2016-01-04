@@ -35,7 +35,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 59
-    iput-object p1, p0, Lgov/nist/javax/sip/header/RecordRoute;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 60
     return-void
@@ -71,7 +71,7 @@
     const/4 v1, 0x2
 
     .line 78
-    iget-object v0, p0, Lgov/nist/javax/sip/header/RecordRoute;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -86,12 +86,12 @@
 
     .line 81
     :cond_0
-    iget-object v0, p0, Lgov/nist/javax/sip/header/RecordRoute;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/address/AddressImpl;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 82
-    iget-object v0, p0, Lgov/nist/javax/sip/header/RecordRoute;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -106,7 +106,7 @@
 
     .line 86
     :cond_1
-    iget-object v0, p0, Lgov/nist/javax/sip/header/RecordRoute;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -120,7 +120,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 88
-    iget-object v0, p0, Lgov/nist/javax/sip/header/RecordRoute;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 

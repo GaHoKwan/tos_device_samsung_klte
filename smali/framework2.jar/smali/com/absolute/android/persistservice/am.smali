@@ -11,6 +11,8 @@
 .method private constructor <init>(Lcom/absolute/android/persistservice/ak;)V
     .locals 0
 
+    .prologue
+    .line 175
     iput-object p1, p0, Lcom/absolute/android/persistservice/am;->a:Lcom/absolute/android/persistservice/ak;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -21,6 +23,8 @@
 .method synthetic constructor <init>(Lcom/absolute/android/persistservice/ak;B)V
     .locals 0
 
+    .prologue
+    .line 175
     invoke-direct {p0, p1}, Lcom/absolute/android/persistservice/am;-><init>(Lcom/absolute/android/persistservice/ak;)V
 
     return-void
@@ -31,8 +35,10 @@
 .method public final declared-synchronized handleMessage(Landroid/os/Message;)V
     .locals 3
 
+    .prologue
     const/4 v1, 0x3
 
+    .line 178
     monitor-enter p0
 
     :try_start_0
@@ -40,6 +46,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 180
     iget-object v0, p0, Lcom/absolute/android/persistservice/am;->a:Lcom/absolute/android/persistservice/ak;
 
     invoke-static {v0}, Lcom/absolute/android/persistservice/ak;->a(Lcom/absolute/android/persistservice/ak;)Z
@@ -50,6 +57,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 183
     :try_start_1
     iget-object v0, p0, Lcom/absolute/android/persistservice/am;->a:Lcom/absolute/android/persistservice/ak;
 
@@ -59,6 +67,7 @@
 
     invoke-interface {v0}, Lcom/absolute/android/persistence/IABTPing;->ping()Z
 
+    .line 188
     iget-object v0, p0, Lcom/absolute/android/persistservice/am;->a:Lcom/absolute/android/persistservice/ak;
 
     invoke-static {v0}, Lcom/absolute/android/persistservice/ak;->d(Lcom/absolute/android/persistservice/ak;)Lcom/absolute/android/persistservice/q;
@@ -76,12 +85,14 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 204
     :goto_0
     const/4 v0, 0x3
 
     :try_start_2
-    invoke-virtual {p0, v0}, Lcom/absolute/android/persistservice/am;->removeMessages(I)V
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 205
     const/4 v0, 0x3
 
     iget-object v1, p0, Lcom/absolute/android/persistservice/am;->a:Lcom/absolute/android/persistservice/ak;
@@ -94,15 +105,17 @@
 
     int-to-long v1, v1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/absolute/android/persistservice/am;->sendEmptyMessageDelayed(IJ)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 208
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 194
     :catch_0
     move-exception v0
 
@@ -127,6 +140,7 @@
 
     goto :goto_0
 
+    .line 178
     :catchall_0
     move-exception v0
 

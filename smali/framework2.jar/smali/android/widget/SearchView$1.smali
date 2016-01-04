@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
 
+    .prologue
+    .line 143
     iput-object p1, p0, Landroid/widget/SearchView$1;->this$0:Landroid/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,11 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 145
     iget-object v1, p0, Landroid/widget/SearchView$1;->this$0:Landroid/widget/SearchView;
 
-    invoke-virtual {v1}, Landroid/widget/SearchView;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -51,14 +55,18 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
+    .line 148
+    .local v0, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v0, :cond_0
 
+    .line 149
     const/4 v1, 0x0
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInputUnchecked(ILandroid/os/ResultReceiver;)V
 
+    .line 151
     :cond_0
     return-void
 .end method

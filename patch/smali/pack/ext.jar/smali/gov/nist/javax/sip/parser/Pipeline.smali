@@ -184,7 +184,7 @@
 
     iget-object v2, p0, Lgov/nist/javax/sip/parser/Pipeline;->buffList:Ljava/util/LinkedList;
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v2}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v2
 
@@ -210,7 +210,7 @@
     :try_start_1
     iget-object v2, p0, Lgov/nist/javax/sip/parser/Pipeline;->buffList:Ljava/util/LinkedList;
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v2}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v2
 
@@ -295,7 +295,7 @@
     .local v0, "ex":Ljava/lang/InterruptedException;
     new-instance v2, Ljava/io/IOException;
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -310,12 +310,12 @@
 
     .line 190
     .local v0, "ex":Ljava/util/NoSuchElementException;
-    invoke-virtual {v0}, Ljava/util/NoSuchElementException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 191
     new-instance v2, Ljava/io/IOException;
 
-    invoke-virtual {v0}, Ljava/util/NoSuchElementException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 

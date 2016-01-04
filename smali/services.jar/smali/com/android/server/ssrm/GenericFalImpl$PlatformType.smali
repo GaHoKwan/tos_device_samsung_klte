@@ -53,6 +53,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -63,6 +64,7 @@
 
     const/4 v3, 0x0
 
+    .line 45
     new-instance v0, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
     const-string v1, "NONE"
@@ -163,6 +165,7 @@
 
     sput-object v0, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->ADONISMINI:Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
+    .line 44
     const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
@@ -236,6 +239,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 44
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -243,7 +248,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 44
     const-class v0, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -258,9 +266,11 @@
 .method public static values()[Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
     .locals 1
 
+    .prologue
+    .line 44
     sget-object v0, Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->$VALUES:[Lcom/android/server/ssrm/GenericFalImpl$PlatformType;
 
-    invoke-virtual {v0}, [Lcom/android/server/ssrm/GenericFalImpl$PlatformType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

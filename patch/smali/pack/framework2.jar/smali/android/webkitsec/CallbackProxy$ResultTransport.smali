@@ -42,10 +42,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 209
+    .local p0, "this":Landroid/webkitsec/CallbackProxy$ResultTransport;, "Landroid/webkitsec/CallbackProxy$ResultTransport<TE;>;"
+    .local p1, "defaultResult":Ljava/lang/Object;, "TE;"
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 210
     iput-object p1, p0, Landroid/webkitsec/CallbackProxy$ResultTransport;->mResult:Ljava/lang/Object;
 
+    .line 211
     return-void
 .end method
 
@@ -59,6 +65,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 218
+    .local p0, "this":Landroid/webkitsec/CallbackProxy$ResultTransport;, "Landroid/webkitsec/CallbackProxy$ResultTransport<TE;>;"
     monitor-enter p0
 
     :try_start_0
@@ -86,6 +95,10 @@
         }
     .end annotation
 
+    .prologue
+    .line 214
+    .local p0, "this":Landroid/webkitsec/CallbackProxy$ResultTransport;, "Landroid/webkitsec/CallbackProxy$ResultTransport<TE;>;"
+    .local p1, "result":Ljava/lang/Object;, "TE;"
     monitor-enter p0
 
     :try_start_0
@@ -93,10 +106,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 215
     monitor-exit p0
 
     return-void
 
+    .line 214
     :catchall_0
     move-exception v0
 

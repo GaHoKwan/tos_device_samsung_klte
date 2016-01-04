@@ -101,17 +101,17 @@
     .line 119
     const-string v0, "On"
 
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setSwitchTextOn(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/SwitchPreference;->setSwitchTextOn(Ljava/lang/CharSequence;)V
 
     .line 120
     const-string v0, "Off"
 
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setSwitchTextOff(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/SwitchPreference;->setSwitchTextOff(Ljava/lang/CharSequence;)V
 
     .line 121
     const-string v0, "Wi-Fi Calling"
 
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
     .line 122
     const/4 v0, 0x1
@@ -140,7 +140,7 @@
 
     .prologue
     .line 62
-    invoke-virtual {p0, p1}, Lcom/movial/ipphone/WifiCallSwitchPreference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Landroid/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -252,7 +252,7 @@
 
     invoke-direct {v2, p0}, Lcom/movial/ipphone/WifiCallSwitchPreference$3;-><init>(Lcom/movial/ipphone/WifiCallSwitchPreference;)V
 
-    invoke-virtual {v1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v1, v2}, Landroid/widget/CompoundButton;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     .line 146
     .end local v1    # "switchView":Landroid/widget/Switch;
@@ -265,7 +265,7 @@
 
     .prologue
     .line 150
-    invoke-super {p0}, Landroid/preference/SwitchPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/TwoStatePreference;->onClick()V
 
     .line 151
     const-string v0, "WifiCallSwitchPreference"
@@ -280,7 +280,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v2
 
@@ -302,7 +302,7 @@
     const/4 v0, 0x1
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setChecked(Z)V
+    invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 153
     return-void
@@ -335,7 +335,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v4
 
@@ -350,10 +350,10 @@
     invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 158
-    invoke-virtual {p0, v2}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setEnabled(Z)V
+    invoke-virtual {p0, v2}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 159
-    invoke-virtual {p0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v0
 
@@ -468,7 +468,7 @@
     if-nez v1, :cond_1
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setChecked(Z)V
+    invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 167
     iget-boolean v0, p0, Lcom/movial/ipphone/WifiCallSwitchPreference;->mCellOnly:Z
@@ -477,7 +477,7 @@
 
     const-string v0, "Disabled"
 
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallSwitchPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 169
     :cond_0

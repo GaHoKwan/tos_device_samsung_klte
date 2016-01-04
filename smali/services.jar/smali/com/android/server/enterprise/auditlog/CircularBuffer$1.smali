@@ -24,10 +24,13 @@
 .method constructor <init>(Lcom/android/server/enterprise/auditlog/CircularBuffer;)V
     .locals 1
 
+    .prologue
+    .line 170
     iput-object p1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
 
+    .line 171
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
@@ -40,6 +43,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 174
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
     # getter for: Lcom/android/server/enterprise/auditlog/CircularBuffer;->mDumpList:Ljava/util/List;
@@ -49,6 +54,7 @@
 
     monitor-enter v2
 
+    .line 175
     :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
@@ -61,6 +67,8 @@
 
     move-result-object v0
 
+    .line 176
+    .local v0, "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/enterprise/auditlog/PartialFileNode;>;"
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -68,6 +76,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 177
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -76,6 +85,7 @@
 
     iput-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
 
+    .line 178
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
 
     invoke-virtual {v1}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->isDeprecated()Z
@@ -84,6 +94,7 @@
 
     if-nez v1, :cond_0
 
+    .line 181
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
 
     invoke-virtual {v1}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->getTimestamp()J
@@ -106,12 +117,14 @@
 
     if-gtz v1, :cond_1
 
+    .line 182
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
 
     const/4 v3, 0x1
 
     invoke-virtual {v1, v3}, Lcom/android/server/enterprise/auditlog/PartialFileNode;->setDeprecated(Z)Z
 
+    .line 183
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
     iget-object v3, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->pfn:Lcom/android/server/enterprise/auditlog/PartialFileNode;
@@ -123,6 +136,7 @@
     # -= operator for: Lcom/android/server/enterprise/auditlog/CircularBuffer;->mCircularBufferSize:J
     invoke-static {v1, v3, v4}, Lcom/android/server/enterprise/auditlog/CircularBuffer;->access$122(Lcom/android/server/enterprise/auditlog/CircularBuffer;J)J
 
+    .line 184
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
 
     iget-object v3, p0, Lcom/android/server/enterprise/auditlog/CircularBuffer$1;->this$0:Lcom/android/server/enterprise/auditlog/CircularBuffer;
@@ -135,11 +149,15 @@
     # invokes: Lcom/android/server/enterprise/auditlog/CircularBuffer;->setNumberOfDeprecatedFiles(I)V
     invoke-static {v1, v3}, Lcom/android/server/enterprise/auditlog/CircularBuffer;->access$300(Lcom/android/server/enterprise/auditlog/CircularBuffer;I)V
 
+    .line 188
     :cond_1
     monitor-exit v2
 
+    .line 189
     return-void
 
+    .line 188
+    .end local v0    # "it":Ljava/util/Iterator;, "Ljava/util/Iterator<Lcom/android/server/enterprise/auditlog/PartialFileNode;>;"
     :catchall_0
     move-exception v1
 

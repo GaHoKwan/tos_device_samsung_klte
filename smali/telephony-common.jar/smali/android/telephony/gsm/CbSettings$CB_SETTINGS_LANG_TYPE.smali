@@ -614,7 +614,7 @@
     .line 16
     sget-object v0, Landroid/telephony/gsm/CbSettings$CB_SETTINGS_LANG_TYPE;->$VALUES:[Landroid/telephony/gsm/CbSettings$CB_SETTINGS_LANG_TYPE;
 
-    invoke-virtual {v0}, [Landroid/telephony/gsm/CbSettings$CB_SETTINGS_LANG_TYPE;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

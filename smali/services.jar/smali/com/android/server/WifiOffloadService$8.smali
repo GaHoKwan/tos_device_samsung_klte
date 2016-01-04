@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WifiOffloadService;)V
     .locals 0
 
+    .prologue
+    .line 1398
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,27 +35,36 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v9, 0x0
 
     const/4 v8, 0x1
 
+    .line 1402
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "onReceive -- WiFiDataReceiver"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1404
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 1406
+    .local v0, "action":Ljava/lang/String;
     if-nez v0, :cond_1
 
+    .line 1465
     :cond_0
     :goto_0
     return-void
 
+    .line 1409
     :cond_1
     const-string v5, "android.net.wifi.STATE_CHANGE"
 
@@ -63,6 +74,7 @@
 
     if-eqz v5, :cond_6
 
+    .line 1410
     const-string v5, "networkInfo"
 
     invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -71,12 +83,16 @@
 
     check-cast v3, Landroid/net/NetworkInfo;
 
+    .line 1412
+    .local v3, "info":Landroid/net/NetworkInfo;
     const-string v5, "bssid"
 
     invoke-virtual {p2, v5}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 1413
+    .local v2, "bssid":Ljava/lang/String;
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -99,6 +115,7 @@
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1414
     if-eqz v3, :cond_4
 
     invoke-virtual {v3}, Landroid/net/NetworkInfo;->getState()Landroid/net/NetworkInfo$State;
@@ -107,33 +124,39 @@
 
     sget-object v6, Landroid/net/NetworkInfo$State;->CONNECTED:Landroid/net/NetworkInfo$State;
 
-    invoke-virtual {v5, v6}, Landroid/net/NetworkInfo$State;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_4
 
+    .line 1415
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     # setter for: Lcom/android/server/WifiOffloadService;->prevWiFiState:Z
     invoke-static {v5, v8}, Lcom/android/server/WifiOffloadService;->access$1102(Lcom/android/server/WifiOffloadService;Z)Z
 
+    .line 1416
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-boolean v8, v5, Lcom/android/server/WifiOffloadService;->isWiFiConnected:Z
 
+    .line 1417
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "onReceive -- NetworkInfo.State.CONNECTED"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1418
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v5}, Lcom/android/server/WifiOffloadService;->getCDMABaseStationID()I
 
     move-result v1
 
+    .line 1428
+    .local v1, "baseStation":I
     if-eqz v2, :cond_2
 
     invoke-virtual {v2}, Ljava/lang/String;->length()I
@@ -142,6 +165,7 @@
 
     if-lez v5, :cond_2
 
+    .line 1430
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     iget-object v5, v5, Lcom/android/server/WifiOffloadService;->dbHelper:Lcom/android/server/wifi_offload/WifiOffloadDB;
@@ -156,14 +180,17 @@
 
     if-nez v5, :cond_2
 
+    .line 1432
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v5}, Lcom/android/server/WifiOffloadService;->collectWiFiDetails()V
 
+    .line 1433
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v5}, Lcom/android/server/WifiOffloadService;->storeWiFiDetails()V
 
+    .line 1436
     :cond_2
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -178,17 +205,20 @@
 
     if-eqz v5, :cond_3
 
+    .line 1437
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "Timer is running, so reset it when connection is Succuss!!"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1438
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     # setter for: Lcom/android/server/WifiOffloadService;->mSeamlessConnectWhileConnecting:Z
     invoke-static {v5, v9}, Lcom/android/server/WifiOffloadService;->access$202(Lcom/android/server/WifiOffloadService;Z)Z
 
+    .line 1439
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->messageHandler:Landroid/os/Handler;
@@ -198,6 +228,7 @@
 
     invoke-virtual {v5, v8}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1442
     :cond_3
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
@@ -205,6 +236,8 @@
 
     goto/16 :goto_0
 
+    .line 1443
+    .end local v1    # "baseStation":I
     :cond_4
     if-eqz v3, :cond_0
 
@@ -214,12 +247,13 @@
 
     sget-object v6, Landroid/net/NetworkInfo$State;->DISCONNECTED:Landroid/net/NetworkInfo$State;
 
-    invoke-virtual {v5, v6}, Landroid/net/NetworkInfo$State;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_0
 
+    .line 1444
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     iget-boolean v5, v5, Lcom/android/server/WifiOffloadService;->isWiFiConnected:Z
@@ -235,12 +269,14 @@
 
     if-eqz v5, :cond_5
 
+    .line 1445
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "WIFI DISCONNECTED : sendEmptyMessageDelayed after 5 min to check Wifi status"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1446
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     # getter for: Lcom/android/server/WifiOffloadService;->messageHandler:Landroid/os/Handler;
@@ -252,23 +288,29 @@
 
     invoke-virtual {v5, v8, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 1448
     :cond_5
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-boolean v9, v5, Lcom/android/server/WifiOffloadService;->isWiFiConnected:Z
 
+    .line 1449
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "onReceive -- NetworkInfo.State.DISCONNECTED"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1450
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v5}, Lcom/android/server/WifiOffloadService;->startDataActivityTimer()V
 
     goto/16 :goto_0
 
+    .line 1452
+    .end local v2    # "bssid":Ljava/lang/String;
+    .end local v3    # "info":Landroid/net/NetworkInfo;
     :cond_6
     const-string v5, "android.net.wifi.supplicant.CONNECTION_CHANGE"
 
@@ -278,30 +320,38 @@
 
     if-eqz v5, :cond_7
 
+    .line 1453
     const-string v5, "connected"
 
     invoke-virtual {p2, v5, v9}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v4
 
+    .line 1455
+    .local v4, "status":Z
     if-nez v4, :cond_0
 
+    .line 1456
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     iput-boolean v9, v5, Lcom/android/server/WifiOffloadService;->isWiFiConnected:Z
 
+    .line 1457
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v6, "onReceive -- SUPPLICANT_CONNECTION_CHANGE_ACTION"
 
     invoke-virtual {v5, v6}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 1458
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v5}, Lcom/android/server/WifiOffloadService;->startDataActivityTimer()V
 
     goto/16 :goto_0
 
+    .line 1460
+    .end local v4    # "status":Z
     :cond_7
     const-string v5, "android.net.wifi.supplicant.STATE_CHANGE"
 
@@ -311,6 +361,7 @@
 
     if-eqz v5, :cond_0
 
+    .line 1461
     iget-object v6, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v5, "newState"
@@ -324,6 +375,7 @@
     # setter for: Lcom/android/server/WifiOffloadService;->mNewSupplicantState:Landroid/net/wifi/SupplicantState;
     invoke-static {v6, v5}, Lcom/android/server/WifiOffloadService;->access$1202(Lcom/android/server/WifiOffloadService;Landroid/net/wifi/SupplicantState;)Landroid/net/wifi/SupplicantState;
 
+    .line 1462
     iget-object v5, p0, Lcom/android/server/WifiOffloadService$8;->this$0:Lcom/android/server/WifiOffloadService;
 
     new-instance v6, Ljava/lang/StringBuilder;

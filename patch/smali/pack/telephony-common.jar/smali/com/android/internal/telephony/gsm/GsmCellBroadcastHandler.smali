@@ -115,7 +115,7 @@
     .line 92
     iget-object v0, p2, Lcom/android/internal/telephony/PhoneBase;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
@@ -178,7 +178,7 @@
     .line 159
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     move-object/from16 v21, v0
 
@@ -203,7 +203,7 @@
     .line 161
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, v0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     move-object/from16 v21, v0
 
@@ -223,7 +223,7 @@
 
     move-object/from16 v2, v23
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, v2}, Lcom/android/internal/util/StateMachine;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v22
 
@@ -252,7 +252,7 @@
     .line 169
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, v0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     move-object/from16 v21, v0
 
@@ -661,7 +661,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1, v8}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-virtual {v0, v1, v8}, Lcom/android/internal/telephony/WakeLockStateMachine;->loge(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     .line 303
     const/16 v21, 0x0
@@ -862,7 +862,7 @@
 
     .line 109
     .local v0, "handler":Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;
-    invoke-virtual {v0}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->start()V
+    invoke-virtual {v0}, Lcom/android/internal/util/StateMachine;->start()V
 
     .line 110
     return-object v0
@@ -922,7 +922,7 @@
     .local v1, "intent":Landroid/content/Intent;
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mNotification:Landroid/app/Notification;
 
-    iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     invoke-static {v6, v8, v1, v8}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
@@ -931,7 +931,7 @@
     iput-object v6, v5, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
     .line 605
-    iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     const v6, 0x1040af1
 
@@ -941,7 +941,7 @@
 
     .line 606
     .local v4, "title":Ljava/lang/CharSequence;
-    iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     const v6, 0x1040af2
 
@@ -995,7 +995,7 @@
     .line 613
     iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mNotification:Landroid/app/Notification;
 
-    iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     iget-object v7, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mNotification:Landroid/app/Notification;
 
@@ -1004,9 +1004,9 @@
     invoke-virtual {v5, v6, v4, v0, v7}, Landroid/app/Notification;->setLatestEventInfo(Landroid/content/Context;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
     .line 616
-    iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v6, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     const-string v6, "notification"
 
@@ -1074,7 +1074,7 @@
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
 
     .line 489
-    iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
@@ -1095,7 +1095,7 @@
 
     .line 494
     .local v0, "intent":Landroid/content/Intent;
-    iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
@@ -1307,7 +1307,7 @@
     sput v0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mCid:I
 
     .line 458
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v4, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     iget-object v4, v4, Lcom/android/internal/telephony/PhoneBase;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
@@ -1315,7 +1315,7 @@
 
     const/4 v6, 0x0
 
-    invoke-virtual {p0, v5, v6}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v5, v6}, Lcom/android/internal/util/StateMachine;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v5
 
@@ -1419,7 +1419,7 @@
     if-eqz v0, :cond_3
 
     .line 478
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->handleBroadcastSms(Landroid/telephony/SmsCbMessage;)V
+    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/CellBroadcastHandler;->handleBroadcastSms(Landroid/telephony/SmsCbMessage;)V
 
     .line 481
     :cond_3
@@ -1470,7 +1470,7 @@
     if-eqz v1, :cond_0
 
     .line 129
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->handleBroadcastSms(Landroid/telephony/SmsCbMessage;)V
+    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/CellBroadcastHandler;->handleBroadcastSms(Landroid/telephony/SmsCbMessage;)V
 
     .line 130
     const/4 v3, 0x1
@@ -1774,18 +1774,18 @@
 
     .prologue
     .line 97
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->mPhone:Lcom/android/internal/telephony/PhoneBase;
+    iget-object v0, p0, Lcom/android/internal/telephony/WakeLockStateMachine;->mPhone:Lcom/android/internal/telephony/PhoneBase;
 
     iget-object v0, v0, Lcom/android/internal/telephony/PhoneBase;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
-    invoke-virtual {p0}, Lcom/android/internal/telephony/gsm/GsmCellBroadcastHandler;->getHandler()Landroid/os/Handler;
+    invoke-virtual {p0}, Lcom/android/internal/util/StateMachine;->getHandler()Landroid/os/Handler;
 
     move-result-object v1
 
     invoke-interface {v0, v1}, Lcom/android/internal/telephony/CommandsInterface;->unSetOnNewGsmBroadcastSms(Landroid/os/Handler;)V
 
     .line 98
-    invoke-super {p0}, Lcom/android/internal/telephony/CellBroadcastHandler;->onQuitting()V
+    invoke-super {p0}, Lcom/android/internal/telephony/WakeLockStateMachine;->onQuitting()V
 
     .line 99
     return-void

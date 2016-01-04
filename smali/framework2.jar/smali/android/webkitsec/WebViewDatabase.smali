@@ -11,14 +11,20 @@
 .method protected constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 41
     return-void
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroid/webkitsec/WebViewDatabase;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 44
     invoke-static {}, Landroid/webkitsec/WebViewFactory;->getProvider()Landroid/webkitsec/WebViewFactoryProvider;
 
     move-result-object v0
@@ -35,6 +41,8 @@
 .method public clearFormData()V
     .locals 1
 
+    .prologue
+    .line 113
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -45,6 +53,8 @@
 .method public clearHttpAuthUsernamePassword()V
     .locals 1
 
+    .prologue
+    .line 94
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -57,6 +67,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 71
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -67,6 +79,8 @@
 .method public hasFormData()Z
     .locals 1
 
+    .prologue
+    .line 104
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -77,6 +91,8 @@
 .method public hasHttpAuthUsernamePassword()Z
     .locals 1
 
+    .prologue
+    .line 83
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -89,6 +105,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 58
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V

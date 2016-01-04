@@ -162,7 +162,7 @@
     .line 125
     iget-object v6, p0, Lcom/android/internal/telephony/RcsCallTracker;->mActiveConnections:Ljava/util/LinkedList;
 
-    invoke-virtual {v6}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -210,7 +210,7 @@
     :cond_1
     iget-object v6, p0, Lcom/android/internal/telephony/RcsCallTracker;->mHoldConnections:Ljava/util/LinkedList;
 
-    invoke-virtual {v6}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -255,7 +255,7 @@
     :cond_3
     iget-object v6, p0, Lcom/android/internal/telephony/RcsCallTracker;->availableConnections:Ljava/util/LinkedList;
 
-    invoke-virtual {v6}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -714,7 +714,7 @@
     .line 249
     iget-object v3, p0, Lcom/android/internal/telephony/RcsCallTracker;->availableConnections:Ljava/util/LinkedList;
 
-    invoke-virtual {v3}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -812,7 +812,7 @@
     .line 263
     iget-object v3, p0, Lcom/android/internal/telephony/RcsCallTracker;->availableConnections:Ljava/util/LinkedList;
 
-    invoke-virtual {v3}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 

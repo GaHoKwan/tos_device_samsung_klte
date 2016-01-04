@@ -728,7 +728,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v6}, Ljava/lang/NoClassDefFoundError;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -820,7 +820,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v11}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -926,7 +926,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v14}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v14}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -1008,7 +1008,7 @@
 
     move-result-object v17
 
-    invoke-virtual {v6}, Ljava/lang/ExceptionInInitializerError;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v18
 
@@ -1561,7 +1561,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1601,7 +1601,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

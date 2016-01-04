@@ -980,7 +980,7 @@
     .line 1215
     .local v2, "e":Ljava/io/IOException;
     :try_start_3
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 

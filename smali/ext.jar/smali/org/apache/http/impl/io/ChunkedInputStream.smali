@@ -351,7 +351,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Lorg/apache/http/HttpException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -432,7 +432,7 @@
     .line 272
     iget-object v0, p0, Lorg/apache/http/impl/io/ChunkedInputStream;->footers:[Lorg/apache/http/Header;
 
-    invoke-virtual {v0}, [Lorg/apache/http/Header;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

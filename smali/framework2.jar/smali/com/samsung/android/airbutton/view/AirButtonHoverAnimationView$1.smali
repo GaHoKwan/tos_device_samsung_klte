@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;)V
     .locals 0
 
+    .prologue
+    .line 183
     iput-object p1, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 186
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
     # getter for: Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->mCurrentPoint:Landroid/graphics/Point;
@@ -46,6 +50,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 187
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
     # getter for: Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->mOldPoint:Landroid/graphics/Point;
@@ -95,6 +100,7 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 194
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
@@ -108,6 +114,7 @@
     # setter for: Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->mOldPoint:Landroid/graphics/Point;
     invoke-static {v0, v1}, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->access$102(Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;Landroid/graphics/Point;)Landroid/graphics/Point;
 
+    .line 195
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
     const/4 v1, 0x0
@@ -115,6 +122,7 @@
     # setter for: Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->mCurrentPoint:Landroid/graphics/Point;
     invoke-static {v0, v1}, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->access$002(Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;Landroid/graphics/Point;)Landroid/graphics/Point;
 
+    .line 198
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
@@ -132,8 +140,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 199
     return-void
 
+    .line 190
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
@@ -153,8 +163,9 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setX(F)V
 
+    .line 191
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;
 
     # getter for: Lcom/samsung/android/airbutton/view/AirButtonHoverAnimationView;->mAnimationView:Landroid/widget/ImageView;
@@ -173,7 +184,7 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setY(F)V
 
     goto :goto_0
 .end method

@@ -23,19 +23,30 @@
 # direct methods
 .method private constructor <init>(ILjava/lang/String;)V
     .locals 0
+    .param p1, "type"    # I
+    .param p2, "actualNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 188
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 189
     iput p1, p0, Landroid/provider/GeocodedLocation$PhoneNumber;->type:I
 
+    .line 190
     iput-object p2, p0, Landroid/provider/GeocodedLocation$PhoneNumber;->actualNumber:Ljava/lang/String;
 
+    .line 191
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/content/Context;Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
     .locals 1
+    .param p0, "x0"    # Landroid/content/Context;
+    .param p1, "x1"    # Ljava/lang/String;
 
+    .prologue
+    .line 184
     invoke-static {p0, p1}, Landroid/provider/GeocodedLocation$PhoneNumber;->getActualPhoneNumber(Landroid/content/Context;Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
 
     move-result-object v0
@@ -45,7 +56,10 @@
 
 .method static synthetic access$100(Landroid/provider/GeocodedLocation$PhoneNumber;)I
     .locals 1
+    .param p0, "x0"    # Landroid/provider/GeocodedLocation$PhoneNumber;
 
+    .prologue
+    .line 184
     iget v0, p0, Landroid/provider/GeocodedLocation$PhoneNumber;->type:I
 
     return v0
@@ -53,7 +67,10 @@
 
 .method static synthetic access$200(Landroid/provider/GeocodedLocation$PhoneNumber;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Landroid/provider/GeocodedLocation$PhoneNumber;
 
+    .prologue
+    .line 184
     iget-object v0, p0, Landroid/provider/GeocodedLocation$PhoneNumber;->actualNumber:Ljava/lang/String;
 
     return-object v0
@@ -61,9 +78,15 @@
 
 .method private static getActualPhoneNumber(Landroid/content/Context;Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
     .locals 4
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "number"    # Ljava/lang/String;
 
+    .prologue
+    .line 194
     const/4 v2, 0x0
 
+    .line 195
+    .local v2, "phoneNumber":Landroid/provider/GeocodedLocation$PhoneNumber;
     invoke-static {}, Landroid/telephony/TelephonyManager;->getDefault()Landroid/telephony/TelephonyManager;
 
     move-result-object v3
@@ -72,12 +95,15 @@
 
     move-result-object v0
 
+    .line 196
+    .local v0, "countryIso":Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
+    .line 198
     const-string v3, "cn"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -86,14 +112,17 @@
 
     if-eqz v3, :cond_0
 
+    .line 200
     invoke-static {p1}, Landroid/provider/GeocodedLocation$PhoneNumber;->getChineseActualPhoneNumber(Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
 
     move-result-object v2
 
+    .line 215
     :cond_0
     :goto_0
     return-object v2
 
+    .line 206
     :cond_1
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -105,6 +134,8 @@
 
     iget-object v1, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
 
+    .line 207
+    .local v1, "locale":Ljava/util/Locale;
     sget-object v3, Ljava/util/Locale;->CHINA:Ljava/util/Locale;
 
     invoke-virtual {v3, v1}, Ljava/util/Locale;->equals(Ljava/lang/Object;)Z
@@ -113,6 +144,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 209
     invoke-static {p1}, Landroid/provider/GeocodedLocation$PhoneNumber;->getChineseActualPhoneNumber(Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
 
     move-result-object v2
@@ -122,7 +154,9 @@
 
 .method private static getChineseActualPhoneNumber(Ljava/lang/String;)Landroid/provider/GeocodedLocation$PhoneNumber;
     .locals 10
+    .param p0, "number"    # Ljava/lang/String;
 
+    .prologue
     const/16 v9, 0x8
 
     const/4 v8, 0x1
@@ -131,6 +165,7 @@
 
     const/4 v6, 0x0
 
+    .line 227
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -139,6 +174,7 @@
 
     if-lt v4, v5, :cond_1
 
+    .line 228
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -149,6 +185,8 @@
 
     move-result-object v3
 
+    .line 230
+    .local v3, "suffix":Ljava/lang/String;
     const-string v4, "13"
 
     invoke-virtual {v3, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
@@ -173,6 +211,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 231
     :cond_0
     new-instance v4, Landroid/provider/GeocodedLocation$PhoneNumber;
 
@@ -182,16 +221,23 @@
 
     invoke-direct {v4, v8, v5}, Landroid/provider/GeocodedLocation$PhoneNumber;-><init>(ILjava/lang/String;)V
 
+    .line 260
+    .end local v3    # "suffix":Ljava/lang/String;
     :goto_0
     return-object v4
 
+    .line 236
     :cond_1
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v1
 
+    .line 237
+    .local v1, "chars":[C
     const/4 v0, -0x1
 
+    .line 238
+    .local v0, "areaCodeIndex":I
     array-length v4, v1
 
     if-gt v4, v9, :cond_2
@@ -202,6 +248,7 @@
 
     if-ne v4, v5, :cond_6
 
+    .line 239
     :cond_2
     array-length v4, v1
 
@@ -211,6 +258,8 @@
 
     move-result v2
 
+    .line 240
+    .local v2, "index":I
     :goto_1
     array-length v4, v1
 
@@ -218,6 +267,7 @@
 
     if-gt v2, v4, :cond_3
 
+    .line 241
     aget-char v4, v1, v2
 
     if-ne v4, v7, :cond_5
@@ -228,14 +278,18 @@
 
     if-eq v4, v7, :cond_5
 
+    .line 242
     move v0, v2
 
+    .line 249
+    .end local v2    # "index":I
     :cond_3
     :goto_2
     const/4 v4, -0x1
 
     if-eq v0, v4, :cond_8
 
+    .line 250
     add-int/lit8 v4, v0, 0x1
 
     aget-char v4, v1, v4
@@ -252,6 +306,7 @@
 
     if-ne v4, v5, :cond_7
 
+    .line 252
     :cond_4
     new-instance v4, Landroid/provider/GeocodedLocation$PhoneNumber;
 
@@ -265,11 +320,15 @@
 
     goto :goto_0
 
+    .line 240
+    .restart local v2    # "index":I
     :cond_5
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 246
+    .end local v2    # "index":I
     :cond_6
     array-length v4, v1
 
@@ -285,10 +344,12 @@
 
     if-eq v4, v7, :cond_3
 
+    .line 247
     const/4 v0, 0x0
 
     goto :goto_2
 
+    .line 256
     :cond_7
     new-instance v4, Landroid/provider/GeocodedLocation$PhoneNumber;
 
@@ -302,6 +363,7 @@
 
     goto :goto_0
 
+    .line 260
     :cond_8
     const/4 v4, 0x0
 

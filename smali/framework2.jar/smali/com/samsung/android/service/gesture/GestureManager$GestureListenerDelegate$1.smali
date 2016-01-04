@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;Landroid/os/Looper;Lcom/samsung/android/service/gesture/GestureManager;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 453
     iput-object p1, p0, Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate$1;->this$1:Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;
 
     iput-object p3, p0, Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate$1;->val$this$0:Lcom/samsung/android/service/gesture/GestureManager;
@@ -37,7 +40,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 456
     iget-object v1, p0, Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate$1;->this$1:Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;
 
     # getter for: Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;->mListener:Lcom/samsung/android/service/gesture/GestureListener;
@@ -47,12 +53,16 @@
 
     if-eqz v1, :cond_0
 
+    .line 457
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/samsung/android/service/gesture/GestureEvent;
 
+    .line 458
+    .local v0, "gestureEvent":Lcom/samsung/android/service/gesture/GestureEvent;
     if-eqz v0, :cond_1
 
+    .line 459
     iget-object v1, p0, Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate$1;->this$1:Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;
 
     # getter for: Lcom/samsung/android/service/gesture/GestureManager$GestureListenerDelegate;->mListener:Lcom/samsung/android/service/gesture/GestureListener;
@@ -62,10 +72,14 @@
 
     invoke-interface {v1, v0}, Lcom/samsung/android/service/gesture/GestureListener;->onGestureEvent(Lcom/samsung/android/service/gesture/GestureEvent;)V
 
+    .line 464
+    .end local v0    # "gestureEvent":Lcom/samsung/android/service/gesture/GestureEvent;
     :cond_0
     :goto_0
     return-void
 
+    .line 461
+    .restart local v0    # "gestureEvent":Lcom/samsung/android/service/gesture/GestureEvent;
     :cond_1
     const-string v1, "GestureManager"
 

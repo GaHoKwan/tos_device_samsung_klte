@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/sec/InternalClipboardExService;Landroid/sec/clipboard/data/list/ClipboardDataText;Ljava/lang/CharSequence;)V
     .locals 0
 
+    .prologue
+    .line 651
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService$3;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
     iput-object p2, p0, Lcom/android/server/sec/InternalClipboardExService$3;->val$data:Landroid/sec/clipboard/data/list/ClipboardDataText;
@@ -45,8 +47,11 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 654
     monitor-enter p0
 
+    .line 655
     :try_start_0
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$3;->val$data:Landroid/sec/clipboard/data/list/ClipboardDataText;
 
@@ -58,11 +63,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 656
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$3;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
     iget-object v1, p0, Lcom/android/server/sec/InternalClipboardExService$3;->val$data:Landroid/sec/clipboard/data/list/ClipboardDataText;
 
-    invoke-virtual {v1}, Landroid/sec/clipboard/data/list/ClipboardDataText;->GetFomat()I
+    invoke-virtual {v1}, Landroid/sec/clipboard/data/ClipboardData;->GetFomat()I
 
     move-result v1
 
@@ -71,11 +77,14 @@
     # invokes: Lcom/android/server/sec/InternalClipboardExService;->addData(ILandroid/sec/clipboard/data/ClipboardData;)Landroid/sec/clipboard/data/ClipboardData;
     invoke-static {v0, v1, v2}, Lcom/android/server/sec/InternalClipboardExService;->access$600(Lcom/android/server/sec/InternalClipboardExService;ILandroid/sec/clipboard/data/ClipboardData;)Landroid/sec/clipboard/data/ClipboardData;
 
+    .line 658
     :cond_0
     monitor-exit p0
 
+    .line 659
     return-void
 
+    .line 658
     :catchall_0
     move-exception v0
 

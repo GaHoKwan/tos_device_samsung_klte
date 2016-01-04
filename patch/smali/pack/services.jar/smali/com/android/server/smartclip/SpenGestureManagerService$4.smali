@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SpenGestureManagerService;)V
     .locals 0
 
+    .prologue
+    .line 579
     iput-object p1, p0, Lcom/android/server/smartclip/SpenGestureManagerService$4;->this$0:Lcom/android/server/smartclip/SpenGestureManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +38,9 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 0
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 583
     return-void
 .end method

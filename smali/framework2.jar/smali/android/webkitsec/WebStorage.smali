@@ -16,6 +16,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 216
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,6 +26,8 @@
 .method public static getInstance()Landroid/webkitsec/WebStorage;
     .locals 1
 
+    .prologue
+    .line 205
     invoke-static {}, Landroid/webkitsec/WebViewFactory;->getProvider()Landroid/webkitsec/WebViewFactoryProvider;
 
     move-result-object v0
@@ -40,12 +44,17 @@
 .method public deleteAllData()V
     .locals 0
 
+    .prologue
+    .line 197
     return-void
 .end method
 
 .method public deleteOrigin(Ljava/lang/String;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
 
+    .prologue
+    .line 188
     return-void
 .end method
 
@@ -61,11 +70,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 145
+    .local p1, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/util/Map;>;"
     return-void
 .end method
 
 .method public getQuotaForOrigin(Ljava/lang/String;Landroid/webkitsec/ValueCallback;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,11 +90,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 167
+    .local p2, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public getUsageForOrigin(Ljava/lang/String;Landroid/webkitsec/ValueCallback;)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,13 +110,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 156
+    .local p2, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/lang/Long;>;"
     return-void
 .end method
 
 .method public setQuotaForOrigin(Ljava/lang/String;J)V
     .locals 0
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 179
     return-void
 .end method

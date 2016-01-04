@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
 
+    .prologue
+    .line 3652
     iput-object p1, p0, Lcom/android/server/MountService$11;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,12 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 3654
     const/4 v0, 0x0
 
+    .line 3655
+    .local v0, "duration":I
     iget-object v1, p0, Lcom/android/server/MountService$11;->this$0:Lcom/android/server/MountService;
 
     # getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
@@ -54,5 +60,6 @@
 
     invoke-virtual {v1}, Landroid/widget/Toast;->show()V
 
+    .line 3656
     return-void
 .end method

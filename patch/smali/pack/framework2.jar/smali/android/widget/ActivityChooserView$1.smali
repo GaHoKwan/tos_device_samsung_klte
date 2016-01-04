@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/widget/ActivityChooserView;)V
     .locals 0
 
+    .prologue
+    .line 134
     iput-object p1, p0, Landroid/widget/ActivityChooserView$1;->this$0:Landroid/widget/ActivityChooserView;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -34,8 +36,11 @@
 .method public onChanged()V
     .locals 1
 
+    .prologue
+    .line 138
     invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
 
+    .line 139
     iget-object v0, p0, Landroid/widget/ActivityChooserView$1;->this$0:Landroid/widget/ActivityChooserView;
 
     # getter for: Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -43,16 +48,20 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
+    .line 140
     return-void
 .end method
 
 .method public onInvalidated()V
     .locals 1
 
+    .prologue
+    .line 143
     invoke-super {p0}, Landroid/database/DataSetObserver;->onInvalidated()V
 
+    .line 144
     iget-object v0, p0, Landroid/widget/ActivityChooserView$1;->this$0:Landroid/widget/ActivityChooserView;
 
     # getter for: Landroid/widget/ActivityChooserView;->mAdapter:Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;
@@ -60,7 +69,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ActivityChooserView$ActivityChooserViewAdapter;->notifyDataSetInvalidated()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetInvalidated()V
 
+    .line 145
     return-void
 .end method

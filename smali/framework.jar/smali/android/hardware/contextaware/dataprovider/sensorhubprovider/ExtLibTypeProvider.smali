@@ -30,7 +30,7 @@
 
     .prologue
     .line 112
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v0
 
@@ -64,7 +64,7 @@
 
     .prologue
     .line 123
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->clear()V
+    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->clear()V
 
     .line 124
     invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->enable()V
@@ -109,14 +109,14 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->error(Ljava/lang/String;)V
 
     .line 146
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v0
 
     invoke-interface {v0, v2}, Landroid/hardware/contextaware/manager/IContextTimeOutCheck;->setTimeOutOccurence(Z)V
 
     .line 147
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getContextTypeOfFaultDetection()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getContextTypeOfFaultDetection()Ljava/lang/String;
 
     move-result-object v0
 
@@ -126,11 +126,11 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v2, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p0, v2, v1}, Landroid/hardware/contextaware/manager/ContextProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->notifyCmdProcessResultObserver(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-virtual {p0, v0, v1}, Landroid/hardware/contextaware/manager/ContextProvider;->notifyCmdProcessResultObserver(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 152
     return-void
@@ -152,7 +152,7 @@
 
     .line 76
     .local v0, "tmpNext":I
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v1
 
@@ -169,7 +169,7 @@
 
     .line 80
     :cond_1
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v1
 
@@ -196,7 +196,7 @@
 
     .line 86
     :cond_2
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v1
 
@@ -222,7 +222,7 @@
     if-ltz v0, :cond_0
 
     .line 93
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getTimeOutCheckManager()Landroid/hardware/contextaware/manager/IContextTimeOutCheck;
 
     move-result-object v1
 
@@ -233,10 +233,10 @@
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
 
     .line 94
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->notifyObserver()V
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     .line 95
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ExtLibTypeProvider;->notifyFaultDetectionResult()V
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->notifyFaultDetectionResult()V
 
     goto :goto_0
 .end method

@@ -94,7 +94,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/extensions/SessionExpires;->encode()Ljava/lang/String;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/header/SIPHeader;->encode()Ljava/lang/String;
 
     move-result-object v6
 
@@ -138,7 +138,7 @@
     .line 76
     const-string v4, "refresher"
 
-    invoke-virtual {v1, v4}, Lgov/nist/javax/sip/header/extensions/SessionExpires;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -159,7 +159,7 @@
 
     const-string v6, "refresher"
 
-    invoke-virtual {v1, v6}, Lgov/nist/javax/sip/header/extensions/SessionExpires;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v1, v6}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -211,17 +211,17 @@
     .line 39
     const-string v4, "parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 41
     :cond_0
     const/16 v4, 0x855
 
     :try_start_0
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->headerName(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 43
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->getNextId()Ljava/lang/String;
     :try_end_0
@@ -246,7 +246,7 @@
 
     .line 54
     :try_start_2
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -263,7 +263,7 @@
     .line 60
     const-string v4, "parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 56
     :cond_1
@@ -279,7 +279,7 @@
     :try_start_3
     const-string v4, "bad integer format"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 
@@ -300,7 +300,7 @@
     .line 60
     const-string v5, "parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 59
     :cond_2
@@ -314,11 +314,11 @@
     .line 51
     .local v1, "ex":Ljavax/sip/InvalidArgumentException;
     :try_start_4
-    invoke-virtual {v1}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/extensions/SessionExpiresParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v4
 

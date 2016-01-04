@@ -29,6 +29,7 @@
 .method static constructor <clinit>()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v6, 0x3
@@ -39,7 +40,8 @@
 
     const/4 v3, 0x0
 
-    const/16 v0, 0x35
+    .line 17
+    const/16 v0, 0x34
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -553,19 +555,10 @@
 
     aput-object v2, v0, v1
 
-    const/16 v1, 0x34
-
-    const-string v2, "636f6d2e766572697a6f6e2e6d6573736167696e672e767a6d736773"
-
-    invoke-static {v2}, Lcom/android/server/wifi_offload/ExceptionalAppList;->decode(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
     sput-object v0, Lcom/android/server/wifi_offload/ExceptionalAppList;->appList:[Ljava/lang/String;
 
-    const/16 v0, 0x2a
+    .line 141
+    const/16 v0, 0x29
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -969,18 +962,9 @@
 
     aput-object v2, v0, v1
 
-    const/16 v1, 0x29
-
-    const-string v2, "636f6d2e766572697a6f6e2e6d6573736167696e672e767a6d736773"
-
-    invoke-static {v2}, Lcom/android/server/wifi_offload/ExceptionalAppList;->decode(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    aput-object v2, v0, v1
-
     sput-object v0, Lcom/android/server/wifi_offload/ExceptionalAppList;->appList_Tablet:[Ljava/lang/String;
 
+    .line 244
     new-array v0, v4, [Ljava/lang/String;
 
     const-string v1, ""
@@ -989,6 +973,7 @@
 
     sput-object v0, Lcom/android/server/wifi_offload/ExceptionalAppList;->wifiAppList:[Ljava/lang/String;
 
+    .line 283
     invoke-static {}, Lcom/android/server/wifi_offload/ExceptionalAppList;->buildTable()Ljava/util/HashMap;
 
     move-result-object v0
@@ -1001,6 +986,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -1021,14 +1008,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 286
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
+    .line 291
+    .local v1, "localMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;"
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    .line 292
+    .local v0, "dependentPackages":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v2, "636f6d2e616e64726f69642e65786368616e6765"
 
     invoke-static {v2}, Lcom/android/server/wifi_offload/ExceptionalAppList;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -1037,6 +1030,7 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 293
     const-string v2, "636f6d2e616e64726f69642e656d61696c"
 
     invoke-static {v2}, Lcom/android/server/wifi_offload/ExceptionalAppList;->decode(Ljava/lang/String;)Ljava/lang/String;
@@ -1045,18 +1039,25 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 303
     return-object v1
 .end method
 
 .method private static decode(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p0, "src"    # Ljava/lang/String;
 
+    .prologue
+    .line 312
     new-instance v0, Ljava/lang/StringBuffer;
 
     invoke-direct {v0}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 314
+    .local v0, "asc":Ljava/lang/StringBuffer;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
@@ -1066,12 +1067,15 @@
 
     if-ge v1, v3, :cond_0
 
+    .line 315
     add-int/lit8 v3, v1, 0x2
 
     invoke-virtual {p0, v1, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 317
+    .local v2, "out":Ljava/lang/String;
     const/16 v3, 0x10
 
     invoke-static {v2, v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;I)I
@@ -1082,10 +1086,13 @@
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
+    .line 314
     add-int/lit8 v1, v1, 0x2
 
     goto :goto_0
 
+    .line 320
+    .end local v2    # "out":Ljava/lang/String;
     :cond_0
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
@@ -1096,6 +1103,7 @@
 
 .method public static getListOfDependentPackageNamesForDataUsage(Ljava/lang/String;)Ljava/util/List;
     .locals 2
+    .param p0, "packageName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1108,6 +1116,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 307
     sget-object v1, Lcom/android/server/wifi_offload/ExceptionalAppList;->mDependentPackagesTable:Ljava/util/HashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1116,12 +1126,15 @@
 
     check-cast v0, Ljava/util/List;
 
+    .line 308
+    .local v0, "packageList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     if-nez v0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
+    .end local v0    # "packageList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     :cond_0
     return-object v0
 .end method

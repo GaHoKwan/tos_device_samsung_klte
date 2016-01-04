@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 501
+    .line 497
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -37,14 +37,14 @@
     .locals 2
 
     .prologue
-    .line 504
+    .line 500
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     const-string v1, "entering Delivering state"
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/InboundSmsHandler;->log(Ljava/lang/String;)V
 
-    .line 505
+    .line 501
     return-void
 .end method
 
@@ -52,14 +52,14 @@
     .locals 2
 
     .prologue
-    .line 509
+    .line 505
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     const-string v1, "leaving Delivering state"
 
     invoke-virtual {v0, v1}, Lcom/android/internal/telephony/InboundSmsHandler;->log(Ljava/lang/String;)V
 
-    .line 510
+    .line 506
     return-void
 .end method
 
@@ -70,19 +70,19 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 514
+    .line 510
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
-    .line 546
+    .line 542
     :pswitch_0
     const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    .line 517
+    .line 513
     :pswitch_1
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -92,19 +92,19 @@
 
     invoke-virtual {v2, v0}, Lcom/android/internal/telephony/InboundSmsHandler;->handleNewSms(Landroid/os/AsyncResult;)V
 
-    .line 518
+    .line 514
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     const/4 v2, 0x4
 
-    invoke-virtual {v0, v2}, Lcom/android/internal/telephony/InboundSmsHandler;->sendMessage(I)V
+    invoke-virtual {v0, v2}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
     move v0, v1
 
-    .line 519
+    .line 515
     goto :goto_0
 
-    .line 523
+    .line 519
     :pswitch_2
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -118,23 +118,23 @@
 
     if-eqz v0, :cond_0
 
-    .line 524
+    .line 520
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     iget-object v2, v2, Lcom/android/internal/telephony/InboundSmsHandler;->mWaitingState:Lcom/android/internal/telephony/InboundSmsHandler$WaitingState;
 
-    # invokes: Lcom/android/internal/telephony/InboundSmsHandler;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v0, v2}, Lcom/android/internal/telephony/InboundSmsHandler;->access$400(Lcom/android/internal/telephony/InboundSmsHandler;Lcom/android/internal/util/IState;)V
 
     :cond_0
     move v0, v1
 
-    .line 526
+    .line 522
     goto :goto_0
 
-    .line 530
+    .line 526
     :pswitch_3
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -142,15 +142,15 @@
 
     iget-object v2, v2, Lcom/android/internal/telephony/InboundSmsHandler;->mIdleState:Lcom/android/internal/telephony/InboundSmsHandler$IdleState;
 
-    # invokes: Lcom/android/internal/telephony/InboundSmsHandler;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v0, v2}, Lcom/android/internal/telephony/InboundSmsHandler;->access$500(Lcom/android/internal/telephony/InboundSmsHandler;Lcom/android/internal/util/IState;)V
 
     move v0, v1
 
-    .line 531
+    .line 527
     goto :goto_0
 
-    .line 534
+    .line 530
     :pswitch_4
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -158,7 +158,7 @@
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    .line 535
+    .line 531
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     iget-object v0, v0, Lcom/android/internal/telephony/InboundSmsHandler;->mWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -169,7 +169,7 @@
 
     if-nez v0, :cond_1
 
-    .line 537
+    .line 533
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$DeliveringState;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     const-string v2, "mWakeLock released while delivering/broadcasting!"
@@ -179,10 +179,10 @@
     :cond_1
     move v0, v1
 
-    .line 539
+    .line 535
     goto :goto_0
 
-    .line 514
+    .line 510
     nop
 
     :pswitch_data_0

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView$HomeView;)V
     .locals 0
 
+    .prologue
+    .line 2020
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$HomeView$1;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2023
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView$1;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/widget/ImageView;
@@ -45,13 +50,15 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2024
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView$1;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView$HomeView;->mIconView:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTranslationX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 2025
     return-void
 .end method

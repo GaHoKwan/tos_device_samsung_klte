@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;ILandroid/widget/RemoteViews;)V
     .locals 0
 
+    .prologue
+    .line 1074
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$4;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     iput p2, p0, Landroid/widget/RemoteViewsAdapter$4;->val$position:I
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1077
     iget-object v0, p0, Landroid/widget/RemoteViewsAdapter$4;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     # getter for: Landroid/widget/RemoteViewsAdapter;->mRequestedViews:Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;
@@ -58,5 +62,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RemoteViewsAdapter$RemoteViewsFrameLayoutRefSet;->notifyOnRemoteViewsLoaded(ILandroid/widget/RemoteViews;)V
 
+    .line 1078
     return-void
 .end method

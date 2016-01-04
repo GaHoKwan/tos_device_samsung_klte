@@ -25,6 +25,8 @@
 .method private constructor <init>(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2568
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/PowerManagerService;Lcom/android/server/power/PowerManagerService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/power/PowerManagerService;
+    .param p2, "x1"    # Lcom/android/server/power/PowerManagerService$1;
 
+    .prologue
+    .line 2568
     invoke-direct {p0, p1}, Lcom/android/server/power/PowerManagerService$UserActivityTask;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
@@ -45,6 +51,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2572
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mNoUserActivitySent:Z
@@ -56,6 +64,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 2573
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
@@ -71,6 +80,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2574
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
     # getter for: Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
@@ -89,6 +99,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 2575
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserActivityTask;->this$0:Lcom/android/server/power/PowerManagerService;
 
     const/4 v1, 0x0
@@ -96,6 +107,7 @@
     # setter for: Lcom/android/server/power/PowerManagerService;->mNoUserActivitySent:Z
     invoke-static {v0, v1}, Lcom/android/server/power/PowerManagerService;->access$1102(Lcom/android/server/power/PowerManagerService;Z)Z
 
+    .line 2579
     :cond_0
     return-void
 .end method

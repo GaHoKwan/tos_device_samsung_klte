@@ -56,6 +56,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 102
     const/4 v0, 0x4
 
     new-array v0, v0, [Ljava/lang/String;
@@ -91,17 +93,26 @@
 
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 114
     iput-object p1, p0, Lcom/android/server/am/AppStateBroadcaster;->mContext:Landroid/content/Context;
 
+    .line 115
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/content/Context;Lcom/android/server/am/AppStateBroadcaster$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/content/Context;
+    .param p2, "x1"    # Lcom/android/server/am/AppStateBroadcaster$1;
 
+    .prologue
+    .line 24
     invoke-direct {p0, p1}, Lcom/android/server/am/AppStateBroadcaster;-><init>(Landroid/content/Context;)V
 
     return-void
@@ -109,7 +120,12 @@
 
 .method private BroadcastAppState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "appState"    # Ljava/lang/String;
+    .param p3, "termReason"    # Ljava/lang/String;
 
+    .prologue
+    .line 118
     if-eqz p1, :cond_2
 
     if-eqz p2, :cond_2
@@ -124,6 +140,7 @@
 
     if-eqz p3, :cond_2
 
+    .line 121
     :cond_0
     new-instance v0, Landroid/content/Intent;
 
@@ -131,14 +148,18 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 122
+    .local v0, "appStateIntent":Landroid/content/Intent;
     const-string v1, "ApplicationPackageName"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 123
     const-string v1, "ApplicationState"
 
     invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 124
     const-string v1, "EXITED"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -147,34 +168,43 @@
 
     if-eqz v1, :cond_1
 
+    .line 125
     const-string v1, "ApplicationTermReason"
 
     invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 127
     :cond_1
     const-string v1, "com.carrieriq.tmobile"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 128
     iget-object v1, p0, Lcom/android/server/am/AppStateBroadcaster;->mContext:Landroid/content/Context;
 
     const-string v2, "diagandroid.app.receiveDetailedApplicationState"
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
+    .line 130
+    .end local v0    # "appStateIntent":Landroid/content/Intent;
     :cond_2
     return-void
 .end method
 
 .method public static SendApplicationFocusGain(Ljava/lang/String;)V
     .locals 3
+    .param p0, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 33
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     if-eqz v0, :cond_0
 
     if-eqz p0, :cond_0
 
+    .line 34
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     const-string v1, "FOCUS_GAIN"
@@ -183,19 +213,24 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/am/AppStateBroadcaster;->BroadcastAppState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 36
     :cond_0
     return-void
 .end method
 
 .method public static SendApplicationFocusLoss(Ljava/lang/String;)V
     .locals 3
+    .param p0, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 39
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     if-eqz v0, :cond_0
 
     if-eqz p0, :cond_0
 
+    .line 40
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     const-string v1, "FOCUS_LOSS"
@@ -204,19 +239,24 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/am/AppStateBroadcaster;->BroadcastAppState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 42
     :cond_0
     return-void
 .end method
 
 .method public static SendApplicationStart(Ljava/lang/String;)V
     .locals 3
+    .param p0, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 27
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     if-eqz v0, :cond_0
 
     if-eqz p0, :cond_0
 
+    .line 28
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     const-string v1, "START"
@@ -225,19 +265,25 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/am/AppStateBroadcaster;->BroadcastAppState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 30
     :cond_0
     return-void
 .end method
 
 .method public static SendApplicationStop(Ljava/lang/String;I)V
     .locals 3
+    .param p0, "packageName"    # Ljava/lang/String;
+    .param p1, "stopReason"    # I
 
+    .prologue
+    .line 51
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     if-eqz v0, :cond_0
 
     if-eqz p0, :cond_0
 
+    .line 52
     if-ltz p1, :cond_0
 
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->APP_TERM_REASONS:[Ljava/lang/String;
@@ -246,6 +292,7 @@
 
     if-ge p1, v0, :cond_0
 
+    .line 53
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     const-string v1, "EXITED"
@@ -256,6 +303,7 @@
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/server/am/AppStateBroadcaster;->BroadcastAppState(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 56
     :cond_0
     return-void
 .end method
@@ -263,6 +311,8 @@
 .method static synthetic access$000()Lcom/android/server/am/AppStateBroadcaster;
     .locals 1
 
+    .prologue
+    .line 24
     sget-object v0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     return-object v0
@@ -270,7 +320,10 @@
 
 .method static synthetic access$002(Lcom/android/server/am/AppStateBroadcaster;)Lcom/android/server/am/AppStateBroadcaster;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/am/AppStateBroadcaster;
 
+    .prologue
+    .line 24
     sput-object p0, Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
 
     return-object p0

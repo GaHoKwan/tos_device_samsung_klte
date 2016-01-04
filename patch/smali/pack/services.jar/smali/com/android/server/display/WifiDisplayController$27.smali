@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayController;)V
     .locals 0
 
+    .prologue
+    .line 2054
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 20
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 2057
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 2058
+    .local v4, "action":Ljava/lang/String;
     const-string v16, "android.net.wifi.p2p.STATE_CHANGED"
 
     move-object/from16 v0, v16
@@ -48,6 +56,7 @@
 
     if-eqz v16, :cond_2
 
+    .line 2061
     const-string/jumbo v16, "wifi_p2p_state"
 
     const/16 v17, 0x1
@@ -72,6 +81,8 @@
 
     const/4 v9, 0x1
 
+    .line 2065
+    .local v9, "enabled":Z
     :goto_0
     const-string v16, "WifiDisplayController"
 
@@ -97,6 +108,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2069
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -108,15 +120,19 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->handleStateChanged(Z)V
     invoke-static {v0, v9}, Lcom/android/server/display/WifiDisplayController;->access$5100(Lcom/android/server/display/WifiDisplayController;Z)V
 
+    .line 2241
+    .end local v9    # "enabled":Z
     :cond_0
     :goto_1
     return-void
 
+    .line 2061
     :cond_1
     const/4 v9, 0x0
 
     goto :goto_0
 
+    .line 2070
     :cond_2
     const-string v16, "android.net.wifi.p2p.PEERS_CHANGED"
 
@@ -128,12 +144,14 @@
 
     if-eqz v16, :cond_3
 
+    .line 2072
     const-string v16, "WifiDisplayController"
 
     const-string v17, "Received WIFI_P2P_PEERS_CHANGED_ACTION."
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2075
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -145,6 +163,7 @@
 
     goto :goto_1
 
+    .line 2076
     :cond_3
     const-string v16, "android.net.wifi.p2p.CONNECTION_STATE_CHANGE"
 
@@ -156,6 +175,7 @@
 
     if-eqz v16, :cond_4
 
+    .line 2077
     const-string v16, "networkInfo"
 
     move-object/from16 v0, p2
@@ -168,6 +188,8 @@
 
     check-cast v11, Landroid/net/NetworkInfo;
 
+    .line 2080
+    .local v11, "networkInfo":Landroid/net/NetworkInfo;
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -192,6 +214,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2084
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -205,6 +228,8 @@
 
     goto :goto_1
 
+    .line 2085
+    .end local v11    # "networkInfo":Landroid/net/NetworkInfo;
     :cond_4
     const-string v16, "android.net.wifi.p2p.THIS_DEVICE_CHANGED"
 
@@ -216,6 +241,7 @@
 
     if-eqz v16, :cond_5
 
+    .line 2086
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -241,6 +267,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mThisDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
     invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayController;->access$4002(Lcom/android/server/display/WifiDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
+    .line 2089
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -276,6 +303,7 @@
 
     goto/16 :goto_1
 
+    .line 2094
     :cond_5
     const-string v16, "android.net.wifi.WIFI_AP_STATE_CHANGED"
 
@@ -287,8 +315,11 @@
 
     if-eqz v16, :cond_8
 
+    .line 2095
     const/16 v5, 0xe
 
+    .line 2096
+    .local v5, "apState":I
     const-string/jumbo v16, "wifi_state"
 
     const/16 v17, 0xe
@@ -303,6 +334,7 @@
 
     move-result v5
 
+    .line 2098
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -322,6 +354,7 @@
 
     if-ne v5, v0, :cond_6
 
+    .line 2099
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -333,6 +366,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWaitForAction:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5402(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2100
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -342,6 +376,7 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->updateSettings()V
     invoke-static/range {v16 .. v16}, Lcom/android/server/display/WifiDisplayController;->access$000(Lcom/android/server/display/WifiDisplayController;)V
 
+    .line 2103
     :cond_6
     move-object/from16 v0, p0
 
@@ -370,6 +405,8 @@
 
     const/4 v14, 0x1
 
+    .line 2104
+    .local v14, "turningWifiDisplayOn":Z
     :goto_2
     const-string/jumbo v16, "wlan.wfd.pickerdialogontop"
 
@@ -385,6 +422,8 @@
 
     move-result v12
 
+    .line 2105
+    .local v12, "pickerDialogOnTop":Z
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -413,10 +452,14 @@
 
     check-cast v7, Landroid/hardware/display/DisplayManager;
 
+    .line 2106
+    .local v7, "displayManager":Landroid/hardware/display/DisplayManager;
     invoke-virtual {v7}, Landroid/hardware/display/DisplayManager;->getWifiDisplayStatus()Landroid/hardware/display/WifiDisplayStatus;
 
     move-result-object v8
 
+    .line 2107
+    .local v8, "displayStatus":Landroid/hardware/display/WifiDisplayStatus;
     if-eqz v14, :cond_0
 
     if-eqz v12, :cond_0
@@ -463,6 +506,7 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 2113
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -474,6 +518,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWaitForAction:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5402(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2114
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -485,11 +530,18 @@
 
     goto/16 :goto_1
 
+    .line 2103
+    .end local v7    # "displayManager":Landroid/hardware/display/DisplayManager;
+    .end local v8    # "displayStatus":Landroid/hardware/display/WifiDisplayStatus;
+    .end local v12    # "pickerDialogOnTop":Z
+    .end local v14    # "turningWifiDisplayOn":Z
     :cond_7
     const/4 v14, 0x0
 
     goto :goto_2
 
+    .line 2116
+    .end local v5    # "apState":I
     :cond_8
     const-string v16, "android.net.wifi.STATE_CHANGE"
 
@@ -501,6 +553,7 @@
 
     if-eqz v16, :cond_9
 
+    .line 2117
     const-string v16, "networkInfo"
 
     move-object/from16 v0, p2
@@ -513,14 +566,18 @@
 
     check-cast v10, Landroid/net/NetworkInfo;
 
+    .line 2119
+    .local v10, "info":Landroid/net/NetworkInfo;
     if-eqz v10, :cond_0
 
+    .line 2120
     invoke-virtual {v10}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v16
 
     if-eqz v16, :cond_0
 
+    .line 2121
     const-string/jumbo v16, "wifiInfo"
 
     move-object/from16 v0, p2
@@ -533,12 +590,17 @@
 
     check-cast v15, Landroid/net/wifi/WifiInfo;
 
+    .line 2122
+    .local v15, "wifiInfo":Landroid/net/wifi/WifiInfo;
     if-eqz v15, :cond_0
 
+    .line 2126
     invoke-virtual {v15}, Landroid/net/wifi/WifiInfo;->getFrequency()I
 
     move-result v3
 
+    .line 2128
+    .local v3, "APFrequency":I
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -552,6 +614,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2129
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -597,6 +660,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2130
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -612,6 +676,7 @@
 
     if-eq v3, v0, :cond_0
 
+    .line 2131
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -625,6 +690,10 @@
 
     goto/16 :goto_1
 
+    .line 2136
+    .end local v3    # "APFrequency":I
+    .end local v10    # "info":Landroid/net/NetworkInfo;
+    .end local v15    # "wifiInfo":Landroid/net/wifi/WifiInfo;
     :cond_9
     const-string v16, "android.intent.action.HDMI_PLUGGED"
 
@@ -636,6 +705,7 @@
 
     if-eqz v16, :cond_e
 
+    .line 2137
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -649,6 +719,7 @@
 
     if-eqz v16, :cond_a
 
+    .line 2138
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -670,6 +741,7 @@
 
     invoke-virtual/range {v16 .. v18}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 2139
     :cond_a
     move-object/from16 v0, p0
 
@@ -694,6 +766,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mHDMIConnected:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5002(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2140
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -720,12 +793,14 @@
 
     if-eqz v16, :cond_b
 
+    .line 2141
     const-string v16, "WifiDisplayController"
 
     const-string v17, "Screen Mirroring is disabled because HDMI is connected..."
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2142
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -739,6 +814,7 @@
 
     if-eqz v16, :cond_c
 
+    .line 2143
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -750,6 +826,7 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->requestPopup(I)V
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$2400(Lcom/android/server/display/WifiDisplayController;I)V
 
+    .line 2144
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -759,6 +836,7 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->disconnect()V
     invoke-static/range {v16 .. v16}, Lcom/android/server/display/WifiDisplayController;->access$2600(Lcom/android/server/display/WifiDisplayController;)V
 
+    .line 2149
     :cond_b
     :goto_3
     const-string v16, "WifiDisplayController"
@@ -796,6 +874,7 @@
 
     goto/16 :goto_1
 
+    .line 2146
     :cond_c
     const-string/jumbo v16, "wlan.wfd.pickerdialogontop"
 
@@ -829,6 +908,7 @@
 
     if-eqz v16, :cond_b
 
+    .line 2147
     :cond_d
     move-object/from16 v0, p0
 
@@ -843,6 +923,7 @@
 
     goto :goto_3
 
+    .line 2150
     :cond_e
     const-string v16, "android.intent.action.WIFI_DISPLAY_URL_FROM_NATIVE"
 
@@ -854,6 +935,7 @@
 
     if-eqz v16, :cond_f
 
+    .line 2152
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -873,6 +955,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mUpdateURL:Ljava/lang/String;
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5702(Lcom/android/server/display/WifiDisplayController;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 2154
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -886,6 +969,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2155
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -919,6 +1003,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2156
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -943,6 +1028,7 @@
 
     invoke-virtual/range {v16 .. v17}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 2157
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -971,6 +1057,7 @@
 
     goto/16 :goto_1
 
+    .line 2159
     :cond_f
     const-string v16, "android.settings.POWERSAVING_CHANGED"
 
@@ -982,8 +1069,11 @@
 
     if-eqz v16, :cond_13
 
+    .line 2160
     const-string/jumbo v6, "true"
 
+    .line 2161
+    .local v6, "changed":Ljava/lang/String;
     const-string v16, "changed"
 
     move-object/from16 v0, p2
@@ -996,6 +1086,7 @@
 
     if-eqz v16, :cond_10
 
+    .line 2162
     const-string v16, "changed"
 
     move-object/from16 v0, p2
@@ -1006,6 +1097,7 @@
 
     move-result-object v6
 
+    .line 2165
     :cond_10
     move-object/from16 v0, p0
 
@@ -1062,6 +1154,7 @@
 
     if-eqz v16, :cond_12
 
+    .line 2166
     :cond_11
     const-string v16, "WifiDisplayController"
 
@@ -1069,6 +1162,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2167
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1082,6 +1176,7 @@
 
     goto/16 :goto_1
 
+    .line 2168
     :cond_12
     move-object/from16 v0, p0
 
@@ -1119,6 +1214,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2169
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1130,6 +1226,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWaitForAction:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5402(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2170
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1141,6 +1238,8 @@
 
     goto/16 :goto_1
 
+    .line 2172
+    .end local v6    # "changed":Ljava/lang/String;
     :cond_13
     const-string v16, "android.intent.action.NOT_ALLOWED_SCREEN_MIRRORING"
 
@@ -1152,12 +1251,14 @@
 
     if-eqz v16, :cond_17
 
+    .line 2173
     const-string v16, "WifiDisplayController"
 
     const-string v17, "LimitedContents : android.intent.action.NOT_ALLOWED_SCREEN_MIRRORING"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2175
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1171,6 +1272,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mLimitedContentsType:Ljava/lang/String;
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$6002(Lcom/android/server/display/WifiDisplayController;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 2176
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1184,6 +1286,7 @@
 
     if-nez v16, :cond_14
 
+    .line 2177
     const-string v16, "WifiDisplayController"
 
     const-string v17, "LimitedContents type is null"
@@ -1192,6 +1295,7 @@
 
     goto/16 :goto_1
 
+    .line 2180
     :cond_14
     move-object/from16 v0, p0
 
@@ -1206,6 +1310,7 @@
 
     if-eqz v16, :cond_16
 
+    .line 2181
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1225,12 +1330,14 @@
 
     if-eqz v16, :cond_15
 
+    .line 2182
     const-string v16, "WifiDisplayController"
 
     const-string v17, "LimitedContents : recording"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2183
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1244,6 +1351,7 @@
 
     goto/16 :goto_1
 
+    .line 2185
     :cond_15
     move-object/from16 v0, p0
 
@@ -1264,12 +1372,14 @@
 
     if-eqz v16, :cond_0
 
+    .line 2186
     const-string v16, "WifiDisplayController"
 
     const-string v17, "LimitedContents : playback"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2187
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1283,6 +1393,7 @@
 
     goto/16 :goto_1
 
+    .line 2191
     :cond_16
     const-string v16, "WifiDisplayController"
 
@@ -1290,6 +1401,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2192
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1301,6 +1413,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mLimitedContentsEnabled:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$6102(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2193
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1324,6 +1437,7 @@
 
     goto/16 :goto_1
 
+    .line 2196
     :cond_17
     const-string v16, "android.intent.action.VIDEO_PLAYBACK_STOP"
 
@@ -1335,12 +1449,14 @@
 
     if-eqz v16, :cond_18
 
+    .line 2197
     const-string v16, "WifiDisplayController"
 
     const-string v17, "LimitedContents : android.intent.action.VIDEO_PLAYBACK_STOP"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2198
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1352,6 +1468,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mLimitedContentsEnabled:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$6102(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2199
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1375,6 +1492,7 @@
 
     goto/16 :goto_1
 
+    .line 2201
     :cond_18
     const-string/jumbo v16, "sidesync.app.action.DISMISS_FINISH_DIALOG"
 
@@ -1386,12 +1504,14 @@
 
     if-eqz v16, :cond_19
 
+    .line 2202
     const-string v16, "WifiDisplayController"
 
     const-string/jumbo v17, "sidesync.app.action.DISMISS_FINISH_DIALOG"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2203
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1405,6 +1525,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2204
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1416,6 +1537,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWaitForAction:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5402(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2205
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1444,6 +1566,7 @@
 
     goto/16 :goto_1
 
+    .line 2207
     :cond_19
     const-string v16, "com.sec.android.sidesync.action.FINISH_SIDESYNC_APP"
 
@@ -1455,6 +1578,7 @@
 
     if-eqz v16, :cond_1a
 
+    .line 2208
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1468,6 +1592,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2209
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1479,6 +1604,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mWaitForAction:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$5402(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2210
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1507,6 +1633,7 @@
 
     goto/16 :goto_1
 
+    .line 2212
     :cond_1a
     const-string v16, "com.samsung.wfd.RESULT_WFD_UPDATE"
 
@@ -1518,6 +1645,7 @@
 
     if-eqz v16, :cond_1b
 
+    .line 2213
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1541,6 +1669,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayController;->mDongleUpdateResult:Z
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$6302(Lcom/android/server/display/WifiDisplayController;Z)Z
 
+    .line 2214
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1576,6 +1705,7 @@
 
     goto/16 :goto_1
 
+    .line 2215
     :cond_1b
     const-string v16, "android.net.wifi.p2p.REQUEST_STATE_CHANGE"
 
@@ -1587,6 +1717,7 @@
 
     if-eqz v16, :cond_1d
 
+    .line 2217
     const-string v16, "requestState"
 
     const/16 v17, 0x0
@@ -1601,6 +1732,8 @@
 
     move-result v13
 
+    .line 2220
+    .local v13, "requestAccepted":Z
     const-string v16, "WifiDisplayController"
 
     new-instance v17, Ljava/lang/StringBuilder;
@@ -1625,6 +1758,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2223
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1651,14 +1785,17 @@
 
     if-eqz v16, :cond_0
 
+    .line 2225
     if-eqz v13, :cond_1c
 
+    .line 2227
     const-string v16, "WifiDisplayController"
 
     const-string v17, "User accepted PIN connect"
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2228
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1670,6 +1807,7 @@
     # invokes: Lcom/android/server/display/WifiDisplayController;->requestPopup(I)V
     invoke-static/range {v16 .. v17}, Lcom/android/server/display/WifiDisplayController;->access$2400(Lcom/android/server/display/WifiDisplayController;I)V
 
+    .line 2229
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1698,6 +1836,7 @@
 
     goto/16 :goto_1
 
+    .line 2233
     :cond_1c
     const-string v16, "WifiDisplayController"
 
@@ -1705,6 +1844,7 @@
 
     invoke-static/range {v16 .. v17}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2234
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;
@@ -1716,6 +1856,8 @@
 
     goto/16 :goto_1
 
+    .line 2237
+    .end local v13    # "requestAccepted":Z
     :cond_1d
     const-string v16, "android.intent.action.BOOT_COMPLETED"
 
@@ -1727,6 +1869,7 @@
 
     if-eqz v16, :cond_0
 
+    .line 2238
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/display/WifiDisplayController$27;->this$0:Lcom/android/server/display/WifiDisplayController;

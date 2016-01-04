@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;)V
     .locals 0
 
+    .prologue
+    .line 885
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public onBridgeConnected()I
     .locals 2
 
+    .prologue
+    .line 888
     const-string v0, "WfdBridgeAdapter"
 
     const-string v1, "Bridge is connected"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 889
     const/4 v0, 0x0
 
     return v0
@@ -50,19 +55,28 @@
 
 .method public onConnRequest(IILjava/net/InetAddress;)V
     .locals 1
+    .param p1, "dev"    # I
+    .param p2, "type"    # I
+    .param p3, "addr"    # Ljava/net/InetAddress;
 
+    .prologue
+    .line 914
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->startWFDEngine(IILjava/net/InetAddress;)V
 
+    .line 915
     return-void
 .end method
 
 .method public onError(I)V
     .locals 4
+    .param p1, "errorCode"    # I
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 919
     const-string v0, "WfdBridgeAdapter"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -85,6 +99,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 920
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingDev:I
@@ -94,37 +109,46 @@
 
     if-ltz v0, :cond_0
 
+    .line 925
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # setter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingDev:I
     invoke-static {v0, v3}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->access$2102(Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;I)I
 
+    .line 926
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # setter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingType:I
     invoke-static {v0, v3}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->access$2202(Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;I)I
 
+    .line 927
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     iget-object v0, v0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     invoke-virtual {v0, p1}, Lcom/android/server/display/IpRemoteDisplayController;->notifyBridgeStatus(I)V
 
+    .line 928
     return-void
 .end method
 
 .method public onGetStatus()I
     .locals 4
 
+    .prologue
+    .line 894
     const-string v1, "WfdBridgeAdapter"
 
     const-string v2, "onGetStatus"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 896
     const/16 v0, 0xc8
 
+    .line 898
+    .local v0, "status":I
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mScreenState:I
@@ -134,8 +158,10 @@
 
     if-nez v1, :cond_0
 
+    .line 899
     const/16 v0, 0x12d
 
+    .line 901
     :cond_0
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
@@ -145,8 +171,10 @@
 
     if-eqz v1, :cond_1
 
+    .line 902
     const/16 v0, 0x12e
 
+    .line 904
     :cond_1
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
@@ -157,8 +185,10 @@
 
     if-ltz v1, :cond_2
 
+    .line 905
     const/16 v0, 0x130
 
+    .line 908
     :cond_2
     const-string v1, "WfdBridgeAdapter"
 
@@ -182,20 +212,25 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 909
     return v0
 .end method
 
 .method public onOK(Ljava/net/InetAddress;)V
     .locals 4
+    .param p1, "addr"    # Ljava/net/InetAddress;
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 932
     const-string v0, "WfdBridgeAdapter"
 
     const-string v1, "onOK"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 934
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     iget-object v0, v0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
@@ -204,6 +239,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/IpRemoteDisplayController;->notifyBridgeStatus(I)V
 
+    .line 935
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingDev:I
@@ -213,6 +249,7 @@
 
     if-ltz v0, :cond_0
 
+    .line 936
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -231,16 +268,19 @@
 
     invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->startWFDEngine(IILjava/net/InetAddress;)V
 
+    .line 937
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # setter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingDev:I
     invoke-static {v0, v3}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->access$2102(Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;I)I
 
+    .line 938
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter$1;->this$1:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
 
     # setter for: Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->mPendingType:I
     invoke-static {v0, v3}, Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;->access$2202(Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;I)I
 
+    .line 940
     :cond_0
     return-void
 .end method

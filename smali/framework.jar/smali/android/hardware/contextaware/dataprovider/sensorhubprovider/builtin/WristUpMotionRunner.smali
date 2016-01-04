@@ -30,7 +30,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 125
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->clear()V
 
     .line 126
     return-void
@@ -44,7 +44,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 114
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->disable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->disable()V
 
     .line 115
     return-void
@@ -58,7 +58,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 101
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->enable()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->enable()V
 
     .line 102
     return-void
@@ -83,7 +83,7 @@
 
     .prologue
     .line 137
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/builtin/WristUpMotionRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -94,7 +94,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 138
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/LibTypeProvider;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 

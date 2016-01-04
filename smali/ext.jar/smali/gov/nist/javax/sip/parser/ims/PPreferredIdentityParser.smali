@@ -50,31 +50,31 @@
     .line 66
     const-string v1, "PreferredIdentityParser.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 69
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x84a
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 70
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 71
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x3a
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 72
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -97,7 +97,7 @@
     .line 79
     const-string v1, "PreferredIdentityParser.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 76
     :cond_1
@@ -115,7 +115,7 @@
     .line 79
     const-string v2, "PreferredIdentityParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PPreferredIdentityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 78
     :cond_2

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 140
     iput-object p1, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager$3;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,15 +36,20 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 142
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 150
     :goto_0
     :pswitch_0
     return-void
 
+    .line 144
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager$3;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;
 
@@ -50,6 +58,7 @@
 
     goto :goto_0
 
+    .line 147
     :pswitch_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager$3;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;
 
@@ -58,6 +67,7 @@
 
     goto :goto_0
 
+    .line 142
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

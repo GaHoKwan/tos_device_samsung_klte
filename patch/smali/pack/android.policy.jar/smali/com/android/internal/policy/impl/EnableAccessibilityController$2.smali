@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/EnableAccessibilityController;)V
     .locals 0
 
+    .prologue
+    .line 106
     iput-object p1, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController$2;->this$0:Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onInit(I)V
     .locals 1
+    .param p1, "status"    # I
 
+    .prologue
+    .line 109
     iget-object v0, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController$2;->this$0:Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     # getter for: Lcom/android/internal/policy/impl/EnableAccessibilityController;->mDestroyed:Z
@@ -46,6 +51,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 110
     iget-object v0, p0, Lcom/android/internal/policy/impl/EnableAccessibilityController$2;->this$0:Lcom/android/internal/policy/impl/EnableAccessibilityController;
 
     # getter for: Lcom/android/internal/policy/impl/EnableAccessibilityController;->mTts:Landroid/speech/tts/TextToSpeech;
@@ -55,6 +61,7 @@
 
     invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->shutdown()V
 
+    .line 112
     :cond_0
     return-void
 .end method

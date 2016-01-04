@@ -29,8 +29,11 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 107
     new-instance v0, Lcom/android/internal/os/ProcessCpuTracker;
 
     const/4 v1, 0x0
@@ -39,12 +42,16 @@
 
     iput-object v0, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
+    .line 110
     return-void
 .end method
 
 .method public static declared-synchronized getInstance(Landroid/content/Context;)Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;
     .locals 2
+    .param p0, "ctx"    # Landroid/content/Context;
 
+    .prologue
+    .line 97
     const-class v1, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;
 
     monitor-enter v1
@@ -54,14 +61,17 @@
 
     if-nez v0, :cond_0
 
+    .line 98
     sput-object p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mContext:Landroid/content/Context;
 
+    .line 99
     new-instance v0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;
 
     invoke-direct {v0}, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;-><init>()V
 
     sput-object v0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mInstance:Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;
 
+    .line 100
     const-string v0, "package"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
@@ -74,6 +84,7 @@
 
     sput-object v0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
+    .line 104
     :cond_0
     sget-object v0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mInstance:Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;
     :try_end_0
@@ -83,6 +94,7 @@
 
     return-object v0
 
+    .line 97
     :catchall_0
     move-exception v0
 
@@ -93,15 +105,20 @@
 
 .method private static getValidStr(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p0, "str"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 89
     if-nez p0, :cond_1
 
+    .line 93
     :cond_0
     :goto_0
     return-object v1
 
+    .line 89
     :cond_1
     :try_start_0
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -120,12 +137,15 @@
 
     goto :goto_0
 
+    .line 90
     :catch_0
     move-exception v0
 
+    .line 91
+    .local v0, "e":Ljava/lang/Exception;
     const-string v2, "PackageManagerAdapter"
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
@@ -138,47 +158,62 @@
 # virtual methods
 .method public getProcessCpuUsage(I)J
     .locals 9
+    .param p1, "pid"    # I
 
+    .prologue
     const-wide/16 v5, 0x0
 
+    .line 113
     iget-object v7, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
     invoke-virtual {v7}, Lcom/android/internal/os/ProcessCpuTracker;->update()V
 
+    .line 115
     iget-object v7, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
     invoke-virtual {v7}, Lcom/android/internal/os/ProcessCpuTracker;->countWorkingStats()I
 
     move-result v0
 
+    .line 116
+    .local v0, "count":I
     const/4 v2, 0x0
 
+    .line 117
+    .local v2, "stat":Lcom/android/internal/os/ProcessCpuTracker$Stats;
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     if-ge v1, v0, :cond_0
 
+    .line 118
     iget-object v7, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
     invoke-virtual {v7, v1}, Lcom/android/internal/os/ProcessCpuTracker;->getWorkingStats(I)Lcom/android/internal/os/ProcessCpuTracker$Stats;
 
     move-result-object v2
 
+    .line 119
     iget v7, v2, Lcom/android/internal/os/ProcessCpuTracker$Stats;->pid:I
 
     if-ne v7, p1, :cond_1
 
+    .line 124
     :cond_0
     if-nez v2, :cond_2
 
+    .line 138
     :goto_1
     return-wide v5
 
+    .line 117
     :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 128
     :cond_2
     iget-object v7, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
@@ -212,12 +247,16 @@
 
     int-to-long v3, v7
 
+    .line 131
+    .local v3, "totalCPUTime":J
     cmp-long v5, v3, v5
 
     if-nez v5, :cond_3
 
+    .line 132
     const-wide/16 v3, 0x1
 
+    .line 138
     :cond_3
     iget v5, v2, Lcom/android/internal/os/ProcessCpuTracker$Stats;->rel_utime:I
 
@@ -237,9 +276,12 @@
 .method public initProcessStats()V
     .locals 1
 
+    .prologue
+    .line 142
     iget-object v0, p0, Lcom/android/server/analytics/data/collection/adapterlayer/PackageManagerAdapter;->mProcessStats:Lcom/android/internal/os/ProcessCpuTracker;
 
     invoke-virtual {v0}, Lcom/android/internal/os/ProcessCpuTracker;->init()V
 
+    .line 143
     return-void
 .end method

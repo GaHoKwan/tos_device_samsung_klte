@@ -557,7 +557,7 @@
     .line 135
     const-string v0, "DhcpServerConfiguration"
 
-    const-string v1, "writeToParcel"
+    const-string/jumbo v1, "writeToParcel"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

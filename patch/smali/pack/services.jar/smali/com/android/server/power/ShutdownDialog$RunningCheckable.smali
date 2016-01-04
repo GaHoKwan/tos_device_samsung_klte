@@ -27,10 +27,13 @@
 .method private constructor <init>(Lcom/android/server/power/ShutdownDialog;)V
     .locals 1
 
+    .prologue
+    .line 386
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
+    .line 387
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->running:Z
@@ -40,7 +43,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/ShutdownDialog;Lcom/android/server/power/ShutdownDialog$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/power/ShutdownDialog;
+    .param p2, "x1"    # Lcom/android/server/power/ShutdownDialog$1;
 
+    .prologue
+    .line 386
     invoke-direct {p0, p1}, Lcom/android/server/power/ShutdownDialog$RunningCheckable;-><init>(Lcom/android/server/power/ShutdownDialog;)V
 
     return-void
@@ -51,6 +58,8 @@
 .method public checkRunning()Z
     .locals 1
 
+    .prologue
+    .line 389
     iget-boolean v0, p0, Lcom/android/server/power/ShutdownDialog$RunningCheckable;->running:Z
 
     return v0

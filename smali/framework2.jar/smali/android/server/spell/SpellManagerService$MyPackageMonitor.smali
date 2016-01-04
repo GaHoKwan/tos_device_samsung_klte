@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/server/spell/SpellManagerService;)V
     .locals 0
 
+    .prologue
+    .line 177
     iput-object p1, p0, Landroid/server/spell/SpellManagerService$MyPackageMonitor;->this$0:Landroid/server/spell/SpellManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/content/PackageMonitor;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onPackageModified(Ljava/lang/String;)V
     .locals 2
+    .param p1, "pkg"    # Ljava/lang/String;
 
+    .prologue
+    .line 185
     iget-object v0, p0, Landroid/server/spell/SpellManagerService$MyPackageMonitor;->this$0:Landroid/server/spell/SpellManagerService;
 
     const-string/jumbo v1, "onPackageModified"
@@ -41,12 +46,15 @@
     # invokes: Landroid/server/spell/SpellManagerService;->scheduleUpdateSpellScrollInfo(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/server/spell/SpellManagerService;->access$400(Landroid/server/spell/SpellManagerService;Ljava/lang/String;)V
 
+    .line 186
     return-void
 .end method
 
 .method public onSomePackagesChanged()V
     .locals 2
 
+    .prologue
+    .line 180
     iget-object v0, p0, Landroid/server/spell/SpellManagerService$MyPackageMonitor;->this$0:Landroid/server/spell/SpellManagerService;
 
     const-string/jumbo v1, "onSomePackagesChanged"
@@ -54,5 +62,6 @@
     # invokes: Landroid/server/spell/SpellManagerService;->scheduleUpdateSpellScrollInfo(Ljava/lang/String;)V
     invoke-static {v0, v1}, Landroid/server/spell/SpellManagerService;->access$400(Landroid/server/spell/SpellManagerService;Ljava/lang/String;)V
 
+    .line 181
     return-void
 .end method

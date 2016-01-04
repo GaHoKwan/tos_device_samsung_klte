@@ -25,14 +25,23 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/content/ContentService$ObserverNode;Landroid/database/IContentObserver;Z)V
     .locals 0
+    .param p1, "node"    # Lcom/android/server/content/ContentService$ObserverNode;
+    .param p2, "observer"    # Landroid/database/IContentObserver;
+    .param p3, "selfChange"    # Z
 
+    .prologue
+    .line 318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 319
     iput-object p1, p0, Lcom/android/server/content/ContentService$ObserverCall;->mNode:Lcom/android/server/content/ContentService$ObserverNode;
 
+    .line 320
     iput-object p2, p0, Lcom/android/server/content/ContentService$ObserverCall;->mObserver:Landroid/database/IContentObserver;
 
+    .line 321
     iput-boolean p3, p0, Lcom/android/server/content/ContentService$ObserverCall;->mSelfChange:Z
 
+    .line 322
     return-void
 .end method

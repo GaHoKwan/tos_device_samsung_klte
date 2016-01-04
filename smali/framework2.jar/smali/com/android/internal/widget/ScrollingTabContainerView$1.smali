@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
     .locals 0
 
+    .prologue
+    .line 183
     iput-object p1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,10 @@
 .method public onPreDraw()Z
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 187
     iget-object v2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
@@ -46,18 +50,21 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {v2}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
     move-result-object v2
 
     invoke-virtual {v2, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
+    .line 188
     iget-object v2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->twGetMoveLength()I
 
     move-result v0
 
+    .line 195
+    .local v0, "movingLength":I
     iget-object v2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mtwTabLayoutMoveAniEnabled:Z
@@ -76,6 +83,7 @@
 
     if-lez v0, :cond_0
 
+    .line 197
     iget-object v2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$1;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
@@ -87,11 +95,13 @@
 
     int-to-float v3, v3
 
-    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setTranslationX(F)V
+    invoke-virtual {v2, v3}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 198
     # setter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mtwEnablePreDraw:Z
     invoke-static {v1}, Lcom/android/internal/widget/ScrollingTabContainerView;->access$202(Z)Z
 
+    .line 201
     :goto_0
     return v1
 

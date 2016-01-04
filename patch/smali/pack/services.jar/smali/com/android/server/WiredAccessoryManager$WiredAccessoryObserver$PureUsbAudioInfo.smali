@@ -30,6 +30,8 @@
 .method private constructor <init>(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;)V
     .locals 0
 
+    .prologue
+    .line 485
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->this$1:Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +41,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;Lcom/android/server/WiredAccessoryManager$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;
+    .param p2, "x1"    # Lcom/android/server/WiredAccessoryManager$1;
 
+    .prologue
+    .line 485
     invoke-direct {p0, p1}, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;-><init>(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver;)V
 
     return-void
@@ -47,7 +53,10 @@
 
 .method static synthetic access$1100(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;)Z
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
 
+    .prologue
+    .line 485
     iget-boolean v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->isPlayback:Z
 
     return v0
@@ -55,7 +64,11 @@
 
 .method static synthetic access$1102(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;Z)Z
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
+    .param p1, "x1"    # Z
 
+    .prologue
+    .line 485
     iput-boolean p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->isPlayback:Z
 
     return p1
@@ -63,7 +76,10 @@
 
 .method static synthetic access$1200(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
 
+    .prologue
+    .line 485
     iget-object v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->format:Ljava/lang/String;
 
     return-object v0
@@ -71,7 +87,11 @@
 
 .method static synthetic access$1202(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
+    .prologue
+    .line 485
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->format:Ljava/lang/String;
 
     return-object p1
@@ -79,7 +99,10 @@
 
 .method static synthetic access$1300(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;)I
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
 
+    .prologue
+    .line 485
     iget v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->channels:I
 
     return v0
@@ -87,7 +110,11 @@
 
 .method static synthetic access$1302(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;I)I
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 485
     iput p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->channels:I
 
     return p1
@@ -95,7 +122,10 @@
 
 .method static synthetic access$1400(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
 
+    .prologue
+    .line 485
     iget-object v0, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->rates:Ljava/lang/String;
 
     return-object v0
@@ -103,7 +133,11 @@
 
 .method static synthetic access$1402(Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;
+    .param p1, "x1"    # Ljava/lang/String;
 
+    .prologue
+    .line 485
     iput-object p1, p0, Lcom/android/server/WiredAccessoryManager$WiredAccessoryObserver$PureUsbAudioInfo;->rates:Ljava/lang/String;
 
     return-object p1

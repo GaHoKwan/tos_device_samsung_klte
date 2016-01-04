@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2834
     iput-object p1, p0, Lcom/android/server/DevicePolicyManagerService$3;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2837
     :try_start_0
     const-string v1, "DevicePolicyManagerService"
 
@@ -44,12 +48,14 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2838
     iget-object v1, p0, Lcom/android/server/DevicePolicyManagerService$3;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iget-object v1, v1, Lcom/android/server/DevicePolicyManagerService;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Landroid/os/RecoverySystem;->rebootWipeUserData(Landroid/content/Context;)V
 
+    .line 2839
     const-string v1, "DevicePolicyManagerService"
 
     const-string v2, "RecoverySystem.rebootWipeUserData() end"
@@ -58,12 +64,16 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 2843
     :goto_0
     return-void
 
+    .line 2840
     :catch_0
     move-exception v0
 
+    .line 2841
+    .local v0, "e":Ljava/io/IOException;
     const-string v1, "DevicePolicyManagerService"
 
     const-string v2, "Failed requesting data wipe"

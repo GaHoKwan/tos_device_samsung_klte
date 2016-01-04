@@ -24,12 +24,16 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 359
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 360
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/FgAppListener$ScenarioInfo;->mSIPVisible:Z
 
+    .line 362
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/FgAppListener$ScenarioInfo;->mUsbConnected:Z
 
     return-void

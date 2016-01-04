@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView$HomeView;)V
     .locals 0
 
+    .prologue
+    .line 2030
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$HomeView$2;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2033
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView$2;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/widget/ImageView;
@@ -45,6 +50,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2034
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView$2;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView$HomeView;->mUpView:Landroid/widget/ImageView;
@@ -52,12 +58,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
     move-result v0
 
     if-lez v0, :cond_0
 
+    .line 2035
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$HomeView$2;->this$0:Lcom/android/internal/widget/ActionBarView$HomeView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView$HomeView;->mIconView:Landroid/widget/ImageView;
@@ -69,7 +76,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/ImageView;->getWidth()I
+    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
 
     move-result v1
 
@@ -77,8 +84,9 @@
 
     int-to-float v1, v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setTranslationX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationX(F)V
 
+    .line 2037
     :cond_0
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1009
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$LocalReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1013
     const-string v0, "android.intent.action.LOCALE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -46,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1015
     iget-object v0, p0, Lcom/android/server/InputMethodManagerService$LocalReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     iget-object v0, v0, Lcom/android/server/InputMethodManagerService;->mSettings:Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;
@@ -54,6 +61,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/inputmethod/InputMethodUtils$InputMethodSettings;->putSelectedSubtype(I)V
 
+    .line 1017
     :cond_0
     return-void
 .end method

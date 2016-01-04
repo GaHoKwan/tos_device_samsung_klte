@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 1490
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,10 +33,14 @@
 .method public queueIdle()Z
     .locals 6
 
+    .prologue
+    .line 1492
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
+    .line 1493
+    .local v0, "now":J
     # getter for: Landroid/os/StrictMode;->sLastInstanceCountCheckMillis:J
     invoke-static {}, Landroid/os/StrictMode;->access$1500()J
 
@@ -48,11 +54,14 @@
 
     if-lez v2, :cond_0
 
+    .line 1494
     # setter for: Landroid/os/StrictMode;->sLastInstanceCountCheckMillis:J
     invoke-static {v0, v1}, Landroid/os/StrictMode;->access$1502(J)J
 
+    .line 1495
     invoke-static {}, Landroid/os/StrictMode;->conditionallyCheckInstanceCounts()V
 
+    .line 1497
     :cond_0
     const/4 v2, 0x1
 

@@ -88,7 +88,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/header/Priority;->encode()Ljava/lang/String;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/header/SIPHeader;->encode()Ljava/lang/String;
 
     move-result-object v6
 
@@ -133,7 +133,7 @@
     .line 70
     const-string v1, "PriorityParser.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/PriorityParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 71
     :cond_0
@@ -146,20 +146,20 @@
     const/16 v1, 0x821
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/PriorityParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 75
     const-string v1, "Priority"
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/Priority;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 77
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/PriorityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 85
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/PriorityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->ttokenSafe()Ljava/lang/String;
 
@@ -168,12 +168,12 @@
     invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/Priority;->setPriority(Ljava/lang/String;)V
 
     .line 87
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/PriorityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 88
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/PriorityParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0xa
 
@@ -189,7 +189,7 @@
     .line 93
     const-string v1, "PriorityParser.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/PriorityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 90
     :cond_1
@@ -206,7 +206,7 @@
     .line 93
     const-string v2, "PriorityParser.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/PriorityParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 92
     :cond_2

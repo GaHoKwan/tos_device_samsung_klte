@@ -29,7 +29,11 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BootReceiver;Ljava/lang/String;ILandroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;Landroid/content/Context;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
+    .param p3, "x1"    # I
 
+    .prologue
+    .line 324
     iput-object p1, p0, Lcom/android/server/BootReceiver$2;->this$0:Lcom/android/server/BootReceiver;
 
     iput-object p4, p0, Lcom/android/server/BootReceiver$2;->val$db:Landroid/os/DropBoxManager;
@@ -49,7 +53,11 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 8
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 328
     :try_start_0
     new-instance v0, Ljava/io/File;
 
@@ -64,6 +72,8 @@
 
     move-result-object v3
 
+    .line 329
+    .local v3, "filename":Ljava/lang/String;
     iget-object v0, p0, Lcom/android/server/BootReceiver$2;->val$db:Landroid/os/DropBoxManager;
 
     iget-object v1, p0, Lcom/android/server/BootReceiver$2;->val$prefs:Landroid/content/SharedPreferences;
@@ -80,6 +90,7 @@
     # invokes: Lcom/android/server/BootReceiver;->addFileToDropBox(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static/range {v0 .. v5}, Lcom/android/server/BootReceiver;->access$500(Landroid/os/DropBoxManager;Landroid/content/SharedPreferences;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 330
     const-string v0, "BootReceiver"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -102,30 +113,40 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 331
     new-instance v7, Landroid/content/Intent;
 
     const-string v0, "intent.action.logkit.autotrigger"
 
     invoke-direct {v7, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 332
+    .local v7, "intent":Landroid/content/Intent;
     const-string v0, "reason"
 
     const-string v1, "SystemTombstone"
 
     invoke-virtual {v7, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 333
     iget-object v0, p0, Lcom/android/server/BootReceiver$2;->val$ctx:Landroid/content/Context;
 
     invoke-virtual {v0, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 337
+    .end local v3    # "filename":Ljava/lang/String;
+    .end local v7    # "intent":Landroid/content/Intent;
     :goto_0
     return-void
 
+    .line 334
     :catch_0
     move-exception v6
 
+    .line 335
+    .local v6, "e":Ljava/io/IOException;
     const-string v0, "BootReceiver"
 
     const-string v1, "Can\'t log tombstone"

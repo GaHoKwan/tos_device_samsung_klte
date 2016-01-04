@@ -25,23 +25,29 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 778
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 779
     new-instance v0, Lcom/android/server/PermissionPackage;
 
     invoke-direct {v0}, Lcom/android/server/PermissionPackage;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/ServiceObject;->servicePermissions:Lcom/android/server/PermissionPackage;
 
+    .line 780
     new-instance v0, Ljava/util/Hashtable;
 
     invoke-direct {v0}, Ljava/util/Hashtable;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/ServiceObject;->serviceMethods:Ljava/util/Hashtable;
 
+    .line 781
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/ServiceObject;->isSterileService:Z
 
+    .line 782
     return-void
 .end method

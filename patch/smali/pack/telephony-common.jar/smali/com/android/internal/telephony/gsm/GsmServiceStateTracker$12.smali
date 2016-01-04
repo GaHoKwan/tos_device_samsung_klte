@@ -103,7 +103,7 @@
     .line 5723
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker$12;->this$0:Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;
 
-    # getter for: Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    # getter for: Lcom/android/internal/telephony/ServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
     invoke-static {v2}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->access$1100(Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;)Lcom/android/internal/telephony/CommandsInterface;
 
     move-result-object v2
@@ -179,7 +179,7 @@
 
     .line 5734
     .local v0, "e":Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

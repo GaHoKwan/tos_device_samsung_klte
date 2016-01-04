@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/TextureView;)V
     .locals 0
 
+    .prologue
+    .line 379
     iput-object p1, p0, Landroid/view/TextureView$2;->this$0:Landroid/view/TextureView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,16 @@
 # virtual methods
 .method public onFrameAvailable(Landroid/graphics/SurfaceTexture;)V
     .locals 2
+    .param p1, "surfaceTexture"    # Landroid/graphics/SurfaceTexture;
 
+    .prologue
+    .line 384
     iget-object v0, p0, Landroid/view/TextureView$2;->this$0:Landroid/view/TextureView;
 
     # invokes: Landroid/view/TextureView;->updateLayer()V
     invoke-static {v0}, Landroid/view/TextureView;->access$200(Landroid/view/TextureView;)V
 
+    .line 386
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v0
@@ -52,17 +58,20 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 387
     iget-object v0, p0, Landroid/view/TextureView$2;->this$0:Landroid/view/TextureView;
 
-    invoke-virtual {v0}, Landroid/view/TextureView;->invalidate()V
+    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 391
     :goto_0
     return-void
 
+    .line 389
     :cond_0
     iget-object v0, p0, Landroid/view/TextureView$2;->this$0:Landroid/view/TextureView;
 
-    invoke-virtual {v0}, Landroid/view/TextureView;->postInvalidate()V
+    invoke-virtual {v0}, Landroid/view/View;->postInvalidate()V
 
     goto :goto_0
 .end method

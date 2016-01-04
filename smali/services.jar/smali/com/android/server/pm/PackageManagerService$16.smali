@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;)V
     .locals 0
 
+    .prologue
+    .line 15248
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$16;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     invoke-direct {p0}, Landroid/content/IIntentReceiver$Stub;-><init>()V
@@ -33,12 +35,21 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 3
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 15252
     const-string v0, "PackageManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -61,11 +72,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 15253
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Runtime;->gc()V
 
+    .line 15254
     return-void
 .end method

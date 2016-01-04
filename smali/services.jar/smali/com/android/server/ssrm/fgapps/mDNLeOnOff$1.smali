@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/mDNLeOnOff;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 181
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff$1;->this$0:Lcom/android/server/ssrm/fgapps/mDNLeOnOff;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,24 +36,31 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 184
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 191
     :goto_0
     return-void
 
+    .line 186
     :pswitch_0
     sget-object v1, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 187
     :try_start_0
     sget-object v0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->notify()V
 
+    .line 188
     monitor-exit v1
 
     goto :goto_0
@@ -64,6 +74,7 @@
 
     throw v0
 
+    .line 184
     nop
 
     :pswitch_data_0

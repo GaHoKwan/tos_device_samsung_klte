@@ -378,7 +378,7 @@
     .local v3, "ex":Lorg/apache/http/ParseException;
     new-instance v9, Lorg/apache/http/ProtocolException;
 
-    invoke-virtual {v3}, Lorg/apache/http/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v10
 
@@ -448,7 +448,7 @@
     .local v2, "px":Lorg/apache/http/ParseException;
     new-instance v3, Lorg/apache/http/ProtocolException;
 
-    invoke-virtual {v2}, Lorg/apache/http/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 

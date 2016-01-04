@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TimePicker;)V
     .locals 0
 
+    .prologue
+    .line 268
     iput-object p1, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,13 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "button"    # Landroid/view/View;
 
+    .prologue
+    .line 270
     invoke-virtual {p1}, Landroid/view/View;->requestFocus()Z
 
+    .line 271
     iget-object v1, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
@@ -56,18 +62,22 @@
     # setter for: Landroid/widget/TimePicker;->mIsAm:Z
     invoke-static {v1, v0}, Landroid/widget/TimePicker;->access$002(Landroid/widget/TimePicker;Z)Z
 
+    .line 272
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
     # invokes: Landroid/widget/TimePicker;->updateAmPmControl()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$100(Landroid/widget/TimePicker;)V
 
+    .line 273
     iget-object v0, p0, Landroid/widget/TimePicker$4;->this$0:Landroid/widget/TimePicker;
 
     # invokes: Landroid/widget/TimePicker;->onTimeChanged()V
     invoke-static {v0}, Landroid/widget/TimePicker;->access$200(Landroid/widget/TimePicker;)V
 
+    .line 274
     return-void
 
+    .line 271
     :cond_0
     const/4 v0, 0x0
 

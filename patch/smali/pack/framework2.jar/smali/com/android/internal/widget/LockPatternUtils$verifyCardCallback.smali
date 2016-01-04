@@ -22,8 +22,11 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 550
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 554
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils$verifyCardCallback$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/widget/LockPatternUtils$verifyCardCallback$1;-><init>(Lcom/android/internal/widget/LockPatternUtils$verifyCardCallback;)V
@@ -35,7 +38,10 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/LockPatternUtils$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/internal/widget/LockPatternUtils$1;
 
+    .prologue
+    .line 550
     invoke-direct {p0}, Lcom/android/internal/widget/LockPatternUtils$verifyCardCallback;-><init>()V
 
     return-void

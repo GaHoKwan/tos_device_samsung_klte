@@ -60,7 +60,7 @@
 
     invoke-direct {v1}, Lcom/itsoninc/android/APIFailOpen;-><init>()V
 
-    iput-object v1, p0, Lcom/itsoninc/android/ItsOnOemApi;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
+    iput-object v1, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
 
     goto :goto_0
 .end method
@@ -141,7 +141,7 @@
     .local v1, "dexClassLoader":Ldalvik/system/BaseDexClassLoader;
     const-string v3, "com.itsoninc.android.impl.ItsOnOem"
 
-    invoke-virtual {v1, v3}, Ldalvik/system/BaseDexClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
+    invoke-virtual {v1, v3}, Ljava/lang/ClassLoader;->loadClass(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
 
@@ -152,10 +152,10 @@
 
     check-cast v3, Lcom/itsoninc/android/ItsOnOemInterface;
 
-    iput-object v3, p0, Lcom/itsoninc/android/ItsOnOemApi;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
+    iput-object v3, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
 
     .line 33
-    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApi;->context:Landroid/content/Context;
+    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->context:Landroid/content/Context;
 
     if-eqz v3, :cond_0
 
@@ -167,15 +167,15 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 35
-    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApi;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
+    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
 
-    iget-object v4, p0, Lcom/itsoninc/android/ItsOnOemApi;->context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->context:Landroid/content/Context;
 
     invoke-interface {v3, v4}, Lcom/itsoninc/android/ItsOnOemInterface;->setContext(Landroid/content/Context;)V
 
     .line 38
     :cond_0
-    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApi;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
+    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
 
     if-eqz v3, :cond_1
 
@@ -192,7 +192,7 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/itsoninc/android/ItsOnOemApi;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
+    iget-object v5, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -205,9 +205,9 @@
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 40
-    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApi;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
+    iget-object v3, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->mIfImpl:Lcom/itsoninc/android/ItsOnOemInterface;
 
-    iget-object v4, p0, Lcom/itsoninc/android/ItsOnOemApi;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
+    iget-object v4, p0, Lcom/itsoninc/android/ItsOnOemApiBase;->frameworkIf:Lcom/itsoninc/android/ItsOnFrameworkInterface;
 
     invoke-interface {v3, v4}, Lcom/itsoninc/android/ItsOnOemInterface;->setFrameworkInterface(Lcom/itsoninc/android/ItsOnFrameworkInterface;)V
     :try_end_0

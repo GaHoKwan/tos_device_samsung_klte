@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
+    .prologue
+    .line 479
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,20 +35,28 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v2, -0x1
 
+    .line 484
     const-string v1, "android.intent.extra.UID"
 
     invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
+    .line 485
+    .local v0, "uid":I
     if-ne v0, v2, :cond_0
 
+    .line 494
     :goto_0
     return-void
 
+    .line 489
     :cond_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
@@ -57,6 +67,7 @@
 
     monitor-enter v2
 
+    .line 490
     :try_start_0
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
@@ -67,16 +78,19 @@
 
     invoke-virtual {v1, v0}, Landroid/util/SparseIntArray;->delete(I)V
 
+    .line 491
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # invokes: Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
     invoke-static {v1, v0}, Lcom/android/server/net/NetworkPolicyManagerService;->access$200(Lcom/android/server/net/NetworkPolicyManagerService;I)V
 
+    .line 492
     iget-object v1, p0, Lcom/android/server/net/NetworkPolicyManagerService$4;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # invokes: Lcom/android/server/net/NetworkPolicyManagerService;->writePolicyLocked()V
     invoke-static {v1}, Lcom/android/server/net/NetworkPolicyManagerService;->access$400(Lcom/android/server/net/NetworkPolicyManagerService;)V
 
+    .line 493
     monitor-exit v2
 
     goto :goto_0

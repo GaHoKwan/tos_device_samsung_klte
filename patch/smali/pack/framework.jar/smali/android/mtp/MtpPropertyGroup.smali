@@ -322,7 +322,7 @@
     .line 130
     .end local v1    # "type":I
     :sswitch_8
-    const-string v0, "year"
+    const-string/jumbo v0, "year"
 
     .line 131
     const v1, 0xffff
@@ -465,6 +465,8 @@
     goto :goto_1
 
     .line 96
+    nop
+
     nop
 
     :sswitch_data_0

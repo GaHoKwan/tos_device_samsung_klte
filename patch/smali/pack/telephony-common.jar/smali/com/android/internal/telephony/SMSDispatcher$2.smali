@@ -51,35 +51,35 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 2086
+    .line 2078
     iput-object p1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
-    .line 2091
+    .line 2083
     const-string v0, "9081209000"
 
     iput-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTaddress:Ljava/lang/String;
 
-    .line 2092
+    .line 2084
     const-string v0, "This is the message body"
 
     iput-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTtext:Ljava/lang/String;
 
-    .line 2093
+    .line 2085
     iput v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->index:I
 
-    .line 2094
+    .line 2086
     iput v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->msgId:I
 
-    .line 2095
+    .line 2087
     new-instance v0, Lcom/android/internal/telephony/SMSDispatcher$2$ATSMSRecordSet;
 
     invoke-direct {v0, p0}, Lcom/android/internal/telephony/SMSDispatcher$2$ATSMSRecordSet;-><init>(Lcom/android/internal/telephony/SMSDispatcher$2;)V
 
     iput-object v0, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->records:Lcom/android/internal/telephony/SMSDispatcher$2$ATSMSRecordSet;
 
-    .line 2239
+    .line 2231
     return-void
 .end method
 
@@ -90,7 +90,7 @@
     .param p1, "arg"    # Ljava/lang/String;
 
     .prologue
-    .line 2234
+    .line 2226
     const-string v0, "\""
 
     const-string v1, ""
@@ -99,7 +99,7 @@
 
     move-result-object p1
 
-    .line 2235
+    .line 2227
     const-string v0, "\r\n"
 
     const-string v1, "\n"
@@ -108,7 +108,7 @@
 
     move-result-object p1
 
-    .line 2236
+    .line 2228
     const/16 v0, 0xd
 
     const/16 v1, 0xa
@@ -126,7 +126,7 @@
     .param p2, "intent"    # Landroid/content/Intent;
 
     .prologue
-    .line 2101
+    .line 2093
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -139,24 +139,24 @@
 
     if-eqz v1, :cond_1
 
-    .line 2102
+    .line 2094
     const-string v1, "SMSDispatcher"
 
     const-string v2, "ACTION_SIM_REFRESH_INIT"
 
     invoke-static {v1, v2}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2103
+    .line 2095
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/internal/telephony/SMSDispatcher;->Sim_Smsc:Ljava/lang/String;
 
-    .line 2104
+    .line 2096
     const/4 v1, 0x0
 
     sput v1, Lcom/android/internal/telephony/SMSDispatcher;->retryGetSmsc:I
 
-    .line 2105
+    .line 2097
     iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     iget-object v1, v1, Lcom/android/internal/telephony/SMSDispatcher;->mCi:Lcom/android/internal/telephony/CommandsInterface;
@@ -165,18 +165,18 @@
 
     const/16 v3, 0x11
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/SMSDispatcher;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
     invoke-interface {v1, v2}, Lcom/android/internal/telephony/CommandsInterface;->getSmscAddress(Landroid/os/Message;)V
 
-    .line 2220
+    .line 2212
     :cond_0
     :goto_0
     return-void
 
-    .line 2106
+    .line 2098
     :cond_1
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 
     if-eqz v1, :cond_3
 
-    .line 2107
+    .line 2099
     :cond_2
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
@@ -220,14 +220,14 @@
 
     if-nez v1, :cond_0
 
-    .line 2109
+    .line 2101
     iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
     invoke-virtual {v1}, Lcom/android/internal/telephony/SMSDispatcher;->clearDuplicatedCbMessages()V
 
     goto :goto_0
 
-    .line 2111
+    .line 2103
     :cond_3
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -241,7 +241,7 @@
 
     if-eqz v1, :cond_4
 
-    .line 2119
+    .line 2111
     :cond_4
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -255,23 +255,23 @@
 
     if-eqz v1, :cond_11
 
-    .line 2120
+    .line 2112
     const-string v1, "SMSDispatcher"
 
     const-string v2, "ACTION_BCS_REQUEST"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2121
+    .line 2113
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v10
 
-    .line 2122
+    .line 2114
     .local v10, "data":Landroid/os/Bundle;
     if-nez v10, :cond_5
 
-    .line 2123
+    .line 2115
     const-string v1, "SmsDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -306,7 +306,7 @@
 
     goto :goto_0
 
-    .line 2128
+    .line 2120
     :cond_5
     const-string v1, "command"
 
@@ -314,16 +314,16 @@
 
     move-result-object v9
 
-    .line 2129
+    .line 2121
     .local v9, "command":Ljava/lang/String;
     if-eqz v9, :cond_0
 
-    .line 2133
+    .line 2125
     invoke-virtual {p0, v9}, Lcom/android/internal/telephony/SMSDispatcher$2;->splitArgu(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v7
 
-    .line 2134
+    .line 2126
     .local v7, "arg":[Ljava/lang/String;
     if-eqz v9, :cond_7
 
@@ -331,7 +331,7 @@
 
     move-result-object v9
 
-    .line 2135
+    .line 2127
     :goto_1
     const-string v1, "SMSDispatcher"
 
@@ -369,14 +369,14 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2138
+    .line 2130
     new-instance v13, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.BCS_RESPONSE"
 
     invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2139
+    .line 2131
     .local v13, "responseIntent":Landroid/content/Intent;
     const-string v1, "AT+CMSS"
 
@@ -398,14 +398,14 @@
 
     if-le v1, v2, :cond_9
 
-    .line 2140
+    .line 2132
     array-length v1, v7
 
     const/4 v2, 0x1
 
     if-ne v1, v2, :cond_8
 
-    .line 2141
+    .line 2133
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -420,7 +420,7 @@
 
     iput v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->index:I
 
-    .line 2147
+    .line 2139
     :cond_6
     :goto_2
     const-string v1, "SMSDispatcher"
@@ -447,7 +447,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2148
+    .line 2140
     const-string v1, "SMSDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -472,14 +472,14 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2149
+    .line 2141
     new-instance v8, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.AT_CMSS_COMPLETE"
 
     invoke-direct {v8, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2150
+    .line 2142
     .local v8, "atIntent":Landroid/content/Intent;
     const/4 v1, 0x0
 
@@ -491,7 +491,7 @@
 
     move-result-object v5
 
-    .line 2152
+    .line 2144
     .local v5, "sentIntent":Landroid/app/PendingIntent;
     iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
@@ -505,14 +505,14 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/internal/telephony/SMSDispatcher;->sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 2153
+    .line 2145
     iget v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->msgId:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->msgId:I
 
-    .line 2196
+    .line 2188
     .end local v5    # "sentIntent":Landroid/app/PendingIntent;
     .end local v8    # "atIntent":Landroid/content/Intent;
     :goto_3
@@ -522,14 +522,14 @@
 
     goto/16 :goto_0
 
-    .line 2134
+    .line 2126
     .end local v13    # "responseIntent":Landroid/content/Intent;
     :cond_7
     const-string v9, ""
 
     goto/16 :goto_1
 
-    .line 2142
+    .line 2134
     .restart local v13    # "responseIntent":Landroid/content/Intent;
     :cond_8
     array-length v1, v7
@@ -538,7 +538,7 @@
 
     if-ne v1, v2, :cond_6
 
-    .line 2143
+    .line 2135
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -553,7 +553,7 @@
 
     iput v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->index:I
 
-    .line 2144
+    .line 2136
     const/4 v1, 0x1
 
     aget-object v1, v7, v1
@@ -566,7 +566,7 @@
 
     goto :goto_2
 
-    .line 2154
+    .line 2146
     :cond_9
     const-string v1, "AT+CMGS"
 
@@ -588,14 +588,14 @@
 
     if-le v1, v2, :cond_b
 
-    .line 2155
+    .line 2147
     array-length v1, v7
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_a
 
-    .line 2156
+    .line 2148
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -606,7 +606,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTaddress:Ljava/lang/String;
 
-    .line 2157
+    .line 2149
     const/4 v1, 0x1
 
     aget-object v1, v7, v1
@@ -617,7 +617,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTtext:Ljava/lang/String;
 
-    .line 2159
+    .line 2151
     const-string v1, "SMSDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -642,7 +642,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2160
+    .line 2152
     const-string v1, "SMSDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -667,7 +667,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2165
+    .line 2157
     :goto_4
     new-instance v8, Landroid/content/Intent;
 
@@ -675,7 +675,7 @@
 
     invoke-direct {v8, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2166
+    .line 2158
     .restart local v8    # "atIntent":Landroid/content/Intent;
     const/4 v1, 0x0
 
@@ -687,7 +687,7 @@
 
     move-result-object v5
 
-    .line 2168
+    .line 2160
     .restart local v5    # "sentIntent":Landroid/app/PendingIntent;
     iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->this$0:Lcom/android/internal/telephony/SMSDispatcher;
 
@@ -701,7 +701,7 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/internal/telephony/SMSDispatcher;->sendText(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V
 
-    .line 2169
+    .line 2161
     iget v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->msgId:I
 
     add-int/lit8 v1, v1, 0x1
@@ -710,7 +710,7 @@
 
     goto/16 :goto_3
 
-    .line 2162
+    .line 2154
     .end local v5    # "sentIntent":Landroid/app/PendingIntent;
     .end local v8    # "atIntent":Landroid/content/Intent;
     :cond_a
@@ -722,7 +722,7 @@
 
     goto :goto_4
 
-    .line 2170
+    .line 2162
     :cond_b
     const-string v1, "AT+CMGF"
 
@@ -744,7 +744,7 @@
 
     if-le v1, v2, :cond_c
 
-    .line 2171
+    .line 2163
     const-string v1, "response"
 
     const-string v2, "OK"
@@ -753,7 +753,7 @@
 
     goto/16 :goto_3
 
-    .line 2172
+    .line 2164
     :cond_c
     const-string v1, "AT+CMGW"
 
@@ -775,14 +775,14 @@
 
     if-le v1, v2, :cond_10
 
-    .line 2173
+    .line 2165
     array-length v1, v7
 
     const/4 v2, 0x2
 
     if-ne v1, v2, :cond_d
 
-    .line 2174
+    .line 2166
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -793,7 +793,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTaddress:Ljava/lang/String;
 
-    .line 2175
+    .line 2167
     const/4 v1, 0x1
 
     aget-object v1, v7, v1
@@ -804,7 +804,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTtext:Ljava/lang/String;
 
-    .line 2186
+    .line 2178
     :goto_5
     const-string v1, "SMSDispatcher"
 
@@ -830,7 +830,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2187
+    .line 2179
     const-string v1, "SMSDispatcher"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -855,7 +855,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2188
+    .line 2180
     iget-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->records:Lcom/android/internal/telephony/SMSDispatcher$2$ATSMSRecordSet;
 
     const/4 v2, 0x0
@@ -870,7 +870,7 @@
 
     move-result v11
 
-    .line 2189
+    .line 2181
     .local v11, "index":I
     const-string v1, "SMSDispatcher"
 
@@ -894,7 +894,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2190
+    .line 2182
     const-string v1, "response"
 
     invoke-static {v11}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
@@ -905,7 +905,7 @@
 
     goto/16 :goto_3
 
-    .line 2176
+    .line 2168
     .end local v11    # "index":I
     :cond_d
     array-length v1, v7
@@ -914,7 +914,7 @@
 
     if-ne v1, v2, :cond_e
 
-    .line 2177
+    .line 2169
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -925,7 +925,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTaddress:Ljava/lang/String;
 
-    .line 2178
+    .line 2170
     const/4 v1, 0x2
 
     aget-object v1, v7, v1
@@ -938,7 +938,7 @@
 
     goto :goto_5
 
-    .line 2179
+    .line 2171
     :cond_e
     array-length v1, v7
 
@@ -946,7 +946,7 @@
 
     if-ne v1, v2, :cond_f
 
-    .line 2180
+    .line 2172
     const/4 v1, 0x0
 
     aget-object v1, v7, v1
@@ -957,7 +957,7 @@
 
     iput-object v1, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->aTaddress:Ljava/lang/String;
 
-    .line 2181
+    .line 2173
     const/4 v1, 0x3
 
     aget-object v1, v7, v1
@@ -970,7 +970,7 @@
 
     goto/16 :goto_5
 
-    .line 2183
+    .line 2175
     :cond_f
     const-string v1, "SMSDispatcher"
 
@@ -980,7 +980,7 @@
 
     goto/16 :goto_5
 
-    .line 2192
+    .line 2184
     :cond_10
     const-string v1, "SMSDispatcher"
 
@@ -990,7 +990,7 @@
 
     goto/16 :goto_0
 
-    .line 2197
+    .line 2189
     .end local v7    # "arg":[Ljava/lang/String;
     .end local v9    # "command":Ljava/lang/String;
     .end local v10    # "data":Landroid/os/Bundle;
@@ -1008,25 +1008,25 @@
 
     if-eqz v1, :cond_14
 
-    .line 2198
+    .line 2190
     const-string v1, "SMSDispatcher"
 
     const-string v2, "ACTION_AT_CMSS_COMPLETE"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2199
+    .line 2191
     new-instance v13, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.BCS_RESPONSE"
 
     invoke-direct {v13, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 2200
+    .line 2192
     .restart local v13    # "responseIntent":Landroid/content/Intent;
     const/4 v14, 0x0
 
-    .line 2201
+    .line 2193
     .local v14, "resultCode":I
     const-string v1, "result"
 
@@ -1038,7 +1038,7 @@
 
     if-eqz v1, :cond_12
 
-    .line 2202
+    .line 2194
     const-string v1, "result"
 
     const/4 v2, 0x0
@@ -1049,7 +1049,7 @@
 
     move-result v14
 
-    .line 2205
+    .line 2197
     :cond_12
     const-string v1, "SMSDispatcher"
 
@@ -1073,10 +1073,10 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2206
+    .line 2198
     if-nez v14, :cond_13
 
-    .line 2207
+    .line 2199
     const-string v1, "response"
 
     iget v2, p0, Lcom/android/internal/telephony/SMSDispatcher$2;->msgId:I
@@ -1087,7 +1087,7 @@
 
     invoke-virtual {v13, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 2211
+    .line 2203
     :goto_6
     move-object/from16 v0, p1
 
@@ -1095,7 +1095,7 @@
 
     goto/16 :goto_0
 
-    .line 2209
+    .line 2201
     :cond_13
     const-string v1, "response"
 
@@ -1105,15 +1105,15 @@
 
     goto :goto_6
 
-    .line 2213
+    .line 2205
     .end local v13    # "responseIntent":Landroid/content/Intent;
     .end local v14    # "resultCode":I
     :cond_14
-    invoke-virtual {p0}, Lcom/android/internal/telephony/SMSDispatcher$2;->getResultCode()I
+    invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getResultCode()I
 
     move-result v12
 
-    .line 2214
+    .line 2206
     .local v12, "rc":I
     const/4 v1, -0x1
 
@@ -1127,7 +1127,7 @@
     .param p1, "cmd"    # Ljava/lang/String;
 
     .prologue
-    .line 2224
+    .line 2216
     const-string v2, "="
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -1136,7 +1136,7 @@
 
     if-eqz v2, :cond_0
 
-    .line 2225
+    .line 2217
     const-string v2, "="
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
@@ -1153,7 +1153,7 @@
 
     move-result-object v0
 
-    .line 2226
+    .line 2218
     .local v0, "args":Ljava/lang/String;
     const-string v2, ","
 
@@ -1161,13 +1161,13 @@
 
     move-result-object v1
 
-    .line 2230
+    .line 2222
     .end local v0    # "args":Ljava/lang/String;
     .local v1, "res":[Ljava/lang/String;
     :goto_0
     return-object v1
 
-    .line 2228
+    .line 2220
     .end local v1    # "res":[Ljava/lang/String;
     :cond_0
     const/4 v2, 0x0

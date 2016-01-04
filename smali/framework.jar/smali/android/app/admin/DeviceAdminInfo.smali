@@ -162,7 +162,7 @@
 
     const/4 v4, 0x4
 
-    const-string v5, "wipe-data"
+    const-string/jumbo v5, "wipe-data"
 
     const v6, 0x10404f8
 
@@ -1729,7 +1729,7 @@
 
     move-result-object v0
 
-    const-string v1, "}"
+    const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

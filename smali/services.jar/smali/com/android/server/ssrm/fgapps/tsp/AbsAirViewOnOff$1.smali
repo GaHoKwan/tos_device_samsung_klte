@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 58
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff$1;->this$0:Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,14 +36,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 61
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 68
     :goto_0
     return-void
 
+    .line 63
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff$1;->this$0:Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;
 
@@ -48,12 +56,14 @@
 
     iput-boolean v1, v0, Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;->mForceUpdateSysfs:Z
 
+    .line 64
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff$1;->this$0:Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/fgapps/tsp/AbsAirViewOnOff;->updateAirViewStatus()V
 
     goto :goto_0
 
+    .line 61
     nop
 
     :pswitch_data_0

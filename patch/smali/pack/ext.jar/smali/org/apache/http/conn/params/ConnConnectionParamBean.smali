@@ -24,7 +24,7 @@
 
     .prologue
     .line 52
-    iget-object v0, p0, Lorg/apache/http/conn/params/ConnConnectionParamBean;->params:Lorg/apache/http/params/HttpParams;
+    iget-object v0, p0, Lorg/apache/http/params/HttpAbstractParamBean;->params:Lorg/apache/http/params/HttpParams;
 
     const-string v1, "http.connection.max-status-line-garbage"
 

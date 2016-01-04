@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 397
     new-instance v0, Landroid/widget/AbsSpinner$SavedState$1;
 
     invoke-direct {v0}, Landroid/widget/AbsSpinner$SavedState$1;-><init>()V
@@ -48,29 +50,39 @@
 
 .method constructor <init>(Landroid/os/Parcel;)V
     .locals 2
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 377
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
+    .line 378
     invoke-virtual {p1}, Landroid/os/Parcel;->readLong()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Landroid/widget/AbsSpinner$SavedState;->selectedId:J
 
+    .line 379
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/AbsSpinner$SavedState;->position:I
 
+    .line 380
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
+    .prologue
+    .line 370
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
+    .line 371
     return-void
 .end method
 
@@ -79,6 +91,8 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
+    .line 391
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -140,16 +154,23 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
-    invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    .prologue
+    .line 384
+    invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 385
     iget-wide v0, p0, Landroid/widget/AbsSpinner$SavedState;->selectedId:J
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Parcel;->writeLong(J)V
 
+    .line 386
     iget v0, p0, Landroid/widget/AbsSpinner$SavedState;->position:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 387
     return-void
 .end method

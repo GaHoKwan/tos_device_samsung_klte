@@ -223,7 +223,7 @@
     if-eqz v2, :cond_a
 
     .line 1076
-    invoke-virtual {v2}, Ljava/io/DataInputStream;->close()V
+    invoke-virtual {v2}, Ljava/io/FilterInputStream;->close()V
     :try_end_2
     .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_5
 
@@ -241,7 +241,7 @@
     invoke-virtual {v4}, Ljava/io/DataOutputStream;->flush()V
 
     .line 1081
-    invoke-virtual {v4}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FilterOutputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_6
 
@@ -321,7 +321,7 @@
 
     .line 1099
     :try_start_5
-    invoke-virtual {v1}, Ljava/io/DataInputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterInputStream;->close()V
     :try_end_5
     .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_1
 
@@ -335,7 +335,7 @@
 
     .line 1106
     :try_start_6
-    invoke-virtual {v3}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v3}, Ljava/io/FilterOutputStream;->close()V
     :try_end_6
     .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_2
 

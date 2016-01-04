@@ -105,7 +105,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getBuffer()Ljava/lang/String;
 
@@ -129,7 +129,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getPtr()I
 
@@ -145,7 +145,7 @@
 
     .prologue
     .line 51
-    iget-object v0, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v0, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     check-cast v0, Lgov/nist/javax/sip/parser/Lexer;
 
@@ -170,11 +170,11 @@
     .line 79
     const-string v2, "method"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/Parser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 80
     :cond_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x1
 
@@ -280,9 +280,9 @@
 
     .line 93
     :cond_1
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v2}, Lgov/nist/core/LexerCore;->consume()V
+    invoke-virtual {v2}, Lgov/nist/core/StringTokenizer;->consume()V
 
     .line 94
     invoke-virtual {v0}, Lgov/nist/core/Token;->getTokenValue()Ljava/lang/String;
@@ -299,7 +299,7 @@
     .line 100
     const-string v3, "method"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 94
     :cond_2
@@ -331,7 +331,7 @@
     .line 100
     const-string v3, "method"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 99
     :cond_4
@@ -355,12 +355,12 @@
     .line 56
     const-string v1, "sipVersion"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/Parser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 58
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x803
 
@@ -389,14 +389,14 @@
 
     .line 61
     :cond_1
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x2f
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 62
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/Parser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0xfff
 
@@ -436,7 +436,7 @@
     .line 69
     const-string v2, "sipVersion"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/Parser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 66
     :cond_3
@@ -454,7 +454,7 @@
     .line 69
     const-string v2, "sipVersion"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/Parser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 68
     :cond_4

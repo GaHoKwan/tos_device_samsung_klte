@@ -35,8 +35,10 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 85
     const-string/jumbo v1, "ro.build.version.incremental"
 
     # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -46,6 +48,7 @@
 
     sput-object v1, Landroid/os/Build$VERSION;->INCREMENTAL:Ljava/lang/String;
 
+    .line 90
     const-string/jumbo v1, "ro.build.version.release"
 
     # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -55,6 +58,7 @@
 
     sput-object v1, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
 
+    .line 99
     const-string/jumbo v1, "ro.build.version.sdk"
 
     # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -64,6 +68,7 @@
 
     sput-object v1, Landroid/os/Build$VERSION;->SDK:Ljava/lang/String;
 
+    .line 105
     const-string/jumbo v1, "ro.build.version.sdk"
 
     invoke-static {v1, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -72,6 +77,7 @@
 
     sput v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
+    .line 112
     const-string/jumbo v1, "ro.build.version.codename"
 
     # invokes: Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -81,6 +87,7 @@
 
     sput-object v1, Landroid/os/Build$VERSION;->CODENAME:Ljava/lang/String;
 
+    .line 120
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const-string v2, "REL"
@@ -109,6 +116,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
+    .prologue
+    .line 4310
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$7;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     iput p2, p0, Lcom/android/server/pm/PersonaManagerService$7;->val$personaId:I
@@ -37,45 +39,60 @@
 # virtual methods
 .method public userStopAborted(I)V
     .locals 1
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 4344
     const-string/jumbo v0, "userStopAborted"
 
     # invokes: Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
     invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->access$100(Ljava/lang/String;)I
 
+    .line 4345
     return-void
 .end method
 
 .method public userStopped(I)V
     .locals 7
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 4313
     const-string/jumbo v4, "userStopped"
 
     # invokes: Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
     invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->access$100(Ljava/lang/String;)I
 
+    .line 4314
     const-string v4, "PersonaManagerService"
 
     const-string v5, " User Stopped"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 4321
     const-string v4, "PersonaManagerService"
 
     const-string v5, " Collecting restricted apps list"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 4322
     new-instance v3, Ljava/util/HashSet;
 
     invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
 
+    .line 4323
+    .local v3, "restrictedPkgs":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     const-string v4, "com.sec.knox.setup"
 
     invoke-interface {v3, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 4324
     const/4 v2, 0x0
 
+    .line 4325
+    .local v2, "handler":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$7;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     iget v5, p0, Lcom/android/server/pm/PersonaManagerService$7;->val$personaId:I
@@ -84,12 +101,16 @@
 
     move-result-object v1
 
+    .line 4326
+    .local v1, "componentName":Landroid/content/ComponentName;
     if-eqz v1, :cond_0
 
+    .line 4327
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 4329
     :cond_0
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$7;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
@@ -100,6 +121,8 @@
 
     move-result-object v0
 
+    .line 4330
+    .local v0, "admin":Ljava/lang/String;
     if-eqz v2, :cond_1
 
     invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
@@ -108,8 +131,10 @@
 
     if-nez v4, :cond_1
 
+    .line 4331
     invoke-interface {v3, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 4333
     :cond_1
     if-eqz v0, :cond_2
 
@@ -119,8 +144,10 @@
 
     if-eqz v4, :cond_2
 
+    .line 4334
     invoke-interface {v3, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 4336
     :cond_2
     const-string v4, "PersonaManagerService"
 
@@ -144,6 +171,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 4338
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$7;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     iget v5, p0, Lcom/android/server/pm/PersonaManagerService$7;->val$personaId:I
@@ -151,5 +179,6 @@
     # invokes: Lcom/android/server/pm/PersonaManagerService;->unInstallThirdPartyApksOnReset(ILjava/util/Set;)V
     invoke-static {v4, v5, v3}, Lcom/android/server/pm/PersonaManagerService;->access$2800(Lcom/android/server/pm/PersonaManagerService;ILjava/util/Set;)V
 
+    .line 4340
     return-void
 .end method

@@ -22,14 +22,18 @@
 .method public constructor <init>(Lcom/android/server/TactileAssistSettings;)V
     .locals 1
 
+    .prologue
+    .line 537
     iput-object p1, p0, Lcom/android/server/TactileAssistSettings$TactileAssistObserver;->this$0:Lcom/android/server/TactileAssistSettings;
 
+    .line 538
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 539
     return-void
 .end method
 
@@ -37,13 +41,16 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 9
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v7, 0x4
 
     const/4 v5, 0x3
 
     const/4 v4, 0x1
 
+    .line 542
     const-string v6, "TactileAssist"
 
     invoke-static {v6, v7}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
@@ -52,6 +59,7 @@
 
     if-eqz v6, :cond_0
 
+    .line 543
     const-string v6, "TactileAssist"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -74,6 +82,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 546
     :cond_0
     :try_start_0
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
@@ -87,6 +96,8 @@
 
     move-result v3
 
+    .line 548
+    .local v3, "tactileassistLevel":I
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {}, Lcom/android/server/TactileAssistSettings;->access$000()Landroid/content/ContentResolver;
 
@@ -98,6 +109,8 @@
 
     move-result v1
 
+    .line 550
+    .local v1, "tactileassistEnable":I
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {}, Lcom/android/server/TactileAssistSettings;->access$000()Landroid/content/ContentResolver;
 
@@ -109,10 +122,13 @@
 
     move-result v2
 
+    .line 556
+    .local v2, "tactileassistInternalEnable":I
     if-gt v3, v5, :cond_1
 
     if-ge v3, v4, :cond_4
 
+    .line 557
     :cond_1
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {}, Lcom/android/server/TactileAssistSettings;->access$000()Landroid/content/ContentResolver;
@@ -128,15 +144,24 @@
     :cond_2
     invoke-static {v6, v7, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    .line 595
+    .end local v1    # "tactileassistEnable":I
+    .end local v2    # "tactileassistInternalEnable":I
+    .end local v3    # "tactileassistLevel":I
     :cond_3
     :goto_0
     return-void
 
+    .line 564
+    .restart local v1    # "tactileassistEnable":I
+    .restart local v2    # "tactileassistInternalEnable":I
+    .restart local v3    # "tactileassistLevel":I
     :cond_4
     if-gt v1, v4, :cond_5
 
     if-gez v1, :cond_7
 
+    .line 565
     :cond_5
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
     invoke-static {}, Lcom/android/server/TactileAssistSettings;->access$000()Landroid/content/ContentResolver;
@@ -154,9 +179,15 @@
 
     goto :goto_0
 
+    .line 590
+    .end local v1    # "tactileassistEnable":I
+    .end local v2    # "tactileassistInternalEnable":I
+    .end local v3    # "tactileassistLevel":I
     :catch_0
     move-exception v0
 
+    .line 591
+    .local v0, "e":Ljava/lang/Exception;
     const-string v4, "TactileAssist"
 
     const/4 v5, 0x6
@@ -167,6 +198,7 @@
 
     if-eqz v4, :cond_3
 
+    .line 592
     const-string v4, "TactileAssist"
 
     const-string v5, "Exception caught in onChange()"
@@ -175,16 +207,23 @@
 
     goto :goto_0
 
+    .line 565
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v1    # "tactileassistEnable":I
+    .restart local v2    # "tactileassistInternalEnable":I
+    .restart local v3    # "tactileassistLevel":I
     :cond_6
     const/4 v4, 0x0
 
     goto :goto_1
 
+    .line 571
     :cond_7
     if-gt v2, v4, :cond_8
 
     if-gez v2, :cond_9
 
+    .line 574
     :cond_8
     :try_start_1
     # getter for: Lcom/android/server/TactileAssistSettings;->mContentResolver:Landroid/content/ContentResolver;
@@ -200,6 +239,7 @@
 
     goto :goto_0
 
+    .line 580
     :cond_9
     const-string v4, "TactileAssist"
 
@@ -211,6 +251,7 @@
 
     if-eqz v4, :cond_a
 
+    .line 581
     const-string v4, "TactileAssist"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -253,6 +294,7 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 586
     :cond_a
     iget-object v4, p0, Lcom/android/server/TactileAssistSettings$TactileAssistObserver;->this$0:Lcom/android/server/TactileAssistSettings;
 

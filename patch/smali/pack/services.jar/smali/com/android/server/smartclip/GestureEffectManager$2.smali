@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/GestureEffectManager;I)V
     .locals 0
 
+    .prologue
+    .line 2997
     iput-object p1, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     iput p2, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->val$key:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2999
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager;->mHandler:Landroid/os/Handler;
@@ -51,6 +55,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 3000
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager;->mHandler:Landroid/os/Handler;
@@ -61,6 +66,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 3001
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager;->mHandler:Landroid/os/Handler;
@@ -71,6 +77,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 3002
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     # getter for: Lcom/android/server/smartclip/GestureEffectManager;->DEBUG:Z
@@ -80,6 +87,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 3003
     const-string v0, "GestureEffectManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,6 +132,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3006
     :cond_0
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
@@ -131,6 +140,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 3007
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     # getter for: Lcom/android/server/smartclip/GestureEffectManager;->DEBUG:Z
@@ -140,12 +150,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 3008
     const-string v0, "GestureEffectManager"
 
     const-string v1, "SPenGestureView$Runnable.mSPenGestureEventDispatchThread : before sendKeyDownUpSync(key)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3010
     :cond_1
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
@@ -156,6 +168,7 @@
     # invokes: Lcom/android/server/smartclip/GestureEffectManager;->sendKeyDownUpSync(II)V
     invoke-static {v0, v1, v2}, Lcom/android/server/smartclip/GestureEffectManager;->access$700(Lcom/android/server/smartclip/GestureEffectManager;II)V
 
+    .line 3011
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$2;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
 
     # getter for: Lcom/android/server/smartclip/GestureEffectManager;->DEBUG:Z
@@ -165,12 +178,14 @@
 
     if-eqz v0, :cond_2
 
+    .line 3012
     const-string v0, "GestureEffectManager"
 
     const-string v1, "SPenGestureView$Runnable.mSPenGestureEventDispatchThread : after sendKeyDownUpSync(key)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3015
     :cond_2
     return-void
 .end method

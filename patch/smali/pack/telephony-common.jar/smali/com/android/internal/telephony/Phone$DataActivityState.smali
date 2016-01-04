@@ -162,7 +162,7 @@
     .line 58
     sget-object v0, Lcom/android/internal/telephony/Phone$DataActivityState;->$VALUES:[Lcom/android/internal/telephony/Phone$DataActivityState;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/Phone$DataActivityState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

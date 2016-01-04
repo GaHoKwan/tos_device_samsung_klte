@@ -22,24 +22,33 @@
 .method constructor <init>(Landroid/view/GestureDetector;)V
     .locals 0
 
+    .prologue
+    .line 318
     iput-object p1, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    .line 319
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 320
     return-void
 .end method
 
 .method constructor <init>(Landroid/view/GestureDetector;Landroid/os/Handler;)V
     .locals 1
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 322
     iput-object p1, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
+    .line 323
     invoke-virtual {p2}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 324
     return-void
 .end method
 
@@ -47,11 +56,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 328
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 349
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -76,6 +89,7 @@
 
     throw v0
 
+    .line 330
     :pswitch_0
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
@@ -93,10 +107,12 @@
 
     invoke-interface {v0, v1}, Landroid/view/GestureDetector$OnGestureListener;->onShowPress(Landroid/view/MotionEvent;)V
 
+    .line 351
     :cond_0
     :goto_0
     return-void
 
+    .line 334
     :pswitch_1
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
@@ -105,6 +121,7 @@
 
     goto :goto_0
 
+    .line 339
     :pswitch_2
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
@@ -115,6 +132,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 340
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
     # getter for: Landroid/view/GestureDetector;->mStillDown:Z
@@ -124,6 +142,7 @@
 
     if-nez v0, :cond_1
 
+    .line 341
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
     # getter for: Landroid/view/GestureDetector;->mDoubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
@@ -142,6 +161,7 @@
 
     goto :goto_0
 
+    .line 343
     :cond_1
     iget-object v0, p0, Landroid/view/GestureDetector$GestureHandler;->this$0:Landroid/view/GestureDetector;
 
@@ -152,6 +172,7 @@
 
     goto :goto_0
 
+    .line 328
     nop
 
     :pswitch_data_0

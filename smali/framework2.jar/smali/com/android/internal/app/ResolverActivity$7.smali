@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
 
+    .prologue
+    .line 1419
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Lcom/samsung/android/sconnect/extern/ISconnectCallback$Stub;-><init>()V
@@ -33,14 +35,22 @@
 # virtual methods
 .method public onDeviceAdded(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V
     .locals 9
+    .param p1, "deviceName"    # Ljava/lang/String;
+    .param p2, "id"    # Ljava/lang/String;
+    .param p3, "number"    # Ljava/lang/String;
+    .param p4, "netType"    # I
+    .param p5, "deviceType"    # I
+    .param p6, "contactName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 1451
     const-string v1, "ResolverActivity"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -113,6 +123,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1453
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceAdapter:Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;
@@ -135,21 +146,25 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 1454
     const-string v1, "ResolverActivity"
 
     const-string/jumbo v2, "onDeviceAdded: scanning is done"
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1490
     :goto_0
     return-void
 
+    .line 1471
     :cond_0
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # setter for: Lcom/android/internal/app/ResolverActivity;->mPhoneNumber:Ljava/lang/String;
     invoke-static {v1, v4}, Lcom/android/internal/app/ResolverActivity;->access$1902(Lcom/android/internal/app/ResolverActivity;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 1474
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mPhoneNumber:Ljava/lang/String;
@@ -159,6 +174,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 1475
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
@@ -177,6 +193,7 @@
     # setter for: Lcom/android/internal/app/ResolverActivity;->mDeviceName:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/internal/app/ResolverActivity;->access$2002(Lcom/android/internal/app/ResolverActivity;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 1476
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceName:Ljava/lang/String;
@@ -186,11 +203,13 @@
 
     if-nez v1, :cond_1
 
+    .line 1477
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # setter for: Lcom/android/internal/app/ResolverActivity;->mDeviceName:Ljava/lang/String;
     invoke-static {v1, p1}, Lcom/android/internal/app/ResolverActivity;->access$2002(Lcom/android/internal/app/ResolverActivity;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 1484
     :cond_1
     :goto_1
     new-instance v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
@@ -228,6 +247,8 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;-><init>(Lcom/android/internal/app/ResolverActivity;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;II)V
 
+    .line 1486
+    .local v0, "mTempInfo":Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceAdapter:Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;
@@ -249,11 +270,13 @@
 
     invoke-interface {v1, v2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
+    .line 1487
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # operator++ for: Lcom/android/internal/app/ResolverActivity;->mDeviceIndex:I
     invoke-static {v1}, Lcom/android/internal/app/ResolverActivity;->access$1808(Lcom/android/internal/app/ResolverActivity;)I
 
+    .line 1489
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # invokes: Lcom/android/internal/app/ResolverActivity;->DeviceListUpdate()V
@@ -261,12 +284,15 @@
 
     goto :goto_0
 
+    .line 1480
+    .end local v0    # "mTempInfo":Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
     :cond_2
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # setter for: Lcom/android/internal/app/ResolverActivity;->mDrawableIcon:Landroid/graphics/drawable/Drawable;
     invoke-static {v1, v4}, Lcom/android/internal/app/ResolverActivity;->access$2102(Lcom/android/internal/app/ResolverActivity;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
+    .line 1481
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # setter for: Lcom/android/internal/app/ResolverActivity;->mDeviceName:Ljava/lang/String;
@@ -277,12 +303,20 @@
 
 .method public onDeviceChanged(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V
     .locals 5
+    .param p1, "deviceName"    # Ljava/lang/String;
+    .param p2, "id"    # Ljava/lang/String;
+    .param p3, "number"    # Ljava/lang/String;
+    .param p4, "netType"    # I
+    .param p5, "deviceType"    # I
+    .param p6, "contactName"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1431
     const-string v2, "ResolverActivity"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -345,6 +379,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1433
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceAdapter:Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;
@@ -359,6 +394,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 1434
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceAdapter:Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;
@@ -375,6 +411,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -388,35 +425,50 @@
 
     check-cast v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
 
+    .line 1435
+    .local v0, "dr":Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
     iget-object v2, v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;->deviceId:Ljava/lang/CharSequence;
 
     if-ne v2, p2, :cond_0
 
+    .line 1436
     iput-object p1, v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;->deviceName:Ljava/lang/CharSequence;
 
+    .line 1437
     iput-object p1, v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;->displayLabel:Ljava/lang/CharSequence;
 
+    .line 1438
     iput p4, v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;->netType:I
 
+    .line 1439
     iput p5, v0, Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;->devType:I
 
+    .line 1441
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$7;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # invokes: Lcom/android/internal/app/ResolverActivity;->DeviceListUpdate()V
     invoke-static {v2}, Lcom/android/internal/app/ResolverActivity;->access$1700(Lcom/android/internal/app/ResolverActivity;)V
 
+    .line 1446
+    .end local v0    # "dr":Lcom/android/internal/app/ResolverActivity$DisplayDeviceInfo;
+    .end local v1    # "i$":Ljava/util/Iterator;
     :cond_1
     return-void
 .end method
 
 .method public onDeviceRemoved(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "deviceName"    # Ljava/lang/String;
+    .param p2, "id"    # Ljava/lang/String;
+    .param p3, "number"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1424
     const-string v0, "ResolverActivity"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -459,6 +511,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1426
     return-void
 .end method
 
@@ -470,12 +523,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1501
     const-string v0, "ResolverActivity"
 
     const-string/jumbo v1, "onDiscoveryFinished:"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1502
     return-void
 .end method
 
@@ -487,11 +543,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 1495
     const-string v0, "ResolverActivity"
 
     const-string/jumbo v1, "onDiscoveryStarted:"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1496
     return-void
 .end method

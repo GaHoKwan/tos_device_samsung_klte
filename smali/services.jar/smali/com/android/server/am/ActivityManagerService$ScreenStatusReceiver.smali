@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 11447
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v8, -0x1
 
+    .line 11451
     if-eqz p2, :cond_0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -44,10 +50,12 @@
 
     if-nez v5, :cond_1
 
+    .line 11486
     :cond_0
     :goto_0
     return-void
 
+    .line 11454
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -61,18 +69,22 @@
 
     if-eqz v5, :cond_2
 
+    .line 11455
     const-string v5, "ActivityManager"
 
     const-string v6, "ICC has requested idle screen status"
 
     invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 11456
     new-instance v1, Landroid/content/Intent;
 
     const-string v5, "android.intent.action.stk.idle_screen"
 
     invoke-direct {v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 11457
+    .local v1, "idleScreenIntent":Landroid/content/Intent;
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v5}, Lcom/android/server/am/ActivityManagerService;->getFocusedStack()Lcom/android/server/am/ActivityStack;
@@ -83,10 +95,13 @@
 
     move-result v2
 
+    .line 11458
+    .local v2, "isIdle":Z
     const-string v5, "SCREEN_IDLE"
 
     invoke-virtual {v1, v5, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 11459
     const-string v5, "ActivityManager"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -109,6 +124,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 11461
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
@@ -117,6 +133,9 @@
 
     goto :goto_0
 
+    .line 11464
+    .end local v1    # "idleScreenIntent":Landroid/content/Intent;
+    .end local v2    # "isIdle":Z
     :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -130,27 +149,37 @@
 
     if-eqz v5, :cond_0
 
+    .line 11465
     const/4 v4, -0x1
 
+    .line 11466
+    .local v4, "siopLevel":I
     const/4 v0, -0x1
 
+    .line 11467
+    .local v0, "battOverheatLevel":I
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v3
 
+    .line 11468
+    .local v3, "mExtras":Landroid/os/Bundle;
     const-string v5, "check_cooldown_level"
 
     invoke-virtual {v3, v5, v8}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v4
 
+    .line 11469
     if-eq v4, v8, :cond_3
 
+    .line 11470
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     # setter for: Lcom/android/server/am/ActivityManagerService;->mSIOPLevel:I
     invoke-static {v5, v4}, Lcom/android/server/am/ActivityManagerService;->access$1102(Lcom/android/server/am/ActivityManagerService;I)I
 
+    .line 11472
     :cond_3
     const-string v5, "batt_temp_level"
 
@@ -158,13 +187,16 @@
 
     move-result v0
 
+    .line 11473
     if-eq v0, v8, :cond_4
 
+    .line 11474
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     # setter for: Lcom/android/server/am/ActivityManagerService;->mBatteryOverheatLevel:I
     invoke-static {v5, v0}, Lcom/android/server/am/ActivityManagerService;->access$1202(Lcom/android/server/am/ActivityManagerService;I)I
 
+    .line 11476
     :cond_4
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -179,6 +211,7 @@
     # setter for: Lcom/android/server/am/ActivityManagerService;->mOverheatTextId:I
     invoke-static {v5, v6}, Lcom/android/server/am/ActivityManagerService;->access$702(Lcom/android/server/am/ActivityManagerService;I)I
 
+    .line 11477
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     # getter for: Lcom/android/server/am/ActivityManagerService;->mSIOPLevel:I
@@ -197,6 +230,7 @@
 
     if-eq v5, v8, :cond_6
 
+    .line 11478
     :cond_5
     const-string v5, "check_cooldown_list"
 
@@ -206,6 +240,7 @@
 
     if-eqz v5, :cond_6
 
+    .line 11479
     iget-object v5, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     # getter for: Lcom/android/server/am/ActivityManagerService;->mCheckSIOPLevelList:Ljava/util/HashMap;
@@ -215,6 +250,7 @@
 
     invoke-virtual {v5}, Ljava/util/HashMap;->clear()V
 
+    .line 11480
     iget-object v6, p0, Lcom/android/server/am/ActivityManagerService$ScreenStatusReceiver;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     const-string v5, "check_cooldown_list"
@@ -228,6 +264,7 @@
     # setter for: Lcom/android/server/am/ActivityManagerService;->mCheckSIOPLevelList:Ljava/util/HashMap;
     invoke-static {v6, v5}, Lcom/android/server/am/ActivityManagerService;->access$1302(Lcom/android/server/am/ActivityManagerService;Ljava/util/HashMap;)Ljava/util/HashMap;
 
+    .line 11483
     :cond_6
     const-string v5, "checkingSIOP"
 

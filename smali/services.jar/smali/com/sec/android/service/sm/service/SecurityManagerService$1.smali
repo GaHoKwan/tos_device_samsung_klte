@@ -22,8 +22,11 @@
 .method constructor <init>(Lcom/sec/android/service/sm/service/SecurityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1
     iput-object p1, p0, Lcom/sec/android/service/sm/service/SecurityManagerService$1;->this$0:Lcom/sec/android/service/sm/service/SecurityManagerService;
 
+    .line 74
     invoke-direct {p0}, Lcom/sec/android/service/sm/service/ISecurityManager$Stub;-><init>()V
 
     return-void
@@ -33,12 +36,15 @@
 # virtual methods
 .method public enableMDFPPMode(Z)I
     .locals 1
+    .param p1, "enable"    # Z
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 78
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 
@@ -59,6 +65,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 93
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 
@@ -79,6 +87,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 98
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 
@@ -99,6 +109,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 83
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 
@@ -119,6 +131,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 88
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 
@@ -139,6 +153,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 103
     # getter for: Lcom/sec/android/service/sm/service/SecurityManagerService;->mSecurityJob:Lcom/sec/android/service/sm/job/SecurityJob;
     invoke-static {}, Lcom/sec/android/service/sm/service/SecurityManagerService;->access$0()Lcom/sec/android/service/sm/job/SecurityJob;
 

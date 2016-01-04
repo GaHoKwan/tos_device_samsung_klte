@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
     .locals 0
 
+    .prologue
+    .line 937
     iput-object p1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;Lcom/android/internal/widget/ScrollingTabContainerView$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/internal/widget/ScrollingTabContainerView;
+    .param p2, "x1"    # Lcom/android/internal/widget/ScrollingTabContainerView$1;
 
+    .prologue
+    .line 937
     invoke-direct {p0, p1}, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;-><init>(Lcom/android/internal/widget/ScrollingTabContainerView;)V
 
     return-void
@@ -42,6 +48,8 @@
 .method public getCount()I
     .locals 1
 
+    .prologue
+    .line 940
     iget-object v0, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
@@ -49,7 +57,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->getChildCount()I
+    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
@@ -58,7 +66,10 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "position"    # I
 
+    .prologue
+    .line 945
     iget-object v0, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     # getter for: Lcom/android/internal/widget/ScrollingTabContainerView;->mTabLayout:Landroid/widget/LinearLayout;
@@ -66,7 +77,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -81,7 +92,10 @@
 
 .method public getItemId(I)J
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 950
     int-to-long v0, p1
 
     return-wide v0
@@ -89,9 +103,15 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 3
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 955
     if-nez p2, :cond_0
 
+    .line 956
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->getItem(I)Ljava/lang/Object;
@@ -107,12 +127,14 @@
 
     move-result-object p2
 
+    .line 960
     :goto_0
     return-object p2
 
     :cond_0
     move-object v0, p2
 
+    .line 958
     check-cast v0, Lcom/android/internal/widget/ScrollingTabContainerView$TabView;
 
     invoke-virtual {p0, p1}, Lcom/android/internal/widget/ScrollingTabContainerView$TabAdapter;->getItem(I)Ljava/lang/Object;

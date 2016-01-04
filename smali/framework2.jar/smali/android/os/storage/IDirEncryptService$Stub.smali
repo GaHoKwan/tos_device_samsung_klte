@@ -65,6 +65,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 38
     const/4 v0, 0x0
 
     sput-object v0, Landroid/os/storage/IDirEncryptService$Stub;->mDemCallback:Landroid/dirEncryption/IDirEncryptionManagerCallBack;
@@ -75,25 +77,35 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 452
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
+    .line 453
     const-string v0, "IDirEncryptService"
 
-    invoke-virtual {p0, p0, v0}, Landroid/os/storage/IDirEncryptService$Stub;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
+    invoke-virtual {p0, p0, v0}, Landroid/os/Binder;->attachInterface(Landroid/os/IInterface;Ljava/lang/String;)V
 
+    .line 454
     return-void
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/os/storage/IDirEncryptService;
     .locals 2
+    .param p0, "obj"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 441
     if-nez p0, :cond_0
 
+    .line 442
     const/4 v0, 0x0
 
+    .line 448
     :goto_0
     return-object v0
 
+    .line 444
     :cond_0
     const-string v1, "IDirEncryptService"
 
@@ -101,19 +113,24 @@
 
     move-result-object v0
 
+    .line 445
+    .local v0, "iin":Landroid/os/IInterface;
     if-eqz v0, :cond_1
 
     instance-of v1, v0, Landroid/os/storage/IDirEncryptService;
 
     if-eqz v1, :cond_1
 
+    .line 446
     check-cast v0, Landroid/os/storage/IDirEncryptService;
 
     goto :goto_0
 
+    .line 448
     :cond_1
     new-instance v0, Landroid/os/storage/IDirEncryptService$Stub$Proxy;
 
+    .end local v0    # "iin":Landroid/os/IInterface;
     invoke-direct {v0, p0}, Landroid/os/storage/IDirEncryptService$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
 
     goto :goto_0
@@ -124,19 +141,28 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 0
 
+    .prologue
+    .line 457
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
     .locals 24
+    .param p1, "code"    # I
+    .param p2, "data"    # Landroid/os/Parcel;
+    .param p3, "reply"    # Landroid/os/Parcel;
+    .param p4, "flags"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 464
     sparse-switch p1, :sswitch_data_0
 
+    .line 679
     invoke-super/range {p0 .. p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     move-result v2
@@ -144,6 +170,7 @@
     :goto_0
     return v2
 
+    .line 466
     :sswitch_0
     const-string v2, "IDirEncryptService"
 
@@ -151,10 +178,12 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 467
     const/4 v2, 0x1
 
     goto :goto_0
 
+    .line 470
     :sswitch_1
     const-string v2, "IDirEncryptService"
 
@@ -162,6 +191,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 472
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -170,12 +200,16 @@
 
     move-result-object v21
 
+    .line 473
+    .local v21, "listener":Landroid/os/storage/IDirEncryptServiceListener;
     if-nez v21, :cond_0
 
+    .line 474
     const/4 v2, 0x0
 
     goto :goto_0
 
+    .line 476
     :cond_0
     move-object/from16 v0, p0
 
@@ -183,12 +217,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/storage/IDirEncryptService$Stub;->registerListener(Landroid/os/storage/IDirEncryptServiceListener;)V
 
+    .line 477
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 478
     const/4 v2, 0x1
 
     goto :goto_0
 
+    .line 481
+    .end local v21    # "listener":Landroid/os/storage/IDirEncryptServiceListener;
     :sswitch_2
     const-string v2, "IDirEncryptService"
 
@@ -196,6 +234,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 483
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -204,12 +243,16 @@
 
     move-result-object v21
 
+    .line 484
+    .restart local v21    # "listener":Landroid/os/storage/IDirEncryptServiceListener;
     if-nez v21, :cond_1
 
+    .line 485
     const/4 v2, 0x0
 
     goto :goto_0
 
+    .line 487
     :cond_1
     move-object/from16 v0, p0
 
@@ -217,12 +260,16 @@
 
     invoke-virtual {v0, v1}, Landroid/os/storage/IDirEncryptService$Stub;->unregisterListener(Landroid/os/storage/IDirEncryptServiceListener;)V
 
+    .line 488
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 489
     const/4 v2, 0x1
 
     goto :goto_0
 
+    .line 492
+    .end local v21    # "listener":Landroid/os/storage/IDirEncryptServiceListener;
     :sswitch_3
     const-string v2, "IDirEncryptService"
 
@@ -230,6 +277,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 493
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
     move-result v2
@@ -248,18 +296,24 @@
 
     move-result v20
 
+    .line 494
+    .local v20, "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 495
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 496
     const/4 v2, 0x1
 
     goto :goto_0
 
+    .line 499
+    .end local v20    # "_resultCode":I
     :sswitch_4
     const-string v2, "IDirEncryptService"
 
@@ -267,22 +321,29 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 500
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->isStorageCardEncryptionPoliciesApplied()I
 
     move-result v20
 
+    .line 501
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 502
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 503
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 507
+    .end local v20    # "_resultCode":I
     :sswitch_5
     const-string v2, "IDirEncryptService"
 
@@ -290,6 +351,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 508
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -300,18 +362,24 @@
 
     move-result v20
 
+    .line 509
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 510
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 511
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 515
+    .end local v20    # "_resultCode":I
     :sswitch_6
     const-string v2, "IDirEncryptService"
 
@@ -319,22 +387,29 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 516
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->getCurrentStatus()I
 
     move-result v20
 
+    .line 517
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 518
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 519
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 523
+    .end local v20    # "_resultCode":I
     :sswitch_7
     const-string v2, "IDirEncryptService"
 
@@ -342,22 +417,29 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 524
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->getLastError()I
 
     move-result v20
 
+    .line 525
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 526
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 527
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 531
+    .end local v20    # "_resultCode":I
     :sswitch_8
     const-string v2, "IDirEncryptService"
 
@@ -365,22 +447,29 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 532
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->getAdditionalSpaceRequired()I
 
     move-result v20
 
+    .line 533
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 534
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 535
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 539
+    .end local v20    # "_resultCode":I
     :sswitch_9
     const-string v2, "IDirEncryptService"
 
@@ -388,6 +477,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 540
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -398,18 +488,24 @@
 
     move-result v20
 
+    .line 541
+    .restart local v20    # "_resultCode":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 542
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 543
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 547
+    .end local v20    # "_resultCode":I
     :sswitch_a
     const-string v2, "IDirEncryptService"
 
@@ -417,20 +513,26 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 548
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->getSDCardEncryptionPrefs()Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     move-result-object v22
 
+    .line 549
+    .local v22, "policies":Landroid/dirEncryption/SDCardEncryptionPolicies;
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 550
     if-eqz v22, :cond_2
 
+    .line 551
     const/4 v2, 0x1
 
     move-object/from16 v0, p3
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 552
     const/4 v2, 0x1
 
     move-object/from16 v0, v22
@@ -439,11 +541,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/dirEncryption/SDCardEncryptionPolicies;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 554
     :cond_2
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 557
+    .end local v22    # "policies":Landroid/dirEncryption/SDCardEncryptionPolicies;
     :sswitch_b
     const-string v2, "IDirEncryptService"
 
@@ -451,14 +556,18 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 558
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->unmountSDCardByAdmin()V
 
+    .line 559
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 560
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 568
     :sswitch_c
     const-string v2, "IDirEncryptService"
 
@@ -466,8 +575,11 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 573
     const/4 v10, 0x0
 
+    .line 574
+    .local v10, "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -476,10 +588,12 @@
 
     move-result-object v10
 
+    .line 576
     sget-object v2, Landroid/os/storage/IDirEncryptService$Stub;->mDemCallback:Landroid/dirEncryption/IDirEncryptionManagerCallBack;
 
     if-nez v2, :cond_4
 
+    .line 578
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v3
@@ -502,6 +616,7 @@
 
     const/4 v6, 0x1
 
+    .local v6, "mountAndEncryptBool":Z
     :goto_1
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -521,24 +636,32 @@
 
     move-result v20
 
+    .line 588
+    .restart local v20    # "_resultCode":I
     :goto_2
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 589
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 590
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 578
+    .end local v6    # "mountAndEncryptBool":Z
+    .end local v20    # "_resultCode":I
     :cond_3
     const/4 v6, 0x0
 
     goto :goto_1
 
+    .line 583
     :cond_4
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -562,6 +685,7 @@
 
     const/4 v6, 0x1
 
+    .restart local v6    # "mountAndEncryptBool":Z
     :goto_3
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readInt()I
 
@@ -585,13 +709,18 @@
 
     move-result v20
 
+    .restart local v20    # "_resultCode":I
     goto :goto_2
 
+    .end local v6    # "mountAndEncryptBool":Z
+    .end local v20    # "_resultCode":I
     :cond_5
     const/4 v6, 0x0
 
     goto :goto_3
 
+    .line 606
+    .end local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
     :sswitch_d
     const-string v2, "IDirEncryptService"
 
@@ -599,8 +728,11 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 610
     const/4 v10, 0x0
 
+    .line 611
+    .restart local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -609,10 +741,12 @@
 
     move-result-object v10
 
+    .line 613
     sget-object v2, Landroid/os/storage/IDirEncryptService$Stub;->mDemCallback:Landroid/dirEncryption/IDirEncryptionManagerCallBack;
 
     if-nez v2, :cond_6
 
+    .line 615
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -631,19 +765,25 @@
 
     move-result v20
 
+    .line 621
+    .restart local v20    # "_resultCode":I
     :goto_4
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 622
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 623
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 618
+    .end local v20    # "_resultCode":I
     :cond_6
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -665,8 +805,12 @@
 
     move-result v20
 
+    .restart local v20    # "_resultCode":I
     goto :goto_4
 
+    .line 628
+    .end local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
+    .end local v20    # "_resultCode":I
     :sswitch_e
     const-string v2, "IDirEncryptService"
 
@@ -674,8 +818,11 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 632
     const/4 v10, 0x0
 
+    .line 633
+    .restart local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -684,10 +831,12 @@
 
     move-result-object v10
 
+    .line 635
     sget-object v2, Landroid/os/storage/IDirEncryptService$Stub;->mDemCallback:Landroid/dirEncryption/IDirEncryptionManagerCallBack;
 
     if-nez v2, :cond_7
 
+    .line 637
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v12
@@ -712,19 +861,25 @@
 
     move-result v20
 
+    .line 643
+    .restart local v20    # "_resultCode":I
     :goto_5
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 644
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 645
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 640
+    .end local v20    # "_resultCode":I
     :cond_7
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -750,8 +905,12 @@
 
     move-result v20
 
+    .restart local v20    # "_resultCode":I
     goto :goto_5
 
+    .line 649
+    .end local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
+    .end local v20    # "_resultCode":I
     :sswitch_f
     const-string v2, "IDirEncryptService"
 
@@ -759,8 +918,11 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 653
     const/4 v10, 0x0
 
+    .line 654
+    .restart local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
 
     move-result-object v2
@@ -769,10 +931,12 @@
 
     move-result-object v10
 
+    .line 656
     sget-object v2, Landroid/os/storage/IDirEncryptService$Stub;->mDemCallback:Landroid/dirEncryption/IDirEncryptionManagerCallBack;
 
     if-nez v2, :cond_8
 
+    .line 657
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v2
@@ -783,19 +947,25 @@
 
     move-result v20
 
+    .line 664
+    .restart local v20    # "_resultCode":I
     :goto_6
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 665
     move-object/from16 v0, p3
 
     move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 666
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 660
+    .end local v20    # "_resultCode":I
     :cond_8
     invoke-virtual/range {p2 .. p2}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
@@ -809,8 +979,12 @@
 
     move-result v20
 
+    .restart local v20    # "_resultCode":I
     goto :goto_6
 
+    .line 672
+    .end local v10    # "emCallback":Landroid/dirEncryption/IDirEncryptionManagerCallBack;
+    .end local v20    # "_resultCode":I
     :sswitch_10
     const-string v2, "IDirEncryptService"
 
@@ -818,22 +992,28 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
+    .line 673
     invoke-virtual/range {p0 .. p0}, Landroid/os/storage/IDirEncryptService$Stub;->setNullSDCardPassword()I
 
     move-result v23
 
+    .line 674
+    .local v23, "result":I
     invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
 
+    .line 675
     move-object/from16 v0, p3
 
     move/from16 v1, v23
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 676
     const/4 v2, 0x1
 
     goto/16 :goto_0
 
+    .line 464
     nop
 
     :sswitch_data_0

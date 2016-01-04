@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/analytics/data/collection/logcat/LogcatReader;)V
     .locals 0
 
+    .prologue
+    .line 289
     iput-object p1, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,15 +39,20 @@
 .method public run()V
     .locals 11
 
+    .prologue
+    .line 293
     :try_start_0
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    .line 294
+    .local v2, "commandLine":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const-string v8, "logcat"
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 297
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mFormat:Ljava/lang/String;
@@ -55,10 +62,12 @@
 
     if-eqz v8, :cond_0
 
+    .line 298
     const-string v8, "-v"
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 299
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mFormat:Ljava/lang/String;
@@ -68,6 +77,7 @@
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 302
     :cond_0
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
@@ -78,10 +88,12 @@
 
     if-eqz v8, :cond_1
 
+    .line 303
     const-string v8, "-b"
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 304
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mBuffer:Ljava/lang/String;
@@ -91,6 +103,7 @@
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 307
     :cond_1
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
@@ -101,6 +114,7 @@
 
     if-eqz v8, :cond_3
 
+    .line 308
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mFilterSpecs:[Ljava/lang/String;
@@ -108,26 +122,38 @@
 
     move-result-object v0
 
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v6, v0
 
+    .local v6, "len$":I
     const/4 v5, 0x0
 
+    .local v5, "i$":I
     :goto_0
     if-ge v5, v6, :cond_2
 
     aget-object v4, v0, v5
 
+    .line 309
+    .local v4, "filterSpec":Ljava/lang/String;
     invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 308
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
+    .line 311
+    .end local v4    # "filterSpec":Ljava/lang/String;
     :cond_2
     const-string v8, "*:S"
 
     invoke-virtual {v2, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 314
+    .end local v0    # "arr$":[Ljava/lang/String;
+    .end local v5    # "i$":I
+    .end local v6    # "len$":I
     :cond_3
     const-string v8, "LogcatReader"
 
@@ -151,6 +177,7 @@
 
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 317
     iget-object v9, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
@@ -174,6 +201,7 @@
     # setter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mProcess:Ljava/lang/Process;
     invoke-static {v9, v8}, Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->access$302(Lcom/android/server/analytics/data/collection/logcat/LogcatReader;Ljava/lang/Process;)Ljava/lang/Process;
 
+    .line 320
     new-instance v1, Ljava/io/BufferedReader;
 
     new-instance v8, Ljava/io/InputStreamReader;
@@ -193,6 +221,8 @@
 
     invoke-direct {v1, v8}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
+    .line 323
+    .local v1, "bufferedReader":Ljava/io/BufferedReader;
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mProcessor:Lcom/android/server/analytics/data/collection/logcat/LogcatReader$LogcatRecordProcessor;
@@ -202,13 +232,16 @@
 
     invoke-interface {v8}, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$LogcatRecordProcessor;->onStarted()V
 
+    .line 327
     :goto_1
     invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v7
 
+    .local v7, "line":Ljava/lang/String;
     if-eqz v7, :cond_4
 
+    .line 329
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
     # getter for: Lcom/android/server/analytics/data/collection/logcat/LogcatReader;->mProcessor:Lcom/android/server/analytics/data/collection/logcat/LogcatReader$LogcatRecordProcessor;
@@ -222,11 +255,19 @@
 
     goto :goto_1
 
+    .line 332
+    .end local v1    # "bufferedReader":Ljava/io/BufferedReader;
+    .end local v2    # "commandLine":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v7    # "line":Ljava/lang/String;
     :catch_0
     move-exception v3
 
-    invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
+    .line 333
+    .local v3, "e":Ljava/lang/Exception;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
+    .line 336
+    .end local v3    # "e":Ljava/lang/Exception;
     :goto_2
     iget-object v8, p0, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$3;->this$0:Lcom/android/server/analytics/data/collection/logcat/LogcatReader;
 
@@ -237,8 +278,13 @@
 
     invoke-interface {v8}, Lcom/android/server/analytics/data/collection/logcat/LogcatReader$LogcatRecordProcessor;->onFinished()V
 
+    .line 337
     return-void
 
+    .line 331
+    .restart local v1    # "bufferedReader":Ljava/io/BufferedReader;
+    .restart local v2    # "commandLine":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .restart local v7    # "line":Ljava/lang/String;
     :cond_4
     :try_start_1
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V

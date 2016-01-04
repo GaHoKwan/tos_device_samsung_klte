@@ -48,75 +48,103 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Landroid/text/Editable;Z)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "text"    # Landroid/text/Editable;
+    .param p4, "insert"    # Z
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 86
     const v1, 0x1030059
 
     invoke-direct {p0, p1, v1}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
+    .line 56
     const-string v1, ":-)#:-(#;-)#:-P#=-O#:-*#:O#B-)#:-$#:-!#:-[#O:-)#:-\\#:\'(#:-X#:-D#o_O#:-/#X-(#:-|#"
 
     iput-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mOptions:Ljava/lang/String;
 
+    .line 63
     iput v2, p0, Landroid/text/method/SmileyPickerDialog;->count:I
 
+    .line 66
     iput v2, p0, Landroid/text/method/SmileyPickerDialog;->prePosition1:I
 
+    .line 67
     iput v2, p0, Landroid/text/method/SmileyPickerDialog;->prePosition2:I
 
+    .line 68
     iput v2, p0, Landroid/text/method/SmileyPickerDialog;->prePosition3:I
 
+    .line 69
     iput v2, p0, Landroid/text/method/SmileyPickerDialog;->prePosition4:I
 
+    .line 300
     new-instance v1, Landroid/text/method/SmileyPickerDialog$3;
 
     invoke-direct {v1, p0}, Landroid/text/method/SmileyPickerDialog$3;-><init>(Landroid/text/method/SmileyPickerDialog;)V
 
     iput-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
+    .line 88
     iput-object p2, p0, Landroid/text/method/SmileyPickerDialog;->mView:Landroid/view/View;
 
+    .line 89
     iput-object p3, p0, Landroid/text/method/SmileyPickerDialog;->mText:Landroid/text/Editable;
 
+    .line 90
     iput-boolean p4, p0, Landroid/text/method/SmileyPickerDialog;->mInsert:Z
 
+    .line 91
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
     iput-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mInflater:Landroid/view/LayoutInflater;
 
+    .line 94
     new-instance v1, Landroid/text/method/SmileyPickerDialog$1;
 
     invoke-direct {v1, p0}, Landroid/text/method/SmileyPickerDialog$1;-><init>(Landroid/text/method/SmileyPickerDialog;)V
 
-    invoke-virtual {p0, v1}, Landroid/text/method/SmileyPickerDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {p0, v1}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
+    .line 100
     new-instance v1, Landroid/text/method/SmileyPickerDialog$2;
 
     invoke-direct {v1, p0}, Landroid/text/method/SmileyPickerDialog$2;-><init>(Landroid/text/method/SmileyPickerDialog;)V
 
-    invoke-virtual {p0, v1}, Landroid/text/method/SmileyPickerDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {p0, v1}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
+    .line 109
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 110
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 111
     iget-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 115
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/text/method/SmileyPickerDialog;Z)V
     .locals 0
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
+    .param p1, "x1"    # Z
 
+    .prologue
+    .line 52
     invoke-direct {p0, p1}, Landroid/text/method/SmileyPickerDialog;->sendShowState(Z)V
 
     return-void
@@ -124,7 +152,10 @@
 
 .method static synthetic access$100(Landroid/text/method/SmileyPickerDialog;)Landroid/view/LayoutInflater;
     .locals 1
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
 
+    .prologue
+    .line 52
     iget-object v0, p0, Landroid/text/method/SmileyPickerDialog;->mInflater:Landroid/view/LayoutInflater;
 
     return-object v0
@@ -132,7 +163,10 @@
 
 .method static synthetic access$200(Landroid/text/method/SmileyPickerDialog;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
 
+    .prologue
+    .line 52
     iget-object v0, p0, Landroid/text/method/SmileyPickerDialog;->mOptions:Ljava/lang/String;
 
     return-object v0
@@ -140,7 +174,10 @@
 
 .method static synthetic access$300(Landroid/text/method/SmileyPickerDialog;)I
     .locals 1
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
 
+    .prologue
+    .line 52
     iget v0, p0, Landroid/text/method/SmileyPickerDialog;->prePosition2:I
 
     return v0
@@ -148,7 +185,11 @@
 
 .method static synthetic access$302(Landroid/text/method/SmileyPickerDialog;I)I
     .locals 0
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 52
     iput p1, p0, Landroid/text/method/SmileyPickerDialog;->prePosition2:I
 
     return p1
@@ -156,7 +197,10 @@
 
 .method static synthetic access$400(Landroid/text/method/SmileyPickerDialog;)I
     .locals 1
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
 
+    .prologue
+    .line 52
     iget v0, p0, Landroid/text/method/SmileyPickerDialog;->prePosition3:I
 
     return v0
@@ -164,7 +208,11 @@
 
 .method static synthetic access$402(Landroid/text/method/SmileyPickerDialog;I)I
     .locals 0
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 52
     iput p1, p0, Landroid/text/method/SmileyPickerDialog;->prePosition3:I
 
     return p1
@@ -172,7 +220,10 @@
 
 .method static synthetic access$500(Landroid/text/method/SmileyPickerDialog;)I
     .locals 1
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
 
+    .prologue
+    .line 52
     iget v0, p0, Landroid/text/method/SmileyPickerDialog;->prePosition4:I
 
     return v0
@@ -180,7 +231,11 @@
 
 .method static synthetic access$502(Landroid/text/method/SmileyPickerDialog;I)I
     .locals 0
+    .param p0, "x0"    # Landroid/text/method/SmileyPickerDialog;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 52
     iput p1, p0, Landroid/text/method/SmileyPickerDialog;->prePosition4:I
 
     return p1
@@ -188,29 +243,38 @@
 
 .method private replaceCharacterAndClose(Ljava/lang/CharSequence;)V
     .locals 3
+    .param p1, "replace"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 171
     iget-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mText:Landroid/text/Editable;
 
     invoke-static {v1}, Landroid/text/Selection;->getSelectionEnd(Ljava/lang/CharSequence;)I
 
     move-result v0
 
+    .line 172
+    .local v0, "selEnd":I
     iget-boolean v1, p0, Landroid/text/method/SmileyPickerDialog;->mInsert:Z
 
     if-nez v1, :cond_0
 
     if-nez v0, :cond_1
 
+    .line 173
     :cond_0
     iget-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mText:Landroid/text/Editable;
 
     invoke-interface {v1, v0, p1}, Landroid/text/Editable;->insert(ILjava/lang/CharSequence;)Landroid/text/Editable;
 
+    .line 178
     :goto_0
-    invoke-virtual {p0}, Landroid/text/method/SmileyPickerDialog;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
+    .line 179
     return-void
 
+    .line 175
     :cond_1
     iget-object v1, p0, Landroid/text/method/SmileyPickerDialog;->mText:Landroid/text/Editable;
 
@@ -223,25 +287,33 @@
 
 .method private sendShowState(Z)V
     .locals 2
+    .param p1, "visible"    # Z
 
+    .prologue
+    .line 290
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 291
+    .local v0, "intent":Landroid/content/Intent;
     const-string v1, "android.text.method.SMILEYPICKERDIALOG_SHOW_STATE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 292
     const-string/jumbo v1, "visible"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    invoke-virtual {p0}, Landroid/text/method/SmileyPickerDialog;->getContext()Landroid/content/Context;
+    .line 293
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 294
     return-void
 .end method
 
@@ -249,33 +321,45 @@
 # virtual methods
 .method public countLength(I)I
     .locals 5
+    .param p1, "newPosition"    # I
 
+    .prologue
+    .line 314
     iget-object v3, p0, Landroid/text/method/SmileyPickerDialog;->mOptions:Ljava/lang/String;
 
     invoke-virtual {v3}, Ljava/lang/String;->toCharArray()[C
 
     move-result-object v0
 
+    .line 316
+    .local v0, "data":[C
     const/4 v2, 0x0
 
+    .line 318
+    .local v2, "length":I
     move v1, p1
 
+    .line 319
+    .local v1, "isPosition":I
     const-string v3, "jang"
 
     const-string v4, "countLength"
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 322
     const/16 v3, 0x50
 
     if-ge v1, v3, :cond_1
 
+    .line 323
     const-string v3, "jang"
 
     const-string/jumbo v4, "out of bound"
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 325
     :goto_0
     aget-char v3, v0, v1
 
@@ -283,12 +367,15 @@
 
     if-eq v3, v4, :cond_0
 
+    .line 326
     add-int/lit8 v2, v2, 0x1
 
+    .line 327
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 331
     :cond_0
     iget v3, p0, Landroid/text/method/SmileyPickerDialog;->count:I
 
@@ -296,35 +383,49 @@
 
     iput v3, p0, Landroid/text/method/SmileyPickerDialog;->count:I
 
+    .line 336
     :cond_1
     return v2
 .end method
 
 .method public onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 185
     instance-of v1, p1, Landroid/widget/Button;
 
     if-eqz v1, :cond_0
 
+    .line 186
     check-cast p1, Landroid/widget/Button;
 
-    invoke-virtual {p1}, Landroid/widget/Button;->getText()Ljava/lang/CharSequence;
+    .end local p1    # "v":Landroid/view/View;
+    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object v0
 
+    .line 187
+    .local v0, "result":Ljava/lang/CharSequence;
     invoke-direct {p0, v0}, Landroid/text/method/SmileyPickerDialog;->replaceCharacterAndClose(Ljava/lang/CharSequence;)V
 
+    .line 189
+    .end local v0    # "result":Ljava/lang/CharSequence;
     :cond_0
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 4
+    .param p1, "savedInstanceState"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 119
     invoke-super {p0, p1}, Landroid/app/Dialog;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/text/method/SmileyPickerDialog;->getWindow()Landroid/view/Window;
+    .line 121
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
@@ -332,6 +433,8 @@
 
     move-result-object v1
 
+    .line 122
+    .local v1, "params":Landroid/view/WindowManager$LayoutParams;
     iget-object v2, p0, Landroid/text/method/SmileyPickerDialog;->mView:Landroid/view/View;
 
     invoke-virtual {v2}, Landroid/view/View;->getApplicationWindowToken()Landroid/os/IBinder;
@@ -340,31 +443,37 @@
 
     iput-object v2, v1, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
+    .line 123
     const/16 v2, 0x3eb
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->type:I
 
+    .line 124
     iget v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     or-int/lit8 v2, v2, 0x1
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->flags:I
 
+    .line 126
     const v2, 0x10900c4
 
-    invoke-virtual {p0, v2}, Landroid/text/method/SmileyPickerDialog;->setContentView(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Dialog;->setContentView(I)V
 
+    .line 128
     const v2, 0x10203cf
 
-    invoke-virtual {p0, v2}, Landroid/text/method/SmileyPickerDialog;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v2}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     check-cast v0, Landroid/widget/GridView;
 
+    .line 131
+    .local v0, "grid":Landroid/widget/GridView;
     new-instance v2, Landroid/text/method/SmileyPickerDialog$OptionsAdapter;
 
-    invoke-virtual {p0}, Landroid/text/method/SmileyPickerDialog;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
 
     move-result-object v3
 
@@ -372,16 +481,25 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    invoke-virtual {v0, p0}, Landroid/widget/GridView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
+    .line 134
+    invoke-virtual {v0, p0}, Landroid/widget/AdapterView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
+    .line 140
     return-void
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 4
+    .param p1, "parent"    # Landroid/widget/AdapterView;
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
 
+    .prologue
+    .line 150
     if-nez p3, :cond_0
 
+    .line 151
     iget-object v2, p0, Landroid/text/method/SmileyPickerDialog;->mOptions:Ljava/lang/String;
 
     invoke-virtual {v2}, Ljava/lang/String;->toCharArray()[C
@@ -396,11 +514,16 @@
 
     move-result-object v1
 
+    .line 166
+    .local v1, "result":Ljava/lang/String;
     :goto_0
     invoke-direct {p0, v1}, Landroid/text/method/SmileyPickerDialog;->replaceCharacterAndClose(Ljava/lang/CharSequence;)V
 
+    .line 167
     return-void
 
+    .line 153
+    .end local v1    # "result":Ljava/lang/String;
     :cond_0
     const/4 v2, 0x7
 
@@ -410,6 +533,7 @@
 
     if-gt p3, v2, :cond_1
 
+    .line 154
     add-int/lit8 v2, p3, -0x7
 
     iget v3, p0, Landroid/text/method/SmileyPickerDialog;->prePosition1:I
@@ -424,6 +548,8 @@
 
     add-int/lit8 v0, v2, 0x1b
 
+    .line 161
+    .local v0, "newPosition":I
     :goto_1
     iget-object v2, p0, Landroid/text/method/SmileyPickerDialog;->mOptions:Ljava/lang/String;
 
@@ -439,19 +565,28 @@
 
     move-result-object v1
 
+    .line 163
+    .restart local v1    # "result":Ljava/lang/String;
     iput v0, p0, Landroid/text/method/SmileyPickerDialog;->prePosition1:I
 
     goto :goto_0
 
+    .line 155
+    .end local v0    # "newPosition":I
+    .end local v1    # "result":Ljava/lang/String;
     :cond_1
     const/16 v2, 0xc
 
     if-ne p3, v2, :cond_2
 
+    .line 156
     const/16 v0, 0x30
 
+    .restart local v0    # "newPosition":I
     goto :goto_1
 
+    .line 158
+    .end local v0    # "newPosition":I
     :cond_2
     add-int/lit8 v2, p3, -0x1
 
@@ -467,5 +602,6 @@
 
     add-int/lit8 v0, v2, 0x4
 
+    .restart local v0    # "newPosition":I
     goto :goto_1
 .end method

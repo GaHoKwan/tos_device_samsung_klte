@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityStackSupervisor;)V
     .locals 0
 
+    .prologue
+    .line 3177
     iput-object p1, p0, Lcom/android/server/am/ActivityStackSupervisor$2;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +39,14 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 3180
     iget-object v0, p0, Lcom/android/server/am/ActivityStackSupervisor$2;->this$0:Lcom/android/server/am/ActivityStackSupervisor;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityStackSupervisor;->mService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityManagerService;->finishBooting()V
 
+    .line 3181
     return-void
 .end method

@@ -20,17 +20,25 @@
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 0
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
     iput-object p1, p0, Lcom/android/server/DirEncryptPrefs;->mContext:Landroid/content/Context;
 
+    .line 35
     return-void
 .end method
 
 .method public static declared-synchronized getPreferences(Landroid/content/Context;)Lcom/android/server/DirEncryptPrefs;
     .locals 2
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 38
     const-class v1, Lcom/android/server/DirEncryptPrefs;
 
     monitor-enter v1
@@ -40,12 +48,14 @@
 
     if-nez v0, :cond_0
 
+    .line 39
     new-instance v0, Lcom/android/server/DirEncryptPrefs;
 
     invoke-direct {v0, p0}, Lcom/android/server/DirEncryptPrefs;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/android/server/DirEncryptPrefs;->sPreferences:Lcom/android/server/DirEncryptPrefs;
 
+    .line 41
     :cond_0
     sget-object v0, Lcom/android/server/DirEncryptPrefs;->sPreferences:Lcom/android/server/DirEncryptPrefs;
     :try_end_0
@@ -55,6 +65,7 @@
 
     return-object v0
 
+    .line 38
     :catchall_0
     move-exception v0
 
@@ -65,21 +76,29 @@
 
 .method private static log(Ljava/lang/String;)V
     .locals 1
+    .param p0, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 26
     const-string v0, "DirEncryptPrefs"
 
     invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 27
     return-void
 .end method
 
 .method private static logE(Ljava/lang/String;)V
     .locals 1
+    .param p0, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 30
     const-string v0, "DirEncryptPrefs"
 
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 31
     return-void
 .end method
 
@@ -88,6 +107,8 @@
 .method public clearPrefs()V
     .locals 3
 
+    .prologue
+    .line 56
     new-instance v0, Ljava/io/File;
 
     const-string v1, "/efs/"
@@ -96,14 +117,18 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 57
+    .local v0, "f":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
+    .line 58
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
+    .line 60
     :cond_0
     return-void
 .end method
@@ -111,6 +136,8 @@
 .method public haveEncPrefs()Z
     .locals 4
 
+    .prologue
+    .line 45
     new-instance v0, Ljava/io/File;
 
     const-string v2, "/efs/"
@@ -119,6 +146,8 @@
 
     invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 46
+    .local v0, "f":Ljava/io/File;
     new-instance v1, Ljava/io/File;
 
     const-string v2, "/data/system/"
@@ -127,6 +156,8 @@
 
     invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 48
+    .local v1, "f2":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v2
@@ -139,9 +170,11 @@
 
     if-eqz v2, :cond_1
 
+    .line 49
     :cond_0
     const/4 v2, 0x1
 
+    .line 52
     :goto_0
     return v2
 
@@ -154,10 +187,14 @@
 .method public restorePrefs()Landroid/dirEncryption/SDCardEncryptionPolicies;
     .locals 9
 
+    .prologue
+    .line 63
     new-instance v3, Landroid/dirEncryption/SDCardEncryptionPolicies;
 
     invoke-direct {v3}, Landroid/dirEncryption/SDCardEncryptionPolicies;-><init>()V
 
+    .line 65
+    .local v3, "policies":Landroid/dirEncryption/SDCardEncryptionPolicies;
     new-instance v2, Ljava/io/File;
 
     const-string v7, "/efs/"
@@ -166,6 +203,8 @@
 
     invoke-direct {v2, v7, v8}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 66
+    .local v2, "f":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->canRead()Z
 
     move-result v7
@@ -178,6 +217,7 @@
 
     if-nez v7, :cond_1
 
+    .line 67
     :cond_0
     const-string/jumbo v7, "unable to get enc properties"
 
@@ -185,12 +225,20 @@
 
     move-object v4, v3
 
+    .line 88
+    .end local v3    # "policies":Landroid/dirEncryption/SDCardEncryptionPolicies;
+    .local v4, "policies":Ljava/lang/Object;
     :goto_0
     return-object v4
 
+    .line 71
+    .end local v4    # "policies":Ljava/lang/Object;
+    .restart local v3    # "policies":Landroid/dirEncryption/SDCardEncryptionPolicies;
     :cond_1
     const/4 v5, 0x0
 
+    .line 73
+    .local v5, "reader":Ljava/io/FileReader;
     :try_start_0
     new-instance v6, Ljava/io/FileReader;
 
@@ -199,6 +247,9 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 74
+    .end local v5    # "reader":Ljava/io/FileReader;
+    .local v6, "reader":Ljava/io/FileReader;
     :try_start_1
     invoke-virtual {v2}, Ljava/io/File;->length()J
 
@@ -208,8 +259,11 @@
 
     new-array v0, v7, [C
 
-    invoke-virtual {v6, v0}, Ljava/io/FileReader;->read([C)I
+    .line 76
+    .local v0, "buf":[C
+    invoke-virtual {v6, v0}, Ljava/io/Reader;->read([C)I
 
+    .line 78
     new-instance v7, Ljava/lang/String;
 
     invoke-direct {v7, v0}, Ljava/lang/String;-><init>([C)V
@@ -221,86 +275,121 @@
 
     move-result-object v3
 
+    .line 84
     :try_start_2
-    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v6}, Ljava/io/InputStreamReader;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
 
     :goto_1
     move-object v5, v6
 
+    .end local v0    # "buf":[C
+    .end local v6    # "reader":Ljava/io/FileReader;
+    .restart local v5    # "reader":Ljava/io/FileReader;
     :goto_2
     move-object v4, v3
 
+    .line 88
+    .restart local v4    # "policies":Ljava/lang/Object;
     goto :goto_0
 
+    .line 79
+    .end local v4    # "policies":Ljava/lang/Object;
     :catch_0
     move-exception v1
 
+    .line 80
+    .local v1, "e":Ljava/io/IOException;
     :goto_3
     :try_start_3
     const-string v7, "IOException:: unable to get enc properties"
 
     invoke-static {v7}, Lcom/android/server/DirEncryptPrefs;->logE(Ljava/lang/String;)V
 
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    .line 81
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 84
     :try_start_4
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
     goto :goto_2
 
+    .line 85
     :catch_1
     move-exception v7
 
     goto :goto_2
 
+    .line 83
+    .end local v1    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v7
 
+    .line 84
     :goto_4
     :try_start_5
-    invoke-virtual {v5}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v5}, Ljava/io/InputStreamReader;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
+    .line 83
     :goto_5
     throw v7
 
+    .line 85
     :catch_2
     move-exception v8
 
     goto :goto_5
 
+    .end local v5    # "reader":Ljava/io/FileReader;
+    .restart local v0    # "buf":[C
+    .restart local v6    # "reader":Ljava/io/FileReader;
     :catch_3
     move-exception v7
 
     goto :goto_1
 
+    .line 83
+    .end local v0    # "buf":[C
     :catchall_1
     move-exception v7
 
     move-object v5, v6
 
+    .end local v6    # "reader":Ljava/io/FileReader;
+    .restart local v5    # "reader":Ljava/io/FileReader;
     goto :goto_4
 
+    .line 79
+    .end local v5    # "reader":Ljava/io/FileReader;
+    .restart local v6    # "reader":Ljava/io/FileReader;
     :catch_4
     move-exception v1
 
     move-object v5, v6
 
+    .end local v6    # "reader":Ljava/io/FileReader;
+    .restart local v5    # "reader":Ljava/io/FileReader;
     goto :goto_3
 .end method
 
 .method public savePrefs(Landroid/dirEncryption/SDCardEncryptionPolicies;)Z
     .locals 8
+    .param p1, "policies"    # Landroid/dirEncryption/SDCardEncryptionPolicies;
 
+    .prologue
+    .line 93
     const/4 v2, 0x1
 
+    .line 94
+    .local v2, "result":Z
     new-instance v1, Ljava/io/File;
 
     const-string v5, "/efs/"
@@ -309,8 +398,12 @@
 
     invoke-direct {v1, v5, v6}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 96
+    .local v1, "f":Ljava/io/File;
     const/4 v3, 0x0
 
+    .line 98
+    .local v3, "writer":Ljava/io/FileWriter;
     :try_start_0
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
@@ -318,8 +411,10 @@
 
     if-nez v5, :cond_0
 
+    .line 99
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
+    .line 100
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v5
@@ -348,6 +443,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/Runtime;->exec(Ljava/lang/String;)Ljava/lang/Process;
 
+    .line 102
     :cond_0
     new-instance v4, Ljava/io/FileWriter;
 
@@ -356,22 +452,28 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 103
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .local v4, "writer":Ljava/io/FileWriter;
     :try_start_1
     invoke-virtual {p1}, Landroid/dirEncryption/SDCardEncryptionPolicies;->flattenToString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/io/FileWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v4, v5}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    invoke-virtual {v4}, Ljava/io/FileWriter;->flush()V
+    .line 104
+    invoke-virtual {v4}, Ljava/io/OutputStreamWriter;->flush()V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 111
     if-eqz v4, :cond_1
 
+    .line 112
     :try_start_2
-    invoke-virtual {v4}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v4}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
 
@@ -379,81 +481,117 @@
     :goto_0
     move-object v3, v4
 
+    .line 117
+    .end local v4    # "writer":Ljava/io/FileWriter;
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     :cond_2
     :goto_1
     return v2
 
+    .line 105
     :catch_0
     move-exception v0
 
+    .line 106
+    .local v0, "e":Ljava/io/IOException;
     :goto_2
     const/4 v2, 0x0
 
+    .line 107
     :try_start_3
     const-string v5, "IOException:: unable to save enc properties"
 
     invoke-static {v5}, Lcom/android/server/DirEncryptPrefs;->logE(Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    .line 108
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 111
     if-eqz v3, :cond_2
 
+    .line 112
     :try_start_4
-    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
 
     goto :goto_1
 
+    .line 113
     :catch_1
     move-exception v0
 
+    .line 114
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
     goto :goto_1
 
+    .line 110
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v5
 
+    .line 111
     :goto_3
     if-eqz v3, :cond_3
 
+    .line 112
     :try_start_5
-    invoke-virtual {v3}, Ljava/io/FileWriter;->close()V
+    invoke-virtual {v3}, Ljava/io/OutputStreamWriter;->close()V
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_2
 
+    .line 110
     :cond_3
     :goto_4
     throw v5
 
+    .line 113
     :catch_2
     move-exception v0
 
+    .line 114
+    .restart local v0    # "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
     goto :goto_4
 
+    .line 113
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .restart local v4    # "writer":Ljava/io/FileWriter;
     :catch_3
     move-exception v0
 
+    .line 114
+    .restart local v0    # "e":Ljava/lang/Exception;
     const/4 v2, 0x0
 
     goto :goto_0
 
+    .line 110
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_1
     move-exception v5
 
     move-object v3, v4
 
+    .end local v4    # "writer":Ljava/io/FileWriter;
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     goto :goto_3
 
+    .line 105
+    .end local v3    # "writer":Ljava/io/FileWriter;
+    .restart local v4    # "writer":Ljava/io/FileWriter;
     :catch_4
     move-exception v0
 
     move-object v3, v4
 
+    .end local v4    # "writer":Ljava/io/FileWriter;
+    .restart local v3    # "writer":Ljava/io/FileWriter;
     goto :goto_2
 .end method

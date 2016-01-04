@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/log/LogManagerService;)V
     .locals 0
 
+    .prologue
+    .line 132
     iput-object p1, p0, Lcom/android/server/enterprise/log/LogManagerService$1;->this$0:Lcom/android/server/enterprise/log/LogManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x2
 
+    .line 136
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -48,14 +54,17 @@
 
     if-eqz v1, :cond_1
 
+    .line 138
     iget-object v1, p0, Lcom/android/server/enterprise/log/LogManagerService$1;->this$0:Lcom/android/server/enterprise/log/LogManagerService;
 
     invoke-virtual {v1, v3}, Lcom/android/server/enterprise/log/LogManagerService;->disableLogging(I)I
 
+    .line 144
     :cond_0
     :goto_0
     return-void
 
+    .line 139
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -69,6 +78,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 140
     iget-object v1, p0, Lcom/android/server/enterprise/log/LogManagerService$1;->this$0:Lcom/android/server/enterprise/log/LogManagerService;
 
     # invokes: Lcom/android/server/enterprise/log/LogManagerService;->getLogger(I)Lcom/android/server/enterprise/log/Logger;
@@ -76,8 +86,11 @@
 
     move-result-object v0
 
+    .line 141
+    .local v0, "logger":Lcom/android/server/enterprise/log/Logger;
     if-eqz v0, :cond_0
 
+    .line 142
     invoke-virtual {v0}, Lcom/android/server/enterprise/log/Logger;->flush()V
 
     goto :goto_0

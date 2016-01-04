@@ -292,7 +292,7 @@
     .line 527
     sget-object v0, Landroid/graphics/Bitmap$GLCompressionConfig;->$VALUES:[Landroid/graphics/Bitmap$GLCompressionConfig;
 
-    invoke-virtual {v0}, [Landroid/graphics/Bitmap$GLCompressionConfig;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

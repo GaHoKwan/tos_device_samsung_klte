@@ -25,14 +25,21 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/BackupManagerService$PerformRestoreTask;Landroid/content/pm/PackageInfo;I)V
     .locals 0
+    .param p2, "_app"    # Landroid/content/pm/PackageInfo;
+    .param p3, "_version"    # I
 
+    .prologue
+    .line 4634
     iput-object p1, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->this$1:Lcom/android/server/BackupManagerService$PerformRestoreTask;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 4635
     iput-object p2, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->app:Landroid/content/pm/PackageInfo;
 
+    .line 4636
     iput p3, p0, Lcom/android/server/BackupManagerService$PerformRestoreTask$RestoreRequest;->storedAppVersion:I
 
+    .line 4637
     return-void
 .end method

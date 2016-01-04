@@ -76,7 +76,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljavax/net/ssl/SSLSocketFactory;->createSocket()Ljava/net/Socket;
+    invoke-virtual {v0}, Ljavax/net/SocketFactory;->createSocket()Ljava/net/Socket;
 
     move-result-object v0
 

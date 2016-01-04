@@ -97,6 +97,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 70
     const/4 v0, 0x0
 
     sput v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->TOUCH_PRESS_DISTANCE_LIMIT_PIXEL:I
@@ -106,7 +108,11 @@
 
 .method public constructor <init>(Landroid/content/Context;Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;Lcom/samsung/android/airbutton/Attributes;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "adapter"    # Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;
+    .param p3, "attrs"    # Lcom/samsung/android/airbutton/Attributes;
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v0, -0x1
@@ -115,100 +121,139 @@
 
     const/4 v2, 0x0
 
+    .line 90
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
+    .line 39
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAdapter:Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;
 
+    .line 40
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
+    .line 41
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mWidgetCallback:Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;
 
+    .line 47
     iput-boolean v4, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsStartUp:Z
 
+    .line 48
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
+    .line 49
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsViewInitialized:[Z
 
+    .line 50
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseX:[I
 
+    .line 51
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseY:[I
 
+    .line 52
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
+    .line 53
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mOldStartViewIdx:I
 
+    .line 54
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 
+    .line 55
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
+    .line 56
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mDisplayAdditionalViewCnt:I
 
+    .line 57
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSelectedViewIdx:I
 
+    .line 58
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mFocusedViewIdx:I
 
+    .line 59
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAddedViewIdx:I
 
+    .line 60
     const/4 v0, 0x4
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mMaxMenuItemCnt:I
 
+    .line 61
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsReservedToResetPosition:Z
 
+    .line 71
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownStartTime:J
 
+    .line 72
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownX:I
 
+    .line 73
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownY:I
 
+    .line 74
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchUpX:I
 
+    .line 75
     iput v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchUpY:I
 
+    .line 76
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsKeyEventEnabled:Z
 
+    .line 77
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsHoverEventEnabled:Z
 
+    .line 78
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchEventEnabled:Z
 
+    .line 79
     iput-boolean v4, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchPressEnabled:Z
 
+    .line 80
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->misFlickering:Z
 
+    .line 81
     iput-boolean v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsReservedToFinish:Z
 
+    .line 82
     iput-object v3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSideBtnController:Lcom/samsung/android/airbutton/AirButtonSideButtonController;
 
+    .line 273
     new-instance v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView$2;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView$2;-><init>(Lcom/samsung/android/airbutton/view/AbsAirButtonView;)V
 
     iput-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mOnTouchListener:Landroid/view/View$OnTouchListener;
 
+    .line 283
     new-instance v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView$3;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView$3;-><init>(Lcom/samsung/android/airbutton/view/AbsAirButtonView;)V
 
     iput-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mOnHoverListener:Landroid/view/View$OnHoverListener;
 
-    iput-object p1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mContext:Landroid/content/Context;
+    .line 92
+    iput-object p1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
+    .line 93
     iput-object p2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAdapter:Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;
 
+    .line 94
     iput-object p3, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
+    .line 95
     new-instance v0, Lcom/samsung/android/airbutton/AirButtonSideButtonController;
 
     invoke-direct {v0, p1}, Lcom/samsung/android/airbutton/AirButtonSideButtonController;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSideBtnController:Lcom/samsung/android/airbutton/AirButtonSideButtonController;
 
+    .line 96
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSideBtnController:Lcom/samsung/android/airbutton/AirButtonSideButtonController;
 
     invoke-virtual {v0, v4}, Lcom/samsung/android/airbutton/AirButtonSideButtonController;->resetVariables(Z)V
 
+    .line 97
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSideBtnController:Lcom/samsung/android/airbutton/AirButtonSideButtonController;
 
     new-instance v1, Lcom/samsung/android/airbutton/view/AbsAirButtonView$1;
@@ -217,20 +262,26 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/airbutton/AirButtonSideButtonController;->setOnSideButtonClickedListener(Lcom/samsung/android/airbutton/AirButtonSideButtonController$OnSideButtonClickedListener;)V
 
-    invoke-virtual {p0, v4}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->setChildrenDrawingOrderEnabled(Z)V
+    .line 104
+    invoke-virtual {p0, v4}, Landroid/view/ViewGroup;->setChildrenDrawingOrderEnabled(Z)V
 
+    .line 106
     invoke-direct {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->initWithAdapter()V
 
+    .line 107
     invoke-direct {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->initWithAttributes()V
 
+    .line 108
     return-void
 .end method
 
 .method private initWithAdapter()V
     .locals 4
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 111
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAdapter:Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;
 
     invoke-virtual {v1}, Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;->getCount()I
@@ -239,6 +290,7 @@
 
     iput v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
+    .line 112
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
     iget v1, v1, Lcom/samsung/android/airbutton/Attributes;->UIType:I
@@ -247,6 +299,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 113
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     iget v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mMaxMenuItemCnt:I
@@ -258,6 +311,7 @@
     :goto_0
     iput v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
+    .line 115
     :cond_0
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
@@ -265,54 +319,67 @@
 
     iput-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
+    .line 116
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     new-array v1, v1, [Z
 
     iput-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsViewInitialized:[Z
 
+    .line 117
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     new-array v1, v1, [I
 
     iput-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseX:[I
 
+    .line 118
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     new-array v1, v1, [I
 
     iput-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseY:[I
 
+    .line 120
     const/4 v0, 0x0
 
+    .local v0, "idx":I
     :goto_1
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     if-ge v0, v1, :cond_2
 
+    .line 121
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsViewInitialized:[Z
 
     const/4 v2, 0x0
 
     aput-boolean v2, v1, v0
 
+    .line 122
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseX:[I
 
     aput v3, v1, v0
 
+    .line 123
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewBaseY:[I
 
     aput v3, v1, v0
 
+    .line 120
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 113
+    .end local v0    # "idx":I
     :cond_1
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     goto :goto_0
 
+    .line 125
+    .restart local v0    # "idx":I
     :cond_2
     return-void
 .end method
@@ -320,6 +387,8 @@
 .method private initWithAttributes()V
     .locals 2
 
+    .prologue
+    .line 128
     const/high16 v0, 0x41f00000    # 30.0f
 
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
@@ -332,6 +401,7 @@
 
     sput v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->TOUCH_PRESS_DISTANCE_LIMIT_PIXEL:I
 
+    .line 129
     return-void
 .end method
 
@@ -339,13 +409,17 @@
 # virtual methods
 .method protected addViewIfNeeded(I)V
     .locals 2
+    .param p1, "viewIdx"    # I
 
+    .prologue
+    .line 315
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     if-nez v0, :cond_1
 
+    .line 316
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAdapter:Lcom/samsung/android/airbutton/AirButtonAdapterWrapper;
@@ -356,12 +430,14 @@
 
     aput-object v1, v0, p1
 
+    .line 318
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     if-eqz v0, :cond_1
 
+    .line 319
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
     iget v0, v0, Lcom/samsung/android/airbutton/Attributes;->UIType:I
@@ -370,15 +446,18 @@
 
     if-eq v0, v1, :cond_0
 
+    .line 320
     iput p1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAddedViewIdx:I
 
+    .line 321
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
-    invoke-virtual {p0, v0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    .line 325
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
@@ -398,6 +477,7 @@
 
     if-ne v0, v1, :cond_2
 
+    .line 326
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
@@ -406,12 +486,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    .line 327
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setId(I)V
 
+    .line 328
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
@@ -420,6 +502,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
+    .line 329
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
@@ -428,27 +511,35 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
+    .line 331
     :cond_2
     return-void
 .end method
 
 .method protected adjustViewDelta(I)V
     .locals 2
+    .param p1, "viewIdx"    # I
 
+    .prologue
+    .line 375
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsViewInitialized:[Z
 
     const/4 v1, 0x1
 
     aput-boolean v1, v0, p1
 
+    .line 376
     return-void
 .end method
 
 .method protected dispatchHoverEvent(Landroid/view/MotionEvent;)Z
     .locals 2
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 222
     iget-boolean v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsKeyEventEnabled:Z
 
     if-eqz v1, :cond_0
@@ -461,11 +552,12 @@
 
     if-ne v1, v0, :cond_0
 
+    .line 225
     :goto_0
     return v0
 
     :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
@@ -474,11 +566,15 @@
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 2
+    .param p1, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 212
     iget-boolean v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsKeyEventEnabled:Z
 
     if-eqz v0, :cond_0
 
+    .line 213
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0
@@ -487,10 +583,12 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 214
     invoke-virtual {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onFinishing()V
 
+    .line 217
     :cond_0
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
@@ -499,26 +597,38 @@
 
 .method protected finish(ZZ)V
     .locals 2
+    .param p1, "isSendItemSelectedNoti"    # Z
+    .param p2, "isFinishAirButton"    # Z
 
+    .prologue
+    .line 132
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mWidgetCallback:Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;
 
     if-eqz v0, :cond_0
 
+    .line 133
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mWidgetCallback:Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;
 
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSelectedViewIdx:I
 
     invoke-interface {v0, v1, p1, p2}, Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;->onFinished(IZZ)V
 
+    .line 134
     :cond_0
     return-void
 .end method
 
 .method protected getDistance(DDDD)D
     .locals 6
+    .param p1, "pointX1"    # D
+    .param p3, "pointY1"    # D
+    .param p5, "pointX2"    # D
+    .param p7, "pointY2"    # D
 
+    .prologue
     const-wide/high16 v4, 0x4000000000000000L    # 2.0
 
+    .line 344
     sub-double v0, p5, p1
 
     invoke-static {v0, v1, v4, v5}, Ljava/lang/Math;->pow(DD)D
@@ -546,26 +656,35 @@
 .method protected onAttachedToWindow()V
     .locals 0
 
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
+    .prologue
+    .line 143
+    invoke-super {p0}, Landroid/view/ViewGroup;->onAttachedToWindow()V
 
+    .line 144
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
     .locals 0
 
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
+    .prologue
+    .line 167
+    invoke-super {p0}, Landroid/view/ViewGroup;->onDetachedFromWindow()V
 
+    .line 168
     return-void
 .end method
 
 .method protected onFinishing()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 379
     invoke-virtual {p0, v0, v0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->finish(ZZ)V
 
+    .line 380
     return-void
 .end method
 
@@ -577,18 +696,29 @@
 
 .method protected onLayout(ZIIII)V
     .locals 1
+    .param p1, "changed"    # Z
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
 
+    .prologue
+    .line 148
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
 
+    .line 150
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
+    .line 151
     invoke-virtual {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onStart()V
 
+    .line 154
     :goto_0
     return-void
 
+    .line 153
     :cond_0
     invoke-virtual {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onLayoutChanged()V
 
@@ -598,37 +728,49 @@
 .method protected onLayoutChanged()V
     .locals 0
 
+    .prologue
+    .line 372
     return-void
 .end method
 
 .method protected onStart()V
     .locals 0
 
+    .prologue
+    .line 371
     return-void
 .end method
 
 .method protected onTouchDown(Landroid/view/MotionEvent;)V
     .locals 0
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 384
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 14
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
     const/4 v13, 0x1
 
     const/4 v12, 0x0
 
+    .line 230
     iget-boolean v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchEventEnabled:Z
 
     if-nez v0, :cond_0
 
     move v0, v12
 
+    .line 270
     :goto_0
     return v0
 
+    .line 233
     :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
@@ -636,16 +778,19 @@
 
     packed-switch v0, :pswitch_data_0
 
+    .line 270
     :goto_1
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
+    invoke-super {p0, p1}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
     goto :goto_0
 
+    .line 235
     :pswitch_0
     iput-boolean v13, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchPressEnabled:Z
 
+    .line 236
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -654,6 +799,7 @@
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownX:I
 
+    .line 237
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -662,21 +808,25 @@
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownY:I
 
+    .line 238
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchDownStartTime:J
 
+    .line 240
     invoke-virtual {p0, p1}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onTouchDown(Landroid/view/MotionEvent;)V
 
     goto :goto_1
 
+    .line 243
     :pswitch_1
     invoke-virtual {p0, p1}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onTouchMove(Landroid/view/MotionEvent;)V
 
     goto :goto_1
 
+    .line 246
     :pswitch_2
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -686,6 +836,7 @@
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchUpX:I
 
+    .line 247
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -694,6 +845,7 @@
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTouchUpY:I
 
+    .line 249
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -702,6 +854,8 @@
 
     sub-long v10, v0, v2
 
+    .line 250
+    .local v10, "touchPressTimeInterval":J
     iget-boolean v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchPressEnabled:Z
 
     if-eqz v0, :cond_1
@@ -746,11 +900,14 @@
 
     if-gez v0, :cond_1
 
+    .line 253
     iput-boolean v13, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsReservedToFinish:Z
 
+    .line 255
     :cond_1
     invoke-virtual {p0, p1}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onTouchUp(Landroid/view/MotionEvent;)V
 
+    .line 257
     iget-boolean v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->misFlickering:Z
 
     if-nez v0, :cond_2
@@ -759,7 +916,8 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mContext:Landroid/content/Context;
+    .line 258
+    iget-object v0, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
     const-string v1, "audio"
 
@@ -769,17 +927,23 @@
 
     check-cast v9, Landroid/media/AudioManager;
 
+    .line 259
+    .local v9, "audionManager":Landroid/media/AudioManager;
     const/16 v0, 0xa
 
     invoke-virtual {v9, v0}, Landroid/media/AudioManager;->playSoundEffect(I)V
 
+    .line 261
     invoke-virtual {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->onFinishing()V
 
+    .line 266
+    .end local v9    # "audionManager":Landroid/media/AudioManager;
     :goto_2
     iput-boolean v12, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsReservedToFinish:Z
 
     goto :goto_1
 
+    .line 263
     :cond_2
     const/4 v0, -0x1
 
@@ -787,6 +951,7 @@
 
     goto :goto_2
 
+    .line 233
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0
@@ -797,27 +962,39 @@
 
 .method protected onTouchMove(Landroid/view/MotionEvent;)V
     .locals 0
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 385
     return-void
 .end method
 
 .method protected onTouchUp(Landroid/view/MotionEvent;)V
     .locals 0
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 386
     return-void
 .end method
 
 .method public reAdjustViewYPosition(II)V
     .locals 3
+    .param p1, "yPosition"    # I
+    .param p2, "parentViewHeight"    # I
 
+    .prologue
+    .line 348
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
     if-nez v1, :cond_1
 
+    .line 364
     :cond_0
     :goto_0
     return-void
 
+    .line 351
     :cond_1
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
@@ -827,6 +1004,7 @@
 
     if-ne v1, v2, :cond_2
 
+    .line 352
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     iget-object v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
@@ -837,6 +1015,8 @@
 
     iget v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
+    .line 354
+    .local v0, "displayItemCnt":I
     :goto_1
     add-int v1, p1, p2
 
@@ -854,6 +1034,7 @@
 
     if-le v1, v2, :cond_4
 
+    .line 355
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
     iget v1, v1, Lcom/samsung/android/airbutton/Attributes;->itemSizePixel:I
@@ -862,6 +1043,8 @@
 
     sub-int/2addr p1, v1
 
+    .line 360
+    .end local v0    # "displayItemCnt":I
     :cond_2
     :goto_2
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
@@ -870,6 +1053,7 @@
 
     if-eq v1, p1, :cond_0
 
+    .line 361
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
     iget-object v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
@@ -878,12 +1062,14 @@
 
     iput p1, v1, Lcom/samsung/android/airbutton/Attributes;->y:I
 
+    .line 362
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsReservedToResetPosition:Z
 
     goto :goto_0
 
+    .line 352
     :cond_3
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
 
@@ -891,6 +1077,8 @@
 
     goto :goto_1
 
+    .line 357
+    .restart local v0    # "displayItemCnt":I
     :cond_4
     add-int/2addr p1, p2
 
@@ -899,11 +1087,14 @@
 
 .method protected removeViewIfNeeded(I)V
     .locals 4
+    .param p1, "viewIdx"    # I
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, -0x1
 
+    .line 334
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
@@ -920,6 +1111,7 @@
 
     if-eq v0, v2, :cond_0
 
+    .line 336
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
@@ -928,31 +1120,39 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    .line 337
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setId(I)V
 
+    .line 338
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
+    .line 339
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mViewList:[Landroid/view/View;
 
     aget-object v0, v0, p1
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
+    .line 341
     :cond_0
     return-void
 .end method
 
 .method public requestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
+    .param p1, "child"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/accessibility/AccessibilityEvent;
 
+    .prologue
+    .line 301
     const/4 v0, 0x1
 
     return v0
@@ -960,21 +1160,30 @@
 
 .method public sendAccessibilityEvent(I)V
     .locals 0
+    .param p1, "eventType"    # I
 
+    .prologue
+    .line 307
     return-void
 .end method
 
 .method public setAirButtonViewCallback(Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;)V
     .locals 0
+    .param p1, "callback"    # Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;
 
+    .prologue
+    .line 399
     iput-object p1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mWidgetCallback:Lcom/samsung/android/airbutton/view/AbsAirButtonView$AirButtonViewCallback;
 
+    .line 400
     return-void
 .end method
 
 .method protected setEndViewIdx()V
     .locals 2
 
+    .prologue
+    .line 199
     iget v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 
     iget-object v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mAttrs:Lcom/samsung/android/airbutton/Attributes;
@@ -987,64 +1196,80 @@
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
+    .line 201
     iget v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     if-lt v0, v1, :cond_0
 
+    .line 202
     iget v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     add-int/lit8 v0, v0, -0x1
 
     iput v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
+    .line 203
     :cond_0
     return-void
 .end method
 
 .method protected setStartViewIdx(I)V
     .locals 3
+    .param p1, "startViewIdx"    # I
 
+    .prologue
+    .line 176
     if-gez p1, :cond_0
 
+    .line 177
     const/4 p1, 0x0
 
+    .line 179
     :cond_0
     iput p1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 
+    .line 180
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 
     iget v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mOldStartViewIdx:I
 
     if-ne v1, v2, :cond_1
 
+    .line 196
     :goto_0
     return-void
 
+    .line 183
     :cond_1
     invoke-virtual {p0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->setEndViewIdx()V
 
+    .line 185
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
     iget v2, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     if-lt v1, v2, :cond_2
 
+    .line 186
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mEndViewIdx:I
 
+    .line 188
     :cond_2
     const/4 v0, 0x0
 
+    .local v0, "viewIdx":I
     :goto_1
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mTotalViewCnt:I
 
     if-ge v0, v1, :cond_4
 
+    .line 189
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 
     if-gt v1, v0, :cond_3
@@ -1057,18 +1282,22 @@
 
     if-gt v0, v1, :cond_3
 
+    .line 190
     invoke-virtual {p0, v0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->addViewIfNeeded(I)V
 
+    .line 188
     :goto_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 192
     :cond_3
     invoke-virtual {p0, v0}, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->removeViewIfNeeded(I)V
 
     goto :goto_2
 
+    .line 195
     :cond_4
     iget v1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mStartViewIdx:I
 

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView;)V
     .locals 0
 
+    .prologue
+    .line 2518
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,20 +39,27 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 2521
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
+    .line 2522
+    .local v1, "suggestionInfo":Landroid/os/Bundle;
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.MAIN"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 2523
+    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "android.intent.category.SMARTCLIP"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 2525
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -60,6 +69,7 @@
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
+    .line 2528
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -89,6 +99,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2530
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -118,6 +129,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2531
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -147,6 +159,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2532
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -174,6 +187,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2533
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -203,6 +217,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2534
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -232,6 +247,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2537
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -261,6 +277,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2538
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -290,6 +307,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2539
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -317,6 +335,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2540
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -346,6 +365,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2541
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -375,6 +395,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2543
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -404,6 +425,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2544
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -433,6 +455,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2545
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -460,6 +483,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2546
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -489,6 +513,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2547
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -518,6 +543,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2549
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -547,6 +573,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2550
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -576,6 +603,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2551
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -603,6 +631,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2552
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -632,6 +661,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2553
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mCropPointList:Ljava/util/ArrayList;
@@ -661,6 +691,7 @@
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 2555
     const-string v2, "cropRect"
 
     new-instance v3, Landroid/graphics/Rect;
@@ -697,6 +728,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 2556
     const-string v2, "repository"
 
     iget-object v3, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -705,6 +737,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 2557
     const-string v2, "cropPointList"
 
     iget-object v3, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
@@ -716,8 +749,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
+    .line 2559
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
+    .line 2561
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mIsStartingSuggestionService:Z
@@ -727,6 +762,7 @@
 
     if-nez v2, :cond_0
 
+    .line 2562
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mContext:Landroid/content/Context;
@@ -738,6 +774,7 @@
 
     invoke-virtual {v2, v0, v3}, Landroid/content/Context;->startServiceAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/ComponentName;
 
+    .line 2563
     iget-object v2, p0, Lcom/android/server/smartclip/SmartClipView$10;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     const/4 v3, 0x1
@@ -745,12 +782,14 @@
     # setter for: Lcom/android/server/smartclip/SmartClipView;->mIsStartingSuggestionService:Z
     invoke-static {v2, v3}, Lcom/android/server/smartclip/SmartClipView;->access$5802(Lcom/android/server/smartclip/SmartClipView;Z)Z
 
+    .line 2566
     const-string v2, "SmartClipView"
 
     const-string v3, "addSPenEvent : mIsStartingSuggestionService is changed false to true"
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2568
     :cond_0
     return-void
 .end method

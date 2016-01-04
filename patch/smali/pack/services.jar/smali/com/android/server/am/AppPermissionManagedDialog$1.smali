@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/AppPermissionManagedDialog;)V
     .locals 0
 
+    .prologue
+    .line 72
     iput-object p1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 5
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 76
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     invoke-static {p2}, Landroid/app/ICMDialogMessageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/ICMDialogMessageManager;
@@ -46,6 +52,7 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mService:Landroid/app/ICMDialogMessageManager;
     invoke-static {v1, v2}, Lcom/android/server/am/AppPermissionManagedDialog;->access$002(Lcom/android/server/am/AppPermissionManagedDialog;Landroid/app/ICMDialogMessageManager;)Landroid/app/ICMDialogMessageManager;
 
+    .line 78
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     # getter for: Lcom/android/server/am/AppPermissionManagedDialog;->mService:Landroid/app/ICMDialogMessageManager;
@@ -55,6 +62,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 80
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
@@ -65,6 +73,7 @@
 
     if-nez v1, :cond_1
 
+    .line 82
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     iget-object v2, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
@@ -81,6 +90,7 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mTitleByApp:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/server/am/AppPermissionManagedDialog;->access$202(Lcom/android/server/am/AppPermissionManagedDialog;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 83
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     iget-object v2, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
@@ -111,6 +121,7 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mMessageByApp:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/server/am/AppPermissionManagedDialog;->access$302(Lcom/android/server/am/AppPermissionManagedDialog;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 84
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     # getter for: Lcom/android/server/am/AppPermissionManagedDialog;->mHandler:Landroid/os/Handler;
@@ -133,10 +144,12 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 95
     :cond_0
     :goto_0
     return-void
 
+    .line 85
     :cond_1
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
@@ -149,6 +162,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 87
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     iget-object v2, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
@@ -165,6 +179,7 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mTitleByApp:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/server/am/AppPermissionManagedDialog;->access$202(Lcom/android/server/am/AppPermissionManagedDialog;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 88
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     iget-object v2, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
@@ -195,6 +210,7 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mMessageByApp:Ljava/lang/String;
     invoke-static {v1, v2}, Lcom/android/server/am/AppPermissionManagedDialog;->access$302(Lcom/android/server/am/AppPermissionManagedDialog;Ljava/lang/String;)Ljava/lang/String;
 
+    .line 89
     iget-object v1, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     # getter for: Lcom/android/server/am/AppPermissionManagedDialog;->mHandler:Landroid/os/Handler;
@@ -221,17 +237,23 @@
 
     goto :goto_0
 
+    .line 91
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 92
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "arg0"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 99
     iget-object v0, p0, Lcom/android/server/am/AppPermissionManagedDialog$1;->this$0:Lcom/android/server/am/AppPermissionManagedDialog;
 
     const/4 v1, 0x0
@@ -239,5 +261,6 @@
     # setter for: Lcom/android/server/am/AppPermissionManagedDialog;->mService:Landroid/app/ICMDialogMessageManager;
     invoke-static {v0, v1}, Lcom/android/server/am/AppPermissionManagedDialog;->access$002(Lcom/android/server/am/AppPermissionManagedDialog;Landroid/app/ICMDialogMessageManager;)Landroid/app/ICMDialogMessageManager;
 
+    .line 100
     return-void
 .end method

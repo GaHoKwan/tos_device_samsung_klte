@@ -166,7 +166,7 @@
     .line 26
     sget-object v0, Lcom/android/i18n/phonenumbers/NumberParseException$ErrorType;->$VALUES:[Lcom/android/i18n/phonenumbers/NumberParseException$ErrorType;
 
-    invoke-virtual {v0}, [Lcom/android/i18n/phonenumbers/NumberParseException$ErrorType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

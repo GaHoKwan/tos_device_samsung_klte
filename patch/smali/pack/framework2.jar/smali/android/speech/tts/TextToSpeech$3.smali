@@ -41,6 +41,8 @@
 .method constructor <init>(Landroid/speech/tts/TextToSpeech;Ljava/lang/String;ILjava/util/HashMap;)V
     .locals 0
 
+    .prologue
+    .line 932
     iput-object p1, p0, Landroid/speech/tts/TextToSpeech$3;->this$0:Landroid/speech/tts/TextToSpeech;
 
     iput-object p2, p0, Landroid/speech/tts/TextToSpeech$3;->val$earcon:Ljava/lang/String;
@@ -58,12 +60,15 @@
 # virtual methods
 .method public run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
     .locals 5
+    .param p1, "service"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 935
     iget-object v1, p0, Landroid/speech/tts/TextToSpeech$3;->this$0:Landroid/speech/tts/TextToSpeech;
 
     # getter for: Landroid/speech/tts/TextToSpeech;->mEarcons:Ljava/util/Map;
@@ -79,14 +84,18 @@
 
     check-cast v0, Landroid/net/Uri;
 
+    .line 936
+    .local v0, "earconUri":Landroid/net/Uri;
     if-nez v0, :cond_0
 
+    .line 937
     const/4 v1, -0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
+    .line 939
     :goto_0
     return-object v1
 
@@ -122,12 +131,15 @@
 
 .method public bridge synthetic run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/speech/tts/ITextToSpeechService;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 932
     invoke-virtual {p0, p1}, Landroid/speech/tts/TextToSpeech$3;->run(Landroid/speech/tts/ITextToSpeechService;)Ljava/lang/Integer;
 
     move-result-object v0

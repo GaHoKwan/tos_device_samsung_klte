@@ -36,7 +36,7 @@
     const/4 v3, 0x2
 
     .line 53
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     if-nez v1, :cond_1
 
@@ -54,7 +54,7 @@
 
     .line 56
     .local v0, "retval":Ljava/lang/String;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -91,7 +91,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/address/AddressImpl;->encode()Ljava/lang/String;
 
@@ -106,7 +106,7 @@
     move-result-object v0
 
     .line 60
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -135,7 +135,7 @@
 
     .line 64
     :cond_3
-    iget-object v1, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -158,7 +158,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/extensions/ReferredBy;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 

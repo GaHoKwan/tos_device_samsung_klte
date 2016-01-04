@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Landroid/os/Message;)V
     .locals 0
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 116
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
 
+    .line 117
     iput-object p1, p0, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$TopDumpThread;->mMsg:Landroid/os/Message;
 
+    .line 118
     return-void
 .end method
 
@@ -34,10 +39,13 @@
 .method public run()V
     .locals 17
 
+    .prologue
+    .line 122
     sget-object v14, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;->mDumpThreadSyncObject:Ljava/lang/Object;
 
     monitor-enter v14
 
+    .line 123
     :try_start_0
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
@@ -49,8 +57,11 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 125
     const/4 v9, 0x0
 
+    .line 127
+    .local v9, "reader":Ljava/io/BufferedReader;
     :try_start_1
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
@@ -62,8 +73,11 @@
 
     move-result-object v8
 
+    .line 128
+    .local v8, "process":Ljava/lang/Process;
     invoke-virtual {v8}, Ljava/lang/Process;->waitFor()I
 
+    .line 129
     new-instance v10, Ljava/io/BufferedReader;
 
     new-instance v13, Ljava/io/InputStreamReader;
@@ -80,13 +94,20 @@
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_6
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 131
+    .end local v9    # "reader":Ljava/io/BufferedReader;
+    .local v10, "reader":Ljava/io/BufferedReader;
     const/4 v6, 0x0
 
+    .line 132
+    .local v6, "line":Ljava/lang/String;
     :try_start_2
     new-instance v7, Ljava/lang/StringBuffer;
 
     invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 133
+    .local v7, "log":Ljava/lang/StringBuffer;
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault$TopDumpThread;->mMsg:Landroid/os/Message;
@@ -99,6 +120,8 @@
 
     move-result-wide v2
 
+    .line 134
+    .local v2, "data":J
     const-string/jumbo v13, "yyyy-MM-dd kk:mm:ss"
 
     invoke-static {v13, v2, v3}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
@@ -107,6 +130,8 @@
 
     check-cast v11, Ljava/lang/String;
 
+    .line 135
+    .local v11, "time":Ljava/lang/String;
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -165,8 +190,11 @@
 
     invoke-virtual {v7, v13}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 137
     const/4 v1, 0x0
 
+    .line 138
+    .local v1, "cnt":I
     :cond_0
     :goto_0
     invoke-virtual {v10}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -175,8 +203,10 @@
 
     if-eqz v6, :cond_3
 
+    .line 139
     add-int/lit8 v1, v1, 0x1
 
+    .line 140
     const/4 v13, 0x7
 
     if-le v1, v13, :cond_0
@@ -185,22 +215,27 @@
 
     if-ge v1, v13, :cond_0
 
+    .line 144
     invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v6
 
+    .line 145
     const-string v13, "\\s+"
 
     invoke-virtual {v6, v13}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v12
 
+    .line 146
+    .local v12, "words":[Ljava/lang/String;
     array-length v13, v12
 
     const/16 v15, 0x9
 
     if-ne v13, v15, :cond_2
 
+    .line 147
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -257,11 +292,23 @@
 
     goto :goto_0
 
+    .line 157
+    .end local v1    # "cnt":I
+    .end local v2    # "data":J
+    .end local v7    # "log":Ljava/lang/StringBuffer;
+    .end local v11    # "time":Ljava/lang/String;
+    .end local v12    # "words":[Ljava/lang/String;
     :catch_0
     move-exception v4
 
     move-object v9, v10
 
+    .line 158
+    .end local v6    # "line":Ljava/lang/String;
+    .end local v8    # "process":Ljava/lang/Process;
+    .end local v10    # "reader":Ljava/io/BufferedReader;
+    .local v4, "e":Ljava/io/IOException;
+    .restart local v9    # "reader":Ljava/io/BufferedReader;
     :goto_1
     :try_start_3
     const-string v13, "SSRMv2:BatteryStatesControllerDefault"
@@ -276,7 +323,7 @@
 
     move-result-object v15
 
-    invoke-virtual {v4}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v16
 
@@ -292,14 +339,18 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    .line 162
     if-eqz v9, :cond_1
 
+    .line 164
     :try_start_4
     invoke-virtual {v9}, Ljava/io/BufferedReader;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    .line 170
+    .end local v4    # "e":Ljava/io/IOException;
     :cond_1
     :goto_2
     :try_start_5
@@ -307,8 +358,19 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 171
     return-void
 
+    .line 148
+    .end local v9    # "reader":Ljava/io/BufferedReader;
+    .restart local v1    # "cnt":I
+    .restart local v2    # "data":J
+    .restart local v6    # "line":Ljava/lang/String;
+    .restart local v7    # "log":Ljava/lang/StringBuffer;
+    .restart local v8    # "process":Ljava/lang/Process;
+    .restart local v10    # "reader":Ljava/io/BufferedReader;
+    .restart local v11    # "time":Ljava/lang/String;
+    .restart local v12    # "words":[Ljava/lang/String;
     :cond_2
     :try_start_6
     array-length v13, v12
@@ -317,6 +379,7 @@
 
     if-ne v13, v15, :cond_0
 
+    .line 149
     new-instance v13, Ljava/lang/StringBuilder;
 
     invoke-direct {v13}, Ljava/lang/StringBuilder;-><init>()V
@@ -373,11 +436,23 @@
 
     goto/16 :goto_0
 
+    .line 159
+    .end local v1    # "cnt":I
+    .end local v2    # "data":J
+    .end local v7    # "log":Ljava/lang/StringBuffer;
+    .end local v11    # "time":Ljava/lang/String;
+    .end local v12    # "words":[Ljava/lang/String;
     :catch_1
     move-exception v4
 
     move-object v9, v10
 
+    .line 160
+    .end local v6    # "line":Ljava/lang/String;
+    .end local v8    # "process":Ljava/lang/Process;
+    .end local v10    # "reader":Ljava/io/BufferedReader;
+    .local v4, "e":Ljava/lang/InterruptedException;
+    .restart local v9    # "reader":Ljava/io/BufferedReader;
     :goto_3
     :try_start_7
     const-string v13, "SSRMv2:BatteryStatesControllerDefault"
@@ -392,7 +467,7 @@
 
     move-result-object v15
 
-    invoke-virtual {v4}, Ljava/lang/InterruptedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v16
 
@@ -408,8 +483,10 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
+    .line 162
     if-eqz v9, :cond_1
 
+    .line 164
     :try_start_8
     invoke-virtual {v9}, Ljava/io/BufferedReader;->close()V
     :try_end_8
@@ -418,14 +495,21 @@
 
     goto :goto_2
 
+    .line 165
     :catch_2
     move-exception v5
 
+    .line 166
+    .local v5, "exception":Ljava/io/IOException;
     :try_start_9
-    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 
+    .line 170
+    .end local v4    # "e":Ljava/lang/InterruptedException;
+    .end local v5    # "exception":Ljava/io/IOException;
+    .end local v9    # "reader":Ljava/io/BufferedReader;
     :catchall_0
     move-exception v13
 
@@ -435,6 +519,14 @@
 
     throw v13
 
+    .line 153
+    .restart local v1    # "cnt":I
+    .restart local v2    # "data":J
+    .restart local v6    # "line":Ljava/lang/String;
+    .restart local v7    # "log":Ljava/lang/StringBuffer;
+    .restart local v8    # "process":Ljava/lang/Process;
+    .restart local v10    # "reader":Ljava/io/BufferedReader;
+    .restart local v11    # "time":Ljava/lang/String;
     :cond_3
     :try_start_a
     sget-object v13, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;->sArrayCircularBuffer:Lcom/android/server/ssrm/CircularBuffer;
@@ -449,8 +541,10 @@
     .catch Ljava/lang/InterruptedException; {:try_start_a .. :try_end_a} :catch_1
     .catchall {:try_start_a .. :try_end_a} :catchall_2
 
+    .line 162
     if-eqz v10, :cond_4
 
+    .line 164
     :try_start_b
     invoke-virtual {v10}, Ljava/io/BufferedReader;->close()V
     :try_end_b
@@ -461,60 +555,105 @@
     :goto_4
     move-object v9, v10
 
+    .line 169
+    .end local v10    # "reader":Ljava/io/BufferedReader;
+    .restart local v9    # "reader":Ljava/io/BufferedReader;
     goto :goto_2
 
+    .line 162
+    .end local v1    # "cnt":I
+    .end local v2    # "data":J
+    .end local v6    # "line":Ljava/lang/String;
+    .end local v7    # "log":Ljava/lang/StringBuffer;
+    .end local v8    # "process":Ljava/lang/Process;
+    .end local v11    # "time":Ljava/lang/String;
     :catchall_1
     move-exception v13
 
     :goto_5
     if-eqz v9, :cond_5
 
+    .line 164
     :try_start_c
     invoke-virtual {v9}, Ljava/io/BufferedReader;->close()V
     :try_end_c
     .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_3
     .catchall {:try_start_c .. :try_end_c} :catchall_0
 
+    .line 162
     :cond_5
     :goto_6
     :try_start_d
     throw v13
 
+    .line 165
     :catch_3
     move-exception v5
 
-    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
+    .line 166
+    .restart local v5    # "exception":Ljava/io/IOException;
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_6
 
+    .line 165
+    .end local v5    # "exception":Ljava/io/IOException;
+    .local v4, "e":Ljava/io/IOException;
     :catch_4
     move-exception v5
 
-    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
+    .line 166
+    .restart local v5    # "exception":Ljava/io/IOException;
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_2
 
+    .line 165
+    .end local v4    # "e":Ljava/io/IOException;
+    .end local v5    # "exception":Ljava/io/IOException;
+    .end local v9    # "reader":Ljava/io/BufferedReader;
+    .restart local v1    # "cnt":I
+    .restart local v2    # "data":J
+    .restart local v6    # "line":Ljava/lang/String;
+    .restart local v7    # "log":Ljava/lang/StringBuffer;
+    .restart local v8    # "process":Ljava/lang/Process;
+    .restart local v10    # "reader":Ljava/io/BufferedReader;
+    .restart local v11    # "time":Ljava/lang/String;
     :catch_5
     move-exception v5
 
-    invoke-virtual {v5}, Ljava/io/IOException;->printStackTrace()V
+    .line 166
+    .restart local v5    # "exception":Ljava/io/IOException;
+    invoke-virtual {v5}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_d
     .catchall {:try_start_d .. :try_end_d} :catchall_0
 
     goto :goto_4
 
+    .line 162
+    .end local v1    # "cnt":I
+    .end local v2    # "data":J
+    .end local v5    # "exception":Ljava/io/IOException;
+    .end local v7    # "log":Ljava/lang/StringBuffer;
+    .end local v11    # "time":Ljava/lang/String;
     :catchall_2
     move-exception v13
 
     move-object v9, v10
 
+    .end local v10    # "reader":Ljava/io/BufferedReader;
+    .restart local v9    # "reader":Ljava/io/BufferedReader;
     goto :goto_5
 
+    .line 159
+    .end local v6    # "line":Ljava/lang/String;
+    .end local v8    # "process":Ljava/lang/Process;
     :catch_6
     move-exception v4
 
     goto :goto_3
 
+    .line 157
     :catch_7
     move-exception v4
 

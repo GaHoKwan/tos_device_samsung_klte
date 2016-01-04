@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/PVPlayReadyService;)V
     .locals 0
 
+    .prologue
+    .line 218
     iput-object p1, p0, Lcom/android/server/PVPlayReadyService$2;->this$0:Lcom/android/server/PVPlayReadyService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,12 @@
 .method public run()V
     .locals 10
 
+    .prologue
     const-wide/16 v8, 0x3e8
 
     const-wide/16 v6, 0x0
 
+    .line 222
     const-string v4, "gsm.nitz.time"
 
     const-string v5, "NONE"
@@ -59,12 +63,16 @@
 
     div-long v0, v4, v8
 
+    .line 223
+    .local v0, "nitzTime":J
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v4
 
     div-long v2, v4, v8
 
+    .line 224
+    .local v2, "recvElapsedTime":J
     cmp-long v4, v0, v6
 
     if-lez v4, :cond_0
@@ -73,9 +81,11 @@
 
     if-lez v4, :cond_0
 
+    .line 226
     # invokes: Lcom/android/server/PVPlayReadyService;->nitzReceived(JJ)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/PVPlayReadyService;->access$000(JJ)V
 
+    .line 228
     :cond_0
     return-void
 .end method

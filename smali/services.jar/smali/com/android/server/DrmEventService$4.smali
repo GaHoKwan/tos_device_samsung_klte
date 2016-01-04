@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/DrmEventService;)V
     .locals 0
 
+    .prologue
+    .line 1063
     iput-object p1, p0, Lcom/android/server/DrmEventService$4;->this$0:Lcom/android/server/DrmEventService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,16 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1065
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_0
 
+    .line 1066
     const-string v6, "DrmEventService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -64,15 +71,19 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1070
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getType()Ljava/lang/String;
 
     move-result-object v4
 
+    .line 1071
+    .local v4, "rightMimeType":Ljava/lang/String;
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_1
 
+    .line 1072
     const-string v6, "DrmEventService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -95,6 +106,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1073
     :cond_1
     const-string v6, "application/vnd.oma.drm.rights+xml"
 
@@ -120,11 +132,13 @@
 
     if-eqz v6, :cond_a
 
+    .line 1076
     :cond_2
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_3
 
+    .line 1077
     const-string v6, "DrmEventService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -147,6 +161,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1079
     :cond_3
     const-string v6, "data"
 
@@ -160,6 +175,8 @@
 
     check-cast v2, [B
 
+    .line 1080
+    .local v2, "rightData":[B
     if-eqz v2, :cond_4
 
     array-length v6, v2
@@ -168,6 +185,7 @@
 
     if-ge v6, v7, :cond_6
 
+    .line 1081
     :cond_4
     const-string v6, "DrmEventService"
 
@@ -175,10 +193,14 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1113
+    .end local v2    # "rightData":[B
     :cond_5
     :goto_0
     return-void
 
+    .line 1084
+    .restart local v2    # "rightData":[B
     :cond_6
     array-length v6, v2
 
@@ -186,6 +208,8 @@
 
     new-array v0, v6, [B
 
+    .line 1085
+    .local v0, "actualWbxmlData":[B
     const/4 v6, 0x6
 
     const/4 v7, 0x0
@@ -196,14 +220,18 @@
 
     invoke-static {v2, v6, v0, v7, v8}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
+    .line 1086
     new-instance v3, Ljava/io/ByteArrayInputStream;
 
     invoke-direct {v3, v2}, Ljava/io/ByteArrayInputStream;-><init>([B)V
 
+    .line 1088
+    .local v3, "rightDataStream":Ljava/io/ByteArrayInputStream;
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_7
 
+    .line 1089
     const-string v6, "DrmEventService"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -230,6 +258,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1091
     :cond_7
     const-string v6, "application/vnd.oma.drm.roap-trigger+wbxml"
 
@@ -239,29 +268,38 @@
 
     if-eqz v6, :cond_8
 
+    .line 1092
     new-instance v5, Landroid/content/Intent;
 
     const-string v6, "android.intent.action.WAP_ROAP_TRIGGER_RCVD"
 
     invoke-direct {v5, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1093
+    .local v5, "wap_intent":Landroid/content/Intent;
     const-string v6, "roap_trigger"
 
     invoke-virtual {v5, v6, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
 
+    .line 1094
     invoke-virtual {p1, v5}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     goto :goto_0
 
+    .line 1096
+    .end local v5    # "wap_intent":Landroid/content/Intent;
     :cond_8
     const/4 v1, 0x0
 
+    .line 1101
+    .local v1, "contentId":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/server/DrmEventService$4;->this$0:Lcom/android/server/DrmEventService;
 
     iget-object v6, v6, Lcom/android/server/DrmEventService;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
 
     if-eqz v6, :cond_9
 
+    .line 1102
     iget-object v6, p0, Lcom/android/server/DrmEventService$4;->this$0:Lcom/android/server/DrmEventService;
 
     iget-object v6, v6, Lcom/android/server/DrmEventService;->mDrmManagerClient:Landroid/drm/DrmManagerClient;
@@ -278,11 +316,13 @@
 
     goto :goto_0
 
+    .line 1105
     :cond_9
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_5
 
+    .line 1106
     const-string v6, "DrmEventService"
 
     const-string v7, "Failed to Install the rights received. No manager instance"
@@ -291,11 +331,17 @@
 
     goto :goto_0
 
+    .line 1110
+    .end local v0    # "actualWbxmlData":[B
+    .end local v1    # "contentId":Ljava/lang/String;
+    .end local v2    # "rightData":[B
+    .end local v3    # "rightDataStream":Ljava/io/ByteArrayInputStream;
     :cond_a
     sget-boolean v6, Lcom/android/server/DrmEventService;->isLogEnabled:Z
 
     if-eqz v6, :cond_5
 
+    .line 1111
     const-string v6, "DrmEventService"
 
     const-string v7, "DRM PUSH RECEIVER : mimeType is not valid for WAp Push Received"

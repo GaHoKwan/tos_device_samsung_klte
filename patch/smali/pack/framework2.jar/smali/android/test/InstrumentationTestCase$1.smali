@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/test/InstrumentationTestCase;Ljava/lang/Runnable;[Ljava/lang/Throwable;)V
     .locals 0
 
+    .prologue
+    .line 135
     iput-object p1, p0, Landroid/test/InstrumentationTestCase$1;->this$0:Landroid/test/InstrumentationTestCase;
 
     iput-object p2, p0, Landroid/test/InstrumentationTestCase$1;->val$r:Ljava/lang/Runnable;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 138
     :try_start_0
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$1;->val$r:Ljava/lang/Runnable;
 
@@ -52,12 +56,16 @@
     :try_end_0
     .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 142
     :goto_0
     return-void
 
+    .line 139
     :catch_0
     move-exception v0
 
+    .line 140
+    .local v0, "throwable":Ljava/lang/Throwable;
     iget-object v1, p0, Landroid/test/InstrumentationTestCase$1;->val$exceptions:[Ljava/lang/Throwable;
 
     const/4 v2, 0x0

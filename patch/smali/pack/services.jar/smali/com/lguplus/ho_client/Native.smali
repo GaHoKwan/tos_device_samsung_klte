@@ -21,6 +21,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 12
     const/4 v0, 0x0
 
     sput-boolean v0, Lcom/lguplus/ho_client/Native;->isLibraryLoaded:Z
@@ -31,22 +33,29 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 28
     const-string v0, "lguplusHandover"
 
     const-string v1, "Native()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 29
     invoke-static {}, Lcom/lguplus/ho_client/Native;->loadLibrary()V
 
+    .line 30
     return-void
 .end method
 
 .method public static declared-synchronized loadLibrary()V
     .locals 5
 
+    .prologue
+    .line 15
     const-class v2, Lcom/lguplus/ho_client/Native;
 
     monitor-enter v2
@@ -58,12 +67,14 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 16
     sget-boolean v1, Lcom/lguplus/ho_client/Native;->isLibraryLoaded:Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v1, :cond_0
 
+    .line 18
     :try_start_1
     const-string v1, "lguplusHandover"
 
@@ -71,14 +82,17 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 19
     const-string v1, "lguplusHOClient"
 
     invoke-static {v1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 20
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/lguplus/ho_client/Native;->isLibraryLoaded:Z
 
+    .line 21
     const-string v1, "lguplusHandover"
 
     const-string v3, "after loadLibrary"
@@ -88,15 +102,21 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 26
+    .local v0, "e":Ljava/lang/Exception;
     :cond_0
     :goto_0
     monitor-exit v2
 
     return-void
 
+    .line 22
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v0
 
+    .line 23
+    .restart local v0    # "e":Ljava/lang/Exception;
     :try_start_2
     const-string v1, "lguplusHandover"
 
@@ -110,7 +130,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -128,6 +148,7 @@
 
     goto :goto_0
 
+    .line 15
     :catchall_0
     move-exception v1
 

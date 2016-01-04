@@ -69,7 +69,7 @@
     .line 1182
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$DomainPreferenceObserver;->this$0:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->access$200(Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;)Landroid/content/Context;
 
     move-result-object v1
@@ -90,7 +90,7 @@
     .line 1163
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$DomainPreferenceObserver;->this$0:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->access$000(Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;)Landroid/content/Context;
 
     move-result-object v1
@@ -111,7 +111,7 @@
     .line 1171
     iget-object v1, p0, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher$DomainPreferenceObserver;->this$0:Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;
 
-    # getter for: Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->mContext:Landroid/content/Context;
+    # getter for: Lcom/android/internal/telephony/SMSDispatcher;->mContext:Landroid/content/Context;
     invoke-static {v1}, Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;->access$100(Lcom/android/internal/telephony/gsm/GsmSMSDispatcher;)Landroid/content/Context;
 
     move-result-object v1

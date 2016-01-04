@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
 
+    .prologue
+    .line 1009
     iput-object p1, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +35,23 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v7, 0x1
 
+    .line 1012
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 1015
+    .local v0, "action":Ljava/lang/String;
     const/4 v4, 0x1
 
+    .line 1019
+    .local v4, "mLowBatteryWarningLevel":I
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -62,6 +72,7 @@
 
     invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 1020
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -82,6 +93,7 @@
 
     invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 1029
     const-string v5, "android.intent.action.BATTERY_CHANGED"
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -90,12 +102,15 @@
 
     if-eqz v5, :cond_0
 
+    .line 1030
     const-string/jumbo v5, "status"
 
     invoke-virtual {p2, v5, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v3
 
+    .line 1032
+    .local v3, "battStatus":I
     const-string/jumbo v5, "scale"
 
     const/16 v6, 0x64
@@ -104,12 +119,16 @@
 
     move-result v2
 
+    .line 1033
+    .local v2, "battScale":I
     const-string v5, "level"
 
     invoke-virtual {p2, v5, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 1034
+    .local v1, "battLevel":I
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -140,6 +159,7 @@
 
     invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 1035
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -160,17 +180,20 @@
 
     invoke-static {v5}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 1037
     if-gt v1, v4, :cond_1
 
     const/4 v5, 0x2
 
     if-eq v3, v5, :cond_1
 
+    .line 1039
     iget-object v5, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 
     # setter for: Lcom/android/server/FMRadioService;->mIsBatteryLow:Z
     invoke-static {v5, v7}, Lcom/android/server/FMRadioService;->access$2802(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 1040
     iget-object v5, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -180,11 +203,13 @@
 
     if-eqz v5, :cond_0
 
+    .line 1041
     iget-object v5, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 
     # invokes: Lcom/android/server/FMRadioService;->stopInternetStreaming()V
     invoke-static {v5}, Lcom/android/server/FMRadioService;->access$800(Lcom/android/server/FMRadioService;)V
 
+    .line 1042
     iget-object v5, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 
     const/4 v6, 0x7
@@ -192,10 +217,18 @@
     # invokes: Lcom/android/server/FMRadioService;->offInternal(ZIZ)Z
     invoke-static {v5, v7, v6, v7}, Lcom/android/server/FMRadioService;->access$900(Lcom/android/server/FMRadioService;ZIZ)Z
 
+    .line 1048
+    .end local v1    # "battLevel":I
+    .end local v2    # "battScale":I
+    .end local v3    # "battStatus":I
     :cond_0
     :goto_0
     return-void
 
+    .line 1045
+    .restart local v1    # "battLevel":I
+    .restart local v2    # "battScale":I
+    .restart local v3    # "battStatus":I
     :cond_1
     iget-object v5, p0, Lcom/android/server/FMRadioService$12;->this$0:Lcom/android/server/FMRadioService;
 

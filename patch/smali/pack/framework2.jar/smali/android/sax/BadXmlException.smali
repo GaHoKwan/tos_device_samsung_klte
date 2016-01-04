@@ -6,9 +6,14 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
     .locals 0
+    .param p1, "message"    # Ljava/lang/String;
+    .param p2, "locator"    # Lorg/xml/sax/Locator;
 
+    .prologue
+    .line 28
     invoke-direct {p0, p1, p2}, Lorg/xml/sax/SAXParseException;-><init>(Ljava/lang/String;Lorg/xml/sax/Locator;)V
 
+    .line 29
     return-void
 .end method
 
@@ -17,6 +22,8 @@
 .method public getMessage()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 32
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -27,7 +34,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/sax/BadXmlException;->getLineNumber()I
+    invoke-virtual {p0}, Lorg/xml/sax/SAXParseException;->getLineNumber()I
 
     move-result v1
 
@@ -41,7 +48,7 @@
 
     move-result-object v0
 
-    invoke-super {p0}, Lorg/xml/sax/SAXParseException;->getMessage()Ljava/lang/String;
+    invoke-super {p0}, Lorg/xml/sax/SAXException;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 

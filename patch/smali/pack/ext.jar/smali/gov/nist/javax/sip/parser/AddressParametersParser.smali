@@ -43,13 +43,13 @@
     .line 52
     const-string v4, "AddressParametersParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/AddressParametersParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 54
     :try_start_0
     new-instance v1, Lgov/nist/javax/sip/parser/AddressParser;
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
 
     move-result-object v4
 
@@ -68,24 +68,24 @@
     invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 57
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/AddressParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 58
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/AddressParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
     .line 59
     .local v3, "la":C
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/AddressParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v4}, Lgov/nist/core/LexerCore;->hasMoreChars()Z
+    invoke-virtual {v4}, Lgov/nist/core/StringTokenizer;->hasMoreChars()Z
 
     move-result v4
 
@@ -97,7 +97,7 @@
 
     if-eq v3, v4, :cond_0
 
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/AddressParametersParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->startsId()Z
 
@@ -115,7 +115,7 @@
     :goto_0
     const-string v4, "AddressParametersParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/AddressParametersParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 74
     return-void
@@ -151,7 +151,7 @@
 
     const-string v5, "AddressParametersParser.parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/AddressParametersParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     throw v4
 .end method

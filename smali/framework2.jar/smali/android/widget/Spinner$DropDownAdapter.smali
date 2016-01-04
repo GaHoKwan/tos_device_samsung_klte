@@ -27,19 +27,27 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/SpinnerAdapter;)V
     .locals 1
+    .param p1, "adapter"    # Landroid/widget/SpinnerAdapter;
 
+    .prologue
+    .line 872
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 873
     iput-object p1, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
+    .line 874
     instance-of v0, p1, Landroid/widget/ListAdapter;
 
     if-eqz v0, :cond_0
 
+    .line 875
     check-cast p1, Landroid/widget/ListAdapter;
 
+    .end local p1    # "adapter":Landroid/widget/SpinnerAdapter;
     iput-object p1, p0, Landroid/widget/Spinner$DropDownAdapter;->mListAdapter:Landroid/widget/ListAdapter;
 
+    .line 877
     :cond_0
     return-void
 .end method
@@ -49,14 +57,20 @@
 .method public areAllItemsEnabled()Z
     .locals 2
 
+    .prologue
+    .line 920
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mListAdapter:Landroid/widget/ListAdapter;
 
+    .line 921
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     if-eqz v0, :cond_0
 
+    .line 922
     invoke-interface {v0}, Landroid/widget/ListAdapter;->areAllItemsEnabled()Z
 
     move-result v1
 
+    .line 924
     :goto_0
     return v1
 
@@ -69,6 +83,8 @@
 .method public getCount()I
     .locals 1
 
+    .prologue
+    .line 880
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-nez v0, :cond_0
@@ -90,7 +106,12 @@
 
 .method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 896
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-nez v0, :cond_0
@@ -112,7 +133,10 @@
 
 .method public getItem(I)Ljava/lang/Object;
     .locals 1
+    .param p1, "position"    # I
 
+    .prologue
+    .line 884
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-nez v0, :cond_0
@@ -134,7 +158,10 @@
 
 .method public getItemId(I)J
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 888
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-nez v0, :cond_0
@@ -156,7 +183,10 @@
 
 .method public getItemViewType(I)I
     .locals 1
+    .param p1, "position"    # I
 
+    .prologue
+    .line 942
     const/4 v0, 0x0
 
     return v0
@@ -164,7 +194,12 @@
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 892
     invoke-virtual {p0, p1, p2, p3}, Landroid/widget/Spinner$DropDownAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
@@ -175,6 +210,8 @@
 .method public getViewTypeCount()I
     .locals 1
 
+    .prologue
+    .line 946
     const/4 v0, 0x1
 
     return v0
@@ -183,6 +220,8 @@
 .method public hasStableIds()Z
     .locals 1
 
+    .prologue
+    .line 900
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-eqz v0, :cond_0
@@ -209,6 +248,8 @@
 .method public isEmpty()Z
     .locals 1
 
+    .prologue
+    .line 950
     invoke-virtual {p0}, Landroid/widget/Spinner$DropDownAdapter;->getCount()I
 
     move-result v0
@@ -228,15 +269,22 @@
 
 .method public isEnabled(I)Z
     .locals 2
+    .param p1, "position"    # I
 
+    .prologue
+    .line 933
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mListAdapter:Landroid/widget/ListAdapter;
 
+    .line 934
+    .local v0, "adapter":Landroid/widget/ListAdapter;
     if-eqz v0, :cond_0
 
+    .line 935
     invoke-interface {v0, p1}, Landroid/widget/ListAdapter;->isEnabled(I)Z
 
     move-result v1
 
+    .line 937
     :goto_0
     return v1
 
@@ -248,30 +296,40 @@
 
 .method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
+    .prologue
+    .line 904
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-eqz v0, :cond_0
 
+    .line 905
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/SpinnerAdapter;->registerDataSetObserver(Landroid/database/DataSetObserver;)V
 
+    .line 907
     :cond_0
     return-void
 .end method
 
 .method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 1
+    .param p1, "observer"    # Landroid/database/DataSetObserver;
 
+    .prologue
+    .line 910
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     if-eqz v0, :cond_0
 
+    .line 911
     iget-object v0, p0, Landroid/widget/Spinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
 
     invoke-interface {v0, p1}, Landroid/widget/SpinnerAdapter;->unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
 
+    .line 913
     :cond_0
     return-void
 .end method

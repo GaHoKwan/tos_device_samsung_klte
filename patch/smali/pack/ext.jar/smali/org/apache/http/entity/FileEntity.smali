@@ -37,7 +37,7 @@
     iput-object p1, p0, Lorg/apache/http/entity/FileEntity;->file:Ljava/io/File;
 
     .line 59
-    invoke-virtual {p0, p2}, Lorg/apache/http/entity/FileEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {p0, p2}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 60
     return-void
@@ -179,7 +179,7 @@
     :catchall_0
     move-exception v3
 
-    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
     throw v3
 
@@ -193,7 +193,7 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     .line 87
-    invoke-virtual {v0}, Ljava/io/InputStream;->close()V
+    invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
     .line 89
     return-void

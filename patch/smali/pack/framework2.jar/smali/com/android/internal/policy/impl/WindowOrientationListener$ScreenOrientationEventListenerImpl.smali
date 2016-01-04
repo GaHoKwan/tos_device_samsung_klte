@@ -32,11 +32,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/WindowOrientationListener;)V
     .locals 2
+    .param p1, "orientationListener"    # Lcom/android/internal/policy/impl/WindowOrientationListener;
 
+    .prologue
+    .line 483
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 484
     iput-object p1, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
+    .line 488
     iget-object v0, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     # getter for: Lcom/android/internal/policy/impl/WindowOrientationListener;->mContext:Landroid/content/Context;
@@ -59,12 +64,16 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mPm:Landroid/os/PowerManager;
 
+    .line 489
     return-void
 .end method
 
 .method static synthetic access$100(Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;
 
+    .prologue
+    .line 474
     invoke-direct {p0}, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->resetLocked()V
 
     return-void
@@ -73,10 +82,13 @@
 .method private resetLocked()V
     .locals 1
 
+    .prologue
+    .line 492
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
+    .line 493
     return-void
 .end method
 
@@ -85,8 +97,10 @@
 .method public getProposedRotationLocked()I
     .locals 3
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 496
     iget v1, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
     if-lt v1, v0, :cond_0
@@ -97,6 +111,7 @@
 
     if-le v1, v2, :cond_1
 
+    .line 499
     :cond_0
     :goto_0
     return v0
@@ -109,21 +124,30 @@
 
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
     .locals 0
+    .param p1, "sensor"    # Landroid/hardware/Sensor;
+    .param p2, "accuracy"    # I
 
+    .prologue
+    .line 504
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 8
+    .param p1, "event"    # Landroid/hardware/SensorEvent;
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 510
     iget-object v5, p1, Landroid/hardware/SensorEvent;->values:[F
 
     aget v2, v5, v4
 
+    .line 512
+    .local v2, "x":F
     const-string v5, "WindowOrientationListener"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -146,10 +170,12 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 513
     float-to-int v5, v2
 
     iput v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
+    .line 514
     iget v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
     if-ltz v5, :cond_0
@@ -160,11 +186,13 @@
 
     if-le v5, v6, :cond_1
 
+    .line 515
     :cond_0
     const/4 v5, -0x1
 
     iput v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
+    .line 518
     :cond_1
     iget v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
@@ -181,6 +209,7 @@
 
     if-eq v5, v6, :cond_2
 
+    .line 519
     const-string v5, "WindowOrientationListener"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -222,6 +251,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 522
     iget-object v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     # getter for: Lcom/android/internal/policy/impl/WindowOrientationListener;->mContext:Landroid/content/Context;
@@ -245,19 +275,25 @@
 
     move v1, v3
 
+    .line 525
+    .local v1, "intelligent_rotation_enabled":Z
     :goto_0
     if-nez v1, :cond_4
 
+    .line 527
     iget-object v3, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     invoke-virtual {v3, v4}, Lcom/android/internal/policy/impl/WindowOrientationListener;->setFaceDetectionResult(Z)V
 
+    .line 528
     iget-object v3, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     iget v4, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I
 
     invoke-virtual {v3, v4}, Lcom/android/internal/policy/impl/WindowOrientationListener;->onProposedRotationChanged(I)V
 
+    .line 557
+    .end local v1    # "intelligent_rotation_enabled":Z
     :cond_2
     :goto_1
     return-void
@@ -265,11 +301,16 @@
     :cond_3
     move v1, v4
 
+    .line 522
     goto :goto_0
 
+    .line 531
+    .restart local v1    # "intelligent_rotation_enabled":Z
     :cond_4
     const/4 v0, 0x0
 
+    .line 532
+    .local v0, "face_found":Z
     iget-object v5, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     # getter for: Lcom/android/internal/policy/impl/WindowOrientationListener;->mCurrentRotation:I
@@ -331,21 +372,25 @@
 
     if-eq v5, v6, :cond_6
 
+    .line 539
     sget-object v5, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mSmartFaceManager:Lcom/sec/android/smartface/SmartFaceManager;
 
     if-nez v5, :cond_5
 
+    .line 540
     invoke-static {}, Lcom/sec/android/smartface/SmartFaceManager;->getSmartFaceManager()Lcom/sec/android/smartface/SmartFaceManager;
 
     move-result-object v5
 
     sput-object v5, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mSmartFaceManager:Lcom/sec/android/smartface/SmartFaceManager;
 
+    .line 542
     :cond_5
     sget-object v5, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mSmartFaceManager:Lcom/sec/android/smartface/SmartFaceManager;
 
     if-eqz v5, :cond_6
 
+    .line 544
     sget-object v5, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mSmartFaceManager:Lcom/sec/android/smartface/SmartFaceManager;
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
@@ -359,26 +404,31 @@
 
     move-result v0
 
+    .line 548
     :cond_6
     if-ne v0, v3, :cond_7
 
+    .line 549
     const-string v4, "WindowOrientationListener"
 
     const-string v5, "SMARTFACESERVICE FEATURE, face detected"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 550
     iget-object v4, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     invoke-virtual {v4, v3}, Lcom/android/internal/policy/impl/WindowOrientationListener;->setFaceDetectionResult(Z)V
 
     goto :goto_1
 
+    .line 552
     :cond_7
     iget-object v3, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     invoke-virtual {v3, v4}, Lcom/android/internal/policy/impl/WindowOrientationListener;->setFaceDetectionResult(Z)V
 
+    .line 553
     iget-object v3, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mOrientationListener:Lcom/android/internal/policy/impl/WindowOrientationListener;
 
     iget v4, p0, Lcom/android/internal/policy/impl/WindowOrientationListener$ScreenOrientationEventListenerImpl;->mProposedRotation:I

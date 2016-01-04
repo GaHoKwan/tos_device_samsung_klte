@@ -66,7 +66,7 @@
     .line 208
     iget-object v1, p0, Lgov/nist/javax/sip/header/ContentType;->mediaRange:Lgov/nist/javax/sip/header/MediaRange;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/MediaRange;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -153,7 +153,7 @@
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/MediaRange;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 111
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/ContentType;->hasParameters()Z
+    invoke-virtual {p0}, Lgov/nist/javax/sip/header/ParametersHeader;->hasParameters()Z
 
     move-result v0
 
@@ -165,7 +165,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 113
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ContentType;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -221,7 +221,7 @@
 
     if-eqz v2, :cond_0
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ContentType;->equalParameters(Ljavax/sip/header/Parameters;)Z
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->equalParameters(Ljavax/sip/header/Parameters;)Z
 
     move-result v2
 
@@ -242,7 +242,7 @@
     .line 157
     const-string v0, "charset"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ContentType;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

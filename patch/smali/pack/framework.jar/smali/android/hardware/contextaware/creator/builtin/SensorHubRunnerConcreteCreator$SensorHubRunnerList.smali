@@ -1239,7 +1239,7 @@
 
     check-cast v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
-    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
+    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
 
     .line 1303
     :cond_0
@@ -1283,7 +1283,7 @@
 
     check-cast v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
-    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
+    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
 
     .line 1285
     :cond_0
@@ -1327,7 +1327,7 @@
 
     check-cast v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
-    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
+    invoke-virtual {v0, p1, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
 
     .line 1322
     :cond_0
@@ -1448,7 +1448,7 @@
     .line 1357
     .end local v0    # "bean":Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;
     :cond_4
-    invoke-virtual {v1, p1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->unregisterParser(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->unregisterParser(Ljava/lang/String;)V
 
     .line 1358
     if-eqz p2, :cond_1
@@ -1460,7 +1460,7 @@
     if-nez v2, :cond_1
 
     .line 1359
-    invoke-virtual {v1, p2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->unregisterParser(Ljava/lang/String;)V
+    invoke-virtual {v1, p2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->unregisterParser(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -1489,7 +1489,7 @@
     .line 98
     sget-object v0, Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;->$VALUES:[Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/creator/builtin/SensorHubRunnerConcreteCreator$SensorHubRunnerList;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1735,7 +1735,7 @@
     :cond_2
     sget-object v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_ENVIRONMENT_SENSOR:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1767,7 +1767,7 @@
 
     check-cast v1, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
-    invoke-virtual {v2, p2, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/environmentsensorprovider/EnvironmentSensorHandler;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
+    invoke-virtual {v2, p2, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->registerParser(Ljava/lang/String;Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;)V
 
     goto :goto_0
 .end method

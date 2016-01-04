@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/wifi/WifiPolicy$2;)V
     .locals 0
 
+    .prologue
+    .line 2924
     iput-object p1, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$2$3;->this$1:Lcom/android/server/enterprise/wifi/WifiPolicy$2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 2926
     iget-object v0, p0, Lcom/android/server/enterprise/wifi/WifiPolicy$2$3;->this$1:Lcom/android/server/enterprise/wifi/WifiPolicy$2;
 
     iget-object v0, v0, Lcom/android/server/enterprise/wifi/WifiPolicy$2;->this$0:Lcom/android/server/enterprise/wifi/WifiPolicy;
@@ -44,5 +48,6 @@
     # invokes: Lcom/android/server/enterprise/wifi/WifiPolicy;->updateWpsBlockedNetworks()Z
     invoke-static {v0}, Lcom/android/server/enterprise/wifi/WifiPolicy;->access$200(Lcom/android/server/enterprise/wifi/WifiPolicy;)Z
 
+    .line 2927
     return-void
 .end method

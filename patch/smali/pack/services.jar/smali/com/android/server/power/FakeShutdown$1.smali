@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/power/FakeShutdown;)V
     .locals 0
 
+    .prologue
+    .line 759
     iput-object p1, p0, Lcom/android/server/power/FakeShutdown$1;->this$0:Lcom/android/server/power/FakeShutdown;
 
     invoke-direct {p0}, Landroid/os/UEventObserver;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onUEvent(Landroid/os/UEventObserver$UEvent;)V
     .locals 7
+    .param p1, "event"    # Landroid/os/UEventObserver$UEvent;
 
+    .prologue
+    .line 762
     # getter for: Lcom/android/server/power/FakeShutdown;->sFakeState:I
     invoke-static {}, Lcom/android/server/power/FakeShutdown;->access$000()I
 
@@ -43,6 +48,7 @@
 
     if-eq v4, v5, :cond_0
 
+    .line 763
     const-string v4, "FakeShutdown"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -69,9 +75,11 @@
 
     invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 790
     :goto_0
     return-void
 
+    .line 766
     :cond_0
     const-string v4, "FakeShutdown"
 
@@ -79,6 +87,7 @@
 
     invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 767
     const-string v4, "FakeShutdown"
 
     invoke-virtual {p1}, Landroid/os/UEventObserver$UEvent;->toString()Ljava/lang/String;
@@ -87,18 +96,23 @@
 
     invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 769
     const-string v4, "PMEVENT"
 
     invoke-virtual {p1, v4}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 770
+    .local v2, "pmevent":Ljava/lang/String;
     const-string v4, "ACTION"
 
     invoke-virtual {p1, v4}, Landroid/os/UEventObserver$UEvent;->get(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 771
+    .local v0, "action":Ljava/lang/String;
     const-string v4, "AutoPowerOff"
 
     invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -115,6 +129,7 @@
 
     if-nez v4, :cond_2
 
+    .line 772
     :cond_1
     const-string v4, "FakeShutdown"
 
@@ -124,6 +139,7 @@
 
     goto :goto_0
 
+    .line 777
     :cond_2
     const-string v4, "power"
 
@@ -135,6 +151,8 @@
 
     move-result-object v3
 
+    .line 780
+    .local v3, "powerManagerService":Landroid/os/IPowerManager;
     const/4 v4, 0x0
 
     :try_start_0
@@ -142,6 +160,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 785
     :goto_1
     const-string v4, "FakeShutdown"
 
@@ -170,14 +189,17 @@
 
     invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/power/FakeShutdown$1;->stopObserving()V
+    .line 786
+    invoke-virtual {p0}, Landroid/os/UEventObserver;->stopObserving()V
 
+    .line 788
     const-string v4, "FakeShutdown"
 
     const-string v5, "!@autoPowerOffObserver. acquire success."
 
     invoke-static {v4, v5}, Lcom/android/server/power/ShutdownThread$Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 789
     # getter for: Lcom/android/server/power/FakeShutdown;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/power/FakeShutdown;->access$100()Landroid/content/Context;
 
@@ -187,10 +209,13 @@
 
     goto :goto_0
 
+    .line 781
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 782
+    .local v1, "e":Landroid/os/RemoteException;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 .end method

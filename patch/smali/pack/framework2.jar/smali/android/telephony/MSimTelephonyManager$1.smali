@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 145
     invoke-static {}, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->values()[Landroid/telephony/MSimTelephonyManager$MultiSimVariants;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->DSDS:Landroid/telephony/MSimTelephonyManager$MultiSimVariants;
 
-    invoke-virtual {v1}, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->DSDA:Landroid/telephony/MSimTelephonyManager$MultiSimVariants;
 
-    invoke-virtual {v1}, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->TSTS:Landroid/telephony/MSimTelephonyManager$MultiSimVariants;
 
-    invoke-virtual {v1}, Landroid/telephony/MSimTelephonyManager$MultiSimVariants;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

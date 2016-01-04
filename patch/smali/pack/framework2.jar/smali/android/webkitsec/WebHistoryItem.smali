@@ -10,8 +10,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 112
     return-void
 .end method
 
@@ -20,6 +23,8 @@
 .method protected declared-synchronized clone()Landroid/webkitsec/WebHistoryItem;
     .locals 1
 
+    .prologue
+    .line 280
     monitor-enter p0
 
     :try_start_0
@@ -47,6 +52,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 32
     invoke-virtual {p0}, Landroid/webkitsec/WebHistoryItem;->clone()Landroid/webkitsec/WebHistoryItem;
 
     move-result-object v0
@@ -57,6 +64,8 @@
 .method public getFavicon()Landroid/graphics/Bitmap;
     .locals 1
 
+    .prologue
+    .line 179
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -69,6 +78,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 124
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -79,6 +90,8 @@
 .method public getOriginalUrl()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 149
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -89,6 +102,8 @@
 .method public getTitle()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 161
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V
@@ -99,6 +114,8 @@
 .method public getUrl()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 137
     new-instance v0, Landroid/webkitsec/MustOverrideException;
 
     invoke-direct {v0}, Landroid/webkitsec/MustOverrideException;-><init>()V

@@ -30,6 +30,8 @@
 .method constructor <init>(Landroid/webkitsec/BrowserFrame;Landroid/net/http/SslError;II)V
     .locals 1
 
+    .prologue
+    .line 1291
     iput-object p1, p0, Landroid/webkitsec/BrowserFrame$2;->this$0:Landroid/webkitsec/BrowserFrame;
 
     iput-object p2, p0, Landroid/webkitsec/BrowserFrame$2;->val$sslError:Landroid/net/http/SslError;
@@ -40,6 +42,7 @@
 
     invoke-direct {p0}, Landroid/webkitsec/SslErrorHandler;-><init>()V
 
+    .line 1292
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkitsec/BrowserFrame$2;->isCanceled:Z
@@ -52,18 +55,23 @@
 .method public cancel()V
     .locals 1
 
+    .prologue
+    .line 1307
     new-instance v0, Landroid/webkitsec/BrowserFrame$2$2;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/BrowserFrame$2$2;-><init>(Landroid/webkitsec/BrowserFrame$2;)V
 
-    invoke-virtual {p0, v0}, Landroid/webkitsec/BrowserFrame$2;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 1316
     return-void
 .end method
 
 .method public proceed()V
     .locals 2
 
+    .prologue
+    .line 1295
     invoke-static {}, Landroid/webkitsec/SslCertLookupTable;->getInstance()Landroid/webkitsec/SslCertLookupTable;
 
     move-result-object v0
@@ -72,11 +80,13 @@
 
     invoke-virtual {v0, v1}, Landroid/webkitsec/SslCertLookupTable;->setIsAllowed(Landroid/net/http/SslError;)V
 
+    .line 1296
     new-instance v0, Landroid/webkitsec/BrowserFrame$2$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/BrowserFrame$2$1;-><init>(Landroid/webkitsec/BrowserFrame$2;)V
 
-    invoke-virtual {p0, v0}, Landroid/webkitsec/BrowserFrame$2;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 1304
     return-void
 .end method

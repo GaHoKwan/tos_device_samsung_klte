@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/KiesConnectivity/KiesUsbManager;)V
     .locals 0
 
+    .prologue
+    .line 208
     iput-object p1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager$1;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbManager;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -34,12 +36,15 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 210
     const-string v0, "KiesUsbManager"
 
     const-string v1, "saveVersionFile"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 211
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager$1;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbManager;
 
     # invokes: Lcom/android/server/KiesConnectivity/KiesUsbManager;->saveVersionFile()Z
@@ -49,12 +54,14 @@
 
     if-nez v0, :cond_0
 
+    .line 212
     const-string v0, "KiesUsbManager"
 
     const-string v1, "saveVersionFile : fail to write the file"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 214
     :cond_0
     return-void
 .end method

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/palmMotion/PalmMotionService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 725
     iput-object p1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,11 +36,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 7
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v6, 0x1
 
     const/4 v5, -0x2
 
+    .line 729
     iget-object v1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     # getter for: Lcom/android/server/palmMotion/PalmMotionService;->mSurfaceTouchSharingData:Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;
@@ -66,6 +72,7 @@
 
     iput v2, v1, Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;->mSettingSurfaceMotionEngine:I
 
+    .line 730
     iget-object v1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     # getter for: Lcom/android/server/palmMotion/PalmMotionService;->mContext:Landroid/content/Context;
@@ -83,6 +90,8 @@
 
     move-result v0
 
+    .line 731
+    .local v0, "settingMutePause":I
     iget-object v1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     # getter for: Lcom/android/server/palmMotion/PalmMotionService;->mSurfaceTouchSharingData:Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;
@@ -109,6 +118,7 @@
 
     iput v2, v1, Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;->mSettingPalmTouch:I
 
+    .line 732
     iget-object v1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     # getter for: Lcom/android/server/palmMotion/PalmMotionService;->mSurfaceTouchSharingData:Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;
@@ -129,6 +139,7 @@
 
     iput v2, v1, Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;->mSettingPalmTouch:I
 
+    .line 733
     const-string v1, "PalmMotionService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -179,6 +190,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 745
     iget-object v1, p0, Lcom/android/server/palmMotion/PalmMotionService$1;->this$0:Lcom/android/server/palmMotion/PalmMotionService;
 
     # getter for: Lcom/android/server/palmMotion/PalmMotionService;->mSurfaceTouchSharingData:Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;
@@ -205,5 +217,6 @@
 
     iput v2, v1, Lcom/android/server/palmMotion/PalmMotionService$SurfaceTouchSharingData;->mSettingPalmSweep:I
 
+    .line 746
     return-void
 .end method

@@ -314,7 +314,7 @@
     .local v1, "e":Ljava/text/ParseException;
     const-string v4, "IPSmsMessage"
 
-    invoke-virtual {v1}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 

@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 4
 
+    .prologue
+    .line 30
     const-string v0, "TimaKeyStore"
 
     const-wide/high16 v1, 0x3ff0000000000000L    # 1.0
@@ -19,6 +21,7 @@
 
     invoke-direct {p0, v0, v1, v2, v3}, Ljava/security/Provider;-><init>(Ljava/lang/String;DLjava/lang/String;)V
 
+    .line 33
     const-string v0, "KeyStore.TimaKeyStore"
 
     const-class v1, Landroid/security/TimaKeyStore;
@@ -27,7 +30,8 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/security/TimaKeyStoreProvider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0, v1}, Ljava/security/Provider;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 34
     return-void
 .end method

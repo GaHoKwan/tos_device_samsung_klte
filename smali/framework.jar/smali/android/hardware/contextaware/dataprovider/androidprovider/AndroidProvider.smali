@@ -52,7 +52,7 @@
 
     move-result-object v1
 
-    invoke-super {p0, v0, v1}, Landroid/hardware/contextaware/dataprovider/DataProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
+    invoke-super {p0, v0, v1}, Landroid/hardware/contextaware/manager/ContextProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
 
     .prologue
     .line 69
-    invoke-super {p0, p1}, Landroid/hardware/contextaware/dataprovider/DataProvider;->setAPStatus(I)V
+    invoke-super {p0, p1}, Landroid/hardware/contextaware/manager/ContextProvider;->setAPStatus(I)V
 
     .line 70
     return-void

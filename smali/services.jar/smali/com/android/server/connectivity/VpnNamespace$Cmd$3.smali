@@ -17,7 +17,11 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;IILjava/lang/Class;)V
     .locals 6
+    .param p3, "x0"    # I
 
+    .prologue
+    .line 356
+    .local p4, "x1":Ljava/lang/Class;, "Ljava/lang/Class<*>;"
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -39,12 +43,15 @@
 # virtual methods
 .method protected bridge synthetic getReply(Ljava/io/DataInputStream;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 356
     invoke-virtual {p0, p1}, Lcom/android/server/connectivity/VpnNamespace$Cmd$3;->getReply(Ljava/io/DataInputStream;)Ljava/util/List;
 
     move-result-object v0
@@ -54,6 +61,7 @@
 
 .method protected getReply(Ljava/io/DataInputStream;)Ljava/util/List;
     .locals 1
+    .param p1, "din"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,6 +80,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 358
     # invokes: Lcom/android/server/connectivity/VpnNamespace$Cmd;->getIfListReply(Ljava/io/DataInputStream;)Ljava/util/List;
     invoke-static {p1}, Lcom/android/server/connectivity/VpnNamespace$Cmd;->access$600(Ljava/io/DataInputStream;)Ljava/util/List;
 

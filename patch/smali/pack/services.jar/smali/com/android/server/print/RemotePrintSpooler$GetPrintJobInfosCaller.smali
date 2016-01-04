@@ -33,16 +33,20 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 465
     const-wide/16 v0, 0x1388
 
     invoke-direct {p0, v0, v1}, Landroid/util/TimedRemoteCaller;-><init>(J)V
 
+    .line 466
     new-instance v0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller$1;-><init>(Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;)V
 
     iput-object v0, p0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
+    .line 472
     return-void
 .end method
 
@@ -50,6 +54,10 @@
 # virtual methods
 .method public getPrintJobInfos(Landroid/print/IPrintSpooler;Landroid/content/ComponentName;II)Ljava/util/List;
     .locals 6
+    .param p1, "target"    # Landroid/print/IPrintSpooler;
+    .param p2, "componentName"    # Landroid/content/ComponentName;
+    .param p3, "state"    # I
+    .param p4, "appId"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,10 +78,14 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->onBeforeRemoteCall()I
+    .prologue
+    .line 477
+    invoke-virtual {p0}, Landroid/util/TimedRemoteCaller;->onBeforeRemoteCall()I
 
     move-result v5
 
+    .line 478
+    .local v5, "sequence":I
     iget-object v1, p0, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->mCallback:Landroid/print/IPrintSpoolerCallbacks;
 
     move-object v0, p1
@@ -86,7 +98,8 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/print/IPrintSpooler;->getPrintJobInfos(Landroid/print/IPrintSpoolerCallbacks;Landroid/content/ComponentName;III)V
 
-    invoke-virtual {p0, v5}, Lcom/android/server/print/RemotePrintSpooler$GetPrintJobInfosCaller;->getResultTimed(I)Ljava/lang/Object;
+    .line 479
+    invoke-virtual {p0, v5}, Landroid/util/TimedRemoteCaller;->getResultTimed(I)Ljava/lang/Object;
 
     move-result-object v0
 

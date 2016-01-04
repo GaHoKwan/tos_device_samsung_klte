@@ -33,7 +33,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 61
-    iput-object p1, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 62
     return-void
@@ -70,7 +70,7 @@
 
     .line 77
     .local v0, "retval":Ljava/lang/StringBuffer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -85,7 +85,7 @@
 
     .line 80
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->encode()Ljava/lang/String;
 
@@ -94,7 +94,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 81
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -109,7 +109,7 @@
 
     .line 86
     :cond_1
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -128,7 +128,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 

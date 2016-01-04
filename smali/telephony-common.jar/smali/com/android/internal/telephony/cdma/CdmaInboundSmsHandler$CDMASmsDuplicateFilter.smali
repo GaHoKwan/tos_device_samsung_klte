@@ -42,24 +42,24 @@
     .locals 1
 
     .prologue
-    .line 712
+    .line 714
     iput-object p1, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->this$0:Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 695
+    .line 697
     const/16 v0, 0xa
 
     iput v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->FILTER_SIZE:I
 
-    .line 713
+    .line 715
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
-    .line 714
+    .line 716
     return-void
 .end method
 
@@ -70,7 +70,7 @@
     .param p1, "msg"    # Lcom/android/internal/telephony/SmsMessageBase;
 
     .prologue
-    .line 717
+    .line 719
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -81,14 +81,14 @@
 
     if-lt v0, v1, :cond_0
 
-    .line 718
+    .line 720
     iget-object v0, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    .line 720
+    .line 722
     :cond_0
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getTeleserviceId()I
 
@@ -104,7 +104,7 @@
 
     if-nez v0, :cond_1
 
-    .line 721
+    .line 723
     iget-object v7, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
@@ -131,7 +131,7 @@
 
     invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 727
+    .line 729
     :cond_1
     return-void
 .end method
@@ -145,7 +145,7 @@
 
     const/4 v7, 0x0
 
-    .line 732
+    .line 734
     const/4 v2, 0x0
 
     .local v2, "i":I
@@ -158,7 +158,7 @@
 
     if-ge v2, v8, :cond_7
 
-    .line 733
+    .line 735
     const/4 v0, 0x0
 
     .local v0, "addrMatched":Z
@@ -170,7 +170,7 @@
     .local v5, "timeMatched":Z
     const/4 v4, 0x0
 
-    .line 734
+    .line 736
     .local v4, "msgIdMatched":Z
     iget-object v8, p0, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter;->mHistory:Ljava/util/ArrayList;
 
@@ -180,7 +180,7 @@
 
     check-cast v3, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
 
-    .line 736
+    .line 738
     .local v3, "msg":Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->originAddress:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$000(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)Ljava/lang/String;
@@ -189,7 +189,7 @@
 
     if-nez v8, :cond_1
 
-    .line 737
+    .line 739
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getOriginatingAddress()Ljava/lang/String;
 
     move-result-object v8
@@ -198,7 +198,7 @@
 
     move v0, v6
 
-    .line 742
+    .line 744
     :goto_1
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->timeStamp:J
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$100(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)J
@@ -215,7 +215,7 @@
 
     move v5, v6
 
-    .line 743
+    .line 745
     :goto_2
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgId:I
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$200(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)I
@@ -230,7 +230,7 @@
 
     move v4, v6
 
-    .line 745
+    .line 747
     :goto_3
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgBody:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$300(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)Ljava/lang/String;
@@ -239,7 +239,7 @@
 
     if-nez v8, :cond_5
 
-    .line 746
+    .line 748
     invoke-virtual {p1}, Lcom/android/internal/telephony/SmsMessageBase;->getDisplayMessageBody()Ljava/lang/String;
 
     move-result-object v8
@@ -248,7 +248,7 @@
 
     move v1, v6
 
-    .line 750
+    .line 752
     :goto_4
     const-string v8, "CdmaInboundSmsHandler"
 
@@ -302,7 +302,7 @@
 
     invoke-static {v8, v9}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 757
+    .line 759
     if-eqz v0, :cond_6
 
     if-eqz v1, :cond_6
@@ -311,7 +311,7 @@
 
     if-eqz v4, :cond_6
 
-    .line 767
+    .line 769
     .end local v0    # "addrMatched":Z
     .end local v1    # "bodyMatched":Z
     .end local v3    # "msg":Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;
@@ -328,10 +328,10 @@
     :cond_0
     move v0, v7
 
-    .line 737
+    .line 739
     goto :goto_1
 
-    .line 739
+    .line 741
     :cond_1
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->originAddress:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$000(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)Ljava/lang/String;
@@ -351,22 +351,22 @@
     :cond_2
     move v5, v7
 
-    .line 742
+    .line 744
     goto :goto_2
 
     :cond_3
     move v4, v7
 
-    .line 743
+    .line 745
     goto :goto_3
 
     :cond_4
     move v1, v7
 
-    .line 746
+    .line 748
     goto :goto_4
 
-    .line 748
+    .line 750
     :cond_5
     # getter for: Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->msgBody:Ljava/lang/String;
     invoke-static {v3}, Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;->access$300(Lcom/android/internal/telephony/cdma/CdmaInboundSmsHandler$CDMASmsDuplicateFilter$SmsFilterRecord;)Ljava/lang/String;
@@ -383,7 +383,7 @@
 
     goto :goto_4
 
-    .line 732
+    .line 734
     :cond_6
     add-int/lit8 v2, v2, 0x1
 
@@ -397,6 +397,6 @@
     :cond_7
     move v6, v7
 
-    .line 767
+    .line 769
     goto :goto_5
 .end method

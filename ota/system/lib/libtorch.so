@@ -1,0 +1,6 @@
+hasTorch=true
+useCamera=false
+useSurface=false
+torchFile=/sys/class/camera/flash/rear_flash
+torchValueOn=1
+torchValueOff=0

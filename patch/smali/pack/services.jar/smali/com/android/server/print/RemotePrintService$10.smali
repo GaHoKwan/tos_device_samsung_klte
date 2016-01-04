@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
     .locals 0
 
+    .prologue
+    .line 451
     iput-object p1, p0, Lcom/android/server/print/RemotePrintService$10;->this$0:Lcom/android/server/print/RemotePrintService;
 
     iput-object p2, p0, Lcom/android/server/print/RemotePrintService$10;->val$printerId:Landroid/print/PrinterId;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 454
     iget-object v0, p0, Lcom/android/server/print/RemotePrintService$10;->this$0:Lcom/android/server/print/RemotePrintService;
 
     iget-object v1, p0, Lcom/android/server/print/RemotePrintService$10;->val$printerId:Landroid/print/PrinterId;
@@ -48,5 +52,6 @@
     # invokes: Lcom/android/server/print/RemotePrintService;->handleStopPrinterStateTracking(Landroid/print/PrinterId;)V
     invoke-static {v0, v1}, Lcom/android/server/print/RemotePrintService;->access$1000(Lcom/android/server/print/RemotePrintService;Landroid/print/PrinterId;)V
 
+    .line 455
     return-void
 .end method

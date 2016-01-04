@@ -36,6 +36,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 3301
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -46,30 +48,37 @@
 .method public toString()Ljava/lang/String;
     .locals 3
 
+    .prologue
     const/16 v2, 0x2c
 
+    .line 3313
     new-instance v0, Ljava/lang/StringBuilder;
 
     const/16 v1, 0x80
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
+    .line 3314
+    .local v0, "sb":Ljava/lang/StringBuilder;
     const-string v1, "FileMetadata{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 3315
     iget-object v1, p0, Lcom/android/server/BackupManagerService$FileMetadata;->packageName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 3316
     iget v1, p0, Lcom/android/server/BackupManagerService$FileMetadata;->type:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 3317
     iget-object v1, p0, Lcom/android/server/BackupManagerService$FileMetadata;->domain:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -84,14 +93,17 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 3318
     iget-wide v1, p0, Lcom/android/server/BackupManagerService$FileMetadata;->size:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    .line 3319
     const/16 v1, 0x7d
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 3320
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

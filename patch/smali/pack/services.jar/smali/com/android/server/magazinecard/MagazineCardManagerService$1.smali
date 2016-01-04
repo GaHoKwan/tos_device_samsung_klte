@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/magazinecard/MagazineCardManagerService;)V
     .locals 0
 
+    .prologue
+    .line 49
     iput-object p1, p0, Lcom/android/server/magazinecard/MagazineCardManagerService$1;->this$0:Lcom/android/server/magazinecard/MagazineCardManagerService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,23 +35,33 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 7
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 51
     iget v4, p1, Landroid/os/Message;->what:I
 
     packed-switch v4, :pswitch_data_0
 
+    .line 72
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
+    .line 75
     :goto_0
     return-void
 
+    .line 53
     :pswitch_0
     iget v1, p1, Landroid/os/Message;->arg1:I
 
+    .line 54
+    .local v1, "command":I
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/samsung/android/magazinecard/MagazineCardRecord;
 
+    .line 56
+    .local v0, "cardRecord":Lcom/samsung/android/magazinecard/MagazineCardRecord;
     const-string v4, "MagazineCardManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -84,20 +96,25 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 58
     new-instance v3, Landroid/content/Intent;
 
     const-string v4, "com.system.action.MAGAZINE_CARD"
 
     invoke-direct {v3, v4}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 59
+    .local v3, "intent":Landroid/content/Intent;
     const-string v4, "command"
 
     invoke-virtual {v3, v4, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 60
     const-string v4, "card"
 
     invoke-virtual {v3, v4, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
+    .line 63
     :try_start_0
     iget-object v4, p0, Lcom/android/server/magazinecard/MagazineCardManagerService$1;->this$0:Lcom/android/server/magazinecard/MagazineCardManagerService;
 
@@ -114,9 +131,12 @@
 
     goto :goto_0
 
+    .line 65
     :catch_0
     move-exception v2
 
+    .line 66
+    .local v2, "e":Ljava/lang/Exception;
     const-string v4, "MagazineCardManagerService"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -141,6 +161,7 @@
 
     goto :goto_0
 
+    .line 51
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

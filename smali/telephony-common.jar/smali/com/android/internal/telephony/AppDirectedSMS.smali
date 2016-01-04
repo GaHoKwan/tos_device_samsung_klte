@@ -236,12 +236,12 @@
     .restart local v10    # "ri":Landroid/content/pm/ResolveInfo;
     iget-object v11, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v6, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     .line 218
     iget-object v11, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v11, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v11, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v11}, Lcom/android/internal/telephony/AppDirectedSMS;->isVzwApnPermissionGranted(Ljava/lang/String;)Z
 
@@ -262,11 +262,11 @@
     .end local v2    # "componentName":Landroid/content/ComponentName;
     iget-object v11, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v11, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v11, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iget-object v12, v10, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v12, v12, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v12, v12, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-direct {v2, v11, v12}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -279,7 +279,7 @@
 
     move-result-object v11
 
-    iget-object v1, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     .line 225
     invoke-direct {p0, v1, v0, v2, v5}, Lcom/android/internal/telephony/AppDirectedSMS;->startsWithMetaData(Landroid/os/Bundle;Ljava/lang/String;Landroid/content/ComponentName;Lcom/android/internal/telephony/AppDirectedSMS$MatchInfo;)V
@@ -295,7 +295,7 @@
 
     move-result-object v11
 
-    iget-object v1, v11, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v1, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     .line 233
     invoke-direct {p0, v1, v0, v2, v5}, Lcom/android/internal/telephony/AppDirectedSMS;->startsWithMetaData(Landroid/os/Bundle;Ljava/lang/String;Landroid/content/ComponentName;Lcom/android/internal/telephony/AppDirectedSMS$MatchInfo;)V
@@ -310,7 +310,7 @@
 
     .line 235
     .local v3, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 236
     const-string v11, "AppDirectedSMS"
@@ -328,7 +328,7 @@
 
     .line 227
     .restart local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 228
     const-string v11, "AppDirectedSMS"
@@ -437,12 +437,12 @@
     .restart local v9    # "ri":Landroid/content/pm/ResolveInfo;
     iget-object v11, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v5, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     .line 156
     iget-object v11, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v11, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v11, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-direct {p0, v11}, Lcom/android/internal/telephony/AppDirectedSMS;->isVzwApnPermissionGranted(Ljava/lang/String;)Z
 
@@ -464,11 +464,11 @@
 
     iget-object v11, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v11, v11, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v11, v11, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     iget-object v12, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v12, v12, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v12, v12, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-direct {v2, v11, v12}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
@@ -484,7 +484,7 @@
 
     move-result-object v11
 
-    iget-object v0, v11, Landroid/content/pm/ActivityInfo;->metaData:Landroid/os/Bundle;
+    iget-object v0, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     .line 164
     invoke-direct {p0, v0, p1}, Lcom/android/internal/telephony/AppDirectedSMS;->matchesMetaData(Landroid/os/Bundle;Ljava/lang/String;)Z
@@ -508,7 +508,7 @@
 
     iget-object v13, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v13, v13, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v13, v13, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -528,7 +528,7 @@
 
     iget-object v13, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v13, v13, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v13, v13, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -565,7 +565,7 @@
 
     move-result-object v11
 
-    iget-object v0, v11, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v0, v11, Landroid/content/pm/PackageItemInfo;->metaData:Landroid/os/Bundle;
 
     .line 176
     invoke-direct {p0, v0, p1}, Lcom/android/internal/telephony/AppDirectedSMS;->matchesMetaData(Landroid/os/Bundle;Ljava/lang/String;)Z
@@ -589,7 +589,7 @@
 
     iget-object v13, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v13, v13, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v13, v13, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -609,7 +609,7 @@
 
     iget-object v13, v9, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v13, v13, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+    iget-object v13, v13, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -635,7 +635,7 @@
     .line 170
     .local v3, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :goto_4
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 171
     const-string v11, "AppDirectedSMS"
@@ -653,7 +653,7 @@
 
     .line 182
     .restart local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 183
     const-string v11, "AppDirectedSMS"
@@ -831,7 +831,7 @@
     .line 322
     .local v8, "e":Ljava/lang/Exception;
     :try_start_1
-    invoke-virtual {v8}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v8}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -858,143 +858,130 @@
 .end method
 
 .method private isVzwApnPermissionGranted(Ljava/lang/String;)Z
-    .locals 13
+    .locals 14
     .param p1, "packageName"    # Ljava/lang/String;
 
     .prologue
+    const/4 v10, 0x1
+
+    const/4 v11, 0x0
+
     .line 243
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
     .line 244
-    .local v1, "callingPackageInfo":Landroid/content/pm/PackageInfo;
-    const/4 v9, 0x0
+    .local v0, "callingPackageInfo":Landroid/content/pm/PackageInfo;
+    const/4 v8, 0x0
 
     .line 246
-    .local v9, "permissionPackageInfo":Landroid/content/pm/PackageInfo;
-    iget-object v11, p0, Lcom/android/internal/telephony/AppDirectedSMS;->mcontext:Landroid/content/Context;
+    .local v8, "permissionPackageInfo":Landroid/content/pm/PackageInfo;
+    iget-object v12, p0, Lcom/android/internal/telephony/AppDirectedSMS;->mcontext:Landroid/content/Context;
 
-    invoke-virtual {v11}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v12}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v6
+    move-result-object v5
 
     .line 249
-    .local v6, "mPackageManager":Landroid/content/pm/PackageManager;
-    const/16 v11, 0x40
+    .local v5, "mPackageManager":Landroid/content/pm/PackageManager;
+    const/16 v12, 0x40
 
     :try_start_0
-    invoke-virtual {v6, p1, v11}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v5, p1, v12}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v1
+    move-result-object v0
 
     .line 258
-    iget-object v11, v1, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v12, v0, Landroid/content/pm/PackageInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    iget v11, v11, Landroid/content/pm/ApplicationInfo;->flags:I
+    iget v12, v12, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    and-int/lit8 v11, v11, 0x1
+    and-int/lit8 v12, v12, 0x1
 
-    if-eqz v11, :cond_0
-
-    .line 259
-    const/4 v11, 0x1
+    if-eqz v12, :cond_0
 
     .line 296
     :goto_0
-    return v11
+    return v10
 
     .line 252
     :catch_0
-    move-exception v3
+    move-exception v2
 
     .line 253
-    .local v3, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    .local v2, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 254
-    const-string v11, "AppDirectedSMS"
+    const-string v10, "AppDirectedSMS"
 
     const-string v12, "isVzwApnPermissionGranted calling package NameNotFoundException"
 
-    invoke-static {v11, v12}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v12}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v10, v11
 
     .line 255
-    const/4 v11, 0x0
-
-    goto :goto_0
-
-    .line 264
-    .end local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/internal/telephony/AppDirectedSMS;->isPackageVzwSmsAuthorized(Ljava/lang/String;)Z
-
-    move-result v0
-
-    .line 265
-    .local v0, "authorized":Z
-    if-eqz v0, :cond_1
-
-    const/4 v11, 0x1
-
     goto :goto_0
 
     .line 270
-    :cond_1
+    .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    :cond_0
     :try_start_1
-    const-string v11, "com.verizon.permissions.appdirectedsms"
+    const-string v12, "com.verizon.permissions.appdirectedsms"
 
-    const/16 v12, 0x40
+    const/16 v13, 0x40
 
-    invoke-virtual {v6, v11, v12}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v5, v12, v13}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    move-result-object v9
+    move-result-object v8
 
     .line 278
-    iget-object v2, v1, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    iget-object v1, v0, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
     .line 279
-    .local v2, "callingPackageSignatures":[Landroid/content/pm/Signature;
-    if-eqz v2, :cond_4
+    .local v1, "callingPackageSignatures":[Landroid/content/pm/Signature;
+    if-eqz v1, :cond_3
 
     .line 281
-    iget-object v10, v9, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    iget-object v9, v8, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
 
     .line 283
-    .local v10, "permissionPackageSignatures":[Landroid/content/pm/Signature;
-    array-length v7, v2
+    .local v9, "permissionPackageSignatures":[Landroid/content/pm/Signature;
+    array-length v6, v1
 
     .line 284
-    .local v7, "numberOfCallingPackageSignatures":I
-    array-length v8, v10
+    .local v6, "numberOfCallingPackageSignatures":I
+    array-length v7, v9
 
     .line 286
-    .local v8, "numberOfPermissionPackageSignatures":I
-    const/4 v4, 0x0
+    .local v7, "numberOfPermissionPackageSignatures":I
+    const/4 v3, 0x0
 
-    .local v4, "i":I
+    .local v3, "i":I
     :goto_1
-    if-ge v4, v7, :cond_4
+    if-ge v3, v6, :cond_3
 
     .line 287
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    .local v5, "j":I
+    .local v4, "j":I
     :goto_2
-    if-ge v5, v8, :cond_3
+    if-ge v4, v7, :cond_2
 
     .line 288
-    aget-object v11, v2, v4
+    aget-object v12, v1, v3
 
-    aget-object v12, v10, v5
+    aget-object v13, v9, v4
 
-    invoke-virtual {v11, v12}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v12, v13}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
 
-    move-result v11
+    move-result v12
 
-    if-eqz v11, :cond_2
+    if-eqz v12, :cond_1
 
     .line 289
     const-string v11, "AppDirectedSMS"
@@ -1003,72 +990,69 @@
 
     invoke-static {v11, v12}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 290
-    const/4 v11, 0x1
-
     goto :goto_0
 
     .line 272
-    .end local v2    # "callingPackageSignatures":[Landroid/content/pm/Signature;
-    .end local v4    # "i":I
-    .end local v5    # "j":I
-    .end local v7    # "numberOfCallingPackageSignatures":I
-    .end local v8    # "numberOfPermissionPackageSignatures":I
-    .end local v10    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
+    .end local v1    # "callingPackageSignatures":[Landroid/content/pm/Signature;
+    .end local v3    # "i":I
+    .end local v4    # "j":I
+    .end local v6    # "numberOfCallingPackageSignatures":I
+    .end local v7    # "numberOfPermissionPackageSignatures":I
+    .end local v9    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
     :catch_1
-    move-exception v3
+    move-exception v2
 
     .line 273
-    .restart local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    .restart local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 274
-    const-string v11, "AppDirectedSMS"
+    const-string v10, "AppDirectedSMS"
 
     const-string v12, "isVzwApnPermissionGranted permission package NameNotFoundException"
 
-    invoke-static {v11, v12}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v12}, Landroid/util/secutil/Log;->secE(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v10, v11
 
     .line 275
-    const/4 v11, 0x0
-
     goto :goto_0
 
     .line 287
-    .end local v3    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
-    .restart local v2    # "callingPackageSignatures":[Landroid/content/pm/Signature;
-    .restart local v4    # "i":I
-    .restart local v5    # "j":I
-    .restart local v7    # "numberOfCallingPackageSignatures":I
-    .restart local v8    # "numberOfPermissionPackageSignatures":I
-    .restart local v10    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
-    :cond_2
-    add-int/lit8 v5, v5, 0x1
+    .end local v2    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v1    # "callingPackageSignatures":[Landroid/content/pm/Signature;
+    .restart local v3    # "i":I
+    .restart local v4    # "j":I
+    .restart local v6    # "numberOfCallingPackageSignatures":I
+    .restart local v7    # "numberOfPermissionPackageSignatures":I
+    .restart local v9    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
+    :cond_1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_2
 
     .line 286
-    :cond_3
-    add-int/lit8 v4, v4, 0x1
+    :cond_2
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     .line 295
-    .end local v4    # "i":I
-    .end local v5    # "j":I
-    .end local v7    # "numberOfCallingPackageSignatures":I
-    .end local v8    # "numberOfPermissionPackageSignatures":I
-    .end local v10    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
-    :cond_4
-    const-string v11, "AppDirectedSMS"
+    .end local v3    # "i":I
+    .end local v4    # "j":I
+    .end local v6    # "numberOfCallingPackageSignatures":I
+    .end local v7    # "numberOfPermissionPackageSignatures":I
+    .end local v9    # "permissionPackageSignatures":[Landroid/content/pm/Signature;
+    :cond_3
+    const-string v10, "AppDirectedSMS"
 
     const-string v12, "isVzwApnPermissionGranted app with no correct signature"
 
-    invoke-static {v11, v12}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v10, v12}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
+
+    move v10, v11
 
     .line 296
-    const/4 v11, 0x0
-
     goto :goto_0
 .end method
 
@@ -1388,7 +1372,7 @@
     .line 22
     sget-object v0, Lcom/android/internal/telephony/AppDirectedSMS;->$VALUES:[Lcom/android/internal/telephony/AppDirectedSMS;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/AppDirectedSMS;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

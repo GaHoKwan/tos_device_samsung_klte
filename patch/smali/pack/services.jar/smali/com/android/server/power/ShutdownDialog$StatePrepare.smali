@@ -29,6 +29,8 @@
 .method private constructor <init>(Lcom/android/server/power/ShutdownDialog;)V
     .locals 0
 
+    .prologue
+    .line 213
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +40,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/power/ShutdownDialog;Lcom/android/server/power/ShutdownDialog$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/power/ShutdownDialog;
+    .param p2, "x1"    # Lcom/android/server/power/ShutdownDialog$1;
 
+    .prologue
+    .line 213
     invoke-direct {p0, p1}, Lcom/android/server/power/ShutdownDialog$StatePrepare;-><init>(Lcom/android/server/power/ShutdownDialog;)V
 
     return-void
@@ -47,7 +53,9 @@
 .method private needToPlayCommonSound()Z
     .locals 4
 
-    const-string v2, "USA"
+    .prologue
+    .line 273
+    const-string v2, "GGSM"
 
     const-string v3, "KOR"
 
@@ -55,8 +63,12 @@
 
     move-result v1
 
+    .line 274
+    .local v1, "koreModel":Z
     const/4 v0, 0x0
 
+    .line 275
+    .local v0, "cameraModel":Z
     if-nez v0, :cond_0
 
     if-nez v1, :cond_1
@@ -76,12 +88,15 @@
 .method private playSoundForKor()V
     .locals 3
 
+    .prologue
+    .line 294
     const-string v1, "ShutdownDialog"
 
     const-string/jumbo v2, "shutdown Dialog kor power snd"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 296
     :try_start_0
     const-string v1, "service.media.powersnd"
 
@@ -89,12 +104,14 @@
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 297
     const-string v1, "ctl.start"
 
     const-string v2, "powersnd"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 298
     const-wide/16 v1, 0x64
 
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
@@ -102,16 +119,22 @@
     .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 304
     :goto_0
     return-void
 
+    .line 299
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->printStackTrace()V
+    .line 300
+    .local v0, "e":Ljava/lang/IllegalStateException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 301
+    .end local v0    # "e":Ljava/lang/IllegalStateException;
     :catch_1
     move-exception v1
 
@@ -120,10 +143,14 @@
 
 .method private prepareWindowRotation(II)V
     .locals 4
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
+    .prologue
+    .line 279
     iget-object v2, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-virtual {v2}, Lcom/android/server/power/ShutdownDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
@@ -131,30 +158,38 @@
 
     move-result-object v0
 
+    .line 280
+    .local v0, "l":Landroid/view/WindowManager$LayoutParams;
     new-instance v1, Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {v1}, Landroid/view/WindowManager$LayoutParams;-><init>()V
 
+    .line 281
+    .local v1, "nl":Landroid/view/WindowManager$LayoutParams;
     invoke-virtual {v1, v0}, Landroid/view/WindowManager$LayoutParams;->copyFrom(Landroid/view/WindowManager$LayoutParams;)I
 
+    .line 283
     if-le p1, p2, :cond_0
 
+    .line 284
     const/4 v2, 0x0
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
+    .line 289
     :goto_0
     iget-object v2, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-virtual {v2}, Lcom/android/server/power/ShutdownDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Landroid/view/Window;->setAttributes(Landroid/view/WindowManager$LayoutParams;)V
 
+    .line 290
     iget-object v2, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
-    invoke-virtual {v2}, Lcom/android/server/power/ShutdownDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
@@ -162,8 +197,10 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
+    .line 291
     return-void
 
+    .line 286
     :cond_0
     const/4 v2, 0x1
 
@@ -177,6 +214,8 @@
 .method public checkRunning()Z
     .locals 1
 
+    .prologue
+    .line 266
     iget-boolean v0, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->hasSound:Z
 
     if-nez v0, :cond_0
@@ -185,9 +224,11 @@
 
     if-eqz v0, :cond_1
 
+    .line 267
     :cond_0
     const/4 v0, 0x1
 
+    .line 269
     :goto_0
     return v0
 
@@ -200,6 +241,8 @@
 .method public checkStart()Z
     .locals 1
 
+    .prologue
+    .line 262
     const/4 v0, 0x0
 
     return v0
@@ -208,12 +251,15 @@
 .method public prepare()V
     .locals 9
 
+    .prologue
+    .line 219
     const-string v7, "ShutdownDialog"
 
     const-string v8, "prepare shutdown dialog image and sound"
 
     invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 221
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->qmgList:Ljava/util/List;
@@ -227,6 +273,7 @@
 
     if-lez v7, :cond_1
 
+    .line 223
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->qmgList:Ljava/util/List;
@@ -242,6 +289,8 @@
 
     check-cast v2, Lcom/android/server/power/LibQmg;
 
+    .line 224
+    .local v2, "qmg":Lcom/android/server/power/LibQmg;
     const-string v7, "ShutdownDialog"
 
     invoke-virtual {v2}, Lcom/android/server/power/LibQmg;->toString()Ljava/lang/String;
@@ -250,23 +299,31 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 225
     invoke-virtual {v2}, Lcom/android/server/power/LibQmg;->getWidth()I
 
     move-result v6
 
+    .line 226
+    .local v6, "width":I
     invoke-virtual {v2}, Lcom/android/server/power/LibQmg;->getHeight()I
 
     move-result v0
 
+    .line 228
+    .local v0, "height":I
     invoke-direct {p0, v6, v0}, Lcom/android/server/power/ShutdownDialog$StatePrepare;->prepareWindowRotation(II)V
 
+    .line 229
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_0
     const/4 v7, 0x3
 
     if-ge v1, v7, :cond_2
 
+    .line 230
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->bitmapQ:[Landroid/graphics/Bitmap;
@@ -278,6 +335,7 @@
 
     if-nez v7, :cond_0
 
+    .line 231
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->bitmapQ:[Landroid/graphics/Bitmap;
@@ -293,11 +351,17 @@
 
     aput-object v8, v7, v1
 
+    .line 229
     :cond_0
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
+    .line 235
+    .end local v0    # "height":I
+    .end local v1    # "i":I
+    .end local v2    # "qmg":Lcom/android/server/power/LibQmg;
+    .end local v6    # "width":I
     :cond_1
     const-string v7, "ShutdownDialog"
 
@@ -305,6 +369,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 239
     :cond_2
     invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog$StatePrepare;->needToPlayCommonSound()Z
 
@@ -312,6 +377,7 @@
 
     if-eqz v7, :cond_4
 
+    .line 240
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # invokes: Lcom/android/server/power/ShutdownDialog;->getSystemVolume()I
@@ -319,6 +385,8 @@
 
     move-result v5
 
+    .line 241
+    .local v5, "systemVolume":I
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     iget-object v8, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
@@ -333,19 +401,26 @@
 
     move-result-object v3
 
+    .line 242
+    .local v3, "soundPathConfirmed":Ljava/lang/String;
     if-eqz v3, :cond_3
 
     if-lez v5, :cond_3
 
+    .line 243
     const/4 v7, 0x1
 
     iput-boolean v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->hasSound:Z
 
+    .line 244
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # invokes: Lcom/android/server/power/ShutdownDialog;->prepareSound(Ljava/lang/String;)V
     invoke-static {v7, v3}, Lcom/android/server/power/ShutdownDialog;->access$900(Lcom/android/server/power/ShutdownDialog;Ljava/lang/String;)V
 
+    .line 251
+    .end local v3    # "soundPathConfirmed":Ljava/lang/String;
+    .end local v5    # "systemVolume":I
     :cond_3
     :goto_1
     new-instance v4, Landroid/content/Intent;
@@ -354,6 +429,8 @@
 
     invoke-direct {v4, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 252
+    .local v4, "startAnimation":Landroid/content/Intent;
     iget-object v7, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->mContext:Landroid/content/Context;
@@ -363,8 +440,11 @@
 
     invoke-virtual {v7, v4}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 253
     return-void
 
+    .line 247
+    .end local v4    # "startAnimation":Landroid/content/Intent;
     :cond_4
     invoke-direct {p0}, Lcom/android/server/power/ShutdownDialog$StatePrepare;->playSoundForKor()V
 
@@ -374,12 +454,15 @@
 .method public start()V
     .locals 2
 
+    .prologue
+    .line 256
     const-string v0, "ShutdownDialog"
 
     const-string/jumbo v1, "start draw"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 257
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     # getter for: Lcom/android/server/power/ShutdownDialog;->mStateDrawing:Lcom/android/server/power/ShutdownDialog$StateDrawing;
@@ -389,6 +472,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/power/ShutdownDialog$StateDrawing;->start()V
 
+    .line 258
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
 
     iget-object v1, p0, Lcom/android/server/power/ShutdownDialog$StatePrepare;->this$0:Lcom/android/server/power/ShutdownDialog;
@@ -401,5 +485,6 @@
     # setter for: Lcom/android/server/power/ShutdownDialog;->mState:Lcom/android/server/power/ShutdownDialog$DrawState;
     invoke-static {v0, v1}, Lcom/android/server/power/ShutdownDialog;->access$1202(Lcom/android/server/power/ShutdownDialog;Lcom/android/server/power/ShutdownDialog$DrawState;)Lcom/android/server/power/ShutdownDialog$DrawState;
 
+    .line 259
     return-void
 .end method

@@ -165,7 +165,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->checkParserMap()Z
+    invoke-virtual {v2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->checkParserMap()Z
 
     move-result v2
 

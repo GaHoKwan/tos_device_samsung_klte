@@ -223,7 +223,7 @@
     .line 62
     sget-object v0, Lcom/movial/ipphone/SessionCall$State;->$VALUES:[Lcom/movial/ipphone/SessionCall$State;
 
-    invoke-virtual {v0}, [Lcom/movial/ipphone/SessionCall$State;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

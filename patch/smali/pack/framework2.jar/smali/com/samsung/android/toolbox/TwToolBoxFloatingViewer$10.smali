@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 689
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$10;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,10 +36,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 692
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$10;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-virtual {v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->reset()V
 
+    .line 693
     return-void
 .end method

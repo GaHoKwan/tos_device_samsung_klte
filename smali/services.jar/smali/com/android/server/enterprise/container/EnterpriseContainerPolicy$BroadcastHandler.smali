@@ -30,10 +30,13 @@
 .method public constructor <init>(Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;)V
     .locals 0
 
+    .prologue
+    .line 162
     iput-object p1, p0, Lcom/android/server/enterprise/container/EnterpriseContainerPolicy$BroadcastHandler;->this$0:Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 163
     return-void
 .end method
 
@@ -41,7 +44,10 @@
 # virtual methods
 .method public declared-synchronized handleMessage(Landroid/os/Message;)V
     .locals 7
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 167
     monitor-enter p0
 
     :try_start_0
@@ -49,6 +55,7 @@
 
     packed-switch v4, :pswitch_data_0
 
+    .line 178
     # getter for: Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;->access$200()Ljava/lang/String;
 
@@ -79,17 +86,21 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 185
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 169
     :pswitch_0
     :try_start_1
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
+    .line 170
+    .local v0, "bundle":Landroid/os/Bundle;
     const-string v4, "handler_intent"
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -98,12 +109,16 @@
 
     check-cast v2, Landroid/content/Intent;
 
+    .line 171
+    .local v2, "intent":Landroid/content/Intent;
     const-string v4, "handler_permission"
 
     invoke-virtual {v0, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
+    .line 172
+    .local v3, "permission":Ljava/lang/String;
     iget-object v4, p0, Lcom/android/server/enterprise/container/EnterpriseContainerPolicy$BroadcastHandler;->this$0:Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;
 
     # getter for: Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;->mContext:Landroid/content/Context;
@@ -118,9 +133,15 @@
 
     goto :goto_0
 
+    .line 182
+    .end local v0    # "bundle":Landroid/os/Bundle;
+    .end local v2    # "intent":Landroid/content/Intent;
+    .end local v3    # "permission":Ljava/lang/String;
     :catch_0
     move-exception v1
 
+    .line 183
+    .local v1, "e":Ljava/lang/Exception;
     :try_start_2
     # getter for: Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseContainerPolicy;->access$200()Ljava/lang/String;
@@ -135,6 +156,8 @@
 
     goto :goto_0
 
+    .line 167
+    .end local v1    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v4
 
@@ -150,7 +173,11 @@
 
 .method public declared-synchronized send(Landroid/content/Intent;Ljava/lang/String;)V
     .locals 3
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "permission"    # Ljava/lang/String;
 
+    .prologue
+    .line 188
     monitor-enter p0
 
     :try_start_0
@@ -158,36 +185,49 @@
 
     invoke-direct {v1}, Landroid/os/Message;-><init>()V
 
+    .line 189
+    .local v1, "msg":Landroid/os/Message;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
+    .line 190
+    .local v0, "data":Landroid/os/Bundle;
     const-string v2, "handler_intent"
 
     invoke-virtual {v0, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 191
     const-string v2, "handler_permission"
 
     invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 192
     invoke-virtual {v1, v0}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
 
+    .line 193
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/os/Message;->setAsynchronous(Z)V
 
+    .line 194
     const/4 v2, 0x1
 
     iput v2, v1, Landroid/os/Message;->what:I
 
+    .line 195
     invoke-virtual {p0, v1}, Lcom/android/server/enterprise/container/EnterpriseContainerPolicy$BroadcastHandler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 196
     monitor-exit p0
 
     return-void
 
+    .line 188
+    .end local v0    # "data":Landroid/os/Bundle;
+    .end local v1    # "msg":Landroid/os/Message;
     :catchall_0
     move-exception v2
 

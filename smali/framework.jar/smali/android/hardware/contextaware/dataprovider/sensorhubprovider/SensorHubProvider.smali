@@ -118,7 +118,7 @@
     iput v0, p0, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->mFaultDetectionResult:I
 
     .line 132
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/DataProvider;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->clear()V
 
     .line 133
     return-void
@@ -318,7 +318,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p0, v0, v1}, Landroid/hardware/contextaware/manager/ContextProvider;->getFaultDetectionResult(ILjava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -403,14 +403,14 @@
 
     .line 206
     .local v0, "data":I
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/DataProvider;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v4
 
     invoke-virtual {v4, v1, v0}, Landroid/hardware/contextaware/manager/ContextBean;->putContext(Ljava/lang/String;I)V
 
     .line 208
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/DataProvider;->notifyObserver()V
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->notifyObserver()V
 
     move v2, v3
 

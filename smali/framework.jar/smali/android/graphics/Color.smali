@@ -162,7 +162,7 @@
     .line 406
     sget-object v0, Landroid/graphics/Color;->sColorNameMap:Ljava/util/HashMap;
 
-    const-string v1, "yellow"
+    const-string/jumbo v1, "yellow"
 
     const/16 v2, -0x100
 

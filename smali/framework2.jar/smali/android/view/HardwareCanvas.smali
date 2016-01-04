@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 29
     invoke-direct {p0}, Landroid/graphics/Canvas;-><init>()V
 
     return-void
@@ -23,7 +25,10 @@
 
 .method public callDrawGLFunction(I)I
     .locals 1
+    .param p1, "drawGLFunction"    # I
 
+    .prologue
+    .line 150
     const/4 v0, 0x0
 
     return v0
@@ -43,13 +48,17 @@
 
 .method public drawDisplayList(Landroid/view/DisplayList;)V
     .locals 2
+    .param p1, "displayList"    # Landroid/view/DisplayList;
 
+    .prologue
+    .line 94
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/view/HardwareCanvas;->drawDisplayList(Landroid/view/DisplayList;Landroid/graphics/Rect;I)I
 
+    .line 95
     return-void
 .end method
 
@@ -62,6 +71,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 66
     iget-object v0, p0, Landroid/view/HardwareCanvas;->mName:Ljava/lang/String;
 
     return-object v0
@@ -69,7 +80,10 @@
 
 .method public invokeFunctors(Landroid/graphics/Rect;)I
     .locals 1
+    .param p1, "dirty"    # Landroid/graphics/Rect;
 
+    .prologue
+    .line 164
     const/4 v0, 0x0
 
     return v0
@@ -78,6 +92,8 @@
 .method public isHardwareAccelerated()Z
     .locals 1
 
+    .prologue
+    .line 34
     const/4 v0, 0x1
 
     return v0
@@ -97,7 +113,10 @@
 
 .method public setBitmap(Landroid/graphics/Bitmap;)V
     .locals 1
+    .param p1, "bitmap"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 39
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {v0}, Ljava/lang/UnsupportedOperationException;-><init>()V
@@ -107,8 +126,12 @@
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 53
     iput-object p1, p0, Landroid/view/HardwareCanvas;->mName:Ljava/lang/String;
 
+    .line 54
     return-void
 .end method

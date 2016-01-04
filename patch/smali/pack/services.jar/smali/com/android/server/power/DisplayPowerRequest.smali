@@ -53,94 +53,132 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/16 v2, 0xff
 
     const/4 v0, -0x1
 
     const/4 v1, 0x0
 
+    .line 100
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 68
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->useSystemPowerSaveMode:Z
 
+    .line 72
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessLowerLimit:I
 
+    .line 73
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessUpperLimit:I
 
+    .line 76
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->forceLcdBacklightOffEnabled:Z
 
+    .line 80
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->isAlpmMode:Z
 
+    .line 83
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->maxBrightness:I
 
+    .line 84
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->minBrightness:I
 
+    .line 87
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustment:I
 
+    .line 88
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMin:I
 
+    .line 89
     iput v2, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMax:I
 
+    .line 93
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
+    .line 96
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->lastGoToSleepReason:I
 
+    .line 101
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenState:I
 
+    .line 102
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->useProximitySensor:Z
 
+    .line 103
     iput v2, p0, Lcom/android/server/power/DisplayPowerRequest;->screenBrightness:I
 
+    .line 104
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenAutoBrightnessAdjustment:F
 
+    .line 105
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->useAutoBrightness:Z
 
+    .line 106
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->blockScreenOn:Z
 
+    .line 107
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/server/power/DisplayPowerRequest;)V
     .locals 2
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
+    .prologue
     const/4 v0, -0x1
 
     const/4 v1, 0x0
 
+    .line 109
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 68
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->useSystemPowerSaveMode:Z
 
+    .line 72
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessLowerLimit:I
 
+    .line 73
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessUpperLimit:I
 
+    .line 76
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->forceLcdBacklightOffEnabled:Z
 
+    .line 80
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->isAlpmMode:Z
 
+    .line 83
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->maxBrightness:I
 
+    .line 84
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->minBrightness:I
 
+    .line 87
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustment:I
 
+    .line 88
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMin:I
 
+    .line 89
     const/16 v0, 0xff
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMax:I
 
+    .line 93
     iput-boolean v1, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
+    .line 96
     iput v1, p0, Lcom/android/server/power/DisplayPowerRequest;->lastGoToSleepReason:I
 
+    .line 110
     invoke-virtual {p0, p1}, Lcom/android/server/power/DisplayPowerRequest;->copyFrom(Lcom/android/server/power/DisplayPowerRequest;)V
 
+    .line 111
     return-void
 .end method
 
@@ -148,85 +186,109 @@
 # virtual methods
 .method public copyFrom(Lcom/android/server/power/DisplayPowerRequest;)V
     .locals 1
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
+    .prologue
+    .line 114
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->screenState:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenState:I
 
+    .line 115
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->useProximitySensor:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->useProximitySensor:Z
 
+    .line 116
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->screenBrightness:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenBrightness:I
 
+    .line 117
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->screenAutoBrightnessAdjustment:F
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenAutoBrightnessAdjustment:F
 
+    .line 118
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->useAutoBrightness:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->useAutoBrightness:Z
 
+    .line 119
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->blockScreenOn:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->blockScreenOn:Z
 
+    .line 121
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->useSystemPowerSaveMode:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->useSystemPowerSaveMode:Z
 
+    .line 122
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessLowerLimit:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessLowerLimit:I
 
+    .line 123
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessUpperLimit:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessUpperLimit:I
 
+    .line 124
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->maxBrightness:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->maxBrightness:I
 
+    .line 125
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->minBrightness:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->minBrightness:I
 
+    .line 127
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->autoBrightnessForEbookOnly:Z
 
+    .line 130
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->forceLcdBacklightOffEnabled:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->forceLcdBacklightOffEnabled:Z
 
+    .line 134
     iget-boolean v0, p1, Lcom/android/server/power/DisplayPowerRequest;->isAlpmMode:Z
 
     iput-boolean v0, p0, Lcom/android/server/power/DisplayPowerRequest;->isAlpmMode:Z
 
+    .line 138
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->lastGoToSleepReason:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->lastGoToSleepReason:I
 
+    .line 142
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustment:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustment:I
 
+    .line 143
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMin:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMin:I
 
+    .line 144
     iget v0, p1, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMax:I
 
     iput v0, p0, Lcom/android/server/power/DisplayPowerRequest;->masterBrightnessAdjustmentValidRangeMax:I
 
+    .line 147
     return-void
 .end method
 
 .method public equals(Lcom/android/server/power/DisplayPowerRequest;)Z
     .locals 2
+    .param p1, "other"    # Lcom/android/server/power/DisplayPowerRequest;
 
+    .prologue
+    .line 156
     if-eqz p1, :cond_0
 
     iget v0, p0, Lcom/android/server/power/DisplayPowerRequest;->screenState:I
@@ -352,13 +414,17 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 1
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
+    .line 151
     instance-of v0, p1, Lcom/android/server/power/DisplayPowerRequest;
 
     if-eqz v0, :cond_0
 
     check-cast p1, Lcom/android/server/power/DisplayPowerRequest;
 
+    .end local p1    # "o":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/power/DisplayPowerRequest;->equals(Lcom/android/server/power/DisplayPowerRequest;)Z
 
     move-result v0
@@ -379,6 +445,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 191
     const/4 v0, 0x0
 
     return v0
@@ -387,6 +455,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 196
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

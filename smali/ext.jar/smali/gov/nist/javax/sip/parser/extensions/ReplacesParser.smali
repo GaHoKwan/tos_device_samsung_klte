@@ -119,7 +119,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/header/extensions/Replaces;->encode()Ljava/lang/String;
+    invoke-virtual {v1}, Lgov/nist/javax/sip/header/SIPHeader;->encode()Ljava/lang/String;
 
     move-result-object v6
 
@@ -225,14 +225,14 @@
     .line 46
     const-string v2, "parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 48
     :cond_0
     const/16 v2, 0x857
 
     :try_start_0
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->headerName(I)V
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 50
     new-instance v1, Lgov/nist/javax/sip/header/extensions/Replaces;
@@ -241,12 +241,12 @@
 
     .line 51
     .local v1, "replaces":Lgov/nist/javax/sip/header/extensions/Replaces;
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 52
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->byteStringNoSemicolon()Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     .line 53
     .local v0, "callId":Ljava/lang/String;
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v2}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -274,7 +274,7 @@
     .line 59
     const-string v2, "parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 56
     :cond_1
@@ -293,7 +293,7 @@
     .line 59
     const-string v3, "parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/extensions/ReplacesParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 58
     :cond_2

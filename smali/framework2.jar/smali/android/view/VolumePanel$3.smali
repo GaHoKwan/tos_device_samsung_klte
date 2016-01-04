@@ -21,7 +21,11 @@
 # direct methods
 .method constructor <init>(Landroid/view/VolumePanel;Landroid/content/Context;I)V
     .locals 0
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # I
 
+    .prologue
+    .line 527
     iput-object p1, p0, Landroid/view/VolumePanel$3;->this$0:Landroid/view/VolumePanel;
 
     invoke-direct {p0, p2, p3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
@@ -33,8 +37,11 @@
 # virtual methods
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
-    invoke-virtual {p0}, Landroid/view/VolumePanel$3;->isShowing()Z
+    .prologue
+    .line 529
+    invoke-virtual {p0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
@@ -55,19 +62,23 @@
 
     if-nez v0, :cond_0
 
+    .line 531
     const-string v0, "VolumePanel"
 
     const-string v1, "VolumePanel: constructor : onTouchEvent : forceTimeout()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 532
     iget-object v0, p0, Landroid/view/VolumePanel$3;->this$0:Landroid/view/VolumePanel;
 
     # invokes: Landroid/view/VolumePanel;->forceTimeout()V
     invoke-static {v0}, Landroid/view/VolumePanel;->access$200(Landroid/view/VolumePanel;)V
 
+    .line 533
     const/4 v0, 0x1
 
+    .line 535
     :goto_0
     return v0
 

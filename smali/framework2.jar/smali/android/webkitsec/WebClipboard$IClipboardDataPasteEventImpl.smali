@@ -27,10 +27,13 @@
 .method constructor <init>(Landroid/webkitsec/WebClipboard;)V
     .locals 1
 
+    .prologue
+    .line 571
     iput-object p1, p0, Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl;->this$0:Landroid/webkitsec/WebClipboard;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 572
     new-instance v0, Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl$1;-><init>(Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl;)V
@@ -45,6 +48,8 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 1
 
+    .prologue
+    .line 596
     iget-object v0, p0, Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl;->mBinder:Landroid/sec/clipboard/IClipboardDataPasteEvent$Stub;
 
     return-object v0
@@ -52,15 +57,21 @@
 
 .method public onClipboardDataPaste(Landroid/sec/clipboard/data/ClipboardData;)V
     .locals 3
+    .param p1, "data"    # Landroid/sec/clipboard/data/ClipboardData;
 
+    .prologue
+    .line 581
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     const-string/jumbo v2, "onClipboardDataPaste"
 
     invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+    .line 582
     move-object v0, p1
 
+    .line 584
+    .local v0, "dataInner":Landroid/sec/clipboard/data/ClipboardData;
     iget-object v1, p0, Landroid/webkitsec/WebClipboard$IClipboardDataPasteEventImpl;->this$0:Landroid/webkitsec/WebClipboard;
 
     # getter for: Landroid/webkitsec/WebClipboard;->mHandler:Landroid/os/Handler;
@@ -74,5 +85,6 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 593
     return-void
 .end method

@@ -126,11 +126,11 @@
 
     .line 165
     .local v0, "value":[S
-    invoke-virtual {p0, v2, v0}, Landroid/media/audiofx/PresetReverb;->getParameter(I[S)I
+    invoke-virtual {p0, v2, v0}, Landroid/media/audiofx/AudioEffect;->getParameter(I[S)I
 
     move-result v1
 
-    invoke-virtual {p0, v1}, Landroid/media/audiofx/PresetReverb;->checkStatus(I)V
+    invoke-virtual {p0, v1}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
 
     .line 166
     aget-short v1, v0, v2
@@ -164,11 +164,11 @@
 
     .line 294
     .local v1, "value":[S
-    invoke-virtual {p0, v3, v1}, Landroid/media/audiofx/PresetReverb;->getParameter(I[S)I
+    invoke-virtual {p0, v3, v1}, Landroid/media/audiofx/AudioEffect;->getParameter(I[S)I
 
     move-result v2
 
-    invoke-virtual {p0, v2}, Landroid/media/audiofx/PresetReverb;->checkStatus(I)V
+    invoke-virtual {p0, v2}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
 
     .line 295
     aget-short v2, v1, v3
@@ -245,11 +245,11 @@
     .line 152
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0, p1}, Landroid/media/audiofx/PresetReverb;->setParameter(IS)I
+    invoke-virtual {p0, v0, p1}, Landroid/media/audiofx/AudioEffect;->setParameter(IS)I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/media/audiofx/PresetReverb;->checkStatus(I)V
+    invoke-virtual {p0, v0}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
 
     .line 153
     return-void
@@ -272,11 +272,11 @@
 
     iget-short v1, p1, Landroid/media/audiofx/PresetReverb$Settings;->preset:S
 
-    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/PresetReverb;->setParameter(IS)I
+    invoke-virtual {p0, v0, v1}, Landroid/media/audiofx/AudioEffect;->setParameter(IS)I
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Landroid/media/audiofx/PresetReverb;->checkStatus(I)V
+    invoke-virtual {p0, v0}, Landroid/media/audiofx/AudioEffect;->checkStatus(I)V
 
     .line 310
     return-void

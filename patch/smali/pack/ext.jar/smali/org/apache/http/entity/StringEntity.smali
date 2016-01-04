@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lorg/apache/http/entity/StringEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 66
     return-void

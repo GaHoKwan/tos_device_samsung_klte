@@ -47,14 +47,14 @@
     .line 65
     const-string v1, "parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/WWWAuthenticateParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 67
     :cond_0
     const/16 v1, 0x830
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/WWWAuthenticateParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 68
     new-instance v0, Lgov/nist/javax/sip/header/WWWAuthenticate;
@@ -75,7 +75,7 @@
     .line 73
     const-string v1, "parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/WWWAuthenticateParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 70
     :cond_1
@@ -93,7 +93,7 @@
     .line 73
     const-string v2, "parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/WWWAuthenticateParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 72
     :cond_2

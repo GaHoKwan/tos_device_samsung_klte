@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
 
+    .prologue
+    .line 710
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,12 @@
 # virtual methods
 .method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
     .locals 2
+    .param p1, "v"    # Landroid/widget/TextView;
+    .param p2, "actionId"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
+    .line 713
     const/4 v0, 0x6
 
     if-eq p2, v0, :cond_0
@@ -49,14 +56,17 @@
 
     if-ne v0, v1, :cond_1
 
+    .line 714
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$4;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     # invokes: Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->verifyPassword()V
     invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->access$100(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
 
+    .line 715
     const/4 v0, 0x1
 
+    .line 717
     :goto_0
     return v0
 

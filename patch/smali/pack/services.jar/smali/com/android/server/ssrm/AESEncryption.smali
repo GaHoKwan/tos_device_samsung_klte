@@ -31,10 +31,13 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 49
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/ssrm/AESEncryption;->salt:Ljava/lang/String;
 
+    .line 53
     const-class v0, Lcom/android/server/ssrm/AESEncryption;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
@@ -49,20 +52,25 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 56
     invoke-direct {p0}, Lcom/android/server/ssrm/AESEncryption;->generateIV()[B
 
     move-result-object v1
 
     sput-object v1, Lcom/android/server/ssrm/AESEncryption;->iv:[B
 
+    .line 58
     sget-object v1, Landroid/os/Build;->MODEL:Ljava/lang/String;
 
     sput-object v1, Lcom/android/server/ssrm/AESEncryption;->salt:Ljava/lang/String;
 
+    .line 60
     :try_start_0
     const-string v1, "AES/CBC/PKCS7Padding"
 
@@ -75,19 +83,27 @@
     .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljavax/crypto/NoSuchPaddingException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 66
     :goto_0
     return-void
 
+    .line 61
     :catch_0
     move-exception v0
 
+    .line 62
+    .local v0, "e":Ljava/security/NoSuchAlgorithmException;
     iput-object v2, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     goto :goto_0
 
+    .line 63
+    .end local v0    # "e":Ljava/security/NoSuchAlgorithmException;
     :catch_1
     move-exception v0
 
+    .line 64
+    .local v0, "e":Ljavax/crypto/NoSuchPaddingException;
     iput-object v2, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     goto :goto_0
@@ -96,6 +112,8 @@
 .method private generateIV()[B
     .locals 3
 
+    .prologue
+    .line 115
     const/16 v2, 0x10
 
     :try_start_0
@@ -103,12 +121,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 118
     :goto_0
     return-object v1
 
+    .line 117
     :catch_0
     move-exception v0
 
+    .line 118
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -118,14 +140,18 @@
 # virtual methods
 .method public decrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
+    .param p1, "code"    # Ljava/lang/String;
+    .param p2, "passcode"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
         }
     .end annotation
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 99
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -134,13 +160,17 @@
 
     if-nez v4, :cond_1
 
+    .line 110
     :cond_0
     :goto_0
     return-object v3
 
+    .line 102
     :cond_1
     const/4 v0, 0x0
 
+    .line 104
+    .local v0, "decrypted":[B
     :try_start_0
     new-instance v2, Ljavax/crypto/spec/IvParameterSpec;
 
@@ -148,6 +178,8 @@
 
     invoke-direct {v2, v4}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
+    .line 105
+    .local v2, "ivspec":Ljavax/crypto/spec/IvParameterSpec;
     iget-object v4, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     const/4 v5, 0x2
@@ -158,6 +190,7 @@
 
     invoke-virtual {v4, v5, v6, v2}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
+    .line 106
     iget-object v4, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     const/4 v5, 0x0
@@ -172,6 +205,7 @@
 
     move-result-object v0
 
+    .line 110
     new-instance v3, Ljava/lang/String;
 
     const-string v4, "UTF-8"
@@ -180,17 +214,25 @@
 
     goto :goto_0
 
+    .line 107
+    .end local v2    # "ivspec":Ljavax/crypto/spec/IvParameterSpec;
     :catch_0
     move-exception v1
 
+    .line 108
+    .local v1, "e":Ljava/lang/Exception;
     goto :goto_0
 .end method
 
 .method public encrypt(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
     .locals 8
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "passcode"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 82
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -202,14 +244,20 @@
     :cond_0
     move-object v2, v4
 
+    .line 95
     :goto_0
     return-object v2
 
+    .line 85
     :cond_1
     const/4 v1, 0x0
 
+    .line 86
+    .local v1, "encrypted":[B
     const/4 v2, 0x0
 
+    .line 88
+    .local v2, "encrypted64":Ljava/lang/String;
     :try_start_0
     new-instance v3, Ljavax/crypto/spec/IvParameterSpec;
 
@@ -217,6 +265,8 @@
 
     invoke-direct {v3, v5}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
+    .line 89
+    .local v3, "ivspec":Ljavax/crypto/spec/IvParameterSpec;
     iget-object v5, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     const/4 v6, 0x1
@@ -227,6 +277,7 @@
 
     invoke-virtual {v5, v6, v7, v3}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
+    .line 90
     iget-object v5, p0, Lcom/android/server/ssrm/AESEncryption;->cipher:Ljavax/crypto/Cipher;
 
     const-string v6, "UTF-8"
@@ -239,6 +290,7 @@
 
     move-result-object v1
 
+    .line 91
     const/4 v5, 0x0
 
     invoke-static {v1, v5}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
@@ -249,17 +301,24 @@
 
     goto :goto_0
 
+    .line 92
+    .end local v3    # "ivspec":Ljavax/crypto/spec/IvParameterSpec;
     :catch_0
     move-exception v0
 
+    .local v0, "e":Ljava/lang/Exception;
     move-object v2, v4
 
+    .line 93
     goto :goto_0
 .end method
 
 .method public getSecretKey(Ljava/lang/String;)Ljavax/crypto/SecretKey;
     .locals 9
+    .param p1, "password"    # Ljava/lang/String;
 
+    .prologue
+    .line 70
     :try_start_0
     new-instance v2, Ljavax/crypto/spec/PBEKeySpec;
 
@@ -281,16 +340,22 @@
 
     invoke-direct {v2, v5, v6, v7, v8}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
 
+    .line 72
+    .local v2, "pbeKeySpec":Ljavax/crypto/spec/PBEKeySpec;
     const-string v5, "PBKDF2WithHmacSHA1"
 
     invoke-static {v5}, Ljavax/crypto/SecretKeyFactory;->getInstance(Ljava/lang/String;)Ljavax/crypto/SecretKeyFactory;
 
     move-result-object v1
 
+    .line 73
+    .local v1, "factory":Ljavax/crypto/SecretKeyFactory;
     invoke-virtual {v1, v2}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
 
     move-result-object v4
 
+    .line 74
+    .local v4, "tmp":Ljavax/crypto/SecretKey;
     new-instance v3, Ljavax/crypto/spec/SecretKeySpec;
 
     invoke-interface {v4}, Ljavax/crypto/SecretKey;->getEncoded()[B
@@ -303,12 +368,19 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 77
+    .end local v1    # "factory":Ljavax/crypto/SecretKeyFactory;
+    .end local v2    # "pbeKeySpec":Ljavax/crypto/spec/PBEKeySpec;
+    .end local v4    # "tmp":Ljavax/crypto/SecretKey;
     :goto_0
     return-object v3
 
+    .line 76
     :catch_0
     move-exception v0
 
+    .line 77
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v3, 0x0
 
     goto :goto_0

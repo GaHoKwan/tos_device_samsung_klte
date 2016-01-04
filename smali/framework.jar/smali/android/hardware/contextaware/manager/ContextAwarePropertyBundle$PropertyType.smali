@@ -502,7 +502,7 @@
     .line 102
     sget-object v0, Landroid/hardware/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->$VALUES:[Landroid/hardware/contextaware/manager/ContextAwarePropertyBundle$PropertyType;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -518,7 +518,7 @@
 
     .prologue
     .line 519
-    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextAwarePropertyBundle$PropertyType;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

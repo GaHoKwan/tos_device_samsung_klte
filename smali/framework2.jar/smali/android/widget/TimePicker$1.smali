@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 93
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -30,6 +32,11 @@
 # virtual methods
 .method public onTimeChanged(Landroid/widget/TimePicker;II)V
     .locals 0
+    .param p1, "view"    # Landroid/widget/TimePicker;
+    .param p2, "hourOfDay"    # I
+    .param p3, "minute"    # I
 
+    .prologue
+    .line 95
     return-void
 .end method

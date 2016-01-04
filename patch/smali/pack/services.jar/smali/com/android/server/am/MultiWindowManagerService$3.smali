@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/am/MultiWindowManagerService;)V
     .locals 0
 
+    .prologue
+    .line 707
     iput-object p1, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,16 @@
 .method public run()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x0
 
     const/4 v8, 0x0
 
+    .line 710
     const/4 v2, 0x0
 
+    .line 711
+    .local v2, "isNeedAdditionalAnimation":Z
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -56,16 +62,19 @@
 
     if-nez v5, :cond_1
 
+    .line 712
     const-string v5, "MultiWindowManagerService"
 
     const-string v6, "mShiftPosition mCurrMovements.size=0 reuturn"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 766
     :cond_0
     :goto_0
     return-void
 
+    .line 716
     :cond_1
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -80,6 +89,7 @@
 
     if-lez v5, :cond_2
 
+    .line 717
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mMovements:Ljava/util/ArrayList;
@@ -93,6 +103,8 @@
 
     check-cast v0, Lcom/android/server/am/MultiWindowManagerService$Movement;
 
+    .line 718
+    .local v0, "currMovements":Lcom/android/server/am/MultiWindowManagerService$Movement;
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mMovements:Ljava/util/ArrayList;
@@ -102,8 +114,10 @@
 
     invoke-virtual {v5, v9}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
+    .line 720
     if-eqz v0, :cond_2
 
+    .line 721
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -121,6 +135,7 @@
 
     iput v6, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementX:F
 
+    .line 722
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -138,6 +153,8 @@
 
     iput v6, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementY:F
 
+    .line 726
+    .end local v0    # "currMovements":Lcom/android/server/am/MultiWindowManagerService$Movement;
     :cond_2
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -147,6 +164,8 @@
 
     move-result v3
 
+    .line 727
+    .local v3, "size":I
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -160,6 +179,7 @@
 
     if-eq v3, v5, :cond_3
 
+    .line 728
     const-string v5, "MultiWindowManagerService"
 
     const-string v6, "mShiftPosition mMinimizeCallbacks and mCurrMovements are size different"
@@ -168,12 +188,15 @@
 
     goto :goto_0
 
+    .line 731
     :cond_3
     add-int/lit8 v1, v3, -0x1
 
+    .local v1, "i":I
     :goto_1
     if-lez v1, :cond_8
 
+    .line 732
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -212,6 +235,7 @@
 
     if-eqz v5, :cond_5
 
+    .line 733
     :cond_4
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -225,6 +249,8 @@
 
     iget-object v4, v5, Lcom/android/server/am/MultiWindowManagerService$MinimizeCallback;->mToken:Landroid/os/IBinder;
 
+    .line 740
+    .local v4, "token":Landroid/os/IBinder;
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -240,6 +266,7 @@
 
     iput v8, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementX:F
 
+    .line 741
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -255,6 +282,8 @@
 
     iput v8, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementY:F
 
+    .line 744
+    .end local v4    # "token":Landroid/os/IBinder;
     :cond_5
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -277,6 +306,7 @@
 
     if-eqz v5, :cond_6
 
+    .line 745
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -320,8 +350,10 @@
 
     iput v6, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementX:F
 
+    .line 746
     const/4 v2, 0x1
 
+    .line 748
     :cond_6
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -344,6 +376,7 @@
 
     if-eqz v5, :cond_7
 
+    .line 749
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -376,13 +409,16 @@
 
     iput v6, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementY:F
 
+    .line 750
     const/4 v2, 0x1
 
+    .line 731
     :cond_7
     add-int/lit8 v1, v1, -0x1
 
     goto/16 :goto_1
 
+    .line 754
     :cond_8
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -422,6 +458,7 @@
 
     if-eqz v5, :cond_a
 
+    .line 761
     :cond_9
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -438,6 +475,7 @@
 
     iput v8, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementX:F
 
+    .line 762
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
     # getter for: Lcom/android/server/am/MultiWindowManagerService;->mCurrMovements:Ljava/util/ArrayList;
@@ -453,6 +491,7 @@
 
     iput v8, v5, Lcom/android/server/am/MultiWindowManagerService$Movement;->movementY:F
 
+    .line 764
     :cond_a
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -465,6 +504,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 765
     :cond_b
     iget-object v5, p0, Lcom/android/server/am/MultiWindowManagerService$3;->this$0:Lcom/android/server/am/MultiWindowManagerService;
 
@@ -474,7 +514,7 @@
 
     iget-object v6, v6, Lcom/android/server/am/MultiWindowManagerService;->mShiftPosition:Ljava/lang/Runnable;
 
-    invoke-virtual {v5, v6}, Lcom/android/server/am/MultiWindowManagerService$H;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto/16 :goto_0
 .end method

@@ -32,15 +32,22 @@
 # direct methods
 .method public constructor <init>(Landroid/widget/TimePicker;II)V
     .locals 2
+    .param p2, "maxLen"    # I
+    .param p3, "id"    # I
 
+    .prologue
+    .line 1096
     iput-object p1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1097
     iput p2, p0, Landroid/widget/TimePicker$TwTextWatcher;->mMaxLen:I
 
+    .line 1098
     iput p3, p0, Landroid/widget/TimePicker$TwTextWatcher;->mId:I
 
+    .line 1100
     iget v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->mId:I
 
     add-int/lit8 v0, v0, 0x1
@@ -54,8 +61,10 @@
     :goto_0
     iput v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->mNext:I
 
+    .line 1101
     return-void
 
+    .line 1100
     :cond_0
     iget v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->mId:I
 
@@ -67,9 +76,11 @@
 .method private changeFocus()V
     .locals 4
 
+    .prologue
+    .line 1132
     iget-object v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
-    # getter for: Landroid/widget/TimePicker;->mContext:Landroid/content/Context;
+    # getter for: Landroid/view/View;->mContext:Landroid/content/Context;
     invoke-static {v2}, Landroid/widget/TimePicker;->access$1300(Landroid/widget/TimePicker;)Landroid/content/Context;
 
     move-result-object v2
@@ -78,16 +89,20 @@
 
     move-result-object v0
 
+    .line 1133
+    .local v0, "manager":Landroid/view/accessibility/AccessibilityManager;
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
+    .line 1146
     :cond_0
     :goto_0
     return-void
 
+    .line 1137
     :cond_1
     iget v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->mId:I
 
@@ -95,10 +110,13 @@
 
     rem-int/lit8 v1, v2, 0x2
 
+    .line 1139
+    .local v1, "next":I
     iget v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->mNext:I
 
     if-ltz v2, :cond_0
 
+    .line 1140
     iget-object v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->mPickerTexts:[Landroid/widget/EditText;
@@ -110,8 +128,9 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->requestFocus()Z
+    invoke-virtual {v2}, Landroid/view/View;->requestFocus()Z
 
+    .line 1142
     iget-object v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->mPickerTexts:[Landroid/widget/EditText;
@@ -123,12 +142,13 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->isFocused()Z
+    invoke-virtual {v2}, Landroid/view/View;->isFocused()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
+    .line 1143
     iget-object v2, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->mPickerTexts:[Landroid/widget/EditText;
@@ -140,7 +160,7 @@
 
     aget-object v2, v2, v3
 
-    invoke-virtual {v2}, Landroid/widget/EditText;->clearFocus()V
+    invoke-virtual {v2}, Landroid/view/View;->clearFocus()V
 
     goto :goto_0
 .end method
@@ -149,7 +169,10 @@
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
     .locals 3
+    .param p1, "view"    # Landroid/text/Editable;
 
+    .prologue
+    .line 1104
     iget-object v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->TW_DEBUG:Z
@@ -185,13 +208,20 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1105
     :cond_0
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 3
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "count"    # I
+    .param p4, "after"    # I
 
+    .prologue
+    .line 1108
     iget-object v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->TW_DEBUG:Z
@@ -253,6 +283,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1109
     :cond_0
     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -260,12 +291,19 @@
 
     iput-object v0, p0, Landroid/widget/TimePicker$TwTextWatcher;->prevText:Ljava/lang/String;
 
+    .line 1110
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 4
+    .param p1, "s"    # Ljava/lang/CharSequence;
+    .param p2, "start"    # I
+    .param p3, "before"    # I
+    .param p4, "count"    # I
 
+    .prologue
+    .line 1113
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->TW_DEBUG:Z
@@ -299,6 +337,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1114
     :cond_0
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
@@ -361,6 +400,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1116
     :cond_1
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
@@ -373,14 +413,17 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->getTag()Ljava/lang/Object;
+    invoke-virtual {v1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Ljava/lang/String;
 
+    .line 1117
+    .local v0, "tag":Ljava/lang/String;
     if-eqz v0, :cond_4
 
+    .line 1118
     const-string/jumbo v1, "onClick"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -397,6 +440,7 @@
 
     if-eqz v1, :cond_4
 
+    .line 1119
     :cond_2
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
@@ -411,12 +455,14 @@
 
     const-string v2, ""
 
-    invoke-virtual {v1, v2}, Landroid/widget/EditText;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
+    .line 1129
     :cond_3
     :goto_0
     return-void
 
+    .line 1124
     :cond_4
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->prevText:Ljava/lang/String;
 
@@ -438,6 +484,7 @@
 
     if-ne v1, v2, :cond_3
 
+    .line 1125
     iget-object v1, p0, Landroid/widget/TimePicker$TwTextWatcher;->this$0:Landroid/widget/TimePicker;
 
     # getter for: Landroid/widget/TimePicker;->mPickerTexts:[Landroid/widget/EditText;
@@ -449,12 +496,13 @@
 
     aget-object v1, v1, v2
 
-    invoke-virtual {v1}, Landroid/widget/EditText;->isFocused()Z
+    invoke-virtual {v1}, Landroid/view/View;->isFocused()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
+    .line 1126
     invoke-direct {p0}, Landroid/widget/TimePicker$TwTextWatcher;->changeFocus()V
 
     goto :goto_0

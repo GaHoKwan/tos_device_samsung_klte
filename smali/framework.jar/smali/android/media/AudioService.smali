@@ -3841,8 +3841,6 @@
     .param p3, "step"    # I
 
     .prologue
-    const/4 v4, -0x1
-
     const/4 v3, 0x1
 
     .line 3566
@@ -3894,7 +3892,9 @@
 
     .line 3571
     :pswitch_0
-    if-ne p2, v4, :cond_0
+    const/4 v2, -0x1
+
+    if-ne p2, v2, :cond_0
 
     .line 3572
     iget-boolean v2, p0, Landroid/media/AudioService;->mHasVibrator:Z
@@ -3948,66 +3948,51 @@
 
     goto :goto_0
 
-    .line 3619
+    .line 3629
     :cond_5
-    if-ne p2, v4, :cond_7
+    if-ne p2, v3, :cond_6
 
-    .line 3620
-    iget v2, p0, Landroid/media/AudioService;->mPrevVolDirection:I
+    .line 3630
+    const/4 v1, 0x2
 
-    if-eq v2, v4, :cond_6
-
-    .line 3621
-    const/4 v1, 0x0
+    .line 3631
+    iput-boolean v3, p0, Landroid/media/AudioService;->mSilentModeOff:Z
 
     .line 3635
     :cond_6
-    :goto_2
     const/4 v0, 0x0
 
     .line 3636
     goto :goto_0
 
-    .line 3623
-    :cond_7
-    if-ne p2, v3, :cond_6
-
-    .line 3624
-    const/4 v1, 0x2
-
-    .line 3625
-    iput-boolean v3, p0, Landroid/media/AudioService;->mSilentModeOff:Z
-
-    goto :goto_2
-
     .line 3638
     :pswitch_2
-    if-ne p2, v3, :cond_8
+    if-ne p2, v3, :cond_7
 
     .line 3639
     iget-boolean v2, p0, Landroid/media/AudioService;->mHasVibrator:Z
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     .line 3640
     const/4 v1, 0x1
 
     .line 3648
-    :cond_8
-    :goto_3
+    :cond_7
+    :goto_2
     const/4 v0, 0x0
 
     .line 3649
     goto :goto_0
 
     .line 3642
-    :cond_9
+    :cond_8
     const/4 v1, 0x2
 
     .line 3644
     iput-boolean v3, p0, Landroid/media/AudioService;->mSilentModeOff:Z
 
-    goto :goto_3
+    goto :goto_2
 
     .line 3569
     nop

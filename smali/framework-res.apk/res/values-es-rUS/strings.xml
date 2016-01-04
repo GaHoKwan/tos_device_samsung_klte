@@ -319,7 +319,7 @@
     <string name="global_actions_airplane_mode_on_status">Activado</string>
     <string name="global_actions_airplane_mode_off_status">Desactivado</string>
     <string name="global_actions_airplane_mode_on_status_confirm">El perfil Fuera de línea le permite desactivar las funciones de llamadas, mensajes y red de datos. También desactiva las funciones de conectividad como Wi-Fi y Bluetooth. Para usar Wi-Fi y Bluetooth, actívelos en Configuración o en el panel de notificaciones.</string>
-    <string name="global_actions_airplane_mode_on_status_confirm_body">El perfil Fuera de línea desactiva las funciones de llamadas, mensajes y red móvil.</string>
+    <string name="global_actions_airplane_mode_on_status_confirm_body">El perfil Fuera de línea le permite desactivar las funciones de llamadas, mensajes y datos móviles.</string>
     <string name="global_actions_airplane_mode_off_status_confirm">Se desactivará el perfil Fuera de línea.</string>
     <string name="global_actions_airplane_mode_on_status_confirm_wifi">El perfil Fuera de línea le permite desactivar las funciones de red, incluido Wi-Fi y Bluetooth. Para usar Wi-Fi y Bluetooth, actívelos desde Configuración o desde el panel de notificación.</string>
     <string name="global_action_toggle_data_mode">Modo de red de datos</string>
@@ -580,7 +580,7 @@
     <string name="permgroupdesc_systemClock">Cambiar la hora del dispositivo o la zona horaria</string>
     <string name="permgrouplab_statusBar">Barra de estado</string>
     <string name="permgroupdesc_statusBar">Cambiar la configuración de la barra de estado del dispositivo</string>
-    <string name="permgrouplab_syncSettings">Configuración de sincronización</string>
+    <string name="permgrouplab_syncSettings">Config. de sincronización</string>
     <string name="permgroupdesc_syncSettings">Acceso a los ajustes de sincronización</string>
     <string name="permgrouplab_accounts">Sus cuentas</string>
     <string name="permgroupdesc_accounts">Acceder a las cuentas disponibles.</string>
@@ -1661,7 +1661,7 @@
     <string name="vpn_lockdown_connecting">Estableciendo conexión con la VPN siempre activada…</string>
     <string name="vpn_lockdown_connected">Se estableció conexión con la VPN siempre activada.</string>
     <string name="vpn_lockdown_error">Se produjo un error al establecer conexión con la VPN siempre activada.</string>
-    <string name="vpn_lockdown_config">Pulsar para configurar.</string>
+    <string name="vpn_lockdown_config">Toca para configurar.</string>
     <string name="vpn_error_title">Error de conexión VPN</string>
     <string name="vpn_error_text">Pulse para intentar reconectarse a VPN.</string>
     <string name="simRefresh">Actualizando datos de tarjeta SIM</string>
@@ -1802,13 +1802,13 @@
     <string name="storage_sd_card">Tarjeta de memoria</string>
     <string name="storage_usb">Almacenamiento USB</string>
     <string name="extract_edit_menu_button">Editar</string>
-    <string name="data_usage_warning_title">Alerta de uso de datos</string>
-    <string name="data_usage_warning_body">Pulse para ver el uso y ajustes</string>
+    <string name="data_usage_warning_title">Advertencia de uso de datos</string>
+    <string name="data_usage_warning_body">Pulsar para ver el uso y la configuración.</string>
     <string name="data_usage_3g_limit_title">Datos 2G-3G desactivados</string>
     <string name="data_usage_4g_limit_title">Datos 4G desactivados</string>
     <string name="data_usage_mobile_limit_title">Datos móviles desactivados</string>
     <string name="data_usage_wifi_limit_title">Uso de datos Wi-Fi desactivado.</string>
-    <string name="data_usage_limit_body">Pulse para habilitar</string>
+    <string name="data_usage_limit_body">Pulsar para activar.</string>
     <string name="data_usage_3g_limit_snoozed_title">Se excedió el límite de uso de datos 2G/3G</string>
     <string name="data_usage_4g_limit_snoozed_title">Se excedió el límite de uso de datos 4G</string>
     <string name="data_usage_mobile_limit_snoozed_title">Límite de uso de datos móviles alcanzado.</string>
@@ -2174,7 +2174,7 @@ Si escuchas música con el volumen alto durante períodos prolongados, puedes da
     <string name="keyguard_carrierlock_phone_locked_title">Comuníquese con el propietario de este dispositivo.</string>
     <string name="keyguard_carrierlock_when_call_disable">Se denunció el dispositivo como perdido. Informe al centro de servicio de telecomunicaciones de SK que lo encontró (%s).</string>
     <string name="vzw_cooldown_mode">No es posible abrir la aplicación. El dispositivo se está sobrecalentando.</string>
-    <string name="vzw_cooldown_mode_kill">Su teléfono se está calentando demasiado, por lo que se cerraron algunas aplicaciones para permitir que se enfríe.</string>
+    <string name="vzw_cooldown_mode_kill">Aplicación %s cerrada. El dispositivo se está sobrecalentado.</string>
     <string name="vzw_cooldown_mode_attention">Atención</string>
     <string name="vzw_cooldown_mode_ok">Aceptar</string>
     <string name="batt_cooldown_mode">No se puede abrir esta aplicación. El dispositivo se está sobrecalentando.</string>
@@ -2256,7 +2256,7 @@ Para desactivar esta función, vaya a Configuración > Pantalla de bloqueo > Res
     <string name="unable_to_capture_screen_ultrapowersaving_mode">No se puede capturar la pantalla.</string>
     <string name="screen_curtain_mode_enable_status">Pantalla oscura activada.</string>
     <string name="screen_curtain_mode_disable_status">Pantalla oscura desactivada.</string>
-    <string name="direct_access_actions_talkback_mode_on">TalkBack activado. Ahora se ofrecen comentarios hablados para usuarios con problemas de visión. Para desactivarlo, presione la tecla de inicio tres veces.</string>
+    <string name="direct_access_actions_talkback_mode_on">TalkBack activado. Ahora se ofrecen comentarios hablados para usuarios con deficiencias visuales. Para desactivarlo, pulse la tecla de inicio tres veces.</string>
     <string name="direct_access_actions_talkback_mode_off">TalkBack desactivado.</string>
     <string name="personal_mode_setting">Teclado en Modo personal</string>
     <string name="default_keyboard">Teclado predeterminado</string>
@@ -2269,7 +2269,7 @@ Para desactivar esta función, vaya a Configuración > Pantalla de bloqueo > Res
     <string name="tw_action_menu_item_description">Botón</string>
     <string name="free_message_confirmation_alert_title">Send free registration message</string>
     <string name="free_message_confirmation">To provide you with more quality services, your device will send a free registration message to China Telecom now, and every time you insert a new UIM card.</string>
-    <string name="recent_key_long_press_description">Mantenga presionada la tecla Reciente para ver el menú.</string>
+    <string name="recent_key_long_press_description">Mantenga presionada la tecla reciente para ver el menú.</string>
     <string name="tw_preferencecategory_added_title">Encabezado</string>
     <string name="tw_clipboard_already_exists">Ya existe.</string>
     <string name="tw_clipboard_no_items_to_paste">No hay elementos para pegar.</string>

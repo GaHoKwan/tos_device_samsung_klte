@@ -41,6 +41,7 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/AssetAtlasService;Ljava/util/ArrayList;I)V
     .locals 0
+    .param p3, "pixelCount"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,24 +52,36 @@
         }
     .end annotation
 
+    .prologue
+    .line 204
+    .local p2, "bitmaps":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/graphics/Bitmap;>;"
     iput-object p1, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 205
     iput-object p2, p0, Lcom/android/server/AssetAtlasService$Renderer;->mBitmaps:Ljava/util/ArrayList;
 
+    .line 206
     iput p3, p0, Lcom/android/server/AssetAtlasService$Renderer;->mPixelCount:I
 
+    .line 207
     return-void
 .end method
 
 .method private acquireCanvas(II)Landroid/graphics/Canvas;
     .locals 2
+    .param p1, "width"    # I
+    .param p2, "height"    # I
 
+    .prologue
+    .line 331
     new-instance v0, Landroid/graphics/Canvas;
 
     invoke-direct {v0}, Landroid/graphics/Canvas;-><init>()V
 
+    .line 332
+    .local v0, "canvas":Landroid/graphics/Canvas;
     # invokes: Lcom/android/server/AssetAtlasService;->nAcquireAtlasCanvas(Landroid/graphics/Canvas;II)I
     invoke-static {v0, p1, p2}, Lcom/android/server/AssetAtlasService;->access$700(Landroid/graphics/Canvas;II)I
 
@@ -76,27 +89,39 @@
 
     iput v1, p0, Lcom/android/server/AssetAtlasService$Renderer;->mNativeBitmap:I
 
+    .line 333
     return-object v0
 .end method
 
 .method private releaseCanvas(Landroid/graphics/Canvas;)V
     .locals 1
+    .param p1, "canvas"    # Landroid/graphics/Canvas;
 
+    .prologue
+    .line 363
     iget v0, p0, Lcom/android/server/AssetAtlasService$Renderer;->mNativeBitmap:I
 
     # invokes: Lcom/android/server/AssetAtlasService;->nReleaseAtlasCanvas(Landroid/graphics/Canvas;I)V
     invoke-static {p1, v0}, Lcom/android/server/AssetAtlasService;->access$800(Landroid/graphics/Canvas;I)V
 
+    .line 365
     return-void
 .end method
 
 .method private renderAtlas(Landroid/view/GraphicBuffer;Landroid/graphics/Atlas;I)Z
     .locals 26
+    .param p1, "buffer"    # Landroid/view/GraphicBuffer;
+    .param p2, "atlas"    # Landroid/graphics/Atlas;
+    .param p3, "packCount"    # I
 
+    .prologue
+    .line 253
     new-instance v15, Landroid/graphics/Paint;
 
     invoke-direct {v15}, Landroid/graphics/Paint;-><init>()V
 
+    .line 254
+    .local v15, "paint":Landroid/graphics/Paint;
     new-instance v21, Landroid/graphics/PorterDuffXfermode;
 
     sget-object v22, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
@@ -107,6 +132,7 @@
 
     invoke-virtual {v15, v0}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
+    .line 258
     invoke-virtual/range {p1 .. p1}, Landroid/view/GraphicBuffer;->getWidth()I
 
     move-result v21
@@ -125,18 +151,24 @@
 
     move-result-object v5
 
+    .line 259
+    .local v5, "canvas":Landroid/graphics/Canvas;
     if-nez v5, :cond_0
 
     const/16 v17, 0x0
 
+    .line 316
     :goto_0
     return v17
 
+    .line 261
     :cond_0
     new-instance v11, Landroid/graphics/Atlas$Entry;
 
     invoke-direct {v11}, Landroid/graphics/Atlas$Entry;-><init>()V
 
+    .line 263
+    .local v11, "entry":Landroid/graphics/Atlas$Entry;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
@@ -154,6 +186,7 @@
     # setter for: Lcom/android/server/AssetAtlasService;->mAtlasMap:[I
     invoke-static/range {v21 .. v22}, Lcom/android/server/AssetAtlasService;->access$402(Lcom/android/server/AssetAtlasService;[I)[I
 
+    .line 264
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
@@ -165,15 +198,23 @@
 
     move-result-object v3
 
+    .line 265
+    .local v3, "atlasMap":[I
     const/4 v13, 0x0
 
+    .line 267
+    .local v13, "mapIndex":I
     const/16 v17, 0x0
 
+    .line 269
+    .local v17, "result":Z
     :try_start_0
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v18
 
+    .line 270
+    .local v18, "startRender":J
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->mBitmaps:Ljava/util/ArrayList;
@@ -186,13 +227,19 @@
 
     move-result v6
 
+    .line 272
+    .local v6, "count":I
     const/4 v12, 0x0
 
+    .local v12, "i":I
     move v14, v13
 
+    .end local v13    # "mapIndex":I
+    .local v14, "mapIndex":I
     :goto_1
     if-ge v12, v6, :cond_1
 
+    .line 273
     :try_start_1
     move-object/from16 v0, p0
 
@@ -208,6 +255,8 @@
 
     check-cast v4, Landroid/graphics/Bitmap;
 
+    .line 274
+    .local v4, "bitmap":Landroid/graphics/Bitmap;
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v21
@@ -228,6 +277,7 @@
 
     if-eqz v21, :cond_5
 
+    .line 278
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
@@ -249,14 +299,19 @@
 
     if-lt v14, v0, :cond_3
 
+    .line 279
     # invokes: Lcom/android/server/AssetAtlasService;->deleteDataFile()V
     invoke-static {}, Lcom/android/server/AssetAtlasService;->access$500()V
 
+    .line 299
+    .end local v4    # "bitmap":Landroid/graphics/Bitmap;
     :cond_1
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v7
 
+    .line 300
+    .local v7, "endRender":J
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->mNativeBitmap:I
@@ -265,6 +320,7 @@
 
     if-eqz v21, :cond_2
 
+    .line 301
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/server/AssetAtlasService$Renderer;->mNativeBitmap:I
@@ -280,11 +336,14 @@
 
     move-result v17
 
+    .line 304
     :cond_2
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v9
 
+    .line 306
+    .local v9, "endUpload":J
     sub-long v21, v7, v18
 
     move-wide/from16 v0, v21
@@ -301,6 +360,8 @@
 
     div-float v16, v21, v22
 
+    .line 307
+    .local v16, "renderDuration":F
     sub-long v21, v9, v7
 
     move-wide/from16 v0, v21
@@ -317,6 +378,8 @@
 
     div-float v20, v21, v22
 
+    .line 308
+    .local v20, "uploadDuration":F
     const-string v21, "Atlas"
 
     const-string v22, "Rendered atlas in %.2fms (%.2f+%.2fms)"
@@ -363,16 +426,24 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 313
     move-object/from16 v0, p0
 
     invoke-direct {v0, v5}, Lcom/android/server/AssetAtlasService$Renderer;->releaseCanvas(Landroid/graphics/Canvas;)V
 
     goto/16 :goto_0
 
+    .line 283
+    .end local v7    # "endRender":J
+    .end local v9    # "endUpload":J
+    .end local v16    # "renderDuration":F
+    .end local v20    # "uploadDuration":F
+    .restart local v4    # "bitmap":Landroid/graphics/Bitmap;
     :cond_3
     :try_start_2
     invoke-virtual {v5}, Landroid/graphics/Canvas;->save()I
 
+    .line 284
     iget v0, v11, Landroid/graphics/Atlas$Entry;->x:I
 
     move/from16 v21, v0
@@ -399,12 +470,14 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
+    .line 285
     iget-boolean v0, v11, Landroid/graphics/Atlas$Entry;->rotated:Z
 
     move/from16 v21, v0
 
     if-eqz v21, :cond_4
 
+    .line 286
     invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v21
@@ -423,12 +496,14 @@
 
     invoke-virtual {v5, v0, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
+    .line 287
     const/high16 v21, 0x42b40000    # 90.0f
 
     move/from16 v0, v21
 
     invoke-virtual {v5, v0}, Landroid/graphics/Canvas;->rotate(F)V
 
+    .line 289
     :cond_4
     const/16 v21, 0x0
 
@@ -444,12 +519,16 @@
 
     invoke-virtual {v5, v4, v0, v1, v2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
+    .line 290
     invoke-virtual {v5}, Landroid/graphics/Canvas;->restore()V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
+    .line 292
     add-int/lit8 v13, v14, 0x1
 
+    .end local v14    # "mapIndex":I
+    .restart local v13    # "mapIndex":I
     :try_start_3
     iget v0, v4, Landroid/graphics/Bitmap;->mNativeBitmap:I
 
@@ -459,8 +538,11 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 293
     add-int/lit8 v14, v13, 0x1
 
+    .end local v13    # "mapIndex":I
+    .restart local v14    # "mapIndex":I
     :try_start_4
     iget v0, v11, Landroid/graphics/Atlas$Entry;->x:I
 
@@ -470,8 +552,11 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
+    .line 294
     add-int/lit8 v13, v14, 0x1
 
+    .end local v14    # "mapIndex":I
+    .restart local v13    # "mapIndex":I
     :try_start_5
     iget v0, v11, Landroid/graphics/Atlas$Entry;->y:I
 
@@ -481,8 +566,11 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 295
     add-int/lit8 v14, v13, 0x1
 
+    .end local v13    # "mapIndex":I
+    .restart local v14    # "mapIndex":I
     :try_start_6
     iget-boolean v0, v11, Landroid/graphics/Atlas$Entry;->rotated:Z
 
@@ -500,17 +588,30 @@
     :cond_5
     move v13, v14
 
+    .line 272
+    .end local v14    # "mapIndex":I
+    .restart local v13    # "mapIndex":I
     add-int/lit8 v12, v12, 0x1
 
     move v14, v13
 
+    .end local v13    # "mapIndex":I
+    .restart local v14    # "mapIndex":I
     goto/16 :goto_1
 
+    .line 295
     :cond_6
     const/16 v21, 0x0
 
     goto :goto_2
 
+    .line 313
+    .end local v4    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v6    # "count":I
+    .end local v12    # "i":I
+    .end local v14    # "mapIndex":I
+    .end local v18    # "startRender":J
+    .restart local v13    # "mapIndex":I
     :catchall_0
     move-exception v21
 
@@ -521,11 +622,18 @@
 
     throw v21
 
+    .end local v13    # "mapIndex":I
+    .restart local v6    # "count":I
+    .restart local v12    # "i":I
+    .restart local v14    # "mapIndex":I
+    .restart local v18    # "startRender":J
     :catchall_1
     move-exception v21
 
     move v13, v14
 
+    .end local v14    # "mapIndex":I
+    .restart local v13    # "mapIndex":I
     goto :goto_3
 .end method
 
@@ -534,8 +642,10 @@
 .method public run()V
     .locals 7
 
+    .prologue
     const/4 v6, 0x1
 
+    .line 222
     iget-object v2, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     iget-object v3, p0, Lcom/android/server/AssetAtlasService$Renderer;->mBitmaps:Ljava/util/ArrayList;
@@ -554,6 +664,8 @@
 
     move-result-object v1
 
+    .line 223
+    .local v1, "config":Lcom/android/server/AssetAtlasService$Configuration;
     const-string v2, "Atlas"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -576,8 +688,10 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 225
     if-eqz v1, :cond_0
 
+    .line 226
     iget-object v2, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     iget v3, v1, Lcom/android/server/AssetAtlasService$Configuration;->width:I
@@ -593,6 +707,7 @@
     # setter for: Lcom/android/server/AssetAtlasService;->mBuffer:Landroid/view/GraphicBuffer;
     invoke-static {v2, v3}, Lcom/android/server/AssetAtlasService;->access$202(Lcom/android/server/AssetAtlasService;Landroid/view/GraphicBuffer;)Landroid/view/GraphicBuffer;
 
+    .line 229
     iget-object v2, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     # getter for: Lcom/android/server/AssetAtlasService;->mBuffer:Landroid/view/GraphicBuffer;
@@ -602,6 +717,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 230
     new-instance v0, Landroid/graphics/Atlas;
 
     iget-object v2, v1, Lcom/android/server/AssetAtlasService$Configuration;->type:Landroid/graphics/Atlas$Type;
@@ -614,6 +730,8 @@
 
     invoke-direct {v0, v2, v3, v4, v5}, Landroid/graphics/Atlas;-><init>(Landroid/graphics/Atlas$Type;III)V
 
+    .line 231
+    .local v0, "atlas":Landroid/graphics/Atlas;
     iget-object v2, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     # getter for: Lcom/android/server/AssetAtlasService;->mBuffer:Landroid/view/GraphicBuffer;
@@ -629,6 +747,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 232
     iget-object v2, p0, Lcom/android/server/AssetAtlasService$Renderer;->this$0:Lcom/android/server/AssetAtlasService;
 
     # getter for: Lcom/android/server/AssetAtlasService;->mAtlasReady:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -638,6 +757,8 @@
 
     invoke-virtual {v2, v6}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
+    .line 236
+    .end local v0    # "atlas":Landroid/graphics/Atlas;
     :cond_0
     return-void
 .end method

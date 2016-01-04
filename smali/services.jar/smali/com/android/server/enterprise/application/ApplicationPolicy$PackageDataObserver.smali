@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/application/ApplicationPolicy;)V
     .locals 0
 
+    .prologue
+    .line 1569
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$PackageDataObserver;->this$0:Lcom/android/server/enterprise/application/ApplicationPolicy;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDataObserver$Stub;-><init>()V
@@ -37,22 +39,32 @@
 # virtual methods
 .method public onRemoveCompleted(Ljava/lang/String;Z)V
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "succeeded"    # Z
 
+    .prologue
+    .line 1573
     monitor-enter p0
 
+    .line 1574
     const/4 v0, 0x1
 
     :try_start_0
     iput-boolean v0, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$PackageDataObserver;->finished:Z
 
+    .line 1575
     iput-boolean p2, p0, Lcom/android/server/enterprise/application/ApplicationPolicy$PackageDataObserver;->result:Z
 
+    .line 1576
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
+    .line 1577
     monitor-exit p0
 
+    .line 1578
     return-void
 
+    .line 1577
     :catchall_0
     move-exception v0
 

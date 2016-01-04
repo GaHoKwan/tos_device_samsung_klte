@@ -50,7 +50,7 @@
     invoke-direct/range {p0 .. p5}, Lcom/android/internal/telephony/cat/PlayToneParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;Lcom/android/internal/telephony/cat/Tone;Lcom/android/internal/telephony/cat/Duration;Z)V
 
     .line 136
-    invoke-virtual {p0, p6}, Lcom/android/internal/telephony/cat/PlayToneParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p6}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 137
     return-void

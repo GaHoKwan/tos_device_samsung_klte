@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;)V
     .locals 0
 
+    .prologue
+    .line 370
     iput-object p1, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 372
     iget-object v0, p0, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest$1;->this$1:Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;
 
-    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$CPUCoreControlRequest;->cancelFrequencyRequest()V
+    invoke-virtual {v0}, Landroid/os/CustomFrequencyManager$FrequencyRequest;->cancelFrequencyRequest()V
 
+    .line 373
     return-void
 .end method

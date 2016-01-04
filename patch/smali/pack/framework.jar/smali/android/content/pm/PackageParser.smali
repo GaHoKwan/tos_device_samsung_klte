@@ -3380,9 +3380,13 @@
 
     .line 501
     :try_start_0
+    new-instance v1, Ljava/io/BufferedInputStream;
+
     invoke-virtual {p1, p2}, Ljava/util/jar/JarFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
 
-    move-result-object v1
+    move-result-object v3
+
+    invoke-direct {v1, v3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     .line 502
     .local v1, "is":Ljava/io/InputStream;
@@ -16263,7 +16267,7 @@
     if-nez v15, :cond_1
 
     .line 658
-    const v17, 0x8000
+    const/16 v17, 0x2000
 
     move/from16 v0, v17
 

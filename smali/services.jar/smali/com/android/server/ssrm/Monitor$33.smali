@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 0
 
+    .prologue
+    .line 1995
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$33;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public execute(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
+    .param p1, "type"    # Ljava/lang/String;
+    .param p2, "value"    # Ljava/lang/String;
 
+    .prologue
+    .line 1999
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG:Ljava/lang/String;
 
     const-string v1, "REQ_DROP_CACHE"
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 2000
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG:Ljava/lang/String;
 
     const-string v1, "/sys/devices/virtual/sec/sec_misc/drop_caches"
@@ -51,5 +58,6 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/server/ssrm/SSRMUtil;->writeSysfs(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 2001
     return-void
 .end method

@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread;)V
     .locals 0
 
+    .prologue
+    .line 3405
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread$PackageDeleteObserver;->this$1:Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDeleteObserver$Stub;-><init>()V
@@ -37,26 +39,34 @@
 # virtual methods
 .method public packageDeleted(Ljava/lang/String;I)V
     .locals 3
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "returnCode"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 3410
     const-string v1, "packageDeleted"
 
     # invokes: Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
     invoke-static {v1}, Lcom/android/server/pm/PersonaManagerService;->access$100(Ljava/lang/String;)I
 
+    .line 3411
     monitor-enter p0
 
+    .line 3412
     const/4 v1, 0x1
 
     :try_start_0
     iput-boolean v1, p0, Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread$PackageDeleteObserver;->finished:Z
 
+    .line 3413
     if-ne p2, v0, :cond_0
 
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread$PackageDeleteObserver;->result:Z
 
+    .line 3414
     const-string v0, "PersonaManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -89,17 +99,22 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3415
     invoke-virtual {p0}, Ljava/lang/Object;->notifyAll()V
 
+    .line 3417
     monitor-exit p0
 
+    .line 3418
     return-void
 
+    .line 3413
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 3417
     :catchall_0
     move-exception v0
 

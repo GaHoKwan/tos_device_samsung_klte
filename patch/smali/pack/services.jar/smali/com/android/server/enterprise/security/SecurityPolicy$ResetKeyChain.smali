@@ -33,6 +33,8 @@
 .method private constructor <init>(Lcom/android/server/enterprise/security/SecurityPolicy;)V
     .locals 0
 
+    .prologue
+    .line 962
     iput-object p1, p0, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -42,7 +44,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/enterprise/security/SecurityPolicy;Lcom/android/server/enterprise/security/SecurityPolicy$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/enterprise/security/SecurityPolicy;
+    .param p2, "x1"    # Lcom/android/server/enterprise/security/SecurityPolicy$1;
 
+    .prologue
+    .line 962
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;-><init>(Lcom/android/server/enterprise/security/SecurityPolicy;)V
 
     return-void
@@ -52,9 +58,12 @@
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Boolean;
     .locals 4
+    .param p1, "unused"    # [Ljava/lang/Void;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 965
     iget-object v2, p0, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
     # getter for: Lcom/android/server/enterprise/security/SecurityPolicy;->mKeyStore:Landroid/security/KeyStore;
@@ -64,6 +73,7 @@
 
     invoke-virtual {v2}, Landroid/security/KeyStore;->reset()Z
 
+    .line 969
     :try_start_0
     iget-object v2, p0, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;->this$0:Lcom/android/server/enterprise/security/SecurityPolicy;
 
@@ -78,6 +88,8 @@
 
     move-result-object v1
 
+    .line 971
+    .local v1, "keyChainConnection":Landroid/security/KeyChain$KeyChainConnection;
     :try_start_1
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->getService()Landroid/security/IKeyChainService;
 
@@ -94,17 +106,24 @@
 
     move-result-object v2
 
+    .line 975
     :try_start_2
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->close()V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_1
 
+    .line 979
+    .end local v1    # "keyChainConnection":Landroid/security/KeyChain$KeyChainConnection;
     :goto_0
     return-object v2
 
+    .line 972
+    .restart local v1    # "keyChainConnection":Landroid/security/KeyChain$KeyChainConnection;
     :catch_0
     move-exception v0
 
+    .line 973
+    .local v0, "e":Landroid/os/RemoteException;
     const/4 v2, 0x0
 
     :try_start_3
@@ -114,6 +133,7 @@
 
     move-result-object v2
 
+    .line 975
     :try_start_4
     invoke-virtual {v1}, Landroid/security/KeyChain$KeyChainConnection;->close()V
     :try_end_4
@@ -121,21 +141,30 @@
 
     goto :goto_0
 
+    .line 977
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "keyChainConnection":Landroid/security/KeyChain$KeyChainConnection;
     :catch_1
     move-exception v0
 
+    .line 978
+    .local v0, "e":Ljava/lang/InterruptedException;
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
 
     invoke-virtual {v2}, Ljava/lang/Thread;->interrupt()V
 
+    .line 979
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
     goto :goto_0
 
+    .line 975
+    .end local v0    # "e":Ljava/lang/InterruptedException;
+    .restart local v1    # "keyChainConnection":Landroid/security/KeyChain$KeyChainConnection;
     :catchall_0
     move-exception v2
 
@@ -149,9 +178,13 @@
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 962
     check-cast p1, [Ljava/lang/Void;
 
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/security/SecurityPolicy$ResetKeyChain;->doInBackground([Ljava/lang/Void;)Ljava/lang/Boolean;
 
     move-result-object v0

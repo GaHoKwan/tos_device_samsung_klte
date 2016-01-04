@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/immersion/android/haptics/HapticFeedbackThemeLoader;)V
     .locals 0
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/immersion/android/haptics/HapticFeedbackThemeLoader$EffectActionEntry;->this$0:Lcom/immersion/android/haptics/HapticFeedbackThemeLoader;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/immersion/android/haptics/HapticFeedbackThemeLoader;Lcom/immersion/android/haptics/HapticFeedbackThemeLoader$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/immersion/android/haptics/HapticFeedbackThemeLoader;
+    .param p2, "x1"    # Lcom/immersion/android/haptics/HapticFeedbackThemeLoader$1;
 
+    .prologue
+    .line 61
     invoke-direct {p0, p1}, Lcom/immersion/android/haptics/HapticFeedbackThemeLoader$EffectActionEntry;-><init>(Lcom/immersion/android/haptics/HapticFeedbackThemeLoader;)V
 
     return-void

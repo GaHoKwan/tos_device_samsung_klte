@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/TextView;)V
     .locals 0
 
+    .prologue
+    .line 7652
     iput-object p1, p0, Landroid/widget/TextView$2;->this$0:Landroid/widget/TextView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 7654
     iget-object v0, p0, Landroid/widget/TextView$2;->this$0:Landroid/widget/TextView;
 
-    invoke-virtual {v0}, Landroid/widget/TextView;->requestLayout()V
+    invoke-virtual {v0}, Landroid/view/View;->requestLayout()V
 
+    .line 7655
     return-void
 .end method

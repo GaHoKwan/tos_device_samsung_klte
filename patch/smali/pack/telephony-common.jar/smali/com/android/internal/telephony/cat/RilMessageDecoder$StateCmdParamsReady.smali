@@ -108,7 +108,7 @@
 
     move-result-object v1
 
-    # invokes: Lcom/android/internal/telephony/cat/RilMessageDecoder;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v0, v1}, Lcom/android/internal/telephony/cat/RilMessageDecoder;->access$800(Lcom/android/internal/telephony/cat/RilMessageDecoder;Lcom/android/internal/util/IState;)V
 
     .line 150
@@ -144,7 +144,7 @@
     .line 148
     iget-object v0, p0, Lcom/android/internal/telephony/cat/RilMessageDecoder$StateCmdParamsReady;->this$0:Lcom/android/internal/telephony/cat/RilMessageDecoder;
 
-    # invokes: Lcom/android/internal/telephony/cat/RilMessageDecoder;->deferMessage(Landroid/os/Message;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->deferMessage(Landroid/os/Message;)V
     invoke-static {v0, p1}, Lcom/android/internal/telephony/cat/RilMessageDecoder;->access$900(Lcom/android/internal/telephony/cat/RilMessageDecoder;Landroid/os/Message;)V
 
     goto :goto_0

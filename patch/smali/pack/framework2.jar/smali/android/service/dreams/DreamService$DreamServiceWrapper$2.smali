@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/service/dreams/DreamService$DreamServiceWrapper;)V
     .locals 0
 
+    .prologue
+    .line 765
     iput-object p1, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$2;->this$1:Landroid/service/dreams/DreamService$DreamServiceWrapper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 768
     iget-object v0, p0, Landroid/service/dreams/DreamService$DreamServiceWrapper$2;->this$1:Landroid/service/dreams/DreamService$DreamServiceWrapper;
 
     iget-object v0, v0, Landroid/service/dreams/DreamService$DreamServiceWrapper;->this$0:Landroid/service/dreams/DreamService;
@@ -44,5 +48,6 @@
     # invokes: Landroid/service/dreams/DreamService;->detach()V
     invoke-static {v0}, Landroid/service/dreams/DreamService;->access$500(Landroid/service/dreams/DreamService;)V
 
+    .line 769
     return-void
 .end method

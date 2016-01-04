@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ScrollingTabContainerView;Landroid/view/View;)V
     .locals 0
 
+    .prologue
+    .line 569
     iput-object p1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     iput-object p2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->val$tabView:Landroid/view/View;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 571
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->val$tabView:Landroid/view/View;
 
     invoke-virtual {v1}, Landroid/view/View;->getLeft()I
@@ -49,7 +53,7 @@
 
     iget-object v2, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
-    invoke-virtual {v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->getWidth()I
+    invoke-virtual {v2}, Landroid/view/View;->getWidth()I
 
     move-result v2
 
@@ -65,17 +69,21 @@
 
     sub-int v0, v1, v2
 
+    .line 572
+    .local v0, "scrollPos":I
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/internal/widget/ScrollingTabContainerView;->smoothScrollTo(II)V
+    invoke-virtual {v1, v0, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
+    .line 573
     iget-object v1, p0, Lcom/android/internal/widget/ScrollingTabContainerView$2;->this$0:Lcom/android/internal/widget/ScrollingTabContainerView;
 
     const/4 v2, 0x0
 
     iput-object v2, v1, Lcom/android/internal/widget/ScrollingTabContainerView;->mTabSelector:Ljava/lang/Runnable;
 
+    .line 574
     return-void
 .end method

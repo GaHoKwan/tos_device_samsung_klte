@@ -975,7 +975,7 @@
     .line 391
     const/4 v5, 0x1
 
-    invoke-virtual {v2, v5}, Lorg/apache/http/entity/BasicHttpEntity;->setChunked(Z)V
+    invoke-virtual {v2, v5}, Lorg/apache/http/entity/AbstractHttpEntity;->setChunked(Z)V
 
     .line 392
     invoke-virtual {v2, v7, v8}, Lorg/apache/http/entity/BasicHttpEntity;->setContentLength(J)V
@@ -1000,7 +1000,7 @@
     if-eqz v1, :cond_0
 
     .line 406
-    invoke-virtual {v2, v1}, Lorg/apache/http/entity/BasicHttpEntity;->setContentType(Ljava/lang/String;)V
+    invoke-virtual {v2, v1}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentType(Ljava/lang/String;)V
 
     .line 408
     :cond_0
@@ -1013,7 +1013,7 @@
     if-eqz v0, :cond_1
 
     .line 410
-    invoke-virtual {v2, v0}, Lorg/apache/http/entity/BasicHttpEntity;->setContentEncoding(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lorg/apache/http/entity/AbstractHttpEntity;->setContentEncoding(Ljava/lang/String;)V
 
     .line 413
     :cond_1
@@ -1028,7 +1028,7 @@
     if-nez v5, :cond_3
 
     .line 395
-    invoke-virtual {v2, v9}, Lorg/apache/http/entity/BasicHttpEntity;->setChunked(Z)V
+    invoke-virtual {v2, v9}, Lorg/apache/http/entity/AbstractHttpEntity;->setChunked(Z)V
 
     .line 396
     invoke-virtual {v2, v7, v8}, Lorg/apache/http/entity/BasicHttpEntity;->setContentLength(J)V
@@ -1046,7 +1046,7 @@
 
     .line 399
     :cond_3
-    invoke-virtual {v2, v9}, Lorg/apache/http/entity/BasicHttpEntity;->setChunked(Z)V
+    invoke-virtual {v2, v9}, Lorg/apache/http/entity/AbstractHttpEntity;->setChunked(Z)V
 
     .line 400
     invoke-virtual {v2, v3, v4}, Lorg/apache/http/entity/BasicHttpEntity;->setContentLength(J)V

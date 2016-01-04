@@ -19,6 +19,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -27,8 +29,10 @@
 .method public static isMdfDisabled()Z
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 30
     invoke-static {}, Lcom/samsung/android/security/CCManager;->updateMdfStatus()I
 
     move-result v1
@@ -47,6 +51,8 @@
 .method public static isMdfEnabled()Z
     .locals 2
 
+    .prologue
+    .line 42
     invoke-static {}, Lcom/samsung/android/security/CCManager;->updateMdfStatus()I
 
     move-result v0
@@ -69,6 +75,8 @@
 .method public static isMdfEnforced()Z
     .locals 2
 
+    .prologue
+    .line 38
     invoke-static {}, Lcom/samsung/android/security/CCManager;->updateMdfStatus()I
 
     move-result v0
@@ -91,6 +99,8 @@
 .method public static isMdfReady()Z
     .locals 2
 
+    .prologue
+    .line 34
     invoke-static {}, Lcom/samsung/android/security/CCManager;->updateMdfStatus()I
 
     move-result v0
@@ -113,6 +123,8 @@
 .method private static updateMdfStatus()I
     .locals 3
 
+    .prologue
+    .line 15
     const-string/jumbo v1, "security.mdpp"
 
     const-string v2, "None"
@@ -121,6 +133,8 @@
 
     move-result-object v0
 
+    .line 17
+    .local v0, "ccmode":Ljava/lang/String;
     const-string v1, "Disabled"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -129,11 +143,14 @@
 
     if-eqz v1, :cond_0
 
+    .line 18
     const/4 v1, 0x1
 
+    .line 26
     :goto_0
     return v1
 
+    .line 19
     :cond_0
     const-string v1, "Ready"
 
@@ -143,10 +160,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 20
     const/4 v1, 0x2
 
     goto :goto_0
 
+    .line 21
     :cond_1
     const-string v1, "Enforcing"
 
@@ -156,10 +175,12 @@
 
     if-eqz v1, :cond_2
 
+    .line 22
     const/4 v1, 0x3
 
     goto :goto_0
 
+    .line 23
     :cond_2
     const-string v1, "Enabled"
 
@@ -169,10 +190,12 @@
 
     if-eqz v1, :cond_3
 
+    .line 24
     const/4 v1, 0x4
 
     goto :goto_0
 
+    .line 26
     :cond_3
     const/4 v1, 0x0
 

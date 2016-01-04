@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/location/GpsLocationProvider;)V
     .locals 0
 
+    .prologue
+    .line 738
     iput-object p1, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 6
 
+    .prologue
+    .line 741
     new-instance v1, Lcom/android/server/location/GpsXtraDownloader;
 
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
@@ -55,22 +59,29 @@
 
     invoke-direct {v1, v2, v3}, Lcom/android/server/location/GpsXtraDownloader;-><init>(Landroid/content/Context;Ljava/util/Properties;)V
 
+    .line 742
+    .local v1, "xtraDownloader":Lcom/android/server/location/GpsXtraDownloader;
     invoke-virtual {v1}, Lcom/android/server/location/GpsXtraDownloader;->downloadXtraData()[B
 
     move-result-object v0
 
+    .line 743
+    .local v0, "data":[B
     if-eqz v0, :cond_0
 
+    .line 745
     const-string v2, "GpsLocationProvider"
 
     const-string v3, "calling native_inject_xtra_data"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 748
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
-    invoke-virtual {v2}, Lcom/android/server/location/GpsLocationProvider;->extension_set_xtra_downloaded_time()V
+    invoke-virtual {v2}, Lcom/android/server/location/GpsLocationProvider_samsung;->extension_set_xtra_downloaded_time()V
 
+    .line 750
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     array-length v3, v0
@@ -78,6 +89,7 @@
     # invokes: Lcom/android/server/location/GpsLocationProvider;->native_inject_xtra_data([BI)V
     invoke-static {v2, v0, v3}, Lcom/android/server/location/GpsLocationProvider;->access$1400(Lcom/android/server/location/GpsLocationProvider;[BI)V
 
+    .line 753
     :cond_0
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -90,8 +102,10 @@
     # invokes: Lcom/android/server/location/GpsLocationProvider;->sendMessage(IILjava/lang/Object;)V
     invoke-static {v2, v3, v4, v5}, Lcom/android/server/location/GpsLocationProvider;->access$1000(Lcom/android/server/location/GpsLocationProvider;IILjava/lang/Object;)V
 
+    .line 755
     if-nez v0, :cond_1
 
+    .line 758
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
     # getter for: Lcom/android/server/location/GpsLocationProvider;->mHandler:Landroid/os/Handler;
@@ -105,6 +119,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
+    .line 762
     :cond_1
     iget-object v2, p0, Lcom/android/server/location/GpsLocationProvider$5;->this$0:Lcom/android/server/location/GpsLocationProvider;
 
@@ -115,5 +130,6 @@
 
     invoke-virtual {v2}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 763
     return-void
 .end method

@@ -7,6 +7,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -14,7 +16,11 @@
 
 .method public static equal(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 1
+    .param p0, "a"    # Ljava/lang/Object;
+    .param p1, "b"    # Ljava/lang/Object;
 
+    .prologue
+    .line 40
     if-eq p0, p1, :cond_0
 
     if-eqz p0, :cond_1
@@ -39,7 +45,10 @@
 
 .method public static varargs hashCode([Ljava/lang/Object;)I
     .locals 1
+    .param p0, "objects"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 59
     invoke-static {p0}, Ljava/util/Arrays;->hashCode([Ljava/lang/Object;)I
 
     move-result v0

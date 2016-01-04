@@ -24,6 +24,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 59
     const-string v0, "SmartCardVpnPolicy"
 
     sput-object v0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->TAG:Ljava/lang/String;
@@ -33,21 +35,29 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "ctx"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 65
     invoke-direct {p0}, Lcom/sec/enterprise/knox/smartcard/policy/ISmartCardVpnPolicy$Stub;-><init>()V
 
+    .line 61
     iput-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+    .line 62
     iput-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 63
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mVpnProfiles:I
 
+    .line 66
     iput-object p1, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
 
+    .line 67
     new-instance v0, Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     iget-object v1, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
@@ -56,48 +66,63 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
+    .line 68
     return-void
 .end method
 
 .method private broadcastIntent()V
     .locals 4
 
+    .prologue
+    .line 265
     const/4 v0, 0x0
 
+    .line 266
+    .local v0, "intent":Landroid/content/Intent;
     iget v1, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mVpnProfiles:I
 
+    .line 267
+    .local v1, "vpnProfilesPrev":I
     invoke-direct {p0}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCount()I
 
     move-result v2
 
     iput v2, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mVpnProfiles:I
 
+    .line 269
     if-lez v1, :cond_1
 
     iget v2, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mVpnProfiles:I
 
     if-nez v2, :cond_1
 
+    .line 270
     new-instance v0, Landroid/content/Intent;
 
+    .end local v0    # "intent":Landroid/content/Intent;
     const-string v2, "edm.intent.action.smartcard.vpn.authentication"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 271
+    .restart local v0    # "intent":Landroid/content/Intent;
     const-string v2, "edm.intent.extra.smartcard.authentication.enabled"
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 272
     iget-object v2, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 278
     :cond_0
     :goto_0
     return-void
 
+    .line 273
     :cond_1
     if-nez v1, :cond_0
 
@@ -105,18 +130,23 @@
 
     if-lez v2, :cond_0
 
+    .line 274
     new-instance v0, Landroid/content/Intent;
 
+    .end local v0    # "intent":Landroid/content/Intent;
     const-string v2, "edm.intent.action.smartcard.vpn.authentication"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 275
+    .restart local v0    # "intent":Landroid/content/Intent;
     const-string v2, "edm.intent.extra.smartcard.authentication.enabled"
 
     const/4 v3, 0x1
 
     invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 276
     iget-object v2, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -126,21 +156,30 @@
 
 .method private broadcastIntentAsUser(ZI)V
     .locals 5
+    .param p1, "result"    # Z
+    .param p2, "userId"    # I
 
+    .prologue
+    .line 281
     new-instance v0, Landroid/content/Intent;
 
     const-string v3, "edm.intent.action.smartcard.vpn.authentication"
 
     invoke-direct {v0, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 282
+    .local v0, "intent":Landroid/content/Intent;
     const-string v3, "edm.intent.extra.smartcard.authentication.enabled"
 
     invoke-virtual {v0, v3, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 284
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v1
 
+    .line 285
+    .local v1, "token":J
     iget-object v3, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
 
     new-instance v4, Landroid/os/UserHandle;
@@ -149,14 +188,18 @@
 
     invoke-virtual {v3, v0, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 286
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 287
     return-void
 .end method
 
 .method private enforcePermission()I
     .locals 3
 
+    .prologue
+    .line 79
     invoke-direct {p0}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
 
     move-result-object v0
@@ -167,6 +210,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/app/enterprise/EnterpriseDeviceManager;->enforceActiveAdminPermissionByContext(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)Landroid/app/enterprise/ContextInfo;
 
+    .line 81
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
@@ -177,10 +221,13 @@
 .method private getEDM()Landroid/app/enterprise/EnterpriseDeviceManager;
     .locals 2
 
+    .prologue
+    .line 71
     iget-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
     if-nez v0, :cond_0
 
+    .line 72
     iget-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mContext:Landroid/content/Context;
 
     const-string v1, "enterprise_policy"
@@ -193,6 +240,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
+    .line 75
     :cond_0
     iget-object v0, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEDM:Landroid/app/enterprise/EnterpriseDeviceManager;
 
@@ -202,11 +250,15 @@
 .method private getVpnProfileCount()I
     .locals 4
 
+    .prologue
+    .line 231
     :try_start_0
     new-instance v0, Landroid/content/ContentValues;
 
     invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
 
+    .line 232
+    .local v0, "cvWhere":Landroid/content/ContentValues;
     const-string/jumbo v2, "vpnAuthEnabled"
 
     const/4 v3, 0x1
@@ -217,6 +269,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 233
     iget-object v2, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v3, "SmartCardVpnTable"
@@ -227,18 +280,24 @@
 
     move-result v2
 
+    .line 238
+    .end local v0    # "cvWhere":Landroid/content/ContentValues;
     :goto_0
     return v2
 
+    .line 234
     :catch_0
     move-exception v1
 
+    .line 235
+    .local v1, "e":Ljava/lang/Exception;
     sget-object v2, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->TAG:Ljava/lang/String;
 
     const-string v3, "getVpnProfileCount() failed"
 
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->w(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 238
     const/4 v2, -0x1
 
     goto :goto_0
@@ -246,9 +305,15 @@
 
 .method private getVpnProfileCountAsUser(ILjava/lang/String;)I
     .locals 9
+    .param p1, "userID"    # I
+    .param p2, "profileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 242
     const/4 v5, 0x0
 
+    .line 244
+    .local v5, "retCnt":I
     :try_start_0
     iget-object v6, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -256,10 +321,13 @@
 
     move-result-object v1
 
+    .line 246
+    .local v1, "adminList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
+    .local v4, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
@@ -273,14 +341,19 @@
 
     check-cast v0, Ljava/lang/Long;
 
+    .line 247
+    .local v0, "adminId":Ljava/lang/Long;
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
+    .line 248
+    .local v2, "cvWhere":Landroid/content/ContentValues;
     const-string v6, "adminUid"
 
     invoke-virtual {v2, v6, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
+    .line 249
     const-string/jumbo v6, "vpnAuthEnabled"
 
     const/4 v7, 0x1
@@ -291,12 +364,15 @@
 
     invoke-virtual {v2, v6, v7}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 250
     if-eqz p2, :cond_0
 
+    .line 251
     const-string/jumbo v6, "vpnProfile"
 
     invoke-virtual {v2, v6, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 253
     :cond_0
     iget-object v6, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
@@ -308,8 +384,12 @@
 
     add-int/2addr v5, v6
 
+    .line 254
     goto :goto_0
 
+    .line 256
+    .end local v0    # "adminId":Ljava/lang/Long;
+    .end local v2    # "cvWhere":Landroid/content/ContentValues;
     :cond_1
     sget-object v6, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->TAG:Ljava/lang/String;
 
@@ -335,12 +415,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 261
+    .end local v1    # "adminList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Long;>;"
+    .end local v4    # "i$":Ljava/util/Iterator;
     :goto_1
     return v5
 
+    .line 257
     :catch_0
     move-exception v3
 
+    .line 258
+    .local v3, "e":Ljava/lang/Exception;
     sget-object v6, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->TAG:Ljava/lang/String;
 
     const-string v7, "getVpnProfileCountAsUser() failed"
@@ -352,17 +438,24 @@
 
 .method private isAuthenticationEnabledAsUser(I)Z
     .locals 2
+    .param p1, "userId"    # I
 
+    .prologue
+    .line 190
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, v1}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCountAsUser(ILjava/lang/String;)I
 
     move-result v0
 
+    .line 191
+    .local v0, "cnt":I
     if-lez v0, :cond_0
 
+    .line 192
     const/4 v1, 0x1
 
+    .line 194
     :goto_0
     return v1
 
@@ -377,16 +470,22 @@
 .method public isAuthenticationEnabled()Z
     .locals 3
 
+    .prologue
+    .line 183
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
+    .line 184
+    .local v0, "callingUid":I
     const/4 v2, 0x0
 
     invoke-static {v2}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Landroid/app/enterprise/ContextInfo;)I
 
     move-result v1
 
+    .line 185
+    .local v1, "userId":I
     invoke-direct {p0, v1}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->isAuthenticationEnabledAsUser(I)Z
 
     move-result v2
@@ -396,26 +495,35 @@
 
 .method public isCredentialRequired(Ljava/lang/String;)Z
     .locals 5
+    .param p1, "profileName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 141
     if-nez p1, :cond_1
 
+    .line 172
     :cond_0
     :goto_0
     return v3
 
+    .line 144
     :cond_1
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
+    .line 145
+    .local v0, "callingUid":I
     const/4 v4, 0x0
 
     invoke-static {v4}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Landroid/app/enterprise/ContextInfo;)I
 
     move-result v2
 
+    .line 146
+    .local v2, "userId":I
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v4
@@ -424,12 +532,16 @@
 
     move-result-object p1
 
+    .line 168
     invoke-direct {p0, v2, p1}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCountAsUser(ILjava/lang/String;)I
 
     move-result v1
 
+    .line 169
+    .local v1, "cnt":I
     if-lez v1, :cond_0
 
+    .line 170
     const/4 v3, 0x1
 
     goto :goto_0
@@ -437,13 +549,19 @@
 
 .method public onAdminAdded(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 209
     return-void
 .end method
 
 .method public onAdminRemoved(I)V
     .locals 4
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 215
     new-instance v3, Landroid/app/enterprise/ContextInfo;
 
     invoke-direct {v3, p1}, Landroid/app/enterprise/ContextInfo;-><init>(I)V
@@ -452,19 +570,27 @@
 
     move-result v2
 
+    .line 216
+    .local v2, "userId":I
     const/4 v3, 0x0
 
     invoke-direct {p0, v2, v3}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCountAsUser(ILjava/lang/String;)I
 
     move-result v0
 
+    .line 217
+    .local v0, "cnt":I
     const/4 v1, 0x0
 
+    .line 218
+    .local v1, "enable":Z
     if-nez v0, :cond_0
 
+    .line 222
     :goto_0
     return-void
 
+    .line 221
     :cond_0
     invoke-direct {p0, v1, v2}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->broadcastIntentAsUser(ZI)V
 
@@ -473,33 +599,46 @@
 
 .method public onPreAdminRemoval(I)V
     .locals 0
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 227
     return-void
 .end method
 
 .method public requireCredentials(Ljava/lang/String;Z)Z
     .locals 12
+    .param p1, "profileName"    # Ljava/lang/String;
+    .param p2, "require"    # Z
 
+    .prologue
     const/4 v10, 0x0
 
     const/4 v8, 0x0
 
     const/4 v9, 0x1
 
+    .line 88
     invoke-direct {p0}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->enforcePermission()I
 
     move-result v0
 
+    .line 89
+    .local v0, "callingUid":I
     invoke-static {v10}, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->getCallingOrCurrentUserId(Landroid/app/enterprise/ContextInfo;)I
 
     move-result v7
 
+    .line 91
+    .local v7, "userId":I
     if-nez p1, :cond_1
 
+    .line 133
     :cond_0
     :goto_0
     return v8
 
+    .line 94
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
@@ -509,11 +648,14 @@
 
     move-result-object p1
 
+    .line 98
     :try_start_0
     new-instance v3, Landroid/content/ContentValues;
 
     invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
+    .line 99
+    .local v3, "cvWhere":Landroid/content/ContentValues;
     const-string v10, "adminUid"
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -522,18 +664,24 @@
 
     invoke-virtual {v3, v10, v11}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 100
     const-string/jumbo v10, "vpnProfile"
 
     invoke-virtual {v3, v10, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 102
     const/4 v6, 0x0
 
+    .line 103
+    .local v6, "ret":Z
     const/4 v10, 0x0
 
     invoke-direct {p0, v7, v10}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCountAsUser(ILjava/lang/String;)I
 
     move-result v5
 
+    .line 104
+    .local v5, "preCnt":I
     iget-object v10, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v11, "SmartCardVpnTable"
@@ -542,12 +690,17 @@
 
     move-result v1
 
+    .line 106
+    .local v1, "cnt":I
     if-lez v1, :cond_4
 
+    .line 108
     new-instance v2, Landroid/content/ContentValues;
 
     invoke-direct {v2}, Landroid/content/ContentValues;-><init>()V
 
+    .line 109
+    .local v2, "cv":Landroid/content/ContentValues;
     const-string/jumbo v11, "vpnAuthEnabled"
 
     if-ne p2, v9, :cond_3
@@ -561,6 +714,7 @@
 
     invoke-virtual {v2, v11, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 110
     iget-object v10, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v11, "SmartCardVpnTable"
@@ -569,19 +723,24 @@
 
     move-result v6
 
+    .line 119
+    .end local v2    # "cv":Landroid/content/ContentValues;
     :goto_2
     if-eqz v6, :cond_0
 
+    .line 121
     const/4 v10, 0x0
 
     invoke-direct {p0, v7, v10}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->getVpnProfileCountAsUser(ILjava/lang/String;)I
 
     move-result v1
 
+    .line 122
     if-nez v5, :cond_6
 
     if-lez v1, :cond_6
 
+    .line 123
     const/4 v10, 0x1
 
     invoke-direct {p0, v10, v7}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->broadcastIntentAsUser(ZI)V
@@ -590,13 +749,18 @@
     :goto_3
     move v8, v9
 
+    .line 127
     goto :goto_0
 
+    .restart local v2    # "cv":Landroid/content/ContentValues;
     :cond_3
     move v10, v8
 
+    .line 109
     goto :goto_1
 
+    .line 114
+    .end local v2    # "cv":Landroid/content/ContentValues;
     :cond_4
     const-string/jumbo v11, "vpnAuthEnabled"
 
@@ -611,6 +775,7 @@
 
     invoke-virtual {v3, v11, v10}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
+    .line 115
     iget-object v10, p0, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
 
     const-string v11, "SmartCardVpnTable"
@@ -624,13 +789,16 @@
     :cond_5
     move v10, v8
 
+    .line 114
     goto :goto_4
 
+    .line 124
     :cond_6
     if-lez v5, :cond_2
 
     if-nez v1, :cond_2
 
+    .line 125
     const/4 v10, 0x0
 
     invoke-direct {p0, v10, v7}, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->broadcastIntentAsUser(ZI)V
@@ -639,9 +807,16 @@
 
     goto :goto_3
 
+    .line 129
+    .end local v1    # "cnt":I
+    .end local v3    # "cvWhere":Landroid/content/ContentValues;
+    .end local v5    # "preCnt":I
+    .end local v6    # "ret":Z
     :catch_0
     move-exception v4
 
+    .line 130
+    .local v4, "e":Ljava/lang/Exception;
     sget-object v9, Lcom/android/server/enterprise/smartcard/SmartCardVpnPolicy;->TAG:Ljava/lang/String;
 
     const-string v10, "requireCredentials() failed"
@@ -654,5 +829,7 @@
 .method public systemReady()V
     .locals 0
 
+    .prologue
+    .line 204
     return-void
 .end method

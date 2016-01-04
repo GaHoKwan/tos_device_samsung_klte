@@ -28,6 +28,8 @@
 .method constructor <init>(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
     .locals 0
 
+    .prologue
+    .line 16408
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$18;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$18;->val$packageName:Ljava/lang/String;
@@ -46,6 +48,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 16410
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$18;->this$0:Lcom/android/server/pm/PackageManagerService;
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$18;->val$packageName:Ljava/lang/String;
@@ -57,5 +61,6 @@
     # invokes: Lcom/android/server/pm/PackageManagerService;->saveHash(Ljava/lang/String;Ljava/io/File;I)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->access$5700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/io/File;I)V
 
+    .line 16411
     return-void
 .end method

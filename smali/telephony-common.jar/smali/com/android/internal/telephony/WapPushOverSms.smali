@@ -184,7 +184,7 @@
 .end method
 
 .method private dispatchWapPdu_DSNoti([BILandroid/content/BroadcastReceiver;Lcom/android/internal/telephony/InboundSmsHandler;)V
-    .locals 4
+    .locals 3
     .param p1, "pdu"    # [B
     .param p2, "binaryContentType"    # I
     .param p3, "receiver"    # Landroid/content/BroadcastReceiver;
@@ -194,96 +194,32 @@
     .line 641
     const/16 v0, 0x13
 
-    .line 648
+    .line 644
     .local v0, "appOp":I
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v2
-
-    const-string v3, "CscFeature_Common_MyPhonebookBrandName"
-
-    invoke-virtual {v2, v3}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, ""
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    .line 649
     new-instance v1, Landroid/content/Intent;
 
-    const-string v2, "android.provider.Telephony.WAP_PUSH_DS_NOTI_RECEIVED_MYPHONEBOOK"
+    const-string v2, "android.provider.Telephony.WAP_PUSH_DS_NOTI_RECEIVED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 650
+    .line 645
     .local v1, "intent":Landroid/content/Intent;
     const-string v2, "ds_message"
 
     invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
 
-    .line 651
+    .line 646
     const-string v2, "pushtype"
 
     invoke-virtual {v1, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    .line 652
+    .line 647
     const-string v2, "android.permission.RECEIVE_WAP_PUSH"
 
     invoke-virtual {p4, v1, v2, v0, p3}, Lcom/android/internal/telephony/InboundSmsHandler;->dispatchIntent(Landroid/content/Intent;Ljava/lang/String;ILandroid/content/BroadcastReceiver;)V
 
     .line 675
-    :goto_0
     return-void
-
-    .line 665
-    .end local v1    # "intent":Landroid/content/Intent;
-    :cond_0
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.provider.Telephony.WAP_PUSH_RECEIVED"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    .line 666
-    .restart local v1    # "intent":Landroid/content/Intent;
-    const-string v2, "application/vnd.syncml.ds.notification"
-
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
-
-    .line 667
-    const-string v2, "data"
-
-    invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    .line 670
-    const-string v2, "ds_message"
-
-    invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[B)Landroid/content/Intent;
-
-    .line 671
-    const-string v2, "pushtype"
-
-    invoke-virtual {v1, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    .line 672
-    const-string v2, "WAP PUSH"
-
-    const-string v3, "ds noti intent is sent"
-
-    invoke-static {v2, v3}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 673
-    const-string v2, "android.permission.RECEIVE_WAP_PUSH"
-
-    invoke-virtual {p4, v1, v2, v0, p3}, Lcom/android/internal/telephony/InboundSmsHandler;->dispatchIntent(Landroid/content/Intent;Ljava/lang/String;ILandroid/content/BroadcastReceiver;)V
-
-    goto :goto_0
 .end method
 
 .method private dispatchWapPdu_MMS([BIIIILandroid/content/BroadcastReceiver;Lcom/android/internal/telephony/InboundSmsHandler;)V
@@ -1621,7 +1557,7 @@
 
     move/from16 v0, v24
 
-    if-ne v0, v6, :cond_26
+    if-ne v0, v6, :cond_25
 
     .line 401
     const/4 v6, -0x1
@@ -1799,27 +1735,8 @@
     .line 383
     goto :goto_4
 
-    .line 388
-    :sswitch_12
-    invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
-
-    move-result-object v6
-
-    const-string v7, "CscFeature_Common_MyPhonebookBrandName"
-
-    invoke-virtual {v6, v7}, Lcom/sec/android/app/CscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string v7, ""
-
-    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_25
-
     .line 389
+    :sswitch_12
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -1835,17 +1752,11 @@
     .line 390
     const/16 v24, 0x1
 
-    goto/16 :goto_4
-
-    .line 392
-    :cond_25
-    const/16 v24, 0x0
-
     .line 394
     goto/16 :goto_4
 
     .line 406
-    :cond_26
+    :cond_25
     invoke-virtual/range {v39 .. v39}, Lcom/android/internal/telephony/WspTypeDecoder;->getDecodedDataLength()I
 
     move-result v6
@@ -1874,7 +1785,7 @@
     invoke-static {v0, v1, v2, v6, v7}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 413
-    if-eqz v37, :cond_2a
+    if-eqz v37, :cond_29
 
     const-string v6, "application/vnd.wap.coc"
 
@@ -1884,7 +1795,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2a
+    if-eqz v6, :cond_29
 
     .line 414
     move-object/from16 v35, p1
@@ -1904,7 +1815,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_32
+    if-eqz v6, :cond_31
 
     .line 428
     invoke-virtual/range {v39 .. v39}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
@@ -1937,7 +1848,7 @@
 
     .line 435
     .local v22, "deltaIndex":I
-    if-nez v45, :cond_27
+    if-nez v45, :cond_26
 
     .line 436
     invoke-virtual/range {v39 .. v39}, Lcom/android/internal/telephony/WspTypeDecoder;->getValue32()J
@@ -1957,8 +1868,8 @@
     const/16 v22, 0x4
 
     .line 443
-    :cond_27
-    if-nez v37, :cond_2b
+    :cond_26
+    if-nez v37, :cond_2a
 
     invoke-static/range {v17 .. v18}, Ljava/lang/Long;->toString(J)Ljava/lang/String;
 
@@ -1969,7 +1880,7 @@
     :goto_7
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_28
+    if-eqz v6, :cond_27
 
     const-string v6, "WAP PUSH"
 
@@ -2008,8 +1919,8 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 448
-    :cond_28
-    if-eqz v37, :cond_2e
+    :cond_27
+    if-eqz v37, :cond_2d
 
     const-string v6, "application/vnd.omaloc-supl-init"
 
@@ -2019,7 +1930,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2e
+    if-eqz v6, :cond_2d
 
     const-string v6, "CHM"
 
@@ -2033,10 +1944,10 @@
 
     move-result v6
 
-    if-nez v6, :cond_2e
+    if-nez v6, :cond_2d
 
     .line 449
-    if-eqz v36, :cond_2c
+    if-eqz v36, :cond_2b
 
     .line 450
     new-instance v15, Ljava/lang/String;
@@ -2053,12 +1964,12 @@
 
     move-result v6
 
-    if-nez v6, :cond_2e
+    if-nez v6, :cond_2d
 
     .line 452
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_29
+    if-eqz v6, :cond_28
 
     const-string v6, "WAP PUSH"
 
@@ -2067,7 +1978,7 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 453
-    :cond_29
+    :cond_28
     const/4 v6, 0x1
 
     goto/16 :goto_0
@@ -2079,7 +1990,7 @@
     .end local v35    # "intentData":[B
     .end local v36    # "isAsciiType":Z
     .end local v45    # "wapAppId":Ljava/lang/String;
-    :cond_2a
+    :cond_29
     add-int v21, v28, v11
 
     .line 417
@@ -2116,7 +2027,7 @@
     .restart local v22    # "deltaIndex":I
     .restart local v36    # "isAsciiType":Z
     .restart local v45    # "wapAppId":Ljava/lang/String;
-    :cond_2b
+    :cond_2a
     move-object/from16 v20, v37
 
     .line 443
@@ -2124,7 +2035,7 @@
 
     .line 456
     .restart local v20    # "contentType":Ljava/lang/String;
-    :cond_2c
+    :cond_2b
     add-int v6, v33, v22
 
     add-int/lit8 v6, v6, 0x1
@@ -2133,12 +2044,12 @@
 
     const/16 v7, -0x70
 
-    if-eq v6, v7, :cond_2e
+    if-eq v6, v7, :cond_2d
 
     .line 457
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_2d
+    if-eqz v6, :cond_2c
 
     const-string v6, "WAP PUSH"
 
@@ -2149,13 +2060,13 @@
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_8 .. :try_end_8} :catch_1
 
     .line 458
-    :cond_2d
+    :cond_2c
     const/4 v6, 0x1
 
     goto/16 :goto_0
 
     .line 465
-    :cond_2e
+    :cond_2d
     const/16 v43, 0x1
 
     .line 466
@@ -2169,12 +2080,12 @@
 
     .line 468
     .local v46, "wapPushMan":Lcom/android/internal/telephony/IWapPushManager;
-    if-nez v46, :cond_30
+    if-nez v46, :cond_2f
 
     .line 469
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_2f
+    if-eqz v6, :cond_2e
 
     const-string v6, "WAP PUSH"
 
@@ -2183,9 +2094,9 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 486
-    :cond_2f
+    :cond_2e
     :goto_8
-    if-nez v43, :cond_32
+    if-nez v43, :cond_31
 
     .line 487
     const/4 v6, 0x1
@@ -2193,7 +2104,7 @@
     goto/16 :goto_0
 
     .line 471
-    :cond_30
+    :cond_2f
     new-instance v34, Landroid/content/Intent;
 
     invoke-direct/range {v34 .. v34}, Landroid/content/Intent;-><init>()V
@@ -2263,7 +2174,7 @@
     .local v42, "procRet":I
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_31
+    if-eqz v6, :cond_30
 
     const-string v6, "WAP PUSH"
 
@@ -2293,16 +2204,16 @@
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_9 .. :try_end_9} :catch_1
 
     .line 481
-    :cond_31
+    :cond_30
     and-int/lit8 v6, v42, 0x1
 
-    if-lez v6, :cond_2f
+    if-lez v6, :cond_2e
 
     const v6, 0x8000
 
     and-int v6, v6, v42
 
-    if-nez v6, :cond_2f
+    if-nez v6, :cond_2e
 
     .line 483
     const/16 v43, 0x0
@@ -2321,7 +2232,7 @@
     :try_start_a
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_32
+    if-eqz v6, :cond_31
 
     const-string v6, "WAP PUSH"
 
@@ -2336,10 +2247,10 @@
     .end local v36    # "isAsciiType":Z
     .end local v43    # "processFurther":Z
     .end local v45    # "wapAppId":Ljava/lang/String;
-    :cond_32
+    :cond_31
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_33
+    if-eqz v6, :cond_32
 
     const-string v6, "WAP PUSH"
 
@@ -2348,13 +2259,13 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 495
-    :cond_33
-    if-nez v37, :cond_35
+    :cond_32
+    if-nez v37, :cond_34
 
     .line 496
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_34
+    if-eqz v6, :cond_33
 
     const-string v6, "WAP PUSH"
 
@@ -2363,13 +2274,13 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 497
-    :cond_34
+    :cond_33
     const/4 v6, 0x2
 
     goto/16 :goto_0
 
     .line 503
-    :cond_35
+    :cond_34
     const-string v6, "application/vnd.wap.mms-message"
 
     move-object/from16 v0, v37
@@ -2378,7 +2289,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_38
+    if-eqz v6, :cond_37
 
     .line 504
     const-string v41, "android.permission.RECEIVE_MMS"
@@ -2473,7 +2384,7 @@
 
     iget-object v6, v0, Lcom/android/internal/telephony/WapPushOverSms;->mPushOrigAddr:Ljava/lang/String;
 
-    if-eqz v6, :cond_36
+    if-eqz v6, :cond_35
 
     .line 522
     const-string v6, "origaddr"
@@ -2487,7 +2398,7 @@
     invoke-virtual {v0, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 528
-    :cond_36
+    :cond_35
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/internal/telephony/WapPushOverSms;->mContext:Landroid/content/Context;
@@ -2500,7 +2411,7 @@
 
     .line 529
     .local v19, "componentName":Landroid/content/ComponentName;
-    if-eqz v19, :cond_37
+    if-eqz v19, :cond_36
 
     .line 531
     move-object/from16 v0, v34
@@ -2512,7 +2423,7 @@
     .line 532
     sget-boolean v6, Lcom/android/internal/telephony/WapPushOverSms;->DBG:Z
 
-    if-eqz v6, :cond_37
+    if-eqz v6, :cond_36
 
     const-string v6, "WAP PUSH"
 
@@ -2555,7 +2466,7 @@
     invoke-static {v6, v7}, Landroid/telephony/Rlog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 536
-    :cond_37
+    :cond_36
     move-object/from16 v0, p3
 
     move-object/from16 v1, v34
@@ -2578,7 +2489,7 @@
     .end local v19    # "componentName":Landroid/content/ComponentName;
     .end local v34    # "intent":Landroid/content/Intent;
     .end local v41    # "permission":Ljava/lang/String;
-    :cond_38
+    :cond_37
     const-string v41, "android.permission.RECEIVE_WAP_PUSH"
     :try_end_a
     .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_a .. :try_end_a} :catch_1

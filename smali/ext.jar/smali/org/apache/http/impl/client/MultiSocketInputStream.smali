@@ -6395,7 +6395,7 @@
 
     move-result-object v19
 
-    invoke-virtual {v7}, Ljava/io/IOException;->getCause()Ljava/lang/Throwable;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
     move-result-object v20
 

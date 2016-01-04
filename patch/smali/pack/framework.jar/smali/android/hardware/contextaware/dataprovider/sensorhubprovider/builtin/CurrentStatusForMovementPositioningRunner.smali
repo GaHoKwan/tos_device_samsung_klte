@@ -28,7 +28,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 178
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/PositioningProviderForExtLib;->clear()V
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->clear()V
 
     .line 179
     return-void
@@ -109,7 +109,7 @@
 
     .prologue
     .line 190
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/builtin/CurrentStatusForMovementPositioningRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -120,7 +120,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 191
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/PositioningProviderForExtLib;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -235,7 +235,7 @@
 
     .line 94
     .local v0, "data":I
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/PositioningProviderForExtLib;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextComponent;->getContextBean()Landroid/hardware/contextaware/manager/ContextBean;
 
     move-result-object v4
 

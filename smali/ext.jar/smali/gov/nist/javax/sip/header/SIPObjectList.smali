@@ -91,13 +91,13 @@
 
     .prologue
     .line 87
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/SIPObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 
     .line 88
     .local v1, "it1":Ljava/util/Iterator;, "Ljava/util/Iterator<Lgov/nist/core/GenericObject;>;"
-    invoke-virtual {p1}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p1}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
 

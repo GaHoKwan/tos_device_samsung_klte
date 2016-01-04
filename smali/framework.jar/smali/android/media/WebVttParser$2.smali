@@ -42,7 +42,7 @@
 
     .prologue
     .line 694
-    const-string v0, "\ufeff"
+    const-string/jumbo v0, "\ufeff"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 

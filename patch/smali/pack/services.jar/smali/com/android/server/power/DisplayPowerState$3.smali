@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/DisplayPowerState;)V
     .locals 0
 
+    .prologue
+    .line 301
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,13 +39,16 @@
 .method public run()V
     .locals 3
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 304
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
     # setter for: Lcom/android/server/power/DisplayPowerState;->mScreenUpdatePending:Z
     invoke-static {v1, v0}, Lcom/android/server/power/DisplayPowerState;->access$102(Lcom/android/server/power/DisplayPowerState;Z)Z
 
+    .line 306
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
     # getter for: Lcom/android/server/power/DisplayPowerState;->mScreenOn:Z
@@ -73,6 +78,8 @@
 
     move-result v0
 
+    .line 307
+    .local v0, "brightness":I
     :cond_0
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
@@ -94,6 +101,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 308
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
     const/4 v2, 0x1
@@ -101,11 +109,13 @@
     # setter for: Lcom/android/server/power/DisplayPowerState;->mScreenReady:Z
     invoke-static {v1, v2}, Lcom/android/server/power/DisplayPowerState;->access$602(Lcom/android/server/power/DisplayPowerState;Z)Z
 
+    .line 309
     iget-object v1, p0, Lcom/android/server/power/DisplayPowerState$3;->this$0:Lcom/android/server/power/DisplayPowerState;
 
     # invokes: Lcom/android/server/power/DisplayPowerState;->invokeCleanListenerIfNeeded()V
     invoke-static {v1}, Lcom/android/server/power/DisplayPowerState;->access$700(Lcom/android/server/power/DisplayPowerState;)V
 
+    .line 311
     :cond_1
     return-void
 .end method

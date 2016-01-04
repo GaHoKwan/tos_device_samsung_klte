@@ -183,7 +183,7 @@
 
     .line 82
     .local v0, "thread":Landroid/os/HandlerThread;
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 83
     new-instance v1, Lcom/android/internal/telephony/cat/IconLoader;
@@ -798,7 +798,7 @@
 
     .line 188
     .local v4, "length":I
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cat/IconLoader;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v5
 
@@ -837,7 +837,7 @@
     .line 210
     const/4 v0, 0x2
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/cat/IconLoader;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v5
 
@@ -901,7 +901,7 @@
     :cond_0
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/cat/IconLoader;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 

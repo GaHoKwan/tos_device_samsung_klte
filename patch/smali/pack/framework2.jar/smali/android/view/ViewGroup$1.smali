@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
 
+    .prologue
+    .line 3191
     iput-object p1, p0, Landroid/view/ViewGroup$1;->this$0:Landroid/view/ViewGroup;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 3193
     iget-object v0, p0, Landroid/view/ViewGroup$1;->this$0:Landroid/view/ViewGroup;
 
     # invokes: Landroid/view/ViewGroup;->notifyAnimationListener()V
     invoke-static {v0}, Landroid/view/ViewGroup;->access$000(Landroid/view/ViewGroup;)V
 
+    .line 3194
     return-void
 .end method

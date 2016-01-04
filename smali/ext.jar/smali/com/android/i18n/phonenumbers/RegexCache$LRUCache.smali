@@ -102,7 +102,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/i18n/phonenumbers/RegexCache$LRUCache;->map:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -173,7 +173,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/i18n/phonenumbers/RegexCache$LRUCache;->map:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {v0, p1, p2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -29,8 +29,10 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 50
     invoke-static {}, Landroid/os/Debug;->isProductShip()I
 
     move-result v1
@@ -42,10 +44,12 @@
     :cond_0
     sput-boolean v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->DBG:Z
 
+    .line 52
     const-string v0, "FW-VpnProfileConfig"
 
     sput-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
+    .line 54
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnConfig:Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
@@ -56,20 +60,26 @@
 .method private constructor <init>()V
     .locals 1
 
+    .prologue
+    .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 66
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
+    .line 57
     return-void
 .end method
 
 .method public static declared-synchronized getInstance()Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
     .locals 2
 
+    .prologue
+    .line 60
     const-class v1, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
 
     monitor-enter v1
@@ -79,12 +89,14 @@
 
     if-nez v0, :cond_0
 
+    .line 61
     new-instance v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
 
     invoke-direct {v0}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;-><init>()V
 
     sput-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnConfig:Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
 
+    .line 63
     :cond_0
     sget-object v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnConfig:Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;
     :try_end_0
@@ -94,6 +106,7 @@
 
     return-object v0
 
+    .line 60
     :catchall_0
     move-exception v0
 
@@ -106,16 +119,22 @@
 # virtual methods
 .method public declared-synchronized addProfileEntry(Ljava/lang/String;Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     .locals 1
+    .param p1, "profileName"    # Ljava/lang/String;
+    .param p2, "profileEntry"    # Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
+    .prologue
+    .line 98
     monitor-enter p0
 
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 99
     :cond_0
     const/4 v0, 0x0
 
+    .line 101
     :goto_0
     monitor-exit p0
 
@@ -135,6 +154,7 @@
 
     goto :goto_0
 
+    .line 98
     :catchall_0
     move-exception v0
 
@@ -145,9 +165,14 @@
 
 .method public checkAdminForProfile(ILjava/lang/String;)I
     .locals 5
+    .param p1, "admin_id"    # I
+    .param p2, "profileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 170
     if-nez p2, :cond_0
 
+    .line 171
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -170,20 +195,28 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 172
     const/4 v1, -0x1
 
+    .line 186
     :goto_0
     return v1
 
+    .line 174
     :cond_0
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->getProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
     move-result-object v0
 
+    .line 175
+    .local v0, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     const/4 v1, 0x0
 
+    .line 176
+    .local v1, "returnValue":I
     if-nez v0, :cond_1
 
+    .line 177
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -206,10 +239,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 178
     const/4 v1, 0x1
 
     goto :goto_0
 
+    .line 179
     :cond_1
     invoke-virtual {v0}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getAdminId()I
 
@@ -225,6 +260,7 @@
 
     if-ne v2, v3, :cond_4
 
+    .line 180
     :cond_2
     sget-boolean v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->DBG:Z
 
@@ -252,11 +288,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 181
     :cond_3
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 183
     :cond_4
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
@@ -280,6 +318,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 184
     const/4 v1, -0x1
 
     goto :goto_0
@@ -287,9 +326,14 @@
 
 .method public checkPersonaForProfile(ILjava/lang/String;)I
     .locals 5
+    .param p1, "personaId"    # I
+    .param p2, "profileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 214
     if-nez p2, :cond_0
 
+    .line 215
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -312,20 +356,28 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 216
     const/4 v1, -0x1
 
+    .line 231
     :goto_0
     return v1
 
+    .line 218
     :cond_0
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->getProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
     move-result-object v0
 
+    .line 219
+    .local v0, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     const/4 v1, 0x0
 
+    .line 220
+    .local v1, "returnValue":I
     if-nez v0, :cond_1
 
+    .line 221
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -348,10 +400,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 222
     const/4 v1, 0x1
 
     goto :goto_0
 
+    .line 223
     :cond_1
     invoke-virtual {v0}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getPersonaId()I
 
@@ -359,6 +413,7 @@
 
     if-ne p1, v2, :cond_2
 
+    .line 224
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -381,10 +436,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 225
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 227
     :cond_2
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
@@ -408,6 +465,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 228
     sget-boolean v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->DBG:Z
 
     if-eqz v2, :cond_3
@@ -434,6 +492,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 229
     :cond_3
     const/4 v1, -0x1
 
@@ -442,9 +501,14 @@
 
 .method public checkVendorForProfile(Ljava/lang/String;Ljava/lang/String;)I
     .locals 5
+    .param p1, "vendorName"    # Ljava/lang/String;
+    .param p2, "profileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 190
     if-nez p2, :cond_1
 
+    .line 191
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -467,6 +531,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 192
     sget-boolean v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->DBG:Z
 
     if-eqz v2, :cond_0
@@ -493,21 +558,29 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 193
     :cond_0
     const/4 v1, -0x1
 
+    .line 210
     :goto_0
     return v1
 
+    .line 196
     :cond_1
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->getProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
     move-result-object v0
 
+    .line 197
+    .local v0, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     const/4 v1, 0x0
 
+    .line 198
+    .local v1, "returnValue":I
     if-nez v0, :cond_2
 
+    .line 199
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -530,10 +603,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 200
     const/4 v1, 0x1
 
     goto :goto_0
 
+    .line 201
     :cond_2
     invoke-virtual {v0}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getVendorPkgName()Ljava/lang/String;
 
@@ -553,6 +628,7 @@
 
     if-eqz v2, :cond_4
 
+    .line 203
     :cond_3
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
@@ -576,10 +652,12 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 204
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 206
     :cond_4
     sget-object v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->TAG:Ljava/lang/String;
 
@@ -603,6 +681,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 207
     sget-boolean v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->DBG:Z
 
     if-eqz v2, :cond_5
@@ -629,6 +708,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 208
     :cond_5
     const/4 v1, -0x1
 
@@ -637,11 +717,16 @@
 
 .method public containsProfileEntry(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "profileName"    # Ljava/lang/String;
 
+    .prologue
+    .line 115
     if-nez p1, :cond_0
 
+    .line 116
     const/4 v0, 0x0
 
+    .line 118
     :goto_0
     return v0
 
@@ -657,7 +742,10 @@
 
 .method public declared-synchronized getContainerVpnProfile(I)Ljava/lang/String;
     .locals 5
+    .param p1, "containerId"    # I
 
+    .prologue
+    .line 148
     monitor-enter p0
 
     :try_start_0
@@ -671,6 +759,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -684,18 +773,28 @@
 
     check-cast v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
+    .line 149
+    .local v2, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     invoke-virtual {v2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getContainerVpnState()I
 
     move-result v0
 
+    .line 150
+    .local v0, "containerVpnState":I
     invoke-virtual {v2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getProfileName()Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v3
 
+    .line 151
+    .local v3, "profileName":Ljava/lang/String;
     if-ne v0, p1, :cond_0
 
+    .line 155
+    .end local v0    # "containerVpnState":I
+    .end local v2    # "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
+    .end local v3    # "profileName":Ljava/lang/String;
     :goto_0
     monitor-exit p0
 
@@ -706,6 +805,8 @@
 
     goto :goto_0
 
+    .line 148
+    .end local v1    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v4
 
@@ -717,6 +818,8 @@
 .method public getProfileCount()I
     .locals 1
 
+    .prologue
+    .line 92
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->size()I
@@ -738,6 +841,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 76
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
@@ -749,15 +854,20 @@
 
 .method public getProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     .locals 2
+    .param p1, "profileName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 81
     if-nez p1, :cond_1
 
+    .line 87
     :cond_0
     :goto_0
     return-object v0
 
+    .line 84
     :cond_1
     iget-object v1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -767,6 +877,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 87
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -780,20 +891,25 @@
 
 .method public declared-synchronized getProfileNameForPackage(Ljava/lang/String;)Ljava/lang/String;
     .locals 6
+    .param p1, "packageName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 134
     monitor-enter p0
 
     if-nez p1, :cond_0
 
     move-object v3, v4
 
+    .line 144
     :goto_0
     monitor-exit p0
 
     return-object v3
 
+    .line 137
     :cond_0
     :try_start_0
     iget-object v5, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -806,6 +922,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -819,25 +936,37 @@
 
     check-cast v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
+    .line 138
+    .local v2, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     invoke-virtual {v2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getProfileName()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 139
+    .local v3, "profileName":Ljava/lang/String;
     invoke-virtual {v2, p1}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getPackage(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
+    .line 140
+    .local v1, "packageInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
     if-eqz v1, :cond_1
 
     goto :goto_0
 
+    .end local v1    # "packageInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
+    .end local v2    # "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
+    .end local v3    # "profileName":Ljava/lang/String;
     :cond_2
     move-object v3, v4
 
+    .line 144
     goto :goto_0
 
+    .line 134
+    .end local v0    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v4
 
@@ -848,7 +977,10 @@
 
 .method public declared-synchronized getProfileNameForUid(I)Ljava/lang/String;
     .locals 5
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 159
     monitor-enter p0
 
     :try_start_0
@@ -862,6 +994,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -875,18 +1008,28 @@
 
     check-cast v2, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
+    .line 160
+    .local v2, "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     invoke-virtual {v2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getProfileName()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 161
+    .local v3, "profileName":Ljava/lang/String;
     invoke-virtual {v2, p1}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->getPackageEntryForUid(I)Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v1
 
+    .line 162
+    .local v1, "packageInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
     if-eqz v1, :cond_0
 
+    .line 166
+    .end local v1    # "packageInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnPackageInfo;
+    .end local v2    # "profileEntry":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
+    .end local v3    # "profileName":Ljava/lang/String;
     :goto_0
     monitor-exit p0
 
@@ -897,6 +1040,8 @@
 
     goto :goto_0
 
+    .line 159
+    .end local v0    # "i$":Ljava/util/Iterator;
     :catchall_0
     move-exception v4
 
@@ -917,6 +1062,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 71
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->keySet()Ljava/util/Set;
@@ -928,19 +1075,25 @@
 
 .method public declared-synchronized removePackageFromProfile(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
+    .param p1, "profileName"    # Ljava/lang/String;
+    .param p2, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 122
     monitor-enter p0
 
     if-eqz p1, :cond_0
 
     if-nez p2, :cond_1
 
+    .line 131
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-void
 
+    .line 125
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -951,6 +1104,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 126
     iget-object v1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -959,14 +1113,19 @@
 
     check-cast v0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
 
+    .line 127
+    .local v0, "profileInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     if-eqz v0, :cond_0
 
+    .line 128
     invoke-virtual {v0, p2}, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;->removePackageEntry(Ljava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
+    .line 122
+    .end local v0    # "profileInfo":Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     :catchall_0
     move-exception v1
 
@@ -977,19 +1136,24 @@
 
 .method public declared-synchronized removeProfileEntry(Ljava/lang/String;)Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileInfo;
     .locals 2
+    .param p1, "profileName"    # Ljava/lang/String;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 105
     monitor-enter p0
 
     if-nez p1, :cond_1
 
+    .line 111
     :cond_0
     :goto_0
     monitor-exit p0
 
     return-object v0
 
+    .line 108
     :cond_1
     :try_start_0
     iget-object v1, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
@@ -1000,6 +1164,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 111
     iget-object v0, p0, Lcom/android/server/enterprise/vpn/knoxvpn/VpnProfileConfig;->vpnProfileInfoMap:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/concurrent/ConcurrentHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1012,6 +1177,7 @@
 
     goto :goto_0
 
+    .line 105
     :catchall_0
     move-exception v0
 

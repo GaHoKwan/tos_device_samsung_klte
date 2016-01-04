@@ -25,20 +25,27 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 30
     invoke-direct {p0}, Lcom/android/server/ssrm/fgapps/FgAppListener;-><init>()V
 
+    .line 33
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mSipForeground:Z
 
+    .line 35
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsAppForeground:Z
 
+    .line 37
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsHeavyAppForeground:Z
 
+    .line 52
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mLastBoostLevel:I
 
+    .line 31
     return-void
 .end method
 
@@ -47,8 +54,10 @@
 .method public calculateBoostLevel()I
     .locals 2
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 40
     iget-boolean v1, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsHeavyAppForeground:Z
 
     if-eqz v1, :cond_1
@@ -57,21 +66,26 @@
 
     if-eqz v1, :cond_1
 
+    .line 41
     const/16 v0, 0x9
 
+    .line 49
     :cond_0
     :goto_0
     return v0
 
+    .line 43
     :cond_1
     iget-boolean v1, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsAppForeground:Z
 
     if-nez v1, :cond_0
 
+    .line 46
     iget-boolean v1, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mSipForeground:Z
 
     if-nez v1, :cond_0
 
+    .line 49
     const/4 v0, 0x2
 
     goto :goto_0
@@ -80,15 +94,21 @@
 .method public onFgAppChanged()V
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->getForegroundPackageName()Ljava/lang/String;
+    .prologue
+    .line 71
+    invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/FgAppListener;->getForegroundPackageName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 72
+    .local v0, "packageName":Ljava/lang/String;
     if-nez v0, :cond_0
 
+    .line 89
     :goto_0
     return-void
 
+    .line 76
     :cond_0
     sget-object v2, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mContext:Landroid/content/Context;
 
@@ -96,12 +116,15 @@
 
     move-result-object v1
 
+    .line 78
+    .local v1, "sm":Lcom/android/server/ssrm/SortingMachine;
     invoke-virtual {v1, v0}, Lcom/android/server/ssrm/SortingMachine;->isHeavyApp(Ljava/lang/String;)Z
 
     move-result v2
 
     iput-boolean v2, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsHeavyAppForeground:Z
 
+    .line 80
     const-string v2, "com.facebook.katana"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -140,16 +163,19 @@
 
     if-eqz v2, :cond_2
 
+    .line 84
     :cond_1
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mIsAppForeground:Z
 
+    .line 88
     :goto_1
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->updateBoostLevel()V
 
     goto :goto_0
 
+    .line 86
     :cond_2
     const/4 v2, 0x0
 
@@ -160,37 +186,52 @@
 
 .method public onFgAppInPackageList(Z)V
     .locals 0
+    .param p1, "isForeground"    # Z
 
+    .prologue
+    .line 93
     return-void
 .end method
 
 .method public onSipVisibilityChanged(Z)V
     .locals 0
+    .param p1, "visible"    # Z
 
+    .prologue
+    .line 65
     iput-boolean p1, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mSipForeground:Z
 
+    .line 66
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->updateBoostLevel()V
 
+    .line 67
     return-void
 .end method
 
 .method public updateBoostLevel()V
     .locals 4
 
+    .prologue
+    .line 55
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->calculateBoostLevel()I
 
     move-result v0
 
+    .line 56
+    .local v0, "newLevel":I
     iget v1, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mLastBoostLevel:I
 
     if-ne v1, v0, :cond_0
 
+    .line 61
     :goto_0
     return-void
 
+    .line 59
     :cond_0
     iput v0, p0, Lcom/android/server/ssrm/fgapps/TouchBusBooster;->mLastBoostLevel:I
 
+    .line 60
     const-string v1, "SSRMv2:TouchBusBooster"
 
     new-instance v2, Ljava/lang/StringBuilder;

@@ -481,7 +481,7 @@
     :cond_6
     sget-object v4, Lorg/ccil/cowan/tagsoup/CommandLine;->theSchema:Lorg/ccil/cowan/tagsoup/HTMLSchema;
 
-    invoke-virtual {v4}, Lorg/ccil/cowan/tagsoup/HTMLSchema;->getURI()Ljava/lang/String;
+    invoke-virtual {v4}, Lorg/ccil/cowan/tagsoup/Schema;->getURI()Ljava/lang/String;
 
     move-result-object v4
 

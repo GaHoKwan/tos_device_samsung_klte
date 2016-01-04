@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiService;)V
     .locals 0
 
+    .prologue
+    .line 841
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$9;->this$0:Lcom/android/server/wifi/WifiService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 844
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -46,20 +52,25 @@
 
     if-eqz v1, :cond_0
 
+    .line 845
     const-string v1, "WifiService"
 
     const-string v2, "android.intent.action.COEX_INFO"
 
     invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 847
     new-instance v0, Landroid/os/Message;
 
     invoke-direct {v0}, Landroid/os/Message;-><init>()V
 
+    .line 848
+    .local v0, "msg":Landroid/os/Message;
     const/16 v1, 0x3f
 
     iput v1, v0, Landroid/os/Message;->what:I
 
+    .line 849
     const-string v1, "COEX_AVAILABLE"
 
     const/4 v2, 0x0
@@ -70,12 +81,15 @@
 
     iput v1, v0, Landroid/os/Message;->arg1:I
 
+    .line 851
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$9;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget-object v1, v1, Lcom/android/server/wifi/WifiService;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v1, v0}, Landroid/net/wifi/WifiStateMachine;->callSECApi(Landroid/os/Message;)I
 
+    .line 853
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method

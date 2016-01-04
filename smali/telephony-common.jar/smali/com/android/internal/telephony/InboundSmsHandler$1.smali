@@ -23,7 +23,7 @@
     .locals 0
 
     .prologue
-    .line 2410
+    .line 2393
     iput-object p1, p0, Lcom/android/internal/telephony/InboundSmsHandler$1;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -38,16 +38,16 @@
     .param p1, "msg"    # Landroid/os/Message;
 
     .prologue
-    .line 2414
+    .line 2397
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
-    .line 2426
+    .line 2409
     :goto_0
     return-void
 
-    .line 2416
+    .line 2399
     :pswitch_0
     const-string v2, "InboundSmsHandler"
 
@@ -55,18 +55,18 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2417
+    .line 2400
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/os/AsyncResult;
 
-    .line 2418
+    .line 2401
     .local v0, "ar":Landroid/os/AsyncResult;
     iget-object v1, v0, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     check-cast v1, Landroid/telephony/SmsMessage;
 
-    .line 2419
+    .line 2402
     .local v1, "sms":Landroid/telephony/SmsMessage;
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$1;->this$0:Lcom/android/internal/telephony/InboundSmsHandler;
 
@@ -74,7 +74,7 @@
 
     goto :goto_0
 
-    .line 2422
+    .line 2405
     .end local v0    # "ar":Landroid/os/AsyncResult;
     .end local v1    # "sms":Landroid/telephony/SmsMessage;
     :pswitch_1
@@ -84,16 +84,16 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 2423
+    .line 2406
     const/16 v2, 0x17
 
     iget-object v3, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual {p0, v2, v3}, Lcom/android/internal/telephony/InboundSmsHandler$1;->removeMessages(ILjava/lang/Object;)V
+    invoke-virtual {p0, v2, v3}, Landroid/os/Handler;->removeMessages(ILjava/lang/Object;)V
 
     goto :goto_0
 
-    .line 2414
+    .line 2397
     :pswitch_data_0
     .packed-switch 0x17
         :pswitch_0

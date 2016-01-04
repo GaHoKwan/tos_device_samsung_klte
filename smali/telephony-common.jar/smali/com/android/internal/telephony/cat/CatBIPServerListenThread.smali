@@ -79,7 +79,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget-object v4, v4, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v4, v4, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     iget v4, v4, Lcom/android/internal/telephony/cat/TransportLevel;->portNumber:I
 
@@ -99,7 +99,7 @@
 
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget-object v4, v4, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v4, v4, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     iget v4, v4, Lcom/android/internal/telephony/cat/TransportLevel;->portNumber:I
 
@@ -128,7 +128,7 @@
     .local v1, "bytesRead":I
     iget-object v3, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget v3, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->bufferSize:I
+    iget v3, v3, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     new-array v0, v3, [B
 
@@ -178,12 +178,12 @@
 
     const/4 v4, 0x0
 
-    iput-byte v4, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->linkStateCause:B
+    iput-byte v4, v3, Lcom/android/internal/telephony/cat/CatBIPConnection;->linkStateCause:B
 
     .line 96
     iget-object v3, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget-object v3, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
+    iget-object v3, v3, Lcom/android/internal/telephony/cat/CatBIPConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
@@ -204,7 +204,7 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget v6, v6, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->bufferSize:I
+    iget v6, v6, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     invoke-direct {v4, v5, v6}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
 
@@ -225,7 +225,7 @@
 
     iget-object v6, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget v6, v6, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->bufferSize:I
+    iget v6, v6, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     invoke-direct {v4, v5, v6}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
 
@@ -271,7 +271,7 @@
 
     iget-object v3, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->reader:Ljava/io/BufferedInputStream;
 
-    invoke-virtual {v3, v0}, Ljava/io/BufferedInputStream;->read([B)I
+    invoke-virtual {v3, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v1
 
@@ -318,7 +318,7 @@
     .line 109
     iget-object v3, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
-    iget-object v3, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
+    iget-object v3, v3, Lcom/android/internal/telephony/cat/CatBIPConnection;->mCatBIPManager:Lcom/android/internal/telephony/cat/CatBIPManager;
 
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPServerListenThread;->bipcon:Lcom/android/internal/telephony/cat/CatBIPServerConnection;
 
@@ -351,7 +351,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -425,7 +425,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -482,7 +482,7 @@
 
     const/4 v4, 0x0
 
-    iput-byte v4, v3, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->linkStateCause:B
+    iput-byte v4, v3, Lcom/android/internal/telephony/cat/CatBIPConnection;->linkStateCause:B
 
     .line 126
     invoke-static {}, Ljava/lang/Thread;->interrupted()Z
@@ -554,7 +554,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -631,7 +631,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -664,7 +664,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -695,7 +695,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -726,7 +726,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -759,7 +759,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -792,7 +792,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getLocalizedMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getLocalizedMessage()Ljava/lang/String;
 
     move-result-object v5
 

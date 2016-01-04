@@ -80,6 +80,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 5528
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "phones"
@@ -90,6 +92,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 5537
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -106,6 +109,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5512
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -113,9 +118,14 @@
 
 .method public static final getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 5607
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -129,9 +139,15 @@
 
 .method public static final getDisplayLabel(Landroid/content/Context;ILjava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 1
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
+    .param p3, "labelArray"    # [Ljava/lang/CharSequence;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 5597
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -145,7 +161,12 @@
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 5647
     if-eqz p1, :cond_0
 
     const/16 v1, 0x13
@@ -159,14 +180,20 @@
 
     if-nez v1, :cond_1
 
+    .line 5651
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
+    .line 5650
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_1
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Phone;->getTypeLabelResource(I)I
 
     move-result v0
 
+    .line 5651
+    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
@@ -176,114 +203,139 @@
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 5615
     packed-switch p0, :pswitch_data_0
 
+    .line 5636
     const v0, 0x104052a
 
     :goto_0
     return v0
 
+    .line 5616
     :pswitch_0
     const v0, 0x104052b
 
     goto :goto_0
 
+    .line 5617
     :pswitch_1
     const v0, 0x104052c
 
     goto :goto_0
 
+    .line 5618
     :pswitch_2
     const v0, 0x104052d
 
     goto :goto_0
 
+    .line 5619
     :pswitch_3
     const v0, 0x104052e
 
     goto :goto_0
 
+    .line 5620
     :pswitch_4
     const v0, 0x104052f
 
     goto :goto_0
 
+    .line 5621
     :pswitch_5
     const v0, 0x1040530
 
     goto :goto_0
 
+    .line 5622
     :pswitch_6
     const v0, 0x1040531
 
     goto :goto_0
 
+    .line 5623
     :pswitch_7
     const v0, 0x1040532
 
     goto :goto_0
 
+    .line 5624
     :pswitch_8
     const v0, 0x1040533
 
     goto :goto_0
 
+    .line 5625
     :pswitch_9
     const v0, 0x1040534
 
     goto :goto_0
 
+    .line 5626
     :pswitch_a
     const v0, 0x1040535
 
     goto :goto_0
 
+    .line 5627
     :pswitch_b
     const v0, 0x1040536
 
     goto :goto_0
 
+    .line 5628
     :pswitch_c
     const v0, 0x1040537
 
     goto :goto_0
 
+    .line 5629
     :pswitch_d
     const v0, 0x1040538
 
     goto :goto_0
 
+    .line 5630
     :pswitch_e
     const v0, 0x1040539
 
     goto :goto_0
 
+    .line 5631
     :pswitch_f
     const v0, 0x104053a
 
     goto :goto_0
 
+    .line 5632
     :pswitch_10
     const v0, 0x104053b
 
     goto :goto_0
 
+    .line 5633
     :pswitch_11
     const v0, 0x104053c
 
     goto :goto_0
 
+    .line 5634
     :pswitch_12
     const v0, 0x104053d
 
     goto :goto_0
 
+    .line 5635
     :pswitch_13
     const v0, 0x104053e
 
     goto :goto_0
 
+    .line 5615
     nop
 
     :pswitch_data_0

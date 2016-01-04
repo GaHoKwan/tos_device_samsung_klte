@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WifiOffloadService;)V
     .locals 0
 
+    .prologue
+    .line 613
     iput-object p1, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -34,12 +36,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 616
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "checkDataActivityTimer excecuted"
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 617
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 
     invoke-virtual {v0}, Lcom/android/server/WifiOffloadService;->getIntelligentWifiEnabled()Z
@@ -48,12 +53,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 618
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 
     const-string v1, "Intel mode is ON"
 
     invoke-virtual {v0, v1}, Lcom/android/server/WifiOffloadService;->printLog(Ljava/lang/String;)V
 
+    .line 619
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 
     const/4 v1, 0x0
@@ -62,9 +69,11 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/WifiOffloadService;->wifiOffloadFlow(Ljava/lang/String;Z)Z
 
+    .line 624
     :goto_0
     return-void
 
+    .line 621
     :cond_0
     iget-object v0, p0, Lcom/android/server/WifiOffloadService$4;->this$0:Lcom/android/server/WifiOffloadService;
 

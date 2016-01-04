@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$ColorPickerDialog;Landroid/widget/GridView;)V
     .locals 0
 
+    .prologue
+    .line 7770
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkitsec/WebViewClassic$ColorPickerDialog;
 
     iput-object p2, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$1;->val$gridViewColors:Landroid/widget/GridView;
@@ -40,6 +42,9 @@
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 3
+    .param p2, "view"    # Landroid/view/View;
+    .param p3, "position"    # I
+    .param p4, "id"    # J
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,10 +55,14 @@
         }
     .end annotation
 
+    .prologue
+    .line 7773
+    .local p1, "parent":Landroid/widget/AdapterView;, "Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkitsec/WebViewClassic$ColorPickerDialog;
 
-    invoke-virtual {v1}, Landroid/webkitsec/WebViewClassic$ColorPickerDialog;->dismiss()V
+    invoke-virtual {v1}, Landroid/app/Dialog;->dismiss()V
 
+    .line 7774
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$1;->val$gridViewColors:Landroid/widget/GridView;
 
     invoke-virtual {v1}, Landroid/widget/GridView;->getAdapter()Landroid/widget/ListAdapter;
@@ -70,6 +79,8 @@
 
     check-cast v0, Ljava/lang/Integer;
 
+    .line 7775
+    .local v0, "color":Ljava/lang/Integer;
     iget-object v1, p0, Landroid/webkitsec/WebViewClassic$ColorPickerDialog$1;->this$1:Landroid/webkitsec/WebViewClassic$ColorPickerDialog;
 
     iget-object v1, v1, Landroid/webkitsec/WebViewClassic$ColorPickerDialog;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -81,5 +92,6 @@
     # invokes: Landroid/webkitsec/WebViewClassic;->updateColor(I)V
     invoke-static {v1, v2}, Landroid/webkitsec/WebViewClassic;->access$3900(Landroid/webkitsec/WebViewClassic;I)V
 
+    .line 7776
     return-void
 .end method

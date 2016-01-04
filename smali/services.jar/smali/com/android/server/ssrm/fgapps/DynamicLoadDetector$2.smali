@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;)V
     .locals 0
 
+    .prologue
+    .line 99
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$2;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 103
     :try_start_0
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$2;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
@@ -44,6 +48,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;->shiftSiopTable(Z)V
 
+    .line 104
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$2;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
     const/4 v2, 0x0
@@ -52,12 +57,16 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 108
     :goto_0
     return-void
 
+    .line 105
     :catch_0
     move-exception v0
 
+    .line 106
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "SSRMv2:DynamicLoadDetector"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -70,7 +79,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 

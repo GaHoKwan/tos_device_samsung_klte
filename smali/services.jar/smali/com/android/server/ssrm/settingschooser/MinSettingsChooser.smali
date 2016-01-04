@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 22
     invoke-direct {p0}, Lcom/android/server/ssrm/settings/SettingsChooser;-><init>()V
 
     return-void
@@ -45,16 +47,26 @@
         }
     .end annotation
 
+    .prologue
+    .line 29
+    .local p1, "currentSetting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
+    .local p2, "newSetting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     move-object v3, p1
 
+    .line 30
+    .local v3, "retValue":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     invoke-virtual {p1}, Lcom/android/server/ssrm/settings/Setting;->returnOption()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 31
+    .local v0, "mCurrentOption":Ljava/lang/String;
     invoke-virtual {p2}, Lcom/android/server/ssrm/settings/Setting;->returnOption()Ljava/lang/String;
 
     move-result-object v1
 
+    .line 33
+    .local v1, "mNewOption":Ljava/lang/String;
     const-string v5, "forced"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -71,12 +83,15 @@
 
     if-nez v5, :cond_1
 
+    .line 34
     move-object v3, p1
 
+    .line 48
     :cond_0
     :goto_0
     return-object v3
 
+    .line 35
     :cond_1
     const-string v5, "forced"
 
@@ -94,10 +109,12 @@
 
     if-nez v5, :cond_2
 
+    .line 37
     move-object v3, p2
 
     goto :goto_0
 
+    .line 39
     :cond_2
     invoke-virtual {p2}, Lcom/android/server/ssrm/settings/Setting;->value()Ljava/lang/Object;
 
@@ -105,6 +122,8 @@
 
     check-cast v2, Ljava/lang/Comparable;
 
+    .line 40
+    .local v2, "newComparable":Ljava/lang/Comparable;, "Ljava/lang/Comparable<Ljava/lang/Integer;>;"
     invoke-virtual {p1}, Lcom/android/server/ssrm/settings/Setting;->value()Ljava/lang/Object;
 
     move-result-object v5
@@ -113,15 +132,20 @@
 
     move-result v4
 
+    .line 41
+    .local v4, "value":I
     if-gez v4, :cond_3
 
+    .line 42
     move-object v3, p2
 
     goto :goto_0
 
+    .line 43
     :cond_3
     if-lez v4, :cond_0
 
+    .line 44
     move-object v3, p1
 
     goto :goto_0

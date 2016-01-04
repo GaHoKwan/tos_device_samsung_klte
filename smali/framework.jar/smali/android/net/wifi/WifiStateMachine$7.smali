@@ -102,15 +102,9 @@
     # invokes: Landroid/net/wifi/WifiStateMachine;->handleScreenStateChanged(Z)V
     invoke-static {v1, v5}, Landroid/net/wifi/WifiStateMachine;->access$1900(Landroid/net/wifi/WifiStateMachine;Z)V
 
-    .line 1521
+    .line 1523
     :cond_1
     :goto_0
-    iget-object v1, p0, Landroid/net/wifi/WifiStateMachine$7;->this$0:Landroid/net/wifi/WifiStateMachine;
-
-    # invokes: Landroid/net/wifi/WifiStateMachine;->setPowerBackOff()V
-    invoke-static {v1}, Landroid/net/wifi/WifiStateMachine;->access$2100(Landroid/net/wifi/WifiStateMachine;)V
-
-    .line 1523
     return-void
 
     .line 1513

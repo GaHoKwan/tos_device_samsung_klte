@@ -26,6 +26,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 4670
     invoke-static {}, Lcom/android/server/BackupManagerService$RestoreState;->values()[Lcom/android/server/BackupManagerService$RestoreState;
 
     move-result-object v0
@@ -41,7 +43,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->INITIAL:Lcom/android/server/BackupManagerService$RestoreState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestoreState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -57,7 +59,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->DOWNLOAD_DATA:Lcom/android/server/BackupManagerService$RestoreState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestoreState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -73,7 +75,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->PM_METADATA:Lcom/android/server/BackupManagerService$RestoreState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestoreState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -89,7 +91,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$RestoreState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestoreState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -105,7 +107,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestoreState;->FINAL:Lcom/android/server/BackupManagerService$RestoreState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestoreState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -115,6 +117,7 @@
     :try_end_4
     .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_6
 
+    .line 3640
     :goto_4
     invoke-static {}, Lcom/android/server/BackupManagerService$RestorePolicy;->values()[Lcom/android/server/BackupManagerService$RestorePolicy;
 
@@ -131,7 +134,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->IGNORE:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestorePolicy;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -147,7 +150,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT_IF_APK:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestorePolicy;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -163,7 +166,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$RestorePolicy;->ACCEPT:Lcom/android/server/BackupManagerService$RestorePolicy;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$RestorePolicy;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -173,6 +176,7 @@
     :try_end_7
     .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_3
 
+    .line 2005
     :goto_7
     invoke-static {}, Lcom/android/server/BackupManagerService$BackupState;->values()[Lcom/android/server/BackupManagerService$BackupState;
 
@@ -189,7 +193,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->INITIAL:Lcom/android/server/BackupManagerService$BackupState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$BackupState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -205,7 +209,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->RUNNING_QUEUE:Lcom/android/server/BackupManagerService$BackupState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$BackupState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -221,7 +225,7 @@
 
     sget-object v1, Lcom/android/server/BackupManagerService$BackupState;->FINAL:Lcom/android/server/BackupManagerService$BackupState;
 
-    invoke-virtual {v1}, Lcom/android/server/BackupManagerService$BackupState;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -249,6 +253,7 @@
 
     goto :goto_8
 
+    .line 3640
     :catch_3
     move-exception v0
 
@@ -264,6 +269,7 @@
 
     goto :goto_5
 
+    .line 4670
     :catch_6
     move-exception v0
 

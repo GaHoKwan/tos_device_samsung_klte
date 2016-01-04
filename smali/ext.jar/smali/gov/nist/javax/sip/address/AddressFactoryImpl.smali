@@ -231,7 +231,7 @@
     .local v0, "ex":Ljava/text/ParseException;
     new-instance v3, Ljava/text/ParseException;
 
-    invoke-virtual {v0}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -371,7 +371,7 @@
     .local v0, "ex":Ljava/text/ParseException;
     new-instance v4, Ljava/text/ParseException;
 
-    invoke-virtual {v0}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -453,7 +453,7 @@
     .local v0, "ex":Ljava/text/ParseException;
     new-instance v4, Ljava/text/ParseException;
 
-    invoke-virtual {v0}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -528,7 +528,7 @@
     .local v0, "ex":Ljava/text/ParseException;
     new-instance v3, Ljava/text/ParseException;
 
-    invoke-virtual {v0}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 

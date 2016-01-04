@@ -149,7 +149,7 @@
     .line 46
     sget-object v0, Landroid/graphics/Atlas$Type;->$VALUES:[Landroid/graphics/Atlas$Type;
 
-    invoke-virtual {v0}, [Landroid/graphics/Atlas$Type;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

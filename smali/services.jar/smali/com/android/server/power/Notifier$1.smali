@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/Notifier;)V
     .locals 0
 
+    .prologue
+    .line 496
     iput-object p1, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public onScreenOn()V
     .locals 3
 
+    .prologue
+    .line 500
     const-string v0, "PowerManagerNotifier"
 
     const-string v1, "[api] WindowManagerPolicy.ScreenOnListener : Received onScreenOn()."
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 506
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     # getter for: Lcom/android/server/power/Notifier;->mHandler:Lcom/android/server/power/Notifier$NotifierHandler;
@@ -52,8 +57,9 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Lcom/android/server/power/Notifier$NotifierHandler;->removeMessages(I)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 508
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     # getter for: Lcom/android/server/power/Notifier;->mLock:Ljava/lang/Object;
@@ -63,6 +69,7 @@
 
     monitor-enter v1
 
+    .line 509
     :try_start_0
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
@@ -82,6 +89,7 @@
 
     if-nez v0, :cond_0
 
+    .line 510
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     const/4 v2, 0x0
@@ -89,6 +97,7 @@
     # setter for: Lcom/android/server/power/Notifier;->mScreenOnBlockerAcquired:Z
     invoke-static {v0, v2}, Lcom/android/server/power/Notifier;->access$202(Lcom/android/server/power/Notifier;Z)Z
 
+    .line 511
     iget-object v0, p0, Lcom/android/server/power/Notifier$1;->this$0:Lcom/android/server/power/Notifier;
 
     # getter for: Lcom/android/server/power/Notifier;->mScreenOnBlocker:Lcom/android/server/power/ScreenOnBlocker;
@@ -98,11 +107,14 @@
 
     invoke-interface {v0}, Lcom/android/server/power/ScreenOnBlocker;->release()V
 
+    .line 513
     :cond_0
     monitor-exit v1
 
+    .line 514
     return-void
 
+    .line 513
     :catchall_0
     move-exception v0
 

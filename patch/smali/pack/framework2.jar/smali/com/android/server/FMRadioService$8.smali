@@ -24,10 +24,13 @@
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 2
 
+    .prologue
+    .line 852
     iput-object p1, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
 
+    .line 853
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
@@ -39,9 +42,12 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/16 v4, 0xc8
 
+    .line 856
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -70,10 +76,12 @@
 
     invoke-static {v0}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 857
     iget v0, p1, Landroid/os/Message;->what:I
 
     if-ne v0, v4, :cond_0
 
+    .line 858
     iget-object v0, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -83,6 +91,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 859
     iget-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
     iget-object v2, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
@@ -96,6 +105,7 @@
 
     if-gez v0, :cond_1
 
+    .line 860
     iget-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
     const-wide/16 v2, 0x1
@@ -104,12 +114,14 @@
 
     iput-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
+    .line 861
     iget-object v0, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
     iget-wide v1, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/FMRadioService;->setVolume(J)V
 
+    .line 862
     iget-object v0, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
     const-wide/16 v1, 0x64
@@ -117,10 +129,12 @@
     # invokes: Lcom/android/server/FMRadioService;->queueUpdate(IJ)V
     invoke-static {v0, v4, v1, v2}, Lcom/android/server/FMRadioService;->access$2700(Lcom/android/server/FMRadioService;IJ)V
 
+    .line 870
     :cond_0
     :goto_0
     return-void
 
+    .line 864
     :cond_1
     iget-object v0, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
@@ -131,12 +145,14 @@
 
     iput-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
+    .line 865
     iget-object v0, p0, Lcom/android/server/FMRadioService$8;->this$0:Lcom/android/server/FMRadioService;
 
     iget-wide v1, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/FMRadioService;->setVolume(J)V
 
+    .line 866
     const-wide/16 v0, 0x0
 
     iput-wide v0, p0, Lcom/android/server/FMRadioService$8;->currentVolume:J

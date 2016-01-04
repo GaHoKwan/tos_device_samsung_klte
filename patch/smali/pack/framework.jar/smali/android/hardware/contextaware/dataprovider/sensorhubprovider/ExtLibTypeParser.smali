@@ -84,11 +84,11 @@
 
     .line 161
     :cond_2
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$ACTIVITY_TRACKER_EXT_LIB_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-super {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
+    invoke-super {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
     move-result-object v5
 
@@ -247,11 +247,11 @@
 
     .line 127
     :cond_2
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$PEDOMETER_EXT_LIB_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-super {p0, v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
+    invoke-super {p0, v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
     move-result-object v4
 
@@ -346,11 +346,11 @@
 
     .line 94
     :cond_2
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$POSITIONING_EXT_LIB_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-super {p0, v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
+    invoke-super {p0, v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
     move-result-object v4
 
@@ -444,11 +444,11 @@
 
     .line 205
     :cond_2
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$SLEEP_MONITOR_EXT_LIB_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-super {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/TypeParser;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
+    invoke-super {p0, v9}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserBean;->getParser(Ljava/lang/String;)Landroid/hardware/contextaware/dataprovider/sensorhubprovider/ISensorHubParser;
 
     move-result-object v5
 
@@ -609,13 +609,13 @@
 
     .line 51
     :cond_2
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_MOVEMENT_FOR_POSITIONING:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->name()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v6
 
@@ -643,13 +643,13 @@
     .line 54
     .restart local v1    # "i":Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
     :cond_4
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_PEDOMETER:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->name()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v6
 
@@ -670,13 +670,13 @@
 
     .line 57
     :cond_5
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_ACTIVITY_TRACKER:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->name()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v6
 
@@ -697,13 +697,13 @@
 
     .line 60
     :cond_6
-    invoke-virtual {v1}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v5
 
     sget-object v6, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_SLEEP_MONITOR:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v6}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->name()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/Enum;->name()Ljava/lang/String;
 
     move-result-object v6
 

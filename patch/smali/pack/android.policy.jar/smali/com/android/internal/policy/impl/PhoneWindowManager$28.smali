@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 7050
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$28;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 7052
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 7053
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "com.android.server.enterprise.kioskmode.REFRESH_HWKEY_CACHE"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,6 +54,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 7055
     :try_start_0
     const-string v3, "kioskmode"
 
@@ -57,8 +66,11 @@
 
     move-result-object v2
 
+    .line 7057
+    .local v2, "kioskService":Landroid/app/enterprise/kioskmode/IKioskMode;
     if-eqz v2, :cond_0
 
+    .line 7058
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$28;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-interface {v2}, Landroid/app/enterprise/kioskmode/IKioskMode;->getBlockedHwKeysCache()Ljava/util/Map;
@@ -68,6 +80,7 @@
     # setter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mBlockedHwKeys:Ljava/util/Map;
     invoke-static {v3, v4}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$2302(Lcom/android/internal/policy/impl/PhoneWindowManager;Ljava/util/Map;)Ljava/util/Map;
 
+    .line 7059
     const-string v3, "WindowManager"
 
     const-string v4, "Blocked hw keys cache is being refreshed."
@@ -76,13 +89,18 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 7065
+    .end local v2    # "kioskService":Landroid/app/enterprise/kioskmode/IKioskMode;
     :cond_0
     :goto_0
     return-void
 
+    .line 7061
     :catch_0
     move-exception v1
 
+    .line 7062
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v3, "WindowManager"
 
     const-string v4, "Exception while getting kiosk mode service"

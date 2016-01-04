@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 948
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$21;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/ssrm/Monitor$CustomSettingWriter;-><init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
@@ -41,6 +44,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 960
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     sget-object v2, Lcom/android/server/ssrm/Monitor;->mTts:Landroid/speech/tts/TextToSpeech;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -71,12 +77,16 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
+    .line 962
     sget v0, Lcom/android/server/ssrm/Limiter;->mCurLimitCPUFreq:I
 
+    .line 963
+    .local v0, "cpuMax":I
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_0
 
+    .line 964
     sget-object v2, Lcom/android/server/ssrm/Monitor;->mTts:Landroid/speech/tts/TextToSpeech;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -127,21 +137,27 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
+    .line 968
     :cond_0
     sget v1, Lcom/android/server/ssrm/Limiter;->mCurLimitGPUFreq:I
 
+    .line 969
+    .local v1, "gpuMax":I
     const/4 v2, -0x1
 
     if-eq v1, v2, :cond_2
 
+    .line 970
     const v2, 0xf4240
 
     if-le v1, v2, :cond_1
 
+    .line 971
     const v2, 0xf4240
 
     div-int/2addr v1, v2
 
+    .line 973
     :cond_1
     sget-object v2, Lcom/android/server/ssrm/Monitor;->mTts:Landroid/speech/tts/TextToSpeech;
 
@@ -169,6 +185,7 @@
 
     invoke-virtual {v2, v3, v4, v5}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
 
+    .line 975
     :cond_2
     return-void
 .end method
@@ -187,6 +204,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 951
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$21;->this$0:Lcom/android/server/ssrm/Monitor;
 
     sget-object v1, Lcom/android/server/ssrm/Monitor;->TAG_SIOP:Ljava/lang/String;
@@ -201,7 +221,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/ssrm/Monitor$21;->mName:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/server/ssrm/settings/SettingWriter;->mName:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -227,6 +247,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/ssrm/Monitor;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 952
     iget-object v1, p0, Lcom/android/server/ssrm/Monitor$21;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-virtual {p1}, Lcom/android/server/ssrm/settings/Setting;->value()Ljava/lang/Object;
@@ -241,6 +262,7 @@
 
     iput v0, v1, Lcom/android/server/ssrm/Monitor;->mSiopLevel:I
 
+    .line 953
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$21;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mLimiter:Lcom/android/server/ssrm/Limiter;
@@ -251,6 +273,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/ssrm/Limiter;->broadcastSiopLevelIntent(I)V
 
+    .line 954
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$21;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mDevSysProperty:Lcom/android/server/ssrm/DevSysProperty;
@@ -261,8 +284,10 @@
 
     if-eqz v0, :cond_0
 
+    .line 955
     invoke-direct {p0, p1}, Lcom/android/server/ssrm/Monitor$21;->speakSiopInformation(Lcom/android/server/ssrm/settings/Setting;)V
 
+    .line 957
     :cond_0
     return-void
 .end method

@@ -280,7 +280,7 @@
     .line 139
     sget-object v0, Lcom/movial/ipphone/IPUtils$EmergencyState;->$VALUES:[Lcom/movial/ipphone/IPUtils$EmergencyState;
 
-    invoke-virtual {v0}, [Lcom/movial/ipphone/IPUtils$EmergencyState;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

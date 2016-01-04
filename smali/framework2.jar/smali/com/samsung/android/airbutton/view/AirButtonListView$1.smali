@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/view/AirButtonListView;)V
     .locals 0
 
+    .prologue
+    .line 479
     iput-object p1, p0, Lcom/samsung/android/airbutton/view/AirButtonListView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,11 +39,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 482
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AirButtonListView$1;->this$0:Lcom/samsung/android/airbutton/view/AirButtonListView;
 
     const/4 v1, 0x1
 
-    iput-boolean v1, v0, Lcom/samsung/android/airbutton/view/AirButtonListView;->mIsHoverEventEnabled:Z
+    iput-boolean v1, v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsHoverEventEnabled:Z
 
+    .line 483
     return-void
 .end method

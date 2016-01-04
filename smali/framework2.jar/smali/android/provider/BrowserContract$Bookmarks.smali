@@ -65,6 +65,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 254
     sget-object v0, Landroid/provider/BrowserContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v1, "bookmarks"
@@ -75,6 +77,7 @@
 
     sput-object v0, Landroid/provider/BrowserContract$Bookmarks;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 303
     sget-object v0, Landroid/provider/BrowserContract$Bookmarks;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "folder"
@@ -91,6 +94,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 249
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -98,7 +103,10 @@
 
 .method public static final buildFolderUri(J)Landroid/net/Uri;
     .locals 1
+    .param p0, "folderId"    # J
 
+    .prologue
+    .line 324
     sget-object v0, Landroid/provider/BrowserContract$Bookmarks;->CONTENT_URI_DEFAULT_FOLDER:Landroid/net/Uri;
 
     invoke-static {v0, p0, p1}, Landroid/content/ContentUris;->withAppendedId(Landroid/net/Uri;J)Landroid/net/Uri;

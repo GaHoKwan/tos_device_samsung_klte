@@ -33,7 +33,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/AddressParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 61
-    iput-object p1, p0, Lgov/nist/javax/sip/header/ims/PPreferredIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 62
     return-void
@@ -54,7 +54,7 @@
 
     .line 76
     .local v0, "retval":Ljava/lang/StringBuffer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PPreferredIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -69,7 +69,7 @@
 
     .line 79
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PPreferredIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->encode()Ljava/lang/String;
 
@@ -78,7 +78,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 80
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PPreferredIdentity;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 

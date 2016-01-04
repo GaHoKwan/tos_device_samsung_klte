@@ -7,14 +7,21 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 34
     return-void
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 46
     const/4 v0, 0x1
 
     const/4 v1, 0x3
@@ -28,7 +35,12 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 50
     const/4 v0, 0x1
 
     const/4 v1, 0x3
@@ -68,7 +80,11 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 77
     const/4 v0, 0x1
 
     const/4 v1, 0x6
@@ -82,7 +98,12 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 81
     const/4 v0, 0x1
 
     const/4 v1, 0x6
@@ -122,7 +143,11 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 55
     const/4 v0, 0x1
 
     const/4 v1, 0x4
@@ -136,7 +161,12 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 59
     const/4 v0, 0x1
 
     const/4 v1, 0x4
@@ -176,7 +206,11 @@
 
 .method public static isLoggable(Ljava/lang/String;I)Z
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "level"    # I
 
+    .prologue
+    .line 90
     invoke-static {p0, p1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
     move-result v0
@@ -186,7 +220,12 @@
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "priority"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 86
     const/4 v0, 0x1
 
     invoke-static {v0, p0, p1, p2}, Landroid/util/Log;->println_native(IILjava/lang/String;Ljava/lang/String;)I
@@ -198,7 +237,11 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 37
     const/4 v0, 0x1
 
     const/4 v1, 0x2
@@ -212,7 +255,12 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 41
     const/4 v0, 0x1
 
     const/4 v1, 0x2
@@ -252,7 +300,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 64
     const/4 v0, 0x1
 
     const/4 v1, 0x5
@@ -266,7 +318,12 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 68
     const/4 v0, 0x1
 
     const/4 v1, 0x5
@@ -306,7 +363,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 3
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 73
     const/4 v0, 0x1
 
     const/4 v1, 0x5

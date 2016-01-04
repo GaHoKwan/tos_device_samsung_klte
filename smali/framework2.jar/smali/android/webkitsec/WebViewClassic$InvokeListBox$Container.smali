@@ -36,6 +36,8 @@
 .method private constructor <init>(Landroid/webkitsec/WebViewClassic$InvokeListBox;)V
     .locals 0
 
+    .prologue
+    .line 14149
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$Container;->this$1:Landroid/webkitsec/WebViewClassic$InvokeListBox;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +47,11 @@
 
 .method synthetic constructor <init>(Landroid/webkitsec/WebViewClassic$InvokeListBox;Landroid/webkitsec/WebViewClassic$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/webkitsec/WebViewClassic$InvokeListBox;
+    .param p2, "x1"    # Landroid/webkitsec/WebViewClassic$1;
 
+    .prologue
+    .line 14149
     invoke-direct {p0, p1}, Landroid/webkitsec/WebViewClassic$InvokeListBox$Container;-><init>(Landroid/webkitsec/WebViewClassic$InvokeListBox;)V
 
     return-void
@@ -56,6 +62,8 @@
 .method public toString()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 14164
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$InvokeListBox$Container;->mString:Ljava/lang/String;
 
     return-object v0

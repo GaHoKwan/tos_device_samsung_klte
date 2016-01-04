@@ -101,7 +101,7 @@
     .line 616
     const-string v7, "CRI"
 
-    const-string v8, "VZW"
+    const-string v8, "OPEN"
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

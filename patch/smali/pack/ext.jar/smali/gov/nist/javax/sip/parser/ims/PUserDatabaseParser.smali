@@ -48,7 +48,7 @@
 
     .line 96
     .local v0, "dbname":Ljava/lang/StringBuffer;
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v3, 0x3c
 
@@ -57,18 +57,18 @@
     .line 98
     :cond_0
     :goto_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v2}, Lgov/nist/core/LexerCore;->hasMoreChars()Z
+    invoke-virtual {v2}, Lgov/nist/core/StringTokenizer;->hasMoreChars()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
     .line 100
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {v2}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v1
 
@@ -122,31 +122,31 @@
     .line 74
     const-string v1, "PUserDatabase.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 77
     :cond_0
     :try_start_0
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x85d    # 3.0E-42f
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 78
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 79
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0x3a
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 80
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -169,7 +169,7 @@
     .line 89
     const-string v1, "PUserDatabase.parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 85
     :cond_1
@@ -187,7 +187,7 @@
     .line 89
     const-string v2, "PUserDatabase.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PUserDatabaseParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 88
     :cond_2

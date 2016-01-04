@@ -46,15 +46,15 @@
     .line 51
     new-array v4, p3, [B
 
-    iput-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iput-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     .line 52
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     invoke-static {p1, p2, v4, v5, p3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 55
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v4, v4, v5
 
@@ -62,7 +62,7 @@
 
     .line 57
     .local v0, "addressLength":I
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v4, v4, v7
 
@@ -74,7 +74,7 @@
 
     and-int/lit8 v4, v4, 0x7
 
-    iput v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->ton:I
+    iput v4, p0, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     .line 61
     and-int/lit16 v4, v3, 0x80
@@ -125,7 +125,7 @@
 
     .line 70
     .local v1, "countSeptets":I
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     const/4 v5, 0x2
 
@@ -133,7 +133,7 @@
 
     move-result-object v4
 
-    iput-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->address:Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     .line 130
     .end local v1    # "countSeptets":I
@@ -142,7 +142,7 @@
 
     .line 77
     :cond_1
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
 
@@ -155,7 +155,7 @@
     if-ne v4, v7, :cond_2
 
     .line 81
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
 
@@ -169,7 +169,7 @@
 
     .line 83
     :cond_2
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
 
@@ -177,10 +177,10 @@
 
     move-result-object v4
 
-    iput-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->address:Ljava/lang/String;
+    iput-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     .line 87
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v4, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     add-int/lit8 v5, p3, -0x1
 
@@ -196,7 +196,7 @@
 
     .prologue
     .line 134
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->address:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->address:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -206,7 +206,7 @@
 
     .prologue
     .line 142
-    iget v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->ton:I
+    iget v0, p0, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     const/4 v1, 0x5
 
@@ -236,7 +236,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v0, v0, v2
 
@@ -246,7 +246,7 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v0, v0, v2
 
@@ -277,7 +277,7 @@
     const/4 v1, 0x0
 
     .line 176
-    iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v2, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v2, v2, v1
 
@@ -293,7 +293,7 @@
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v2, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v2, v2, v0
 
@@ -323,7 +323,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v0, v0, v2
 
@@ -333,7 +333,7 @@
 
     if-eq v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->origBytes:[B
+    iget-object v0, p0, Lcom/android/internal/telephony/SmsAddress;->origBytes:[B
 
     aget-byte v0, v0, v2
 
@@ -360,7 +360,7 @@
 
     .prologue
     .line 147
-    iget v0, p0, Lcom/android/internal/telephony/gsm/GsmSmsAddress;->ton:I
+    iget v0, p0, Lcom/android/internal/telephony/SmsAddress;->ton:I
 
     const/4 v1, 0x3
 

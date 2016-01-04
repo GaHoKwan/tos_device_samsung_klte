@@ -23,13 +23,20 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;Ljava/lang/String;I)V
     .locals 0
+    .param p2, "path"    # Ljava/lang/String;
+    .param p3, "mask"    # I
 
+    .prologue
+    .line 625
     iput-object p1, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$IntegrityObserver;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
+    .line 626
     invoke-direct {p0, p2, p3}, Landroid/os/FileObserver;-><init>(Ljava/lang/String;I)V
 
+    .line 627
     iput-object p2, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$IntegrityObserver;->mPath:Ljava/lang/String;
 
+    .line 628
     return-void
 .end method
 
@@ -37,15 +44,23 @@
 # virtual methods
 .method public onEvent(ILjava/lang/String;)V
     .locals 8
+    .param p1, "event"    # I
+    .param p2, "path"    # Ljava/lang/String;
 
+    .prologue
+    .line 631
     iget-object v5, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$IntegrityObserver;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     invoke-virtual {v5, p1}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->convertEventToString(I)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 632
+    .local v2, "eventType":Ljava/lang/String;
     const/4 v4, 0x0
 
+    .line 633
+    .local v4, "subscriber":Lcom/sec/enterprise/knox/IIntegrityResultSubscriber;
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
 
@@ -59,8 +74,10 @@
 
     if-eqz v2, :cond_2
 
+    .line 634
     const/4 v3, 0x0
 
+    .local v3, "i":I
     :goto_0
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
@@ -73,6 +90,7 @@
 
     if-ge v3, v5, :cond_2
 
+    .line 635
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
 
@@ -88,6 +106,8 @@
 
     move-result v0
 
+    .line 636
+    .local v0, "adminId":I
     iget-object v5, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$IntegrityObserver;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     # invokes: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->getSubscriberInstance(I)Lcom/sec/enterprise/knox/IIntegrityResultSubscriber;
@@ -97,6 +117,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 637
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->DBG:Z
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$000()Z
 
@@ -149,6 +170,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 640
     :cond_0
     :try_start_0
     new-instance v5, Ljava/lang/StringBuilder;
@@ -173,15 +195,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 634
     :cond_1
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 641
     :catch_0
     move-exception v1
 
+    .line 642
+    .local v1, "e":Landroid/os/RemoteException;
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$100()Ljava/lang/String;
 
@@ -195,6 +221,10 @@
 
     goto :goto_1
 
+    .line 648
+    .end local v0    # "adminId":I
+    .end local v1    # "e":Landroid/os/RemoteException;
+    .end local v3    # "i":I
     :cond_2
     return-void
 .end method

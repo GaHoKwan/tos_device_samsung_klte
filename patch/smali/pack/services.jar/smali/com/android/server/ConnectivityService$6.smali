@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ConnectivityService;)V
     .locals 0
 
+    .prologue
+    .line 6734
     iput-object p1, p0, Lcom/android/server/ConnectivityService$6;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 6737
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -46,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 6738
     iget-object v0, p0, Lcom/android/server/ConnectivityService$6;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v1, "EXTRA_URL"
@@ -57,6 +64,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->handleMobileProvisioningAction(Ljava/lang/String;)V
     invoke-static {v0, v1}, Lcom/android/server/ConnectivityService;->access$5700(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 6740
     :cond_0
     return-void
 .end method

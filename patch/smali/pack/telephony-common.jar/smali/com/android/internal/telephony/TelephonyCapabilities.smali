@@ -289,7 +289,7 @@
     .line 73
     const-string v1, "CTC"
 
-    const-string v2, "VZW"
+    const-string v2, "OPEN"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -37,7 +37,7 @@
     .local v0, "encoding":Ljava/lang/StringBuffer;
     const-string v2, "icid-value"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getNameValue(Ljava/lang/String;)Lgov/nist/core/NameValue;
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/header/ParametersHeader;->getNameValue(Ljava/lang/String;)Lgov/nist/core/NameValue;
 
     move-result-object v1
 
@@ -46,7 +46,7 @@
     invoke-virtual {v1, v0}, Lgov/nist/core/NameValue;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 76
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PChargingVector;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v3, "icid-generated-at"
 
@@ -83,7 +83,7 @@
 
     .line 81
     :cond_0
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PChargingVector;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v3, "term-ioi"
 
@@ -120,7 +120,7 @@
 
     .line 86
     :cond_1
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PChargingVector;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v3, "orig-ioi"
 
@@ -171,7 +171,7 @@
     .line 103
     const-string v0, "icid-value"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -185,7 +185,7 @@
     .line 135
     const-string v0, "icid-generated-at"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -199,7 +199,7 @@
     .line 168
     const-string v0, "orig-ioi"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -213,7 +213,7 @@
     .line 199
     const-string v0, "term-ioi"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -246,7 +246,7 @@
     :cond_0
     const-string v0, "icid-value"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingVector;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 124
     return-void
@@ -278,7 +278,7 @@
     :cond_0
     const-string v0, "icid-generated-at"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingVector;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 157
     return-void
@@ -307,7 +307,7 @@
     :cond_0
     const-string v0, "orig-ioi"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->removeParameter(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->removeParameter(Ljava/lang/String;)V
 
     .line 188
     :goto_0
@@ -317,7 +317,7 @@
     :cond_1
     const-string v0, "orig-ioi"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingVector;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -345,7 +345,7 @@
     :cond_0
     const-string v0, "term-ioi"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PChargingVector;->removeParameter(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->removeParameter(Ljava/lang/String;)V
 
     .line 219
     :goto_0
@@ -355,7 +355,7 @@
     :cond_1
     const-string v0, "term-ioi"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PChargingVector;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

@@ -338,7 +338,7 @@
     .line 152
     iget-object v0, p0, Lorg/apache/http/impl/client/BasicCookieStore;->cookies:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/util/AbstractCollection;->toString()Ljava/lang/String;
 
     move-result-object v0
 

@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 171
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro$1;->this$0:Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,14 +36,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 174
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 183
     :goto_0
     return-void
 
+    .line 176
     :pswitch_0
     const-string v1, "SSRMv2:GovernorSD8974Pro"
 
@@ -48,12 +56,15 @@
 
     invoke-static {v1, v2}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 177
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro$1;->this$0:Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;->getForegroundPackageName()Ljava/lang/String;
+    invoke-virtual {v1}, Lcom/android/server/ssrm/fgapps/FgAppListener;->getForegroundPackageName()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 178
+    .local v0, "packageName":Ljava/lang/String;
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro$1;->this$0:Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;
 
     invoke-static {v0}, Lcom/android/server/ssrm/HotGameList;->isKnownGame(Ljava/lang/String;)Z
@@ -62,12 +73,14 @@
 
     iput-boolean v2, v1, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;->mIsModeChangeDisableAppInForeground:Z
 
+    .line 179
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro$1;->this$0:Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;
 
-    invoke-virtual {v1}, Lcom/android/server/ssrm/fgapps/GovernorSD8974Pro;->update()V
+    invoke-virtual {v1}, Lcom/android/server/ssrm/fgapps/AbsGovernor;->update()V
 
     goto :goto_0
 
+    .line 174
     nop
 
     :pswitch_data_0

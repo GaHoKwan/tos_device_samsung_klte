@@ -1345,7 +1345,7 @@
     .line 425
     const-string v0, "KOR"
 
-    const-string v1, "USA"
+    const-string v1, "GGSM"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1439,7 +1439,7 @@
     .line 435
     const-string v0, "LGT"
 
-    const-string v1, "VZW"
+    const-string v1, "OPEN"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1467,7 +1467,7 @@
     :cond_3
     const-string v0, "SKT"
 
-    const-string v1, "VZW"
+    const-string v1, "OPEN"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1933,7 +1933,7 @@
     .line 455
     const-string v2, "KOR"
 
-    const-string v3, "USA"
+    const-string v3, "GGSM"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2177,7 +2177,7 @@
     .line 475
     const-string v2, "KOR"
 
-    const-string v3, "USA"
+    const-string v3, "GGSM"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

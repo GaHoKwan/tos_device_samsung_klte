@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 800
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,7 +36,10 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 803
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$SettingsObserver;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -42,5 +48,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateMultiWindowTrayBar(Z)V
 
+    .line 804
     return-void
 .end method

@@ -135,7 +135,6 @@ jhwan.kim@hdlnc.com  -->
 <CscFeature_Contact_EnableAssistDialing>false</CscFeature_Contact_EnableAssistDialing>
 <CscFeature_Contact_ConfigAddCallDuringCall>support</CscFeature_Contact_ConfigAddCallDuringCall>
 <CscFeature_Contact_ConfigEntryPhoneApp>Recent</CscFeature_Contact_ConfigEntryPhoneApp>
-<CscFeature_Contact_ConfigTelNumMatchingForNationPrefix></CscFeature_Contact_ConfigTelNumMatchingForNationPrefix>
 
 <!-- Contacts Dialer -->
 <CscFeature_Contact_ConfigAutoDialDuringRoaming>disable</CscFeature_Contact_ConfigAutoDialDuringRoaming>

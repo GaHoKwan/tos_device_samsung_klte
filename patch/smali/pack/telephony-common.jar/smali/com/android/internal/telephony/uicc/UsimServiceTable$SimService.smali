@@ -1135,7 +1135,7 @@
     .line 132
     sget-object v0, Lcom/android/internal/telephony/uicc/UsimServiceTable$SimService;->$VALUES:[Lcom/android/internal/telephony/uicc/UsimServiceTable$SimService;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/uicc/UsimServiceTable$SimService;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

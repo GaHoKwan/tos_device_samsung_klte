@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/DeviceStorageMonitorService;)V
     .locals 0
 
+    .prologue
+    .line 153
     iput-object p1, p0, Lcom/android/server/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageDataObserver$Stub;-><init>()V
@@ -33,19 +35,25 @@
 # virtual methods
 .method public onRemoveCompleted(Ljava/lang/String;Z)V
     .locals 4
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "succeeded"    # Z
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 155
     iget-object v0, p0, Lcom/android/server/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     # setter for: Lcom/android/server/DeviceStorageMonitorService;->mClearSucceeded:Z
     invoke-static {v0, p2}, Lcom/android/server/DeviceStorageMonitorService;->access$102(Lcom/android/server/DeviceStorageMonitorService;Z)Z
 
+    .line 156
     iget-object v0, p0, Lcom/android/server/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     # setter for: Lcom/android/server/DeviceStorageMonitorService;->mClearingCache:Z
     invoke-static {v0, v3}, Lcom/android/server/DeviceStorageMonitorService;->access$202(Lcom/android/server/DeviceStorageMonitorService;Z)Z
 
+    .line 159
     iget-object v0, p0, Lcom/android/server/DeviceStorageMonitorService$CachePackageDataObserver;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     const-wide/16 v1, 0x0
@@ -53,5 +61,6 @@
     # invokes: Lcom/android/server/DeviceStorageMonitorService;->postCheckMemoryMsg(ZJ)V
     invoke-static {v0, v3, v1, v2}, Lcom/android/server/DeviceStorageMonitorService;->access$300(Lcom/android/server/DeviceStorageMonitorService;ZJ)V
 
+    .line 160
     return-void
 .end method

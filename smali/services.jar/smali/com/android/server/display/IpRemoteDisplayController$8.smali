@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;I)V
     .locals 0
 
+    .prologue
+    .line 467
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$8;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput p2, p0, Lcom/android/server/display/IpRemoteDisplayController$8;->val$featureState:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 470
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$8;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mListener:Lcom/android/server/display/IpRemoteDisplayController$Listener;
@@ -52,5 +56,6 @@
 
     invoke-interface {v0, v1}, Lcom/android/server/display/IpRemoteDisplayController$Listener;->onFeatureStateChanged(I)V
 
+    .line 471
     return-void
 .end method

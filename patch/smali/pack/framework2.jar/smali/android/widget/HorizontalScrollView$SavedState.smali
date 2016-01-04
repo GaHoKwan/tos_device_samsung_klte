@@ -37,6 +37,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 2158
     new-instance v0, Landroid/widget/HorizontalScrollView$SavedState$1;
 
     invoke-direct {v0}, Landroid/widget/HorizontalScrollView$SavedState$1;-><init>()V
@@ -48,15 +50,20 @@
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "source"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 2138
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcel;)V
 
+    .line 2139
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/widget/HorizontalScrollView$SavedState;->scrollPosition:I
 
+    .line 2140
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
@@ -68,8 +75,10 @@
     :goto_0
     iput-boolean v0, p0, Landroid/widget/HorizontalScrollView$SavedState;->isLayoutRtl:Z
 
+    .line 2141
     return-void
 
+    .line 2140
     :cond_0
     const/4 v0, 0x0
 
@@ -78,9 +87,13 @@
 
 .method constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
+    .param p1, "superState"    # Landroid/os/Parcelable;
 
+    .prologue
+    .line 2134
     invoke-direct {p0, p1}, Landroid/view/View$BaseSavedState;-><init>(Landroid/os/Parcelable;)V
 
+    .line 2135
     return-void
 .end method
 
@@ -89,6 +102,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 2152
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -150,13 +165,19 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
-    invoke-super {p0, p1, p2}, Landroid/view/View$BaseSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    .prologue
+    .line 2145
+    invoke-super {p0, p1, p2}, Landroid/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 2146
     iget v0, p0, Landroid/widget/HorizontalScrollView$SavedState;->scrollPosition:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2147
     iget-boolean v0, p0, Landroid/widget/HorizontalScrollView$SavedState;->isLayoutRtl:Z
 
     if-eqz v0, :cond_0
@@ -166,8 +187,10 @@
     :goto_0
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 2148
     return-void
 
+    .line 2147
     :cond_0
     const/4 v0, 0x0
 

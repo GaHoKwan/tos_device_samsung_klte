@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
 
+    .prologue
+    .line 1179
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$5;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1182
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$5;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mGridDevice:Landroid/widget/ExpandableHeightGridView;
@@ -51,8 +55,9 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/ExpandableHeightGridView;->setNumColumns(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/GridView;->setNumColumns(I)V
 
+    .line 1183
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$5;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mDeviceAdapter:Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;
@@ -60,7 +65,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$DeviceListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
+    .line 1184
     return-void
 .end method

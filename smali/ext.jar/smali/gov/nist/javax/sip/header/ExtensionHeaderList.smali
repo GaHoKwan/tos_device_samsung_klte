@@ -57,15 +57,15 @@
     .line 49
     new-instance v0, Lgov/nist/javax/sip/header/ExtensionHeaderList;
 
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ExtensionHeaderList;->headerName:Ljava/lang/String;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Lgov/nist/javax/sip/header/ExtensionHeaderList;-><init>(Ljava/lang/String;)V
 
     .line 50
     .local v0, "retval":Lgov/nist/javax/sip/header/ExtensionHeaderList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ExtensionHeaderList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ExtensionHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     .line 51
     return-object v0
@@ -82,7 +82,7 @@
 
     .line 64
     .local v2, "retval":Ljava/lang/StringBuffer;
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/ExtensionHeaderList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/header/SIPHeaderList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 

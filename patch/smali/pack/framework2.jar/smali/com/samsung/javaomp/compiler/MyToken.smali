@@ -20,9 +20,9 @@
 
     iput v0, p0, Lcom/samsung/javaomp/compiler/MyToken;->realKind:I
 
-    iput p1, p0, Lcom/samsung/javaomp/compiler/MyToken;->kind:I
+    iput p1, p0, Lcom/samsung/javaomp/compiler/Token;->kind:I
 
-    iput-object p2, p0, Lcom/samsung/javaomp/compiler/MyToken;->image:Ljava/lang/String;
+    iput-object p2, p0, Lcom/samsung/javaomp/compiler/Token;->image:Ljava/lang/String;
 
     return-void
 .end method

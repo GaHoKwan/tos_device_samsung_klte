@@ -569,7 +569,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p0, v2}, Lgov/nist/core/Host;->dbgPrint(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/GenericObject;->dbgPrint(Ljava/lang/String;)V
 
     goto :goto_1
 

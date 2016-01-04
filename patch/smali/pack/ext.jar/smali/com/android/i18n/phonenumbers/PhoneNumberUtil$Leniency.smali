@@ -162,7 +162,7 @@
     .line 456
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$Leniency;->$VALUES:[Lcom/android/i18n/phonenumbers/PhoneNumberUtil$Leniency;
 
-    invoke-virtual {v0}, [Lcom/android/i18n/phonenumbers/PhoneNumberUtil$Leniency;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

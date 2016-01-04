@@ -28,6 +28,8 @@
 .method constructor <init>(Landroid/view/HardwareRenderer;)V
     .locals 0
 
+    .prologue
+    .line 712
     iput-object p1, p0, Landroid/view/HardwareRenderer$GraphDataProvider;->this$0:Landroid/view/HardwareRenderer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

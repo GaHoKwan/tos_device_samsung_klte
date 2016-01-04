@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/sec/InternalClipboardExService;Landroid/sec/clipboard/data/ClipboardData;I)V
     .locals 0
 
+    .prologue
+    .line 781
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService$4;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
     iput-object p2, p0, Lcom/android/server/sec/InternalClipboardExService$4;->val$data:Landroid/sec/clipboard/data/ClipboardData;
@@ -45,8 +47,11 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 785
     monitor-enter p0
 
+    .line 786
     :try_start_0
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -58,6 +63,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 787
     :cond_0
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -69,17 +75,21 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 789
     :cond_1
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$4;->val$data:Landroid/sec/clipboard/data/ClipboardData;
 
     if-nez v0, :cond_3
 
+    .line 793
     :cond_2
     :goto_0
     monitor-exit p0
 
+    .line 794
     return-void
 
+    .line 790
     :cond_3
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$4;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
@@ -96,6 +106,7 @@
 
     goto :goto_0
 
+    .line 793
     :catchall_0
     move-exception v0
 

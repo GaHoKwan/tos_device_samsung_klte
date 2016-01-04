@@ -38,6 +38,8 @@
 .method private constructor <init>(Landroid/view/VolumePanel;)V
     .locals 0
 
+    .prologue
+    .line 298
     iput-object p1, p0, Landroid/view/VolumePanel$StreamControl;->this$0:Landroid/view/VolumePanel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +49,11 @@
 
 .method synthetic constructor <init>(Landroid/view/VolumePanel;Landroid/view/VolumePanel$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/view/VolumePanel;
+    .param p2, "x1"    # Landroid/view/VolumePanel$1;
 
+    .prologue
+    .line 298
     invoke-direct {p0, p1}, Landroid/view/VolumePanel$StreamControl;-><init>(Landroid/view/VolumePanel;)V
 
     return-void

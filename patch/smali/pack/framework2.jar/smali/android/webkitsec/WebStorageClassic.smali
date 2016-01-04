@@ -59,20 +59,29 @@
 .method constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 342
     invoke-direct {p0}, Landroid/webkitsec/WebStorage;-><init>()V
 
+    .line 54
     iput-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mHandler:Landroid/os/Handler;
 
+    .line 55
     iput-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mUIHandler:Landroid/os/Handler;
 
+    .line 342
     return-void
 .end method
 
 .method static synthetic access$000(Ljava/lang/String;J)V
     .locals 0
+    .param p0, "x0"    # Ljava/lang/String;
+    .param p1, "x1"    # J
 
+    .prologue
+    .line 28
     invoke-static {p0, p1, p2}, Landroid/webkitsec/WebStorageClassic;->nativeSetQuotaForOrigin(Ljava/lang/String;J)V
 
     return-void
@@ -80,7 +89,10 @@
 
 .method static synthetic access$100(Ljava/lang/String;)V
     .locals 0
+    .param p0, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 28
     invoke-static {p0}, Landroid/webkitsec/WebStorageClassic;->nativeDeleteOrigin(Ljava/lang/String;)V
 
     return-void
@@ -89,6 +101,8 @@
 .method static synthetic access$200()V
     .locals 0
 
+    .prologue
+    .line 28
     invoke-static {}, Landroid/webkitsec/WebStorageClassic;->nativeDeleteAllData()V
 
     return-void
@@ -96,7 +110,10 @@
 
 .method static synthetic access$300(Landroid/webkitsec/WebStorageClassic;)V
     .locals 0
+    .param p0, "x0"    # Landroid/webkitsec/WebStorageClassic;
 
+    .prologue
+    .line 28
     invoke-direct {p0}, Landroid/webkitsec/WebStorageClassic;->syncValues()V
 
     return-void
@@ -104,7 +121,10 @@
 
 .method static synthetic access$400(Landroid/webkitsec/WebStorageClassic;)Ljava/util/Map;
     .locals 1
+    .param p0, "x0"    # Landroid/webkitsec/WebStorageClassic;
 
+    .prologue
+    .line 28
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     return-object v0
@@ -112,7 +132,11 @@
 
 .method static synthetic access$500(Landroid/webkitsec/WebStorageClassic;Landroid/os/Message;)V
     .locals 0
+    .param p0, "x0"    # Landroid/webkitsec/WebStorageClassic;
+    .param p1, "x1"    # Landroid/os/Message;
 
+    .prologue
+    .line 28
     invoke-direct {p0, p1}, Landroid/webkitsec/WebStorageClassic;->postUIMessage(Landroid/os/Message;)V
 
     return-void
@@ -121,16 +145,20 @@
 .method public static getInstance()Landroid/webkitsec/WebStorageClassic;
     .locals 1
 
+    .prologue
+    .line 309
     sget-object v0, Landroid/webkitsec/WebStorageClassic;->sWebStorage:Landroid/webkitsec/WebStorageClassic;
 
     if-nez v0, :cond_0
 
+    .line 310
     new-instance v0, Landroid/webkitsec/WebStorageClassic;
 
     invoke-direct {v0}, Landroid/webkitsec/WebStorageClassic;-><init>()V
 
     sput-object v0, Landroid/webkitsec/WebStorageClassic;->sWebStorage:Landroid/webkitsec/WebStorageClassic;
 
+    .line 312
     :cond_0
     sget-object v0, Landroid/webkitsec/WebStorageClassic;->sWebStorage:Landroid/webkitsec/WebStorageClassic;
 
@@ -160,7 +188,10 @@
 
 .method private declared-synchronized postMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 290
     monitor-enter p0
 
     :try_start_0
@@ -168,17 +199,20 @@
 
     if-eqz v0, :cond_0
 
+    .line 291
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 293
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 290
     :catchall_0
     move-exception v0
 
@@ -189,15 +223,20 @@
 
 .method private postUIMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 299
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mUIHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
 
+    .line 300
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mUIHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 302
     :cond_0
     return-void
 .end method
@@ -205,20 +244,26 @@
 .method private syncValues()V
     .locals 8
 
+    .prologue
+    .line 332
     invoke-static {}, Landroid/webkitsec/WebStorageClassic;->nativeGetOrigins()Ljava/util/Set;
 
     move-result-object v7
 
+    .line 333
+    .local v7, "tmp":Ljava/util/Set;, "Ljava/util/Set<Ljava/lang/String;>;"
     new-instance v2, Ljava/util/HashMap;
 
     invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
     iput-object v2, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
+    .line 334
     invoke-interface {v7}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 
+    .local v6, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
@@ -232,6 +277,8 @@
 
     check-cast v1, Ljava/lang/String;
 
+    .line 335
+    .local v1, "origin":Ljava/lang/String;
     new-instance v0, Landroid/webkitsec/WebStorage$Origin;
 
     invoke-static {v1}, Landroid/webkitsec/WebStorageClassic;->nativeGetQuotaForOrigin(Ljava/lang/String;)J
@@ -244,12 +291,17 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/webkitsec/WebStorage$Origin;-><init>(Ljava/lang/String;JJ)V
 
+    .line 338
+    .local v0, "website":Landroid/webkitsec/WebStorage$Origin;
     iget-object v2, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
+    .line 340
+    .end local v0    # "website":Landroid/webkitsec/WebStorage$Origin;
+    .end local v1    # "origin":Ljava/lang/String;
     :cond_0
     return-void
 .end method
@@ -259,6 +311,8 @@
 .method public declared-synchronized createHandler()V
     .locals 1
 
+    .prologue
+    .line 97
     monitor-enter p0
 
     :try_start_0
@@ -266,6 +320,7 @@
 
     if-nez v0, :cond_0
 
+    .line 98
     new-instance v0, Landroid/webkitsec/WebStorageClassic$2;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/WebStorageClassic$2;-><init>(Landroid/webkitsec/WebStorageClassic;)V
@@ -274,11 +329,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 164
     :cond_0
     monitor-exit p0
 
     return-void
 
+    .line 97
     :catchall_0
     move-exception v0
 
@@ -290,16 +347,20 @@
 .method public createUIHandler()V
     .locals 1
 
+    .prologue
+    .line 63
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mUIHandler:Landroid/os/Handler;
 
     if-nez v0, :cond_0
 
+    .line 64
     new-instance v0, Landroid/webkitsec/WebStorageClassic$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/WebStorageClassic$1;-><init>(Landroid/webkitsec/WebStorageClassic;)V
 
     iput-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mUIHandler:Landroid/os/Handler;
 
+    .line 90
     :cond_0
     return-void
 .end method
@@ -307,6 +368,8 @@
 .method public deleteAllData()V
     .locals 2
 
+    .prologue
+    .line 270
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -323,11 +386,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 271
     invoke-static {}, Landroid/webkitsec/WebStorageClassic;->nativeDeleteAllData()V
 
+    .line 275
     :goto_0
     return-void
 
+    .line 273
     :cond_0
     const/4 v0, 0x0
 
@@ -344,9 +410,13 @@
 
 .method public deleteOrigin(Ljava/lang/String;)V
     .locals 3
+    .param p1, "origin"    # Ljava/lang/String;
 
+    .prologue
+    .line 258
     if-eqz p1, :cond_0
 
+    .line 259
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -363,12 +433,15 @@
 
     if-eqz v0, :cond_1
 
+    .line 260
     invoke-static {p1}, Landroid/webkitsec/WebStorageClassic;->nativeDeleteOrigin(Ljava/lang/String;)V
 
+    .line 266
     :cond_0
     :goto_0
     return-void
 
+    .line 262
     :cond_1
     const/4 v0, 0x0
 
@@ -399,8 +472,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 180
+    .local p1, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/util/Map;>;"
     if-eqz p1, :cond_0
 
+    .line 181
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -417,16 +494,20 @@
 
     if-eqz v0, :cond_1
 
+    .line 182
     invoke-direct {p0}, Landroid/webkitsec/WebStorageClassic;->syncValues()V
 
+    .line 183
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     invoke-interface {p1, v0}, Landroid/webkitsec/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
+    .line 188
     :cond_0
     :goto_0
     return-void
 
+    .line 185
     :cond_1
     const/4 v0, 0x0
 
@@ -453,6 +534,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 195
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -469,14 +552,17 @@
 
     if-eqz v0, :cond_0
 
+    .line 196
     invoke-virtual {p0}, Landroid/webkitsec/WebStorageClassic;->update()V
 
+    .line 197
     iget-object v0, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object v0
 
+    .line 199
     :goto_0
     return-object v0
 
@@ -488,6 +574,7 @@
 
 .method public getQuotaForOrigin(Ljava/lang/String;Landroid/webkitsec/ValueCallback;)V
     .locals 5
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -499,20 +586,27 @@
         }
     .end annotation
 
+    .prologue
+    .local p2, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/lang/Long;>;"
     const/4 v4, 0x0
 
+    .line 225
     if-nez p2, :cond_0
 
+    .line 242
     :goto_0
     return-void
 
+    .line 228
     :cond_0
     if-nez p1, :cond_1
 
+    .line 229
     invoke-interface {p2, v4}, Landroid/webkitsec/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
     goto :goto_0
 
+    .line 232
     :cond_1
     const-string v2, "WebViewCoreThread"
 
@@ -530,8 +624,10 @@
 
     if-eqz v2, :cond_2
 
+    .line 233
     invoke-direct {p0}, Landroid/webkitsec/WebStorageClassic;->syncValues()V
 
+    .line 234
     iget-object v2, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -540,6 +636,8 @@
 
     check-cast v1, Landroid/webkitsec/WebStorage$Origin;
 
+    .line 235
+    .local v1, "website":Landroid/webkitsec/WebStorage$Origin;
     new-instance v2, Ljava/lang/Long;
 
     invoke-virtual {v1}, Landroid/webkitsec/WebStorage$Origin;->getUsage()J
@@ -552,19 +650,25 @@
 
     goto :goto_0
 
+    .line 237
+    .end local v1    # "website":Landroid/webkitsec/WebStorage$Origin;
     :cond_2
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
+    .line 238
+    .local v0, "values":Ljava/util/HashMap;
     const-string/jumbo v2, "origin"
 
     invoke-virtual {v0, v2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 239
     const-string v2, "callback"
 
     invoke-virtual {v0, v2, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 240
     const/4 v2, 0x6
 
     invoke-static {v4, v2, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
@@ -578,6 +682,7 @@
 
 .method public getUsageForOrigin(Ljava/lang/String;Landroid/webkitsec/ValueCallback;)V
     .locals 5
+    .param p1, "origin"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -589,20 +694,27 @@
         }
     .end annotation
 
+    .prologue
+    .local p2, "callback":Landroid/webkitsec/ValueCallback;, "Landroid/webkitsec/ValueCallback<Ljava/lang/Long;>;"
     const/4 v4, 0x0
 
+    .line 204
     if-nez p2, :cond_0
 
+    .line 221
     :goto_0
     return-void
 
+    .line 207
     :cond_0
     if-nez p1, :cond_1
 
+    .line 208
     invoke-interface {p2, v4}, Landroid/webkitsec/ValueCallback;->onReceiveValue(Ljava/lang/Object;)V
 
     goto :goto_0
 
+    .line 211
     :cond_1
     const-string v2, "WebViewCoreThread"
 
@@ -620,8 +732,10 @@
 
     if-eqz v2, :cond_2
 
+    .line 212
     invoke-direct {p0}, Landroid/webkitsec/WebStorageClassic;->syncValues()V
 
+    .line 213
     iget-object v2, p0, Landroid/webkitsec/WebStorageClassic;->mOrigins:Ljava/util/Map;
 
     invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -630,6 +744,8 @@
 
     check-cast v1, Landroid/webkitsec/WebStorage$Origin;
 
+    .line 214
+    .local v1, "website":Landroid/webkitsec/WebStorage$Origin;
     new-instance v2, Ljava/lang/Long;
 
     invoke-virtual {v1}, Landroid/webkitsec/WebStorage$Origin;->getUsage()J
@@ -642,19 +758,25 @@
 
     goto :goto_0
 
+    .line 216
+    .end local v1    # "website":Landroid/webkitsec/WebStorage$Origin;
     :cond_2
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
+    .line 217
+    .local v0, "values":Ljava/util/HashMap;
     const-string/jumbo v2, "origin"
 
     invoke-virtual {v0, v2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 218
     const-string v2, "callback"
 
     invoke-virtual {v0, v2, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 219
     const/4 v2, 0x5
 
     invoke-static {v4, v2, v0}, Landroid/os/Message;->obtain(Landroid/os/Handler;ILjava/lang/Object;)Landroid/os/Message;
@@ -668,17 +790,26 @@
 
 .method public setAppCacheMaximumSize(J)V
     .locals 0
+    .param p1, "size"    # J
 
+    .prologue
+    .line 283
     invoke-static {p1, p2}, Landroid/webkitsec/WebStorageClassic;->nativeSetAppCacheMaximumSize(J)V
 
+    .line 284
     return-void
 .end method
 
 .method public setQuotaForOrigin(Ljava/lang/String;J)V
     .locals 3
+    .param p1, "origin"    # Ljava/lang/String;
+    .param p2, "quota"    # J
 
+    .prologue
+    .line 246
     if-eqz p1, :cond_0
 
+    .line 247
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -695,12 +826,15 @@
 
     if-eqz v0, :cond_1
 
+    .line 248
     invoke-static {p1, p2, p3}, Landroid/webkitsec/WebStorageClassic;->nativeSetQuotaForOrigin(Ljava/lang/String;J)V
 
+    .line 254
     :cond_0
     :goto_0
     return-void
 
+    .line 250
     :cond_1
     const/4 v0, 0x0
 
@@ -722,6 +856,8 @@
 .method public update()V
     .locals 2
 
+    .prologue
+    .line 320
     const-string v0, "WebViewCoreThread"
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -738,11 +874,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 321
     invoke-direct {p0}, Landroid/webkitsec/WebStorageClassic;->syncValues()V
 
+    .line 325
     :goto_0
     return-void
 
+    .line 323
     :cond_0
     const/4 v0, 0x0
 

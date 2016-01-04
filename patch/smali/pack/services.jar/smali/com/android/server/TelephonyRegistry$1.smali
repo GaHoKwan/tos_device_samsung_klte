@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/TelephonyRegistry;)V
     .locals 0
 
+    .prologue
+    .line 196
     iput-object p1, p0, Lcom/android/server/TelephonyRegistry$1;->this$0:Lcom/android/server/TelephonyRegistry;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 199
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 206
     :goto_0
     return-void
 
+    .line 202
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/TelephonyRegistry$1;->this$0:Lcom/android/server/TelephonyRegistry;
 
@@ -55,6 +62,7 @@
 
     goto :goto_0
 
+    .line 199
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

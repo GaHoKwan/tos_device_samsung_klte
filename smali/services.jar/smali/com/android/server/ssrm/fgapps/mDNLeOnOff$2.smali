@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/mDNLeOnOff;)V
     .locals 0
 
+    .prologue
+    .line 199
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff$2;->this$0:Lcom/android/server/ssrm/fgapps/mDNLeOnOff;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,16 +39,20 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 203
     :goto_0
     sget-object v3, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject:Ljava/lang/Object;
 
     monitor-enter v3
 
+    .line 205
     :try_start_0
     sget-object v2, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject:Ljava/lang/Object;
 
     invoke-virtual {v2}, Ljava/lang/Object;->wait()V
 
+    .line 206
     sget-wide v4, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->avgAniTime:J
 
     const-wide/16 v6, 0x2
@@ -62,14 +68,18 @@
 
     add-long v0, v4, v6
 
+    .line 207
+    .local v0, "delay":J
     const-wide/16 v4, 0x0
 
     cmp-long v2, v0, v4
 
     if-lez v2, :cond_0
 
+    .line 208
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 210
     :cond_0
     const-string v2, "SSRMv2:mDNIeOnOff"
 
@@ -93,10 +103,12 @@
 
     invoke-static {v2, v4}, Lcom/android/server/ssrm/fgapps/FgAppListener;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 211
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff$2;->this$0:Lcom/android/server/ssrm/fgapps/mDNLeOnOff;
 
     invoke-virtual {v2}, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->updatemDNIe()V
 
+    .line 212
     const/4 v2, 0x0
 
     # setter for: Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->delayOffset:I
@@ -105,6 +117,8 @@
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 215
+    .end local v0    # "delay":J
     :goto_1
     :try_start_1
     monitor-exit v3
@@ -120,6 +134,7 @@
 
     throw v2
 
+    .line 213
     :catch_0
     move-exception v2
 

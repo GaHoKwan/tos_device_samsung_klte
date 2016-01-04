@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/DevicePolicyManagerService;Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;Landroid/content/ComponentName;)V
     .locals 0
 
+    .prologue
+    .line 1088
     iput-object p1, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iput-object p2, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
@@ -41,11 +43,16 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1091
     iget-object v5, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     monitor-enter v5
 
+    .line 1092
     :try_start_0
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
@@ -57,12 +64,16 @@
 
     move-result v3
 
+    .line 1093
+    .local v3, "userHandle":I
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v4, v3}, Lcom/android/server/DevicePolicyManagerService;->getUserData(I)Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;
 
     move-result-object v2
 
+    .line 1094
+    .local v2, "policy":Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
     iget-object v4, v4, Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;->info:Landroid/app/admin/DeviceAdminInfo;
@@ -73,18 +84,22 @@
 
     move-result v0
 
+    .line 1096
+    .local v0, "doProxyCleanup":Z
     iget-object v4, v2, Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;->mAdminList:Ljava/util/ArrayList;
 
     iget-object v6, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
     invoke-virtual {v4, v6}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 1097
     iget-object v4, v2, Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;->mAdminMap:Ljava/util/HashMap;
 
     iget-object v6, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$adminReceiver:Landroid/content/ComponentName;
 
     invoke-virtual {v4, v6}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1099
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->val$admin:Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;
 
     iget-object v4, v4, Lcom/android/server/DevicePolicyManagerService$ActiveAdmin;->info:Landroid/app/admin/DeviceAdminInfo;
@@ -101,22 +116,27 @@
 
     if-eqz v4, :cond_0
 
+    .line 1100
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     # invokes: Lcom/android/server/DevicePolicyManagerService;->resetAppPolicies(I)V
     invoke-static {v4, v3}, Lcom/android/server/DevicePolicyManagerService;->access$400(Lcom/android/server/DevicePolicyManagerService;I)V
 
+    .line 1103
     :cond_0
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v4, v2}, Lcom/android/server/DevicePolicyManagerService;->validatePasswordOwnerLocked(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
 
+    .line 1104
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v4, v2}, Lcom/android/server/DevicePolicyManagerService;->syncDeviceCapabilitiesLocked(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
 
+    .line 1105
     if-eqz v0, :cond_1
 
+    .line 1106
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     iget-object v6, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
@@ -128,6 +148,7 @@
     # invokes: Lcom/android/server/DevicePolicyManagerService;->resetGlobalProxyLocked(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
     invoke-static {v4, v6}, Lcom/android/server/DevicePolicyManagerService;->access$500(Lcom/android/server/DevicePolicyManagerService;Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
 
+    .line 1108
     :cond_1
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
@@ -136,6 +157,7 @@
     # invokes: Lcom/android/server/DevicePolicyManagerService;->saveSettingsLocked(IZ)V
     invoke-static {v4, v3, v6}, Lcom/android/server/DevicePolicyManagerService;->access$600(Lcom/android/server/DevicePolicyManagerService;IZ)V
 
+    .line 1109
     iget-object v4, v2, Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;->mAdminList:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
@@ -144,6 +166,7 @@
 
     if-nez v4, :cond_2
 
+    .line 1110
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     const-string v6, "device_policies_backup.xml"
@@ -152,6 +175,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1114
     :cond_2
     :try_start_1
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
@@ -168,19 +192,25 @@
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 1122
     :goto_0
     :try_start_2
     iget-object v4, p0, Lcom/android/server/DevicePolicyManagerService$2;->this$0:Lcom/android/server/DevicePolicyManagerService;
 
     invoke-virtual {v4, v2}, Lcom/android/server/DevicePolicyManagerService;->updateMaximumTimeToLockLocked(Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;)V
 
+    .line 1123
     monitor-exit v5
 
+    .line 1124
     return-void
 
+    .line 1115
     :catch_0
     move-exception v1
 
+    .line 1116
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v4, "DevicePolicyManagerService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -209,6 +239,11 @@
 
     goto :goto_0
 
+    .line 1123
+    .end local v0    # "doProxyCleanup":Z
+    .end local v1    # "e":Landroid/os/RemoteException;
+    .end local v2    # "policy":Lcom/android/server/DevicePolicyManagerService$DevicePolicyData;
+    .end local v3    # "userHandle":I
     :catchall_0
     move-exception v4
 

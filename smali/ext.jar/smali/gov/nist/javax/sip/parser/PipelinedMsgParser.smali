@@ -785,7 +785,7 @@
     sub-int v13, v1, v9
 
     :try_start_10
-    invoke-virtual {v5, v8, v9, v13}, Lgov/nist/javax/sip/parser/Pipeline;->read([BII)I
+    invoke-virtual {v5, v8, v9, v13}, Ljava/io/InputStream;->read([BII)I
     :try_end_10
     .catch Ljava/io/IOException; {:try_start_10 .. :try_end_10} :catch_6
     .catchall {:try_start_10 .. :try_end_10} :catchall_1

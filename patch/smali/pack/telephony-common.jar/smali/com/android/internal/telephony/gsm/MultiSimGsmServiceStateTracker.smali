@@ -226,7 +226,7 @@
 
     .prologue
     .line 126
-    iget-object v0, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    iget-object v0, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
     return-object v0
 .end method
@@ -409,7 +409,7 @@
     :cond_1
     const-string v8, "[MultiSim] CMCC model, Slot1 use CMCC SIM"
 
-    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1308
     sput-boolean v7, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->isCmccSIM:Z
@@ -471,7 +471,7 @@
     :cond_4
     const-string v6, "[MultiSim] CMCC model, Slot2 use CMCC SIM"
 
-    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1313
     sput-boolean v7, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->isCmccSIM:Z
@@ -524,7 +524,7 @@
     .line 1320
     const-string v6, "[MultiSim] Insert 2 Sim using slot2 data"
 
-    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1321
     sput-boolean v7, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->useSlot2Data:Z
@@ -538,7 +538,7 @@
     :cond_6
     const-string v7, "[MultiSim] Using default master slot"
 
-    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v7}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     goto :goto_1
 .end method
@@ -679,9 +679,9 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
+    iget-object v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    invoke-virtual {v5}, Lcom/android/internal/telephony/gsm/GSMPhone;->getSimSlot()I
+    invoke-virtual {v5}, Lcom/android/internal/telephony/PhoneBase;->getSimSlot()I
 
     move-result v5
 
@@ -693,7 +693,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1242
     new-instance v4, Ljava/lang/StringBuilder;
@@ -738,7 +738,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1243
     const-string v4, "false"
@@ -769,7 +769,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -779,20 +779,20 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1246
-    iget v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     if-eq v4, v8, :cond_4
 
-    iget v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     if-eq v4, v7, :cond_4
 
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
+    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/gsm/GSMPhone;->getSimSlot()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneBase;->getSimSlot()I
 
     move-result v4
 
@@ -801,7 +801,7 @@
     .line 1248
     const-string v4, "[MultiSim] Set master slot network mode to W/G or T/G"
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1249
     const-string v4, "CHM"
@@ -822,7 +822,7 @@
 
     .line 1250
     :cond_1
-    iput v8, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iput v8, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     .line 1254
     :goto_0
@@ -843,19 +843,19 @@
 
     .line 1252
     :cond_3
-    iput v7, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iput v7, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     goto :goto_0
 
     .line 1281
     :cond_4
-    iget v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     if-eq v4, v6, :cond_2
 
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
+    iget-object v4, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPhone:Lcom/android/internal/telephony/gsm/GSMPhone;
 
-    invoke-virtual {v4}, Lcom/android/internal/telephony/gsm/GSMPhone;->getSimSlot()I
+    invoke-virtual {v4}, Lcom/android/internal/telephony/PhoneBase;->getSimSlot()I
 
     move-result v4
 
@@ -864,15 +864,15 @@
     .line 1282
     const-string v4, "[MultiSim] Set slave slot network mode to Gsm only"
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1283
-    iput v6, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iput v6, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     .line 1284
-    iget-object v4, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    iget-object v4, p0, Lcom/android/internal/telephony/ServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
 
-    iget v5, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v5, p0, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     const/4 v6, 0x0
 

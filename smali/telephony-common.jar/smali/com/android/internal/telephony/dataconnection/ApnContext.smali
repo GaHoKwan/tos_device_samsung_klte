@@ -967,7 +967,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/telephony/dataconnection/ApnContext;->mState:Lcom/android/internal/telephony/DctConstants$State;
 
-    invoke-virtual {p1, v0}, Lcom/android/internal/telephony/DctConstants$State;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/lang/Enum;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 

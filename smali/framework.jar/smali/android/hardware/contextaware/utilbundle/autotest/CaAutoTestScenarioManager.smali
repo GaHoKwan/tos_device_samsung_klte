@@ -95,12 +95,12 @@
     :cond_0
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;->clearPacket()V
+    invoke-virtual {v0}, Landroid/hardware/contextaware/utilbundle/autotest/OperationDebugging;->clearPacket()V
 
     .line 112
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->clearPacket()V
+    invoke-virtual {v0}, Landroid/hardware/contextaware/utilbundle/autotest/OperationDebugging;->clearPacket()V
 
     .line 113
     return-void
@@ -138,12 +138,12 @@
     :pswitch_0
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0, p2}, Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;->setDelayTime(I)V
+    invoke-virtual {v0, p2}, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTest;->setDelayTime(I)V
 
     .line 167
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mCaOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;
 
-    invoke-virtual {v0, p3}, Landroid/hardware/contextaware/utilbundle/autotest/CaOperationDebugging;->addPacket([B)V
+    invoke-virtual {v0, p3}, Landroid/hardware/contextaware/utilbundle/autotest/OperationDebugging;->addPacket([B)V
 
     .line 168
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mScenarioListForTest:Ljava/util/ArrayList;
@@ -169,12 +169,12 @@
     :pswitch_1
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0, p2}, Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->setDelayTime(I)V
+    invoke-virtual {v0, p2}, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTest;->setDelayTime(I)V
 
     .line 174
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mSensorHubOperationDebugging:Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;
 
-    invoke-virtual {v0, p3}, Landroid/hardware/contextaware/utilbundle/autotest/SensorHubOperationDebugging;->addPacket([B)V
+    invoke-virtual {v0, p3}, Landroid/hardware/contextaware/utilbundle/autotest/OperationDebugging;->addPacket([B)V
 
     .line 175
     iget-object v0, p0, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTestScenarioManager;->mScenarioListForTest:Ljava/util/ArrayList;

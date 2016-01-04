@@ -32,7 +32,13 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/app/AlertController$AlertParams;Landroid/content/Context;II[Ljava/lang/CharSequence;Lcom/android/internal/app/AlertController$RecycleListView;)V
     .locals 0
+    .param p2, "x0"    # Landroid/content/Context;
+    .param p3, "x1"    # I
+    .param p4, "x2"    # I
+    .param p5, "x3"    # [Ljava/lang/CharSequence;
 
+    .prologue
+    .line 889
     iput-object p1, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iput-object p6, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->val$listView:Lcom/android/internal/app/AlertController$RecycleListView;
@@ -46,31 +52,44 @@
 # virtual methods
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 4
+    .param p1, "position"    # I
+    .param p2, "convertView"    # Landroid/view/View;
+    .param p3, "parent"    # Landroid/view/ViewGroup;
 
+    .prologue
+    .line 892
     invoke-super {p0, p1, p2, p3}, Landroid/widget/ArrayAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
+    .line 893
+    .local v1, "view":Landroid/view/View;
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v2, v2, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItems:[Z
 
     if-eqz v2, :cond_0
 
+    .line 894
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->this$0:Lcom/android/internal/app/AlertController$AlertParams;
 
     iget-object v2, v2, Lcom/android/internal/app/AlertController$AlertParams;->mCheckedItems:[Z
 
     aget-boolean v0, v2, p1
 
+    .line 895
+    .local v0, "isItemChecked":Z
     if-eqz v0, :cond_0
 
+    .line 896
     iget-object v2, p0, Lcom/android/internal/app/AlertController$AlertParams$1;->val$listView:Lcom/android/internal/app/AlertController$RecycleListView;
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, p1, v3}, Lcom/android/internal/app/AlertController$RecycleListView;->setItemChecked(IZ)V
+    invoke-virtual {v2, p1, v3}, Landroid/widget/AbsListView;->setItemChecked(IZ)V
 
+    .line 899
+    .end local v0    # "isItemChecked":Z
     :cond_0
     return-object v1
 .end method

@@ -1236,7 +1236,7 @@
     .line 473
     const-string v4, "SamsungDefault"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1278,7 +1278,7 @@
     :cond_1
     const-string v4, "Random12Chars"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1297,7 +1297,7 @@
     :cond_2
     const-string v4, "Random8Chars"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1316,7 +1316,7 @@
     :cond_3
     const-string v4, "Min10Digits"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1335,7 +1335,7 @@
     :cond_4
     const-string v4, "ModelWith4RandomDigits"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1374,7 +1374,7 @@
     :cond_5
     const-string v4, "IMEI5With5RandomDigits"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1432,7 +1432,7 @@
     :cond_7
     const-string v4, "IMEILast8Digits"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1495,7 +1495,7 @@
     :cond_8
     const-string v4, "VZWRandomRule"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1586,7 +1586,7 @@
     :cond_a
     const-string v4, "UserDefined"
 
-    const-string v5, "VZWRandomRule"
+    const-string v5, "SamsungDefault"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1641,7 +1641,7 @@
 
     .line 384
     .local v8, "ssid":Ljava/lang/StringBuilder;
-    const-string v3, "Verizon-,ModelName,-,Mac4Digits"
+    const-string v3, "Default"
 
     .line 385
     .local v3, "defaultSsid":Ljava/lang/String;
@@ -1890,7 +1890,7 @@
     .line 424
     const-string v9, "KOR"
 
-    const-string v10, "USA"
+    const-string v10, "GGSM"
 
     invoke-virtual {v9, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2200,7 +2200,7 @@
     :cond_0
     const-string v2, "None"
 
-    const-string v3, "VZWRandomRule"
+    const-string v3, "SamsungDefault"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2331,7 +2331,7 @@
     :goto_0
     const-string v2, "None"
 
-    const-string v3, "VZWRandomRule"
+    const-string v3, "SamsungDefault"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2410,7 +2410,7 @@
     .line 355
     const-string v2, "UserDefined"
 
-    const-string v3, "VZWRandomRule"
+    const-string v3, "SamsungDefault"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

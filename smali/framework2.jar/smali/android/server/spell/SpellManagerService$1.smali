@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/server/spell/SpellManagerService;)V
     .locals 0
 
+    .prologue
+    .line 71
     iput-object p1, p0, Landroid/server/spell/SpellManagerService$1;->this$0:Landroid/server/spell/SpellManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 74
     # getter for: Landroid/server/spell/SpellManagerService;->DEBUG:Z
     invoke-static {}, Landroid/server/spell/SpellManagerService;->access$000()Z
 
@@ -44,18 +48,21 @@
 
     if-eqz v0, :cond_0
 
+    .line 75
     const-string v0, "SpellManagerService"
 
     const-string v1, "Begin to scan spellscrolls..."
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 78
     :cond_0
     iget-object v0, p0, Landroid/server/spell/SpellManagerService$1;->this$0:Landroid/server/spell/SpellManagerService;
 
     # invokes: Landroid/server/spell/SpellManagerService;->updateSpellScrollInfo()V
     invoke-static {v0}, Landroid/server/spell/SpellManagerService;->access$100(Landroid/server/spell/SpellManagerService;)V
 
+    .line 80
     # getter for: Landroid/server/spell/SpellManagerService;->DEBUG:Z
     invoke-static {}, Landroid/server/spell/SpellManagerService;->access$000()Z
 
@@ -63,12 +70,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 81
     const-string v0, "SpellManagerService"
 
     const-string v1, "Finish to scan spellscrolls..."
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 83
     :cond_1
     return-void
 .end method

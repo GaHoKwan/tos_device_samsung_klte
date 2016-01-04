@@ -11,6 +11,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 23
     const/4 v0, 0x0
 
     sput v0, Lcom/vlingo/client/phrasespotter/SensoryJNI;->GRAMMAR_FORMALITY_DEFAULT:I
@@ -21,6 +23,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -29,6 +33,8 @@
 .method public static init()V
     .locals 3
 
+    .prologue
+    .line 150
     :try_start_0
     const-string v1, "SensoryJNI"
 
@@ -36,10 +42,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 151
     const-string v1, "WakeUpSensory"
 
     invoke-static {v1}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 152
     const-string v1, "SensoryJNI"
 
     const-string v2, "Loading libWakeUpSensory.so done"
@@ -48,12 +56,18 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 160
+    .local v0, "e":Ljava/lang/Exception;
     :goto_0
     return-void
 
+    .line 155
+    .end local v0    # "e":Ljava/lang/Exception;
     :catch_0
     move-exception v0
 
+    .line 157
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "SensoryJNI"
 
     const-string v2, "WARNING: Could not load libWakeUpSensory.so"

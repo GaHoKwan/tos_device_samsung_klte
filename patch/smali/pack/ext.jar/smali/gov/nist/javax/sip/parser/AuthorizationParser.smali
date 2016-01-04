@@ -42,13 +42,13 @@
     .line 65
     const-string v1, "parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/AuthorizationParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 67
     const/16 v1, 0x817
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/AuthorizationParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 68
     new-instance v0, Lgov/nist/javax/sip/header/Authorization;
@@ -64,7 +64,7 @@
     .line 72
     const-string v1, "parse"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/AuthorizationParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 70
     return-object v0
@@ -76,7 +76,7 @@
 
     const-string v2, "parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/AuthorizationParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     throw v1
 .end method

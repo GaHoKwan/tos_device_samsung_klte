@@ -1467,7 +1467,7 @@
 
     .line 544
     :try_start_1
-    invoke-virtual {v6}, Ljava/io/BufferedReader;->close()V
+    throw v6
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_5
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

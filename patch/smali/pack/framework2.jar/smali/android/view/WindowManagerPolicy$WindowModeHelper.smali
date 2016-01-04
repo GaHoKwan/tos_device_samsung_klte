@@ -18,6 +18,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -25,7 +27,10 @@
 
 .method public static mode(I)I
     .locals 1
+    .param p0, "params"    # I
 
+    .prologue
+    .line 283
     const/high16 v0, -0x1000000
 
     and-int/2addr v0, p0
@@ -35,7 +40,10 @@
 
 .method public static option(I)I
     .locals 1
+    .param p0, "params"    # I
 
+    .prologue
+    .line 286
     const v0, 0xffffff
 
     and-int/2addr v0, p0
@@ -45,11 +53,16 @@
 
 .method public static setWindowMode(II)I
     .locals 1
+    .param p0, "fromWindowMode"    # I
+    .param p1, "toWindowMode"    # I
 
+    .prologue
+    .line 295
     const/high16 v0, 0x4c0000
 
     and-int/2addr p1, v0
 
+    .line 296
     const v0, -0x4c0001
 
     and-int/2addr v0, p0
@@ -61,7 +74,10 @@
 
 .method public static zone(I)I
     .locals 1
+    .param p0, "params"    # I
 
+    .prologue
+    .line 289
     and-int/lit8 v0, p0, 0xf
 
     return v0
@@ -69,7 +85,10 @@
 
 .method public static zonePolicy(I)I
     .locals 1
+    .param p0, "params"    # I
 
+    .prologue
+    .line 292
     const/high16 v0, 0x30000
 
     and-int/2addr v0, p0

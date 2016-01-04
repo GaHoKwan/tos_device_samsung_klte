@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/MountService;)V
     .locals 0
 
+    .prologue
+    .line 3576
     iput-object p1, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 3579
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 3581
+    .local v0, "action":Ljava/lang/String;
     const-string v4, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,12 +54,14 @@
 
     if-eqz v4, :cond_2
 
+    .line 3582
     const-string v4, "MountService"
 
     const-string v5, "received ACTION_BOOT_COMPLETED"
 
     invoke-static {v4, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3583
     iget-object v4, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
 
     # getter for: Lcom/android/server/MountService;->mPendingIntentLock:Ljava/lang/Object;
@@ -61,6 +71,7 @@
 
     monitor-enter v5
 
+    .line 3584
     :try_start_0
     iget-object v4, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
 
@@ -69,6 +80,7 @@
     # setter for: Lcom/android/server/MountService;->mBooted:Z
     invoke-static {v4, v6}, Lcom/android/server/MountService;->access$3102(Lcom/android/server/MountService;Z)Z
 
+    .line 3586
     :cond_0
     :goto_0
     iget-object v4, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
@@ -84,6 +96,7 @@
 
     if-nez v4, :cond_1
 
+    .line 3587
     iget-object v4, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
 
     # getter for: Lcom/android/server/MountService;->mPendingIntent:Ljava/util/ArrayList;
@@ -99,14 +112,20 @@
 
     check-cast v1, Landroid/content/Intent;
 
+    .line 3588
+    .local v1, "in":Landroid/content/Intent;
     invoke-virtual {v1}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v3
 
+    .line 3589
+    .local v3, "uri":Landroid/net/Uri;
     invoke-virtual {v3}, Landroid/net/Uri;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
+    .line 3591
+    .local v2, "path":Ljava/lang/String;
     const-string v4, "/storage/extSdCard"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -115,6 +134,7 @@
 
     if-nez v4, :cond_0
 
+    .line 3592
     const-string v4, "MountService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -149,6 +169,7 @@
 
     invoke-static {v4, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3593
     iget-object v4, p0, Lcom/android/server/MountService$9;->this$0:Lcom/android/server/MountService;
 
     # getter for: Lcom/android/server/MountService;->mContext:Landroid/content/Context;
@@ -162,6 +183,10 @@
 
     goto :goto_0
 
+    .line 3595
+    .end local v1    # "in":Landroid/content/Intent;
+    .end local v2    # "path":Ljava/lang/String;
+    .end local v3    # "uri":Landroid/net/Uri;
     :catchall_0
     move-exception v4
 
@@ -177,6 +202,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 3597
     :cond_2
     return-void
 .end method

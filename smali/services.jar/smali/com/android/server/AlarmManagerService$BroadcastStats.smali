@@ -47,16 +47,22 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
     .locals 1
+    .param p1, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 534
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 531
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/AlarmManagerService$BroadcastStats;->filterStats:Ljava/util/HashMap;
 
+    .line 535
     iput-object p1, p0, Lcom/android/server/AlarmManagerService$BroadcastStats;->mPackageName:Ljava/lang/String;
 
+    .line 536
     return-void
 .end method

@@ -867,7 +867,7 @@
     :cond_2
     iget-object v5, p0, Lorg/apache/http/conn/routing/HttpRoute;->tunnelled:Lorg/apache/http/conn/routing/RouteInfo$TunnelType;
 
-    invoke-virtual {v5}, Lorg/apache/http/conn/routing/RouteInfo$TunnelType;->hashCode()I
+    invoke-virtual {v5}, Ljava/lang/Enum;->hashCode()I
 
     move-result v5
 
@@ -876,7 +876,7 @@
     .line 395
     iget-object v5, p0, Lorg/apache/http/conn/routing/HttpRoute;->layered:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
-    invoke-virtual {v5}, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->hashCode()I
+    invoke-virtual {v5}, Ljava/lang/Enum;->hashCode()I
 
     move-result v5
 

@@ -55,22 +55,22 @@
     .line 67
     const-string v3, "ProxyRequireParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ProxyRequireParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 70
     :cond_0
     const/16 v3, 0x81a
 
     :try_start_0
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ProxyRequireParser;->headerName(I)V
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 72
     :cond_1
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -87,17 +87,17 @@
     .local v1, "r":Lgov/nist/javax/sip/header/ProxyRequire;
     const-string v3, "Proxy-Require"
 
-    invoke-virtual {v1, v3}, Lgov/nist/javax/sip/header/ProxyRequire;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v1, v3}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 77
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xfff
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 78
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -112,34 +112,34 @@
     invoke-virtual {v1, v3}, Lgov/nist/javax/sip/header/ProxyRequire;->setOptionTag(Ljava/lang/String;)V
 
     .line 80
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 82
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ProxyRequireList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 84
     :goto_0
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
     if-ne v3, v5, :cond_1
 
     .line 85
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x2c
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 86
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -151,14 +151,14 @@
 
     .line 91
     .restart local v1    # "r":Lgov/nist/javax/sip/header/ProxyRequire;
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0xfff
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 92
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -172,12 +172,12 @@
     invoke-virtual {v1, v3}, Lgov/nist/javax/sip/header/ProxyRequire;->setOptionTag(Ljava/lang/String;)V
 
     .line 94
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ProxyRequireParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 96
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ProxyRequireList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -196,7 +196,7 @@
     .line 102
     const-string v4, "ProxyRequireParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ProxyRequireParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 101
     :cond_2
@@ -210,7 +210,7 @@
     .line 102
     const-string v3, "ProxyRequireParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ProxyRequireParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 105
     :cond_4

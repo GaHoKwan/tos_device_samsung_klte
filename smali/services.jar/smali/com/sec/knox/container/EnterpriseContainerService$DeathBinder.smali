@@ -28,21 +28,28 @@
 # direct methods
 .method public constructor <init>(Lcom/sec/knox/container/EnterpriseContainerService;I)V
     .locals 1
+    .param p2, "requestId"    # I
 
+    .prologue
+    .line 741
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 738
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->containerId:I
 
+    .line 739
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->req:I
 
+    .line 743
     iput p2, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->req:I
 
+    .line 744
     return-void
 .end method
 
@@ -51,8 +58,10 @@
 .method public binderDied()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 747
     const-string v1, "EnterpriseContainerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -77,6 +86,7 @@
 
     invoke-static {v1, v2}, Lcom/sec/knox/container/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 748
     iget-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     # getter for: Lcom/sec/knox/container/EnterpriseContainerService;->mWakeLockHandler:Landroid/os/Handler;
@@ -96,6 +106,8 @@
 
     move-result-object v0
 
+    .line 750
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerService$DeathBinder;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     # getter for: Lcom/sec/knox/container/EnterpriseContainerService;->mWakeLockHandler:Landroid/os/Handler;
@@ -105,5 +117,6 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 751
     return-void
 .end method

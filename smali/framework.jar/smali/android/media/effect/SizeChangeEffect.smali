@@ -32,16 +32,16 @@
 
     .prologue
     .line 48
-    invoke-virtual {p0}, Landroid/media/effect/SizeChangeEffect;->beginGLEffect()V
+    invoke-virtual {p0}, Landroid/media/effect/FilterEffect;->beginGLEffect()V
 
     .line 50
-    invoke-virtual {p0, p1, p2, p3}, Landroid/media/effect/SizeChangeEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, p1, p2, p3}, Landroid/media/effect/FilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v0
 
     .line 51
     .local v0, "inputFrame":Landroid/filterfw/core/Frame;
-    iget-object v5, p0, Landroid/media/effect/SizeChangeEffect;->mFunction:Landroid/filterfw/core/FilterFunction;
+    iget-object v5, p0, Landroid/media/effect/SingleFilterEffect;->mFunction:Landroid/filterfw/core/FilterFunction;
 
     const/4 v6, 0x2
 
@@ -49,7 +49,7 @@
 
     const/4 v7, 0x0
 
-    iget-object v8, p0, Landroid/media/effect/SizeChangeEffect;->mInputName:Ljava/lang/String;
+    iget-object v8, p0, Landroid/media/effect/SingleFilterEffect;->mInputName:Ljava/lang/String;
 
     aput-object v8, v6, v7
 
@@ -83,7 +83,7 @@
 
     .line 56
     .local v2, "outputHeight":I
-    invoke-virtual {p0, p4, v3, v2}, Landroid/media/effect/SizeChangeEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
+    invoke-virtual {p0, p4, v3, v2}, Landroid/media/effect/FilterEffect;->frameFromTexture(III)Landroid/filterfw/core/Frame;
 
     move-result-object v1
 
@@ -101,7 +101,7 @@
     invoke-virtual {v4}, Landroid/filterfw/core/Frame;->release()Landroid/filterfw/core/Frame;
 
     .line 63
-    invoke-virtual {p0}, Landroid/media/effect/SizeChangeEffect;->endGLEffect()V
+    invoke-virtual {p0}, Landroid/media/effect/FilterEffect;->endGLEffect()V
 
     .line 64
     return-void

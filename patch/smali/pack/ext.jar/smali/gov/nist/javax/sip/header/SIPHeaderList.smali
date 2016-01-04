@@ -97,7 +97,7 @@
     invoke-direct {p0}, Lgov/nist/javax/sip/header/SIPHeaderList;-><init>()V
 
     .line 78
-    iput-object p2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iput-object p2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     .line 79
     iput-object p1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->myClass:Ljava/lang/Class;
@@ -349,9 +349,9 @@
 
     .line 454
     .local v3, "retval":Lgov/nist/javax/sip/header/SIPHeaderList;, "Lgov/nist/javax/sip/header/SIPHeaderList<THDR;>;"
-    iget-object v4, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
-    iput-object v4, v3, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iput-object v4, v3, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     .line 455
     iget-object v4, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->myClass:Ljava/lang/Class;
@@ -548,7 +548,7 @@
     .local p0, "this":Lgov/nist/javax/sip/header/SIPHeaderList;, "Lgov/nist/javax/sip/header/SIPHeaderList<THDR;>;"
     const-string v4, ""
 
-    iput-object v4, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->stringRepresentation:Ljava/lang/String;
+    iput-object v4, p0, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     .line 328
     new-instance v4, Lgov/nist/javax/sip/header/Indentation;
@@ -587,7 +587,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 332
     new-instance v4, Ljava/lang/StringBuilder;
@@ -608,7 +608,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 334
     iget-object v4, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
@@ -642,7 +642,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/header/SIPHeader;->debugDump()Ljava/lang/String;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/header/SIPObject;->debugDump()Ljava/lang/String;
 
     move-result-object v5
 
@@ -654,7 +654,7 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -679,10 +679,10 @@
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->sprint(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 339
-    iget-object v4, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->stringRepresentation:Ljava/lang/String;
+    iget-object v4, p0, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     return-object v4
 .end method
@@ -724,7 +724,7 @@
     if-eqz v2, :cond_1
 
     .line 156
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -747,7 +747,7 @@
 
     .line 161
     :cond_1
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "WWW-Authenticate"
 
@@ -757,7 +757,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Proxy-Authenticate"
 
@@ -767,7 +767,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Authorization"
 
@@ -777,7 +777,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Proxy-Authorization"
 
@@ -791,7 +791,7 @@
 
     if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Via"
 
@@ -801,7 +801,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Route"
 
@@ -811,7 +811,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Record-Route"
 
@@ -868,7 +868,7 @@
     .end local v0    # "li":Ljava/util/ListIterator;, "Ljava/util/ListIterator<THDR;>;"
     .end local v1    # "sipheader":Lgov/nist/javax/sip/header/SIPHeader;, "THDR;"
     :cond_4
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -960,7 +960,7 @@
     if-eqz v2, :cond_2
 
     .line 507
-    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     const-string v3, "Privacy"
 
@@ -1297,7 +1297,7 @@
     .prologue
     .line 60
     .local p0, "this":Lgov/nist/javax/sip/header/SIPHeaderList;, "Lgov/nist/javax/sip/header/SIPHeaderList<THDR;>;"
-    iget-object v0, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -1308,7 +1308,7 @@
     .prologue
     .line 644
     .local p0, "this":Lgov/nist/javax/sip/header/SIPHeaderList;, "Lgov/nist/javax/sip/header/SIPHeaderList<THDR;>;"
-    iget-object v0, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->headerName:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -1583,7 +1583,7 @@
 
     .line 433
     .local v4, "sipHeader1":Lgov/nist/javax/sip/header/SIPHeader;
-    invoke-virtual {v4, v3}, Lgov/nist/javax/sip/header/SIPHeader;->match(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v3}, Lgov/nist/javax/sip/header/SIPObject;->match(Ljava/lang/Object;)Z
 
     move-result v0
 

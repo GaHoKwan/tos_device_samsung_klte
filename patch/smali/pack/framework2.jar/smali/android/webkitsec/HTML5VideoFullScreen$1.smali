@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/webkitsec/HTML5VideoFullScreen;)V
     .locals 0
 
+    .prologue
+    .line 109
     iput-object p1, p0, Landroid/webkitsec/HTML5VideoFullScreen$1;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,15 +35,20 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 112
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 118
     :cond_0
     :goto_0
     return-void
 
+    .line 114
     :pswitch_0
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$1;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
@@ -52,6 +59,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 115
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$1;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
@@ -63,6 +71,7 @@
 
     goto :goto_0
 
+    .line 112
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

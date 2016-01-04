@@ -33,6 +33,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 5200
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "local-groups"
@@ -43,6 +45,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$LocalGroup;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 5204
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$LocalGroup;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "lookup"
@@ -53,6 +56,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$LocalGroup;->CONTENT_LOOKUP_URI:Landroid/net/Uri;
 
+    .line 5208
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$LocalGroup;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -69,7 +73,10 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 5191
     return-void
 .end method

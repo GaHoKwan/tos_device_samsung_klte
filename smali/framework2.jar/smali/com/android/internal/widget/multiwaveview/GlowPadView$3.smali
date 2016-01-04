@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/widget/multiwaveview/GlowPadView;)V
     .locals 0
 
+    .prologue
+    .line 177
     iput-object p1, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView$3;->this$0:Lcom/android/internal/widget/multiwaveview/GlowPadView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +38,14 @@
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
+    .param p1, "animation"    # Landroid/animation/ValueAnimator;
 
+    .prologue
+    .line 179
     iget-object v0, p0, Lcom/android/internal/widget/multiwaveview/GlowPadView$3;->this$0:Lcom/android/internal/widget/multiwaveview/GlowPadView;
 
-    invoke-virtual {v0}, Lcom/android/internal/widget/multiwaveview/GlowPadView;->invalidate()V
+    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
+    .line 180
     return-void
 .end method

@@ -1201,7 +1201,7 @@
 
     .line 538
     .local v0, "sb":Ljava/lang/StringBuilder;
-    const-string v1, "{"
+    const-string/jumbo v1, "{"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1233,7 +1233,7 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     .line 544
-    const-string v1, "x"
+    const-string/jumbo v1, "x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1278,7 +1278,7 @@
 
     .line 555
     :cond_3
-    const-string v1, "}"
+    const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

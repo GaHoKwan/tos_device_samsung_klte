@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1430
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-direct {p0}, Landroid/content/pm/IPackageInstallObserver$Stub;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/pm/PersonaManagerService;Lcom/android/server/pm/PersonaManagerService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/pm/PersonaManagerService;
+    .param p2, "x1"    # Lcom/android/server/pm/PersonaManagerService$1;
 
+    .prologue
+    .line 1430
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;-><init>(Lcom/android/server/pm/PersonaManagerService;)V
 
     return-void
@@ -41,21 +47,28 @@
 # virtual methods
 .method public packageInstalled(Ljava/lang/String;I)V
     .locals 3
+    .param p1, "packageName"    # Ljava/lang/String;
+    .param p2, "returnCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1435
     const-string v0, "packageInstalled"
 
     # invokes: Lcom/android/server/pm/PersonaManagerService;->checkCallerPermissionFor(Ljava/lang/String;)I
     invoke-static {v0}, Lcom/android/server/pm/PersonaManagerService;->access$100(Ljava/lang/String;)I
 
+    .line 1437
     if-nez p1, :cond_0
 
+    .line 1438
     const-string p1, ""
 
+    .line 1440
     :cond_0
     const-string v0, "PersonaManagerService"
 
@@ -89,6 +102,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1441
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mPackageInstallObserver:Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
@@ -98,6 +112,7 @@
 
     monitor-enter v1
 
+    .line 1442
     :try_start_0
     const-string v0, "PersonaManagerService"
 
@@ -105,11 +120,13 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1443
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # setter for: Lcom/android/server/pm/PersonaManagerService;->installResult:I
     invoke-static {v0, p2}, Lcom/android/server/pm/PersonaManagerService;->access$302(Lcom/android/server/pm/PersonaManagerService;I)I
 
+    .line 1444
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mPackageInstallObserver:Lcom/android/server/pm/PersonaManagerService$PackageInstallObserver;
@@ -119,10 +136,13 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->notifyAll()V
 
+    .line 1445
     monitor-exit v1
 
+    .line 1446
     return-void
 
+    .line 1445
     :catchall_0
     move-exception v0
 

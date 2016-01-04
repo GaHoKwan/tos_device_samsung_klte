@@ -39,6 +39,8 @@
 .method constructor <init>(Lcom/android/server/wm/WindowManagerService;Landroid/view/IWindow;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZLandroid/content/res/Configuration;)V
     .locals 0
 
+    .prologue
+    .line 11390
     iput-object p1, p0, Lcom/android/server/wm/WindowManagerService$8;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iput-object p2, p0, Lcom/android/server/wm/WindowManagerService$8;->val$client:Landroid/view/IWindow;
@@ -65,6 +67,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 11394
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$8;->val$client:Landroid/view/IWindow;
 
@@ -84,9 +88,11 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 11399
     :goto_0
     return-void
 
+    .line 11396
     :catch_0
     move-exception v0
 

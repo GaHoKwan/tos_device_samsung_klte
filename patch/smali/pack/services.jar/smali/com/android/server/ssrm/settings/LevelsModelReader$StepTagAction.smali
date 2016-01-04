@@ -22,12 +22,16 @@
 .method constructor <init>(Lcom/android/server/ssrm/settings/LevelsModelReader;)V
     .locals 1
 
+    .prologue
+    .line 352
     iput-object p1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$StepTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
+    .line 353
     const-string/jumbo v0, "step"
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/ssrm/settings/LevelsModelReader$TagAction;-><init>(Lcom/android/server/ssrm/settings/LevelsModelReader;Ljava/lang/String;)V
 
+    .line 354
     return-void
 .end method
 
@@ -35,21 +39,28 @@
 # virtual methods
 .method handleStartTag(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 6
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 358
     const-string v3, "id"
 
     invoke-interface {p1, v4, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 359
+    .local v0, "id_attr":Ljava/lang/String;
     const-string/jumbo v3, "temp"
 
     invoke-interface {p1, v4, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
+    .line 361
+    .local v2, "temp_attr":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$StepTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mSteps:Ljava/util/HashMap;
@@ -61,6 +72,8 @@
 
     move-result-object v1
 
+    .line 362
+    .local v1, "stepValues":Ljava/util/Collection;, "Ljava/util/Collection<Ljava/lang/Integer;>;"
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(Ljava/lang/String;)Ljava/lang/Integer;
 
     move-result-object v3
@@ -71,6 +84,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 363
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -101,6 +115,7 @@
 
     throw v3
 
+    .line 365
     :cond_0
     iget-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$StepTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
@@ -115,5 +130,6 @@
 
     invoke-virtual {v3, v0, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 366
     return-void
 .end method

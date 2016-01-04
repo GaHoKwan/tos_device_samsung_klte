@@ -161,18 +161,18 @@
 
     check-cast v0, Ljava/util/Hashtable;
 
-    iput-object v0, p0, Lgov/nist/javax/sip/parser/Lexer;->currentLexer:Ljava/util/Hashtable;
+    iput-object v0, p0, Lgov/nist/core/LexerCore;->currentLexer:Ljava/util/Hashtable;
 
     .line 95
-    iput-object p1, p0, Lgov/nist/javax/sip/parser/Lexer;->currentLexerName:Ljava/lang/String;
+    iput-object p1, p0, Lgov/nist/core/LexerCore;->currentLexerName:Ljava/lang/String;
 
     .line 96
-    iget-object v0, p0, Lgov/nist/javax/sip/parser/Lexer;->currentLexer:Ljava/util/Hashtable;
+    iget-object v0, p0, Lgov/nist/core/LexerCore;->currentLexer:Ljava/util/Hashtable;
 
     if-nez v0, :cond_0
 
     .line 97
-    invoke-virtual {p0, p1}, Lgov/nist/javax/sip/parser/Lexer;->addLexer(Ljava/lang/String;)Ljava/util/Hashtable;
+    invoke-virtual {p0, p1}, Lgov/nist/core/LexerCore;->addLexer(Ljava/lang/String;)Ljava/util/Hashtable;
 
     .line 98
     const-string v0, "method_keywordLexer"
@@ -188,35 +188,35 @@
 
     const/16 v2, 0x804
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 100
     const-string v0, "ACK"
 
     const/16 v2, 0x806
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 101
     const-string v0, "OPTIONS"
 
     const/16 v2, 0x808
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 102
     const-string v0, "BYE"
 
     const/16 v2, 0x807
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 103
     const-string v0, "INVITE"
 
     const/16 v2, 0x805
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 104
     const-string v0, "sip"
@@ -227,7 +227,7 @@
 
     const/16 v2, 0x803
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 105
     const-string v0, "sips"
@@ -238,35 +238,35 @@
 
     const/16 v2, 0x858
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 106
     const-string v0, "SUBSCRIBE"
 
     const/16 v2, 0x835
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 107
     const-string v0, "NOTIFY"
 
     const/16 v2, 0x836
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 108
     const-string v0, "MESSAGE"
 
     const/16 v2, 0x846
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 111
     const-string v0, "PUBLISH"
 
     const/16 v2, 0x843
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 322
     :cond_0
@@ -295,7 +295,7 @@
 
     const/16 v2, 0x80a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 116
     const-string v0, "Allow-Events"
@@ -306,7 +306,7 @@
 
     const/16 v2, 0x841
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 118
     const-string v0, "Authentication-Info"
@@ -317,7 +317,7 @@
 
     const/16 v2, 0x840
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 120
     const-string v0, "Event"
@@ -328,7 +328,7 @@
 
     const/16 v2, 0x83f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 121
     const-string v0, "Min-Expires"
@@ -339,7 +339,7 @@
 
     const/16 v2, 0x83e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 123
     const-string v0, "RSeq"
@@ -350,7 +350,7 @@
 
     const/16 v2, 0x83c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 124
     const-string v0, "RAck"
@@ -361,7 +361,7 @@
 
     const/16 v2, 0x83d
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 125
     const-string v0, "Reason"
@@ -372,7 +372,7 @@
 
     const/16 v2, 0x83b
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 127
     const-string v0, "Reply-To"
@@ -383,7 +383,7 @@
 
     const/16 v2, 0x83a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 129
     const-string v0, "Subscription-State"
@@ -394,7 +394,7 @@
 
     const/16 v2, 0x838
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 131
     const-string v0, "Timestamp"
@@ -405,7 +405,7 @@
 
     const/16 v2, 0x837
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 133
     const-string v0, "In-Reply-To"
@@ -416,7 +416,7 @@
 
     const/16 v2, 0x80b
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 135
     const-string v0, "MIME-Version"
@@ -427,7 +427,7 @@
 
     const/16 v2, 0x80c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 137
     const-string v0, "Alert-Info"
@@ -438,7 +438,7 @@
 
     const/16 v2, 0x80d
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 139
     const-string v0, "From"
@@ -449,7 +449,7 @@
 
     const/16 v2, 0x80e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 140
     const-string v0, "To"
@@ -460,7 +460,7 @@
 
     const/16 v2, 0x80f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 141
     const-string v0, "Refer-To"
@@ -471,7 +471,7 @@
 
     const/16 v2, 0x842
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 143
     const-string v0, "Via"
@@ -482,7 +482,7 @@
 
     const/16 v2, 0x810
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 144
     const-string v0, "User-Agent"
@@ -493,7 +493,7 @@
 
     const/16 v2, 0x811
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 146
     const-string v0, "Server"
@@ -504,7 +504,7 @@
 
     const/16 v2, 0x812
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 148
     const-string v0, "Accept-Encoding"
@@ -515,7 +515,7 @@
 
     const/16 v2, 0x813
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 150
     const-string v0, "Accept"
@@ -526,7 +526,7 @@
 
     const/16 v2, 0x814
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 152
     const-string v0, "Allow"
@@ -537,7 +537,7 @@
 
     const/16 v2, 0x815
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 153
     const-string v0, "Route"
@@ -548,7 +548,7 @@
 
     const/16 v2, 0x816
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 154
     const-string v0, "Authorization"
@@ -559,7 +559,7 @@
 
     const/16 v2, 0x817
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 156
     const-string v0, "Proxy-Authorization"
@@ -570,7 +570,7 @@
 
     const/16 v2, 0x818
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 158
     const-string v0, "Retry-After"
@@ -581,7 +581,7 @@
 
     const/16 v2, 0x819
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 160
     const-string v0, "Proxy-Require"
@@ -592,7 +592,7 @@
 
     const/16 v2, 0x81a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 162
     const-string v0, "Content-Language"
@@ -603,7 +603,7 @@
 
     const/16 v2, 0x81b
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 164
     const-string v0, "Unsupported"
@@ -614,7 +614,7 @@
 
     const/16 v2, 0x81c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 166
     const-string v0, "Supported"
@@ -625,7 +625,7 @@
 
     const/16 v2, 0x814
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 168
     const-string v0, "Warning"
@@ -636,7 +636,7 @@
 
     const/16 v2, 0x81e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 170
     const-string v0, "Max-Forwards"
@@ -647,7 +647,7 @@
 
     const/16 v2, 0x81f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 172
     const-string v0, "Date"
@@ -658,7 +658,7 @@
 
     const/16 v2, 0x820
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 173
     const-string v0, "Priority"
@@ -669,7 +669,7 @@
 
     const/16 v2, 0x821
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 175
     const-string v0, "Proxy-Authenticate"
@@ -680,7 +680,7 @@
 
     const/16 v2, 0x822
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 177
     const-string v0, "Content-Encoding"
@@ -691,7 +691,7 @@
 
     const/16 v2, 0x823
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 179
     const-string v0, "Content-Length"
@@ -702,7 +702,7 @@
 
     const/16 v2, 0x824
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 181
     const-string v0, "Subject"
@@ -713,7 +713,7 @@
 
     const/16 v2, 0x825
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 183
     const-string v0, "Content-Type"
@@ -724,7 +724,7 @@
 
     const/16 v2, 0x826
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 185
     const-string v0, "Contact"
@@ -735,7 +735,7 @@
 
     const/16 v2, 0x827
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 187
     const-string v0, "Call-ID"
@@ -746,7 +746,7 @@
 
     const/16 v2, 0x828
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 189
     const-string v0, "Require"
@@ -757,7 +757,7 @@
 
     const/16 v2, 0x829
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 191
     const-string v0, "Expires"
@@ -768,7 +768,7 @@
 
     const/16 v2, 0x82a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 193
     const-string v0, "Record-Route"
@@ -779,7 +779,7 @@
 
     const/16 v2, 0x82c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 195
     const-string v0, "Organization"
@@ -790,7 +790,7 @@
 
     const/16 v2, 0x82d
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 197
     const-string v0, "CSeq"
@@ -801,7 +801,7 @@
 
     const/16 v2, 0x82e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 198
     const-string v0, "Accept-Language"
@@ -812,7 +812,7 @@
 
     const/16 v2, 0x82f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 200
     const-string v0, "WWW-Authenticate"
@@ -823,7 +823,7 @@
 
     const/16 v2, 0x830
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 202
     const-string v0, "Call-Info"
@@ -834,7 +834,7 @@
 
     const/16 v2, 0x833
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 204
     const-string v0, "Content-Disposition"
@@ -845,7 +845,7 @@
 
     const/16 v2, 0x834
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 207
     const-string v0, "K"
@@ -856,7 +856,7 @@
 
     const/16 v2, 0x814
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 208
     const-string v0, "C"
@@ -867,7 +867,7 @@
 
     const/16 v2, 0x826
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 210
     const-string v0, "E"
@@ -878,7 +878,7 @@
 
     const/16 v2, 0x823
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 212
     const-string v0, "F"
@@ -889,7 +889,7 @@
 
     const/16 v2, 0x80e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 213
     const-string v0, "I"
@@ -900,7 +900,7 @@
 
     const/16 v2, 0x828
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 214
     const-string v0, "M"
@@ -911,7 +911,7 @@
 
     const/16 v2, 0x827
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 215
     const-string v0, "L"
@@ -922,7 +922,7 @@
 
     const/16 v2, 0x824
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 217
     const-string v0, "S"
@@ -933,7 +933,7 @@
 
     const/16 v2, 0x825
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 218
     const-string v0, "T"
@@ -944,7 +944,7 @@
 
     const/16 v2, 0x80f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 219
     const-string v0, "U"
@@ -955,7 +955,7 @@
 
     const/16 v2, 0x841
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 221
     const-string v0, "V"
@@ -966,7 +966,7 @@
 
     const/16 v2, 0x810
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 222
     const-string v0, "R"
@@ -977,7 +977,7 @@
 
     const/16 v2, 0x842
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 223
     const-string v0, "O"
@@ -988,7 +988,7 @@
 
     const/16 v2, 0x83f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 228
     const-string v0, "X"
@@ -999,7 +999,7 @@
 
     const/16 v2, 0x855
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 231
     const-string v0, "SIP-ETag"
@@ -1010,7 +1010,7 @@
 
     const/16 v2, 0x844
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 233
     const-string v0, "SIP-If-Match"
@@ -1021,7 +1021,7 @@
 
     const/16 v2, 0x845
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 237
     const-string v0, "Session-Expires"
@@ -1032,7 +1032,7 @@
 
     const/16 v2, 0x855
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 239
     const-string v0, "Min-SE"
@@ -1043,7 +1043,7 @@
 
     const/16 v2, 0x856
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 241
     const-string v0, "Referred-By"
@@ -1054,7 +1054,7 @@
 
     const/16 v2, 0x854
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 245
     const-string v0, "Replaces"
@@ -1065,7 +1065,7 @@
 
     const/16 v2, 0x857
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 248
     const-string v0, "Join"
@@ -1076,7 +1076,7 @@
 
     const/16 v2, 0x85c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 252
     const-string v0, "Path"
@@ -1087,7 +1087,7 @@
 
     const/16 v2, 0x847
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 253
     const-string v0, "Service-Route"
@@ -1098,7 +1098,7 @@
 
     const/16 v2, 0x848
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 255
     const-string v0, "P-Asserted-Identity"
@@ -1109,7 +1109,7 @@
 
     const/16 v2, 0x849
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 257
     const-string v0, "P-Preferred-Identity"
@@ -1120,7 +1120,7 @@
 
     const/16 v2, 0x84a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 259
     const-string v0, "Privacy"
@@ -1131,7 +1131,7 @@
 
     const/16 v2, 0x84e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 263
     const-string v0, "P-Called-Party-ID"
@@ -1142,7 +1142,7 @@
 
     const/16 v2, 0x850
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 265
     const-string v0, "P-Associated-URI"
@@ -1153,7 +1153,7 @@
 
     const/16 v2, 0x851
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 267
     const-string v0, "P-Visited-Network-ID"
@@ -1164,7 +1164,7 @@
 
     const/16 v2, 0x84b
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 269
     const-string v0, "P-Charging-Function-Addresses"
@@ -1175,7 +1175,7 @@
 
     const/16 v2, 0x84c
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 272
     const-string v0, "P-Charging-Vector"
@@ -1186,7 +1186,7 @@
 
     const/16 v2, 0x84d
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 274
     const-string v0, "P-Access-Network-Info"
@@ -1197,7 +1197,7 @@
 
     const/16 v2, 0x84f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 276
     const-string v0, "P-Media-Authorization"
@@ -1208,7 +1208,7 @@
 
     const/16 v2, 0x852
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 279
     const-string v0, "Security-Server"
@@ -1219,7 +1219,7 @@
 
     const/16 v2, 0x859
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 281
     const-string v0, "Security-Verify"
@@ -1230,7 +1230,7 @@
 
     const/16 v2, 0x85b
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 283
     const-string v0, "Security-Client"
@@ -1241,7 +1241,7 @@
 
     const/16 v2, 0x85a
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 287
     const-string v0, "P-User-Database"
@@ -1252,7 +1252,7 @@
 
     const/16 v2, 0x85d    # 3.0E-42f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 291
     const-string v0, "P-Profile-Key"
@@ -1263,7 +1263,7 @@
 
     const/16 v2, 0x85e
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 295
     const-string v0, "P-Served-User"
@@ -1274,7 +1274,7 @@
 
     const/16 v2, 0x85f
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 299
     const-string v0, "P-Preferred-Service"
@@ -1285,7 +1285,7 @@
 
     const/16 v2, 0x860
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 303
     const-string v0, "P-Asserted-Service"
@@ -1296,7 +1296,7 @@
 
     const/16 v2, 0x861
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 307
     const-string v0, "References"
@@ -1307,7 +1307,7 @@
 
     const/16 v2, 0x862
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
@@ -1341,7 +1341,7 @@
 
     const/16 v2, 0x803
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
@@ -1364,7 +1364,7 @@
 
     const/16 v2, 0x803
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     goto/16 :goto_0
 
@@ -1387,7 +1387,7 @@
 
     const/16 v2, 0x839
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 318
     const-string v0, "sip"
@@ -1398,7 +1398,7 @@
 
     const/16 v2, 0x803
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
 
     .line 319
     const-string v0, "sips"
@@ -1409,7 +1409,7 @@
 
     const/16 v2, 0x858
 
-    invoke-virtual {p0, v0, v2}, Lgov/nist/javax/sip/parser/Lexer;->addKeyword(Ljava/lang/String;I)V
+    invoke-virtual {p0, v0, v2}, Lgov/nist/core/LexerCore;->addKeyword(Ljava/lang/String;I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

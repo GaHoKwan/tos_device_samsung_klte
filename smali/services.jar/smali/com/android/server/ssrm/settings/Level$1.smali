@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/settings/Level;)V
     .locals 0
 
+    .prologue
+    .line 46
     iput-object p1, p0, Lcom/android/server/ssrm/settings/Level$1;->this$0:Lcom/android/server/ssrm/settings/Level;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public createBatteryState(I)Lcom/android/server/ssrm/settings/BatteryState;
     .locals 1
+    .param p1, "topTemperature"    # I
 
+    .prologue
+    .line 54
     new-instance v0, Lcom/android/server/ssrm/settings/BatteryState;
 
     invoke-direct {v0, p1}, Lcom/android/server/ssrm/settings/BatteryState;-><init>(I)V
@@ -47,6 +52,8 @@
 .method public createBatteryStatesController()Lcom/android/server/ssrm/settings/BatteryStatesController;
     .locals 1
 
+    .prologue
+    .line 49
     new-instance v0, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;
 
     invoke-direct {v0}, Lcom/android/server/ssrm/settings/BatteryStatesControllerDefault;-><init>()V

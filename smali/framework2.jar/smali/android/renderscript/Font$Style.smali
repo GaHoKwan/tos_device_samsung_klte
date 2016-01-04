@@ -39,6 +39,7 @@
 .method static constructor <clinit>()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x3
 
     const/4 v4, 0x2
@@ -47,6 +48,7 @@
 
     const/4 v2, 0x0
 
+    .line 83
     new-instance v0, Landroid/renderscript/Font$Style;
 
     const-string v1, "NORMAL"
@@ -55,6 +57,7 @@
 
     sput-object v0, Landroid/renderscript/Font$Style;->NORMAL:Landroid/renderscript/Font$Style;
 
+    .line 87
     new-instance v0, Landroid/renderscript/Font$Style;
 
     const-string v1, "BOLD"
@@ -63,6 +66,7 @@
 
     sput-object v0, Landroid/renderscript/Font$Style;->BOLD:Landroid/renderscript/Font$Style;
 
+    .line 91
     new-instance v0, Landroid/renderscript/Font$Style;
 
     const-string v1, "ITALIC"
@@ -71,6 +75,7 @@
 
     sput-object v0, Landroid/renderscript/Font$Style;->ITALIC:Landroid/renderscript/Font$Style;
 
+    .line 95
     new-instance v0, Landroid/renderscript/Font$Style;
 
     const-string v1, "BOLD_ITALIC"
@@ -79,6 +84,7 @@
 
     sput-object v0, Landroid/renderscript/Font$Style;->BOLD_ITALIC:Landroid/renderscript/Font$Style;
 
+    .line 79
     const/4 v0, 0x4
 
     new-array v0, v0, [Landroid/renderscript/Font$Style;
@@ -112,6 +118,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 79
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -119,7 +127,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/Font$Style;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 79
     const-class v0, Landroid/renderscript/Font$Style;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -134,9 +145,11 @@
 .method public static values()[Landroid/renderscript/Font$Style;
     .locals 1
 
+    .prologue
+    .line 79
     sget-object v0, Landroid/renderscript/Font$Style;->$VALUES:[Landroid/renderscript/Font$Style;
 
-    invoke-virtual {v0}, [Landroid/renderscript/Font$Style;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

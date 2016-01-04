@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="config_tether_apndata" />
-    <item type="string" name="APKTOOL_DUMMY_0114">false</item>
     <item type="string" name="APKTOOL_DUMMY_0b11">false</item>
     <item type="string" name="APKTOOL_DUMMY_0b12">false</item>
     <item type="string" name="APKTOOL_DUMMY_0b13">false</item>

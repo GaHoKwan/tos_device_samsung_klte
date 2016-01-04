@@ -318,7 +318,7 @@
 
     .line 220
     .local v0, "auth":Lgov/nist/javax/sip/header/Authorization;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/Authorization;->setScheme(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setScheme(Ljava/lang/String;)V
 
     .line 222
     return-object v0
@@ -1105,7 +1105,7 @@
 
     .line 1179
     .local v0, "ex":Ljava/lang/InstantiationException;
-    invoke-virtual {v0}, Ljava/lang/InstantiationException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v3, v4
 
@@ -1119,7 +1119,7 @@
 
     .line 1182
     .local v0, "ex":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     move-object v3, v4
 
@@ -1615,7 +1615,7 @@
 
     .line 1348
     .local v0, "assertedIdentity":Lgov/nist/javax/sip/header/ims/PAssertedIdentity;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PAssertedIdentity;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1350
     return-object v0
@@ -1660,7 +1660,7 @@
 
     .line 1369
     .local v0, "associatedURI":Lgov/nist/javax/sip/header/ims/PAssociatedURI;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PAssociatedURI;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1371
     return-object v0
@@ -1691,7 +1691,7 @@
 
     .line 1390
     .local v0, "calledPartyID":Lgov/nist/javax/sip/header/ims/PCalledPartyID;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PCalledPartyID;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1392
     return-object v0
@@ -1778,7 +1778,7 @@
 
     .line 1463
     .local v0, "preferredIdentity":Lgov/nist/javax/sip/header/ims/PPreferredIdentity;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PPreferredIdentity;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1465
     return-object v0
@@ -1823,7 +1823,7 @@
 
     .line 1595
     .local v0, "pProfileKey":Lgov/nist/javax/sip/header/ims/PProfileKey;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PProfileKey;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1597
     return-object v0
@@ -1854,7 +1854,7 @@
 
     .line 1609
     .local v0, "psu":Lgov/nist/javax/sip/header/ims/PServedUser;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/PServedUser;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1611
     return-object v0
@@ -1939,7 +1939,7 @@
 
     .line 1496
     .local v0, "path":Lgov/nist/javax/sip/header/ims/Path;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/Path;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1498
     return-object v0
@@ -2039,7 +2039,7 @@
 
     .line 679
     .local v0, "p":Lgov/nist/javax/sip/header/ProxyAuthenticate;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ProxyAuthenticate;->setScheme(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setScheme(Ljava/lang/String;)V
 
     .line 681
     return-object v0
@@ -2075,7 +2075,7 @@
 
     .line 698
     .local v0, "p":Lgov/nist/javax/sip/header/ProxyAuthorization;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ProxyAuthorization;->setScheme(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setScheme(Ljava/lang/String;)V
 
     .line 700
     return-object v0
@@ -2371,7 +2371,7 @@
 
     .line 829
     .local v0, "recordRoute":Lgov/nist/javax/sip/header/RecordRoute;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/RecordRoute;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 831
     return-object v0
@@ -2402,7 +2402,7 @@
 
     .line 1244
     .local v0, "referTo":Lgov/nist/javax/sip/header/ReferTo;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ReferTo;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1245
     return-object v0
@@ -2460,7 +2460,7 @@
 
     .line 1262
     .local v0, "referredBy":Lgov/nist/javax/sip/header/extensions/ReferredBy;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/extensions/ReferredBy;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1263
     return-object v0
@@ -2522,7 +2522,7 @@
 
     .line 845
     .local v0, "replyTo":Lgov/nist/javax/sip/header/ReplyTo;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ReplyTo;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 847
     return-object v0
@@ -2649,7 +2649,7 @@
 
     .line 898
     .local v0, "route":Lgov/nist/javax/sip/header/Route;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/Route;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 900
     return-object v0
@@ -2794,7 +2794,7 @@
 
     .line 1532
     .local v0, "serviceRoute":Lgov/nist/javax/sip/header/ims/ServiceRoute;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/ims/ServiceRoute;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1534
     return-object v0
@@ -3055,7 +3055,7 @@
 
     .line 1011
     .local v0, "to":Lgov/nist/javax/sip/header/To;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/To;->setAddress(Ljavax/sip/address/Address;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AddressParametersHeader;->setAddress(Ljavax/sip/address/Address;)V
 
     .line 1012
     if-eqz p2, :cond_1
@@ -3292,7 +3292,7 @@
 
     .line 1115
     .local v0, "www":Lgov/nist/javax/sip/header/WWWAuthenticate;
-    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/WWWAuthenticate;->setScheme(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lgov/nist/javax/sip/header/AuthenticationHeader;->setScheme(Ljava/lang/String;)V
 
     .line 1117
     return-object v0

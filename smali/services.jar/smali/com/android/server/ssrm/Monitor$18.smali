@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
     .locals 0
+    .param p2, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 907
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$18;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/ssrm/Monitor$CustomSettingWriter;-><init>(Lcom/android/server/ssrm/Monitor;Ljava/lang/String;)V
@@ -43,8 +46,11 @@
         }
     .end annotation
 
+    .prologue
+    .local p1, "setting":Lcom/android/server/ssrm/settings/Setting;, "Lcom/android/server/ssrm/settings/Setting<Ljava/lang/Integer;>;"
     const/4 v1, 0x1
 
+    .line 910
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$18;->this$0:Lcom/android/server/ssrm/Monitor;
 
     sget-object v2, Lcom/android/server/ssrm/Monitor;->TAG_SIOP:Ljava/lang/String;
@@ -59,7 +65,7 @@
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/server/ssrm/Monitor$18;->mName:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/server/ssrm/settings/SettingWriter;->mName:Ljava/lang/String;
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -85,6 +91,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/server/ssrm/Monitor;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 911
     iget-object v2, p0, Lcom/android/server/ssrm/Monitor$18;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-virtual {p1}, Lcom/android/server/ssrm/settings/Setting;->value()Ljava/lang/Object;
@@ -104,8 +111,10 @@
     :goto_0
     invoke-virtual {v2, v0}, Lcom/android/server/ssrm/Monitor;->enableAcl(Z)V
 
+    .line 912
     return-void
 
+    .line 911
     :cond_0
     const/4 v0, 0x0
 

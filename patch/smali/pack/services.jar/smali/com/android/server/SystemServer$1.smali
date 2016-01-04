@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2165
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
 
     return-void
@@ -28,11 +30,14 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 2168
     const-string/jumbo v0, "system_server"
 
     const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/android/internal/os/SamplingProfilerIntegration;->writeSnapshot(Ljava/lang/String;Landroid/content/pm/PackageInfo;)V
 
+    .line 2169
     return-void
 .end method

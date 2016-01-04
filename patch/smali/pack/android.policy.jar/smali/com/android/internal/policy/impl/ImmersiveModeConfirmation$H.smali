@@ -28,6 +28,8 @@
 .method private constructor <init>(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;)V
     .locals 0
 
+    .prologue
+    .line 329
     iput-object p1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$H;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -37,7 +39,11 @@
 
 .method synthetic constructor <init>(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
+    .param p2, "x1"    # Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$1;
 
+    .prologue
+    .line 329
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$H;-><init>(Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;)V
 
     return-void
@@ -47,14 +53,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 335
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 343
     :goto_0
     return-void
 
+    .line 337
     :pswitch_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$H;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
@@ -67,6 +78,7 @@
 
     goto :goto_0
 
+    .line 340
     :pswitch_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/ImmersiveModeConfirmation$H;->this$0:Lcom/android/internal/policy/impl/ImmersiveModeConfirmation;
 
@@ -75,6 +87,7 @@
 
     goto :goto_0
 
+    .line 335
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_0

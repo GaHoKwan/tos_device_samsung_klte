@@ -100,10 +100,10 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
+    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
 
     .line 94
-    iget v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
+    iget v0, p0, Landroid/graphics/Shader;->native_instance:I
 
     iget v6, p6, Landroid/graphics/Shader$TileMode;->nativeInt:I
 
@@ -121,7 +121,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/RadialGradient;->native_shader:I
+    iput v0, p0, Landroid/graphics/Shader;->native_shader:I
 
     .line 96
     return-void
@@ -233,10 +233,10 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
+    iput v0, p0, Landroid/graphics/Shader;->native_instance:I
 
     .line 69
-    iget v0, p0, Landroid/graphics/RadialGradient;->native_instance:I
+    iget v0, p0, Landroid/graphics/Shader;->native_instance:I
 
     iget v6, p6, Landroid/graphics/Shader$TileMode;->nativeInt:I
 
@@ -254,7 +254,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/RadialGradient;->native_shader:I
+    iput v0, p0, Landroid/graphics/Shader;->native_shader:I
 
     .line 71
     return-void
@@ -304,7 +304,7 @@
 
     iget-object v4, p0, Landroid/graphics/RadialGradient;->mColors:[I
 
-    invoke-virtual {v4}, [I->clone()Ljava/lang/Object;
+    invoke-virtual {v4}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v4
 
@@ -316,7 +316,7 @@
 
     iget-object v5, p0, Landroid/graphics/RadialGradient;->mPositions:[F
 
-    invoke-virtual {v5}, [F->clone()Ljava/lang/Object;
+    invoke-virtual {v5}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -330,7 +330,7 @@
     .line 116
     .local v0, "copy":Landroid/graphics/RadialGradient;
     :goto_1
-    invoke-virtual {p0, v0}, Landroid/graphics/RadialGradient;->copyLocalMatrix(Landroid/graphics/Shader;)V
+    invoke-virtual {p0, v0}, Landroid/graphics/Shader;->copyLocalMatrix(Landroid/graphics/Shader;)V
 
     .line 117
     return-object v0

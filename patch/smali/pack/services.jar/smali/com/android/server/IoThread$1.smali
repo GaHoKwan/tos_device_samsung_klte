@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,9 +33,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 43
     const/4 v0, 0x0
 
     invoke-static {v0}, Landroid/os/Process;->setCanSelfBackground(Z)V
 
+    .line 44
     return-void
 .end method

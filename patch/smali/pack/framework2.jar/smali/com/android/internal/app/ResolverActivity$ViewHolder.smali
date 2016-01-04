@@ -25,9 +25,13 @@
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 1070
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1071
     const v0, 0x1020014
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -38,6 +42,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ViewHolder;->text:Landroid/widget/TextView;
 
+    .line 1072
     const v0, 0x1020015
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -48,6 +53,7 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ViewHolder;->text2:Landroid/widget/TextView;
 
+    .line 1073
     const v0, 0x1020006
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -58,5 +64,6 @@
 
     iput-object v0, p0, Lcom/android/internal/app/ResolverActivity$ViewHolder;->icon:Landroid/widget/ImageView;
 
+    .line 1074
     return-void
 .end method

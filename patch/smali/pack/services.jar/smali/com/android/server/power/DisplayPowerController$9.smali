@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/DisplayPowerController;)V
     .locals 0
 
+    .prologue
+    .line 2050
     iput-object p1, p0, Lcom/android/server/power/DisplayPowerController$9;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public onTwilightStateChanged()V
     .locals 2
 
+    .prologue
+    .line 2053
     const-string v0, "DisplayPowerController"
 
     const-string v1, "[api] onTwilightStateChanged"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2054
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$9;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     const/4 v1, 0x1
@@ -50,10 +55,12 @@
     # setter for: Lcom/android/server/power/DisplayPowerController;->mTwilightChanged:Z
     invoke-static {v0, v1}, Lcom/android/server/power/DisplayPowerController;->access$1702(Lcom/android/server/power/DisplayPowerController;Z)Z
 
+    .line 2055
     iget-object v0, p0, Lcom/android/server/power/DisplayPowerController$9;->this$0:Lcom/android/server/power/DisplayPowerController;
 
     # invokes: Lcom/android/server/power/DisplayPowerController;->updatePowerState()V
     invoke-static {v0}, Lcom/android/server/power/DisplayPowerController;->access$400(Lcom/android/server/power/DisplayPowerController;)V
 
+    .line 2056
     return-void
 .end method

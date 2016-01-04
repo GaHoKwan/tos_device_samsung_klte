@@ -26,13 +26,18 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/DirEncryptServiceHelper;Landroid/os/storage/IDirEncryptServiceListener;)V
     .locals 0
+    .param p2, "listener"    # Landroid/os/storage/IDirEncryptServiceListener;
 
+    .prologue
+    .line 133
     iput-object p1, p0, Lcom/android/server/DirEncryptServiceHelper$DirEncryptServiceBinderListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 134
     iput-object p2, p0, Lcom/android/server/DirEncryptServiceHelper$DirEncryptServiceBinderListener;->mListener:Landroid/os/storage/IDirEncryptServiceListener;
 
+    .line 136
     return-void
 .end method
 
@@ -41,10 +46,13 @@
 .method public binderDied()V
     .locals 3
 
+    .prologue
+    .line 139
     const-string v0, "An IDirEncryptServiceListener has died!"
 
     invoke-static {v0}, Lcom/android/server/DirEncryptServiceHelper;->logD(Ljava/lang/String;)V
 
+    .line 140
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$DirEncryptServiceBinderListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     # getter for: Lcom/android/server/DirEncryptServiceHelper;->mListeners:Ljava/util/ArrayList;
@@ -54,6 +62,7 @@
 
     monitor-enter v1
 
+    .line 141
     :try_start_0
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$DirEncryptServiceBinderListener;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
@@ -64,6 +73,7 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 142
     iget-object v0, p0, Lcom/android/server/DirEncryptServiceHelper$DirEncryptServiceBinderListener;->mListener:Landroid/os/storage/IDirEncryptServiceListener;
 
     invoke-interface {v0}, Landroid/os/storage/IDirEncryptServiceListener;->asBinder()Landroid/os/IBinder;
@@ -74,10 +84,13 @@
 
     invoke-interface {v0, p0, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 143
     monitor-exit v1
 
+    .line 144
     return-void
 
+    .line 143
     :catchall_0
     move-exception v0
 

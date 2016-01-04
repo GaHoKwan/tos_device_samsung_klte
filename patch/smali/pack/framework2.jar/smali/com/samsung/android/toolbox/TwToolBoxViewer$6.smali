@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxViewer;Landroid/content/Intent;)V
     .locals 0
 
+    .prologue
+    .line 285
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$6;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
 
     iput-object p2, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$6;->val$intent:Landroid/content/Intent;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 289
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -50,6 +54,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 292
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxViewer$6;->this$0:Lcom/samsung/android/toolbox/TwToolBoxViewer;
 
@@ -65,8 +70,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 293
     return-void
 
+    .line 290
     :catch_0
     move-exception v0
 

@@ -29,6 +29,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;Landroid/net/wifi/p2p/WifiP2pDevice;I)V
     .locals 0
 
+    .prologue
+    .line 1256
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$17;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     iput-object p2, p0, Lcom/android/server/display/WifiDisplayAdapter$17;->val$device:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -45,6 +47,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1259
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$17;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mIpRemoteDisplayController:Lcom/android/server/display/IpRemoteDisplayController;
@@ -58,5 +62,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/display/IpRemoteDisplayController;->requestEnableWifiDisplay(Landroid/net/wifi/p2p/WifiP2pDevice;I)V
 
+    .line 1260
     return-void
 .end method

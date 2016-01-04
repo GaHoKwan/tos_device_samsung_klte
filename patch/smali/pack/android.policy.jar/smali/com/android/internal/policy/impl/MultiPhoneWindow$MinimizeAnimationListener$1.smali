@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;)V
     .locals 0
 
+    .prologue
+    .line 1674
     iput-object p1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener$1;->this$1:Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,19 +38,28 @@
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 1701
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 1694
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 2
+    .param p1, "animation"    # Landroid/view/animation/Animation;
 
+    .prologue
+    .line 1678
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener$1;->this$1:Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;
@@ -58,13 +69,17 @@
 
     move-result v0
 
+    .line 1682
+    .local v0, "state":I
     const/4 v1, 0x4
 
     if-eq v0, v1, :cond_0
 
+    .line 1688
     :goto_0
     return-void
 
+    .line 1685
     :cond_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener$1;->this$1:Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;
 
@@ -73,6 +88,7 @@
     # invokes: Lcom/android/internal/policy/impl/MultiPhoneWindow;->requestState(I)V
     invoke-static {v1, v0}, Lcom/android/internal/policy/impl/MultiPhoneWindow;->access$2900(Lcom/android/internal/policy/impl/MultiPhoneWindow;I)V
 
+    .line 1686
     iget-object v1, p0, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener$1;->this$1:Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/MultiPhoneWindow$MinimizeAnimationListener;->this$0:Lcom/android/internal/policy/impl/MultiPhoneWindow;

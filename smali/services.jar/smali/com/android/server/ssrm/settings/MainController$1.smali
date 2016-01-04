@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/settings/MainController;)V
     .locals 0
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/android/server/ssrm/settings/MainController$1;->this$0:Lcom/android/server/ssrm/settings/MainController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public createLevel()Lcom/android/server/ssrm/settings/Level;
     .locals 1
 
+    .prologue
+    .line 69
     new-instance v0, Lcom/android/server/ssrm/settings/Level;
 
     invoke-direct {v0}, Lcom/android/server/ssrm/settings/Level;-><init>()V
@@ -47,6 +51,8 @@
 .method public createLevelsController()Lcom/android/server/ssrm/settings/LevelsController;
     .locals 1
 
+    .prologue
+    .line 64
     new-instance v0, Lcom/android/server/ssrm/settings/LevelsControllerDefault;
 
     invoke-direct {v0}, Lcom/android/server/ssrm/settings/LevelsControllerDefault;-><init>()V

@@ -18,6 +18,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 333
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
     return-void
@@ -27,7 +29,11 @@
 # virtual methods
 .method public getTransformation(JLandroid/view/animation/Transformation;)Z
     .locals 1
+    .param p1, "currentTime"    # J
+    .param p3, "outTransformation"    # Landroid/view/animation/Transformation;
 
+    .prologue
+    .line 336
     const/4 v0, 0x0
 
     return v0

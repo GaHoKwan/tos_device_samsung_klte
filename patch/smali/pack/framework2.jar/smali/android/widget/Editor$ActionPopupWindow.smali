@@ -43,6 +43,8 @@
 .method private constructor <init>(Landroid/widget/Editor;)V
     .locals 0
 
+    .prologue
+    .line 3388
     iput-object p1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     invoke-direct {p0, p1}, Landroid/widget/Editor$PinnedPopupWindow;-><init>(Landroid/widget/Editor;)V
@@ -52,7 +54,11 @@
 
 .method synthetic constructor <init>(Landroid/widget/Editor;Landroid/widget/Editor$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/widget/Editor;
+    .param p2, "x1"    # Landroid/widget/Editor$1;
 
+    .prologue
+    .line 3388
     invoke-direct {p0, p1}, Landroid/widget/Editor$ActionPopupWindow;-><init>(Landroid/widget/Editor;)V
 
     return-void
@@ -62,7 +68,10 @@
 # virtual methods
 .method protected tos_org_clipVertically(I)I
     .locals 8
+    .param p1, "positionY"    # I
 
+    .prologue
+    .line 3596
     iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -70,7 +79,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
@@ -80,8 +89,12 @@
 
     iget v0, v6, Landroid/util/DisplayMetrics;->density:F
 
+    .line 3597
+    .local v0, "densityScale":F
     const/16 v5, 0x19
 
+    .line 3599
+    .local v5, "statusbarHeight":I
     const/high16 v6, 0x41c80000    # 25.0f
 
     mul-float/2addr v6, v0
@@ -90,10 +103,13 @@
 
     if-ge p1, v6, :cond_0
 
+    .line 3600
     invoke-virtual {p0}, Landroid/widget/Editor$ActionPopupWindow;->getTextOffset()I
 
     move-result v4
 
+    .line 3601
+    .local v4, "offset":I
     iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -105,10 +121,14 @@
 
     move-result-object v2
 
+    .line 3602
+    .local v2, "layout":Landroid/text/Layout;
     invoke-virtual {v2, v4}, Landroid/text/Layout;->getLineForOffset(I)I
 
     move-result v3
 
+    .line 3603
+    .local v3, "line":I
     invoke-virtual {v2, v3}, Landroid/text/Layout;->getLineBottom(I)I
 
     move-result v6
@@ -121,14 +141,16 @@
 
     add-int/2addr p1, v6
 
-    iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    .line 3604
+    iget-object v6, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v6}, Landroid/view/ViewGroup;->getMeasuredHeight()I
+    invoke-virtual {v6}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v6
 
     add-int/2addr p1, v6
 
+    .line 3607
     iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -136,7 +158,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v6
 
@@ -153,12 +175,19 @@
 
     move-result-object v1
 
+    .line 3609
+    .local v1, "handle":Landroid/graphics/drawable/Drawable;
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v6
 
     add-int/2addr p1, v6
 
+    .line 3612
+    .end local v1    # "handle":Landroid/graphics/drawable/Drawable;
+    .end local v2    # "layout":Landroid/text/Layout;
+    .end local v3    # "line":I
+    .end local v4    # "offset":I
     :cond_0
     return p1
 .end method
@@ -166,6 +195,8 @@
 .method protected createPopupWindow()V
     .locals 4
 
+    .prologue
+    .line 3411
     new-instance v0, Landroid/widget/PopupWindow;
 
     iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
@@ -175,7 +206,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -185,20 +216,24 @@
 
     invoke-direct {v0, v1, v2, v3}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    iput-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
+    iput-object v0, p0, Landroid/widget/Editor$PinnedPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
-    iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
+    .line 3413
+    iget-object v0, p0, Landroid/widget/Editor$PinnedPopupWindow;->mPopupWindow:Landroid/widget/PopupWindow;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/PopupWindow;->setClippingEnabled(Z)V
 
+    .line 3414
     return-void
 .end method
 
 .method protected getTextOffset()I
     .locals 2
 
+    .prologue
+    .line 3584
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -230,7 +265,10 @@
 
 .method protected getVerticalLocalPosition(I)I
     .locals 2
+    .param p1, "line"    # I
 
+    .prologue
+    .line 3589
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -246,9 +284,9 @@
 
     move-result v0
 
-    iget-object v1, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    iget-object v1, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getMeasuredHeight()I
+    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v1
 
@@ -260,6 +298,7 @@
 .method protected tos_org_initContentView()V
     .locals 13
 
+    .prologue
     const v12, 0x1090127
 
     const v11, 0x1090117
@@ -268,6 +307,7 @@
 
     const/4 v9, 0x0
 
+    .line 3418
     new-instance v4, Landroid/widget/LinearLayout;
 
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
@@ -277,22 +317,27 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
     invoke-direct {v4, v7}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
+    .line 3419
+    .local v4, "linearLayout":Landroid/widget/LinearLayout;
     const/4 v7, 0x0
 
     invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setOrientation(I)V
 
+    .line 3421
     const/16 v7, 0x11
 
     invoke-virtual {v4, v7}, Landroid/widget/LinearLayout;->setGravity(I)V
 
-    iput-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    .line 3423
+    iput-object v4, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
+    .line 3425
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mThemeIsDeviceDefault:Z
@@ -302,6 +347,7 @@
 
     if-eqz v7, :cond_3
 
+    .line 3427
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -311,7 +357,8 @@
 
     if-eqz v7, :cond_2
 
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    .line 3428
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     iget-object v8, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -322,8 +369,9 @@
 
     iget v8, v8, Landroid/widget/TextView;->mTextEditNewActionPopupBackGroundRes:I
 
-    invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
+    invoke-virtual {v7, v8}, Landroid/view/View;->setBackgroundResource(I)V
 
+    .line 3438
     :goto_0
     new-instance v0, Landroid/view/ViewGroup$LayoutParams;
 
@@ -331,6 +379,8 @@
 
     invoke-direct {v0, v10, v7}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
+    .line 3442
+    .local v0, "dividerImageViewLayout":Landroid/view/ViewGroup$LayoutParams;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -338,7 +388,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -350,10 +400,14 @@
 
     check-cast v3, Landroid/view/LayoutInflater;
 
+    .line 3445
+    .local v3, "inflater":Landroid/view/LayoutInflater;
     new-instance v6, Landroid/view/ViewGroup$LayoutParams;
 
     invoke-direct {v6, v10, v10}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
+    .line 3449
+    .local v6, "wrapContent":Landroid/view/ViewGroup$LayoutParams;
     new-instance v5, Landroid/view/ViewGroup$LayoutParams;
 
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
@@ -363,7 +417,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v7}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v7
 
@@ -381,6 +435,8 @@
 
     invoke-direct {v5, v7, v10}, Landroid/view/ViewGroup$LayoutParams;-><init>(II)V
 
+    .line 3454
+    .local v5, "textLayout":Landroid/view/ViewGroup$LayoutParams;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mThemeIsDeviceDefault:Z
@@ -390,6 +446,7 @@
 
     if-eqz v7, :cond_5
 
+    .line 3456
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -399,6 +456,7 @@
 
     if-eqz v7, :cond_4
 
+    .line 3457
     invoke-virtual {v3, v12, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
@@ -407,6 +465,7 @@
 
     iput-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
+    .line 3467
     :goto_1
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -426,27 +485,32 @@
 
     if-eqz v7, :cond_6
 
+    .line 3468
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 3473
     :goto_2
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     iget-object v8, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    .line 3474
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
     const v8, 0x104000b
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
+    .line 3475
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 3477
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mThemeIsDeviceDefault:Z
@@ -456,6 +520,7 @@
 
     if-eqz v7, :cond_0
 
+    .line 3479
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -465,6 +530,7 @@
 
     if-eqz v7, :cond_7
 
+    .line 3480
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -472,7 +538,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -493,10 +559,14 @@
 
     move-result-object v1
 
+    .line 3481
+    .local v1, "drawable1":Landroid/graphics/drawable/Drawable;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v9, v1, v9, v9}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
+    .line 3492
+    .end local v1    # "drawable1":Landroid/graphics/drawable/Drawable;
     :cond_0
     :goto_3
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
@@ -514,6 +584,7 @@
 
     if-eqz v7, :cond_1
 
+    .line 3495
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -523,6 +594,7 @@
 
     if-eqz v7, :cond_8
 
+    .line 3496
     const v7, 0x1090125
 
     invoke-virtual {v3, v7, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
@@ -533,17 +605,20 @@
 
     iput-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mDividerImageView:Landroid/widget/ImageView;
 
+    .line 3500
     :goto_4
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mDividerImageView:Landroid/widget/ImageView;
 
-    invoke-virtual {v7, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    .line 3501
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     iget-object v8, p0, Landroid/widget/Editor$ActionPopupWindow;->mDividerImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    .line 3505
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -553,6 +628,7 @@
 
     if-eqz v7, :cond_9
 
+    .line 3506
     invoke-virtual {v3, v12, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v7
@@ -561,6 +637,7 @@
 
     iput-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
+    .line 3511
     :goto_5
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -571,27 +648,32 @@
 
     if-eqz v7, :cond_a
 
+    .line 3512
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, v5}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
+    .line 3517
     :goto_6
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     iget-object v8, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
+    .line 3518
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     const v8, 0x1040018
 
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setText(I)V
 
+    .line 3519
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v7, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    .line 3521
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mNewActionPopup:Z
@@ -601,6 +683,7 @@
 
     if-eqz v7, :cond_b
 
+    .line 3522
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -608,7 +691,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -629,32 +712,47 @@
 
     move-result-object v2
 
+    .line 3523
+    .local v2, "drawable3":Landroid/graphics/drawable/Drawable;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v9, v2, v9, v9}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
+    .line 3531
+    .end local v2    # "drawable3":Landroid/graphics/drawable/Drawable;
     :cond_1
     :goto_7
     return-void
 
+    .line 3430
+    .end local v0    # "dividerImageViewLayout":Landroid/view/ViewGroup$LayoutParams;
+    .end local v3    # "inflater":Landroid/view/LayoutInflater;
+    .end local v5    # "textLayout":Landroid/view/ViewGroup$LayoutParams;
+    .end local v6    # "wrapContent":Landroid/view/ViewGroup$LayoutParams;
     :cond_2
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     const v8, 0x10800b8
 
-    invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
+    invoke-virtual {v7, v8}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto/16 :goto_0
 
+    .line 3434
     :cond_3
-    iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mContentView:Landroid/view/ViewGroup;
+    iget-object v7, p0, Landroid/widget/Editor$PinnedPopupWindow;->mContentView:Landroid/view/ViewGroup;
 
     const v8, 0x108092e
 
-    invoke-virtual {v7, v8}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
+    invoke-virtual {v7, v8}, Landroid/view/View;->setBackgroundResource(I)V
 
     goto/16 :goto_0
 
+    .line 3459
+    .restart local v0    # "dividerImageViewLayout":Landroid/view/ViewGroup$LayoutParams;
+    .restart local v3    # "inflater":Landroid/view/LayoutInflater;
+    .restart local v5    # "textLayout":Landroid/view/ViewGroup$LayoutParams;
+    .restart local v6    # "wrapContent":Landroid/view/ViewGroup$LayoutParams;
     :cond_4
     invoke-virtual {v3, v11, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -666,6 +764,7 @@
 
     goto/16 :goto_1
 
+    .line 3463
     :cond_5
     const v7, 0x10900cf
 
@@ -679,13 +778,15 @@
 
     goto/16 :goto_1
 
+    .line 3470
     :cond_6
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, v6}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v6}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto/16 :goto_2
 
+    .line 3483
     :cond_7
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -694,7 +795,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -708,12 +809,16 @@
 
     move-result-object v1
 
+    .line 3484
+    .restart local v1    # "drawable1":Landroid/graphics/drawable/Drawable;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v1, v9, v9, v9}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     goto/16 :goto_3
 
+    .line 3498
+    .end local v1    # "drawable1":Landroid/graphics/drawable/Drawable;
     :cond_8
     const v7, 0x1090116
 
@@ -727,6 +832,7 @@
 
     goto/16 :goto_4
 
+    .line 3508
     :cond_9
     invoke-virtual {v3, v11, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -738,13 +844,15 @@
 
     goto/16 :goto_5
 
+    .line 3514
     :cond_a
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v7, v6}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {v7, v6}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     goto/16 :goto_6
 
+    .line 3525
     :cond_b
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -753,7 +861,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v7}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v7
 
@@ -767,6 +875,8 @@
 
     move-result-object v2
 
+    .line 3526
+    .restart local v2    # "drawable3":Landroid/graphics/drawable/Drawable;
     iget-object v7, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v2, v9, v9, v9}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
@@ -776,7 +886,10 @@
 
 .method public tos_org_onClick(Landroid/view/View;)V
     .locals 2
+    .param p1, "view"    # Landroid/view/View;
 
+    .prologue
+    .line 3561
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
     if-ne p1, v0, :cond_1
@@ -794,6 +907,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 3562
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -805,17 +919,21 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
-    invoke-virtual {p0}, Landroid/widget/Editor$ActionPopupWindow;->hide()V
+    .line 3563
+    invoke-virtual {p0}, Landroid/widget/Editor$PinnedPopupWindow;->hide()V
 
+    .line 3580
     :cond_0
     :goto_0
     return-void
 
+    .line 3572
     :cond_1
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     if-ne p1, v0, :cond_0
 
+    .line 3573
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -827,8 +945,10 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->onTextContextMenuItem(I)Z
 
-    invoke-virtual {p0}, Landroid/widget/Editor$ActionPopupWindow;->hide()V
+    .line 3574
+    invoke-virtual {p0}, Landroid/widget/Editor$PinnedPopupWindow;->hide()V
 
+    .line 3576
     iget-object v0, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     invoke-virtual {v0}, Landroid/widget/Editor;->hideControllers()V
@@ -839,10 +959,12 @@
 .method public tos_org_show()V
     .locals 7
 
+    .prologue
     const/16 v5, 0x8
 
     const/4 v3, 0x0
 
+    .line 3535
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -854,6 +976,8 @@
 
     move-result v0
 
+    .line 3536
+    .local v0, "canPaste":Z
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -878,6 +1002,8 @@
 
     const/4 v1, 0x1
 
+    .line 3537
+    .local v1, "canSuggest":Z
     :goto_0
     iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->mPasteTextView:Landroid/widget/TextView;
 
@@ -886,8 +1012,9 @@
     move v4, v3
 
     :goto_1
-    invoke-virtual {v6, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v6, v4}, Landroid/view/View;->setVisibility(I)V
 
+    .line 3541
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mTextView:Landroid/widget/TextView;
@@ -895,7 +1022,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+    invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
@@ -907,6 +1034,8 @@
 
     check-cast v2, Landroid/sec/clipboard/ClipboardExManager;
 
+    .line 3542
+    .local v2, "clipEx":Landroid/sec/clipboard/ClipboardExManager;
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
     # getter for: Landroid/widget/Editor;->mThemeIsDeviceDefault:Z
@@ -922,6 +1051,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 3543
     iget-object v6, p0, Landroid/widget/Editor$ActionPopupWindow;->mClipboardTextView:Landroid/widget/TextView;
 
     invoke-virtual {v2}, Landroid/sec/clipboard/ClipboardExManager;->getDataListSize()I
@@ -933,8 +1063,9 @@
     move v4, v3
 
     :goto_2
-    invoke-virtual {v6, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v6, v4}, Landroid/view/View;->setVisibility(I)V
 
+    .line 3544
     iget-object v4, p0, Landroid/widget/Editor$ActionPopupWindow;->mDividerImageView:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_5
@@ -942,6 +1073,7 @@
     :goto_3
     invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 3550
     :cond_0
     iget-object v3, p0, Landroid/widget/Editor$ActionPopupWindow;->this$0:Landroid/widget/Editor;
 
@@ -952,6 +1084,7 @@
 
     if-eqz v3, :cond_6
 
+    .line 3551
     if-nez v0, :cond_7
 
     invoke-virtual {v2}, Landroid/sec/clipboard/ClipboardExManager;->getDataListSize()I
@@ -966,33 +1099,44 @@
 
     if-nez v3, :cond_7
 
+    .line 3557
     :cond_1
     :goto_4
     return-void
 
+    .end local v1    # "canSuggest":Z
+    .end local v2    # "clipEx":Landroid/sec/clipboard/ClipboardExManager;
     :cond_2
     move v1, v3
 
+    .line 3536
     goto :goto_0
 
+    .restart local v1    # "canSuggest":Z
     :cond_3
     move v4, v5
 
+    .line 3537
     goto :goto_1
 
+    .restart local v2    # "clipEx":Landroid/sec/clipboard/ClipboardExManager;
     :cond_4
     move v4, v5
 
+    .line 3543
     goto :goto_2
 
     :cond_5
     move v3, v5
 
+    .line 3544
     goto :goto_3
 
+    .line 3553
     :cond_6
     if-eqz v0, :cond_1
 
+    .line 3556
     :cond_7
     invoke-super {p0}, Landroid/widget/Editor$PinnedPopupWindow;->show()V
 

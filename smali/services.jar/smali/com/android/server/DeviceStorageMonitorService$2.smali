@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/DeviceStorageMonitorService;)V
     .locals 0
 
+    .prologue
+    .line 163
     iput-object p1, p0, Lcom/android/server/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 165
     iget-object v0, p0, Lcom/android/server/DeviceStorageMonitorService$2;->this$0:Lcom/android/server/DeviceStorageMonitorService;
 
     const/4 v1, 0x1
@@ -41,5 +47,6 @@
     # setter for: Lcom/android/server/DeviceStorageMonitorService;->mBootCompleted:Z
     invoke-static {v0, v1}, Lcom/android/server/DeviceStorageMonitorService;->access$402(Lcom/android/server/DeviceStorageMonitorService;Z)Z
 
+    .line 167
     return-void
 .end method

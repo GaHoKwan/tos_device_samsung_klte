@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 472
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 474
     sget-boolean v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->SAFE_DEBUG:Z
 
     if-eqz v0, :cond_0
 
+    .line 475
     const-string v0, "SamsungWindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,6 +72,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 477
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
@@ -74,9 +80,11 @@
 
     if-nez v0, :cond_1
 
+    .line 481
     :goto_0
     return-void
 
+    .line 479
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$4;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 

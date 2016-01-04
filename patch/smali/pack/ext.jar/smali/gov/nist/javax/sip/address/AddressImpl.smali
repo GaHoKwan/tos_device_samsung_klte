@@ -48,7 +48,7 @@
 
     .prologue
     .line 340
-    invoke-super {p0}, Lgov/nist/javax/sip/address/NetObject;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -63,7 +63,7 @@
     .line 342
     iget-object v1, p0, Lgov/nist/javax/sip/address/AddressImpl;->address:Lgov/nist/javax/sip/address/GenericURI;
 
-    invoke-virtual {v1}, Lgov/nist/javax/sip/address/GenericURI;->clone()Ljava/lang/Object;
+    invoke-virtual {v1}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -531,14 +531,14 @@
 
     .line 87
     .local v0, "that":Lgov/nist/javax/sip/address/AddressImpl;
-    invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getMatcher()Lgov/nist/core/Match;
+    invoke-virtual {v0}, Lgov/nist/core/GenericObject;->getMatcher()Lgov/nist/core/Match;
 
     move-result-object v3
 
     if-eqz v3, :cond_3
 
     .line 88
-    invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getMatcher()Lgov/nist/core/Match;
+    invoke-virtual {v0}, Lgov/nist/core/GenericObject;->getMatcher()Lgov/nist/core/Match;
 
     move-result-object v1
 
@@ -578,7 +578,7 @@
 
     iget-object v2, v0, Lgov/nist/javax/sip/address/AddressImpl;->address:Lgov/nist/javax/sip/address/GenericURI;
 
-    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/address/GenericURI;->match(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Lgov/nist/javax/sip/address/NetObject;->match(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -600,7 +600,7 @@
 
     iget-object v4, v0, Lgov/nist/javax/sip/address/AddressImpl;->address:Lgov/nist/javax/sip/address/GenericURI;
 
-    invoke-virtual {v3, v4}, Lgov/nist/javax/sip/address/GenericURI;->match(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v4}, Lgov/nist/javax/sip/address/NetObject;->match(Ljava/lang/Object;)Z
 
     move-result v3
 

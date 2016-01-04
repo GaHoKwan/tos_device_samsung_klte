@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;Landroid/animation/ValueAnimator;)V
     .locals 0
 
+    .prologue
+    .line 552
     iput-object p1, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow$1;->this$2:Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow;
 
     iput-object p2, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow$1;->val$animator:Landroid/animation/ValueAnimator;
@@ -41,9 +43,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 555
     iget-object v0, p0, Lcom/android/server/wm/DisplayMagnifier$MagnifiedViewport$ViewportWindow$1;->val$animator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
+    .line 556
     return-void
 .end method

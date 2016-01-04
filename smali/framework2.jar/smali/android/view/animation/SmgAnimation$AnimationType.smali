@@ -37,12 +37,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 23
     new-instance v0, Landroid/view/animation/SmgAnimation$AnimationType;
 
     const-string v1, "SMG_ROTATION_ANIMATION"
@@ -51,6 +53,7 @@
 
     sput-object v0, Landroid/view/animation/SmgAnimation$AnimationType;->SMG_ROTATION_ANIMATION:Landroid/view/animation/SmgAnimation$AnimationType;
 
+    .line 24
     new-instance v0, Landroid/view/animation/SmgAnimation$AnimationType;
 
     const-string v1, "SMG_TRANSLATION_ANIMATION"
@@ -59,6 +62,7 @@
 
     sput-object v0, Landroid/view/animation/SmgAnimation$AnimationType;->SMG_TRANSLATION_ANIMATION:Landroid/view/animation/SmgAnimation$AnimationType;
 
+    .line 25
     new-instance v0, Landroid/view/animation/SmgAnimation$AnimationType;
 
     const-string v1, "SMG_SHADER_ANIMATION"
@@ -67,6 +71,7 @@
 
     sput-object v0, Landroid/view/animation/SmgAnimation$AnimationType;->SMG_SHADER_ANIMATION:Landroid/view/animation/SmgAnimation$AnimationType;
 
+    .line 21
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/view/animation/SmgAnimation$AnimationType;
@@ -96,6 +101,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 21
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +110,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/view/animation/SmgAnimation$AnimationType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 21
     const-class v0, Landroid/view/animation/SmgAnimation$AnimationType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -118,9 +128,11 @@
 .method public static values()[Landroid/view/animation/SmgAnimation$AnimationType;
     .locals 1
 
+    .prologue
+    .line 21
     sget-object v0, Landroid/view/animation/SmgAnimation$AnimationType;->$VALUES:[Landroid/view/animation/SmgAnimation$AnimationType;
 
-    invoke-virtual {v0}, [Landroid/view/animation/SmgAnimation$AnimationType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

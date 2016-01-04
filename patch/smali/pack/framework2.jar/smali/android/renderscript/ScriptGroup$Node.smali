@@ -58,28 +58,36 @@
 # direct methods
 .method constructor <init>(Landroid/renderscript/Script;)V
     .locals 1
+    .param p1, "s"    # Landroid/renderscript/Script;
 
+    .prologue
+    .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 79
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Node;->mKernels:Ljava/util/ArrayList;
 
+    .line 80
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Node;->mInputs:Ljava/util/ArrayList;
 
+    .line 81
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/renderscript/ScriptGroup$Node;->mOutputs:Ljava/util/ArrayList;
 
+    .line 87
     iput-object p1, p0, Landroid/renderscript/ScriptGroup$Node;->mScript:Landroid/renderscript/Script;
 
+    .line 88
     return-void
 .end method

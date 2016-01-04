@@ -690,7 +690,7 @@
     :cond_3
     iget-object v2, p0, Lorg/apache/http/conn/routing/RouteTracker;->tunnelled:Lorg/apache/http/conn/routing/RouteInfo$TunnelType;
 
-    invoke-virtual {v2}, Lorg/apache/http/conn/routing/RouteInfo$TunnelType;->hashCode()I
+    invoke-virtual {v2}, Ljava/lang/Enum;->hashCode()I
 
     move-result v2
 
@@ -699,7 +699,7 @@
     .line 389
     iget-object v2, p0, Lorg/apache/http/conn/routing/RouteTracker;->layered:Lorg/apache/http/conn/routing/RouteInfo$LayerType;
 
-    invoke-virtual {v2}, Lorg/apache/http/conn/routing/RouteInfo$LayerType;->hashCode()I
+    invoke-virtual {v2}, Ljava/lang/Enum;->hashCode()I
 
     move-result v2
 

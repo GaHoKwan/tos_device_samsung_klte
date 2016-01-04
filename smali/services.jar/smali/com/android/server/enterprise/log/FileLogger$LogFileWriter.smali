@@ -35,6 +35,8 @@
 .method private constructor <init>(Lcom/android/server/enterprise/log/FileLogger;)V
     .locals 0
 
+    .prologue
+    .line 256
     iput-object p1, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,7 +46,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/enterprise/log/FileLogger;Lcom/android/server/enterprise/log/FileLogger$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/enterprise/log/FileLogger;
+    .param p2, "x1"    # Lcom/android/server/enterprise/log/FileLogger$1;
 
+    .prologue
+    .line 256
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;-><init>(Lcom/android/server/enterprise/log/FileLogger;)V
 
     return-void
@@ -54,9 +60,13 @@
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 256
     check-cast p1, [Ljava/util/concurrent/CountDownLatch;
 
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->doInBackground([Ljava/util/concurrent/CountDownLatch;)Ljava/lang/Void;
 
     move-result-object v0
@@ -66,11 +76,14 @@
 
 .method protected varargs doInBackground([Ljava/util/concurrent/CountDownLatch;)Ljava/lang/Void;
     .locals 8
+    .param p1, "cdl"    # [Ljava/util/concurrent/CountDownLatch;
 
+    .prologue
     const/4 v7, 0x0
 
     const/4 v6, 0x0
 
+    .line 263
     :try_start_0
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
@@ -89,12 +102,14 @@
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 268
     :goto_0
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
     # invokes: Lcom/android/server/enterprise/log/FileLogger;->cleanupLogs()V
     invoke-static {v3}, Lcom/android/server/enterprise/log/FileLogger;->access$600(Lcom/android/server/enterprise/log/FileLogger;)V
 
+    .line 270
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -122,22 +137,28 @@
 
     move-result-object v2
 
+    .line 272
+    .local v2, "filename":Ljava/lang/String;
     new-instance v1, Ljava/io/File;
 
     invoke-direct {v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 274
+    .local v1, "file":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v3
 
     if-nez v3, :cond_0
 
+    .line 275
     invoke-virtual {v1}, Ljava/io/File;->getParentFile()Ljava/io/File;
 
     move-result-object v3
 
     invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
+    .line 277
     :cond_0
     new-instance v3, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter$1;
 
@@ -147,18 +168,21 @@
 
     invoke-static {v3, v4}, Lcom/android/server/enterprise/utils/IOExceptionHandler;->process(Lcom/android/server/enterprise/utils/IOExceptionHandler$IOProcessor;Z)V
 
+    .line 309
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     const-wide/16 v4, 0x0
 
     iput-wide v4, v3, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;->lastTimeStamp:J
 
+    .line 310
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->lb:Lcom/android/server/enterprise/log/FileLogger$LogBuffer;
 
     iget-object v3, v3, Lcom/android/server/enterprise/log/FileLogger$LogBuffer;->entries:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->clear()V
 
+    .line 312
     :try_start_1
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
@@ -173,6 +197,7 @@
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 318
     :goto_1
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
@@ -187,16 +212,19 @@
 
     if-eqz v3, :cond_1
 
+    .line 319
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
     # setter for: Lcom/android/server/enterprise/log/FileLogger;->mLogFileWriter:Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;
     invoke-static {v3, v7}, Lcom/android/server/enterprise/log/FileLogger;->access$702(Lcom/android/server/enterprise/log/FileLogger;Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;)Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;
 
+    .line 320
     iget-object v3, p0, Lcom/android/server/enterprise/log/FileLogger$LogFileWriter;->this$0:Lcom/android/server/enterprise/log/FileLogger;
 
     # invokes: Lcom/android/server/enterprise/log/FileLogger;->startLogFileWriter(Ljava/util/concurrent/CountDownLatch;)V
     invoke-static {v3, v7}, Lcom/android/server/enterprise/log/FileLogger;->access$100(Lcom/android/server/enterprise/log/FileLogger;Ljava/util/concurrent/CountDownLatch;)V
 
+    .line 323
     :cond_1
     if-eqz p1, :cond_2
 
@@ -210,24 +238,37 @@
 
     if-eqz v3, :cond_2
 
+    .line 324
     aget-object v3, p1, v6
 
     invoke-virtual {v3}, Ljava/util/concurrent/CountDownLatch;->countDown()V
 
+    .line 326
     :cond_2
     return-object v7
 
+    .line 264
+    .end local v1    # "file":Ljava/io/File;
+    .end local v2    # "filename":Ljava/lang/String;
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    .line 265
+    .local v0, "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 313
+    .end local v0    # "e":Ljava/lang/InterruptedException;
+    .restart local v1    # "file":Ljava/io/File;
+    .restart local v2    # "filename":Ljava/lang/String;
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    .line 314
+    .restart local v0    # "e":Ljava/lang/InterruptedException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 .end method

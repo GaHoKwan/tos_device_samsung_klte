@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/view/AbsAirButtonView;)V
     .locals 0
 
+    .prologue
+    .line 273
     iput-object p1, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView$2;->this$0:Lcom/samsung/android/airbutton/view/AbsAirButtonView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 2
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 276
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView$2;->this$0:Lcom/samsung/android/airbutton/view/AbsAirButtonView;
 
     iget-boolean v0, v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mIsTouchEventEnabled:Z
 
     if-eqz v0, :cond_0
 
+    .line 277
     iget-object v0, p0, Lcom/samsung/android/airbutton/view/AbsAirButtonView$2;->this$0:Lcom/samsung/android/airbutton/view/AbsAirButtonView;
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -51,6 +58,7 @@
 
     iput v1, v0, Lcom/samsung/android/airbutton/view/AbsAirButtonView;->mSelectedViewIdx:I
 
+    .line 279
     :cond_0
     const/4 v0, 0x0
 

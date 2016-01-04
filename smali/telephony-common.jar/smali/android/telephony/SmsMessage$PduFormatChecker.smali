@@ -183,7 +183,7 @@
 
     .line 1614
     .restart local v0    # "e":Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_2
 .end method
@@ -236,7 +236,7 @@
     .line 1630
     sget-object v2, Landroid/telephony/SmsMessage$PduFormatChecker;->fileOutputStream:Ljava/io/FileOutputStream;
 
-    invoke-virtual {v2, v0}, Ljava/io/FileOutputStream;->write([B)V
+    invoke-virtual {v2, v0}, Ljava/io/OutputStream;->write([B)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
@@ -265,7 +265,7 @@
     .line 1637
     .local v1, "e":Ljava/io/IOException;
     :try_start_2
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
 

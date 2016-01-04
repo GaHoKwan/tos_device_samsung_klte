@@ -23,7 +23,12 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
     .locals 0
+    .param p2, "x0"    # I
+    .param p3, "x1"    # Landroid/graphics/drawable/Drawable;
+    .param p4, "x2"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 1487
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$19;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     iput-object p5, p0, Lcom/android/internal/policy/impl/GlobalActions$19;->val$user:Landroid/content/pm/UserInfo;
@@ -38,6 +43,8 @@
 .method public onPress()V
     .locals 4
 
+    .prologue
+    .line 1490
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -51,12 +58,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1494
     :goto_0
     return-void
 
+    .line 1491
     :catch_0
     move-exception v0
 
+    .line 1492
+    .local v0, "re":Landroid/os/RemoteException;
     const-string v1, "GlobalActions"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -85,6 +96,8 @@
 .method public showBeforeProvisioning()Z
     .locals 1
 
+    .prologue
+    .line 1499
     const/4 v0, 0x0
 
     return v0
@@ -93,6 +106,8 @@
 .method public showConditional()Z
     .locals 1
 
+    .prologue
+    .line 1502
     const/4 v0, 0x0
 
     return v0
@@ -101,6 +116,8 @@
 .method public showDuringKeyguard()Z
     .locals 1
 
+    .prologue
+    .line 1496
     const/4 v0, 0x1
 
     return v0

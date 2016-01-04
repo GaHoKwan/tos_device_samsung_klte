@@ -39,7 +39,7 @@
 
     sget-object v1, Ljava/net/Proxy$Type;->DIRECT:Ljava/net/Proxy$Type;
 
-    invoke-virtual {v1}, Ljava/net/Proxy$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -55,7 +55,7 @@
 
     sget-object v1, Ljava/net/Proxy$Type;->HTTP:Ljava/net/Proxy$Type;
 
-    invoke-virtual {v1}, Ljava/net/Proxy$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     sget-object v1, Ljava/net/Proxy$Type;->SOCKS:Ljava/net/Proxy$Type;
 
-    invoke-virtual {v1}, Ljava/net/Proxy$Type;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

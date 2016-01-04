@@ -24,10 +24,13 @@
 .method constructor <init>(Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;)V
     .locals 1
 
+    .prologue
+    .line 831
     iput-object p1, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$TimaISLCallback;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     invoke-direct {p0}, Landroid/service/tima/ITimaISLCallback$Stub;-><init>()V
 
+    .line 833
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$TimaISLCallback;->subscriber:Lcom/sec/enterprise/knox/IIntegrityResultSubscriber;
@@ -39,7 +42,10 @@
 # virtual methods
 .method public onTimaViolation(Ljava/lang/String;)V
     .locals 5
+    .param p1, "violation"    # Ljava/lang/String;
 
+    .prologue
+    .line 836
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
 
@@ -51,8 +57,10 @@
 
     if-lez v3, :cond_1
 
+    .line 837
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_0
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
@@ -65,6 +73,7 @@
 
     if-ge v2, v3, :cond_1
 
+    .line 838
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->mAdminIdList:Ljava/util/List;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$800()Ljava/util/List;
 
@@ -80,6 +89,8 @@
 
     move-result v0
 
+    .line 839
+    .local v0, "adminId":I
     iget-object v3, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$TimaISLCallback;->this$0:Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;
 
     # invokes: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->getSubscriberInstance(I)Lcom/sec/enterprise/knox/IIntegrityResultSubscriber;
@@ -91,6 +102,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 841
     :try_start_0
     iget-object v3, p0, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy$TimaISLCallback;->subscriber:Lcom/sec/enterprise/knox/IIntegrityResultSubscriber;
 
@@ -98,15 +110,19 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 837
     :cond_0
     :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
+    .line 842
     :catch_0
     move-exception v1
 
+    .line 843
+    .local v1, "e":Landroid/os/RemoteException;
     # getter for: Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/enterprise/isl/EnterpriseISLPolicy;->access$100()Ljava/lang/String;
 
@@ -120,6 +136,10 @@
 
     goto :goto_1
 
+    .line 848
+    .end local v0    # "adminId":I
+    .end local v1    # "e":Landroid/os/RemoteException;
+    .end local v2    # "i":I
     :cond_1
     return-void
 .end method

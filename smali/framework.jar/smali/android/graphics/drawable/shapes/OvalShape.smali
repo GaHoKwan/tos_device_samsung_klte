@@ -23,7 +23,7 @@
 
     .prologue
     .line 37
-    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/OvalShape;->rect()Landroid/graphics/RectF;
+    invoke-virtual {p0}, Landroid/graphics/drawable/shapes/RectShape;->rect()Landroid/graphics/RectF;
 
     move-result-object v0
 

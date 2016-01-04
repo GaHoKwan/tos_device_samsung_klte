@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/SEAMService;)V
     .locals 0
 
+    .prologue
+    .line 290
     iput-object p1, p0, Lcom/android/server/SEAMService$1;->this$0:Lcom/android/server/SEAMService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,16 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 293
     const/4 v0, 0x1
 
     # setter for: Lcom/android/server/SEAMService;->bootCompleted:Z
     invoke-static {v0}, Lcom/android/server/SEAMService;->access$002(Z)Z
 
+    .line 294
     return-void
 .end method

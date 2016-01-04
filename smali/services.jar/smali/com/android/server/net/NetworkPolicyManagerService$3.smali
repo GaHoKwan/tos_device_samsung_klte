@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkPolicyManagerService;)V
     .locals 0
 
+    .prologue
+    .line 459
     iput-object p1, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,25 +35,35 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 464
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 465
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.extra.UID"
 
     invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 466
+    .local v1, "uid":I
     if-ne v1, v3, :cond_1
 
+    .line 476
     :cond_0
     :goto_0
     return-void
 
+    .line 468
     :cond_1
     const-string v2, "android.intent.action.PACKAGE_ADDED"
 
@@ -61,6 +73,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 472
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # getter for: Lcom/android/server/net/NetworkPolicyManagerService;->mRulesLock:Ljava/lang/Object;
@@ -70,12 +83,14 @@
 
     monitor-enter v3
 
+    .line 473
     :try_start_0
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService$3;->this$0:Lcom/android/server/net/NetworkPolicyManagerService;
 
     # invokes: Lcom/android/server/net/NetworkPolicyManagerService;->updateRulesForUidLocked(I)V
     invoke-static {v2, v1}, Lcom/android/server/net/NetworkPolicyManagerService;->access$200(Lcom/android/server/net/NetworkPolicyManagerService;I)V
 
+    .line 474
     monitor-exit v3
 
     goto :goto_0

@@ -205,6 +205,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 122
     const-string v0, "com.broadcom.bt.app.fm.action."
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
@@ -219,6 +221,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

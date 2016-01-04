@@ -33,18 +33,25 @@
 .method public constructor <init>()V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 36
     invoke-direct {p0}, Lcom/android/server/ssrm/fgapps/FgAppListener;-><init>()V
 
+    .line 39
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mMtpTransferOn:Z
 
+    .line 41
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mObexTransferOn:Z
 
+    .line 43
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
 
+    .line 142
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mUsb30Enabled:Z
 
+    .line 37
     return-void
 .end method
 
@@ -52,7 +59,10 @@
 # virtual methods
 .method enableDBurstMode(Z)V
     .locals 6
+    .param p1, "enable"    # Z
 
+    .prologue
+    .line 129
     const-string v3, "SSRMv2:MtpObexBooster"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -75,14 +85,22 @@
 
     invoke-static {v3, v4}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 131
     const-string v0, "/sys/block/mmcblk0/bkops_en"
 
+    .line 132
+    .local v0, "MMC_BURST_PATH":Ljava/lang/String;
     const/16 v1, 0x40
 
+    .line 133
+    .local v1, "MMC_DBURST_MODE_VALUE":I
     const/4 v2, 0x0
 
+    .line 135
+    .local v2, "MMC_NORMAL_MODE_VALUE":I
     if-eqz p1, :cond_0
 
+    .line 136
     const-string v3, "SSRMv2:MtpObexBooster"
 
     const-string v4, "/sys/block/mmcblk0/bkops_en"
@@ -91,9 +109,11 @@
 
     invoke-static {v3, v4, v5}, Lcom/android/server/ssrm/SSRMUtil;->writeSysfs(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 140
     :goto_0
     return-void
 
+    .line 138
     :cond_0
     const-string v3, "SSRMv2:MtpObexBooster"
 
@@ -109,12 +129,16 @@
 .method public onBootComplete()V
     .locals 10
 
+    .prologue
     const/4 v9, 0x0
 
     const-wide/16 v4, 0x0
 
+    .line 53
     const v6, 0x13d620
 
+    .line 55
+    .local v6, "MTP_ARM_MIN_FREQ":I
     new-instance v0, Landroid/os/DVFSHelper;
 
     sget-object v1, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mContext:Landroid/content/Context;
@@ -127,6 +151,7 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCPUMinFreqLockHelper:Landroid/os/DVFSHelper;
 
+    .line 56
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCPUMinFreqLockHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "CPU"
@@ -143,6 +168,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 59
     new-instance v0, Landroid/os/DVFSHelper;
 
     sget-object v1, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mContext:Landroid/content/Context;
@@ -155,22 +181,27 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
+    .line 61
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->getSupportedCPUCoreNum()[I
 
     move-result-object v8
 
+    .line 62
+    .local v8, "coreNumTable":[I
     if-eqz v8, :cond_0
 
     array-length v0, v8
 
     if-lez v0, :cond_0
 
+    .line 63
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_HF:Z
 
     if-eqz v0, :cond_2
 
+    .line 64
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "CORE_NUM"
@@ -179,6 +210,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 70
     :cond_0
     :goto_0
     new-instance v0, Landroid/os/DVFSHelper;
@@ -193,18 +225,22 @@
 
     iput-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mBusFreqLockHelper:Landroid/os/DVFSHelper;
 
+    .line 71
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mBusFreqLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->getSupportedBUSFrequency()[I
 
     move-result-object v7
 
+    .line 72
+    .local v7, "busFreqTable":[I
     if-eqz v7, :cond_1
 
     array-length v0, v7
 
     if-lez v0, :cond_1
 
+    .line 73
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mBusFreqLockHelper:Landroid/os/DVFSHelper;
 
     const-string v1, "BUS"
@@ -215,9 +251,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 75
     :cond_1
     return-void
 
+    .line 66
+    .end local v7    # "busFreqTable":[I
     :cond_2
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
@@ -235,22 +274,29 @@
 .method public onFgAppChanged()V
     .locals 0
 
+    .prologue
+    .line 172
     return-void
 .end method
 
 .method public onFgAppInPackageList(Z)V
     .locals 0
+    .param p1, "isForeground"    # Z
 
+    .prologue
+    .line 79
     return-void
 .end method
 
 .method onMTPStatusChanged()V
     .locals 5
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 97
     const-string v2, "SSRMv2:MtpObexBooster"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -287,6 +333,7 @@
 
     invoke-static {v2, v3}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 100
     iget-boolean v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mMtpTransferOn:Z
 
     if-nez v2, :cond_0
@@ -295,25 +342,31 @@
 
     if-eqz v2, :cond_2
 
+    .line 101
     :cond_0
     iget-boolean v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
 
     if-nez v2, :cond_1
 
+    .line 102
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCPUMinFreqLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 103
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 104
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mBusFreqLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 105
     iput-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
 
+    .line 114
     :cond_1
     :goto_0
     iget-boolean v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
@@ -327,25 +380,31 @@
     :goto_1
     invoke-virtual {p0, v0}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->enableDBurstMode(Z)V
 
+    .line 115
     return-void
 
+    .line 107
     :cond_2
     iget-boolean v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
 
     if-eqz v2, :cond_1
 
+    .line 108
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCPUMinFreqLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->release()V
 
+    .line 109
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mCoreNumLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->release()V
 
+    .line 110
     iget-object v2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mBusFreqLockHelper:Landroid/os/DVFSHelper;
 
     invoke-virtual {v2}, Landroid/os/DVFSHelper;->release()V
 
+    .line 111
     iput-boolean v1, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mLockAcquired:Z
 
     goto :goto_0
@@ -353,18 +412,27 @@
     :cond_3
     move v0, v1
 
+    .line 114
     goto :goto_1
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;Lcom/android/server/ssrm/fgapps/FgAppListener;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "value"    # Lcom/android/server/ssrm/fgapps/FgAppListener;
 
+    .prologue
+    .line 153
     invoke-super {p0, p1, p2, p3}, Lcom/android/server/ssrm/fgapps/FgAppListener;->onReceive(Landroid/content/Context;Landroid/content/Intent;Lcom/android/server/ssrm/fgapps/FgAppListener;)V
 
+    .line 155
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 156
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.hardware.usb.action.USB_STATE"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -373,6 +441,7 @@
 
     if-eqz v5, :cond_0
 
+    .line 157
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v5
@@ -383,6 +452,8 @@
 
     move-result v2
 
+    .line 158
+    .local v2, "connected":Z
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v5
@@ -393,6 +464,8 @@
 
     move-result v1
 
+    .line 159
+    .local v1, "configured":Z
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v5
@@ -403,6 +476,8 @@
 
     move-result v4
 
+    .line 160
+    .local v4, "mtp":Z
     const-string v5, "SSRMv2:MtpObexBooster"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -445,6 +520,7 @@
 
     invoke-static {v5, v6}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 161
     sget-object v5, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mContext:Landroid/content/Context;
 
     const-string/jumbo v6, "usb"
@@ -455,6 +531,8 @@
 
     check-cast v3, Landroid/hardware/usb/UsbManager;
 
+    .line 162
+    .local v3, "mUsbManager":Landroid/hardware/usb/UsbManager;
     if-eqz v2, :cond_1
 
     if-eqz v1, :cond_1
@@ -465,14 +543,25 @@
 
     if-eqz v5, :cond_1
 
+    .line 163
     const/4 v5, 0x1
 
     invoke-virtual {p0, v5}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->onUsb30StatusChanged(Z)V
 
+    .line 168
+    .end local v1    # "configured":Z
+    .end local v2    # "connected":Z
+    .end local v3    # "mUsbManager":Landroid/hardware/usb/UsbManager;
+    .end local v4    # "mtp":Z
     :cond_0
     :goto_0
     return-void
 
+    .line 165
+    .restart local v1    # "configured":Z
+    .restart local v2    # "connected":Z
+    .restart local v3    # "mUsbManager":Landroid/hardware/usb/UsbManager;
+    .restart local v4    # "mtp":Z
     :cond_1
     const/4 v5, 0x0
 
@@ -483,7 +572,12 @@
 
 .method public onStatusNotiReceived(Ljava/lang/String;ZLjava/lang/String;)V
     .locals 1
+    .param p1, "statusName"    # Ljava/lang/String;
+    .param p2, "statusValue"    # Z
+    .param p3, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 83
     const-string v0, "MTP_fileTransfer"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -492,18 +586,23 @@
 
     if-eqz v0, :cond_1
 
+    .line 84
     iget-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mMtpTransferOn:Z
 
     if-eq v0, p2, :cond_0
 
+    .line 85
     iput-boolean p2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mMtpTransferOn:Z
 
+    .line 86
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->onMTPStatusChanged()V
 
+    .line 94
     :cond_0
     :goto_0
     return-void
 
+    .line 88
     :cond_1
     const-string v0, "OBEX_dataTransfer"
 
@@ -513,12 +612,15 @@
 
     if-eqz v0, :cond_0
 
+    .line 89
     iget-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mObexTransferOn:Z
 
     if-eq v0, p2, :cond_0
 
+    .line 90
     iput-boolean p2, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mObexTransferOn:Z
 
+    .line 91
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->onMTPStatusChanged()V
 
     goto :goto_0
@@ -526,24 +628,33 @@
 
 .method onUsb30StatusChanged(Z)V
     .locals 1
+    .param p1, "enable"    # Z
 
+    .prologue
+    .line 145
     iget-boolean v0, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mUsb30Enabled:Z
 
     if-eq v0, p1, :cond_0
 
+    .line 146
     iput-boolean p1, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mUsb30Enabled:Z
 
+    .line 147
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->onMTPStatusChanged()V
 
+    .line 149
     :cond_0
     return-void
 .end method
 
 .method public onUsbConnectionStatusChanged(Z)V
     .locals 4
+    .param p1, "connected"    # Z
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 119
     const-string v0, "SSRMv2:MtpObexBooster"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -566,14 +677,19 @@
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 121
     if-nez p1, :cond_0
 
+    .line 122
     iput-boolean v3, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mMtpTransferOn:Z
 
+    .line 123
     iput-boolean v3, p0, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->mObexTransferOn:Z
 
+    .line 124
     invoke-virtual {p0}, Lcom/android/server/ssrm/fgapps/MtpObexBooster;->onMTPStatusChanged()V
 
+    .line 126
     :cond_0
     return-void
 .end method

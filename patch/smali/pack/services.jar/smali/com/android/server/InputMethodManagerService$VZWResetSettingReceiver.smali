@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/InputMethodManagerService;)V
     .locals 0
 
+    .prologue
+    .line 737
     iput-object p1, p0, Lcom/android/server/InputMethodManagerService$VZWResetSettingReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 740
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 741
+    .local v0, "intentAction":Ljava/lang/String;
     const-string v1, "InputMethodManagerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -60,6 +68,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 742
     const-string v1, "android.intent.action.SETTINGS_SOFT_RESET"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -68,14 +77,17 @@
 
     if-eqz v1, :cond_0
 
+    .line 743
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$VZWResetSettingReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/InputMethodManagerService;->setDefaultIMEForKeyboard()V
 
+    .line 744
     iget-object v1, p0, Lcom/android/server/InputMethodManagerService$VZWResetSettingReceiver;->this$0:Lcom/android/server/InputMethodManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/InputMethodManagerService;->changeKeyboardForVZWResetSetting()V
 
+    .line 746
     :cond_0
     return-void
 .end method

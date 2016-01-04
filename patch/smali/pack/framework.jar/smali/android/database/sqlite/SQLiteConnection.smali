@@ -85,6 +85,10 @@
 
     const/4 v2, 0x0
 
+    const-string v0, "sqlite3_lidroid"
+
+    invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
+
     .line 91
     const-class v0, Landroid/database/sqlite/SQLiteConnection;
 
@@ -1099,7 +1103,7 @@
     .line 283
     const-string v5, "KOR"
 
-    const-string v6, "USA"
+    const-string v6, "GGSM"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1194,7 +1198,7 @@
     .line 267
     const-string v5, "KOR"
 
-    const-string v6, "USA"
+    const-string v6, "GGSM"
 
     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1644,6 +1648,9 @@
 .method private static native nativeRegisterCustomFunction(ILandroid/database/sqlite/SQLiteCustomFunction;)V
 .end method
 
+.method private static native nativeRegisterLidroid(I)V
+.end method
+
 .method private static native nativeRegisterLocalizedCollators(ILjava/lang/String;)V
 .end method
 
@@ -1799,6 +1806,8 @@
 
     .line 346
     :cond_1
+    invoke-static {v3}, Landroid/database/sqlite/SQLiteConnection;->nativeRegisterLidroid(I)V
+
     invoke-direct {p0}, Landroid/database/sqlite/SQLiteConnection;->setPageSize()V
 
     .line 347

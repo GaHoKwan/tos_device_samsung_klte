@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 46
     const-class v0, Landroid/webkitsec/CacheManager;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -46,8 +48,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 65
     return-void
 .end method
 
@@ -56,6 +61,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 287
     const/4 v0, 0x0
 
     return v0
@@ -66,6 +73,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 312
     const/4 v0, 0x0
 
     return v0
@@ -73,6 +82,7 @@
 
 .method public static getCacheFile(Ljava/lang/String;Ljava/util/Map;)Landroid/webkitsec/CacheManager$CacheResult;
     .locals 1
+    .param p0, "url"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,6 +99,9 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 332
+    .local p1, "headers":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     const/4 v0, 0x0
 
     return-object v0
@@ -99,6 +112,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 276
     const/4 v0, 0x0
 
     return-object v0
@@ -106,9 +121,14 @@
 
 .method public static getCacheSize(Landroid/content/Context;)I
     .locals 10
+    .param p0, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 471
     const/4 v5, 0x0
 
+    .line 472
+    .local v5, "size":I
     new-instance v1, Ljava/io/File;
 
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
@@ -119,25 +139,33 @@
 
     invoke-direct {v1, v6, v7}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
+    .line 473
+    .local v1, "cacheDir":Ljava/io/File;
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result v6
 
     if-eqz v6, :cond_1
 
+    .line 474
     invoke-virtual {v1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object v0
 
+    .local v0, "arr$":[Ljava/io/File;
     array-length v4, v0
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_1
 
     aget-object v2, v0, v3
 
+    .line 475
+    .local v2, "file":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->isFile()Z
 
     move-result v6
@@ -156,6 +184,7 @@
 
     if-eqz v6, :cond_0
 
+    .line 476
     int-to-long v6, v5
 
     invoke-virtual {v2}, Ljava/io/File;->length()J
@@ -166,18 +195,29 @@
 
     long-to-int v5, v6
 
+    .line 474
     :cond_0
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 480
+    .end local v0    # "arr$":[Ljava/io/File;
+    .end local v2    # "file":Ljava/io/File;
+    .end local v3    # "i$":I
+    .end local v4    # "len$":I
     :cond_1
     return v5
 .end method
 
 .method static saveCacheFile(Ljava/lang/String;JLandroid/webkitsec/CacheManager$CacheResult;)V
     .locals 2
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "postIdentifier"    # J
+    .param p3, "cacheRet"    # Landroid/webkitsec/CacheManager$CacheResult;
 
+    .prologue
+    .line 414
     :try_start_0
     iget-object v1, p3, Landroid/webkitsec/CacheManager$CacheResult;->outStream:Ljava/io/OutputStream;
 
@@ -185,6 +225,7 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 436
     sget-boolean v1, Landroid/webkitsec/CacheManager;->$assertionsDisabled:Z
 
     if-nez v1, :cond_0
@@ -195,22 +236,29 @@
 
     throw v1
 
+    .line 415
     :catch_0
     move-exception v0
 
+    .line 437
     :cond_0
     return-void
 .end method
 
 .method public static saveCacheFile(Ljava/lang/String;Landroid/webkitsec/CacheManager$CacheResult;)V
     .locals 2
+    .param p0, "url"    # Ljava/lang/String;
+    .param p1, "cacheResult"    # Landroid/webkitsec/CacheManager$CacheResult;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 408
     const-wide/16 v0, 0x0
 
     invoke-static {p0, v0, v1, p1}, Landroid/webkitsec/CacheManager;->saveCacheFile(Ljava/lang/String;JLandroid/webkitsec/CacheManager$CacheResult;)V
 
+    .line 409
     return-void
 .end method
 
@@ -219,6 +267,8 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 300
     const/4 v0, 0x0
 
     return v0

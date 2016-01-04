@@ -116,7 +116,7 @@
 
     .prologue
     .line 176
-    invoke-virtual {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/builtin/SatelliteRunner;->checkFaultDetectionResult()Z
+    invoke-virtual {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->checkFaultDetectionResult()Z
 
     move-result v0
 
@@ -127,7 +127,7 @@
     invoke-static {v0}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->debug(Ljava/lang/String;)V
 
     .line 177
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;->getFaultDetectionResult()Landroid/os/Bundle;
+    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/AndroidProvider;->getFaultDetectionResult()Landroid/os/Bundle;
 
     move-result-object v0
 
@@ -171,7 +171,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0}, Landroid/hardware/contextaware/dataprovider/androidprovider/RawGpsProvider;->getLooper()Landroid/os/Looper;
+    invoke-super {p0}, Landroid/hardware/contextaware/manager/ContextProvider;->getLooper()Landroid/os/Looper;
 
     move-result-object v0
 

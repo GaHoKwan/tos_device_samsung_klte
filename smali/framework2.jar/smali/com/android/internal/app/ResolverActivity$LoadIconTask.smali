@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
 
+    .prologue
+    .line 1088
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -44,15 +46,21 @@
 # virtual methods
 .method protected varargs doInBackground([Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
     .locals 3
+    .param p1, "params"    # [Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
+    .prologue
+    .line 1091
     const/4 v1, 0x0
 
     aget-object v0, p1, v1
 
+    .line 1092
+    .local v0, "info":Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
     iget-object v1, v0, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->displayIcon:Landroid/graphics/drawable/Drawable;
 
     if-nez v1, :cond_0
 
+    .line 1093
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     iget-object v2, v0, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->ri:Landroid/content/pm/ResolveInfo;
@@ -63,15 +71,20 @@
 
     iput-object v1, v0, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;->displayIcon:Landroid/graphics/drawable/Drawable;
 
+    .line 1095
     :cond_0
     return-object v0
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # [Ljava/lang/Object;
 
+    .prologue
+    .line 1088
     check-cast p1, [Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
+    .end local p1    # "x0":[Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->doInBackground([Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
     move-result-object v0
@@ -81,7 +94,10 @@
 
 .method protected onPostExecute(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)V
     .locals 1
+    .param p1, "info"    # Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
+    .prologue
+    .line 1100
     iget-object v0, p0, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mAdapter:Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;
@@ -89,16 +105,21 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/internal/app/ResolverActivity$ResolveListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
 
+    .line 1101
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
 
+    .prologue
+    .line 1088
     check-cast p1, Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/internal/app/ResolverActivity$LoadIconTask;->onPostExecute(Lcom/android/internal/app/ResolverActivity$DisplayResolveInfo;)V
 
     return-void

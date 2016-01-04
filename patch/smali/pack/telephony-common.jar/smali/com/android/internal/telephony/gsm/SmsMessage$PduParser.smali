@@ -534,7 +534,7 @@
     .restart local v3    # "ret":Lcom/android/internal/telephony/gsm/GsmSmsAddress;
     new-instance v4, Ljava/lang/RuntimeException;
 
-    invoke-virtual {v1}, Ljava/text/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 

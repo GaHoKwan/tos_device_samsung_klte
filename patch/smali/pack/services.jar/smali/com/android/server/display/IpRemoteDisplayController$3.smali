@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 222
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iput-object p2, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->val$ipAddr:Ljava/lang/String;
@@ -53,6 +55,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 225
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     new-instance v1, Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -62,6 +66,7 @@
     # setter for: Lcom/android/server/display/IpRemoteDisplayController;->mConnectedDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
     invoke-static {v0, v1}, Lcom/android/server/display/IpRemoteDisplayController;->access$802(Lcom/android/server/display/IpRemoteDisplayController;Landroid/net/wifi/p2p/WifiP2pDevice;)Landroid/net/wifi/p2p/WifiP2pDevice;
 
+    .line 226
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mConnectedDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -73,6 +78,7 @@
 
     iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceAddress:Ljava/lang/String;
 
+    .line 227
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mConnectedDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -84,6 +90,7 @@
 
     iput-object v1, v0, Landroid/net/wifi/p2p/WifiP2pDevice;->deviceName:Ljava/lang/String;
 
+    .line 228
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     iget-object v1, p0, Lcom/android/server/display/IpRemoteDisplayController$3;->val$ipAddr:Ljava/lang/String;
@@ -97,5 +104,6 @@
     # invokes: Lcom/android/server/display/IpRemoteDisplayController;->enableWifiDisplay(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/server/display/IpRemoteDisplayController;->access$900(Lcom/android/server/display/IpRemoteDisplayController;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
+    .line 229
     return-void
 .end method

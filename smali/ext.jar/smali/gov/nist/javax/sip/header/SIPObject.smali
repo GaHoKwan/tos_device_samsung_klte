@@ -39,7 +39,7 @@
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lgov/nist/javax/sip/header/SIPObject;->stringRepresentation:Ljava/lang/String;
+    iput-object v0, v1, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     .line 292
     invoke-virtual/range {p0 .. p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -56,7 +56,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 294
     const-string v21, "{"
@@ -65,7 +65,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 295
     invoke-virtual/range {v19 .. v19}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -174,7 +174,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 315
     :try_start_0
@@ -215,7 +215,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 318
     const-string v21, "int"
@@ -239,7 +239,7 @@
     .local v15, "intfield":I
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v15}, Lgov/nist/javax/sip/header/SIPObject;->sprint(I)V
+    invoke-virtual {v0, v15}, Lgov/nist/core/GenericObject;->sprint(I)V
 
     goto :goto_1
 
@@ -280,7 +280,7 @@
 
     move/from16 v1, v20
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(S)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(S)V
 
     goto/16 :goto_1
 
@@ -308,7 +308,7 @@
     .local v4, "charField":C
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v4}, Lgov/nist/javax/sip/header/SIPObject;->sprint(C)V
+    invoke-virtual {v0, v4}, Lgov/nist/core/GenericObject;->sprint(C)V
 
     goto/16 :goto_1
 
@@ -338,7 +338,7 @@
 
     move-wide/from16 v1, v16
 
-    invoke-virtual {v0, v1, v2}, Lgov/nist/javax/sip/header/SIPObject;->sprint(J)V
+    invoke-virtual {v0, v1, v2}, Lgov/nist/core/GenericObject;->sprint(J)V
 
     goto/16 :goto_1
 
@@ -366,7 +366,7 @@
     .local v3, "booleanField":Z
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v3}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Z)V
+    invoke-virtual {v0, v3}, Lgov/nist/core/GenericObject;->sprint(Z)V
 
     goto/16 :goto_1
 
@@ -394,7 +394,7 @@
     .local v5, "doubleField":D
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v5, v6}, Lgov/nist/javax/sip/header/SIPObject;->sprint(D)V
+    invoke-virtual {v0, v5, v6}, Lgov/nist/core/GenericObject;->sprint(D)V
 
     goto/16 :goto_1
 
@@ -422,7 +422,7 @@
     .local v12, "floatField":F
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lgov/nist/javax/sip/header/SIPObject;->sprint(F)V
+    invoke-virtual {v0, v12}, Lgov/nist/core/GenericObject;->sprint(F)V
 
     goto/16 :goto_1
 
@@ -460,7 +460,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lgov/nist/javax/sip/header/SIPObject;->indentation:I
+    iget v0, v0, Lgov/nist/core/GenericObject;->indentation:I
 
     move/from16 v22, v0
 
@@ -474,7 +474,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -486,7 +486,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -522,7 +522,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lgov/nist/javax/sip/header/SIPObject;->indentation:I
+    iget v0, v0, Lgov/nist/core/GenericObject;->indentation:I
 
     move/from16 v22, v0
 
@@ -536,7 +536,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -548,7 +548,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -599,7 +599,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 368
     :goto_2
@@ -609,7 +609,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 369
     move-object/from16 v0, p0
@@ -635,7 +635,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 374
     :goto_3
@@ -645,7 +645,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto/16 :goto_1
 
@@ -677,7 +677,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     goto :goto_2
 
@@ -689,7 +689,7 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -707,12 +707,12 @@
 
     move-object/from16 v1, v21
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPObject;->sprint(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lgov/nist/core/GenericObject;->sprint(Ljava/lang/String;)V
 
     .line 381
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lgov/nist/javax/sip/header/SIPObject;->stringRepresentation:Ljava/lang/String;
+    iget-object v0, v0, Lgov/nist/core/GenericObject;->stringRepresentation:Ljava/lang/String;
 
     move-object/from16 v21, v0
 
@@ -725,11 +725,11 @@
 
     .prologue
     .line 390
-    iget v1, p0, Lgov/nist/javax/sip/header/SIPObject;->indentation:I
+    iget v1, p0, Lgov/nist/core/GenericObject;->indentation:I
 
     .line 391
     .local v1, "save":I
-    iput p1, p0, Lgov/nist/javax/sip/header/SIPObject;->indentation:I
+    iput p1, p0, Lgov/nist/core/GenericObject;->indentation:I
 
     .line 392
     invoke-virtual {p0}, Lgov/nist/javax/sip/header/SIPObject;->debugDump()Ljava/lang/String;
@@ -738,7 +738,7 @@
 
     .line 393
     .local v0, "retval":Ljava/lang/String;
-    iput v1, p0, Lgov/nist/javax/sip/header/SIPObject;->indentation:I
+    iput v1, p0, Lgov/nist/core/GenericObject;->indentation:I
 
     .line 394
     return-object v0

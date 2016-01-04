@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/widget/RemoteViewsAdapter;Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;)V
     .locals 0
 
+    .prologue
+    .line 932
     iput-object p1, p0, Landroid/widget/RemoteViewsAdapter$1;->this$0:Landroid/widget/RemoteViewsAdapter;
 
     iput-object p2, p0, Landroid/widget/RemoteViewsAdapter$1;->val$key:Landroid/widget/RemoteViewsAdapter$RemoteViewsCacheKey;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 935
     # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
 
@@ -48,6 +52,7 @@
 
     monitor-enter v1
 
+    .line 936
     :try_start_0
     # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
@@ -62,6 +67,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 937
     # getter for: Landroid/widget/RemoteViewsAdapter;->sCachedRemoteViewsCaches:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1500()Ljava/util/HashMap;
 
@@ -71,6 +77,7 @@
 
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 939
     :cond_0
     # getter for: Landroid/widget/RemoteViewsAdapter;->sRemoteViewsCacheRemoveRunnables:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1600()Ljava/util/HashMap;
@@ -85,6 +92,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 940
     # getter for: Landroid/widget/RemoteViewsAdapter;->sRemoteViewsCacheRemoveRunnables:Ljava/util/HashMap;
     invoke-static {}, Landroid/widget/RemoteViewsAdapter;->access$1600()Ljava/util/HashMap;
 
@@ -94,11 +102,14 @@
 
     invoke-virtual {v0, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 942
     :cond_1
     monitor-exit v1
 
+    .line 943
     return-void
 
+    .line 942
     :catchall_0
     move-exception v0
 

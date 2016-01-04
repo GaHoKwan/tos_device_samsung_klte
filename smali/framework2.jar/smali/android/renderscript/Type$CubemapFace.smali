@@ -62,6 +62,7 @@
 .method static constructor <clinit>()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x3
 
     const/4 v7, 0x1
@@ -72,6 +73,7 @@
 
     const/4 v4, 0x0
 
+    .line 63
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITIVE_X"
@@ -80,6 +82,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITIVE_X:Landroid/renderscript/Type$CubemapFace;
 
+    .line 64
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "NEGATIVE_X"
@@ -88,6 +91,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->NEGATIVE_X:Landroid/renderscript/Type$CubemapFace;
 
+    .line 65
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITIVE_Y"
@@ -96,6 +100,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITIVE_Y:Landroid/renderscript/Type$CubemapFace;
 
+    .line 66
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "NEGATIVE_Y"
@@ -104,6 +109,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->NEGATIVE_Y:Landroid/renderscript/Type$CubemapFace;
 
+    .line 67
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITIVE_Z"
@@ -112,6 +118,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITIVE_Z:Landroid/renderscript/Type$CubemapFace;
 
+    .line 68
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "NEGATIVE_Z"
@@ -124,6 +131,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->NEGATIVE_Z:Landroid/renderscript/Type$CubemapFace;
 
+    .line 69
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITVE_X"
@@ -134,6 +142,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITVE_X:Landroid/renderscript/Type$CubemapFace;
 
+    .line 71
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITVE_Y"
@@ -144,6 +153,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITVE_Y:Landroid/renderscript/Type$CubemapFace;
 
+    .line 73
     new-instance v0, Landroid/renderscript/Type$CubemapFace;
 
     const-string v1, "POSITVE_Z"
@@ -154,6 +164,7 @@
 
     sput-object v0, Landroid/renderscript/Type$CubemapFace;->POSITVE_Z:Landroid/renderscript/Type$CubemapFace;
 
+    .line 62
     const/16 v0, 0x9
 
     new-array v0, v0, [Landroid/renderscript/Type$CubemapFace;
@@ -209,22 +220,30 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 77
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 78
     iput p3, p0, Landroid/renderscript/Type$CubemapFace;->mID:I
 
+    .line 79
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/Type$CubemapFace;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 62
     const-class v0, Landroid/renderscript/Type$CubemapFace;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -239,9 +258,11 @@
 .method public static values()[Landroid/renderscript/Type$CubemapFace;
     .locals 1
 
+    .prologue
+    .line 62
     sget-object v0, Landroid/renderscript/Type$CubemapFace;->$VALUES:[Landroid/renderscript/Type$CubemapFace;
 
-    invoke-virtual {v0}, [Landroid/renderscript/Type$CubemapFace;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

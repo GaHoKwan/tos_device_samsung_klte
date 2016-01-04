@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/HTML5VideoFullScreen;)V
     .locals 0
 
+    .prologue
+    .line 309
     iput-object p1, p0, Landroid/webkitsec/HTML5VideoFullScreen$4;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,10 @@
 .method public onCustomViewHidden()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 316
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
     invoke-static {}, Landroid/webkitsec/HTML5VideoFullScreen;->access$1000()Landroid/widget/FrameLayout;
 
@@ -51,8 +55,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
+    .line 318
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
     invoke-static {}, Landroid/webkitsec/HTML5VideoFullScreen;->access$1100()Landroid/view/View;
 
@@ -60,6 +65,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 319
     # getter for: Landroid/webkitsec/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
     invoke-static {}, Landroid/webkitsec/HTML5VideoFullScreen;->access$1000()Landroid/widget/FrameLayout;
 
@@ -70,18 +76,21 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
+    .line 320
     # setter for: Landroid/webkitsec/HTML5VideoFullScreen;->mProgressView:Landroid/view/View;
     invoke-static {v2}, Landroid/webkitsec/HTML5VideoFullScreen;->access$1102(Landroid/view/View;)Landroid/view/View;
 
+    .line 322
     :cond_0
     # setter for: Landroid/webkitsec/HTML5VideoFullScreen;->mLayout:Landroid/widget/FrameLayout;
     invoke-static {v2}, Landroid/webkitsec/HTML5VideoFullScreen;->access$1002(Landroid/widget/FrameLayout;)Landroid/widget/FrameLayout;
 
+    .line 324
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$4;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
-    iget-object v0, v0, Landroid/webkitsec/HTML5VideoFullScreen;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
+    iget-object v0, v0, Landroid/webkitsec/HTML5VideoView;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
 
     invoke-virtual {v0}, Landroid/webkitsec/HTML5VideoViewProxy;->getWebView()Landroid/webkitsec/WebViewClassic;
 
@@ -93,22 +102,26 @@
 
     invoke-virtual {v0}, Landroid/webkitsec/ViewManager;->showAll()V
 
+    .line 326
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$4;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
     # setter for: Landroid/webkitsec/HTML5VideoFullScreen;->mMediaController:Landroid/widget/MediaController;
     invoke-static {v0, v2}, Landroid/webkitsec/HTML5VideoFullScreen;->access$202(Landroid/webkitsec/HTML5VideoFullScreen;Landroid/widget/MediaController;)Landroid/widget/MediaController;
 
+    .line 329
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$4;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
-    iget-object v0, v0, Landroid/webkitsec/HTML5VideoFullScreen;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
+    iget-object v0, v0, Landroid/webkitsec/HTML5VideoView;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/webkitsec/HTML5VideoViewProxy;->onStopFullScreen(Z)V
 
+    .line 330
     iget-object v0, p0, Landroid/webkitsec/HTML5VideoFullScreen$4;->this$0:Landroid/webkitsec/HTML5VideoFullScreen;
 
-    iput-object v2, v0, Landroid/webkitsec/HTML5VideoFullScreen;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
+    iput-object v2, v0, Landroid/webkitsec/HTML5VideoView;->mProxy:Landroid/webkitsec/HTML5VideoViewProxy;
 
+    .line 331
     return-void
 .end method

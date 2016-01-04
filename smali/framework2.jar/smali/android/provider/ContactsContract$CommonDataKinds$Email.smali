@@ -46,6 +46,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 5719
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "emails"
@@ -56,6 +58,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
+    .line 5737
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "lookup"
@@ -66,6 +69,7 @@
 
     sput-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_LOOKUP_URI:Landroid/net/Uri;
 
+    .line 5757
     sget-object v0, Landroid/provider/ContactsContract$CommonDataKinds$Email;->CONTENT_URI:Landroid/net/Uri;
 
     const-string v1, "filter"
@@ -82,6 +86,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5704
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -89,7 +95,12 @@
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 5798
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -98,14 +109,20 @@
 
     if-nez v1, :cond_0
 
+    .line 5802
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
+    .line 5801
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$Email;->getTypeLabelResource(I)I
 
     move-result v0
 
+    .line 5802
+    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
@@ -115,34 +132,43 @@
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 5782
     packed-switch p0, :pswitch_data_0
 
+    .line 5787
     const v0, 0x1040543
 
     :goto_0
     return v0
 
+    .line 5783
     :pswitch_0
     const v0, 0x1040544
 
     goto :goto_0
 
+    .line 5784
     :pswitch_1
     const v0, 0x1040545
 
     goto :goto_0
 
+    .line 5785
     :pswitch_2
     const v0, 0x1040546
 
     goto :goto_0
 
+    .line 5786
     :pswitch_3
     const v0, 0x1040547
 
     goto :goto_0
 
+    .line 5782
     nop
 
     :pswitch_data_0

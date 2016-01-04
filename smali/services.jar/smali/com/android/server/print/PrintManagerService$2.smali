@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/print/PrintManagerService;Landroid/os/Handler;Landroid/net/Uri;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 383
     iput-object p1, p0, Lcom/android/server/print/PrintManagerService$2;->this$0:Lcom/android/server/print/PrintManagerService;
 
     iput-object p3, p0, Lcom/android/server/print/PrintManagerService$2;->val$enabledPrintServicesUri:Landroid/net/Uri;
@@ -37,7 +40,11 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 386
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$2;->val$enabledPrintServicesUri:Landroid/net/Uri;
 
     invoke-virtual {v1, p2}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
@@ -46,6 +53,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 387
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$2;->this$0:Lcom/android/server/print/PrintManagerService;
 
     # getter for: Lcom/android/server/print/PrintManagerService;->mLock:Ljava/lang/Object;
@@ -55,6 +63,7 @@
 
     monitor-enter v2
 
+    .line 388
     :try_start_0
     iget-object v1, p0, Lcom/android/server/print/PrintManagerService$2;->this$0:Lcom/android/server/print/PrintManagerService;
 
@@ -63,13 +72,19 @@
 
     move-result-object v0
 
+    .line 389
+    .local v0, "userState":Lcom/android/server/print/UserState;
     invoke-virtual {v0}, Lcom/android/server/print/UserState;->updateIfNeededLocked()V
 
+    .line 390
     monitor-exit v2
 
+    .line 392
+    .end local v0    # "userState":Lcom/android/server/print/UserState;
     :cond_0
     return-void
 
+    .line 390
     :catchall_0
     move-exception v1
 

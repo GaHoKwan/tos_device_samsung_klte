@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
     .locals 0
 
+    .prologue
+    .line 7070
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +35,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 6
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v3, 0x0
 
+    .line 7072
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 7073
+    .local v0, "action":Ljava/lang/String;
     const-string v4, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -50,6 +58,7 @@
 
     if-eqz v4, :cond_0
 
+    .line 7074
     iget-object v4, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v4, v4, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -58,6 +67,8 @@
 
     move-result-object v2
 
+    .line 7075
+    .local v2, "resolver":Landroid/content/ContentResolver;
     const-string v4, "kids_home_mode"
 
     const/4 v5, -0x2
@@ -68,6 +79,8 @@
 
     if-ne v4, v1, :cond_1
 
+    .line 7076
+    .local v1, "isKidsLauncherEnabled":Z
     :goto_0
     const-string v3, "WindowManager"
 
@@ -91,16 +104,22 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 7078
     iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$29;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     # invokes: Lcom/android/internal/policy/impl/PhoneWindowManager;->setStatusBarExpandable(Z)V
     invoke-static {v3, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->access$2400(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)V
 
+    .line 7104
+    .end local v1    # "isKidsLauncherEnabled":Z
+    .end local v2    # "resolver":Landroid/content/ContentResolver;
     :cond_0
     return-void
 
+    .restart local v2    # "resolver":Landroid/content/ContentResolver;
     :cond_1
     move v1, v3
 
+    .line 7075
     goto :goto_0
 .end method

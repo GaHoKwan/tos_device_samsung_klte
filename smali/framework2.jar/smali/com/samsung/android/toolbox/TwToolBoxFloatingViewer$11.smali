@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 696
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$11;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,9 +36,12 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 699
     iget-object v1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$11;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     iget-object v2, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$11;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
@@ -59,10 +65,12 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->mDeivceProvisioned:Z
     invoke-static {v1, v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$3502(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;Z)Z
 
+    .line 700
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$11;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     # invokes: Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->updateVisibility()Z
     invoke-static {v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->access$1700(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)Z
 
+    .line 701
     return-void
 .end method

@@ -303,7 +303,7 @@
     .local v1, "e":Ljava/io/IOException;
     sget-object v5, Lcom/android/i18n/phonenumbers/geocoding/AreaCodeMap;->LOGGER:Ljava/util/logging/Logger;
 
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 

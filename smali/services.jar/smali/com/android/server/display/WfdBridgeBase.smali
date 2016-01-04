@@ -39,43 +39,64 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/WfdBridgeBase$BridgeListner;)V
     .locals 1
+    .param p1, "listner"    # Lcom/android/server/display/WfdBridgeBase$BridgeListner;
 
+    .prologue
+    .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 83
     new-instance v0, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     invoke-direct {v0, p0}, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;-><init>(Lcom/android/server/display/WfdBridgeBase;)V
 
     iput-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
+    .line 84
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/display/WfdBridgeBase;->mSession:Z
 
+    .line 85
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeBase;->mListner:Lcom/android/server/display/WfdBridgeBase$BridgeListner;
 
+    .line 86
     return-void
 .end method
 
 .method public static getInstance(Ljava/net/InetAddress;ILcom/android/server/display/WfdBridgeBase$BridgeListner;)Lcom/android/server/display/WfdBridgeBase;
     .locals 1
+    .param p0, "inet"    # Ljava/net/InetAddress;
+    .param p1, "port"    # I
+    .param p2, "listner"    # Lcom/android/server/display/WfdBridgeBase$BridgeListner;
 
+    .prologue
+    .line 45
     const/4 v0, 0x0
 
+    .line 47
+    .local v0, "base":Lcom/android/server/display/WfdBridgeBase;
     if-nez p0, :cond_0
 
+    .line 48
     new-instance v0, Lcom/android/server/display/WfdBridgeServer;
 
+    .end local v0    # "base":Lcom/android/server/display/WfdBridgeBase;
     invoke-direct {v0, p1, p2}, Lcom/android/server/display/WfdBridgeServer;-><init>(ILcom/android/server/display/WfdBridgeBase$BridgeListner;)V
 
+    .line 53
+    .restart local v0    # "base":Lcom/android/server/display/WfdBridgeBase;
     :goto_0
     return-object v0
 
+    .line 50
     :cond_0
     new-instance v0, Lcom/android/server/display/WfdBridgeClient;
 
+    .end local v0    # "base":Lcom/android/server/display/WfdBridgeBase;
     invoke-direct {v0, p0, p1, p2}, Lcom/android/server/display/WfdBridgeClient;-><init>(Ljava/net/InetAddress;ILcom/android/server/display/WfdBridgeBase$BridgeListner;)V
 
+    .restart local v0    # "base":Lcom/android/server/display/WfdBridgeBase;
     goto :goto_0
 .end method
 

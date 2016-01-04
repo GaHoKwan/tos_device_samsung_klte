@@ -28,7 +28,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 45
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/ExtandedInterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/contextaware/manager/ContextComponent;->start(Landroid/hardware/contextaware/manager/ContextAwareService$Listener;I)V
 
@@ -46,7 +46,7 @@
     invoke-static {}, Landroid/hardware/contextaware/utilbundle/logger/CaLogger;->trace()V
 
     .line 58
-    iget-object v0, p0, Landroid/hardware/contextaware/manager/ExtandedInterruptContextProvider;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
+    iget-object v0, p0, Landroid/hardware/contextaware/manager/ContextProviderDecorator;->mProvider:Landroid/hardware/contextaware/manager/ContextComponent;
 
     invoke-virtual {v0, p1, p2}, Landroid/hardware/contextaware/manager/ContextComponent;->stop(Landroid/hardware/contextaware/manager/ContextAwareService$Listener;I)V
 

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/power/ShutdownThread;)V
     .locals 0
 
+    .prologue
+    .line 922
     iput-object p1, p0, Lcom/android/server/power/ShutdownThread$9;->this$0:Lcom/android/server/power/ShutdownThread;
 
     invoke-direct {p0}, Landroid/os/storage/IMountShutdownObserver$Stub;-><init>()V
@@ -33,12 +35,15 @@
 # virtual methods
 .method public onShutDownComplete(I)V
     .locals 3
+    .param p1, "statusCode"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 924
     const-string v0, "ShutdownThread"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -67,9 +72,11 @@
 
     invoke-static {v0, v1}, Lcom/android/server/power/ShutdownThread$Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 925
     iget-object v0, p0, Lcom/android/server/power/ShutdownThread$9;->this$0:Lcom/android/server/power/ShutdownThread;
 
     invoke-virtual {v0}, Lcom/android/server/power/ShutdownThread;->actionDoneMount()V
 
+    .line 926
     return-void
 .end method

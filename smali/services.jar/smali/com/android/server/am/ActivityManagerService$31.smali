@@ -30,6 +30,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;Lcom/android/server/am/UserStartedState;Landroid/content/Intent;Landroid/content/IIntentReceiver;I)V
     .locals 0
 
+    .prologue
+    .line 19976
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$31;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iput-object p2, p0, Lcom/android/server/am/ActivityManagerService$31;->val$uss:Lcom/android/server/am/UserStartedState;
@@ -49,13 +51,23 @@
 # virtual methods
 .method public performReceive(Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;ZZI)V
     .locals 17
+    .param p1, "intent"    # Landroid/content/Intent;
+    .param p2, "resultCode"    # I
+    .param p3, "data"    # Ljava/lang/String;
+    .param p4, "extras"    # Landroid/os/Bundle;
+    .param p5, "ordered"    # Z
+    .param p6, "sticky"    # Z
+    .param p7, "sendingUser"    # I
 
+    .prologue
+    .line 19981
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/server/am/ActivityManagerService$31;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v2
 
+    .line 19982
     :try_start_0
     move-object/from16 v0, p0
 
@@ -67,11 +79,14 @@
 
     if-eq v1, v3, :cond_0
 
+    .line 19984
     monitor-exit v2
 
+    .line 19991
     :goto_0
     return-void
 
+    .line 19986
     :cond_0
     move-object/from16 v0, p0
 
@@ -81,10 +96,12 @@
 
     iput v3, v1, Lcom/android/server/am/UserStartedState;->mState:I
 
+    .line 19987
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 19988
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$31;->this$0:Lcom/android/server/am/ActivityManagerService;
@@ -132,6 +149,7 @@
 
     goto :goto_0
 
+    .line 19987
     :catchall_0
     move-exception v1
 

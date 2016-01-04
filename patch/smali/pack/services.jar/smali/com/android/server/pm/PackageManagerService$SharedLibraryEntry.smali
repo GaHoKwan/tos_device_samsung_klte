@@ -23,12 +23,19 @@
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p1, "_path"    # Ljava/lang/String;
+    .param p2, "_apk"    # Ljava/lang/String;
 
+    .prologue
+    .line 491
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 492
     iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$SharedLibraryEntry;->path:Ljava/lang/String;
 
+    .line 493
     iput-object p2, p0, Lcom/android/server/pm/PackageManagerService$SharedLibraryEntry;->apk:Ljava/lang/String;
 
+    .line 494
     return-void
 .end method

@@ -703,7 +703,7 @@
     .line 404
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->dismiss()V
+    invoke-virtual {v10}, Landroid/app/Dialog;->dismiss()V
 
     .line 407
     :cond_0
@@ -783,7 +783,7 @@
     .local v3, "iccSwapBuilder":Landroid/app/AlertDialog$Builder;
     const-string v10, "SPR-CDMA"
 
-    const-string v12, "VZW-CDMA"
+    const-string v12, ""
 
     invoke-virtual {v10, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -805,7 +805,7 @@
     .line 436
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -816,7 +816,7 @@
     .line 437
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -827,7 +827,7 @@
     .line 438
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -838,7 +838,7 @@
     .line 440
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -855,7 +855,7 @@
     .line 442
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v10}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v10
 
@@ -864,7 +864,7 @@
     .line 444
     iget-object v10, p0, Lcom/android/internal/telephony/uicc/UiccController;->mIccSwapDialog:Landroid/app/AlertDialog;
 
-    invoke-virtual {v10}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v10}, Landroid/app/Dialog;->show()V
 
     .line 445
     monitor-exit v11
@@ -1450,7 +1450,7 @@
 
     const/4 v3, 0x2
 
-    invoke-virtual {p0, v3}, Lcom/android/internal/telephony/uicc/UiccController;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 

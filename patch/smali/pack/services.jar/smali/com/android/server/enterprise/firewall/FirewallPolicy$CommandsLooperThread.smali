@@ -24,6 +24,8 @@
 .method public constructor <init>(Lcom/android/server/enterprise/firewall/FirewallPolicy;)V
     .locals 0
 
+    .prologue
+    .line 1947
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsLooperThread;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -36,8 +38,11 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1950
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
+    .line 1951
     new-instance v0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;
 
     iget-object v1, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsLooperThread;->this$0:Lcom/android/server/enterprise/firewall/FirewallPolicy;
@@ -46,7 +51,9 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsLooperThread;->mHandler:Lcom/android/server/enterprise/firewall/FirewallPolicy$CommandsHandler;
 
+    .line 1952
     invoke-static {}, Landroid/os/Looper;->loop()V
 
+    .line 1953
     return-void
 .end method

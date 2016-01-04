@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/voiceshell/WakeUpCmdRecognizer;)V
     .locals 0
 
+    .prologue
+    .line 1381
     iput-object p1, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onAudioFocusChange(I)V
     .locals 3
+    .param p1, "focusChange"    # I
 
+    .prologue
+    .line 1385
     iget-object v0, p0, Lcom/samsung/voiceshell/WakeUpCmdRecognizer$3;->this$0:Lcom/samsung/voiceshell/WakeUpCmdRecognizer;
 
     # getter for: Lcom/samsung/voiceshell/WakeUpCmdRecognizer;->TAG:Ljava/lang/String;
@@ -64,11 +69,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1387
     packed-switch p1, :pswitch_data_0
 
+    .line 1398
     :pswitch_0
     return-void
 
+    .line 1387
     :pswitch_data_0
     .packed-switch -0x3
         :pswitch_0

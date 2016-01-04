@@ -24,11 +24,17 @@
 # direct methods
 .method public constructor <init>(Landroid/view/ViewRootImpl;Landroid/view/ViewRootImpl$InputStage;Ljava/lang/String;)V
     .locals 0
+    .param p2, "next"    # Landroid/view/ViewRootImpl$InputStage;
+    .param p3, "traceCounter"    # Ljava/lang/String;
 
+    .prologue
+    .line 4463
     iput-object p1, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
+    .line 4464
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewRootImpl$AsyncInputStage;-><init>(Landroid/view/ViewRootImpl;Landroid/view/ViewRootImpl$InputStage;Ljava/lang/String;)V
 
+    .line 4465
     return-void
 .end method
 
@@ -36,31 +42,43 @@
 # virtual methods
 .method public onFinishedInputEvent(Ljava/lang/Object;Z)V
     .locals 2
+    .param p1, "token"    # Ljava/lang/Object;
+    .param p2, "handled"    # Z
 
+    .prologue
+    .line 4489
     move-object v0, p1
 
     check-cast v0, Landroid/view/ViewRootImpl$QueuedInputEvent;
 
+    .line 4490
+    .local v0, "q":Landroid/view/ViewRootImpl$QueuedInputEvent;
     if-eqz p2, :cond_0
 
+    .line 4491
     const/4 v1, 0x1
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewRootImpl$ImeInputStage;->finish(Landroid/view/ViewRootImpl$QueuedInputEvent;Z)V
+    invoke-virtual {p0, v0, v1}, Landroid/view/ViewRootImpl$InputStage;->finish(Landroid/view/ViewRootImpl$QueuedInputEvent;Z)V
 
+    .line 4495
     :goto_0
     return-void
 
+    .line 4494
     :cond_0
-    invoke-virtual {p0, v0}, Landroid/view/ViewRootImpl$ImeInputStage;->forward(Landroid/view/ViewRootImpl$QueuedInputEvent;)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewRootImpl$AsyncInputStage;->forward(Landroid/view/ViewRootImpl$QueuedInputEvent;)V
 
     goto :goto_0
 .end method
 
 .method protected onProcess(Landroid/view/ViewRootImpl$QueuedInputEvent;)I
     .locals 5
+    .param p1, "q"    # Landroid/view/ViewRootImpl$QueuedInputEvent;
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 4469
     iget-object v4, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-boolean v4, v4, Landroid/view/ViewRootImpl;->mLastWasImTarget:Z
@@ -76,14 +94,20 @@
 
     if-nez v4, :cond_2
 
+    .line 4470
     invoke-static {}, Landroid/view/inputmethod/InputMethodManager;->peekInstance()Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v1
 
+    .line 4471
+    .local v1, "imm":Landroid/view/inputmethod/InputMethodManager;
     if-eqz v1, :cond_2
 
+    .line 4472
     iget-object v0, p1, Landroid/view/ViewRootImpl$QueuedInputEvent;->mEvent:Landroid/view/InputEvent;
 
+    .line 4474
+    .local v0, "event":Landroid/view/InputEvent;
     iget-object v4, p0, Landroid/view/ViewRootImpl$ImeInputStage;->this$0:Landroid/view/ViewRootImpl;
 
     iget-object v4, v4, Landroid/view/ViewRootImpl;->mHandler:Landroid/view/ViewRootImpl$ViewRootHandler;
@@ -92,23 +116,39 @@
 
     move-result v2
 
+    .line 4475
+    .local v2, "result":I
     if-ne v2, v3, :cond_0
 
+    .line 4484
+    .end local v0    # "event":Landroid/view/InputEvent;
+    .end local v1    # "imm":Landroid/view/inputmethod/InputMethodManager;
+    .end local v2    # "result":I
     :goto_0
     return v3
 
+    .line 4477
+    .restart local v0    # "event":Landroid/view/InputEvent;
+    .restart local v1    # "imm":Landroid/view/inputmethod/InputMethodManager;
+    .restart local v2    # "result":I
     :cond_0
     if-nez v2, :cond_1
 
+    .line 4478
     const/4 v3, 0x2
 
     goto :goto_0
 
+    .line 4480
     :cond_1
     const/4 v3, 0x3
 
     goto :goto_0
 
+    .line 4484
+    .end local v0    # "event":Landroid/view/InputEvent;
+    .end local v1    # "imm":Landroid/view/inputmethod/InputMethodManager;
+    .end local v2    # "result":I
     :cond_2
     const/4 v3, 0x0
 

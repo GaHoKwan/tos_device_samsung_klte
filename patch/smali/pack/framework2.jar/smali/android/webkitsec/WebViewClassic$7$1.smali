@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic$7;Landroid/graphics/Picture;)V
     .locals 0
 
+    .prologue
+    .line 4575
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$7$1;->this$1:Landroid/webkitsec/WebViewClassic$7;
 
     iput-object p2, p0, Landroid/webkitsec/WebViewClassic$7$1;->val$p:Landroid/graphics/Picture;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 4578
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$7$1;->this$1:Landroid/webkitsec/WebViewClassic$7;
 
     iget-object v0, v0, Landroid/webkitsec/WebViewClassic$7;->this$0:Landroid/webkitsec/WebViewClassic;
@@ -54,5 +58,6 @@
     # invokes: Landroid/webkitsec/WebViewClassic;->restoreHistoryPictureFields(Landroid/graphics/Picture;Landroid/os/Bundle;)V
     invoke-static {v0, v1, v2}, Landroid/webkitsec/WebViewClassic;->access$3500(Landroid/webkitsec/WebViewClassic;Landroid/graphics/Picture;Landroid/os/Bundle;)V
 
+    .line 4579
     return-void
 .end method

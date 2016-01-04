@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;Z)V
     .locals 0
 
+    .prologue
+    .line 342
     iput-object p1, p0, Lcom/android/server/StatusBarManagerService$2;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iput-boolean p2, p0, Lcom/android/server/StatusBarManagerService$2;->val$menuVisible:Z
@@ -41,12 +43,15 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 344
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$2;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
     if-eqz v0, :cond_0
 
+    .line 346
     :try_start_0
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$2;->this$0:Lcom/android/server/StatusBarManagerService;
 
@@ -58,10 +63,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 350
     :cond_0
     :goto_0
     return-void
 
+    .line 347
     :catch_0
     move-exception v0
 

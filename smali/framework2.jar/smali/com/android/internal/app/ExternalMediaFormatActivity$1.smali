@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/app/ExternalMediaFormatActivity;)V
     .locals 0
 
+    .prologue
+    .line 48
     iput-object p1, p0, Lcom/android/internal/app/ExternalMediaFormatActivity$1;->this$0:Lcom/android/internal/app/ExternalMediaFormatActivity;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 51
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 52
+    .local v0, "action":Ljava/lang/String;
     invoke-virtual {p2}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
     move-result-object v2
@@ -46,6 +54,8 @@
 
     move-result-object v1
 
+    .line 53
+    .local v1, "path":Ljava/lang/String;
     const-string v2, "ExternalMediaFormatActivity"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -78,6 +88,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 55
     iget-object v2, p0, Lcom/android/internal/app/ExternalMediaFormatActivity$1;->this$0:Lcom/android/internal/app/ExternalMediaFormatActivity;
 
     # getter for: Lcom/android/internal/app/ExternalMediaFormatActivity;->mPath:Ljava/lang/String;
@@ -91,6 +102,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 56
     const-string v2, "android.intent.action.MEDIA_REMOVED"
 
     if-eq v0, v2, :cond_0
@@ -107,11 +119,13 @@
 
     if-ne v0, v2, :cond_1
 
+    .line 60
     :cond_0
     iget-object v2, p0, Lcom/android/internal/app/ExternalMediaFormatActivity$1;->this$0:Lcom/android/internal/app/ExternalMediaFormatActivity;
 
-    invoke-virtual {v2}, Lcom/android/internal/app/ExternalMediaFormatActivity;->finish()V
+    invoke-virtual {v2}, Landroid/app/Activity;->finish()V
 
+    .line 63
     :cond_1
     return-void
 .end method

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/PVPlayReadyService;)V
     .locals 0
 
+    .prologue
+    .line 189
     iput-object p1, p0, Lcom/android/server/PVPlayReadyService$1;->this$0:Lcom/android/server/PVPlayReadyService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,16 @@
 .method public run()V
     .locals 11
 
+    .prologue
     const-wide/16 v9, 0x3e8
 
+    .line 193
     new-instance v0, Landroid/net/SntpClient;
 
     invoke-direct {v0}, Landroid/net/SntpClient;-><init>()V
 
+    .line 194
+    .local v0, "client":Landroid/net/SntpClient;
     const-string v7, "pool.ntp.org"
 
     const/16 v8, 0x1388
@@ -53,25 +59,34 @@
 
     if-eqz v7, :cond_0
 
+    .line 195
     invoke-virtual {v0}, Landroid/net/SntpClient;->getNtpTime()J
 
     move-result-wide v7
 
     div-long v1, v7, v9
 
+    .line 196
+    .local v1, "networktime":J
     invoke-virtual {v0}, Landroid/net/SntpClient;->getNtpTimeReference()J
 
     move-result-wide v7
 
     div-long v3, v7, v9
 
+    .line 198
+    .local v3, "recvElapsedTime":J
     iget-object v7, p0, Lcom/android/server/PVPlayReadyService$1;->this$0:Lcom/android/server/PVPlayReadyService;
 
     invoke-virtual {v7, v1, v2, v3, v4}, Lcom/android/server/PVPlayReadyService;->onNetworkStateChanged(JJ)V
 
+    .line 205
+    .end local v1    # "networktime":J
+    .end local v3    # "recvElapsedTime":J
     :goto_0
     return-void
 
+    .line 201
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -79,6 +94,8 @@
 
     div-long v5, v7, v9
 
+    .line 203
+    .local v5, "systime":J
     const-string v7, "PVPLayReadyService"
 
     new-instance v8, Ljava/lang/StringBuilder;

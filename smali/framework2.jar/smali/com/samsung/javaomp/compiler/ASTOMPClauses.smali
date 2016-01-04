@@ -673,7 +673,7 @@
 
     check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -707,7 +707,7 @@
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->nestedClausesList:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -735,7 +735,7 @@
 
     iget-object v0, v0, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->usedVariables:Ljava/util/HashSet;
 
-    invoke-virtual {v2, v0}, Ljava/util/HashSet;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v2, v0}, Ljava/util/AbstractCollection;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_0
 
@@ -982,7 +982,7 @@
 
     check-cast v1, Ljava/util/LinkedList;
 
-    invoke-virtual {v1}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
@@ -1068,7 +1068,7 @@
 
     iget-object v0, p0, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->fullSharedList:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 

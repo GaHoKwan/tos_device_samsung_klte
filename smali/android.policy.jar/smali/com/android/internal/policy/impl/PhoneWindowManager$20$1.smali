@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager$20;Landroid/os/Looper;Landroid/content/ServiceConnection;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 6106
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
     iput-object p3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->val$myConn:Landroid/content/ServiceConnection;
@@ -37,7 +40,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 6109
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$20;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -46,6 +52,7 @@
 
     monitor-enter v1
 
+    .line 6110
     :try_start_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
@@ -57,6 +64,7 @@
 
     if-ne v0, v2, :cond_0
 
+    .line 6111
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$20;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -71,6 +79,7 @@
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
+    .line 6112
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$20;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -79,6 +88,7 @@
 
     iput-object v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotConnection:Landroid/content/ServiceConnection;
 
+    .line 6113
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$20$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$20;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager$20;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
@@ -93,11 +103,14 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 6115
     :cond_0
     monitor-exit v1
 
+    .line 6116
     return-void
 
+    .line 6115
     :catchall_0
     move-exception v0
 

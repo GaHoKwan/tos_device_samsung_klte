@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;)V
     .locals 0
 
+    .prologue
+    .line 249
     iput-object p1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$3;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,16 @@
 # virtual methods
 .method public onShown(Landroid/os/IBinder;)V
     .locals 2
+    .param p1, "windowToken"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 252
     const-string v0, "KeyguardServiceDelegate"
 
     const-string v1, "mInformativeScreenService was shown!!"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 253
     return-void
 .end method

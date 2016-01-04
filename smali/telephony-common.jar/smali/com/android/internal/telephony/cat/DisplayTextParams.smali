@@ -35,7 +35,7 @@
     invoke-direct {p0, p1, p2}, Lcom/android/internal/telephony/cat/DisplayTextParams;-><init>(Lcom/android/internal/telephony/cat/CommandDetails;Lcom/android/internal/telephony/cat/TextMessage;)V
 
     .line 64
-    invoke-virtual {p0, p3}, Lcom/android/internal/telephony/cat/DisplayTextParams;->setHasIconTag(Z)V
+    invoke-virtual {p0, p3}, Lcom/android/internal/telephony/cat/CommandParams;->setHasIconTag(Z)V
 
     .line 65
     return-void

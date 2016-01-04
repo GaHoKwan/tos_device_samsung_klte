@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/mDNLeOnOff;)V
     .locals 0
 
+    .prologue
+    .line 221
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff$3;->this$0:Lcom/android/server/ssrm/fgapps/mDNLeOnOff;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 226
     :goto_0
     :try_start_0
     sget-object v2, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject2:Ljava/lang/Object;
@@ -45,20 +49,24 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 227
     :try_start_1
     sget-object v1, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->syncObject2:Ljava/lang/Object;
 
     invoke-virtual {v1}, Ljava/lang/Object;->wait()V
 
+    .line 228
     monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 229
     const-wide/16 v1, 0x2ee
 
     :try_start_2
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 230
     iget-object v1, p0, Lcom/android/server/ssrm/fgapps/mDNLeOnOff$3;->this$0:Lcom/android/server/ssrm/fgapps/mDNLeOnOff;
 
     invoke-virtual {v1}, Lcom/android/server/ssrm/fgapps/mDNLeOnOff;->updatemDNIe()V
@@ -67,11 +75,16 @@
 
     goto :goto_0
 
+    .line 231
     :catch_0
     move-exception v0
 
+    .line 235
+    .local v0, "e":Ljava/lang/Exception;
     return-void
 
+    .line 228
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 

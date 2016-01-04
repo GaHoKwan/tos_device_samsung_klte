@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;)V
     .locals 0
 
+    .prologue
+    .line 1073
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;
 
     invoke-direct {p0}, Landroid/sec/clipboard/data/IClipboardDataList$Stub;-><init>()V
@@ -33,12 +35,15 @@
 # virtual methods
 .method public getItem(I)Landroid/sec/clipboard/data/ClipboardData;
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1080
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;
 
     invoke-virtual {v0, p1}, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;->getItem(I)Landroid/sec/clipboard/data/ClipboardData;
@@ -50,12 +55,15 @@
 
 .method public removeData(I)Z
     .locals 1
+    .param p1, "index"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1084
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;
 
     invoke-virtual {v0, p1}, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;->removeData(I)Z
@@ -73,6 +81,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 1076
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;
 
     invoke-virtual {v0}, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;->size()I
@@ -84,12 +94,16 @@
 
 .method public updateData(ILandroid/sec/clipboard/data/ClipboardData;)Z
     .locals 1
+    .param p1, "index"    # I
+    .param p2, "clipData"    # Landroid/sec/clipboard/data/ClipboardData;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 1088
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/sec/InternalClipboardExService$ISharedClipboardDataList;->updateData(ILandroid/sec/clipboard/data/ClipboardData;)Z

@@ -27,10 +27,13 @@
 .method private constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 1
 
+    .prologue
+    .line 2339
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 2341
     new-instance v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp$1;
 
     invoke-direct {v0, p0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp$1;-><init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;)V
@@ -42,7 +45,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;Lcom/android/server/sec/ClippedDataPickerDialog$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/sec/ClippedDataPickerDialog;
+    .param p2, "x1"    # Lcom/android/server/sec/ClippedDataPickerDialog$1;
 
+    .prologue
+    .line 2339
     invoke-direct {p0, p1}, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;-><init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
 
     return-void
@@ -53,6 +60,8 @@
 .method public asBinder()Landroid/os/IBinder;
     .locals 2
 
+    .prologue
+    .line 2466
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -63,6 +72,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2467
     :cond_0
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->mBinder:Landroid/sec/clipboard/IClipboardWorkingFormUiInterface$Stub;
 
@@ -71,14 +81,17 @@
 
 .method public setClipboardDataListChange(I)V
     .locals 8
+    .param p1, "arg0"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
     const/4 v7, 0x1
 
+    .line 2387
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipboardDataList:Landroid/sec/clipboard/data/IClipboardDataList;
@@ -90,12 +103,15 @@
 
     move-result v0
 
+    .line 2388
+    .local v0, "currentDataCnt":I
     const/16 v4, 0x14
 
     if-le v0, v4, :cond_0
 
     const/16 v0, 0x14
 
+    .line 2390
     :cond_0
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
@@ -140,6 +156,7 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2391
     :cond_1
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -150,28 +167,38 @@
 
     if-gt v4, v0, :cond_5
 
+    .line 2392
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # setter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mAddScenario:Z
     invoke-static {v4, v7}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$1202(Lcom/android/server/sec/ClippedDataPickerDialog;Z)Z
 
+    .line 2396
     :goto_0
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # setter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mDataCount:I
     invoke-static {v4, v0}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$1702(Lcom/android/server/sec/ClippedDataPickerDialog;I)I
 
+    .line 2398
     move v1, p1
 
+    .line 2399
+    .local v1, "flag":I
     if-ne v1, v7, :cond_2
 
+    .line 2400
     sput v0, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
 
+    .line 2403
     :cond_2
     const/4 v3, 0x1
 
+    .line 2404
+    .local v3, "isAllDisabled":Z
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -182,6 +209,7 @@
 
     if-ge v2, v4, :cond_4
 
+    .line 2405
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # invokes: Lcom/android/server/sec/ClippedDataPickerDialog;->isCheckProtectedItem(I)Z
@@ -191,6 +219,7 @@
 
     if-nez v4, :cond_6
 
+    .line 2406
     sget-boolean v4, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v4, :cond_3
@@ -217,12 +246,15 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2407
     :cond_3
     const/4 v3, 0x0
 
+    .line 2412
     :cond_4
     if-eqz v3, :cond_7
 
+    .line 2413
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipDrawer:Lcom/android/server/sec/TwSlidingDrawer;
@@ -234,8 +266,9 @@
 
     invoke-direct {v5, p0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp$2;-><init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;)V
 
-    invoke-virtual {v4, v5}, Lcom/android/server/sec/TwSlidingDrawer;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v4, v5}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 2445
     :goto_2
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -245,10 +278,15 @@
 
     invoke-direct {v5, p0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp$4;-><init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;)V
 
-    invoke-virtual {v4, v5}, Lcom/android/server/sec/ClippedDataPickerGridView;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v4, v5}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
+    .line 2462
     return-void
 
+    .line 2394
+    .end local v1    # "flag":I
+    .end local v2    # "i":I
+    .end local v3    # "isAllDisabled":Z
     :cond_5
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -259,11 +297,16 @@
 
     goto :goto_0
 
+    .line 2404
+    .restart local v1    # "flag":I
+    .restart local v2    # "i":I
+    .restart local v3    # "isAllDisabled":Z
     :cond_6
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 2428
     :cond_7
     iget-object v4, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -276,19 +319,22 @@
 
     invoke-direct {v5, p0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp$3;-><init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;)V
 
-    invoke-virtual {v4, v5}, Lcom/android/server/sec/TwSlidingDrawer;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v4, v5}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_2
 .end method
 
 .method public setClipboardDataMgr(Landroid/sec/clipboard/data/IClipboardDataList;)V
     .locals 3
+    .param p1, "arg0"    # Landroid/sec/clipboard/data/IClipboardDataList;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2363
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -299,12 +345,14 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2364
     :cond_0
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # setter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipboardDataList:Landroid/sec/clipboard/data/IClipboardDataList;
     invoke-static {v0, p1}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$1302(Lcom/android/server/sec/ClippedDataPickerDialog;Landroid/sec/clipboard/data/IClipboardDataList;)Landroid/sec/clipboard/data/IClipboardDataList;
 
+    .line 2365
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipboardDataList:Landroid/sec/clipboard/data/IClipboardDataList;
@@ -318,6 +366,7 @@
 
     sput v0, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
 
+    .line 2369
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
@@ -334,6 +383,7 @@
     # setter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mDataCount:I
     invoke-static {v0, v1}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$1702(Lcom/android/server/sec/ClippedDataPickerDialog;I)I
 
+    .line 2370
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_1
@@ -367,6 +417,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2372
     :cond_1
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -378,6 +429,7 @@
 
     iput-object v1, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mAdapter:Landroid/widget/BaseAdapter;
 
+    .line 2373
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mGrid:Lcom/android/server/sec/ClippedDataPickerGridView;
@@ -386,19 +438,23 @@
 
     iget-object v1, v1, Lcom/android/server/sec/ClippedDataPickerDialog;->mAdapter:Landroid/widget/BaseAdapter;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/sec/ClippedDataPickerGridView;->setAdapter(Landroid/widget/ListAdapter;)V
+    invoke-virtual {v0, v1}, Landroid/widget/GridView;->setAdapter(Landroid/widget/ListAdapter;)V
 
+    .line 2374
     return-void
 .end method
 
 .method public setClipboardDataUiEvent(Landroid/sec/clipboard/IClipboardDataUiEvent;)V
     .locals 2
+    .param p1, "arg0"    # Landroid/sec/clipboard/IClipboardDataUiEvent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2380
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -409,11 +465,13 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2381
     :cond_0
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipboardWorkingFormUiInterfaceImp;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # setter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mClipboardDataUiEvent:Landroid/sec/clipboard/IClipboardDataUiEvent;
     invoke-static {v0, p1}, Lcom/android/server/sec/ClippedDataPickerDialog;->access$302(Lcom/android/server/sec/ClippedDataPickerDialog;Landroid/sec/clipboard/IClipboardDataUiEvent;)Landroid/sec/clipboard/IClipboardDataUiEvent;
 
+    .line 2382
     return-void
 .end method

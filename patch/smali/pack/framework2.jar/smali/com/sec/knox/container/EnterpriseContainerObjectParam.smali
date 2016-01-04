@@ -45,6 +45,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 29
     new-instance v0, Lcom/sec/knox/container/EnterpriseContainerObjectParam$1;
 
     invoke-direct {v0}, Lcom/sec/knox/container/EnterpriseContainerObjectParam$1;-><init>()V
@@ -57,88 +59,117 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v1, 0x0
 
+    .line 42
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 17
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
+    .line 18
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
+    .line 19
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
+    .line 20
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
+    .line 21
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
+    .line 22
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
+    .line 23
     iput v2, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
+    .line 25
     iput v2, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
+    .line 26
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
+    .line 44
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v1, 0x0
 
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 17
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
+    .line 18
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
+    .line 19
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
+    .line 20
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
+    .line 21
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
+    .line 22
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
+    .line 23
     iput v2, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
+    .line 25
     iput v2, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
+    .line 26
     iput-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
+    .line 47
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
+    .line 48
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
+    .line 49
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
+    .line 50
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
+    .line 51
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -155,30 +186,35 @@
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
+    .line 52
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
+    .line 53
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
+    .line 54
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
+    .line 55
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
+    .line 56
     return-void
 .end method
 
@@ -187,6 +223,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 134
     const/4 v0, 0x0
 
     return v0
@@ -195,6 +233,8 @@
 .method public getAdmin()I
     .locals 1
 
+    .prologue
+    .line 111
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
     return v0
@@ -203,6 +243,8 @@
 .method public getApkInstallPath()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 127
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
     return-object v0
@@ -211,6 +253,8 @@
 .method public getEmail()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 79
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
     return-object v0
@@ -219,6 +263,8 @@
 .method public getLockType()I
     .locals 1
 
+    .prologue
+    .line 119
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
     return v0
@@ -227,6 +273,8 @@
 .method public getName()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 63
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
     return-object v0
@@ -235,6 +283,8 @@
 .method public getPassword()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 71
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
     return-object v0
@@ -243,6 +293,8 @@
 .method public getRequestId()I
     .locals 1
 
+    .prologue
+    .line 103
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
     return v0
@@ -251,6 +303,8 @@
 .method public getSecurityIcon()Landroid/graphics/Bitmap;
     .locals 1
 
+    .prologue
+    .line 95
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -259,6 +313,8 @@
 .method public getSecurityText()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 87
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
     return-object v0
@@ -266,147 +322,203 @@
 
 .method public setAdmin(I)V
     .locals 0
+    .param p1, "admin"    # I
 
+    .prologue
+    .line 107
     iput p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
+    .line 108
     return-void
 .end method
 
 .method public setApkInstallPath(Ljava/lang/String;)V
     .locals 0
+    .param p1, "apkPath"    # Ljava/lang/String;
 
+    .prologue
+    .line 123
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
+    .line 124
     return-void
 .end method
 
 .method public setEmail(Ljava/lang/String;)V
     .locals 0
+    .param p1, "email"    # Ljava/lang/String;
 
+    .prologue
+    .line 75
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
+    .line 76
     return-void
 .end method
 
 .method public setLockType(I)V
     .locals 0
+    .param p1, "type"    # I
 
+    .prologue
+    .line 115
     iput p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
+    .line 116
     return-void
 .end method
 
 .method public setName(Ljava/lang/String;)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 59
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
+    .line 60
     return-void
 .end method
 
 .method public setPassword(Ljava/lang/String;)V
     .locals 0
+    .param p1, "password"    # Ljava/lang/String;
 
+    .prologue
+    .line 67
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
+    .line 68
     return-void
 .end method
 
 .method public setRequestId(I)V
     .locals 0
+    .param p1, "requestId"    # I
 
+    .prologue
+    .line 99
     iput p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
+    .line 100
     return-void
 .end method
 
 .method public setSecurityIcon(Landroid/graphics/Bitmap;)V
     .locals 0
+    .param p1, "securityIcon"    # Landroid/graphics/Bitmap;
 
+    .prologue
+    .line 91
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
+    .line 92
     return-void
 .end method
 
 .method public setSecurityText(Ljava/lang/String;)V
     .locals 0
+    .param p1, "securityText"    # Ljava/lang/String;
 
+    .prologue
+    .line 83
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
+    .line 84
     return-void
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 139
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
+    .line 140
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 145
     :goto_0
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
     if-eqz v0, :cond_1
 
+    .line 146
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mPassword:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 151
     :goto_1
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
     if-eqz v0, :cond_2
 
+    .line 152
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mEmail:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 157
     :goto_2
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
     if-eqz v0, :cond_3
 
+    .line 158
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityText:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 163
     :goto_3
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mSecurityIcon:Landroid/graphics/Bitmap;
 
     invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
+    .line 164
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mContainerCreationRequestId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 165
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mAdmin:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 166
     iget v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mLockType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 167
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
     if-eqz v0, :cond_4
 
+    .line 168
     iget-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerObjectParam;->mApkInstallPath:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 173
     :goto_4
     return-void
 
+    .line 142
     :cond_0
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 143
     const-string v0, "EnterpriseContainerObjectParam"
 
     const-string/jumbo v1, "writeToParcel Password null"
@@ -415,11 +527,13 @@
 
     goto :goto_0
 
+    .line 148
     :cond_1
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 149
     const-string v0, "EnterpriseContainerObjectParam"
 
     const-string/jumbo v1, "writeToParcel Password null"
@@ -428,11 +542,13 @@
 
     goto :goto_1
 
+    .line 154
     :cond_2
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 155
     const-string v0, "EnterpriseContainerObjectParam"
 
     const-string/jumbo v1, "writeToParcel Email null"
@@ -441,11 +557,13 @@
 
     goto :goto_2
 
+    .line 160
     :cond_3
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 161
     const-string v0, "EnterpriseContainerObjectParam"
 
     const-string/jumbo v1, "writeToParcel Security Text null"
@@ -454,11 +572,13 @@
 
     goto :goto_3
 
+    .line 170
     :cond_4
     const-string v0, ""
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 171
     const-string v0, "EnterpriseContainerObjectParam"
 
     const-string/jumbo v1, "writeToParcel mApkInstallPath null"

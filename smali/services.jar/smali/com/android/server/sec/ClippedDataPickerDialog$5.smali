@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog;)V
     .locals 0
 
+    .prologue
+    .line 853
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$5;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onCallStateChanged(ILjava/lang/String;)V
     .locals 3
+    .param p1, "state"    # I
+    .param p2, "incomingNumber"    # Ljava/lang/String;
 
+    .prologue
+    .line 855
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_0
@@ -60,11 +66,13 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 856
     :cond_0
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_2
 
+    .line 857
     sget-boolean v0, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v0, :cond_1
@@ -75,6 +83,7 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 858
     :cond_1
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$5;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
@@ -85,6 +94,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 859
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$5;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     # getter for: Lcom/android/server/sec/ClippedDataPickerDialog;->mCbm:Landroid/sec/clipboard/ClipboardExManager;
@@ -94,6 +104,7 @@
 
     invoke-virtual {v0}, Landroid/sec/clipboard/ClipboardExManager;->dismissUIDataDialog()V
 
+    .line 860
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$5;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -104,18 +115,20 @@
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
 
     move-result v0
 
     if-eqz v0, :cond_2
 
+    .line 861
     iget-object v0, p0, Lcom/android/server/sec/ClippedDataPickerDialog$5;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;->dismiss()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
+    .line 865
     :cond_2
     return-void
 .end method

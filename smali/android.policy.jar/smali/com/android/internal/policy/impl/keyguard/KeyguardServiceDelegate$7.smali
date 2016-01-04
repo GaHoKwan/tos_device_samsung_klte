@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;)V
     .locals 0
 
+    .prologue
+    .line 454
     iput-object p1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 3
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 458
     const-string v0, "KeyguardServiceDelegate"
 
     const-string v1, "*** InformativeScreen connected (yay!)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 459
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     new-instance v1, Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
@@ -56,6 +63,7 @@
     # setter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mInformativeScreenService:Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->access$402(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;)Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
 
+    .line 460
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mKeyguardState:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$KeyguardState;
@@ -67,6 +75,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 461
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mInformativeScreenService:Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
@@ -76,6 +85,7 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;->onSystemReady()V
 
+    .line 463
     :cond_0
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
@@ -88,6 +98,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 464
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mInformativeScreenService:Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
@@ -97,19 +108,24 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;->onBootCompleted()V
 
+    .line 466
     :cond_1
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 471
     const-string v0, "KeyguardServiceDelegate"
 
     const-string v1, "*** InformativeScreen disconnected (boo!)"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 472
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$7;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     const/4 v1, 0x0
@@ -117,5 +133,6 @@
     # setter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mInformativeScreenService:Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->access$402(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;)Lcom/android/internal/policy/impl/keyguard/InformativeScreenServiceWrapper;
 
+    .line 473
     return-void
 .end method

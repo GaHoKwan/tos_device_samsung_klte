@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/DirEncryptServiceHelper;)V
     .locals 0
 
+    .prologue
+    .line 147
     iput-object p1, p0, Lcom/android/server/DirEncryptServiceHelper$1;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 150
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 151
+    .local v0, "action":Ljava/lang/String;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -58,6 +66,7 @@
 
     invoke-static {v1}, Lcom/android/server/DirEncryptServiceHelper;->logD(Ljava/lang/String;)V
 
+    .line 153
     const-string v1, "android.dirEncryption.DirEncryptionManager.UNMOUNT_POLICY"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -66,10 +75,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 154
     const-string v1, "Unmount policy noti pressed"
 
     invoke-static {v1}, Lcom/android/server/DirEncryptServiceHelper;->logD(Ljava/lang/String;)V
 
+    .line 155
     iget-object v1, p0, Lcom/android/server/DirEncryptServiceHelper$1;->this$0:Lcom/android/server/DirEncryptServiceHelper;
 
     # getter for: Lcom/android/server/DirEncryptServiceHelper;->mHandler:Landroid/os/Handler;
@@ -85,6 +96,7 @@
 
     invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
+    .line 157
     :cond_0
     return-void
 .end method

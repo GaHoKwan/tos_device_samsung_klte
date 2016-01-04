@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/GestureEffectManager$1;)V
     .locals 0
 
+    .prologue
+    .line 2891
     iput-object p1, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +38,21 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2919
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
     const/4 v1, 0x4
 
+    .line 2898
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager$1;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
@@ -56,6 +64,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 2899
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager$1;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
@@ -67,6 +76,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
+    .line 2901
     :cond_0
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
@@ -74,6 +84,7 @@
 
     packed-switch v0, :pswitch_data_0
 
+    .line 2911
     :goto_0
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
@@ -86,6 +97,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 2912
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
     iget-object v0, v0, Lcom/android/server/smartclip/GestureEffectManager$1;->this$0:Lcom/android/server/smartclip/GestureEffectManager;
@@ -94,6 +106,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/smartclip/SmartClipView;->closeView()V
 
+    .line 2914
     :cond_1
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
@@ -104,8 +117,10 @@
     # setter for: Lcom/android/server/smartclip/GestureEffectManager;->mIsShowingGestureEffect:Z
     invoke-static {v0, v1}, Lcom/android/server/smartclip/GestureEffectManager;->access$502(Lcom/android/server/smartclip/GestureEffectManager;Z)Z
 
+    .line 2915
     return-void
 
+    .line 2903
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
@@ -118,6 +133,7 @@
 
     goto :goto_0
 
+    .line 2906
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/smartclip/GestureEffectManager$1$1;->this$1:Lcom/android/server/smartclip/GestureEffectManager$1;
 
@@ -128,6 +144,7 @@
 
     goto :goto_0
 
+    .line 2901
     nop
 
     :pswitch_data_0
@@ -139,12 +156,18 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2923
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 2894
     return-void
 .end method

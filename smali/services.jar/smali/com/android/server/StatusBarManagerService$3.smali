@@ -31,6 +31,8 @@
 .method constructor <init>(Lcom/android/server/StatusBarManagerService;Landroid/os/IBinder;II)V
     .locals 0
 
+    .prologue
+    .line 369
     iput-object p1, p0, Lcom/android/server/StatusBarManagerService$3;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iput-object p2, p0, Lcom/android/server/StatusBarManagerService$3;->val$token:Landroid/os/IBinder;
@@ -49,12 +51,15 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 371
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$3;->this$0:Lcom/android/server/StatusBarManagerService;
 
     iget-object v0, v0, Lcom/android/server/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
     if-eqz v0, :cond_0
 
+    .line 373
     :try_start_0
     iget-object v0, p0, Lcom/android/server/StatusBarManagerService$3;->this$0:Lcom/android/server/StatusBarManagerService;
 
@@ -70,10 +75,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 377
     :cond_0
     :goto_0
     return-void
 
+    .line 374
     :catch_0
     move-exception v0
 

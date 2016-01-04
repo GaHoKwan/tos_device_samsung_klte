@@ -81,7 +81,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/hardware/contextaware/aggregator/lpp/LppFusion;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 347
     return-void

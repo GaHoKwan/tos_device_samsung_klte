@@ -228,7 +228,7 @@
     .line 77
     .local v2, "e":Ljava/lang/InterruptedException;
     :try_start_2
-    invoke-virtual {v2}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 

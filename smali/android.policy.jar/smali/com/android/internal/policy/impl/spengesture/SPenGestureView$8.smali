@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;I)V
     .locals 0
 
+    .prologue
+    .line 991
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iput p2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->val$key:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 993
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mHandler:Landroid/os/Handler;
@@ -51,6 +55,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 994
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mHandler:Landroid/os/Handler;
@@ -61,6 +66,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 995
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mHandler:Landroid/os/Handler;
@@ -71,12 +77,14 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 999
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mInstrumentation:Landroid/app/Instrumentation;
 
     if-eqz v0, :cond_0
 
+    .line 1002
     iget-object v0, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget v1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$8;->val$key:I
@@ -86,6 +94,7 @@
     # invokes: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->sendKeyDownUpSync(II)V
     invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$2700(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;II)V
 
+    .line 1006
     :cond_0
     return-void
 .end method

@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/webkitsec/JsDialogHelper;)V
     .locals 0
 
+    .prologue
+    .line 136
     iput-object p1, p0, Landroid/webkitsec/JsDialogHelper$KeyListener;->this$0:Landroid/webkitsec/JsDialogHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/webkitsec/JsDialogHelper;Landroid/webkitsec/JsDialogHelper$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/webkitsec/JsDialogHelper;
+    .param p2, "x1"    # Landroid/webkitsec/JsDialogHelper$1;
 
+    .prologue
+    .line 136
     invoke-direct {p0, p1}, Landroid/webkitsec/JsDialogHelper$KeyListener;-><init>(Landroid/webkitsec/JsDialogHelper;)V
 
     return-void
@@ -44,9 +50,14 @@
 # virtual methods
 .method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 139
     const/16 v0, 0x52
 
     if-ne p2, v0, :cond_0
@@ -68,6 +79,7 @@
 
     if-ne p2, v0, :cond_2
 
+    .line 140
     :cond_1
     iget-object v0, p0, Landroid/webkitsec/JsDialogHelper$KeyListener;->this$0:Landroid/webkitsec/JsDialogHelper;
 
@@ -76,10 +88,12 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkitsec/JsPromptResult;->cancel()V
+    invoke-virtual {v0}, Landroid/webkitsec/JsResult;->cancel()V
 
+    .line 141
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
+    .line 145
     :cond_2
     return v1
 .end method

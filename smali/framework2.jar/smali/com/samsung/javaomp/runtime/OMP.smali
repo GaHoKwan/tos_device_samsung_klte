@@ -184,7 +184,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -525,7 +525,7 @@
 
     invoke-virtual {v6, v9}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v9, v13}, Lcom/samsung/javaomp/runtime/__OMPThread;->setDaemon(Z)V
+    invoke-virtual {v9, v13}, Ljava/lang/Thread;->setDaemon(Z)V
 
     invoke-virtual {v9, v8}, Lcom/samsung/javaomp/runtime/__OMPThread;->setWorkshare(Lcom/samsung/javaomp/runtime/__OMPWorkshare;)V
 
@@ -564,7 +564,7 @@
 
     invoke-virtual {v2, p0}, Lcom/samsung/javaomp/runtime/__OMPThreadStorage;->setWorkItem(Lcom/samsung/javaomp/runtime/__OMPWorkItem;)V
 
-    invoke-virtual {v6}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
@@ -587,7 +587,7 @@
 
     if-lt v6, v3, :cond_3
 
-    invoke-virtual {v0}, Lcom/samsung/javaomp/runtime/__OMPThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     :goto_4
     :try_start_0
@@ -600,14 +600,14 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_3
 
     :cond_3
     iget-object v6, v7, Lcom/samsung/javaomp/runtime/__OMPTeam;->workItemQueue:Ljava/util/concurrent/LinkedBlockingQueue;
 
-    invoke-virtual {v6, p0}, Ljava/util/concurrent/LinkedBlockingQueue;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v6, p0}, Ljava/util/AbstractQueue;->add(Ljava/lang/Object;)Z
 
     goto :goto_4
 
@@ -1263,7 +1263,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -1716,7 +1716,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -1734,7 +1734,7 @@
 
     check-cast v0, Lcom/samsung/javaomp/runtime/__OMPThread;
 
-    invoke-virtual {v0}, Lcom/samsung/javaomp/runtime/__OMPThread;->getId()J
+    invoke-virtual {v0}, Ljava/lang/Thread;->getId()J
 
     move-result-wide v2
 

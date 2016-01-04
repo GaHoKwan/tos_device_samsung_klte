@@ -33,6 +33,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 227
     const-class v0, Landroid/webkitsec/WebCoreThreadWatchdog;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -56,21 +58,31 @@
 
 .method public constructor <init>(Landroid/webkitsec/WebCoreThreadWatchdog;Landroid/content/Context;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "context"    # Landroid/content/Context;
+    .param p3, "watchdogHandler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 231
     iput-object p1, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->this$0:Landroid/webkitsec/WebCoreThreadWatchdog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 232
     iput-object p2, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mContext:Landroid/content/Context;
 
+    .line 233
     iput-object p3, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mWatchdogHandler:Landroid/os/Handler;
 
+    .line 234
     return-void
 .end method
 
 .method static synthetic access$400(Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;)Landroid/os/Handler;
     .locals 1
+    .param p0, "x0"    # Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;
 
+    .prologue
+    .line 227
     iget-object v0, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mWatchdogHandler:Landroid/os/Handler;
 
     return-object v0
@@ -81,6 +93,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 239
     sget-boolean v1, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->$assertionsDisabled:Z
 
     if-nez v1, :cond_0
@@ -105,6 +119,7 @@
 
     throw v1
 
+    .line 241
     :cond_0
     iget-object v1, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mContext:Landroid/content/Context;
 
@@ -116,19 +131,25 @@
 
     if-eqz v1, :cond_1
 
+    .line 242
     iget-object v0, p0, Landroid/webkitsec/WebCoreThreadWatchdog$PageNotRespondingRunnable;->mContext:Landroid/content/Context;
 
     check-cast v0, Landroid/app/Activity;
 
+    .line 243
+    .local v0, "activity":Landroid/app/Activity;
     invoke-virtual {v0}, Landroid/app/Activity;->isFinishing()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
+    .line 284
+    .end local v0    # "activity":Landroid/app/Activity;
     :goto_0
     return-void
 
+    .line 248
     :cond_1
     new-instance v1, Landroid/app/AlertDialog$Builder;
 

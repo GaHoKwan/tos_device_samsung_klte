@@ -828,7 +828,7 @@
     .line 1254
     new-instance v1, Ljava/lang/IllegalStateException;
 
-    const-string v2, "you must prepare this inserter before calling execute"
+    const-string/jumbo v2, "you must prepare this inserter before calling execute"
 
     invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

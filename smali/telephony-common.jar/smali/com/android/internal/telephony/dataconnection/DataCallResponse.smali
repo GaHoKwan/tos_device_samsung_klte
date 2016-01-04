@@ -407,7 +407,7 @@
     invoke-static/range {v15 .. v16}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 221
-    invoke-virtual {v7}, Ljava/net/UnknownHostException;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 222
     sget-object v13, Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;->ERR_UnacceptableParameter:Lcom/android/internal/telephony/dataconnection/DataCallResponse$SetupResult;

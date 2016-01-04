@@ -90,6 +90,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 403
     new-instance v0, Landroid/view/inputmethod/EditorInfo$1;
 
     invoke-direct {v0}, Landroid/view/inputmethod/EditorInfo$1;-><init>()V
@@ -102,28 +104,38 @@
 .method public constructor <init>()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x0
 
     const/4 v1, -0x1
 
     const/4 v0, 0x0
 
+    .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 41
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
+    .line 218
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
 
+    .line 231
     iput-object v2, p0, Landroid/view/inputmethod/EditorInfo;->privateImeOptions:Ljava/lang/String;
 
+    .line 243
     iput-object v2, p0, Landroid/view/inputmethod/EditorInfo;->actionLabel:Ljava/lang/CharSequence;
 
+    .line 251
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->actionId:I
 
+    .line 259
     iput v1, p0, Landroid/view/inputmethod/EditorInfo;->initialSelStart:I
 
+    .line 267
     iput v1, p0, Landroid/view/inputmethod/EditorInfo;->initialSelEnd:I
 
+    .line 278
     iput v0, p0, Landroid/view/inputmethod/EditorInfo;->initialCapsMode:I
 
     return-void
@@ -134,6 +146,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 429
     const/4 v0, 0x0
 
     return v0
@@ -141,7 +155,11 @@
 
 .method public dump(Landroid/util/Printer;Ljava/lang/String;)V
     .locals 2
+    .param p1, "pw"    # Landroid/util/Printer;
+    .param p2, "prefix"    # Ljava/lang/String;
 
+    .prologue
+    .line 360
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -200,6 +218,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 363
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -238,6 +257,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 365
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -292,6 +312,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 369
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -330,6 +351,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 371
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -380,6 +402,7 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 374
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -406,28 +429,35 @@
 
     invoke-interface {p1, v0}, Landroid/util/Printer;->println(Ljava/lang/String;)V
 
+    .line 375
     return-void
 .end method
 
 .method public final makeCompatible(I)V
     .locals 2
+    .param p1, "targetSdkVersion"    # I
 
+    .prologue
     const v1, 0xfff000
 
+    .line 337
     const/16 v0, 0xb
 
     if-ge p1, v0, :cond_0
 
+    .line 338
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     and-int/lit16 v0, v0, 0xfff
 
     sparse-switch v0, :sswitch_data_0
 
+    .line 354
     :cond_0
     :goto_0
     return-void
 
+    .line 340
     :sswitch_0
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
@@ -439,6 +469,7 @@
 
     goto :goto_0
 
+    .line 344
     :sswitch_1
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
@@ -450,6 +481,7 @@
 
     goto :goto_0
 
+    .line 349
     :sswitch_2
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
@@ -461,6 +493,7 @@
 
     goto :goto_0
 
+    .line 338
     nop
 
     :sswitch_data_0
@@ -474,62 +507,80 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "dest"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 384
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->inputType:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 385
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->imeOptions:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 386
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->privateImeOptions:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 387
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->actionLabel:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
+    .line 388
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->actionId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 389
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->initialSelStart:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 390
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->initialSelEnd:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 391
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->initialCapsMode:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 392
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->hintText:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
+    .line 393
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->label:Ljava/lang/CharSequence;
 
     invoke-static {v0, p1, p2}, Landroid/text/TextUtils;->writeToParcel(Ljava/lang/CharSequence;Landroid/os/Parcel;I)V
 
+    .line 394
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->packageName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 395
     iget v0, p0, Landroid/view/inputmethod/EditorInfo;->fieldId:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 396
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->fieldName:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
+    .line 397
     iget-object v0, p0, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeBundle(Landroid/os/Bundle;)V
 
+    .line 398
     return-void
 .end method

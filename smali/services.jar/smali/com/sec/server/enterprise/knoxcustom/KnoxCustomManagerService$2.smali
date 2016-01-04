@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
     .locals 0
 
+    .prologue
+    .line 257
     iput-object p1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$2;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 261
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -46,6 +52,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 262
     const-string/jumbo v1, "wifi_state"
 
     const/4 v2, 0x4
@@ -58,6 +65,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 264
     # getter for: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mWifiConfigure:Z
     invoke-static {}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->access$100()Z
 
@@ -65,6 +73,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 265
     iget-object v1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$2;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     # getter for: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mWifiSSID:Ljava/lang/String;
@@ -80,11 +89,13 @@
     # invokes: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->configureWifi(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, p1, v2, v3}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->access$400(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 266
     const/4 v1, 0x0
 
     # setter for: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mWifiConfigure:Z
     invoke-static {v1}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->access$102(Z)Z
 
+    .line 270
     :cond_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -98,6 +109,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 271
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v1
@@ -108,6 +120,8 @@
 
     move-result v0
 
+    .line 272
+    .local v0, "connected":Z
     if-eqz v0, :cond_1
 
     iget-object v1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$2;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
@@ -118,11 +132,14 @@
 
     if-eqz v1, :cond_1
 
+    .line 273
     iget-object v1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$2;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     # invokes: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->startStopUsbNet(Landroid/content/Context;)V
     invoke-static {v1, p1}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->access$500(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;Landroid/content/Context;)V
 
+    .line 276
+    .end local v0    # "connected":Z
     :cond_1
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 1100
     invoke-static {}, Landroid/os/SystemVibrator$MagnitudeType;->values()[Landroid/os/SystemVibrator$MagnitudeType;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->TouchMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->NotificationMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->CallMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Landroid/os/SystemVibrator$MagnitudeType;->MaxMagnitude:Landroid/os/SystemVibrator$MagnitudeType;
 
-    invoke-virtual {v1}, Landroid/os/SystemVibrator$MagnitudeType;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/NotificationManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1893
     iput-object p1, p0, Lcom/android/server/NotificationManagerService$WorkerHandler;->this$0:Lcom/android/server/NotificationManagerService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/NotificationManagerService;Lcom/android/server/NotificationManagerService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/NotificationManagerService;
+    .param p2, "x1"    # Lcom/android/server/NotificationManagerService$1;
 
+    .prologue
+    .line 1893
     invoke-direct {p0, p1}, Lcom/android/server/NotificationManagerService$WorkerHandler;-><init>(Lcom/android/server/NotificationManagerService;)V
 
     return-void
@@ -41,14 +47,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 1898
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 1904
     :goto_0
     return-void
 
+    .line 1901
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/NotificationManagerService$WorkerHandler;->this$0:Lcom/android/server/NotificationManagerService;
 
@@ -61,6 +72,7 @@
 
     goto :goto_0
 
+    .line 1898
     :pswitch_data_0
     .packed-switch 0x2
         :pswitch_0

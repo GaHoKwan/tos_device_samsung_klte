@@ -208,7 +208,7 @@
     .line 32
     sget-object v1, Lcom/android/internal/telephony/CallStateBroadcaster;->sStatusCodes:Ljava/util/HashMap;
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/Call$State;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 

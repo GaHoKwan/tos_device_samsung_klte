@@ -49,10 +49,10 @@
 
     .prologue
     .line 426
-    invoke-virtual {p0}, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->shutdownEntry()V
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/AbstractPoolEntry;->shutdownEntry()V
 
     .line 427
-    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v0, p0, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
@@ -61,7 +61,7 @@
     if-eqz v0, :cond_0
 
     .line 428
-    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v0, p0, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->close()V
 
@@ -80,10 +80,10 @@
 
     .prologue
     .line 438
-    invoke-virtual {p0}, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->shutdownEntry()V
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/AbstractPoolEntry;->shutdownEntry()V
 
     .line 439
-    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v0, p0, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->isOpen()Z
 
@@ -92,7 +92,7 @@
     if-eqz v0, :cond_0
 
     .line 440
-    iget-object v0, p0, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
+    iget-object v0, p0, Lorg/apache/http/impl/conn/AbstractPoolEntry;->connection:Lorg/apache/http/conn/OperatedClientConnection;
 
     invoke-interface {v0}, Lorg/apache/http/conn/OperatedClientConnection;->shutdown()V
 

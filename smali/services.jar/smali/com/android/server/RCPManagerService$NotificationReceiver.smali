@@ -22,6 +22,8 @@
 .method public constructor <init>(Lcom/android/server/RCPManagerService;)V
     .locals 0
 
+    .prologue
+    .line 1129
     iput-object p1, p0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 40
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1132
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -43,8 +49,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1133
     if-nez p2, :cond_1
 
+    .line 1134
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -54,17 +62,22 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1308
     :cond_0
     :goto_0
     return-void
 
+    .line 1138
     :cond_1
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object v25
 
+    .line 1140
+    .local v25, "extras":Landroid/os/Bundle;
     if-nez v25, :cond_2
 
+    .line 1141
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -76,6 +89,7 @@
 
     goto :goto_0
 
+    .line 1146
     :cond_2
     const-string v3, "notification"
 
@@ -87,8 +101,11 @@
 
     check-cast v33, Landroid/service/notification/StatusBarNotification;
 
+    .line 1148
+    .local v33, "sbn":Landroid/service/notification/StatusBarNotification;
     if-nez v33, :cond_3
 
+    .line 1149
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -100,6 +117,7 @@
 
     goto :goto_0
 
+    .line 1152
     :cond_3
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
@@ -148,6 +166,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1160
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -162,6 +181,8 @@
 
     check-cast v30, Landroid/os/PersonaManager;
 
+    .line 1163
+    .local v30, "mPersona":Landroid/os/PersonaManager;
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -182,6 +203,8 @@
 
     move-result-object v32
 
+    .line 1168
+    .local v32, "sanitizePolicy":Ljava/lang/String;
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -211,6 +234,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1172
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -222,6 +246,8 @@
 
     move-result-object v7
 
+    .line 1174
+    .local v7, "label":Ljava/lang/String;
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -247,6 +273,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1176
     const-string v3, "com.samsung.knox.ACTION_NEW_NOTIFICATION"
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -259,6 +286,7 @@
 
     if-eqz v3, :cond_b
 
+    .line 1186
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -279,6 +307,8 @@
 
     move-result-object v24
 
+    .line 1189
+    .local v24, "exportPolicy":Ljava/lang/String;
     if-eqz v24, :cond_4
 
     const-string v3, "false"
@@ -291,6 +321,7 @@
 
     if-nez v3, :cond_0
 
+    .line 1193
     :cond_4
     const-string/jumbo v3, "userHandle"
 
@@ -302,6 +333,8 @@
 
     check-cast v34, Landroid/os/UserHandle;
 
+    .line 1195
+    .local v34, "user":Landroid/os/UserHandle;
     const-string/jumbo v3, "userId"
 
     move-object/from16 v0, v25
@@ -310,6 +343,8 @@
 
     move-result v37
 
+    .line 1196
+    .local v37, "userIddd":I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -323,18 +358,28 @@
 
     move-result-object v20
 
+    .line 1198
+    .local v20, "allowedId":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     new-instance v38, Ljava/util/ArrayList;
 
     invoke-direct/range {v38 .. v38}, Ljava/util/ArrayList;-><init>()V
 
+    .line 1199
+    .local v38, "usersThatWantThisNotif":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     new-instance v39, Ljava/util/HashMap;
 
     invoke-direct/range {v39 .. v39}, Ljava/util/HashMap;-><init>()V
 
+    .line 1205
+    .local v39, "usersThatWantThisNotifSanitizedMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     const/16 v27, 0x1
 
+    .line 1206
+    .local v27, "isKnox":Z
     const/16 v28, 0x0
 
+    .line 1210
+    .local v28, "isPasswordLockEnabled":Z
     invoke-virtual/range {v33 .. v33}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
 
     move-result-object v3
@@ -343,6 +388,8 @@
 
     move-result v36
 
+    .line 1211
+    .local v36, "userIdInt":I
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -363,6 +410,8 @@
 
     move-result-object v35
 
+    .line 1212
+    .local v35, "userId":Ljava/lang/String;
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -390,8 +439,10 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1214
     if-ltz v36, :cond_0
 
+    .line 1229
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -412,6 +463,8 @@
 
     move-result-object v9
 
+    .line 1230
+    .local v9, "name":Ljava/lang/String;
     invoke-virtual/range {v34 .. v34}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v3
@@ -422,12 +475,16 @@
 
     move-result-object v31
 
+    .line 1232
+    .local v31, "pi":Landroid/content/pm/PersonaInfo;
     if-eqz v31, :cond_5
 
+    .line 1233
     move-object/from16 v0, v31
 
-    iget-object v9, v0, Landroid/content/pm/PersonaInfo;->name:Ljava/lang/String;
+    iget-object v9, v0, Landroid/content/pm/UserInfo;->name:Ljava/lang/String;
 
+    .line 1235
     :cond_5
     if-eqz v32, :cond_6
 
@@ -441,6 +498,7 @@
 
     if-eqz v3, :cond_6
 
+    .line 1236
     new-instance v2, Landroid/app/KnoxNotification;
 
     invoke-virtual/range {v33 .. v33}, Landroid/service/notification/StatusBarNotification;->getId()I
@@ -475,6 +533,8 @@
 
     invoke-direct/range {v2 .. v11}, Landroid/app/KnoxNotification;-><init>(ILjava/lang/String;Landroid/app/Notification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/util/HashMap;)V
 
+    .line 1246
+    .local v2, "not":Landroid/app/KnoxNotification;
     :goto_1
     move-object/from16 v0, p0
 
@@ -487,6 +547,7 @@
 
     monitor-enter v4
 
+    .line 1247
     :try_start_0
     move-object/from16 v0, p0
 
@@ -505,6 +566,7 @@
 
     move-result-object v26
 
+    .local v26, "i$":Ljava/util/Iterator;
     :goto_2
     invoke-interface/range {v26 .. v26}, Ljava/util/Iterator;->hasNext()Z
 
@@ -518,12 +580,16 @@
 
     check-cast v23, Ljava/util/Map$Entry;
 
+    .line 1250
+    .local v23, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Landroid/content/ISyncCallBack;>;"
     invoke-interface/range {v23 .. v23}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v29
 
     check-cast v29, Ljava/lang/Integer;
 
+    .line 1252
+    .local v29, "key":Ljava/lang/Integer;
     invoke-static/range {v36 .. v36}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
@@ -536,6 +602,7 @@
 
     if-eqz v3, :cond_7
 
+    .line 1253
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -571,6 +638,10 @@
 
     goto :goto_2
 
+    .line 1278
+    .end local v23    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Landroid/content/ISyncCallBack;>;"
+    .end local v26    # "i$":Ljava/util/Iterator;
+    .end local v29    # "key":Ljava/lang/Integer;
     :catchall_0
     move-exception v3
 
@@ -580,6 +651,8 @@
 
     throw v3
 
+    .line 1240
+    .end local v2    # "not":Landroid/app/KnoxNotification;
     :cond_6
     new-instance v2, Landroid/app/KnoxNotification;
 
@@ -623,8 +696,13 @@
 
     invoke-direct/range {v10 .. v19}, Landroid/app/KnoxNotification;-><init>(ILjava/lang/String;Landroid/app/Notification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/util/HashMap;)V
 
+    .restart local v2    # "not":Landroid/app/KnoxNotification;
     goto/16 :goto_1
 
+    .line 1258
+    .restart local v23    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Landroid/content/ISyncCallBack;>;"
+    .restart local v26    # "i$":Ljava/util/Iterator;
+    .restart local v29    # "key":Ljava/lang/Integer;
     :cond_7
     :try_start_1
     move-object/from16 v0, v20
@@ -637,6 +715,7 @@
 
     if-nez v3, :cond_8
 
+    .line 1259
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -648,6 +727,7 @@
 
     goto/16 :goto_2
 
+    .line 1263
     :cond_8
     invoke-interface/range {v23 .. v23}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -655,8 +735,11 @@
 
     check-cast v21, Landroid/content/ISyncCallBack;
 
+    .line 1264
+    .local v21, "callback":Landroid/content/ISyncCallBack;
     if-eqz v21, :cond_9
 
+    .line 1265
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -692,6 +775,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 1268
     :try_start_2
     move-object/from16 v0, v21
 
@@ -702,9 +786,12 @@
 
     goto/16 :goto_2
 
+    .line 1269
     :catch_0
     move-exception v22
 
+    .line 1270
+    .local v22, "e":Ljava/lang/Exception;
     :try_start_3
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
@@ -735,6 +822,8 @@
 
     goto/16 :goto_2
 
+    .line 1274
+    .end local v22    # "e":Ljava/lang/Exception;
     :cond_9
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
@@ -771,6 +860,10 @@
 
     goto/16 :goto_2
 
+    .line 1278
+    .end local v21    # "callback":Landroid/content/ISyncCallBack;
+    .end local v23    # "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/Integer;Landroid/content/ISyncCallBack;>;"
+    .end local v29    # "key":Ljava/lang/Integer;
     :cond_a
     monitor-exit v4
     :try_end_3
@@ -778,6 +871,21 @@
 
     goto/16 :goto_0
 
+    .line 1279
+    .end local v2    # "not":Landroid/app/KnoxNotification;
+    .end local v9    # "name":Ljava/lang/String;
+    .end local v20    # "allowedId":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
+    .end local v24    # "exportPolicy":Ljava/lang/String;
+    .end local v26    # "i$":Ljava/util/Iterator;
+    .end local v27    # "isKnox":Z
+    .end local v28    # "isPasswordLockEnabled":Z
+    .end local v31    # "pi":Landroid/content/pm/PersonaInfo;
+    .end local v34    # "user":Landroid/os/UserHandle;
+    .end local v35    # "userId":Ljava/lang/String;
+    .end local v36    # "userIdInt":I
+    .end local v37    # "userIddd":I
+    .end local v38    # "usersThatWantThisNotif":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v39    # "usersThatWantThisNotifSanitizedMap":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_b
     const-string v3, "com.samsung.knox.ACTION_CANCEL_NOTIFICATION"
 
@@ -791,6 +899,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 1280
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -800,10 +909,13 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1281
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v35
 
+    .line 1282
+    .local v35, "userId":I
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/server/RCPManagerService$NotificationReceiver;->this$0:Lcom/android/server/RCPManagerService;
@@ -823,8 +935,11 @@
 
     check-cast v21, Landroid/content/ISyncCallBack;
 
+    .line 1283
+    .restart local v21    # "callback":Landroid/content/ISyncCallBack;
     if-eqz v21, :cond_0
 
+    .line 1284
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -858,6 +973,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1287
     if-eqz v32, :cond_c
 
     const-string/jumbo v3, "true"
@@ -870,6 +986,7 @@
 
     if-eqz v3, :cond_c
 
+    .line 1288
     new-instance v2, Landroid/app/KnoxNotification;
 
     invoke-virtual/range {v33 .. v33}, Landroid/service/notification/StatusBarNotification;->getId()I
@@ -910,6 +1027,8 @@
 
     invoke-direct/range {v10 .. v19}, Landroid/app/KnoxNotification;-><init>(ILjava/lang/String;Landroid/app/Notification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/util/HashMap;)V
 
+    .line 1299
+    .restart local v2    # "not":Landroid/app/KnoxNotification;
     :goto_3
     :try_start_4
     move-object/from16 v0, v21
@@ -920,9 +1039,12 @@
 
     goto/16 :goto_0
 
+    .line 1301
     :catch_1
     move-exception v22
 
+    .line 1302
+    .local v22, "e":Landroid/os/RemoteException;
     # getter for: Lcom/android/server/RCPManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/RCPManagerService;->access$200()Ljava/lang/String;
 
@@ -952,6 +1074,9 @@
 
     goto/16 :goto_0
 
+    .line 1292
+    .end local v2    # "not":Landroid/app/KnoxNotification;
+    .end local v22    # "e":Landroid/os/RemoteException;
     :cond_c
     new-instance v2, Landroid/app/KnoxNotification;
 
@@ -995,5 +1120,6 @@
 
     invoke-direct/range {v10 .. v19}, Landroid/app/KnoxNotification;-><init>(ILjava/lang/String;Landroid/app/Notification;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;ZLjava/util/HashMap;)V
 
+    .restart local v2    # "not":Landroid/app/KnoxNotification;
     goto :goto_3
 .end method

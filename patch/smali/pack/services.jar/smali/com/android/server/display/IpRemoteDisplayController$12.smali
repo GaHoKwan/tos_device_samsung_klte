@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;)V
     .locals 0
 
+    .prologue
+    .line 766
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$12;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 769
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$12;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mConnectedDevice:Landroid/net/wifi/p2p/WifiP2pDevice;
@@ -64,6 +68,7 @@
 
     if-nez v0, :cond_0
 
+    .line 771
     const-string v0, "IpRemoteDisplayController"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -95,6 +100,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 774
     iget-object v0, p0, Lcom/android/server/display/IpRemoteDisplayController$12;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     const/4 v1, 0x1
@@ -102,6 +108,7 @@
     # invokes: Lcom/android/server/display/IpRemoteDisplayController;->handleConnectionFailure(Z)V
     invoke-static {v0, v1}, Lcom/android/server/display/IpRemoteDisplayController;->access$1800(Lcom/android/server/display/IpRemoteDisplayController;Z)V
 
+    .line 776
     :cond_0
     return-void
 .end method

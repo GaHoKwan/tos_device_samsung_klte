@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/InternalClipboardExService$5;)V
     .locals 0
 
+    .prologue
+    .line 1280
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService$5$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$5;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1282
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$5$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$5;
 
     iget-object v0, v0, Lcom/android/server/sec/InternalClipboardExService$5;->this$0:Lcom/android/server/sec/InternalClipboardExService;
@@ -48,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1283
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$5$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$5;
 
     iget-object v0, v0, Lcom/android/server/sec/InternalClipboardExService$5;->this$0:Lcom/android/server/sec/InternalClipboardExService;
@@ -68,6 +73,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/sec/ClippedDataPickerDialog;->createClearConfirmDialog(Landroid/content/Context;)V
 
+    .line 1284
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$5$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$5;
 
     iget-object v0, v0, Lcom/android/server/sec/InternalClipboardExService$5;->this$0:Lcom/android/server/sec/InternalClipboardExService;
@@ -81,6 +87,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1285
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$5$1;->this$1:Lcom/android/server/sec/InternalClipboardExService$5;
 
     iget-object v0, v0, Lcom/android/server/sec/InternalClipboardExService$5;->this$0:Lcom/android/server/sec/InternalClipboardExService;
@@ -92,8 +99,9 @@
 
     iget-object v0, v0, Lcom/android/server/sec/ClippedDataPickerDialog;->mClearDialog:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
-    invoke-virtual {v0}, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;->show()V
+    invoke-virtual {v0}, Landroid/app/Dialog;->show()V
 
+    .line 1288
     :cond_0
     return-void
 .end method

@@ -22,16 +22,20 @@
 .method constructor <init>(Lcom/sec/android/smartface/SmartFaceManager;)V
     .locals 2
 
+    .prologue
+    .line 397
     iput-object p1, p0, Lcom/sec/android/smartface/SmartFaceManager$SmartFaceClient;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     invoke-direct {p0}, Lcom/sec/android/smartface/ISmartFaceClient$Stub;-><init>()V
 
+    .line 398
     const-string v0, "SmartFaceManager"
 
     const-string v1, "New SmartFaceClient"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 399
     return-void
 .end method
 
@@ -39,7 +43,12 @@
 # virtual methods
 .method public onInfo(ILcom/sec/android/smartface/FaceInfo;I)V
     .locals 3
+    .param p1, "msg_type"    # I
+    .param p2, "data"    # Lcom/sec/android/smartface/FaceInfo;
+    .param p3, "service_type"    # I
 
+    .prologue
+    .line 403
     iget-object v1, p0, Lcom/sec/android/smartface/SmartFaceManager$SmartFaceClient;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->mEventHandler:Lcom/sec/android/smartface/SmartFaceManager$EventHandler;
@@ -49,6 +58,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 404
     iget-object v1, p0, Lcom/sec/android/smartface/SmartFaceManager$SmartFaceClient;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->mEventHandler:Lcom/sec/android/smartface/SmartFaceManager$EventHandler;
@@ -58,10 +68,12 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, p1, p3, v2, p2}, Lcom/sec/android/smartface/SmartFaceManager$EventHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, p1, p3, v2, p2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
+    .line 405
+    .local v0, "m":Landroid/os/Message;
     iget-object v1, p0, Lcom/sec/android/smartface/SmartFaceManager$SmartFaceClient;->this$0:Lcom/sec/android/smartface/SmartFaceManager;
 
     # getter for: Lcom/sec/android/smartface/SmartFaceManager;->mEventHandler:Lcom/sec/android/smartface/SmartFaceManager$EventHandler;
@@ -69,11 +81,14 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/sec/android/smartface/SmartFaceManager$EventHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 411
+    .end local v0    # "m":Landroid/os/Message;
     :goto_0
     return-void
 
+    .line 409
     :cond_0
     const-string v1, "SmartFaceManager"
 

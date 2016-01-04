@@ -26,7 +26,7 @@
     .locals 0
 
     .prologue
-    .line 1380
+    .line 1374
     iput-object p1, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry$1;->this$0:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
     .locals 2
 
     .prologue
-    .line 1382
+    .line 1376
     iget-object v0, p0, Landroid/media/MediaFocusControl$RemoteControlStackEntry$1;->this$0:Landroid/media/MediaFocusControl$RemoteControlStackEntry;
 
     iget-object v0, v0, Landroid/media/MediaFocusControl$RemoteControlStackEntry;->mController:Landroid/media/MediaFocusControl;
@@ -51,6 +51,6 @@
 
     invoke-virtual {v0, v1}, Landroid/media/MediaFocusControl;->unregisterMediaButtonIntent(Landroid/app/PendingIntent;)V
 
-    .line 1383
+    .line 1377
     return-void
 .end method

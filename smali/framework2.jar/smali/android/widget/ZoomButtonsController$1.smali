@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/widget/ZoomButtonsController;)V
     .locals 0
 
+    .prologue
+    .line 150
     iput-object p1, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v1, 0x2
 
+    .line 153
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
     # getter for: Landroid/widget/ZoomButtonsController;->mIsVisible:Z
@@ -45,9 +51,11 @@
 
     if-nez v0, :cond_0
 
+    .line 157
     :goto_0
     return-void
 
+    .line 155
     :cond_0
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
@@ -58,6 +66,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 156
     iget-object v0, p0, Landroid/widget/ZoomButtonsController$1;->this$0:Landroid/widget/ZoomButtonsController;
 
     # getter for: Landroid/widget/ZoomButtonsController;->mHandler:Landroid/os/Handler;

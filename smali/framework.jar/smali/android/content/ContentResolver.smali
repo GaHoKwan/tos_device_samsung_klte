@@ -347,7 +347,7 @@
     .line 2169
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "you passed in a null callback"
+    const-string/jumbo v3, "you passed in a null callback"
 
     invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -989,7 +989,7 @@
     .line 2190
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "you passed in a null handle"
+    const-string/jumbo v1, "you passed in a null handle"
 
     invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

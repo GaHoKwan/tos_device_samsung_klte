@@ -254,7 +254,7 @@
 
     move-object/from16 v21, v0
 
-    invoke-virtual/range {v20 .. v21}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual/range {v20 .. v21}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
     .line 452
     const/16 v20, 0x0
@@ -883,7 +883,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-virtual {v0, v13}, Ljava/util/ArrayList;->removeAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, v13}, Ljava/util/AbstractCollection;->removeAll(Ljava/util/Collection;)Z
 
     .line 583
     move-object/from16 v0, p0

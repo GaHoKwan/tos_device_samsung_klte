@@ -21,15 +21,20 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/SecExternalDisplayService;Landroid/os/Handler;)V
     .locals 7
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v4, 0x0
 
+    .line 853
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayService$SettingsObserver;->this$0:Lcom/android/server/SecExternalDisplayService;
 
+    .line 854
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 856
     # getter for: Lcom/android/server/SecExternalDisplayService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/SecExternalDisplayService;->access$400()Landroid/content/Context;
 
@@ -39,6 +44,8 @@
 
     move-result-object v1
 
+    .line 857
+    .local v1, "resources":Landroid/content/res/Resources;
     const v2, 0x111004d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
@@ -48,6 +55,7 @@
     # setter for: Lcom/android/server/SecExternalDisplayService;->bDreamsEnabledByDefaultConfig:Z
     invoke-static {p1, v2}, Lcom/android/server/SecExternalDisplayService;->access$502(Lcom/android/server/SecExternalDisplayService;Z)Z
 
+    .line 860
     # getter for: Lcom/android/server/SecExternalDisplayService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/SecExternalDisplayService;->access$400()Landroid/content/Context;
 
@@ -57,6 +65,8 @@
 
     move-result-object v0
 
+    .line 862
+    .local v0, "resolver":Landroid/content/ContentResolver;
     const-string/jumbo v5, "screensaver_enabled"
 
     # getter for: Lcom/android/server/SecExternalDisplayService;->bDreamsEnabledByDefaultConfig:Z
@@ -81,11 +91,13 @@
     # setter for: Lcom/android/server/SecExternalDisplayService;->bIsDayDreamEnabled:Z
     invoke-static {p1, v3}, Lcom/android/server/SecExternalDisplayService;->access$602(Lcom/android/server/SecExternalDisplayService;Z)Z
 
+    .line 866
     return-void
 
     :cond_0
     move v2, v4
 
+    .line 862
     goto :goto_0
 
     :cond_1
@@ -98,11 +110,15 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 7
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
+    .line 870
     const-string v1, "SecExternalDisplayService_Java"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -125,6 +141,7 @@
 
     invoke-static {v1, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 871
     # getter for: Lcom/android/server/SecExternalDisplayService;->mContext:Landroid/content/Context;
     invoke-static {}, Lcom/android/server/SecExternalDisplayService;->access$400()Landroid/content/Context;
 
@@ -134,6 +151,8 @@
 
     move-result-object v0
 
+    .line 873
+    .local v0, "resolver":Landroid/content/ContentResolver;
     iget-object v4, p0, Lcom/android/server/SecExternalDisplayService$SettingsObserver;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     const-string/jumbo v5, "screensaver_enabled"
@@ -164,6 +183,7 @@
     # setter for: Lcom/android/server/SecExternalDisplayService;->bIsDayDreamEnabled:Z
     invoke-static {v4, v1}, Lcom/android/server/SecExternalDisplayService;->access$602(Lcom/android/server/SecExternalDisplayService;Z)Z
 
+    .line 878
     iget-object v1, p0, Lcom/android/server/SecExternalDisplayService$SettingsObserver;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     # getter for: Lcom/android/server/SecExternalDisplayService;->bIsDayDreamEnabled:Z
@@ -173,17 +193,20 @@
 
     if-ne v1, v2, :cond_2
 
+    .line 879
     iget-object v1, p0, Lcom/android/server/SecExternalDisplayService$SettingsObserver;->this$0:Lcom/android/server/SecExternalDisplayService;
 
     # invokes: Lcom/android/server/SecExternalDisplayService;->SecExternalDisplaySetWakeLock(Z)V
     invoke-static {v1, v3}, Lcom/android/server/SecExternalDisplayService;->access$000(Lcom/android/server/SecExternalDisplayService;Z)V
 
+    .line 882
     :goto_2
     return-void
 
     :cond_0
     move v1, v3
 
+    .line 873
     goto :goto_0
 
     :cond_1
@@ -191,6 +214,7 @@
 
     goto :goto_1
 
+    .line 881
     :cond_2
     iget-object v1, p0, Lcom/android/server/SecExternalDisplayService$SettingsObserver;->this$0:Lcom/android/server/SecExternalDisplayService;
 

@@ -226,7 +226,7 @@
 
     const-string v2, "&lrm;"
 
-    const-string v3, "\u200e"
+    const-string/jumbo v3, "\u200e"
 
     invoke-direct {p0, v2, v3, v1}, Landroid/media/Tokenizer$DataTokenizer;->replaceEscape(Ljava/lang/String;Ljava/lang/String;I)Z
 
@@ -236,7 +236,7 @@
 
     const-string v2, "&rlm;"
 
-    const-string v3, "\u200f"
+    const-string/jumbo v3, "\u200f"
 
     invoke-direct {p0, v2, v3, v1}, Landroid/media/Tokenizer$DataTokenizer;->replaceEscape(Ljava/lang/String;Ljava/lang/String;I)Z
 
@@ -246,7 +246,7 @@
 
     const-string v2, "&nbsp;"
 
-    const-string v3, "\u00a0"
+    const-string/jumbo v3, "\u00a0"
 
     invoke-direct {p0, v2, v3, v1}, Landroid/media/Tokenizer$DataTokenizer;->replaceEscape(Ljava/lang/String;Ljava/lang/String;I)Z
 

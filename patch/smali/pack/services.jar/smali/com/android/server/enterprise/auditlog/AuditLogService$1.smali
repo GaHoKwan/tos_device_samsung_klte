@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/auditlog/AuditLogService;)V
     .locals 0
 
+    .prologue
+    .line 110
     iput-object p1, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v6, 0x1
 
+    .line 113
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v4
@@ -60,9 +66,12 @@
 
     if-eqz v4, :cond_3
 
+    .line 116
     :cond_0
     const/4 v1, 0x0
 
+    .line 117
+    .local v1, "ad":Lcom/android/server/enterprise/auditlog/Admin;
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     # getter for: Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
@@ -74,6 +83,8 @@
 
     move-result-object v2
 
+    .line 118
+    .local v2, "c":Ljava/util/Collection;
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     # getter for: Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
@@ -83,11 +94,14 @@
 
     monitor-enter v5
 
+    .line 120
     :try_start_0
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .line 121
+    .local v3, "it":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -95,6 +109,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 122
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -105,10 +120,13 @@
 
     move-object v1, v0
 
+    .line 123
     invoke-virtual {v1}, Lcom/android/server/enterprise/auditlog/Admin;->shutdown()V
 
     goto :goto_0
 
+    .line 125
+    .end local v3    # "it":Ljava/util/Iterator;
     :catchall_0
     move-exception v4
 
@@ -118,16 +136,22 @@
 
     throw v4
 
+    .restart local v3    # "it":Ljava/util/Iterator;
     :cond_1
     :try_start_1
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 144
+    .end local v1    # "ad":Lcom/android/server/enterprise/auditlog/Admin;
+    .end local v2    # "c":Ljava/util/Collection;
+    .end local v3    # "it":Ljava/util/Iterator;
     :cond_2
     :goto_1
     return-void
 
+    .line 126
     :cond_3
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -141,13 +165,17 @@
 
     if-eqz v4, :cond_2
 
+    .line 127
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     # setter for: Lcom/android/server/enterprise/auditlog/AuditLogService;->mIsBootCompleted:Z
     invoke-static {v4, v6}, Lcom/android/server/enterprise/auditlog/AuditLogService;->access$102(Lcom/android/server/enterprise/auditlog/AuditLogService;Z)Z
 
+    .line 128
     const/4 v1, 0x0
 
+    .line 129
+    .restart local v1    # "ad":Lcom/android/server/enterprise/auditlog/Admin;
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     # getter for: Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
@@ -159,6 +187,8 @@
 
     move-result-object v2
 
+    .line 130
+    .restart local v2    # "c":Ljava/util/Collection;
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     # getter for: Lcom/android/server/enterprise/auditlog/AuditLogService;->mLinkedHashMap:Ljava/util/Map;
@@ -168,11 +198,14 @@
 
     monitor-enter v5
 
+    .line 132
     :try_start_2
     invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .line 133
+    .restart local v3    # "it":Ljava/util/Iterator;
     :goto_2
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -180,6 +213,7 @@
 
     if-eqz v4, :cond_4
 
+    .line 134
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -190,12 +224,15 @@
 
     move-object v1, v0
 
+    .line 135
     const/4 v4, 0x1
 
     invoke-virtual {v1, v4}, Lcom/android/server/enterprise/auditlog/Admin;->setBootCompleted(Z)V
 
     goto :goto_2
 
+    .line 137
+    .end local v3    # "it":Ljava/util/Iterator;
     :catchall_1
     move-exception v4
 
@@ -205,12 +242,14 @@
 
     throw v4
 
+    .restart local v3    # "it":Ljava/util/Iterator;
     :cond_4
     :try_start_3
     monitor-exit v5
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    .line 139
     iget-object v4, p0, Lcom/android/server/enterprise/auditlog/AuditLogService$1;->this$0:Lcom/android/server/enterprise/auditlog/AuditLogService;
 
     invoke-virtual {v4}, Lcom/android/server/enterprise/auditlog/AuditLogService;->isAuditServiceRunning()Z
@@ -219,6 +258,7 @@
 
     if-eqz v4, :cond_2
 
+    .line 140
     invoke-static {v6}, Lcom/android/server/enterprise/utils/EDMNativeHelper;->setAuditEnabled(Z)V
 
     goto :goto_1

@@ -86,7 +86,7 @@
 
     move-result-object v1
 
-    iget v2, p0, Lcom/android/internal/telephony/cat/CatBIPServerConnection;->channelId:I
+    iget v2, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->channelId:I
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -203,7 +203,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 

@@ -5,9 +5,9 @@
 	<isp value="Q"/>
 	<sensormaker value="L"/>
 	<year value="H"/>
-	<month value="F"/>
-	<iteration value="01"/>
+	<month value="C"/>
+	<iteration value="04"/>
 	<modulemaker value="G"/>
 	<modulemakerversion value="B"/>
-	<clnumber value="2011165"/>
+	<clnumber value="911604"/>
 </moduleinfo>

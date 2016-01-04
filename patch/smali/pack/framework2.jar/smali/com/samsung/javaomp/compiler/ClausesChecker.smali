@@ -40,7 +40,7 @@
 
     move-result-object v7
 
-    invoke-virtual {v2}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -361,7 +361,7 @@
     throw v1
 
     :cond_8
-    invoke-virtual {v3}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v3}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -563,7 +563,7 @@
     throw v1
 
     :cond_e
-    invoke-virtual {v4}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v4}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -773,7 +773,7 @@
     throw v1
 
     :cond_14
-    invoke-virtual {v5}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v5}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -946,7 +946,7 @@
     throw v1
 
     :cond_19
-    invoke-virtual {v7}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v7}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v8
 
@@ -1141,7 +1141,7 @@
     throw v1
 
     :cond_1e
-    invoke-virtual {v6}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -1207,7 +1207,7 @@
 
     iget-object v0, p1, Lcom/samsung/javaomp/compiler/JavaParserVisitorImpl;->varTable:Ljava/util/LinkedList;
 
-    invoke-virtual {v0}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v6
 

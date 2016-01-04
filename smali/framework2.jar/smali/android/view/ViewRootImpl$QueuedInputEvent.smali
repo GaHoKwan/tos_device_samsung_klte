@@ -40,6 +40,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 6314
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -47,7 +49,10 @@
 
 .method synthetic constructor <init>(Landroid/view/ViewRootImpl$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/view/ViewRootImpl$1;
 
+    .prologue
+    .line 6314
     invoke-direct {p0}, Landroid/view/ViewRootImpl$QueuedInputEvent;-><init>()V
 
     return-void
@@ -58,14 +63,17 @@
 .method public shouldSkipIme()Z
     .locals 3
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 6328
     iget v1, p0, Landroid/view/ViewRootImpl$QueuedInputEvent;->mFlags:I
 
     and-int/lit8 v1, v1, 0x1
 
     if-eqz v1, :cond_1
 
+    .line 6331
     :cond_0
     :goto_0
     return v0

@@ -2692,7 +2692,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "{"
+    const-string/jumbo v13, "{"
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2730,7 +2730,7 @@
 
     move-result-object v12
 
-    const-string v13, "}"
+    const-string/jumbo v13, "}"
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -26,6 +26,8 @@
 .method constructor <init>(Lcom/android/server/am/MultiWindowFacadeService;)V
     .locals 0
 
+    .prologue
+    .line 535
     iput-object p1, p0, Lcom/android/server/am/MultiWindowFacadeService$H;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -37,14 +39,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 539
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 547
     :goto_0
     return-void
 
+    .line 541
     :pswitch_0
     const-string v0, "MultiWindowFacade"
 
@@ -52,6 +59,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 542
     iget-object v1, p0, Lcom/android/server/am/MultiWindowFacadeService$H;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -62,6 +70,7 @@
 
     goto :goto_0
 
+    .line 539
     nop
 
     :pswitch_data_0

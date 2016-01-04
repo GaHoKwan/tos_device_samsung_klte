@@ -1033,7 +1033,7 @@
     :pswitch_0
     const-string v1, "VZW"
 
-    const-string v3, "VZW"
+    const-string v3, "OPEN"
 
     invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

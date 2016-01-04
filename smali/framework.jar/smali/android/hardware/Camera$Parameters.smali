@@ -497,25 +497,25 @@
 
     .line 2992
     :sswitch_0
-    const-string v0, "yuv422sp"
+    const-string/jumbo v0, "yuv422sp"
 
     goto :goto_0
 
     .line 2993
     :sswitch_1
-    const-string v0, "yuv420sp"
+    const-string/jumbo v0, "yuv420sp"
 
     goto :goto_0
 
     .line 2994
     :sswitch_2
-    const-string v0, "yuv422i-yuyv"
+    const-string/jumbo v0, "yuv422i-yuyv"
 
     goto :goto_0
 
     .line 2995
     :sswitch_3
-    const-string v0, "yuv420p"
+    const-string/jumbo v0, "yuv420p"
 
     goto :goto_0
 
@@ -641,7 +641,7 @@
 
     .line 3007
     :cond_1
-    const-string v1, "yuv422sp"
+    const-string/jumbo v1, "yuv422sp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -656,7 +656,7 @@
 
     .line 3010
     :cond_2
-    const-string v1, "yuv420sp"
+    const-string/jumbo v1, "yuv420sp"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -671,7 +671,7 @@
 
     .line 3013
     :cond_3
-    const-string v1, "yuv422i-yuyv"
+    const-string/jumbo v1, "yuv422i-yuyv"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -686,7 +686,7 @@
 
     .line 3016
     :cond_4
-    const-string v1, "yuv420p"
+    const-string/jumbo v1, "yuv420p"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4116,7 +4116,7 @@
 
     .prologue
     .line 4563
-    const-string v1, "zsl-values"
+    const-string/jumbo v1, "zsl-values"
 
     invoke-virtual {p0, v1}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4272,7 +4272,7 @@
 
     .prologue
     .line 5053
-    const-string v0, "zsl"
+    const-string/jumbo v0, "zsl"
 
     invoke-virtual {p0, v0}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4286,7 +4286,7 @@
 
     .prologue
     .line 3652
-    const-string v0, "zoom"
+    const-string/jumbo v0, "zoom"
 
     const/4 v1, 0x0
 
@@ -4311,7 +4311,7 @@
 
     .prologue
     .line 3704
-    const-string v0, "zoom-ratios"
+    const-string/jumbo v0, "zoom-ratios"
 
     invoke-virtual {p0, v0}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -4461,7 +4461,7 @@
 
     .prologue
     .line 3676
-    const-string v1, "zoom-supported"
+    const-string/jumbo v1, "zoom-supported"
 
     invoke-virtual {p0, v1}, Landroid/hardware/Camera$Parameters;->get(Ljava/lang/String;)Ljava/lang/String;
 
@@ -5313,7 +5313,7 @@
 
     move-result-object v1
 
-    const-string v2, "x"
+    const-string/jumbo v2, "x"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5496,7 +5496,7 @@
 
     move-result-object v1
 
-    const-string v2, "x"
+    const-string/jumbo v2, "x"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5806,7 +5806,7 @@
 
     move-result-object v1
 
-    const-string v2, "x"
+    const-string/jumbo v2, "x"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5853,7 +5853,7 @@
 
     move-result-object v1
 
-    const-string v2, "x"
+    const-string/jumbo v2, "x"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5980,7 +5980,7 @@
 
     .prologue
     .line 5062
-    const-string v0, "zsl"
+    const-string/jumbo v0, "zsl"
 
     invoke-virtual {p0, v0, p1}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -5994,7 +5994,7 @@
 
     .prologue
     .line 3666
-    const-string v0, "zoom"
+    const-string/jumbo v0, "zoom"
 
     invoke-virtual {p0, v0, p1}, Landroid/hardware/Camera$Parameters;->set(Ljava/lang/String;I)V
 

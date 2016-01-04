@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/ActivityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 6308
     iput-object p1, p0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 15
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 6311
     const-string v1, "android.intent.extra.PACKAGES"
 
     move-object/from16 v0, p2
@@ -42,23 +48,32 @@
 
     move-result-object v13
 
+    .line 6312
+    .local v13, "pkgs":[Ljava/lang/String;
     if-eqz v13, :cond_0
 
+    .line 6313
     move-object v10, v13
 
+    .local v10, "arr$":[Ljava/lang/String;
     array-length v12, v10
 
+    .local v12, "len$":I
     const/4 v11, 0x0
 
+    .local v11, "i$":I
     :goto_0
     if-ge v11, v12, :cond_0
 
     aget-object v2, v10, v11
 
+    .line 6314
+    .local v2, "pkg":Ljava/lang/String;
     iget-object v14, p0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     monitor-enter v14
 
+    .line 6315
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$7;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -83,22 +98,36 @@
 
     if-eqz v1, :cond_1
 
+    .line 6317
     const/4 v1, -0x1
 
-    invoke-virtual {p0, v1}, Lcom/android/server/am/ActivityManagerService$7;->setResultCode(I)V
+    invoke-virtual {p0, v1}, Landroid/content/BroadcastReceiver;->setResultCode(I)V
 
+    .line 6318
     monitor-exit v14
 
+    .line 6323
+    .end local v2    # "pkg":Ljava/lang/String;
+    .end local v10    # "arr$":[Ljava/lang/String;
+    .end local v11    # "i$":I
+    .end local v12    # "len$":I
     :cond_0
     return-void
 
+    .line 6320
+    .restart local v2    # "pkg":Ljava/lang/String;
+    .restart local v10    # "arr$":[Ljava/lang/String;
+    .restart local v11    # "i$":I
+    .restart local v12    # "len$":I
     :cond_1
     monitor-exit v14
 
+    .line 6313
     add-int/lit8 v11, v11, 0x1
 
     goto :goto_0
 
+    .line 6320
     :catchall_0
     move-exception v1
 

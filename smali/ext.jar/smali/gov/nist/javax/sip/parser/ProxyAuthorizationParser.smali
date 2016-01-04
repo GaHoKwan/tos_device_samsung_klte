@@ -42,7 +42,7 @@
     .line 65
     const/16 v1, 0x818
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ProxyAuthorizationParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 66
     new-instance v0, Lgov/nist/javax/sip/header/ProxyAuthorization;

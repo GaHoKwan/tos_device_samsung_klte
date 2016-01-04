@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;)V
     .locals 0
 
+    .prologue
+    .line 1028
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$13;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 1031
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$13;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mAltPasswordGuide:Landroid/widget/TextView;
 
     if-eqz v0, :cond_0
 
+    .line 1032
     iget-object v0, p0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog$13;->this$0:Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;
 
     iget-object v0, v0, Lcom/samsung/android/fingerprint/FingerprintIdentifyDialog;->mAltPasswordGuide:Landroid/widget/TextView;
@@ -63,6 +68,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    .line 1034
     :cond_0
     return-void
 .end method

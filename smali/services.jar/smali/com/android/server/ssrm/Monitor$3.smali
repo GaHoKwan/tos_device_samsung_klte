@@ -27,10 +27,13 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 1
 
+    .prologue
+    .line 728
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$3;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 729
     const/16 v0, 0x2710
 
     iput v0, p0, Lcom/android/server/ssrm/Monitor$3;->TIMER_PERIOD:I
@@ -43,12 +46,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 733
     invoke-static {}, Lcom/android/server/ssrm/AmoledAdjustTimer;->getInstance()Lcom/android/server/ssrm/AmoledAdjustTimer;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/AmoledAdjustTimer;->update()V
 
+    .line 734
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$3;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mHandler:Landroid/os/Handler;
@@ -57,5 +63,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 735
     return-void
 .end method

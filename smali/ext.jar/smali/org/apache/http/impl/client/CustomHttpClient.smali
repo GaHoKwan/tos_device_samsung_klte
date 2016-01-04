@@ -780,7 +780,7 @@
 
     .line 1276
     .local v3, "sdf":Ljava/text/SimpleDateFormat;
-    invoke-virtual {v3, v0}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v3, v0}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -1820,7 +1820,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v3, v5}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v3, v5}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 1293
     sget-object v3, Lorg/apache/http/impl/client/CustomHttpClient;->fHttpFileLog:Ljava/io/BufferedWriter;
@@ -1847,7 +1847,7 @@
 
     invoke-direct {v5}, Ljava/util/Date;-><init>()V
 
-    invoke-virtual {v3, v5}, Ljava/text/SimpleDateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
+    invoke-virtual {v3, v5}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1886,7 +1886,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v3, v5}, Ljava/io/BufferedWriter;->write(Ljava/lang/String;)V
+    invoke-virtual {v3, v5}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 1305
     sget-object v3, Lorg/apache/http/impl/client/CustomHttpClient;->fHttpFileLog:Ljava/io/BufferedWriter;
@@ -2547,7 +2547,7 @@
 
     .line 307
     .local v2, "connManager":Lorg/apache/http/conn/ClientConnectionManager;
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v5
 
@@ -2659,7 +2659,7 @@
     .local v3, "ex":Ljava/lang/IllegalAccessException;
     new-instance v7, Ljava/lang/IllegalAccessError;
 
-    invoke-virtual {v3}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -2676,7 +2676,7 @@
     .local v3, "ex":Ljava/lang/InstantiationException;
     new-instance v7, Ljava/lang/InstantiationError;
 
-    invoke-virtual {v3}, Ljava/lang/InstantiationException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -2692,7 +2692,7 @@
     new-instance v2, Lorg/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager;
 
     .end local v2    # "connManager":Lorg/apache/http/conn/ClientConnectionManager;
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v7
 
@@ -2708,27 +2708,27 @@
 
     .prologue
     .line 517
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getRequestExecutor()Lorg/apache/http/protocol/HttpRequestExecutor;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getRequestExecutor()Lorg/apache/http/protocol/HttpRequestExecutor;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
 
     move-result-object v2
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getConnectionReuseStrategy()Lorg/apache/http/ConnectionReuseStrategy;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getConnectionReuseStrategy()Lorg/apache/http/ConnectionReuseStrategy;
 
     move-result-object v3
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getConnectionKeepAliveStrategy()Lorg/apache/http/conn/ConnectionKeepAliveStrategy;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getConnectionKeepAliveStrategy()Lorg/apache/http/conn/ConnectionKeepAliveStrategy;
 
     move-result-object v4
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getRoutePlanner()Lorg/apache/http/conn/routing/HttpRoutePlanner;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getRoutePlanner()Lorg/apache/http/conn/routing/HttpRoutePlanner;
 
     move-result-object v5
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getHttpProcessor()Lorg/apache/http/protocol/BasicHttpProcessor;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getHttpProcessor()Lorg/apache/http/protocol/BasicHttpProcessor;
 
     move-result-object v0
 
@@ -2736,23 +2736,23 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getHttpRequestRetryHandler()Lorg/apache/http/client/HttpRequestRetryHandler;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getHttpRequestRetryHandler()Lorg/apache/http/client/HttpRequestRetryHandler;
 
     move-result-object v7
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getRedirectHandler()Lorg/apache/http/client/RedirectHandler;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getRedirectHandler()Lorg/apache/http/client/RedirectHandler;
 
     move-result-object v8
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getTargetAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getTargetAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
 
     move-result-object v9
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getProxyAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getProxyAuthenticationHandler()Lorg/apache/http/client/AuthenticationHandler;
 
     move-result-object v10
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getUserTokenHandler()Lorg/apache/http/client/UserTokenHandler;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getUserTokenHandler()Lorg/apache/http/client/UserTokenHandler;
 
     move-result-object v11
 
@@ -2762,7 +2762,7 @@
 
     move-object v0, p0
 
-    invoke-virtual/range {v0 .. v12}, Lorg/apache/http/impl/client/CustomHttpClient;->createClientRequestDirector(Lorg/apache/http/protocol/HttpRequestExecutor;Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/ConnectionReuseStrategy;Lorg/apache/http/conn/ConnectionKeepAliveStrategy;Lorg/apache/http/conn/routing/HttpRoutePlanner;Lorg/apache/http/protocol/HttpProcessor;Lorg/apache/http/client/HttpRequestRetryHandler;Lorg/apache/http/client/RedirectHandler;Lorg/apache/http/client/AuthenticationHandler;Lorg/apache/http/client/AuthenticationHandler;Lorg/apache/http/client/UserTokenHandler;Lorg/apache/http/params/HttpParams;)Lorg/apache/http/client/RequestDirector;
+    invoke-virtual/range {v0 .. v12}, Lorg/apache/http/impl/client/AbstractHttpClient;->createClientRequestDirector(Lorg/apache/http/protocol/HttpRequestExecutor;Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/ConnectionReuseStrategy;Lorg/apache/http/conn/ConnectionKeepAliveStrategy;Lorg/apache/http/conn/routing/HttpRoutePlanner;Lorg/apache/http/protocol/HttpProcessor;Lorg/apache/http/client/HttpRequestRetryHandler;Lorg/apache/http/client/RedirectHandler;Lorg/apache/http/client/AuthenticationHandler;Lorg/apache/http/client/AuthenticationHandler;Lorg/apache/http/client/UserTokenHandler;Lorg/apache/http/params/HttpParams;)Lorg/apache/http/client/RequestDirector;
 
     move-result-object v13
 
@@ -2893,7 +2893,7 @@
     .local v0, "context":Lorg/apache/http/protocol/HttpContext;
     const-string v1, "http.authscheme-registry"
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getAuthSchemes()Lorg/apache/http/auth/AuthSchemeRegistry;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getAuthSchemes()Lorg/apache/http/auth/AuthSchemeRegistry;
 
     move-result-object v2
 
@@ -2902,7 +2902,7 @@
     .line 348
     const-string v1, "http.cookiespec-registry"
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getCookieSpecs()Lorg/apache/http/cookie/CookieSpecRegistry;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getCookieSpecs()Lorg/apache/http/cookie/CookieSpecRegistry;
 
     move-result-object v2
 
@@ -2911,7 +2911,7 @@
     .line 349
     const-string v1, "http.cookie-store"
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getCookieStore()Lorg/apache/http/client/CookieStore;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getCookieStore()Lorg/apache/http/client/CookieStore;
 
     move-result-object v2
 
@@ -2920,7 +2920,7 @@
     .line 350
     const-string v1, "http.auth.credentials-provider"
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getCredentialsProvider()Lorg/apache/http/client/CredentialsProvider;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getCredentialsProvider()Lorg/apache/http/client/CredentialsProvider;
 
     move-result-object v2
 
@@ -3121,7 +3121,7 @@
     .line 495
     new-instance v0, Lorg/apache/http/impl/conn/ProxySelectorRoutePlanner;
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getConnectionManager()Lorg/apache/http/conn/ClientConnectionManager;
 
     move-result-object v1
 
@@ -3989,7 +3989,7 @@
     :cond_4
     new-instance v1, Lorg/apache/http/impl/client/ClientParamsStack;
 
-    invoke-virtual {p0}, Lorg/apache/http/impl/client/CustomHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual {p0}, Lorg/apache/http/impl/client/AbstractHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v3
 

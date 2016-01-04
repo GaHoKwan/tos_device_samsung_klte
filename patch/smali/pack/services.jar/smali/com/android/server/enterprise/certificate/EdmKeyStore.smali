@@ -45,6 +45,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 79
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -75,6 +77,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->TRUSTED_KEYSTORE_PATH:Ljava/lang/String;
 
+    .line 81
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -105,6 +108,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->UNTRUSTED_KEYSTORE_PATH:Ljava/lang/String;
 
+    .line 83
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -135,6 +139,7 @@
 
     sput-object v0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->USER_KEYSTORE_PATH:Ljava/lang/String;
 
+    .line 85
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -170,6 +175,7 @@
 
 .method private constructor <init>(Ljava/lang/String;)V
     .locals 10
+    .param p1, "path"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/security/KeyStoreException;,
@@ -179,30 +185,41 @@
         }
     .end annotation
 
+    .prologue
+    .line 146
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 90
     new-instance v6, Ljava/lang/Object;
 
     invoke-direct {v6}, Ljava/lang/Object;-><init>()V
 
     iput-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
+    .line 147
     new-instance v6, Lcom/android/org/conscrypt/TrustedCertificateStore;
 
     invoke-direct {v6}, Lcom/android/org/conscrypt/TrustedCertificateStore;-><init>()V
 
     iput-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mCertStore:Lcom/android/org/conscrypt/TrustedCertificateStore;
 
+    .line 148
     iput-object p1, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mPath:Ljava/lang/String;
 
+    .line 149
     const/4 v2, 0x0
 
+    .line 150
+    .local v2, "fis":Ljava/io/FileInputStream;
     const/4 v4, 0x0
 
+    .line 151
+    .local v4, "fos":Ljava/io/FileOutputStream;
     iget-object v7, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
     monitor-enter v7
 
+    .line 154
     :try_start_0
     const-string v6, "BKS"
 
@@ -214,6 +231,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 156
     :try_start_1
     new-instance v3, Ljava/io/FileInputStream;
 
@@ -222,6 +240,9 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 157
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .local v3, "fis":Ljava/io/FileInputStream;
     :try_start_2
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -232,10 +253,12 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_4
     .catchall {:try_start_2 .. :try_end_2} :catchall_5
 
+    .line 166
     if-eqz v4, :cond_0
 
+    .line 168
     :try_start_3
-    invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
+    throw v4
     :try_end_3
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_4
@@ -244,24 +267,35 @@
     :goto_0
     move-object v2, v3
 
+    .line 175
+    .end local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     :goto_1
     if-eqz v2, :cond_1
 
+    .line 176
     :try_start_4
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
+    .line 179
     :cond_1
     monitor-exit v7
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
+    .line 180
     return-void
 
+    .line 158
     :catch_0
     move-exception v0
 
     move-object v3, v2
 
+    .line 160
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .local v0, "e":Ljava/io/IOException;
+    .restart local v3    # "fis":Ljava/io/FileInputStream;
     :goto_2
     :try_start_5
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
@@ -272,12 +306,16 @@
 
     invoke-virtual {v6, v8, v9}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
 
+    .line 161
     new-instance v5, Ljava/io/FileOutputStream;
 
     invoke-direct {v5, p1}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_5
 
+    .line 162
+    .end local v4    # "fos":Ljava/io/FileOutputStream;
+    .local v5, "fos":Ljava/io/FileOutputStream;
     :try_start_6
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -285,12 +323,16 @@
 
     invoke-virtual {v6, v5, v8}, Ljava/security/KeyStore;->store(Ljava/io/OutputStream;[C)V
 
+    .line 163
     new-instance v2, Ljava/io/FileInputStream;
 
     invoke-direct {v2, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_6
 
+    .line 164
+    .end local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     :try_start_7
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -300,8 +342,10 @@
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_7
 
+    .line 166
     if-eqz v5, :cond_2
 
+    .line 168
     :try_start_8
     invoke-virtual {v5}, Ljava/io/FileOutputStream;->close()V
     :try_end_8
@@ -312,20 +356,27 @@
     :goto_3
     move-object v4, v5
 
+    .line 173
+    .end local v5    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "fos":Ljava/io/FileOutputStream;
     goto :goto_1
 
+    .line 166
+    .end local v0    # "e":Ljava/io/IOException;
     :catchall_0
     move-exception v6
 
     :goto_4
     if-eqz v4, :cond_3
 
+    .line 168
     :try_start_9
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
     :try_end_9
     .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_1
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
+    .line 166
     :cond_3
     :goto_5
     :try_start_a
@@ -333,18 +384,22 @@
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
+    .line 175
     :catchall_1
     move-exception v6
 
     :goto_6
     if-eqz v2, :cond_4
 
+    .line 176
     :try_start_b
     invoke-virtual {v2}, Ljava/io/FileInputStream;->close()V
 
+    .line 175
     :cond_4
     throw v6
 
+    .line 179
     :catchall_2
     move-exception v6
 
@@ -354,9 +409,12 @@
 
     throw v6
 
+    .line 169
     :catch_1
     move-exception v1
 
+    .line 170
+    .local v1, "ex":Ljava/io/IOException;
     :try_start_c
     const-string v8, "EdmKeyStore"
 
@@ -368,9 +426,16 @@
 
     goto :goto_5
 
+    .line 169
+    .end local v1    # "ex":Ljava/io/IOException;
+    .end local v4    # "fos":Ljava/io/FileOutputStream;
+    .restart local v0    # "e":Ljava/io/IOException;
+    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     :catch_2
     move-exception v1
 
+    .line 170
+    .restart local v1    # "ex":Ljava/io/IOException;
     :try_start_d
     const-string v6, "EdmKeyStore"
 
@@ -382,16 +447,26 @@
 
     goto :goto_3
 
+    .line 175
+    .end local v1    # "ex":Ljava/io/IOException;
     :catchall_3
     move-exception v6
 
     move-object v4, v5
 
+    .end local v5    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "fos":Ljava/io/FileOutputStream;
     goto :goto_6
 
+    .line 169
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v3    # "fis":Ljava/io/FileInputStream;
     :catch_3
     move-exception v1
 
+    .line 170
+    .restart local v1    # "ex":Ljava/io/IOException;
     :try_start_e
     const-string v6, "EdmKeyStore"
 
@@ -403,36 +478,62 @@
 
     goto :goto_0
 
+    .line 175
+    .end local v1    # "ex":Ljava/io/IOException;
     :catchall_4
     move-exception v6
 
     move-object v2, v3
 
+    .end local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     goto :goto_6
 
+    .line 166
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v3    # "fis":Ljava/io/FileInputStream;
     :catchall_5
     move-exception v6
 
     move-object v2, v3
 
+    .end local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     goto :goto_4
 
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .end local v4    # "fos":Ljava/io/FileOutputStream;
+    .restart local v0    # "e":Ljava/io/IOException;
+    .restart local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     :catchall_6
     move-exception v6
 
     move-object v4, v5
 
+    .end local v5    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "fos":Ljava/io/FileOutputStream;
     move-object v2, v3
 
+    .end local v3    # "fis":Ljava/io/FileInputStream;
+    .restart local v2    # "fis":Ljava/io/FileInputStream;
     goto :goto_4
 
+    .end local v4    # "fos":Ljava/io/FileOutputStream;
+    .restart local v5    # "fos":Ljava/io/FileOutputStream;
     :catchall_7
     move-exception v6
 
     move-object v4, v5
 
+    .end local v5    # "fos":Ljava/io/FileOutputStream;
+    .restart local v4    # "fos":Ljava/io/FileOutputStream;
     goto :goto_4
 
+    .line 158
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v2    # "fis":Ljava/io/FileInputStream;
+    .restart local v3    # "fis":Ljava/io/FileInputStream;
     :catch_4
     move-exception v0
 
@@ -441,19 +542,26 @@
 
 .method static areEqual(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
     .locals 4
+    .param p0, "cert1"    # Ljava/security/cert/X509Certificate;
+    .param p1, "cert2"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 508
     const/4 v1, 0x0
 
+    .line 510
+    .local v1, "result":Z
     if-eqz p0, :cond_0
 
     if-eqz p1, :cond_0
 
+    .line 511
     :try_start_0
-    invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getEncoded()[B
+    invoke-virtual {p0}, Ljava/security/cert/Certificate;->getEncoded()[B
 
     move-result-object v2
 
-    invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getEncoded()[B
+    invoke-virtual {p1}, Ljava/security/cert/Certificate;->getEncoded()[B
 
     move-result-object v3
 
@@ -463,13 +571,17 @@
 
     move-result v1
 
+    .line 516
     :cond_0
     :goto_0
     return v1
 
+    .line 513
     :catch_0
     move-exception v0
 
+    .line 514
+    .local v0, "e":Ljava/security/cert/CertificateEncodingException;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -477,9 +589,14 @@
 
 .method private findCertificateOrIssuer(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
     .locals 9
+    .param p1, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 352
     const/4 v4, 0x0
 
+    .line 355
+    .local v4, "ca":Ljava/security/cert/X509Certificate;
     :try_start_0
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
@@ -489,6 +606,8 @@
 
     move-result-object v1
 
+    .line 356
+    .local v1, "alias":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v6, v1}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
@@ -501,6 +620,7 @@
 
     move-object v4, v0
 
+    .line 357
     if-eqz v4, :cond_0
 
     invoke-static {v4, p1}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->areEqual(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
@@ -509,11 +629,14 @@
 
     if-nez v6, :cond_0
 
+    .line 359
     const/4 v4, 0x0
 
+    .line 362
     :cond_0
     if-nez v4, :cond_1
 
+    .line 363
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getIssuerX500Principal()Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v6
@@ -522,6 +645,7 @@
 
     move-result-object v1
 
+    .line 364
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v6, v1}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
@@ -534,6 +658,7 @@
 
     move-object v4, v0
 
+    .line 365
     if-eqz v4, :cond_1
 
     invoke-direct {p0, v4, p1}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->matchPublicKey(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
@@ -542,17 +667,22 @@
 
     if-nez v6, :cond_1
 
+    .line 367
     const/4 v4, 0x0
 
+    .line 371
     :cond_1
     if-nez v4, :cond_4
 
+    .line 372
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v6}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
 
     move-result-object v2
 
+    .line 373
+    .local v2, "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
     :cond_2
     invoke-interface {v2}, Ljava/util/Enumeration;->hasMoreElements()Z
 
@@ -560,12 +690,16 @@
 
     if-eqz v6, :cond_4
 
+    .line 374
     invoke-interface {v2}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
 
     move-result-object v1
 
+    .end local v1    # "alias":Ljava/lang/String;
     check-cast v1, Ljava/lang/String;
 
+    .line 375
+    .restart local v1    # "alias":Ljava/lang/String;
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v6, v1}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
@@ -574,6 +708,8 @@
 
     check-cast v3, Ljava/security/cert/X509Certificate;
 
+    .line 376
+    .local v3, "aux":Ljava/security/cert/X509Certificate;
     invoke-direct {p0, v3, p1}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->matchPublicKey(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
 
     move-result v6
@@ -588,16 +724,24 @@
 
     if-eqz v6, :cond_2
 
+    .line 378
     :cond_3
     move-object v4, v3
 
+    .line 387
+    .end local v1    # "alias":Ljava/lang/String;
+    .end local v2    # "aliases":Ljava/util/Enumeration;, "Ljava/util/Enumeration<Ljava/lang/String;>;"
+    .end local v3    # "aux":Ljava/security/cert/X509Certificate;
     :cond_4
     :goto_0
     return-object v4
 
+    .line 383
     :catch_0
     move-exception v5
 
+    .line 384
+    .local v5, "e":Ljava/security/KeyStoreException;
     const-string v6, "EdmKeyStore"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -620,6 +764,7 @@
 
     invoke-static {v6, v7}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 385
     const/4 v4, 0x0
 
     goto :goto_0
@@ -627,11 +772,16 @@
 
 .method private generateAlias(Ljavax/security/auth/x500/X500Principal;)Ljava/lang/String;
     .locals 3
+    .param p1, "principal"    # Ljavax/security/auth/x500/X500Principal;
 
+    .prologue
+    .line 298
     invoke-static {p1}, Lcom/android/org/conscrypt/NativeCrypto;->X509_NAME_hash(Ljavax/security/auth/x500/X500Principal;)I
 
     move-result v0
 
+    .line 299
+    .local v0, "hash":I
     const/4 v1, 0x0
 
     const/16 v2, 0x8
@@ -645,20 +795,27 @@
 
 .method private static getAuthorityKeyIdentifier(Ljava/security/cert/X509Certificate;)Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;
     .locals 4
+    .param p0, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 465
     const-string v3, "2.5.29.35"
 
     invoke-virtual {p0, v3}, Ljava/security/cert/X509Certificate;->getExtensionValue(Ljava/lang/String;)[B
 
     move-result-object v0
 
+    .line 466
+    .local v0, "akidBytes":[B
     if-nez v0, :cond_0
 
+    .line 473
     :goto_0
     return-object v2
 
+    .line 471
     :cond_0
     :try_start_0
     invoke-static {v0}, Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;->decode([B)Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;
@@ -669,23 +826,30 @@
 
     goto :goto_0
 
+    .line 472
     :catch_0
     move-exception v1
 
+    .line 473
+    .local v1, "e":Ljava/io/IOException;
     goto :goto_0
 .end method
 
 .method static declared-synchronized getInstance(I)Lcom/android/server/enterprise/certificate/EdmKeyStore;
     .locals 4
+    .param p0, "type"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 100
     const-class v2, Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     monitor-enter v2
 
     if-nez p0, :cond_2
 
+    .line 101
     :try_start_0
     sget-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceTrusted:Lcom/android/server/enterprise/certificate/EdmKeyStore;
     :try_end_0
@@ -693,6 +857,7 @@
 
     if-nez v1, :cond_0
 
+    .line 103
     :try_start_1
     new-instance v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
@@ -705,6 +870,7 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 109
     :cond_0
     :goto_0
     :try_start_2
@@ -712,15 +878,19 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 141
     :cond_1
     :goto_1
     monitor-exit v2
 
     return-object v1
 
+    .line 104
     :catch_0
     move-exception v0
 
+    .line 105
+    .local v0, "e":Ljava/lang/Exception;
     :try_start_3
     const-string v1, "EdmKeyStore"
 
@@ -728,6 +898,7 @@
 
     invoke-static {v1, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 106
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceTrusted:Lcom/android/server/enterprise/certificate/EdmKeyStore;
@@ -736,6 +907,8 @@
 
     goto :goto_0
 
+    .line 100
+    .end local v0    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v1
 
@@ -743,11 +916,13 @@
 
     throw v1
 
+    .line 110
     :cond_2
     const/4 v3, 0x1
 
     if-ne p0, v3, :cond_4
 
+    .line 111
     :try_start_4
     sget-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceUser:Lcom/android/server/enterprise/certificate/EdmKeyStore;
     :try_end_4
@@ -755,6 +930,7 @@
 
     if-nez v1, :cond_3
 
+    .line 113
     :try_start_5
     new-instance v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
@@ -767,6 +943,7 @@
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
+    .line 119
     :cond_3
     :goto_2
     :try_start_6
@@ -774,32 +951,40 @@
 
     goto :goto_1
 
+    .line 114
     :catch_1
     move-exception v0
 
+    .line 115
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "EdmKeyStore"
 
     const-string v3, "Should not happen! "
 
     invoke-static {v1, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 116
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceUser:Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     goto :goto_2
 
+    .line 120
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_4
     const/4 v3, 0x2
 
     if-ne p0, v3, :cond_6
 
+    .line 121
     sget-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceNative:Lcom/android/server/enterprise/certificate/EdmKeyStore;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     if-nez v1, :cond_5
 
+    .line 123
     :try_start_7
     new-instance v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
@@ -812,6 +997,7 @@
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_2
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
+    .line 129
     :cond_5
     :goto_3
     :try_start_8
@@ -819,32 +1005,40 @@
 
     goto :goto_1
 
+    .line 124
     :catch_2
     move-exception v0
 
+    .line 125
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "EdmKeyStore"
 
     const-string v3, "Should not happen! "
 
     invoke-static {v1, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 126
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceNative:Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
     goto :goto_3
 
+    .line 130
+    .end local v0    # "e":Ljava/lang/Exception;
     :cond_6
     const/4 v3, 0x3
 
     if-ne p0, v3, :cond_1
 
+    .line 131
     sget-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceUntrusted:Lcom/android/server/enterprise/certificate/EdmKeyStore;
     :try_end_8
     .catchall {:try_start_8 .. :try_end_8} :catchall_0
 
     if-nez v1, :cond_7
 
+    .line 133
     :try_start_9
     new-instance v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;
 
@@ -857,6 +1051,7 @@
     .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_3
     .catchall {:try_start_9 .. :try_end_9} :catchall_0
 
+    .line 139
     :cond_7
     :goto_4
     :try_start_a
@@ -864,15 +1059,19 @@
 
     goto :goto_1
 
+    .line 134
     :catch_3
     move-exception v0
 
+    .line 135
+    .restart local v0    # "e":Ljava/lang/Exception;
     const-string v1, "EdmKeyStore"
 
     const-string v3, "Should not happen! "
 
     invoke-static {v1, v3, v0}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 136
     const/4 v1, 0x0
 
     sput-object v1, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mInstanceUntrusted:Lcom/android/server/enterprise/certificate/EdmKeyStore;
@@ -884,20 +1083,27 @@
 
 .method private static getSubjectKeyIdentifier(Ljava/security/cert/X509Certificate;)Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;
     .locals 4
+    .param p0, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 481
     const-string v3, "2.5.29.14"
 
     invoke-virtual {p0, v3}, Ljava/security/cert/X509Certificate;->getExtensionValue(Ljava/lang/String;)[B
 
     move-result-object v1
 
+    .line 482
+    .local v1, "skidBytes":[B
     if-nez v1, :cond_0
 
+    .line 489
     :goto_0
     return-object v2
 
+    .line 487
     :cond_0
     :try_start_0
     invoke-static {v1}, Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;->decode([B)Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;
@@ -908,17 +1114,23 @@
 
     goto :goto_0
 
+    .line 488
     :catch_0
     move-exception v0
 
+    .line 489
+    .local v0, "e":Ljava/io/IOException;
     goto :goto_0
 .end method
 
 .method static isCa(Ljava/security/cert/X509Certificate;)Z
     .locals 5
+    .param p0, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 495
     :try_start_0
     const-string v4, "2.5.29.19"
 
@@ -926,11 +1138,17 @@
 
     move-result-object v0
 
+    .line 496
+    .local v0, "basicConstraints":[B
     if-nez v0, :cond_0
 
+    .line 503
+    .end local v0    # "basicConstraints":[B
     :goto_0
     return v3
 
+    .line 498
+    .restart local v0    # "basicConstraints":[B
     :cond_0
     new-instance v4, Lcom/android/org/bouncycastle/asn1/ASN1InputStream;
 
@@ -940,12 +1158,16 @@
 
     move-result-object v2
 
+    .line 499
+    .local v2, "obj":Lcom/android/org/bouncycastle/asn1/ASN1Primitive;
     check-cast v2, Lcom/android/org/bouncycastle/asn1/DEROctetString;
 
-    invoke-virtual {v2}, Lcom/android/org/bouncycastle/asn1/DEROctetString;->getOctets()[B
+    .end local v2    # "obj":Lcom/android/org/bouncycastle/asn1/ASN1Primitive;
+    invoke-virtual {v2}, Lcom/android/org/bouncycastle/asn1/ASN1OctetString;->getOctets()[B
 
     move-result-object v0
 
+    .line 500
     new-instance v4, Lcom/android/org/bouncycastle/asn1/ASN1InputStream;
 
     invoke-direct {v4, v0}, Lcom/android/org/bouncycastle/asn1/ASN1InputStream;-><init>([B)V
@@ -954,8 +1176,11 @@
 
     move-result-object v2
 
+    .line 501
+    .restart local v2    # "obj":Lcom/android/org/bouncycastle/asn1/ASN1Primitive;
     check-cast v2, Lcom/android/org/bouncycastle/asn1/ASN1Sequence;
 
+    .end local v2    # "obj":Lcom/android/org/bouncycastle/asn1/ASN1Primitive;
     invoke-static {v2}, Lcom/android/org/bouncycastle/asn1/x509/BasicConstraints;->getInstance(Ljava/lang/Object;)Lcom/android/org/bouncycastle/asn1/x509/BasicConstraints;
 
     move-result-object v4
@@ -968,17 +1193,24 @@
 
     goto :goto_0
 
+    .line 502
+    .end local v0    # "basicConstraints":[B
     :catch_0
     move-exception v1
 
+    .line 503
+    .local v1, "e":Ljava/io/IOException;
     goto :goto_0
 .end method
 
 .method static isSelfSigned(Ljava/security/cert/X509Certificate;)Z
     .locals 13
+    .param p0, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
     const/4 v11, 0x0
 
+    .line 411
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v10
@@ -995,26 +1227,36 @@
 
     move v10, v11
 
+    .line 458
     :goto_0
     return v10
 
+    .line 415
     :cond_0
     invoke-static {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->getAuthorityKeyIdentifier(Ljava/security/cert/X509Certificate;)Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;
 
     move-result-object v0
 
+    .line 416
+    .local v0, "akid":Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;
     if-eqz v0, :cond_5
 
+    .line 417
     invoke-virtual {v0}, Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;->getKeyIdentifier()[B
 
     move-result-object v1
 
+    .line 418
+    .local v1, "akidKeyId":[B
     if-eqz v1, :cond_1
 
+    .line 419
     invoke-static {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->getSubjectKeyIdentifier(Ljava/security/cert/X509Certificate;)Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;
 
     move-result-object v8
 
+    .line 420
+    .local v8, "skid":Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;
     if-eqz v8, :cond_1
 
     invoke-virtual {v8}, Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;->getKeyIdentifier()[B
@@ -1029,13 +1271,18 @@
 
     move v10, v11
 
+    .line 421
     goto :goto_0
 
+    .line 425
+    .end local v8    # "skid":Lorg/apache/harmony/security/x509/SubjectKeyIdentifier;
     :cond_1
     invoke-virtual {v0}, Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;->getAuthorityCertSerialNumber()Ljava/math/BigInteger;
 
     move-result-object v2
 
+    .line 426
+    .local v2, "akidSerial":Ljava/math/BigInteger;
     if-eqz v2, :cond_2
 
     invoke-virtual {p0}, Ljava/security/cert/X509Certificate;->getSerialNumber()Ljava/math/BigInteger;
@@ -1050,17 +1297,24 @@
 
     move v10, v11
 
+    .line 427
     goto :goto_0
 
+    .line 430
     :cond_2
     invoke-virtual {v0}, Lorg/apache/harmony/security/x509/AuthorityKeyIdentifier;->getAuthorityCertIssuer()Lorg/apache/harmony/security/x509/GeneralNames;
 
     move-result-object v6
 
+    .line 431
+    .local v6, "possibleIssuerNames":Lorg/apache/harmony/security/x509/GeneralNames;
     if-eqz v6, :cond_5
 
+    .line 432
     const/4 v5, 0x0
 
+    .line 435
+    .local v5, "issuerName":Lorg/apache/harmony/security/x509/GeneralName;
     invoke-virtual {v6}, Lorg/apache/harmony/security/x509/GeneralNames;->getNames()Ljava/util/List;
 
     move-result-object v10
@@ -1069,6 +1323,7 @@
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :cond_3
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1082,6 +1337,8 @@
 
     check-cast v7, Lorg/apache/harmony/security/x509/GeneralName;
 
+    .line 436
+    .local v7, "possibleName":Lorg/apache/harmony/security/x509/GeneralName;
     if-eqz v7, :cond_3
 
     invoke-virtual {v7}, Lorg/apache/harmony/security/x509/GeneralName;->getTag()I
@@ -1092,11 +1349,15 @@
 
     if-ne v10, v12, :cond_3
 
+    .line 437
     move-object v5, v7
 
+    .line 442
+    .end local v7    # "possibleName":Lorg/apache/harmony/security/x509/GeneralName;
     :cond_4
     if-eqz v5, :cond_5
 
+    .line 443
     invoke-virtual {v5}, Lorg/apache/harmony/security/x509/GeneralName;->getName()Ljava/lang/Object;
 
     move-result-object v10
@@ -1109,6 +1370,8 @@
 
     move-result-object v4
 
+    .line 447
+    .local v4, "issuerCanonical":Ljava/lang/String;
     :try_start_0
     new-instance v10, Lorg/apache/harmony/security/x501/Name;
 
@@ -1128,6 +1391,8 @@
 
     move-result-object v9
 
+    .line 449
+    .local v9, "subjectCanonical":Ljava/lang/String;
     invoke-virtual {v4, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
@@ -1138,11 +1403,21 @@
 
     move v10, v11
 
+    .line 450
     goto :goto_0
 
+    .line 452
+    .end local v9    # "subjectCanonical":Ljava/lang/String;
     :catch_0
     move-exception v10
 
+    .line 458
+    .end local v1    # "akidKeyId":[B
+    .end local v2    # "akidSerial":Ljava/math/BigInteger;
+    .end local v3    # "i$":Ljava/util/Iterator;
+    .end local v4    # "issuerCanonical":Ljava/lang/String;
+    .end local v5    # "issuerName":Lorg/apache/harmony/security/x509/GeneralName;
+    .end local v6    # "possibleIssuerNames":Lorg/apache/harmony/security/x509/GeneralNames;
     :cond_5
     const/4 v10, 0x1
 
@@ -1151,31 +1426,43 @@
 
 .method private matchPublicKey(Ljava/security/cert/X509Certificate;Ljava/security/cert/X509Certificate;)Z
     .locals 3
+    .param p1, "ca"    # Ljava/security/cert/X509Certificate;
+    .param p2, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 395
     const/4 v1, 0x0
 
+    .line 397
+    .local v1, "result":Z
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
 
+    .line 398
     :try_start_0
-    invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getPublicKey()Ljava/security/PublicKey;
+    invoke-virtual {p1}, Ljava/security/cert/Certificate;->getPublicKey()Ljava/security/PublicKey;
 
     move-result-object v2
 
-    invoke-virtual {p2, v2}, Ljava/security/cert/X509Certificate;->verify(Ljava/security/PublicKey;)V
+    invoke-virtual {p2, v2}, Ljava/security/cert/Certificate;->verify(Ljava/security/PublicKey;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 399
     const/4 v1, 0x1
 
+    .line 404
     :cond_0
     :goto_0
     return v1
 
+    .line 401
     :catch_0
     move-exception v0
 
+    .line 402
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x0
 
     goto :goto_0
@@ -1184,12 +1471,17 @@
 .method private saveKeyStore()V
     .locals 8
 
+    .prologue
+    .line 270
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
     monitor-enter v5
 
+    .line 271
     const/4 v2, 0x0
 
+    .line 273
+    .local v2, "fos":Ljava/io/FileOutputStream;
     :try_start_0
     new-instance v3, Ljava/io/FileOutputStream;
 
@@ -1200,6 +1492,9 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 274
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .local v3, "fos":Ljava/io/FileOutputStream;
     :try_start_1
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -1210,8 +1505,10 @@
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_4
     .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
+    .line 278
     if-eqz v3, :cond_0
 
+    .line 280
     :try_start_2
     invoke-virtual {v3}, Ljava/io/FileOutputStream;->close()V
     :try_end_2
@@ -1222,6 +1519,9 @@
     :goto_0
     move-object v2, v3
 
+    .line 286
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     :cond_1
     :goto_1
     :try_start_3
@@ -1229,11 +1529,15 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 287
     return-void
 
+    .line 275
     :catch_0
     move-exception v0
 
+    .line 276
+    .local v0, "e":Ljava/lang/Exception;
     :goto_2
     :try_start_4
     const-string v4, "EdmKeyStore"
@@ -1260,8 +1564,10 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
+    .line 278
     if-eqz v2, :cond_1
 
+    .line 280
     :try_start_5
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_5
@@ -1270,9 +1576,12 @@
 
     goto :goto_1
 
+    .line 281
     :catch_1
     move-exception v1
 
+    .line 282
+    .local v1, "ex":Ljava/io/IOException;
     :try_start_6
     const-string v4, "EdmKeyStore"
 
@@ -1282,6 +1591,9 @@
 
     goto :goto_1
 
+    .line 286
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "ex":Ljava/io/IOException;
     :catchall_0
     move-exception v4
 
@@ -1292,26 +1604,32 @@
 
     throw v4
 
+    .line 278
     :catchall_1
     move-exception v4
 
     :goto_4
     if-eqz v2, :cond_2
 
+    .line 280
     :try_start_7
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
+    .line 278
     :cond_2
     :goto_5
     :try_start_8
     throw v4
 
+    .line 281
     :catch_2
     move-exception v1
 
+    .line 282
+    .restart local v1    # "ex":Ljava/io/IOException;
     const-string v6, "EdmKeyStore"
 
     const-string v7, "fos close failed"
@@ -1322,9 +1640,15 @@
 
     goto :goto_5
 
+    .line 281
+    .end local v1    # "ex":Ljava/io/IOException;
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
     :catch_3
     move-exception v1
 
+    .line 282
+    .restart local v1    # "ex":Ljava/io/IOException;
     :try_start_9
     const-string v4, "EdmKeyStore"
 
@@ -1336,25 +1660,39 @@
 
     goto :goto_0
 
+    .line 286
+    .end local v1    # "ex":Ljava/io/IOException;
     :catchall_2
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     goto :goto_3
 
+    .line 278
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
     :catchall_3
     move-exception v4
 
     move-object v2, v3
 
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     goto :goto_4
 
+    .line 275
+    .end local v2    # "fos":Ljava/io/FileOutputStream;
+    .restart local v3    # "fos":Ljava/io/FileOutputStream;
     :catch_4
     move-exception v0
 
     move-object v2, v3
 
+    .end local v3    # "fos":Ljava/io/FileOutputStream;
+    .restart local v2    # "fos":Ljava/io/FileOutputStream;
     goto :goto_2
 .end method
 
@@ -1362,7 +1700,10 @@
 # virtual methods
 .method containsCertificateOrChain(Ljava/security/cert/X509Certificate;)Z
     .locals 3
+    .param p1, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 323
     if-eqz p1, :cond_2
 
     iget-object v1, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mPath:Ljava/lang/String;
@@ -1385,6 +1726,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 326
     :cond_0
     invoke-direct {p0, p1}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->findCertificateOrIssuer(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
 
@@ -1392,11 +1734,14 @@
 
     if-eqz v1, :cond_1
 
+    .line 328
     const/4 v1, 0x1
 
+    .line 343
     :goto_0
     return v1
 
+    .line 332
     :cond_1
     iget-object v1, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mPath:Ljava/lang/String;
 
@@ -1414,20 +1759,26 @@
 
     if-nez v1, :cond_2
 
+    .line 334
     iget-object v1, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mCertStore:Lcom/android/org/conscrypt/TrustedCertificateStore;
 
     invoke-virtual {v1, p1}, Lcom/android/org/conscrypt/TrustedCertificateStore;->findIssuer(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509Certificate;
 
     move-result-object v0
 
+    .line 335
+    .local v0, "aux":Ljava/security/cert/X509Certificate;
     if-eqz v0, :cond_2
 
+    .line 337
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->containsCertificateOrChain(Ljava/security/cert/X509Certificate;)Z
 
     move-result v1
 
     goto :goto_0
 
+    .line 343
+    .end local v0    # "aux":Ljava/security/cert/X509Certificate;
     :cond_2
     const/4 v1, 0x0
 
@@ -1436,7 +1787,10 @@
 
 .method generateAlias(Ljava/security/cert/X509Certificate;)Ljava/lang/String;
     .locals 1
+    .param p1, "cert"    # Ljava/security/cert/X509Certificate;
 
+    .prologue
+    .line 294
     invoke-virtual {p1}, Ljava/security/cert/X509Certificate;->getSubjectX500Principal()Ljavax/security/auth/x500/X500Principal;
 
     move-result-object v0
@@ -1465,14 +1819,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 252
+    .local p1, "aliasList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v4, Ljava/util/HashMap;
 
     invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
 
+    .line 253
+    .local v4, "ret":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/X509Certificate;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1486,6 +1846,8 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 255
+    .local v0, "alias":Ljava/lang/String;
     :try_start_0
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
@@ -1493,6 +1855,7 @@
     :try_end_0
     .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 256
     :try_start_1
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -1502,15 +1865,20 @@
 
     check-cast v1, Ljava/security/cert/X509Certificate;
 
+    .line 257
+    .local v1, "cert":Ljava/security/cert/X509Certificate;
     if-eqz v1, :cond_0
 
+    .line 258
     invoke-interface {v4, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 260
     :cond_0
     monitor-exit v6
 
     goto :goto_0
 
+    .end local v1    # "cert":Ljava/security/cert/X509Certificate;
     :catchall_0
     move-exception v5
 
@@ -1523,9 +1891,12 @@
     :try_end_2
     .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 261
     :catch_0
     move-exception v2
 
+    .line 262
+    .local v2, "e":Ljava/security/KeyStoreException;
     const-string v5, "EdmKeyStore"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1550,6 +1921,9 @@
 
     goto :goto_0
 
+    .line 265
+    .end local v0    # "alias":Ljava/lang/String;
+    .end local v2    # "e":Ljava/security/KeyStoreException;
     :cond_1
     return-object v4
 .end method
@@ -1557,6 +1931,8 @@
 .method getKeyStore()Ljava/security/KeyStore;
     .locals 1
 
+    .prologue
+    .line 184
     iget-object v0, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     return-object v0
@@ -1578,14 +1954,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 189
+    .local p1, "certList":Ljava/util/List;, "Ljava/util/List<Ljava/security/cert/X509Certificate;>;"
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
+    .line 190
+    .local v4, "ret":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
+    .local v3, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1599,10 +1981,14 @@
 
     check-cast v1, Ljava/security/cert/X509Certificate;
 
+    .line 191
+    .local v1, "cert":Ljava/security/cert/X509Certificate;
     invoke-virtual {p0, v1}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->generateAlias(Ljava/security/cert/X509Certificate;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 193
+    .local v0, "alias":Ljava/lang/String;
     :try_start_0
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
@@ -1610,11 +1996,13 @@
     :try_end_0
     .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 194
     :try_start_1
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v5, v0, v1}, Ljava/security/KeyStore;->setCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
 
+    .line 195
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v5, v0}, Ljava/security/KeyStore;->isCertificateEntry(Ljava/lang/String;)Z
@@ -1623,8 +2011,10 @@
 
     if-eqz v5, :cond_0
 
+    .line 196
     invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 198
     :cond_0
     monitor-exit v6
 
@@ -1642,9 +2032,12 @@
     :try_end_2
     .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 199
     :catch_0
     move-exception v2
 
+    .line 200
+    .local v2, "e":Ljava/security/KeyStoreException;
     const-string v5, "EdmKeyStore"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1669,9 +2062,14 @@
 
     goto :goto_0
 
+    .line 203
+    .end local v0    # "alias":Ljava/lang/String;
+    .end local v1    # "cert":Ljava/security/cert/X509Certificate;
+    .end local v2    # "e":Ljava/security/KeyStoreException;
     :cond_1
     invoke-direct {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->saveKeyStore()V
 
+    .line 204
     return-object v4
 .end method
 
@@ -1692,10 +2090,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 209
+    .local p1, "certList":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/security/cert/X509Certificate;>;"
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
+    .line 210
+    .local v3, "ret":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v4
@@ -1704,6 +2107,7 @@
 
     move-result-object v2
 
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1717,6 +2121,8 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
+    .line 212
+    .local v1, "entryCert":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/security/cert/X509Certificate;>;"
     :try_start_0
     iget-object v6, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
@@ -1724,6 +2130,7 @@
     :try_end_0
     .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 213
     :try_start_1
     iget-object v7, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
@@ -1741,6 +2148,7 @@
 
     invoke-virtual {v7, v4, v5}, Ljava/security/KeyStore;->setCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
 
+    .line 214
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
@@ -1755,12 +2163,14 @@
 
     if-eqz v4, :cond_0
 
+    .line 215
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v4
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 217
     :cond_0
     monitor-exit v6
 
@@ -1778,9 +2188,12 @@
     :try_end_2
     .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 218
     :catch_0
     move-exception v0
 
+    .line 219
+    .local v0, "e":Ljava/security/KeyStoreException;
     const-string v4, "EdmKeyStore"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1805,17 +2218,25 @@
 
     goto :goto_0
 
+    .line 222
+    .end local v0    # "e":Ljava/security/KeyStoreException;
+    .end local v1    # "entryCert":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/security/cert/X509Certificate;>;"
     :cond_1
     invoke-direct {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->saveKeyStore()V
 
+    .line 223
     return-object v3
 .end method
 
 .method isEmpty()Z
     .locals 5
 
+    .prologue
+    .line 303
     const/4 v1, 0x1
 
+    .line 305
+    .local v1, "result":Z
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->getKeyStore()Ljava/security/KeyStore;
 
@@ -1831,17 +2252,22 @@
 
     const/4 v1, 0x1
 
+    .line 310
     :goto_0
     return v1
 
+    .line 305
     :cond_0
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 306
     :catch_0
     move-exception v0
 
+    .line 307
+    .local v0, "e":Ljava/security/KeyStoreException;
     const-string v2, "EdmKeyStore"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1864,6 +2290,7 @@
 
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 308
     const/4 v1, 0x1
 
     goto :goto_0
@@ -1885,14 +2312,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 231
+    .local p1, "aliasList":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v3, Ljava/util/ArrayList;
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
+    .line 232
+    .local v3, "ret":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1906,6 +2339,8 @@
 
     check-cast v0, Ljava/lang/String;
 
+    .line 234
+    .local v0, "alias":Ljava/lang/String;
     :try_start_0
     iget-object v5, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStoreLock:Ljava/lang/Object;
 
@@ -1913,11 +2348,13 @@
     :try_end_0
     .catch Ljava/security/KeyStoreException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 235
     :try_start_1
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v4, v0}, Ljava/security/KeyStore;->deleteEntry(Ljava/lang/String;)V
 
+    .line 236
     iget-object v4, p0, Lcom/android/server/enterprise/certificate/EdmKeyStore;->mKeyStore:Ljava/security/KeyStore;
 
     invoke-virtual {v4, v0}, Ljava/security/KeyStore;->isCertificateEntry(Ljava/lang/String;)Z
@@ -1926,8 +2363,10 @@
 
     if-nez v4, :cond_0
 
+    .line 237
     invoke-interface {v3, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
+    .line 239
     :cond_0
     monitor-exit v5
 
@@ -1945,9 +2384,12 @@
     :try_end_2
     .catch Ljava/security/KeyStoreException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 240
     :catch_0
     move-exception v1
 
+    .line 241
+    .local v1, "e":Ljava/security/KeyStoreException;
     const-string v4, "EdmKeyStore"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1972,8 +2414,12 @@
 
     goto :goto_0
 
+    .line 244
+    .end local v0    # "alias":Ljava/lang/String;
+    .end local v1    # "e":Ljava/security/KeyStoreException;
     :cond_1
     invoke-direct {p0}, Lcom/android/server/enterprise/certificate/EdmKeyStore;->saveKeyStore()V
 
+    .line 245
     return-object v3
 .end method

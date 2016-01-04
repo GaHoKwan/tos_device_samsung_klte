@@ -39,14 +39,18 @@
 .method constructor <init>(Lcom/android/server/PowerSaving3LMService;)V
     .locals 1
 
+    .prologue
+    .line 436
     iput-object p1, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->this$0:Lcom/android/server/PowerSaving3LMService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 434
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
+    .line 436
     return-void
 .end method
 
@@ -65,6 +69,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 477
+    .local p1, "regexMap":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v2, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
     if-nez v2, :cond_0
@@ -75,6 +82,7 @@
 
     iput-object v2, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
+    .line 479
     :cond_0
     invoke-interface {p1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -84,6 +92,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -97,6 +106,8 @@
 
     check-cast v1, Ljava/util/Map$Entry;
 
+    .line 480
+    .local v1, "pair":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
     new-instance v5, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
@@ -123,26 +134,37 @@
 
     goto :goto_0
 
+    .line 482
+    .end local v1    # "pair":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_1
     return-void
 .end method
 
 .method public checkPolicy(Ljava/lang/String;)Z
     .locals 6
+    .param p1, "text"    # Ljava/lang/String;
 
+    .prologue
+    .line 505
     const/4 v3, 0x0
 
+    .line 506
+    .local v3, "returnCode":Z
     const/4 v2, 0x0
 
+    .line 508
+    .local v2, "longestRegexStrMatch":I
     iget-object v5, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
     if-nez v5, :cond_0
 
     const/4 v5, 0x0
 
+    .line 523
     :goto_0
     return v5
 
+    .line 510
     :cond_0
     iget-object v5, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
@@ -150,6 +172,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_1
     :goto_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
@@ -164,6 +187,8 @@
 
     check-cast v4, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
 
+    .line 511
+    .local v4, "rule":Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
     # getter for: Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->mRegexStr:Ljava/lang/String;
     invoke-static {v4}, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->access$1100(Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;)Ljava/lang/String;
 
@@ -173,8 +198,11 @@
 
     move-result v0
 
+    .line 512
+    .local v0, "currentRegexStrLength":I
     if-le v0, v2, :cond_1
 
+    .line 513
     # getter for: Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->mRegex:Ljava/util/regex/Pattern;
     invoke-static {v4}, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->access$1300(Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;)Ljava/util/regex/Pattern;
 
@@ -190,24 +218,31 @@
 
     if-eqz v5, :cond_1
 
+    .line 514
     # getter for: Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->mPermitted:Z
     invoke-static {v4}, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->access$1200(Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;)Z
 
     move-result v3
 
+    .line 515
     move v2, v0
 
     goto :goto_1
 
+    .end local v0    # "currentRegexStrLength":I
+    .end local v4    # "rule":Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
     :cond_2
     move v5, v3
 
+    .line 523
     goto :goto_0
 .end method
 
 .method public isInitialized()Z
     .locals 1
 
+    .prologue
+    .line 439
     iget-object v0, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
@@ -225,15 +260,21 @@
 
 .method public loadPolicy(Ljava/util/Map;)Z
     .locals 8
+    .param p1, "regexPermMap"    # Ljava/util/Map;
 
+    .prologue
+    .line 491
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
+    .line 493
     move-object v2, p1
 
+    .line 494
+    .local v2, "map":Ljava/util/Map;, "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;"
     invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object v4
@@ -242,6 +283,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -255,6 +297,8 @@
 
     check-cast v3, Ljava/util/Map$Entry;
 
+    .line 496
+    .local v3, "pair":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :try_start_0
     iget-object v6, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
@@ -284,9 +328,12 @@
 
     goto :goto_0
 
+    .line 497
     :catch_0
     move-exception v0
 
+    .line 498
+    .local v0, "e":Ljava/util/regex/PatternSyntaxException;
     const-string v5, "PowerSavingService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -317,6 +364,9 @@
 
     goto :goto_0
 
+    .line 501
+    .end local v0    # "e":Ljava/util/regex/PatternSyntaxException;
+    .end local v3    # "pair":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
     :cond_0
     const/4 v4, 0x1
 
@@ -325,19 +375,25 @@
 
 .method public updatePolicy(Ljava/lang/String;Z)Z
     .locals 6
+    .param p1, "regex"    # Ljava/lang/String;
+    .param p2, "permitted"    # Z
 
+    .prologue
     const/4 v3, 0x1
 
+    .line 450
     iget-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
     if-nez v4, :cond_0
 
+    .line 451
     new-instance v4, Ljava/util/ArrayList;
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
+    .line 455
     :cond_0
     iget-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
 
@@ -345,6 +401,7 @@
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -358,6 +415,8 @@
 
     check-cast v2, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
 
+    .line 456
+    .local v2, "rule":Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
     # getter for: Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->mRegexStr:Ljava/lang/String;
     invoke-static {v2}, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->access$1100(Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;)Ljava/lang/String;
 
@@ -369,12 +428,16 @@
 
     if-eqz v4, :cond_1
 
+    .line 457
     # setter for: Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->mPermitted:Z
     invoke-static {v2, p2}, Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;->access$1202(Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;Z)Z
 
+    .line 468
+    .end local v2    # "rule":Lcom/android/server/PowerSaving3LMService$RulesEngine$Rule;
     :goto_0
     return v3
 
+    .line 463
     :cond_2
     :try_start_0
     iget-object v4, p0, Lcom/android/server/PowerSaving3LMService$RulesEngine;->mRulesList:Ljava/util/ArrayList;
@@ -389,9 +452,12 @@
 
     goto :goto_0
 
+    .line 464
     :catch_0
     move-exception v0
 
+    .line 465
+    .local v0, "e":Ljava/lang/IllegalArgumentException;
     const-string v3, "PowerSavingService"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -414,6 +480,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 466
     const/4 v3, 0x0
 
     goto :goto_0

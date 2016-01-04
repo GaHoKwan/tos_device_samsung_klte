@@ -13,37 +13,45 @@
 .method private constructor <init>()V
     .locals 2
 
+    .prologue
+    .line 35
     const-string v0, "android.fg"
 
     const/4 v1, 0x0
 
     invoke-direct {p0, v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;I)V
 
+    .line 36
     return-void
 .end method
 
 .method private static ensureThreadLocked()V
     .locals 2
 
+    .prologue
+    .line 39
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
     if-nez v0, :cond_0
 
+    .line 40
     new-instance v0, Lcom/android/server/FgThread;
 
     invoke-direct {v0}, Lcom/android/server/FgThread;-><init>()V
 
     sput-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
+    .line 41
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
-    invoke-virtual {v0}, Lcom/android/server/FgThread;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 42
     new-instance v0, Landroid/os/Handler;
 
     sget-object v1, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
-    invoke-virtual {v1}, Lcom/android/server/FgThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v1
 
@@ -51,6 +59,7 @@
 
     sput-object v0, Lcom/android/server/FgThread;->sHandler:Landroid/os/Handler;
 
+    .line 43
     sget-object v0, Lcom/android/server/FgThread;->sHandler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/server/FgThread$1;
@@ -59,6 +68,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    .line 50
     :cond_0
     return-void
 .end method
@@ -66,19 +76,24 @@
 .method public static get()Lcom/android/server/FgThread;
     .locals 2
 
+    .prologue
+    .line 53
     const-class v1, Lcom/android/server/UiThread;
 
     monitor-enter v1
 
+    .line 54
     :try_start_0
     invoke-static {}, Lcom/android/server/FgThread;->ensureThreadLocked()V
 
+    .line 55
     sget-object v0, Lcom/android/server/FgThread;->sInstance:Lcom/android/server/FgThread;
 
     monitor-exit v1
 
     return-object v0
 
+    .line 56
     :catchall_0
     move-exception v0
 
@@ -92,19 +107,24 @@
 .method public static getHandler()Landroid/os/Handler;
     .locals 2
 
+    .prologue
+    .line 60
     const-class v1, Lcom/android/server/UiThread;
 
     monitor-enter v1
 
+    .line 61
     :try_start_0
     invoke-static {}, Lcom/android/server/FgThread;->ensureThreadLocked()V
 
+    .line 62
     sget-object v0, Lcom/android/server/FgThread;->sHandler:Landroid/os/Handler;
 
     monitor-exit v1
 
     return-object v0
 
+    .line 63
     :catchall_0
     move-exception v0
 

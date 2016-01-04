@@ -43,7 +43,7 @@
     .line 57
     :cond_0
     :try_start_0
-    invoke-virtual {p0}, Landroid/hardware/contextaware/utilbundle/autotest/CmdProcessStressTest;->getDelayTime()I
+    invoke-virtual {p0}, Landroid/hardware/contextaware/utilbundle/autotest/CaAutoTest;->getDelayTime()I
 
     move-result v1
 

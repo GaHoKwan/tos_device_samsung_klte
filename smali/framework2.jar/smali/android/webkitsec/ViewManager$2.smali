@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/ViewManager;)V
     .locals 0
 
+    .prologue
+    .line 264
     iput-object p1, p0, Landroid/webkitsec/ViewManager$2;->this$0:Landroid/webkitsec/ViewManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 266
     iget-object v0, p0, Landroid/webkitsec/ViewManager$2;->this$0:Landroid/webkitsec/ViewManager;
 
     const/4 v1, 0x0
@@ -44,5 +48,6 @@
     # setter for: Landroid/webkitsec/ViewManager;->mReadyToDraw:Z
     invoke-static {v0, v1}, Landroid/webkitsec/ViewManager;->access$402(Landroid/webkitsec/ViewManager;Z)Z
 
+    .line 267
     return-void
 .end method

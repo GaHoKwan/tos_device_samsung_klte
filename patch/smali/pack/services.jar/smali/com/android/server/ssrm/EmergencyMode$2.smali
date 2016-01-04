@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/EmergencyMode;)V
     .locals 0
 
+    .prologue
+    .line 83
     iput-object p1, p0, Lcom/android/server/ssrm/EmergencyMode$2;->this$0:Lcom/android/server/ssrm/EmergencyMode;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,23 +35,30 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x3
 
     const/4 v1, 0x0
 
+    .line 86
     const-string v2, "reason"
 
     invoke-virtual {p2, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
+    .line 87
+    .local v0, "reason":I
     if-eq v0, v3, :cond_0
 
     const/4 v2, 0x4
 
     if-ne v0, v2, :cond_2
 
+    .line 89
     :cond_0
     iget-object v2, p0, Lcom/android/server/ssrm/EmergencyMode$2;->this$0:Lcom/android/server/ssrm/EmergencyMode;
 
@@ -60,6 +69,7 @@
     :cond_1
     invoke-virtual {v2, v1}, Lcom/android/server/ssrm/EmergencyMode;->onSettingChanged(Z)V
 
+    .line 91
     :cond_2
     return-void
 .end method

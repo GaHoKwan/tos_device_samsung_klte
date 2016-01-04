@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 0
 
+    .prologue
+    .line 1176
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Landroid/app/IProcessObserver$Stub;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method getPackageNameFromPID(I)Ljava/lang/String;
     .locals 3
+    .param p1, "pid"    # I
 
+    .prologue
+    .line 1178
     iget-object v2, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v2, v2, Lcom/android/server/ssrm/Monitor;->mActivityManager:Landroid/app/ActivityManager;
@@ -46,6 +51,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -59,12 +65,17 @@
 
     check-cast v1, Landroid/app/ActivityManager$RunningAppProcessInfo;
 
+    .line 1179
+    .local v1, "processInfo":Landroid/app/ActivityManager$RunningAppProcessInfo;
     iget v2, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->pid:I
 
     if-ne v2, p1, :cond_0
 
+    .line 1180
     iget-object v2, v1, Landroid/app/ActivityManager$RunningAppProcessInfo;->processName:Ljava/lang/String;
 
+    .line 1183
+    .end local v1    # "processInfo":Landroid/app/ActivityManager$RunningAppProcessInfo;
     :goto_0
     return-object v2
 
@@ -76,19 +87,29 @@
 
 .method public onForegroundActivitiesChanged(IIZ)V
     .locals 5
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "foregroundActivities"    # Z
 
+    .prologue
+    .line 1188
     const/4 v1, 0x0
 
+    .line 1190
+    .local v1, "packageName":Ljava/lang/String;
     const/4 v3, -0x1
 
     if-eq p1, v3, :cond_2
 
+    .line 1191
     if-eqz p3, :cond_1
 
+    .line 1192
     invoke-virtual {p0, p1}, Lcom/android/server/ssrm/Monitor$24;->getPackageNameFromPID(I)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 1208
     :goto_0
     if-eqz v1, :cond_0
 
@@ -98,6 +119,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 1209
     iget-object v3, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v3, v3, Lcom/android/server/ssrm/Monitor;->mHandler:Landroid/os/Handler;
@@ -106,24 +128,32 @@
 
     move-result-object v0
 
+    .line 1210
+    .local v0, "msg":Landroid/os/Message;
     const/16 v3, 0x9
 
     iput v3, v0, Landroid/os/Message;->what:I
 
+    .line 1211
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 1212
     iput p1, v0, Landroid/os/Message;->arg1:I
 
+    .line 1213
     iget-object v3, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v3, v3, Lcom/android/server/ssrm/Monitor;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v3, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 1215
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     :goto_1
     return-void
 
+    .line 1194
     :cond_1
     iget-object v3, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
@@ -131,6 +161,7 @@
 
     monitor-enter v4
 
+    .line 1195
     :try_start_0
     iget-object v3, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
@@ -138,6 +169,7 @@
 
     invoke-virtual {v3}, Ljava/lang/Object;->notify()V
 
+    .line 1196
     monitor-exit v4
 
     goto :goto_1
@@ -151,6 +183,7 @@
 
     throw v3
 
+    .line 1200
     :cond_2
     iget-object v3, p0, Lcom/android/server/ssrm/Monitor$24;->this$0:Lcom/android/server/ssrm/Monitor;
 
@@ -162,12 +195,15 @@
 
     move-result-object v2
 
+    .line 1201
+    .local v2, "tasks":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningTaskInfo;>;"
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v3
 
     if-lez v3, :cond_0
 
+    .line 1202
     const/4 v3, 0x0
 
     invoke-interface {v2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -187,12 +223,21 @@
 
 .method public onImportanceChanged(III)V
     .locals 0
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
+    .param p3, "importance"    # I
 
+    .prologue
+    .line 1220
     return-void
 .end method
 
 .method public onProcessDied(II)V
     .locals 0
+    .param p1, "pid"    # I
+    .param p2, "uid"    # I
 
+    .prologue
+    .line 1225
     return-void
 .end method

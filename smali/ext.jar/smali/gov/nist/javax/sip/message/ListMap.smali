@@ -97,7 +97,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
@@ -115,7 +115,7 @@
 
     .line 179
     .local v0, "ex":Ljava/lang/InstantiationException;
-    invoke-virtual {v0}, Ljava/lang/InstantiationException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 183
     .end local v0    # "ex":Ljava/lang/InstantiationException;
@@ -130,7 +130,7 @@
 
     .line 181
     .local v0, "ex":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_1
 .end method

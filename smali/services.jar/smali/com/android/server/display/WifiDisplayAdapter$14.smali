@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;)V
     .locals 0
 
+    .prologue
+    .line 802
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,17 @@
 # virtual methods
 .method public onClientConnected(Landroid/net/wifi/p2p/WifiP2pDevice;)V
     .locals 2
+    .param p1, "client"    # Landroid/net/wifi/p2p/WifiP2pDevice;
 
+    .prologue
+    .line 1028
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onClientConnected"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1030
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mIpRemoteDisplayController:Lcom/android/server/display/IpRemoteDisplayController;
@@ -52,20 +58,25 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/display/IpRemoteDisplayController;->updateClientDevice(Landroid/net/wifi/p2p/WifiP2pDevice;)V
 
+    .line 1031
     return-void
 .end method
 
 .method public onDisplayChanged(Landroid/hardware/display/WifiDisplay;)V
     .locals 3
+    .param p1, "display"    # Landroid/hardware/display/WifiDisplay;
 
+    .prologue
+    .line 957
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 958
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -78,6 +89,7 @@
 
     move-result-object p1
 
+    .line 959
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
@@ -113,11 +125,13 @@
 
     if-nez v0, :cond_0
 
+    .line 962
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 963
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     invoke-virtual {p1}, Landroid/hardware/display/WifiDisplay;->getFriendlyDisplayName()Ljava/lang/String;
@@ -127,21 +141,26 @@
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->renameDisplayDeviceLocked(Ljava/lang/String;)V
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$2300(Lcom/android/server/display/WifiDisplayAdapter;Ljava/lang/String;)V
 
+    .line 964
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 965
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleUpdateNotificationLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1000(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 967
     :cond_0
     monitor-exit v1
 
+    .line 968
     return-void
 
+    .line 967
     :catchall_0
     move-exception v0
 
@@ -154,29 +173,40 @@
 
 .method public onDisplayConnected(Landroid/hardware/display/WifiDisplay;Landroid/view/Surface;IIII)V
     .locals 9
+    .param p1, "display"    # Landroid/hardware/display/WifiDisplay;
+    .param p2, "surface"    # Landroid/view/Surface;
+    .param p3, "width"    # I
+    .param p4, "height"    # I
+    .param p5, "flags"    # I
+    .param p6, "connectedMode"    # I
 
+    .prologue
     const/4 v8, 0x2
 
+    .line 922
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onDisplayConnected"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 924
     const-string/jumbo v0, "wlan.wfd.status"
 
     const-string v1, "connected"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 927
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v7
 
     monitor-enter v7
 
+    .line 928
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -189,6 +219,7 @@
 
     move-result-object p1
 
+    .line 929
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     move-object v1, p1
@@ -206,12 +237,14 @@
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->addDisplayDeviceLocked(Landroid/hardware/display/WifiDisplay;Landroid/view/Surface;IIII)V
     invoke-static/range {v0 .. v6}, Lcom/android/server/display/WifiDisplayAdapter;->access$2000(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;Landroid/view/Surface;IIII)V
 
+    .line 930
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/server/display/WifiDisplayAdapter;->turnOffPeriodicWifiScan(Z)V
 
+    .line 932
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
@@ -243,6 +276,7 @@
 
     if-nez v0, :cond_1
 
+    .line 935
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -251,11 +285,13 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v1}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 936
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 938
     const-string v0, "WifiDisplayAdapter"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -278,26 +314,32 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 939
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mConnectedState:I
     invoke-static {v0, p6}, Lcom/android/server/display/WifiDisplayAdapter;->access$2102(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 941
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 942
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleUpdateNotificationLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1000(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 944
     :cond_1
     monitor-exit v7
 
+    .line 945
     return-void
 
+    .line 944
     :catchall_0
     move-exception v0
 
@@ -310,23 +352,28 @@
 
 .method public onDisplayConnecting(Landroid/hardware/display/WifiDisplay;)V
     .locals 3
+    .param p1, "display"    # Landroid/hardware/display/WifiDisplay;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 880
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onDisplayConnecting"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 884
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 885
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -339,6 +386,7 @@
 
     move-result-object p1
 
+    .line 887
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
@@ -370,6 +418,7 @@
 
     if-nez v0, :cond_1
 
+    .line 890
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -378,21 +427,26 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 891
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 892
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 895
     :cond_1
     monitor-exit v1
 
+    .line 896
     return-void
 
+    .line 895
     :catchall_0
     move-exception v0
 
@@ -406,22 +460,26 @@
 .method public onDisplayConnectionFailed()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x4
 
+    .line 902
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onDisplayConnectionFailed"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 906
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 907
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -441,6 +499,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 909
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -449,6 +508,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 910
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
@@ -456,21 +516,26 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 911
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 912
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleUpdateNotificationLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1000(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 914
     :cond_1
     monitor-exit v1
 
+    .line 915
     return-void
 
+    .line 914
     :catchall_0
     move-exception v0
 
@@ -484,38 +549,45 @@
 .method public onDisplayDisconnected()V
     .locals 3
 
+    .prologue
+    .line 974
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onDisplayDisconnected"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 976
     const-string/jumbo v0, "wlan.wfd.status"
 
     const-string v1, "disconnected"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 979
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 980
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->removeDisplayDeviceLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$2400(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 981
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
 
     invoke-virtual {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->turnOffPeriodicWifiScan(Z)V
 
+    .line 983
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
@@ -534,6 +606,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 985
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -542,6 +615,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 986
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     sget-object v2, Landroid/hardware/display/WifiDisplay;->EMPTY_ARRAY:[Landroid/hardware/display/WifiDisplay;
@@ -549,6 +623,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mAvailableDisplays:[Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1702(Lcom/android/server/display/WifiDisplayAdapter;[Landroid/hardware/display/WifiDisplay;)[Landroid/hardware/display/WifiDisplay;
 
+    .line 987
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
@@ -556,21 +631,26 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 988
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 989
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleUpdateNotificationLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1000(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 991
     :cond_1
     monitor-exit v1
 
+    .line 992
     return-void
 
+    .line 991
     :catchall_0
     move-exception v0
 
@@ -584,14 +664,17 @@
 .method public onDisplayDisconnecting()V
     .locals 3
 
+    .prologue
+    .line 997
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 998
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -623,6 +706,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 1002
     :cond_1
     const-string v0, "WifiDisplayAdapter"
 
@@ -630,6 +714,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1004
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x3
@@ -637,11 +722,14 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 1006
     :cond_2
     monitor-exit v1
 
+    .line 1007
     return-void
 
+    .line 1006
     :catchall_0
     move-exception v0
 
@@ -654,30 +742,38 @@
 
 .method public onDisplaySessionInfo(Landroid/hardware/display/WifiDisplaySessionInfo;)V
     .locals 2
+    .param p1, "sessionInfo"    # Landroid/hardware/display/WifiDisplaySessionInfo;
 
+    .prologue
+    .line 949
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 950
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mSessionInfo:Landroid/hardware/display/WifiDisplaySessionInfo;
     invoke-static {v0, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$2202(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplaySessionInfo;)Landroid/hardware/display/WifiDisplaySessionInfo;
 
+    .line 951
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 952
     monitor-exit v1
 
+    .line 953
     return-void
 
+    .line 952
     :catchall_0
     move-exception v0
 
@@ -690,15 +786,19 @@
 
 .method public onFeatureStateChanged(I)V
     .locals 2
+    .param p1, "featureState"    # I
 
+    .prologue
+    .line 805
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 806
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -709,21 +809,26 @@
 
     if-eq v0, p1, :cond_0
 
+    .line 807
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mFeatureState:I
     invoke-static {v0, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$1102(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 808
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 810
     :cond_0
     monitor-exit v1
 
+    .line 811
     return-void
 
+    .line 810
     :catchall_0
     move-exception v0
 
@@ -736,13 +841,17 @@
 
 .method public onP2pConnected(Ljava/net/InetAddress;)V
     .locals 2
+    .param p1, "inet"    # Ljava/net/InetAddress;
 
+    .prologue
+    .line 1012
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onP2pConnected"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1014
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mIpRemoteDisplayController:Lcom/android/server/display/IpRemoteDisplayController;
@@ -752,18 +861,22 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/display/IpRemoteDisplayController;->connectWfdBridgeServer(Ljava/net/InetAddress;)V
 
+    .line 1015
     return-void
 .end method
 
 .method public onP2pDisconnected()V
     .locals 2
 
+    .prologue
+    .line 1020
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onP2pDisconnected"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1022
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mIpRemoteDisplayController:Lcom/android/server/display/IpRemoteDisplayController;
@@ -773,26 +886,31 @@
 
     invoke-virtual {v0}, Lcom/android/server/display/IpRemoteDisplayController;->disconnectWfdBridgeServer()V
 
+    .line 1023
     return-void
 .end method
 
 .method public onScanFinished()V
     .locals 3
 
+    .prologue
+    .line 865
     const-string v0, "WifiDisplayAdapter"
 
     const-string v1, "onScanFinished"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 868
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 869
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -803,6 +921,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 870
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
@@ -810,16 +929,20 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mScanState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1302(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 871
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 873
     :cond_0
     monitor-exit v1
 
+    .line 874
     return-void
 
+    .line 873
     :catchall_0
     move-exception v0
 
@@ -832,25 +955,30 @@
 
 .method public onScanResults([Landroid/hardware/display/WifiDisplay;)V
     .locals 7
+    .param p1, "availableDisplays"    # [Landroid/hardware/display/WifiDisplay;
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 837
     const-string v4, "WifiDisplayAdapter"
 
     const-string v5, "onScanResults"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 840
     iget-object v4, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v4}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v4}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v4
 
     monitor-enter v4
 
+    .line 841
     :try_start_0
     iget-object v5, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -863,6 +991,7 @@
 
     move-result-object p1
 
+    .line 844
     iget-object v5, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mAvailableDisplays:[Landroid/hardware/display/WifiDisplay;
@@ -878,9 +1007,12 @@
 
     move v0, v2
 
+    .line 847
+    .local v0, "changed":Z
     :goto_0
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_1
     if-nez v0, :cond_2
 
@@ -888,6 +1020,7 @@
 
     if-ge v1, v5, :cond_2
 
+    .line 848
     aget-object v5, p1, v1
 
     invoke-virtual {v5}, Landroid/hardware/display/WifiDisplay;->canConnect()Z
@@ -911,49 +1044,66 @@
 
     move v0, v2
 
+    .line 847
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
+    .end local v0    # "changed":Z
+    .end local v1    # "i":I
     :cond_0
     move v0, v3
 
+    .line 844
     goto :goto_0
 
+    .restart local v0    # "changed":Z
+    .restart local v1    # "i":I
     :cond_1
     move v0, v3
 
+    .line 848
     goto :goto_2
 
+    .line 852
     :cond_2
     if-eqz v0, :cond_3
 
+    .line 853
     iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mAvailableDisplays:[Landroid/hardware/display/WifiDisplay;
     invoke-static {v2, p1}, Lcom/android/server/display/WifiDisplayAdapter;->access$1702(Lcom/android/server/display/WifiDisplayAdapter;[Landroid/hardware/display/WifiDisplay;)[Landroid/hardware/display/WifiDisplay;
 
+    .line 854
     iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->fixRememberedDisplayNamesFromAvailableDisplaysLocked()V
     invoke-static {v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1800(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 855
     iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->updateDisplaysLocked()V
     invoke-static {v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1900(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 856
     iget-object v2, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 858
     :cond_3
     monitor-exit v4
 
+    .line 859
     return-void
 
+    .line 858
+    .end local v0    # "changed":Z
+    .end local v1    # "i":I
     :catchall_0
     move-exception v2
 
@@ -967,16 +1117,19 @@
 .method public onScanStarted()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 815
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayAdapter;->getSyncRoot()Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
     move-result-object v1
 
     monitor-enter v1
 
+    .line 816
     :try_start_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -987,12 +1140,14 @@
 
     if-eq v0, v2, :cond_0
 
+    .line 819
     const-string v0, "WifiDisplayAdapter"
 
     const-string v2, "onScanStarted"
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 822
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x1
@@ -1000,6 +1155,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mScanState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1302(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 824
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
@@ -1007,6 +1163,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplayState:I
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$602(Lcom/android/server/display/WifiDisplayAdapter;I)I
 
+    .line 825
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     const/4 v2, 0x0
@@ -1014,6 +1171,7 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mActiveDisplay:Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1402(Lcom/android/server/display/WifiDisplayAdapter;Landroid/hardware/display/WifiDisplay;)Landroid/hardware/display/WifiDisplay;
 
+    .line 826
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     sget-object v2, Landroid/hardware/display/WifiDisplay;->EMPTY_ARRAY:[Landroid/hardware/display/WifiDisplay;
@@ -1021,16 +1179,20 @@
     # setter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplays:[Landroid/hardware/display/WifiDisplay;
     invoke-static {v0, v2}, Lcom/android/server/display/WifiDisplayAdapter;->access$1502(Lcom/android/server/display/WifiDisplayAdapter;[Landroid/hardware/display/WifiDisplay;)[Landroid/hardware/display/WifiDisplay;
 
+    .line 828
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$14;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # invokes: Lcom/android/server/display/WifiDisplayAdapter;->scheduleStatusChangedBroadcastLocked()V
     invoke-static {v0}, Lcom/android/server/display/WifiDisplayAdapter;->access$1200(Lcom/android/server/display/WifiDisplayAdapter;)V
 
+    .line 830
     :cond_0
     monitor-exit v1
 
+    .line 831
     return-void
 
+    .line 830
     :catchall_0
     move-exception v0
 

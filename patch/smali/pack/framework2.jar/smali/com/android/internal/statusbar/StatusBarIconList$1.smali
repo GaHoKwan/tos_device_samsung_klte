@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,7 +42,10 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/statusbar/StatusBarIconList;
     .locals 1
+    .param p1, "parcel"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 81
     new-instance v0, Lcom/android/internal/statusbar/StatusBarIconList;
 
     invoke-direct {v0, p1}, Lcom/android/internal/statusbar/StatusBarIconList;-><init>(Landroid/os/Parcel;)V
@@ -50,7 +55,10 @@
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 78
     invoke-virtual {p0, p1}, Lcom/android/internal/statusbar/StatusBarIconList$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/internal/statusbar/StatusBarIconList;
 
     move-result-object v0
@@ -60,7 +68,10 @@
 
 .method public newArray(I)[Lcom/android/internal/statusbar/StatusBarIconList;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 86
     new-array v0, p1, [Lcom/android/internal/statusbar/StatusBarIconList;
 
     return-object v0
@@ -68,7 +79,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 78
     invoke-virtual {p0, p1}, Lcom/android/internal/statusbar/StatusBarIconList$1;->newArray(I)[Lcom/android/internal/statusbar/StatusBarIconList;
 
     move-result-object v0

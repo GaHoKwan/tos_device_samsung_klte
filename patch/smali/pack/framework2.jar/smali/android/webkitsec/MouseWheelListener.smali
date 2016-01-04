@@ -56,23 +56,34 @@
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ScaleGestureDetector$OnScaleGestureListener;Landroid/view/ScaleGestureDetector;)V
     .locals 1
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "listener"    # Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
+    .param p3, "detector"    # Landroid/view/ScaleGestureDetector;
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 70
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkitsec/MouseWheelListener;->mDockZoomUse:Z
 
+    .line 71
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkitsec/MouseWheelListener;->mCurrDockZoom:F
 
+    .line 74
     iput-object p1, p0, Landroid/webkitsec/MouseWheelListener;->mContext:Landroid/content/Context;
 
+    .line 75
     iput-object p2, p0, Landroid/webkitsec/MouseWheelListener;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
 
+    .line 76
     iput-object p3, p0, Landroid/webkitsec/MouseWheelListener;->mDetector:Landroid/view/ScaleGestureDetector;
 
+    .line 77
     return-void
 .end method
 
@@ -81,6 +92,8 @@
 .method public getCurrDockZoom()F
     .locals 1
 
+    .prologue
+    .line 81
     iget v0, p0, Landroid/webkitsec/MouseWheelListener;->mCurrDockZoom:F
 
     return v0
@@ -89,22 +102,30 @@
 .method public initCurrDockZoom()V
     .locals 1
 
+    .prologue
+    .line 85
     const/4 v0, 0x0
 
     iput v0, p0, Landroid/webkitsec/MouseWheelListener;->mCurrDockZoom:F
 
+    .line 86
     return-void
 .end method
 
 .method public onDockZoomEvent(Landroid/view/MotionEvent;)V
     .locals 3
+    .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 90
     const/16 v1, 0x9
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getAxisValue(I)F
 
     move-result v0
 
+    .line 92
+    .local v0, "vscroll":F
     const/high16 v1, 0x3f800000    # 1.0f
 
     const/high16 v2, 0x40400000    # 3.0f
@@ -115,6 +136,7 @@
 
     iput v1, p0, Landroid/webkitsec/MouseWheelListener;->mCurrDockZoom:F
 
+    .line 93
     iget v1, p0, Landroid/webkitsec/MouseWheelListener;->mCurrDockZoom:F
 
     const/4 v2, 0x0
@@ -123,12 +145,14 @@
 
     if-eqz v1, :cond_0
 
+    .line 94
     iget-object v1, p0, Landroid/webkitsec/MouseWheelListener;->mListener:Landroid/view/ScaleGestureDetector$OnScaleGestureListener;
 
     iget-object v2, p0, Landroid/webkitsec/MouseWheelListener;->mDetector:Landroid/view/ScaleGestureDetector;
 
     invoke-interface {v1, v2}, Landroid/view/ScaleGestureDetector$OnScaleGestureListener;->onScale(Landroid/view/ScaleGestureDetector;)Z
 
+    .line 95
     :cond_0
     return-void
 .end method

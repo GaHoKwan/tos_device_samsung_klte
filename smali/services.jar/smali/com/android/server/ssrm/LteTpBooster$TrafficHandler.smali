@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/ssrm/LteTpBooster;)V
     .locals 0
 
+    .prologue
+    .line 154
     iput-object p1, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/ssrm/LteTpBooster;Lcom/android/server/ssrm/LteTpBooster$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/ssrm/LteTpBooster;
+    .param p2, "x1"    # Lcom/android/server/ssrm/LteTpBooster$1;
 
+    .prologue
+    .line 154
     invoke-direct {p0, p1}, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;-><init>(Lcom/android/server/ssrm/LteTpBooster;)V
 
     return-void
@@ -41,21 +47,26 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 5
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 157
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 185
     :cond_0
     :goto_0
     return-void
 
+    .line 159
     :pswitch_0
     iget-object v2, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
@@ -67,11 +78,13 @@
     # setter for: Lcom/android/server/ssrm/LteTpBooster;->mEnableTrafficStatsPoll:Z
     invoke-static {v2, v0}, Lcom/android/server/ssrm/LteTpBooster;->access$402(Lcom/android/server/ssrm/LteTpBooster;Z)Z
 
+    .line 160
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     # operator++ for: Lcom/android/server/ssrm/LteTpBooster;->mTrafficStatsPollToken:I
     invoke-static {v0}, Lcom/android/server/ssrm/LteTpBooster;->access$508(Lcom/android/server/ssrm/LteTpBooster;)I
 
+    .line 161
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     # getter for: Lcom/android/server/ssrm/LteTpBooster;->mEnableTrafficStatsPoll:Z
@@ -81,10 +94,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 162
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/LteTpBooster;->notifyOnDataActivity()V
 
+    .line 163
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     # getter for: Lcom/android/server/ssrm/LteTpBooster;->mTrafficStatsPollToken:I
@@ -105,15 +120,17 @@
 
     int-to-long v1, v1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
     :cond_1
     move v0, v1
 
+    .line 159
     goto :goto_1
 
+    .line 169
     :pswitch_1
     iget v0, p1, Landroid/os/Message;->arg1:I
 
@@ -126,10 +143,12 @@
 
     if-ne v0, v2, :cond_0
 
+    .line 170
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/LteTpBooster;->notifyOnDataActivity()V
 
+    .line 171
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
     # getter for: Lcom/android/server/ssrm/LteTpBooster;->mTrafficStatsPollToken:I
@@ -150,10 +169,11 @@
 
     int-to-long v1, v1
 
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
+    .line 177
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
@@ -170,6 +190,7 @@
 
     goto :goto_0
 
+    .line 180
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/ssrm/LteTpBooster$TrafficHandler;->this$0:Lcom/android/server/ssrm/LteTpBooster;
 
@@ -184,6 +205,7 @@
 
     goto :goto_0
 
+    .line 157
     nop
 
     :pswitch_data_0

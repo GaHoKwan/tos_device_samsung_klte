@@ -25,7 +25,7 @@
     .line 52
     const-string v0, "tel"
 
-    iput-object v0, p0, Lgov/nist/javax/sip/address/TelURLImpl;->scheme:Ljava/lang/String;
+    iput-object v0, p0, Lgov/nist/javax/sip/address/GenericURI;->scheme:Ljava/lang/String;
 
     .line 53
     return-void
@@ -38,7 +38,7 @@
 
     .prologue
     .line 176
-    invoke-super {p0}, Lgov/nist/javax/sip/address/GenericURI;->clone()Ljava/lang/Object;
+    invoke-super {p0}, Lgov/nist/core/GenericObject;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -92,7 +92,7 @@
 
     .prologue
     .line 166
-    iget-object v0, p0, Lgov/nist/javax/sip/address/TelURLImpl;->scheme:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/javax/sip/address/GenericURI;->scheme:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -224,7 +224,7 @@
 
     .prologue
     .line 87
-    iget-object v0, p0, Lgov/nist/javax/sip/address/TelURLImpl;->scheme:Ljava/lang/String;
+    iget-object v0, p0, Lgov/nist/javax/sip/address/GenericURI;->scheme:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -390,7 +390,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v1, p0, Lgov/nist/javax/sip/address/TelURLImpl;->scheme:Ljava/lang/String;
+    iget-object v1, p0, Lgov/nist/javax/sip/address/GenericURI;->scheme:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

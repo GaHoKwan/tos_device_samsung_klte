@@ -22,6 +22,8 @@
 .method private constructor <init>(Lcom/android/server/GateSettingsService;)V
     .locals 0
 
+    .prologue
+    .line 61
     iput-object p1, p0, Lcom/android/server/GateSettingsService$GateReceiver;->this$0:Lcom/android/server/GateSettingsService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Lcom/android/server/GateSettingsService;Lcom/android/server/GateSettingsService$1;)V
     .locals 0
+    .param p1, "x0"    # Lcom/android/server/GateSettingsService;
+    .param p2, "x1"    # Lcom/android/server/GateSettingsService$1;
 
+    .prologue
+    .line 61
     invoke-direct {p0, p1}, Lcom/android/server/GateSettingsService$GateReceiver;-><init>(Lcom/android/server/GateSettingsService;)V
 
     return-void
@@ -41,13 +47,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 65
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 67
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "com.sec.android.gate.GATE"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -56,6 +68,7 @@
 
     if-eqz v1, :cond_2
 
+    .line 68
     const-string v2, "service.gate.enabled"
 
     const-string v1, "ENABLED"
@@ -71,15 +84,18 @@
     :goto_0
     invoke-static {v2, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 72
     :cond_0
     :goto_1
     return-void
 
+    .line 68
     :cond_1
     const-string v1, "0"
 
     goto :goto_0
 
+    .line 69
     :cond_2
     const-string v1, "com.sec.android.gate.LCDTEXT"
 
@@ -89,6 +105,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 70
     const-string v2, "service.gate.lcdtexton"
 
     const-string v1, "ENABLED"

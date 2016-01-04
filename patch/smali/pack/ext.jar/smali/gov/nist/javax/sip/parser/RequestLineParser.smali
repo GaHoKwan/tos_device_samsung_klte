@@ -13,10 +13,10 @@
     invoke-direct {p0}, Lgov/nist/javax/sip/parser/Parser;-><init>()V
 
     .line 46
-    iput-object p1, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iput-object p1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     .line 47
-    iget-object v0, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v0, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const-string v1, "method_keywordLexer"
 
@@ -41,7 +41,7 @@
 
     invoke-direct {v0, v1, p1}, Lgov/nist/javax/sip/parser/Lexer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    iput-object v0, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iput-object v0, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     .line 44
     return-void
@@ -198,7 +198,7 @@
     .line 52
     const-string v5, "parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/RequestLineParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 54
     :cond_0
@@ -209,13 +209,13 @@
 
     .line 55
     .local v1, "retval":Lgov/nist/javax/sip/header/RequestLine;
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/RequestLineParser;->method()Ljava/lang/String;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->method()Ljava/lang/String;
 
     move-result-object v0
 
     .line 56
     .local v0, "m":Ljava/lang/String;
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -223,7 +223,7 @@
     invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/RequestLine;->setMethod(Ljava/lang/String;)V
 
     .line 58
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const-string v6, "sip_urlLexer"
 
@@ -232,7 +232,7 @@
     .line 59
     new-instance v3, Lgov/nist/javax/sip/parser/URLParser;
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/RequestLineParser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->getLexer()Lgov/nist/javax/sip/parser/Lexer;
 
     move-result-object v5
 
@@ -248,7 +248,7 @@
 
     .line 61
     .local v2, "url":Lgov/nist/javax/sip/address/GenericURI;
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -256,14 +256,14 @@
     invoke-virtual {v1, v2}, Lgov/nist/javax/sip/header/RequestLine;->setUri(Ljavax/sip/address/URI;)V
 
     .line 63
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const-string v6, "request_lineLexer"
 
     invoke-virtual {v5, v6}, Lgov/nist/core/LexerCore;->selectLexer(Ljava/lang/String;)V
 
     .line 64
-    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/RequestLineParser;->sipVersion()Ljava/lang/String;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/parser/Parser;->sipVersion()Ljava/lang/String;
 
     move-result-object v4
 
@@ -272,12 +272,12 @@
     invoke-virtual {v1, v4}, Lgov/nist/javax/sip/header/RequestLine;->setSipVersion(Ljava/lang/String;)V
 
     .line 66
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v5}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 67
-    iget-object v5, p0, Lgov/nist/javax/sip/parser/RequestLineParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v5, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v6, 0xa
 
@@ -293,7 +293,7 @@
     .line 71
     const-string v5, "parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/RequestLineParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 68
     :cond_1
@@ -315,7 +315,7 @@
     .line 71
     const-string v6, "parse"
 
-    invoke-virtual {p0, v6}, Lgov/nist/javax/sip/parser/RequestLineParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v6}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 70
     :cond_2

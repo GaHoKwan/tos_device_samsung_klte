@@ -40,7 +40,7 @@
     invoke-direct {p0, p1, p3, v0, p2}, Lgov/nist/javax/sip/stack/MessageProcessor;-><init>(Ljava/net/InetAddress;ILjava/lang/String;Lgov/nist/javax/sip/stack/SIPTransactionStack;)V
 
     .line 81
-    iput-object p2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iput-object p2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     .line 83
     new-instance v0, Ljava/util/Hashtable;
@@ -90,7 +90,7 @@
     if-eqz v0, :cond_1
 
     .line 236
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -99,7 +99,7 @@
     if-eqz v2, :cond_0
 
     .line 237
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -131,7 +131,7 @@
 
     .line 240
     :cond_1
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -140,7 +140,7 @@
     if-eqz v2, :cond_2
 
     .line 241
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -250,7 +250,7 @@
 
     move-result v3
 
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-direct {v1, v2, v3, v4, p0}, Lgov/nist/javax/sip/stack/TCPMessageChannel;-><init>(Ljava/net/InetAddress;ILgov/nist/javax/sip/stack/SIPTransactionStack;Lgov/nist/javax/sip/stack/TCPMessageProcessor;)V
 
@@ -266,7 +266,7 @@
     iput-boolean v2, v1, Lgov/nist/javax/sip/stack/TCPMessageChannel;->isCached:Z
 
     .line 224
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -275,7 +275,7 @@
     if-eqz v2, :cond_1
 
     .line 225
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -302,7 +302,7 @@
     invoke-interface {v2, v3}, Lgov/nist/core/StackLogger;->logDebug(Ljava/lang/String;)V
 
     .line 226
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -401,7 +401,7 @@
     :try_start_1
     new-instance v2, Lgov/nist/javax/sip/stack/TCPMessageChannel;
 
-    iget-object v3, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v3, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-direct {v2, p1, p2, v3, p0}, Lgov/nist/javax/sip/stack/TCPMessageChannel;-><init>(Ljava/net/InetAddress;ILgov/nist/javax/sip/stack/SIPTransactionStack;Lgov/nist/javax/sip/stack/TCPMessageProcessor;)V
 
@@ -417,7 +417,7 @@
     iput-boolean v3, v2, Lgov/nist/javax/sip/stack/TCPMessageChannel;->isCached:Z
 
     .line 256
-    iget-object v3, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v3, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -426,7 +426,7 @@
     if-eqz v3, :cond_1
 
     .line 257
-    iget-object v3, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v3, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -453,7 +453,7 @@
     invoke-interface {v3, v4}, Lgov/nist/core/StackLogger;->logDebug(Ljava/lang/String;)V
 
     .line 258
-    iget-object v3, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v3, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -499,7 +499,7 @@
     :try_start_2
     new-instance v3, Ljava/io/IOException;
 
-    invoke-virtual {v0}, Ljava/net/UnknownHostException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -544,7 +544,7 @@
 
     .prologue
     .line 169
-    iget-object v0, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v0, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     return-object v0
 .end method
@@ -604,7 +604,7 @@
 
     .line 202
     .local v0, "key":Ljava/lang/String;
-    iget-object v1, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v1, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -613,7 +613,7 @@
     if-eqz v1, :cond_0
 
     .line 203
-    iget-object v1, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v1, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
@@ -707,7 +707,7 @@
     .line 120
     :cond_1
     :try_start_1
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     iget v2, v2, Lgov/nist/javax/sip/stack/SIPTransactionStack;->maxConnections:I
 
@@ -717,7 +717,7 @@
 
     iget v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->nConnections:I
 
-    iget-object v3, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v3, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     iget v3, v3, Lgov/nist/javax/sip/stack/SIPTransactionStack;->maxConnections:I
     :try_end_1
@@ -772,7 +772,7 @@
 
     .line 134
     .local v1, "newsock":Ljava/net/Socket;
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -799,7 +799,7 @@
 
     new-instance v3, Lgov/nist/javax/sip/stack/TCPMessageChannel;
 
-    iget-object v4, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v4, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-direct {v3, v1, v4, p0}, Lgov/nist/javax/sip/stack/TCPMessageChannel;-><init>(Ljava/net/Socket;Lgov/nist/javax/sip/stack/SIPTransactionStack;Lgov/nist/javax/sip/stack/TCPMessageProcessor;)V
 
@@ -847,7 +847,7 @@
 
     .line 145
     .local v0, "ex":Ljava/io/IOException;
-    iget-object v2, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
@@ -911,19 +911,19 @@
     invoke-virtual {v0, v5}, Ljava/lang/Thread;->setDaemon(Z)V
 
     .line 95
-    iget-object v1, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v1, p0, Lgov/nist/javax/sip/stack/MessageProcessor;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v1}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getNetworkLayer()Lgov/nist/core/net/NetworkLayer;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->getPort()I
+    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/MessageProcessor;->getPort()I
 
     move-result v2
 
     const/4 v3, 0x0
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v4
 
@@ -934,7 +934,7 @@
     iput-object v1, p0, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->sock:Ljava/net/ServerSocket;
 
     .line 96
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v1
 
@@ -950,7 +950,7 @@
 
     if-nez v1, :cond_0
 
-    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/TCPMessageProcessor;->getIpAddress()Ljava/net/InetAddress;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/stack/MessageProcessor;->getIpAddress()Ljava/net/InetAddress;
 
     move-result-object v1
 
@@ -1066,7 +1066,7 @@
     .line 181
     .local v0, "e":Ljava/io/IOException;
     :try_start_3
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

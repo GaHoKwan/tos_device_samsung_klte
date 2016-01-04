@@ -45,35 +45,49 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncOperation;JI)V
     .locals 3
+    .param p2, "syncOperation"    # Lcom/android/server/content/SyncOperation;
+    .param p3, "historyRowId"    # J
+    .param p5, "syncAdapterUid"    # I
 
+    .prologue
+    .line 1118
     iput-object p1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
+    .line 1119
     invoke-direct {p0}, Landroid/content/ISyncContext$Stub;-><init>()V
 
+    .line 1105
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mIsLinkedToDeath:Z
 
+    .line 1120
     iput p5, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncAdapterUid:I
 
+    .line 1121
     iput-object p2, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncOperation:Lcom/android/server/content/SyncOperation;
 
+    .line 1122
     iput-wide p3, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mHistoryRowId:J
 
+    .line 1123
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncAdapter:Landroid/content/ISyncAdapter;
 
+    .line 1124
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mStartTime:J
 
+    .line 1125
     iget-wide v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mStartTime:J
 
     iput-wide v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mTimeoutStartTime:J
 
+    .line 1126
     # getter for: Lcom/android/server/content/SyncManager;->mSyncHandler:Lcom/android/server/content/SyncManager$SyncHandler;
     invoke-static {p1}, Lcom/android/server/content/SyncManager;->access$200(Lcom/android/server/content/SyncManager;)Lcom/android/server/content/SyncManager$SyncHandler;
 
@@ -94,6 +108,7 @@
 
     iput-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    .line 1128
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncWakeLock:Landroid/os/PowerManager$WakeLock;
 
     new-instance v1, Landroid/os/WorkSource;
@@ -102,10 +117,12 @@
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
+    .line 1129
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 1130
     return-void
 .end method
 
@@ -113,9 +130,13 @@
 # virtual methods
 .method bindToSyncAdapter(Landroid/content/pm/RegisteredServicesCache$ServiceInfo;I)Z
     .locals 9
+    .param p1, "info"    # Landroid/content/pm/RegisteredServicesCache$ServiceInfo;
+    .param p2, "userId"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 1166
     const-string v0, "SyncManager"
 
     const/4 v2, 0x2
@@ -126,6 +147,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1167
     const-string v0, "SyncManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -160,25 +182,31 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1169
     :cond_0
     new-instance v7, Landroid/content/Intent;
 
     invoke-direct {v7}, Landroid/content/Intent;-><init>()V
 
+    .line 1170
+    .local v7, "intent":Landroid/content/Intent;
     const-string v0, "android.content.SyncAdapter"
 
     invoke-virtual {v7, v0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1171
     iget-object v0, p1, Landroid/content/pm/RegisteredServicesCache$ServiceInfo;->componentName:Landroid/content/ComponentName;
 
     invoke-virtual {v7, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
+    .line 1172
     const-string v0, "android.intent.extra.client_label"
 
     const v2, 0x10407b4
 
     invoke-virtual {v7, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 1174
     const-string v8, "android.intent.extra.client_intent"
 
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
@@ -208,10 +236,12 @@
 
     invoke-virtual {v7, v8, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
+    .line 1177
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mBound:Z
 
+    .line 1178
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mContext:Landroid/content/Context;
@@ -233,10 +263,14 @@
 
     move-result v6
 
+    .line 1182
+    .local v6, "bindResult":Z
     if-nez v6, :cond_1
 
+    .line 1183
     iput-boolean v1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mBound:Z
 
+    .line 1185
     :cond_1
     return v6
 .end method
@@ -244,6 +278,8 @@
 .method public binderDied()V
     .locals 2
 
+    .prologue
+    .line 1213
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     const/4 v1, 0x0
@@ -251,12 +287,15 @@
     # invokes: Lcom/android/server/content/SyncManager;->sendSyncFinishedOrCanceledMessage(Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
     invoke-static {v0, p0, v1}, Lcom/android/server/content/SyncManager;->access$1400(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
 
+    .line 1214
     return-void
 .end method
 
 .method protected close()V
     .locals 3
 
+    .prologue
+    .line 1193
     const-string v0, "SyncManager"
 
     const/4 v1, 0x2
@@ -267,6 +306,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1194
     const-string v0, "SyncManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -289,15 +329,18 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1196
     :cond_0
     iget-boolean v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mBound:Z
 
     if-eqz v0, :cond_1
 
+    .line 1197
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mBound:Z
 
+    .line 1198
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mContext:Landroid/content/Context;
@@ -307,23 +350,29 @@
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
+    .line 1200
     :cond_1
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1201
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->mSyncWakeLock:Landroid/os/PowerManager$WakeLock;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
+    .line 1202
     return-void
 .end method
 
 .method public onFinished(Landroid/content/SyncResult;)V
     .locals 3
+    .param p1, "result"    # Landroid/content/SyncResult;
 
+    .prologue
+    .line 1137
     const-string v0, "SyncManager"
 
     const/4 v1, 0x2
@@ -356,18 +405,24 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1141
     :cond_0
     iget-object v0, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # invokes: Lcom/android/server/content/SyncManager;->sendSyncFinishedOrCanceledMessage(Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
     invoke-static {v0, p0, p1}, Lcom/android/server/content/SyncManager;->access$1400(Lcom/android/server/content/SyncManager;Lcom/android/server/content/SyncManager$ActiveSyncContext;Landroid/content/SyncResult;)V
 
+    .line 1142
     return-void
 .end method
 
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 4
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 1152
     iget-object v1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mSyncHandler:Lcom/android/server/content/SyncManager$SyncHandler;
@@ -375,14 +430,17 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/content/SyncManager$SyncHandler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v1}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
+    .line 1153
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x4
 
     iput v1, v0, Landroid/os/Message;->what:I
 
+    .line 1154
     new-instance v1, Lcom/android/server/content/SyncManager$ServiceConnectionData;
 
     iget-object v2, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
@@ -395,6 +453,7 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 1155
     iget-object v1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mSyncHandler:Lcom/android/server/content/SyncManager$SyncHandler;
@@ -402,14 +461,18 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/android/server/content/SyncManager$SyncHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 1156
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 4
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 1159
     iget-object v1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mSyncHandler:Lcom/android/server/content/SyncManager$SyncHandler;
@@ -417,14 +480,17 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/content/SyncManager$SyncHandler;->obtainMessage()Landroid/os/Message;
+    invoke-virtual {v1}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
+    .line 1160
+    .local v0, "msg":Landroid/os/Message;
     const/4 v1, 0x5
 
     iput v1, v0, Landroid/os/Message;->what:I
 
+    .line 1161
     new-instance v1, Lcom/android/server/content/SyncManager$ServiceConnectionData;
 
     iget-object v2, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
@@ -435,6 +501,7 @@
 
     iput-object v1, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 1162
     iget-object v1, p0, Lcom/android/server/content/SyncManager$ActiveSyncContext;->this$0:Lcom/android/server/content/SyncManager;
 
     # getter for: Lcom/android/server/content/SyncManager;->mSyncHandler:Lcom/android/server/content/SyncManager$SyncHandler;
@@ -442,26 +509,34 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v0}, Lcom/android/server/content/SyncManager$SyncHandler;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 1163
     return-void
 .end method
 
 .method public sendHeartbeat()V
     .locals 0
 
+    .prologue
+    .line 1134
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1206
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 1207
+    .local v0, "sb":Ljava/lang/StringBuilder;
     invoke-virtual {p0, v0}, Lcom/android/server/content/SyncManager$ActiveSyncContext;->toString(Ljava/lang/StringBuilder;)V
 
+    .line 1208
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -471,7 +546,10 @@
 
 .method public toString(Ljava/lang/StringBuilder;)V
     .locals 3
+    .param p1, "sb"    # Ljava/lang/StringBuilder;
 
+    .prologue
+    .line 1145
     const-string/jumbo v0, "startTime "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -518,5 +596,6 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    .line 1149
     return-void
 .end method

@@ -127,7 +127,7 @@
 
     const-string v1, "wifi.interface"
 
-    const-string v2, "wlan0"
+    const-string/jumbo v2, "wlan0"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -156,6 +156,8 @@
     goto :goto_0
 
     .line 248
+    nop
+
     nop
 
     :pswitch_data_0

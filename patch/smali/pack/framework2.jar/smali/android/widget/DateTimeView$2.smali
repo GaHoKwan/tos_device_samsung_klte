@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Landroid/widget/DateTimeView;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 253
     iput-object p1, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 256
     iget-object v0, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Landroid/widget/DateTimeView;->mLastFormat:Ljava/text/DateFormat;
 
+    .line 259
     :try_start_0
     iget-object v0, p0, Landroid/widget/DateTimeView$2;->this$0:Landroid/widget/DateTimeView;
 
@@ -47,9 +54,11 @@
     :try_end_0
     .catch Landroid/view/ViewRootImpl$CalledFromWrongThreadException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 261
     :goto_0
     return-void
 
+    .line 260
     :catch_0
     move-exception v0
 

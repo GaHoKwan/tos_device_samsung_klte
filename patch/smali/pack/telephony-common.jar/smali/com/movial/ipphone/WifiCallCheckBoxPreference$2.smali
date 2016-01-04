@@ -53,14 +53,14 @@
 
     const-string v1, "Disabled"
 
-    invoke-virtual {v0, v1}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 100
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$2;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setEnabled(Z)V
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setEnabled(Z)V
 
     .line 101
     iget-object v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference$2;->this$0:Lcom/movial/ipphone/WifiCallCheckBoxPreference;

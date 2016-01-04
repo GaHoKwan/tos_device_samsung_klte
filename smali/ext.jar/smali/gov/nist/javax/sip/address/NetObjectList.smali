@@ -60,7 +60,7 @@
 
     .prologue
     .line 90
-    invoke-super {p0, p1}, Lgov/nist/core/GenericObjectList;->add(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     .line 91
     return-void
@@ -151,7 +151,7 @@
 
     .prologue
     .line 150
-    invoke-virtual {p0}, Lgov/nist/javax/sip/address/NetObjectList;->encode()Ljava/lang/String;
+    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->encode()Ljava/lang/String;
 
     move-result-object v0
 

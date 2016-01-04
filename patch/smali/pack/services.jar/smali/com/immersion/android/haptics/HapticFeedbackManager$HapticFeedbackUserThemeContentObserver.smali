@@ -23,9 +23,13 @@
 # direct methods
 .method public constructor <init>(Lcom/immersion/android/haptics/HapticFeedbackManager;Lcom/immersion/android/haptics/HapticFeedbackManager;)V
     .locals 2
+    .param p2, "owner"    # Lcom/immersion/android/haptics/HapticFeedbackManager;
 
+    .prologue
+    .line 642
     iput-object p1, p0, Lcom/immersion/android/haptics/HapticFeedbackManager$HapticFeedbackUserThemeContentObserver;->this$0:Lcom/immersion/android/haptics/HapticFeedbackManager;
 
+    .line 643
     # getter for: Lcom/immersion/android/haptics/HapticFeedbackManager;->mLooper:Landroid/os/Looper;
     invoke-static {p1}, Lcom/immersion/android/haptics/HapticFeedbackManager;->access$000(Lcom/immersion/android/haptics/HapticFeedbackManager;)Landroid/os/Looper;
 
@@ -45,14 +49,18 @@
     :goto_0
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 639
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/immersion/android/haptics/HapticFeedbackManager$HapticFeedbackUserThemeContentObserver;->mHfm:Lcom/immersion/android/haptics/HapticFeedbackManager;
 
+    .line 644
     iput-object p2, p0, Lcom/immersion/android/haptics/HapticFeedbackManager$HapticFeedbackUserThemeContentObserver;->mHfm:Lcom/immersion/android/haptics/HapticFeedbackManager;
 
+    .line 645
     return-void
 
+    .line 643
     :cond_0
     new-instance v0, Landroid/os/Handler;
 
@@ -65,10 +73,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 4
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 650
     :try_start_0
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
+    .line 652
     const-string v1, "HapticFeedbackManager"
 
     const/4 v2, 0x4
@@ -79,6 +91,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 653
     const-string v1, "HapticFeedbackManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -114,6 +127,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 657
     :cond_0
     iget-object v1, p0, Lcom/immersion/android/haptics/HapticFeedbackManager$HapticFeedbackUserThemeContentObserver;->this$0:Lcom/immersion/android/haptics/HapticFeedbackManager;
 
@@ -124,19 +138,24 @@
 
     if-eqz v1, :cond_1
 
+    .line 658
     iget-object v1, p0, Lcom/immersion/android/haptics/HapticFeedbackManager$HapticFeedbackUserThemeContentObserver;->mHfm:Lcom/immersion/android/haptics/HapticFeedbackManager;
 
     invoke-virtual {v1}, Lcom/immersion/android/haptics/HapticFeedbackManager;->loadActiveTheme()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 663
     :cond_1
     :goto_0
     return-void
 
+    .line 660
     :catch_0
     move-exception v0
 
+    .line 661
+    .local v0, "e":Ljava/lang/Exception;
     const-string v1, "HapticFeedbackManager"
 
     new-instance v2, Ljava/lang/StringBuilder;

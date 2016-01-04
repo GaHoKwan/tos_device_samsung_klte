@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/KiesConnectivity/KiesUsbObserver;)V
     .locals 0
 
+    .prologue
+    .line 86
     iput-object p1, p0, Lcom/android/server/KiesConnectivity/KiesUsbObserver$1;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbObserver;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,17 +35,25 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 89
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 90
+    .local v0, "action":Ljava/lang/String;
     if-nez v0, :cond_1
 
+    .line 101
     :cond_0
     :goto_0
     return-void
 
+    .line 92
     :cond_1
     const-string v1, "android.intent.action.BOOT_COMPLETED"
 
@@ -53,10 +63,12 @@
 
     if-eqz v1, :cond_0
 
+    .line 93
     const/4 v1, 0x1
 
     sput-boolean v1, Lcom/android/server/KiesConnectivity/KiesUsbObserver;->isbootcomplete:Z
 
+    .line 94
     # getter for: Lcom/android/server/KiesConnectivity/KiesUsbObserver;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/KiesConnectivity/KiesUsbObserver;->access$000()Ljava/lang/String;
 
@@ -84,10 +96,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 95
     sget-boolean v1, Lcom/android/server/KiesConnectivity/KiesUsbObserver;->isTwiceReset:Z
 
     if-eqz v1, :cond_0
 
+    .line 96
     # getter for: Lcom/android/server/KiesConnectivity/KiesUsbObserver;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/KiesConnectivity/KiesUsbObserver;->access$000()Ljava/lang/String;
 
@@ -127,6 +141,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 97
     iget-object v1, p0, Lcom/android/server/KiesConnectivity/KiesUsbObserver$1;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbObserver;
 
     const/16 v2, 0x1f40

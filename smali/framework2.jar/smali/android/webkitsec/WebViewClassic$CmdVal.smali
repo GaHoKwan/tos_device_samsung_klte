@@ -26,6 +26,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewClassic;)V
     .locals 0
 
+    .prologue
+    .line 3069
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$CmdVal;->this$0:Landroid/webkitsec/WebViewClassic;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

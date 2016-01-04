@@ -40,27 +40,27 @@
     .param p2, "isCdmaWapPush"    # Z
 
     .prologue
-    .line 2546
+    .line 2529
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 2542
+    .line 2525
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mPdus:Ljava/util/Map;
 
-    .line 2544
+    .line 2527
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mDestPort:I
 
-    .line 2547
+    .line 2530
     const/4 v0, 0x1
 
     if-ge p1, v0, :cond_0
 
-    .line 2548
+    .line 2531
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "messageCount should be >= 1"
@@ -69,14 +69,14 @@
 
     throw v0
 
-    .line 2550
+    .line 2533
     :cond_0
     iput p1, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mMessageCount:I
 
-    .line 2551
+    .line 2534
     iput-boolean p2, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mIsCdmaWapPush:Z
 
-    .line 2552
+    .line 2535
     return-void
 .end method
 
@@ -89,15 +89,15 @@
     .param p3, "destPort"    # Ljava/lang/Integer;
 
     .prologue
-    .line 2556
+    .line 2539
     iget-boolean v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mIsCdmaWapPush:Z
 
     if-nez v0, :cond_0
 
-    .line 2557
+    .line 2540
     add-int/lit8 p1, p1, -0x1
 
-    .line 2560
+    .line 2543
     :cond_0
     if-ltz p1, :cond_1
 
@@ -105,7 +105,7 @@
 
     if-lt p1, v0, :cond_2
 
-    .line 2561
+    .line 2544
     :cond_1
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
@@ -115,7 +115,7 @@
 
     throw v0
 
-    .line 2564
+    .line 2547
     :cond_2
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mPdus:Ljava/util/Map;
 
@@ -125,17 +125,17 @@
 
     invoke-interface {v0, v1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 2566
+    .line 2549
     if-eqz p3, :cond_3
 
-    .line 2567
+    .line 2550
     invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mDestPort:I
 
-    .line 2569
+    .line 2552
     :cond_3
     return-void
 .end method
@@ -148,7 +148,7 @@
     .param p4, "destPortColumn"    # I
 
     .prologue
-    .line 2572
+    .line 2555
     :goto_0
     invoke-interface {p1}, Landroid/database/Cursor;->moveToNext()Z
 
@@ -156,12 +156,12 @@
 
     if-eqz v3, :cond_1
 
-    .line 2573
+    .line 2556
     invoke-interface {p1, p2}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
 
-    .line 2574
+    .line 2557
     .local v2, "seqNumber":I
     invoke-interface {p1, p3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
@@ -171,11 +171,11 @@
 
     move-result-object v1
 
-    .line 2575
+    .line 2558
     .local v1, "pdu":[B
     const/4 v0, 0x0
 
-    .line 2576
+    .line 2559
     .local v0, "destPort":Ljava/lang/Integer;
     invoke-interface {p1, p4}, Landroid/database/Cursor;->isNull(I)Z
 
@@ -183,7 +183,7 @@
 
     if-nez v3, :cond_0
 
-    .line 2577
+    .line 2560
     invoke-interface {p1, p4}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v3
@@ -192,13 +192,13 @@
 
     move-result-object v0
 
-    .line 2580
+    .line 2563
     :cond_0
     invoke-virtual {p0, v2, v1, v0}, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->add(I[BLjava/lang/Integer;)V
 
     goto :goto_0
 
-    .line 2582
+    .line 2565
     .end local v0    # "destPort":Ljava/lang/Integer;
     .end local v1    # "pdu":[B
     .end local v2    # "seqNumber":I
@@ -210,7 +210,7 @@
     .locals 1
 
     .prologue
-    .line 2597
+    .line 2580
     iget v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mDestPort:I
 
     return v0
@@ -220,12 +220,12 @@
     .locals 4
 
     .prologue
-    .line 2589
+    .line 2572
     iget v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mMessageCount:I
 
     new-array v1, v2, [[B
 
-    .line 2590
+    .line 2573
     .local v1, "pdus":[[B
     const/4 v0, 0x0
 
@@ -235,7 +235,7 @@
 
     if-ge v0, v2, :cond_0
 
-    .line 2591
+    .line 2574
     iget-object v2, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mPdus:Ljava/util/Map;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -250,12 +250,12 @@
 
     aput-object v2, v1, v0
 
-    .line 2590
+    .line 2573
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    .line 2593
+    .line 2576
     :cond_0
     return-object v1
 .end method
@@ -264,7 +264,7 @@
     .locals 1
 
     .prologue
-    .line 2585
+    .line 2568
     iget-object v0, p0, Lcom/android/internal/telephony/InboundSmsHandler$LmsPartCollector;->mPdus:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z

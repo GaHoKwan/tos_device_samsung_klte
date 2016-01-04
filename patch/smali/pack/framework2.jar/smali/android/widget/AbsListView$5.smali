@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/AbsListView;)V
     .locals 0
 
+    .prologue
+    .line 8557
     iput-object p1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onMotionListener(Landroid/hardware/motion/MREvent;)V
     .locals 3
+    .param p1, "motionEvent"    # Landroid/hardware/motion/MREvent;
 
+    .prologue
+    .line 8559
     iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
     # getter for: Landroid/widget/AbsListView;->mMotionEnable:Z
@@ -55,34 +60,40 @@
 
     if-nez v1, :cond_1
 
+    .line 8575
     :cond_0
     :goto_0
     return-void
 
+    .line 8563
     :cond_1
     invoke-virtual {p1}, Landroid/hardware/motion/MREvent;->getMotion()I
 
     move-result v0
 
+    .line 8564
+    .local v0, "motion":I
     packed-switch v0, :pswitch_data_0
 
     goto :goto_0
 
+    .line 8566
     :pswitch_0
     const-string v1, "[Motion-DoubleTap]"
 
     # invokes: Landroid/widget/AbsListView;->log(Ljava/lang/String;)V
     invoke-static {v1}, Landroid/widget/AbsListView;->access$6000(Ljava/lang/String;)V
 
+    .line 8567
     iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v1}, Landroid/widget/AbsListView;->getLastVisiblePosition()I
+    invoke-virtual {v1}, Landroid/widget/AdapterView;->getLastVisiblePosition()I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v2}, Landroid/widget/AbsListView;->getChildCount()I
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v2
 
@@ -90,18 +101,20 @@
 
     if-le v1, v2, :cond_2
 
+    .line 8568
     iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
     iget-object v2, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
-    invoke-virtual {v2}, Landroid/widget/AbsListView;->getChildCount()I
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v2
 
     add-int/lit8 v2, v2, 0x5
 
-    invoke-virtual {v1, v2}, Landroid/widget/AbsListView;->setSelection(I)V
+    invoke-virtual {v1, v2}, Landroid/widget/AdapterView;->setSelection(I)V
 
+    .line 8570
     :cond_2
     iget-object v1, p0, Landroid/widget/AbsListView$5;->this$0:Landroid/widget/AbsListView;
 
@@ -111,6 +124,7 @@
 
     goto :goto_0
 
+    .line 8564
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

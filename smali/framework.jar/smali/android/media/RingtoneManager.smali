@@ -2227,8 +2227,6 @@
 
     move-object/from16 v0, v16
 
-    invoke-virtual {v1, v10, v0, v2, v3}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
-
     .line 924
     .end local v7    # "AUTHORITY":Ljava/lang/String;
     .end local v8    # "PROFILE_CONTENT_URI":Landroid/net/Uri;

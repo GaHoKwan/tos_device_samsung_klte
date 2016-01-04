@@ -585,7 +585,7 @@
 
     .prologue
     .line 1961
-    const-string v0, "yes"
+    const-string/jumbo v0, "yes"
 
     invoke-virtual {p0, v0}, Landroid/app/SpellScroll$SpellSet;->getExtraString(Ljava/lang/String;)Ljava/lang/String;
 

@@ -117,7 +117,7 @@
 
     .line 109
     :cond_1
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->getAddressType()I
 
@@ -128,13 +128,13 @@
     if-ne v0, v1, :cond_2
 
     .line 110
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/address/AddressImpl;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
     .line 117
     :goto_1
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -148,7 +148,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 119
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v0, p1}, Lgov/nist/core/NameValueList;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -161,7 +161,7 @@
     invoke-virtual {p1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 114
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0, p1}, Lgov/nist/javax/sip/address/AddressImpl;->encode(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
 
@@ -205,7 +205,7 @@
 
     .prologue
     .line 145
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     return-object v0
 .end method
@@ -225,7 +225,7 @@
 
     .prologue
     .line 152
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     return-object v0
 .end method
@@ -237,7 +237,7 @@
     .line 159
     const-string v0, "expires"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Contact;->getParameterAsInt(Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -249,7 +249,7 @@
 
     .prologue
     .line 269
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "pub-gruu"
 
@@ -269,7 +269,7 @@
     .line 175
     const-string v0, "q"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/Contact;->getParameterAsFloat(Ljava/lang/String;)F
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameterAsFloat(Ljava/lang/String;)F
 
     move-result v0
 
@@ -281,7 +281,7 @@
 
     .prologue
     .line 253
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "+sip.instance"
 
@@ -299,7 +299,7 @@
 
     .prologue
     .line 286
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "temp-gruu"
 
@@ -327,7 +327,7 @@
 
     .prologue
     .line 240
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->isWildcard()Z
 
@@ -341,12 +341,12 @@
 
     .prologue
     .line 264
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-eqz v0, :cond_0
 
     .line 265
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "pub-gruu"
 
@@ -362,12 +362,12 @@
 
     .prologue
     .line 248
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-eqz v0, :cond_0
 
     .line 249
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "+sip.instance"
 
@@ -383,12 +383,12 @@
 
     .prologue
     .line 281
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     if-eqz v0, :cond_0
 
     .line 282
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "temp-gruu"
 
@@ -421,7 +421,7 @@
     check-cast p1, Lgov/nist/javax/sip/address/AddressImpl;
 
     .end local p1    # "address":Ljavax/sip/address/Address;
-    iput-object p1, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 205
     const/4 v0, 0x0
@@ -456,7 +456,7 @@
 
     .line 168
     .local v0, "deltaSeconds":Ljava/lang/Integer;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v2, "expires"
 
@@ -478,7 +478,7 @@
 
     .prologue
     .line 84
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1, p1}, Lgov/nist/core/NameValueList;->getNameValue(Ljava/lang/String;)Lgov/nist/core/NameValue;
 
@@ -517,7 +517,7 @@
 
     .line 91
     :cond_1
-    iget-object v1, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1, v0}, Lgov/nist/core/NameValueList;->set(Lgov/nist/core/NameValue;)V
 
@@ -530,7 +530,7 @@
 
     .prologue
     .line 274
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "pub-gruu"
 
@@ -581,7 +581,7 @@
 
     .line 217
     :cond_1
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "q"
 
@@ -601,7 +601,7 @@
 
     .prologue
     .line 257
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "+sip.instance"
 
@@ -617,7 +617,7 @@
 
     .prologue
     .line 291
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, "temp-gruu"
 
@@ -655,10 +655,10 @@
 
     invoke-direct {v0}, Lgov/nist/javax/sip/address/AddressImpl;-><init>()V
 
-    iput-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iput-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     .line 192
-    iget-object v0, p0, Lgov/nist/javax/sip/header/Contact;->address:Lgov/nist/javax/sip/address/AddressImpl;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/AddressParametersHeader;->address:Lgov/nist/javax/sip/address/AddressImpl;
 
     invoke-virtual {v0}, Lgov/nist/javax/sip/address/AddressImpl;->setWildCardFlag()V
 

@@ -24,7 +24,7 @@
     invoke-direct {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;-><init>(Ljava/lang/String;)V
 
     .line 61
-    iget-object v0, p0, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v0, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     const-string v1, ";"
 
@@ -93,7 +93,7 @@
 
     .line 255
     :cond_0
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v1}, Lgov/nist/core/NameValueList;->isEmpty()Z
 
@@ -112,7 +112,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->parameters:Lgov/nist/core/NameValueList;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/ParametersHeader;->parameters:Lgov/nist/core/NameValueList;
 
     invoke-virtual {v2}, Lgov/nist/core/NameValueList;->encode()Ljava/lang/String;
 
@@ -184,7 +184,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-super {p0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->equals(Ljava/lang/Object;)Z
+    invoke-super {p0, p1}, Lgov/nist/javax/sip/header/SIPObject;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -218,7 +218,7 @@
     .line 116
     const-string v0, "cgi-3gpp"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -232,7 +232,7 @@
     .line 190
     const-string v0, "ci-3gpp2"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -246,7 +246,7 @@
     .line 167
     const-string v0, "dsl-location"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -270,7 +270,7 @@
     .line 142
     const-string v0, "utran-cell-id-3gpp"
 
-    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->getParameter(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->getParameter(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -328,7 +328,7 @@
     :cond_0
     const-string v0, "cgi-3gpp"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 109
     return-void
@@ -360,7 +360,7 @@
     :cond_0
     const-string v0, "ci-3gpp2"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 183
     return-void
@@ -392,7 +392,7 @@
     :cond_0
     const-string v0, "dsl-location"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 160
     return-void
@@ -521,7 +521,7 @@
     :cond_0
     const-string v0, "utran-cell-id-3gpp"
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ims/PAccessNetworkInfo;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, p1}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 135
     return-void

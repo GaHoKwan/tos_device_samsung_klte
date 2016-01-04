@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
 
+    .prologue
+    .line 922
     iput-object p1, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +38,16 @@
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 6
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "keyCode"    # I
+    .param p3, "event"    # Landroid/view/KeyEvent;
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 925
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     # getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
@@ -50,16 +57,18 @@
 
     if-nez v3, :cond_1
 
+    .line 963
     :cond_0
     :goto_0
     return v1
 
+    .line 936
     :cond_1
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     iget-object v3, v3, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v3}, Landroid/widget/SearchView$SearchAutoComplete;->isPopupShowing()Z
+    invoke-virtual {v3}, Landroid/widget/AutoCompleteTextView;->isPopupShowing()Z
 
     move-result v3
 
@@ -69,7 +78,7 @@
 
     iget-object v3, v3, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v3}, Landroid/widget/SearchView$SearchAutoComplete;->getListSelection()I
+    invoke-virtual {v3}, Landroid/widget/AutoCompleteTextView;->getListSelection()I
 
     move-result v3
 
@@ -77,6 +86,7 @@
 
     if-eq v3, v4, :cond_2
 
+    .line 938
     iget-object v1, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     # invokes: Landroid/widget/SearchView;->onSuggestionsKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
@@ -86,6 +96,7 @@
 
     goto :goto_0
 
+    .line 943
     :cond_2
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
@@ -104,18 +115,22 @@
 
     if-eqz v3, :cond_0
 
+    .line 944
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v3
 
     if-ne v3, v2, :cond_3
 
+    .line 945
     const/16 v3, 0x42
 
     if-ne p2, v3, :cond_3
 
+    .line 946
     invoke-virtual {p1}, Landroid/view/View;->cancelLongPress()V
 
+    .line 949
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     const/4 v4, 0x0
@@ -124,7 +139,7 @@
 
     iget-object v5, v5, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v5}, Landroid/widget/SearchView$SearchAutoComplete;->getText()Landroid/text/Editable;
+    invoke-virtual {v5}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v5
 
@@ -137,8 +152,10 @@
 
     move v1, v2
 
+    .line 951
     goto :goto_0
 
+    .line 954
     :cond_3
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
@@ -146,6 +163,7 @@
 
     if-nez v3, :cond_0
 
+    .line 955
     iget-object v3, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     # getter for: Landroid/widget/SearchView;->mSearchable:Landroid/app/SearchableInfo;
@@ -157,6 +175,8 @@
 
     move-result-object v0
 
+    .line 956
+    .local v0, "actionKey":Landroid/app/SearchableInfo$ActionKeyInfo;
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/app/SearchableInfo$ActionKeyInfo;->getQueryActionMsg()Ljava/lang/String;
@@ -165,6 +185,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 957
     iget-object v1, p0, Landroid/widget/SearchView$7;->this$0:Landroid/widget/SearchView;
 
     invoke-virtual {v0}, Landroid/app/SearchableInfo$ActionKeyInfo;->getQueryActionMsg()Ljava/lang/String;
@@ -175,7 +196,7 @@
 
     iget-object v4, v4, Landroid/widget/SearchView;->mQueryTextView:Landroid/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {v4}, Landroid/widget/SearchView$SearchAutoComplete;->getText()Landroid/text/Editable;
+    invoke-virtual {v4}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
     move-result-object v4
 
@@ -188,5 +209,6 @@
 
     move v1, v2
 
+    .line 959
     goto :goto_0
 .end method

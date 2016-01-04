@@ -11,6 +11,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -18,11 +20,14 @@
 
 .method public static isAutomaticTestMode(Landroid/content/Context;)Z
     .locals 4
+    .param p0, "mContext"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
+    .line 108
     if-eqz p0, :cond_0
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -37,12 +42,14 @@
 
     if-ne v2, v0, :cond_0
 
+    .line 109
     const-string v1, "FactoryTest"
 
     const-string v2, "The AutomaticTest mode was enabled."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 112
     :goto_0
     return v0
 
@@ -55,6 +62,8 @@
 .method public static isFactoryBinary()Z
     .locals 3
 
+    .prologue
+    .line 145
     const-string v0, "factory"
 
     const-string/jumbo v1, "ro.factory.factory_binary"
@@ -75,21 +84,27 @@
 .method public static isFactoryMode()Z
     .locals 7
 
+    .prologue
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
+    .line 118
     const/4 v1, 0x0
 
+    .line 121
+    .local v1, "mFactoryMode":Ljava/lang/String;
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v4
 
     if-ne v4, v2, :cond_0
 
+    .line 138
     :goto_0
     return v2
 
+    .line 127
     :cond_0
     :try_start_0
     new-instance v4, Ljava/io/File;
@@ -108,6 +123,7 @@
 
     move-result-object v1
 
+    .line 133
     const-string v4, "OFF"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
@@ -116,6 +132,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 134
     const-string v3, "FactoryTest"
 
     const-string v4, "Factory mode"
@@ -124,9 +141,12 @@
 
     goto :goto_0
 
+    .line 128
     :catch_0
     move-exception v0
 
+    .line 129
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "FactoryTest"
 
     const-string v4, "cannot open file : /efs/FactoryApp/factorymode"
@@ -135,8 +155,11 @@
 
     move v2, v3
 
+    .line 130
     goto :goto_0
 
+    .line 137
+    .end local v0    # "e":Ljava/io/IOException;
     :cond_1
     const-string v2, "FactoryTest"
 
@@ -146,31 +169,39 @@
 
     move v2, v3
 
+    .line 138
     goto :goto_0
 .end method
 
 .method public static isFactoryMode(Landroid/content/Context;Landroid/telephony/TelephonyManager;)Z
     .locals 8
+    .param p0, "mContext"    # Landroid/content/Context;
+    .param p1, "mTelephonyManager"    # Landroid/telephony/TelephonyManager;
 
+    .prologue
     const/4 v4, 0x0
 
     const/4 v3, 0x1
 
+    .line 61
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v5
 
     if-ne v5, v3, :cond_0
 
+    .line 62
     const-string v4, "FactoryTest"
 
     const-string v5, "Binary type is Factory by Case #0"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 102
     :goto_0
     return v3
 
+    .line 67
     :cond_0
     if-eqz p0, :cond_1
 
@@ -186,6 +217,7 @@
 
     if-ne v5, v3, :cond_1
 
+    .line 68
     const-string v4, "FactoryTest"
 
     const-string v5, "Factory mode is enabled by Case #1"
@@ -194,6 +226,7 @@
 
     goto :goto_0
 
+    .line 73
     :cond_1
     if-eqz p1, :cond_2
 
@@ -209,6 +242,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 74
     const-string v4, "FactoryTest"
 
     const-string v5, "Factory mode is enabled by Case #2"
@@ -217,9 +251,12 @@
 
     goto :goto_0
 
+    .line 79
     :cond_2
     const/4 v2, 0x0
 
+    .line 81
+    .local v2, "imeiBlocked":Ljava/lang/String;
     :try_start_0
     new-instance v5, Ljava/io/File;
 
@@ -237,6 +274,7 @@
 
     move-result-object v2
 
+    .line 94
     :goto_1
     if-eqz v2, :cond_3
 
@@ -248,12 +286,14 @@
 
     if-eqz v5, :cond_3
 
+    .line 95
     const-string v3, "FactoryTest"
 
     const-string v5, "Not factory mode"
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 101
     const-string v3, "FactoryTest"
 
     const-string v5, "Not factory mode. isFactoryMode() returend false"
@@ -262,19 +302,25 @@
 
     move v3, v4
 
+    .line 102
     goto :goto_0
 
+    .line 82
     :catch_0
     move-exception v0
 
+    .line 83
+    .local v0, "e":Ljava/io/IOException;
     const-string v2, "OFF"
 
+    .line 84
     const-string v5, "FactoryTest"
 
     const-string v6, "cannot open file : /efs/FactoryApp/factorymode"
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 87
     :try_start_1
     new-instance v5, Ljava/io/File;
 
@@ -294,11 +340,15 @@
 
     goto :goto_1
 
+    .line 88
     :catch_1
     move-exception v1
 
+    .line 89
+    .local v1, "ex":Ljava/io/IOException;
     const-string v2, "OFF"
 
+    .line 90
     const-string v5, "FactoryTest"
 
     const-string v6, "cannot open file : /efs/imei/keystr"
@@ -307,6 +357,9 @@
 
     goto :goto_1
 
+    .line 97
+    .end local v0    # "e":Ljava/io/IOException;
+    .end local v1    # "ex":Ljava/io/IOException;
     :cond_3
     const-string v4, "FactoryTest"
 
@@ -320,6 +373,8 @@
 .method public static isFactoryPBAPhase()Z
     .locals 2
 
+    .prologue
+    .line 52
     const-string/jumbo v0, "ril.factory_mode"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
@@ -338,8 +393,10 @@
 .method public static isLongPressOnPowerOffEnabled()Z
     .locals 2
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 45
     const-string v1, "factory.long_press_power_off"
 
     invoke-static {v1, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
@@ -357,6 +414,8 @@
 .method public static isRunningFactoryApp()Z
     .locals 5
 
+    .prologue
+    .line 162
     const-string/jumbo v2, "sys.factory.runningFactoryApp"
 
     const-string v3, "false"
@@ -365,6 +424,8 @@
 
     move-result-object v1
 
+    .line 163
+    .local v1, "state":Ljava/lang/String;
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v2
@@ -373,12 +434,15 @@
 
     move-result-object v0
 
+    .line 164
+    .local v0, "result":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
+    .line 165
     const-string v2, "FactoryTest"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -401,6 +465,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 167
     :cond_0
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -412,17 +477,26 @@
 .method public static needBlockingPowerKey()Z
     .locals 5
 
+    .prologue
+    .line 185
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v2
 
     if-nez v2, :cond_0
 
+    .line 186
     const/4 v2, 0x0
 
+    .line 193
+    .local v0, "result":Ljava/lang/Boolean;
+    .local v1, "state":Ljava/lang/String;
     :goto_0
     return v2
 
+    .line 188
+    .end local v0    # "result":Ljava/lang/Boolean;
+    .end local v1    # "state":Ljava/lang/String;
     :cond_0
     const-string/jumbo v2, "sys.factory.blockingPowerKey"
 
@@ -432,6 +506,8 @@
 
     move-result-object v1
 
+    .line 189
+    .restart local v1    # "state":Ljava/lang/String;
     invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v2
@@ -440,12 +516,15 @@
 
     move-result-object v0
 
+    .line 190
+    .restart local v0    # "result":Ljava/lang/Boolean;
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
+    .line 191
     const-string v2, "FactoryTest"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -468,6 +547,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 193
     :cond_1
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -478,18 +558,25 @@
 
 .method public static setBlockingPowerKey(Landroid/content/Context;Z)Z
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "status"    # Z
 
+    .prologue
+    .line 197
     invoke-static {}, Landroid/os/FactoryTest;->isFactoryBinary()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
+    .line 198
     const/4 v0, 0x0
 
+    .line 205
     :goto_0
     return v0
 
+    .line 200
     :cond_0
     const-string v0, "com.sec.factory.permission.KEYSTRING"
 
@@ -499,6 +586,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 201
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "Requires com.sec.factory.permission.KEYSTRING permission"
@@ -507,6 +595,7 @@
 
     throw v0
 
+    .line 203
     :cond_1
     const-string/jumbo v0, "sys.factory.blockingPowerKey"
 
@@ -516,6 +605,7 @@
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 204
     const-string v0, "FactoryTest"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -542,6 +632,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 205
     const/4 v0, 0x1
 
     goto :goto_0
@@ -549,7 +640,11 @@
 
 .method public static setRunningFactoryApp(Landroid/content/Context;Z)Z
     .locals 3
+    .param p0, "context"    # Landroid/content/Context;
+    .param p1, "status"    # Z
 
+    .prologue
+    .line 171
     const-string v0, "com.sec.factory.permission.KEYSTRING"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
@@ -558,6 +653,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 172
     new-instance v0, Ljava/lang/SecurityException;
 
     const-string v1, "Requires com.sec.factory.permission.KEYSTRING permission"
@@ -566,6 +662,7 @@
 
     throw v0
 
+    .line 174
     :cond_0
     const-string/jumbo v0, "sys.factory.runningFactoryApp"
 
@@ -575,6 +672,7 @@
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 175
     const-string v0, "FactoryTest"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -601,6 +699,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 176
     const/4 v0, 0x1
 
     return v0
@@ -611,6 +710,8 @@
 .method public getBuildType()Ljava/lang/String;
     .locals 4
 
+    .prologue
+    .line 151
     const-string/jumbo v1, "ro.build.type"
 
     const-string v2, "Unknown"
@@ -619,6 +720,8 @@
 
     move-result-object v0
 
+    .line 152
+    .local v0, "type":Ljava/lang/String;
     const-string v1, "FactoryTest"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -641,5 +744,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 153
     return-object v0
 .end method

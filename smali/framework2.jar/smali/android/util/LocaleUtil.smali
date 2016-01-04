@@ -13,10 +13,13 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 38
     const-string v0, "Arab"
 
     sput-object v0, Landroid/util/LocaleUtil;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
 
+    .line 39
     const-string v0, "Hebr"
 
     sput-object v0, Landroid/util/LocaleUtil;->HEBR_SCRIPT_SUBTAG:Ljava/lang/String;
@@ -27,6 +30,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,9 +39,12 @@
 
 .method private static getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
     .locals 2
+    .param p0, "locale"    # Ljava/util/Locale;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 80
     invoke-virtual {p0, p0}, Ljava/util/Locale;->getDisplayName(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v1
@@ -51,14 +59,17 @@
 
     packed-switch v1, :pswitch_data_0
 
+    .line 87
     :goto_0
     return v0
 
+    .line 83
     :pswitch_0
     const/4 v0, 0x1
 
     goto :goto_0
 
+    .line 80
     nop
 
     :pswitch_data_0
@@ -70,7 +81,10 @@
 
 .method public static getLayoutDirectionFromLocale(Ljava/util/Locale;)I
     .locals 2
+    .param p0, "locale"    # Ljava/util/Locale;
 
+    .prologue
+    .line 53
     if-eqz p0, :cond_2
 
     sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -81,6 +95,7 @@
 
     if-nez v1, :cond_2
 
+    .line 54
     invoke-virtual {p0}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -93,15 +108,21 @@
 
     move-result-object v0
 
+    .line 55
+    .local v0, "scriptSubtag":Ljava/lang/String;
     if-nez v0, :cond_0
 
     invoke-static {p0}, Landroid/util/LocaleUtil;->getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
 
     move-result v1
 
+    .line 63
+    .end local v0    # "scriptSubtag":Ljava/lang/String;
     :goto_0
     return v1
 
+    .line 57
+    .restart local v0    # "scriptSubtag":Ljava/lang/String;
     :cond_0
     sget-object v1, Landroid/util/LocaleUtil;->ARAB_SCRIPT_SUBTAG:Ljava/lang/String;
 
@@ -119,11 +140,14 @@
 
     if-eqz v1, :cond_2
 
+    .line 59
     :cond_1
     const/4 v1, 0x1
 
     goto :goto_0
 
+    .line 63
+    .end local v0    # "scriptSubtag":Ljava/lang/String;
     :cond_2
     const/4 v1, 0x0
 
@@ -133,8 +157,10 @@
 .method public static isLayoutDirectionRtl()Z
     .locals 4
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 92
     invoke-static {}, Lcom/sec/android/app/CscFeature;->getInstance()Lcom/sec/android/app/CscFeature;
 
     move-result-object v2
@@ -147,10 +173,14 @@
 
     if-nez v2, :cond_1
 
+    .line 97
+    .local v0, "currentLanguage":Ljava/lang/String;
     :cond_0
     :goto_0
     return v1
 
+    .line 96
+    .end local v0    # "currentLanguage":Ljava/lang/String;
     :cond_1
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
@@ -160,6 +190,8 @@
 
     move-result-object v0
 
+    .line 97
+    .restart local v0    # "currentLanguage":Ljava/lang/String;
     const-string v2, "ar"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z

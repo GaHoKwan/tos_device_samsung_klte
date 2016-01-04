@@ -36,8 +36,6 @@ examples:
 	<spnOverride numeric="46001" spn="zh_CN;中国联通" spn_display_rule="SPN_RULE_SHOW_SPN"/>
 	<spnOverride numeric="46002" spn="zh_CN;中国移动" spn_display_rule="SPN_RULE_SHOW_SPN"/>
 	<spnOverride numeric="46007" spn="zh_CN;中国移动" spn_display_rule="SPN_RULE_SHOW_SPN"/>
-	<spnOverride numeric="46003" spn="zh_CN;中国电信" spn_display_rule="SPN_RULE_SHOW_SPN"/>
-	<spnOverride numeric="46009" spn="zh_CN;中国电信" spn_display_rule="SPN_RULE_SHOW_SPN"/>
 
 <!-- Taiwan -->
 	<spnOverride numeric="46601" spn="遠傳電信" spn_display_rule="SPN_RULE_SHOW_SPN"/> 

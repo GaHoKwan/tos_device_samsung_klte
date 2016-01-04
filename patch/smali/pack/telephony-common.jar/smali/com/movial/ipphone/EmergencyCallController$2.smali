@@ -899,7 +899,7 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lcom/movial/ipphone/EmergencyCallController$2;->removeMessages(I)V
+    invoke-virtual {v0, v12}, Landroid/os/Handler;->removeMessages(I)V
 
     .line 198
     move-object/from16 v0, p0

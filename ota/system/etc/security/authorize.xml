@@ -404,6 +404,12 @@
 			<package name="com.sec.knox.securehandler" seinfo="platform" />
 		</method>
 
+		<method name="resetPersonaDataPartition">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+		
 		<method name="stopPersona">
 			<seinfo value="system" />
 			<seinfo value="release" />
@@ -796,7 +802,172 @@
 			<seinfo value="shared" />
 			<package name="com.sec.knox.containeragent" seinfo="platform" />
 		</method>
-		
+
+		<method name="setFsMountState">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="setResetPasswordState">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="adminLockPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.containeragent2" seinfo="platform" />
+			<package name="com.sec.knox.containeragent2" seinfo="shared" />
+		</method>
+
+		<method name="adminUnLockPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="handleSuperUnlockPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="addAppListForPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="addAppForPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="removeAppForPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="savePasswordInTima">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="resetPassword">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.containeragent2" seinfo="platform" />
+			<package name="com.sec.knox.containeragent2" seinfo="shared" />
+		</method>
+
+		<method name="addPackageToInstallWhiteList">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="removePackageFromInstallWhiteList">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="setMaximumScreenOffTimeoutFromDeviceAdmin">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="refreshTimer">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.securehandler" seinfo="platform" />
+		</method>
+
+		<method name="userActivity">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="disablePersonaKeyGuard">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="enablePersonaKeyGuard">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="resetPersonaOnReboot">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="onWakeLockChange">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="clearAppListForPersona">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.android.providers.settings" seinfo="platform" />
+		</method>
+
+		<method name="settingSyncAllowed">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="getPasswordHint">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.containeragent2" seinfo="platform" />
+			<package name="com.sec.knox.containeragent2" seinfo="shared" />
+		</method>
+
+		<method name="setBackPressed">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="onSentinelActivityResumed">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="updatePersonaInfo">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="notifyKeyguardShow">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.containeragent2" seinfo="platform" />
+			<package name="com.sec.knox.containeragent2" seinfo="shared" />
+		</method>		
 	</service>
 
 	<service name="RCPManagerService">
@@ -2194,7 +2365,7 @@
 			<package name="com.sec.knox.containeragent2" seinfo="platform" />
 			<package name="com.sec.knox.securehandler" seinfo="platform" />
 		</method>
-			</service>
+	</service>
 
 
 	<service name="EnterprisePartitionManager">
@@ -2444,7 +2615,7 @@
 	<service name="SEAMS">
 
 		<method name="activateDomain">
-			<seinfo value="gsd" />
+			<seinfo value="good_trustonicpartner" />
 			<seinfo value="fixmo" />
 		</method>
 
@@ -2460,7 +2631,23 @@
 
 		<method name="getActivationStatus">
 			<seinfo value="gsd" />
+			<seinfo value="good_trustonicpartner" />
 			<seinfo value="fixmo" />
+		</method>
+
+		<method name="getSEContainerIDsFromPackageName">
+			<seinfo value="good_trustonicpartner" />
+			<seinfo value="gsd" />			
+		</method>
+
+		<method name="getPackageNamesFromSEContainer">
+			<seinfo value="good_trustonicpartner" />
+			<seinfo value="gsd" />			
+		</method>
+
+		<method name="getSEContainerIDs">
+			<seinfo value="good_trustonicpartner" />
+			<seinfo value="gsd" />
 		</method>
 
 		<method name="removeAppFromContainer">
@@ -2477,13 +2664,54 @@
 	<service name="KnoxMUMContainerPolicy">
 		<method name="removeContainer">
 			<seinfo value="system" />
-			<seinfo value="release" />
-			<seinfo value="media" />
-			<seinfo value="platform" />
-			<seinfo value="shared" />
 			<package name="com.sec.knox.containeragent2" seinfo="platform" />
 			<package name="com.sec.knox.containeragent2" seinfo="shared" />
 		</method>
+
+		<method name="systemReady">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="createContainerInternal">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.knoxsetupwizardclient" seinfo="platform" />
+		</method>
+
+		<method name="createContainerMarkSuccess">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.knoxsetupwizardclient" seinfo="platform" />
+		</method>
+
+		<method name="cancelCreateContainer">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+			<package name="com.sec.knox.knoxsetupwizardclient" seinfo="platform" />
+		</method>
+
+		<method name="onAdminAdded">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="onAdminRemoved">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>
+
+		<method name="onPreAdminRemoval">
+			<seinfo value="system" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
+		</method>		
 	</service>
 
 	<service name="CardManagerService">
@@ -2558,6 +2786,16 @@
 	<service name="CertificatePolicy">
 		<method name="notifyCertificateFailure">
 			<package name="com.android.chrome" seinfo="chrome" />
+		</method>
+	</service>
+	
+	<service name="knox_ccm_policy">
+		<method name="getSlotIdForPackage">
+			<seinfo value="system" />
+			<seinfo value="release" />
+			<seinfo value="media" />
+			<seinfo value="platform" />
+			<seinfo value="shared" />
 		</method>
 	</service>
 	

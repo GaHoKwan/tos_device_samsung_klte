@@ -129,7 +129,7 @@
     .line 34
     sget-object v0, Lgov/nist/javax/sip/DialogTimeoutEvent$Reason;->$VALUES:[Lgov/nist/javax/sip/DialogTimeoutEvent$Reason;
 
-    invoke-virtual {v0}, [Lgov/nist/javax/sip/DialogTimeoutEvent$Reason;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

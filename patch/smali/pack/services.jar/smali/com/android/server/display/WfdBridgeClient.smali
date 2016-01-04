@@ -33,35 +33,49 @@
 # direct methods
 .method public constructor <init>(Ljava/net/InetAddress;ILcom/android/server/display/WfdBridgeBase$BridgeListner;)V
     .locals 3
+    .param p1, "inet"    # Ljava/net/InetAddress;
+    .param p2, "port"    # I
+    .param p3, "listner"    # Lcom/android/server/display/WfdBridgeBase$BridgeListner;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 44
     invoke-direct {p0, p3}, Lcom/android/server/display/WfdBridgeBase;-><init>(Lcom/android/server/display/WfdBridgeBase$BridgeListner;)V
 
+    .line 31
     iput-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mInetAddr:Ljava/net/InetAddress;
 
+    .line 32
     iput-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
+    .line 33
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/display/WfdBridgeClient;->mPort:I
 
+    .line 41
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/display/WfdBridgeClient;->mBridgeConnType:I
 
+    .line 46
     const-string v0, "WfdBridgeClient"
 
     const-string v1, "Created WFDBridgeClient"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 47
     iput p2, p0, Lcom/android/server/display/WfdBridgeClient;->mPort:I
 
+    .line 48
     iput-object p1, p0, Lcom/android/server/display/WfdBridgeClient;->mInetAddr:Ljava/net/InetAddress;
 
+    .line 49
     iput-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mClientPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
+    .line 50
     return-void
 .end method
 
@@ -70,40 +84,50 @@
 .method public connect()V
     .locals 1
 
+    .prologue
+    .line 54
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/display/WfdBridgeClient;->mSession:Z
+    iput-boolean v0, p0, Lcom/android/server/display/WfdBridgeBase;->mSession:Z
 
+    .line 55
     new-instance v0, Ljava/lang/Thread;
 
     invoke-direct {v0, p0}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    .line 56
+    iget-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
-    invoke-virtual {v0}, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;->start()V
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 57
     return-void
 .end method
 
 .method public disconnect()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    .prologue
+    .line 61
+    iget-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     invoke-virtual {v0}, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;->destroy()V
 
+    .line 62
     invoke-virtual {p0}, Lcom/android/server/display/WfdBridgeClient;->isConnected()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 63
     iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mClientPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
     invoke-virtual {v0}, Lcom/android/server/display/WfdBridgeBase$BridgePeer;->closeSocket()V
 
+    .line 65
     :cond_0
     return-void
 .end method
@@ -111,16 +135,20 @@
 .method public getAddr()Ljava/net/InetAddress;
     .locals 1
 
+    .prologue
+    .line 126
     iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
     if-eqz v0, :cond_0
 
+    .line 127
     iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->getLocalAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
+    .line 130
     :goto_0
     return-object v0
 
@@ -133,22 +161,29 @@
 .method public getConnectAddrList()[Ljava/net/InetAddress;
     .locals 3
 
+    .prologue
+    .line 115
     invoke-virtual {p0}, Lcom/android/server/display/WfdBridgeClient;->isConnected()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
+    .line 116
     const/4 v0, 0x0
 
+    .line 121
     :goto_0
     return-object v0
 
+    .line 119
     :cond_0
     const/4 v1, 0x1
 
     new-array v0, v1, [Ljava/net/InetAddress;
 
+    .line 120
+    .local v0, "addrlist":[Ljava/net/InetAddress;
     const/4 v1, 0x0
 
     iget-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mClientPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
@@ -165,16 +200,20 @@
 .method public isConnected()Z
     .locals 1
 
+    .prologue
+    .line 74
     iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mClientPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
     if-eqz v0, :cond_0
 
+    .line 75
     iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mClientPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
     invoke-virtual {v0}, Lcom/android/server/display/WfdBridgeBase$BridgePeer;->isSocConnected()Z
 
     move-result v0
 
+    .line 77
     :goto_0
     return v0
 
@@ -186,16 +225,25 @@
 
 .method public request(Landroid/net/wifi/p2p/WifiP2pDevice;II)V
     .locals 8
+    .param p1, "sinkDevice"    # Landroid/net/wifi/p2p/WifiP2pDevice;
+    .param p2, "dev"    # I
+    .param p3, "type"    # I
 
+    .prologue
+    .line 82
     const-string v3, ""
 
+    .line 84
+    .local v3, "reqMsg":Ljava/lang/String;
     packed-switch p3, :pswitch_data_0
 
+    .line 98
     :goto_0
     const/4 v0, 0x1
 
     if-ne p2, v0, :cond_1
 
+    .line 99
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -210,7 +258,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v1, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     const-string v1, "Sink"
 
@@ -222,9 +270,10 @@
 
     move-result-object v3
 
+    .line 104
     :cond_0
     :goto_1
-    iget-object v7, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v7, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     new-instance v0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;
 
@@ -242,34 +291,42 @@
 
     invoke-virtual {v7, v0}, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;->putMsg(Lcom/android/server/display/WfdBridgeBase$WBPMsg;)I
 
+    .line 105
     return-void
 
+    .line 86
     :pswitch_0
-    iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     const-string v3, "RVF"
 
+    .line 87
     goto :goto_0
 
+    .line 90
     :pswitch_1
-    iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     const-string v3, "MirrorMouse"
 
+    .line 91
     goto :goto_0
 
+    .line 94
     :pswitch_2
-    iget-object v0, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v0, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     const-string v3, "ScreenMirroring"
 
     goto :goto_0
 
+    .line 100
     :cond_1
     const/4 v0, 0x2
 
     if-ne p2, v0, :cond_0
 
+    .line 101
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -284,7 +341,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v1, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     const-string v1, "Source"
 
@@ -298,6 +355,7 @@
 
     goto :goto_1
 
+    .line 84
     nop
 
     :pswitch_data_0
@@ -311,12 +369,15 @@
 .method public run()V
     .locals 8
 
+    .prologue
     const/4 v7, 0x0
 
     const/4 v6, 0x1
 
+    .line 140
     const/16 v0, 0x19
 
+    .local v0, "connCount":I
     :goto_0
     if-lez v0, :cond_1
 
@@ -324,6 +385,7 @@
 
     if-eq v2, v6, :cond_1
 
+    .line 142
     :try_start_0
     const-string v2, "WfdBridgeClient"
 
@@ -353,12 +415,14 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 143
     new-instance v2, Ljava/net/Socket;
 
     invoke-direct {v2}, Ljava/net/Socket;-><init>()V
 
     iput-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
+    .line 144
     iget-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
     new-instance v3, Ljava/net/InetSocketAddress;
@@ -377,6 +441,7 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;I)V
 
+    .line 146
     iget-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
     invoke-virtual {v2}, Ljava/net/Socket;->isConnected()Z
@@ -385,21 +450,25 @@
 
     if-eqz v2, :cond_0
 
+    .line 147
     const-string v2, "WfdBridgeClient"
 
     const-string v3, "Connect to server Success!"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 148
     const/4 v2, 0x1
 
     iput v2, p0, Lcom/android/server/display/WfdBridgeClient;->mBridgeConnType:I
 
+    .line 140
     :goto_1
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
+    .line 150
     :cond_0
     const-string v2, "WfdBridgeClient"
 
@@ -407,6 +476,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 151
     const/4 v2, 0x0
 
     iput v2, p0, Lcom/android/server/display/WfdBridgeClient;->mBridgeConnType:I
@@ -415,9 +485,12 @@
 
     goto :goto_1
 
+    .line 154
     :catch_0
     move-exception v1
 
+    .line 155
+    .local v1, "e":Ljava/lang/Exception;
     const-string v2, "WfdBridgeClient"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -430,7 +503,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -444,34 +517,41 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 156
     iput v7, p0, Lcom/android/server/display/WfdBridgeClient;->mBridgeConnType:I
 
     goto :goto_1
 
+    .line 160
+    .end local v1    # "e":Ljava/lang/Exception;
     :cond_1
     iget v2, p0, Lcom/android/server/display/WfdBridgeClient;->mBridgeConnType:I
 
     if-eq v2, v6, :cond_2
 
+    .line 161
     const-string v2, "WfdBridgeClient"
 
     const-string v3, "Connect Fail to server"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 167
     :goto_2
     return-void
 
+    .line 165
     :cond_2
-    iget-object v2, p0, Lcom/android/server/display/WfdBridgeClient;->mListner:Lcom/android/server/display/WfdBridgeBase$BridgeListner;
+    iget-object v2, p0, Lcom/android/server/display/WfdBridgeBase;->mListner:Lcom/android/server/display/WfdBridgeBase$BridgeListner;
 
     invoke-interface {v2}, Lcom/android/server/display/WfdBridgeBase$BridgeListner;->onBridgeConnected()I
 
+    .line 166
     new-instance v2, Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
     iget-object v3, p0, Lcom/android/server/display/WfdBridgeClient;->mSocket:Ljava/net/Socket;
 
-    iget-object v4, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    iget-object v4, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     invoke-direct {v2, p0, v3, v4}, Lcom/android/server/display/WfdBridgeBase$BridgePeer;-><init>(Lcom/android/server/display/WfdBridgeBase;Ljava/net/Socket;Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;)V
 
@@ -482,7 +562,10 @@
 
 .method public sendBusyflag(I)V
     .locals 8
+    .param p1, "flag"    # I
 
+    .prologue
+    .line 109
     invoke-virtual {p0}, Lcom/android/server/display/WfdBridgeClient;->isConnected()Z
 
     move-result v0
@@ -495,7 +578,8 @@
 
     if-nez v0, :cond_0
 
-    iget-object v7, p0, Lcom/android/server/display/WfdBridgeClient;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
+    .line 110
+    iget-object v7, p0, Lcom/android/server/display/WfdBridgeBase;->mMsgHandler:Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;
 
     new-instance v0, Lcom/android/server/display/WfdBridgeBase$WBPMsg;
 
@@ -515,13 +599,17 @@
 
     invoke-virtual {v7, v0}, Lcom/android/server/display/WfdBridgeBase$WBPMsgHandler;->putMsg(Lcom/android/server/display/WfdBridgeBase$WBPMsg;)I
 
+    .line 111
     :cond_0
     return-void
 .end method
 
 .method public sendMsg(Lcom/android/server/display/WfdBridgeBase$WBPMsg;)I
     .locals 2
+    .param p1, "msg"    # Lcom/android/server/display/WfdBridgeBase$WBPMsg;
 
+    .prologue
+    .line 69
     iget-object v0, p1, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mPeer:Lcom/android/server/display/WfdBridgeBase$BridgePeer;
 
     iget-object v1, p1, Lcom/android/server/display/WfdBridgeBase$WBPMsg;->mMsg:Ljava/lang/String;
@@ -535,6 +623,9 @@
 
 .method public updateClientDevice(Landroid/net/wifi/p2p/WifiP2pDevice;)V
     .locals 0
+    .param p1, "client"    # Landroid/net/wifi/p2p/WifiP2pDevice;
 
+    .prologue
+    .line 135
     return-void
 .end method

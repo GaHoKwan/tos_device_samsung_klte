@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/SecExternalDisplayIntents;)V
     .locals 0
 
+    .prologue
+    .line 244
     iput-object p1, p0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 17
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 247
     const/4 v13, -0x1
 
+    .line 248
+    .local v13, "value":I
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v3
 
+    .line 250
+    .local v3, "action":Ljava/lang/String;
     :try_start_0
     move-object/from16 v0, p0
 
@@ -60,6 +70,8 @@
 
     move-result v1
 
+    .line 251
+    .local v1, "IntentInfo":I
     const-string v14, "SecExternalDisplayIntents_Java"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -92,13 +104,14 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 253
     sget-object v14, Lcom/android/server/SecExternalDisplayIntents$2;->$SwitchMap$com$android$server$SecExternalDisplayIntents$EDSRecievedIntent:[I
 
     invoke-static {v1}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->toStatus(I)Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;
 
     move-result-object v15
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayIntents$EDSRecievedIntent;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
@@ -106,21 +119,27 @@
 
     packed-switch v14, :pswitch_data_0
 
+    .line 407
+    .end local v1    # "IntentInfo":I
     :cond_0
     :goto_0
     return-void
 
+    .line 256
+    .restart local v1    # "IntentInfo":I
     :pswitch_0
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_1
 
+    .line 257
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered HDMI Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 258
     :cond_1
     const-string/jumbo v14, "state"
 
@@ -132,11 +151,13 @@
 
     move-result v7
 
+    .line 259
+    .local v7, "bStatus":Z
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v7}, Lcom/android/server/SecExternalDisplayService;->handleHDMIConnection(Z)Z
     :try_end_0
@@ -144,9 +165,14 @@
 
     goto :goto_0
 
+    .line 403
+    .end local v1    # "IntentInfo":I
+    .end local v7    # "bStatus":Z
     :catch_0
     move-exception v9
 
+    .line 405
+    .local v9, "e":Ljava/lang/Exception;
     const-string v14, "SecExternalDisplayIntents_Java"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -171,18 +197,23 @@
 
     goto :goto_0
 
+    .line 263
+    .end local v9    # "e":Ljava/lang/Exception;
+    .restart local v1    # "IntentInfo":I
     :pswitch_1
     :try_start_1
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_2
 
+    .line 264
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered rear camera Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 265
     :cond_2
     move-object/from16 v0, p0
 
@@ -190,25 +221,28 @@
 
     sget-object v15, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->REAR:Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->handleCameraConnection(I)Z
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->handleCameraConnection(I)Z
 
     goto :goto_0
 
+    .line 269
     :pswitch_2
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_3
 
+    .line 270
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered Front Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 271
     :cond_3
     move-object/from16 v0, p0
 
@@ -216,25 +250,28 @@
 
     sget-object v15, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->FRONT:Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->handleCameraConnection(I)Z
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->handleCameraConnection(I)Z
 
     goto :goto_0
 
+    .line 275
     :pswitch_3
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_4
 
+    .line 276
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered Camera Stop Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 277
     :cond_4
     move-object/from16 v0, p0
 
@@ -242,25 +279,28 @@
 
     sget-object v15, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->STOP:Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayOrientation$EDS_CameraStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->handleCameraConnection(I)Z
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->handleCameraConnection(I)Z
 
     goto/16 :goto_0
 
+    .line 281
     :pswitch_4
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_5
 
+    .line 282
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered RVF Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 283
     :cond_5
     const-string/jumbo v14, "running"
 
@@ -272,25 +312,31 @@
 
     move-result v6
 
+    .line 284
+    .local v6, "bRVFStatus":Z
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    invoke-virtual {v14, v6}, Lcom/android/server/SecExternalDisplayIntents;->handleRVFConnection(Z)Z
+    invoke-virtual {v14, v6}, Lcom/android/server/SecExternalDisplayOrientation;->handleRVFConnection(Z)Z
 
     goto/16 :goto_0
 
+    .line 288
+    .end local v6    # "bRVFStatus":Z
     :pswitch_5
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_6
 
+    .line 289
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered WFD Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 290
     :cond_6
     const-string/jumbo v14, "state"
 
@@ -302,33 +348,39 @@
 
     move-result v4
 
+    .line 291
+    .local v4, "bAllShareCastConnectedFlag":I
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v4}, Lcom/android/server/SecExternalDisplayService;->handleWFDConnection(I)Z
 
     goto/16 :goto_0
 
+    .line 297
+    .end local v4    # "bAllShareCastConnectedFlag":I
     :pswitch_6
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_7
 
+    .line 298
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered Camera Start Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 299
     :cond_7
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     const/4 v15, 0x1
 
@@ -336,23 +388,26 @@
 
     goto/16 :goto_0
 
+    .line 305
     :pswitch_7
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_8
 
+    .line 306
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered Camera Stop Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 307
     :cond_8
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     const/4 v15, 0x0
 
@@ -360,17 +415,20 @@
 
     goto/16 :goto_0
 
+    .line 311
     :pswitch_8
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_9
 
+    .line 312
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered SideSync Connected Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 313
     :cond_9
     move-object/from16 v0, p0
 
@@ -378,21 +436,24 @@
 
     const/4 v15, 0x1
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->handleSideSyncConnection(Z)Z
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->handleSideSyncConnection(Z)Z
 
     goto/16 :goto_0
 
+    .line 317
     :pswitch_9
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_a
 
+    .line 318
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered SideSync DC Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 319
     :cond_a
     move-object/from16 v0, p0
 
@@ -400,24 +461,29 @@
 
     const/4 v15, 0x0
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->handleSideSyncConnection(Z)Z
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->handleSideSyncConnection(Z)Z
 
     goto/16 :goto_0
 
+    .line 324
     :pswitch_a
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_b
 
+    .line 325
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered ScreenRecorder Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 326
     :cond_b
     const/4 v2, 0x0
 
+    .line 327
+    .local v2, "SRState":Ljava/lang/String;
     const-string v14, "IsRunning"
 
     move-object/from16 v0, p2
@@ -426,6 +492,7 @@
 
     move-result-object v2
 
+    .line 328
     const-string v14, "SecExternalDisplayIntents_Java"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -448,6 +515,7 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 330
     const-string/jumbo v14, "run"
 
     invoke-virtual {v2, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -456,15 +524,16 @@
 
     if-eqz v14, :cond_c
 
+    .line 331
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     sget-object v15, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_SCREENRECORDING:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
@@ -474,6 +543,7 @@
 
     goto/16 :goto_0
 
+    .line 332
     :cond_c
     const-string/jumbo v14, "stop"
 
@@ -483,15 +553,16 @@
 
     if-eqz v14, :cond_0
 
+    .line 333
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     sget-object v15, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_SCREENRECORDING:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
@@ -501,17 +572,21 @@
 
     goto/16 :goto_0
 
+    .line 337
+    .end local v2    # "SRState":Ljava/lang/String;
     :pswitch_b
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_d
 
+    .line 338
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered SmartDock Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 339
     :cond_d
     const-string v14, "android.intent.extra.device_state"
 
@@ -523,6 +598,8 @@
 
     move-result v5
 
+    .line 340
+    .local v5, "bMouseDockedFlag":I
     const-string v14, "SecExternalDisplayIntents_Java"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -545,27 +622,32 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 341
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v5}, Lcom/android/server/SecExternalDisplayService;->handleSmartDockConnection(I)Z
 
     goto/16 :goto_0
 
+    .line 345
+    .end local v5    # "bMouseDockedFlag":I
     :pswitch_c
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_e
 
+    .line 346
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered ScreenLock Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 347
     :cond_e
     move-object/from16 v0, p0
 
@@ -573,31 +655,34 @@
 
     const/4 v15, 0x0
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->SecExternalDisplaySetOrientationMode(Z)V
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->SecExternalDisplaySetOrientationMode(Z)V
 
     goto/16 :goto_0
 
+    .line 351
     :pswitch_d
     sget-boolean v14, Lcom/android/server/SecExternalDisplayOrientation;->bIsLogEnabled:Z
 
     if-eqz v14, :cond_f
 
+    .line 352
     const-string v14, "SecExternalDisplayIntents_Java"
 
     const-string v15, "entered Screen Unlocked Case"
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 353
     :cond_f
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     sget-object v15, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_HDMI:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
@@ -611,11 +696,11 @@
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     sget-object v15, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->EDS_CONNECTION_STATUS_WFD:Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;
 
-    invoke-virtual {v15}, Lcom/android/server/SecExternalDisplayService$EDSFlagStatus;->ordinal()I
+    invoke-virtual {v15}, Ljava/lang/Enum;->ordinal()I
 
     move-result v15
 
@@ -625,6 +710,7 @@
 
     if-eqz v14, :cond_0
 
+    .line 355
     :cond_10
     move-object/from16 v0, p0
 
@@ -632,10 +718,11 @@
 
     const/4 v15, 0x1
 
-    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayIntents;->SecExternalDisplaySetOrientationMode(Z)V
+    invoke-virtual {v14, v15}, Lcom/android/server/SecExternalDisplayOrientation;->SecExternalDisplaySetOrientationMode(Z)V
 
     goto/16 :goto_0
 
+    .line 359
     :pswitch_e
     const-string/jumbo v14, "value"
 
@@ -647,16 +734,18 @@
 
     move-result v13
 
+    .line 360
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v13}, Lcom/android/server/SecExternalDisplayService;->setAidDim(I)V
 
     goto/16 :goto_0
 
+    .line 364
     :pswitch_f
     const-string/jumbo v14, "value"
 
@@ -668,16 +757,18 @@
 
     move-result v13
 
+    .line 365
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v13}, Lcom/android/server/SecExternalDisplayService;->setEnableDualScanMode(I)V
 
     goto/16 :goto_0
 
+    .line 369
     :pswitch_10
     const-string/jumbo v14, "value"
 
@@ -689,27 +780,30 @@
 
     move-result v13
 
+    .line 370
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v13}, Lcom/android/server/SecExternalDisplayService;->acquireCpuMinLock(I)V
 
     goto/16 :goto_0
 
+    .line 374
     :pswitch_11
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14}, Lcom/android/server/SecExternalDisplayService;->releaseCpuMinLock()V
 
     goto/16 :goto_0
 
+    .line 378
     :pswitch_12
     const-string/jumbo v14, "value"
 
@@ -721,27 +815,30 @@
 
     move-result v13
 
+    .line 379
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v13}, Lcom/android/server/SecExternalDisplayService;->acquireGpuMinLock(I)V
 
     goto/16 :goto_0
 
+    .line 383
     :pswitch_13
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14}, Lcom/android/server/SecExternalDisplayService;->releaseGpuMinLock()V
 
     goto/16 :goto_0
 
+    .line 387
     :pswitch_14
     const-string/jumbo v14, "value"
 
@@ -753,16 +850,18 @@
 
     move-result v13
 
+    .line 388
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-static {v13}, Lcom/android/server/SecExternalDisplayService;->setHmtOn(I)V
 
     goto/16 :goto_0
 
+    .line 392
     :pswitch_15
     const-string v14, "esd"
 
@@ -774,6 +873,8 @@
 
     move-result v10
 
+    .line 393
+    .local v10, "esd":F
     const-string v14, "lsd"
 
     const v15, 0x3d4ccccd    # 0.05f
@@ -784,6 +885,8 @@
 
     move-result v12
 
+    .line 394
+    .local v12, "lsd":F
     const-string v14, "ipd"
 
     const v15, 0x3d83126f    # 0.064f
@@ -794,6 +897,8 @@
 
     move-result v11
 
+    .line 395
+    .local v11, "ipd":F
     const-string v14, "distortion"
 
     move-object/from16 v0, p2
@@ -802,20 +907,26 @@
 
     move-result-object v8
 
+    .line 396
+    .local v8, "distK":[F
     if-nez v8, :cond_11
 
+    .line 397
     const/4 v14, 0x4
 
     new-array v8, v14, [F
 
+    .end local v8    # "distK":[F
     fill-array-data v8, :array_0
 
+    .line 399
+    .restart local v8    # "distK":[F
     :cond_11
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/SecExternalDisplayIntents$1;->this$0:Lcom/android/server/SecExternalDisplayIntents;
 
-    iget-object v14, v14, Lcom/android/server/SecExternalDisplayIntents;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
+    iget-object v14, v14, Lcom/android/server/SecExternalDisplayOrientation;->mEDSServiceObj:Lcom/android/server/SecExternalDisplayService;
 
     invoke-virtual {v14, v10, v12, v11, v8}, Lcom/android/server/SecExternalDisplayService;->setHMTParams(FFF[F)Z
     :try_end_1
@@ -823,6 +934,7 @@
 
     goto/16 :goto_0
 
+    .line 253
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -854,6 +966,7 @@
         :pswitch_15
     .end packed-switch
 
+    .line 397
     :array_0
     .array-data 4
         0x3f800000    # 1.0f

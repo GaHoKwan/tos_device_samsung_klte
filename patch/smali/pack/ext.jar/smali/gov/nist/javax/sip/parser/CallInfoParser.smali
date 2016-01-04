@@ -48,7 +48,7 @@
 
     const-string v4, "CallInfoParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/CallInfoParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 67
     :cond_0
@@ -61,15 +61,15 @@
     const/16 v4, 0x833
 
     :try_start_0
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/CallInfoParser;->headerName(I)V
+    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 72
     :cond_1
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v4
 
@@ -86,15 +86,15 @@
     .local v0, "callInfo":Lgov/nist/javax/sip/header/CallInfo;
     const-string v4, "Call-Info"
 
-    invoke-virtual {v0, v4}, Lgov/nist/javax/sip/header/CallInfo;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v4}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 76
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 77
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x3c
 
@@ -103,7 +103,7 @@
     .line 78
     new-instance v3, Lgov/nist/javax/sip/parser/URLParser;
 
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     check-cast v4, Lgov/nist/javax/sip/parser/Lexer;
 
@@ -122,14 +122,14 @@
     invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/CallInfo;->setInfo(Ljavax/sip/address/URI;)V
 
     .line 81
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x3e
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 82
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -137,29 +137,29 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/ParametersParser;->parse(Lgov/nist/javax/sip/header/ParametersHeader;)V
 
     .line 85
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/CallInfoList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 87
     :goto_0
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v4, v5}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v4
 
     if-ne v4, v6, :cond_1
 
     .line 88
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x2c
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 89
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -171,12 +171,12 @@
 
     .line 93
     .restart local v0    # "callInfo":Lgov/nist/javax/sip/header/CallInfo;
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 94
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x3c
 
@@ -186,7 +186,7 @@
     new-instance v3, Lgov/nist/javax/sip/parser/URLParser;
 
     .end local v3    # "urlParser":Lgov/nist/javax/sip/parser/URLParser;
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     check-cast v4, Lgov/nist/javax/sip/parser/Lexer;
 
@@ -204,14 +204,14 @@
     invoke-virtual {v0, v2}, Lgov/nist/javax/sip/header/CallInfo;->setInfo(Ljavax/sip/address/URI;)V
 
     .line 98
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v5, 0x3e
 
     invoke-virtual {v4, v5}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 99
-    iget-object v4, p0, Lgov/nist/javax/sip/parser/CallInfoParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v4, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v4}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -219,7 +219,7 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/ParametersParser;->parse(Lgov/nist/javax/sip/header/ParametersHeader;)V
 
     .line 102
-    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/CallInfoList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v1, v0}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -238,7 +238,7 @@
 
     const-string v5, "CallInfoParser.parse"
 
-    invoke-virtual {p0, v5}, Lgov/nist/javax/sip/parser/CallInfoParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v5}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     :cond_2
     throw v4
@@ -250,7 +250,7 @@
 
     const-string v4, "CallInfoParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/CallInfoParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 106
     :cond_4

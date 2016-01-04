@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/connectivity/PacManager;)V
     .locals 0
 
+    .prologue
+    .line 281
     iput-object p1, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 6
+    .param p1, "component"    # Landroid/content/ComponentName;
+    .param p2, "binder"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 291
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
     # getter for: Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
@@ -46,6 +52,7 @@
 
     monitor-enter v3
 
+    .line 293
     :try_start_0
     const-string v2, "PacManager"
 
@@ -76,12 +83,14 @@
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 298
     :goto_0
     :try_start_1
     const-string v2, "com.android.net.IProxyService"
 
     invoke-static {v2, p2}, Landroid/os/ServiceManager;->addService(Ljava/lang/String;Landroid/os/IBinder;)V
 
+    .line 299
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
     invoke-static {p2}, Lcom/android/net/IProxyService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/net/IProxyService;
@@ -91,6 +100,7 @@
     # setter for: Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
     invoke-static {v2, v4}, Lcom/android/server/connectivity/PacManager;->access$1002(Lcom/android/server/connectivity/PacManager;Lcom/android/net/IProxyService;)Lcom/android/net/IProxyService;
 
+    .line 300
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
     # getter for: Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
@@ -100,20 +110,26 @@
 
     if-nez v2, :cond_0
 
+    .line 301
     const-string v2, "PacManager"
 
     const-string v4, "No proxy service"
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 310
     :goto_1
     monitor-exit v3
 
+    .line 311
     return-void
 
+    .line 295
     :catch_0
     move-exception v1
 
+    .line 296
+    .local v1, "e1":Landroid/os/RemoteException;
     const-string v2, "PacManager"
 
     const-string v4, "Remote Exception"
@@ -122,6 +138,8 @@
 
     goto :goto_0
 
+    .line 310
+    .end local v1    # "e1":Landroid/os/RemoteException;
     :catchall_0
     move-exception v2
 
@@ -131,6 +149,7 @@
 
     throw v2
 
+    .line 304
     :cond_0
     :try_start_2
     iget-object v2, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
@@ -145,6 +164,7 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 308
     :goto_2
     :try_start_3
     invoke-static {}, Lcom/android/server/IoThread;->getHandler()Landroid/os/Handler;
@@ -162,9 +182,12 @@
 
     goto :goto_1
 
+    .line 305
     :catch_1
     move-exception v0
 
+    .line 306
+    .local v0, "e":Landroid/os/RemoteException;
     const-string v2, "PacManager"
 
     const-string v4, "Unable to reach ProxyService - PAC will not be started"
@@ -178,7 +201,10 @@
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 3
+    .param p1, "component"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 284
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
     # getter for: Lcom/android/server/connectivity/PacManager;->mProxyLock:Ljava/lang/Object;
@@ -188,6 +214,7 @@
 
     monitor-enter v1
 
+    .line 285
     :try_start_0
     iget-object v0, p0, Lcom/android/server/connectivity/PacManager$2;->this$0:Lcom/android/server/connectivity/PacManager;
 
@@ -196,10 +223,13 @@
     # setter for: Lcom/android/server/connectivity/PacManager;->mProxyService:Lcom/android/net/IProxyService;
     invoke-static {v0, v2}, Lcom/android/server/connectivity/PacManager;->access$1002(Lcom/android/server/connectivity/PacManager;Lcom/android/net/IProxyService;)Lcom/android/net/IProxyService;
 
+    .line 286
     monitor-exit v1
 
+    .line 287
     return-void
 
+    .line 286
     :catchall_0
     move-exception v0
 

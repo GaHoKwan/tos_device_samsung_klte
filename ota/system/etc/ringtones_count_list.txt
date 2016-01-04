@@ -14,7 +14,6 @@
 /system/media/audio/ringtones/One_Step_Forward.ogg
 /system/media/audio/ringtones/Funky_Flute.ogg
 /system/media/audio/ringtones/Peaceful_Strum.ogg
-/system/media/audio/ringtones/Verizon_Airwaves_1.ogg
 /system/media/audio/ringtones/Drifting_downstream.ogg
 /system/media/audio/ringtones/Writing_adventure.ogg
 /system/media/audio/ringtones/Glissando_tone.ogg

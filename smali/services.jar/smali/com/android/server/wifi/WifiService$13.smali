@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 3155
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$13;->this$0:Lcom/android/server/wifi/WifiService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,13 +36,17 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 2
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 3158
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$13;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiService;->mSettingsStore:Lcom/android/server/wifi/WifiSettingsStore;
 
     invoke-virtual {v0}, Lcom/android/server/wifi/WifiSettingsStore;->handleWifiScanAlwaysAvailableToggled()V
 
+    .line 3159
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$13;->this$0:Lcom/android/server/wifi/WifiService;
 
     # getter for: Lcom/android/server/wifi/WifiService;->mWifiController:Lcom/android/server/wifi/WifiController;
@@ -49,7 +56,8 @@
 
     const v1, 0x26007
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wifi/WifiController;->sendMessage(I)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/util/StateMachine;->sendMessage(I)V
 
+    .line 3160
     return-void
 .end method

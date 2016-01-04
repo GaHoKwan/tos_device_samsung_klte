@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/Editor$InsertionHandleView;)V
     .locals 0
 
+    .prologue
+    .line 4890
     iput-object p1, p0, Landroid/widget/Editor$InsertionHandleView$1;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 4892
     iget-object v0, p0, Landroid/widget/Editor$InsertionHandleView$1;->this$1:Landroid/widget/Editor$InsertionHandleView;
 
-    invoke-virtual {v0}, Landroid/widget/Editor$InsertionHandleView;->hide()V
+    invoke-virtual {v0}, Landroid/widget/Editor$HandleView;->hide()V
 
+    .line 4893
     return-void
 .end method

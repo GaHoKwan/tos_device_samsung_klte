@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;)V
     .locals 0
 
+    .prologue
+    .line 1624
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$34;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,19 @@
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1642
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1635
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$34;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
@@ -58,18 +66,21 @@
     const/16 v0, 0x8
 
     :goto_0
-    invoke-virtual {v1, v0}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->setVisibility(I)V
+    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1638
     :goto_1
     return-void
 
+    .line 1635
     :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 1636
     :catch_0
     move-exception v0
 
@@ -78,25 +89,33 @@
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1640
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
+    .param p1, "animation"    # Landroid/animation/Animator;
 
+    .prologue
+    .line 1628
     :try_start_0
     iget-object v0, p0, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer$34;->this$0:Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/toolbox/TwToolBoxFloatingViewer;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 1631
     :goto_0
     return-void
 
+    .line 1629
     :catch_0
     move-exception v0
 

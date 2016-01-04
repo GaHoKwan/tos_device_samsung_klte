@@ -716,7 +716,7 @@
     .line 1361
     sget-object v0, Lcom/android/internal/telephony/uicc/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -809,7 +809,7 @@
     .line 1382
     sget-object v0, Lcom/android/internal/telephony/uicc/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$IccCard$State:[I
 
-    invoke-virtual {p1}, Lcom/android/internal/telephony/IccCard$State;->ordinal()I
+    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -900,7 +900,7 @@
 
     const/16 v4, 0x6f
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v4
 
@@ -998,7 +998,7 @@
 
     .line 1629
     :try_start_1
-    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
 
@@ -1031,7 +1031,7 @@
 
     .line 1629
     :try_start_3
-    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
 
@@ -1057,7 +1057,7 @@
 
     .line 1629
     :try_start_4
-    invoke-virtual {v1}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v1}, Ljava/io/FilterOutputStream;->close()V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
 
@@ -1781,7 +1781,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/telephony/MultiSimTelephonyManager;->getSubscriberId()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSubscriberId()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1913,7 +1913,7 @@
     .local v0, "appState":Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;
     sget-object v2, Lcom/android/internal/telephony/uicc/IccCardProxy$1;->$SwitchMap$com$android$internal$telephony$uicc$IccCardApplicationStatus$AppState:[I
 
-    invoke-virtual {v0}, Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;->ordinal()I
+    invoke-virtual {v0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v4
 
@@ -2024,7 +2024,7 @@
     .local v6, "tempEccString":Ljava/lang/String;
     const-string v7, "SKT"
 
-    const-string v8, "VZW"
+    const-string v8, ""
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2034,7 +2034,7 @@
 
     const-string v7, "KT"
 
-    const-string v8, "VZW"
+    const-string v8, ""
 
     invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2266,7 +2266,7 @@
     .local v7, "tempEccString":Ljava/lang/String;
     const-string v8, "SKT"
 
-    const-string v9, "VZW"
+    const-string v9, ""
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2276,7 +2276,7 @@
 
     const-string v8, "KT"
 
-    const-string v9, "VZW"
+    const-string v9, ""
 
     invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2818,7 +2818,7 @@
 
     iget-object v3, p0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mExternalState:Lcom/android/internal/telephony/IccCard$State;
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/IccCard$State;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -3092,7 +3092,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/internal/telephony/uicc/IccCardApplicationStatus$AppState;->ordinal()I
+    invoke-virtual {v3}, Ljava/lang/Enum;->ordinal()I
 
     move-result v3
 
@@ -3215,6 +3215,11 @@
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->setExternalState(Lcom/android/internal/telephony/IccCard$State;)V
 
+    .line 1140
+    sget-object v2, Lcom/android/internal/telephony/IccCard$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCard$State;
+
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->makeInvalidSIMNotification(Lcom/android/internal/telephony/IccCard$State;)V
+
     goto/16 :goto_0
 
     .line 1142
@@ -3233,6 +3238,11 @@
     sget-object v2, Lcom/android/internal/telephony/IccCard$State;->NETWORK_SUBSET_LOCKED:Lcom/android/internal/telephony/IccCard$State;
 
     invoke-direct {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->setExternalState(Lcom/android/internal/telephony/IccCard$State;)V
+
+    .line 1145
+    sget-object v2, Lcom/android/internal/telephony/IccCard$State;->NETWORK_LOCKED:Lcom/android/internal/telephony/IccCard$State;
+
+    invoke-direct {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->makeInvalidSIMNotification(Lcom/android/internal/telephony/IccCard$State;)V
 
     goto/16 :goto_0
 
@@ -3335,7 +3345,7 @@
     .line 1011
     const-string v5, "LGT"
 
-    const-string v7, "VZW"
+    const-string v7, ""
 
     invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3683,11 +3693,11 @@
     .line 440
     const/4 v4, 0x3
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v4
 
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/uicc/IccCardProxy;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     .line 441
     monitor-exit v5
@@ -3928,7 +3938,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/IccCard$State;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -3982,7 +3992,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/internal/telephony/IccCard$State;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -4046,7 +4056,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -4148,7 +4158,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -4926,7 +4936,7 @@
 
     .line 2277
     .local v0, "e":Landroid/provider/Settings$SettingNotFoundException;
-    invoke-virtual {v0}, Landroid/provider/Settings$SettingNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -5034,7 +5044,7 @@
     if-eqz v2, :cond_2
 
     .line 2257
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
@@ -5053,7 +5063,7 @@
     if-eqz v2, :cond_3
 
     .line 2259
-    invoke-virtual {p0, v4}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
@@ -5236,7 +5246,7 @@
 
     const/16 v8, 0x73
 
-    invoke-virtual {p0, v8}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v8}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v8
 
@@ -6053,7 +6063,7 @@
 
     const/16 v1, 0x67
 
-    invoke-virtual {p0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
@@ -6303,7 +6313,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1, v12}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, v12}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v17
 
@@ -6505,7 +6515,7 @@
     .line 515
     const-string v17, "KT"
 
-    const-string v18, "VZW"
+    const-string v18, ""
 
     invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -6662,7 +6672,7 @@
 
     move/from16 v1, v17
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v17
 
@@ -6939,7 +6949,7 @@
     :goto_1
     const-string v17, "KOR"
 
-    const-string v18, ""
+    const-string v18, "SIN"
 
     invoke-virtual/range {v17 .. v18}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -7027,7 +7037,7 @@
 
     move-object/from16 v2, v17
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v17
 
@@ -7216,7 +7226,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_b
 
     .line 689
     const-string v17, "Failed to get Ecc List from SIM"
@@ -7270,74 +7280,8 @@
 
     goto/16 :goto_0
 
-    .line 695
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    instance-of v0, v0, Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    move/from16 v17, v0
-
-    if-eqz v17, :cond_b
-
-    .line 696
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v18, "Update SIM ECC List: "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mEmergencyNumber:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->log(Ljava/lang/String;)V
-
-    .line 697
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    move-object/from16 v17, v0
-
-    check-cast v17, Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mEmergencyNumber:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/internal/telephony/cdma/CDMAPhone;->updateEccNum(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
     .line 699
-    :cond_b
+    :cond_a
     const-string v17, "Invalid Phone, so can\'t call setEmergencyNumbers()"
 
     move-object/from16 v0, p0
@@ -7349,7 +7293,7 @@
     goto/16 :goto_0
 
     .line 708
-    :cond_c
+    :cond_b
     new-instance v8, Ljava/lang/StringBuffer;
 
     const-string v17, ""
@@ -7392,7 +7336,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_d
+    if-eqz v17, :cond_c
 
     .line 713
     move-object/from16 v0, p0
@@ -7426,7 +7370,7 @@
 
     move/from16 v17, v0
 
-    if-eqz v17, :cond_f
+    if-eqz v17, :cond_e
 
     .line 723
     move-object/from16 v0, p0
@@ -7457,7 +7401,7 @@
     goto/16 :goto_0
 
     .line 714
-    :cond_d
+    :cond_c
     const-string v17, "2"
 
     move-object/from16 v0, v17
@@ -7468,7 +7412,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_e
+    if-eqz v17, :cond_d
 
     .line 715
     move-object/from16 v0, p0
@@ -7480,7 +7424,7 @@
     goto :goto_3
 
     .line 717
-    :cond_e
+    :cond_d
     const-string v17, "Invalid Phone, so can\'t read EccList"
 
     move-object/from16 v0, p0
@@ -7491,83 +7435,8 @@
 
     goto :goto_3
 
-    .line 725
-    :cond_f
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    instance-of v0, v0, Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    move/from16 v17, v0
-
-    if-eqz v17, :cond_10
-
-    .line 726
-    new-instance v17, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v18, "Update SIM ECC List: "
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mEmergencyNumber:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v17
-
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v17
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->log(Ljava/lang/String;)V
-
-    .line 727
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mPhone:Lcom/android/internal/telephony/PhoneBase;
-
-    move-object/from16 v17, v0
-
-    check-cast v17, Lcom/android/internal/telephony/cdma/CDMAPhone;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/telephony/uicc/IccCardProxy;->mEmergencyNumber:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v17 .. v18}, Lcom/android/internal/telephony/cdma/CDMAPhone;->updateEccNum(Ljava/lang/String;)V
-
-    .line 728
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/internal/telephony/uicc/IccCardProxy;->mAlreadyReadEcc:Z
-
-    goto/16 :goto_0
-
     .line 730
-    :cond_10
+    :cond_e
     const-string v17, "Invalid Phone so can\'t call setEmergencyNumbers()"
 
     move-object/from16 v0, p0
@@ -7612,7 +7481,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_12
+    if-nez v17, :cond_10
 
     .line 746
     move-object/from16 v0, p0
@@ -7684,7 +7553,7 @@
 
     move-result v17
 
-    if-nez v17, :cond_11
+    if-nez v17, :cond_f
 
     .line 753
     const/16 v17, 0x1
@@ -7700,7 +7569,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->getSimLockInfo(II)V
 
     .line 759
-    :cond_11
+    :cond_f
     :goto_4
     iget-object v0, v5, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
@@ -7734,7 +7603,7 @@
     goto/16 :goto_0
 
     .line 756
-    :cond_12
+    :cond_10
     new-instance v17, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
@@ -7780,7 +7649,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_13
+    if-eqz v17, :cond_11
 
     .line 767
     new-instance v17, Ljava/lang/StringBuilder;
@@ -7812,7 +7681,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->log(Ljava/lang/String;)V
 
     .line 770
-    :cond_13
+    :cond_11
     iget-object v0, v5, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     move-object/from16 v17, v0
@@ -7859,7 +7728,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_14
+    if-eqz v17, :cond_12
 
     .line 778
     new-instance v17, Ljava/lang/StringBuilder;
@@ -7891,7 +7760,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->log(Ljava/lang/String;)V
 
     .line 781
-    :cond_14
+    :cond_12
     iget-object v0, v5, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     move-object/from16 v17, v0
@@ -7947,7 +7816,7 @@
 
     move-object/from16 v17, v0
 
-    if-eqz v17, :cond_15
+    if-eqz v17, :cond_13
 
     .line 792
     new-instance v17, Ljava/lang/StringBuilder;
@@ -7979,7 +7848,7 @@
     invoke-direct {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->log(Ljava/lang/String;)V
 
     .line 795
-    :cond_15
+    :cond_13
     iget-object v0, v5, Landroid/os/AsyncResult;->userObj:Ljava/lang/Object;
 
     move-object/from16 v17, v0
@@ -8315,7 +8184,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_16
+    if-nez v17, :cond_14
 
     .line 851
     const/16 v17, 0x0
@@ -8329,7 +8198,7 @@
     goto/16 :goto_0
 
     .line 855
-    :cond_16
+    :cond_14
     move-object/from16 v0, p1
 
     iget-object v5, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -8343,16 +8212,16 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_17
+    if-nez v17, :cond_15
 
     iget-object v0, v5, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_18
+    if-nez v17, :cond_16
 
     .line 857
-    :cond_17
+    :cond_15
     const/16 v17, 0x0
 
     move-object/from16 v0, p0
@@ -8364,7 +8233,7 @@
     goto/16 :goto_0
 
     .line 861
-    :cond_18
+    :cond_16
     iget-object v0, v5, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     move-object/from16 v17, v0
@@ -8377,7 +8246,7 @@
 
     .line 862
     .local v6, "data":[B
-    if-eqz v6, :cond_1b
+    if-eqz v6, :cond_19
 
     array-length v0, v6
 
@@ -8389,7 +8258,7 @@
 
     move/from16 v1, v18
 
-    if-lt v0, v1, :cond_1b
+    if-lt v0, v1, :cond_19
 
     .line 863
     const/16 v17, 0x2
@@ -8418,7 +8287,7 @@
 
     move/from16 v1, v18
 
-    if-eq v0, v1, :cond_1a
+    if-eq v0, v1, :cond_18
 
     .line 867
     move-object/from16 v0, p0
@@ -8474,7 +8343,7 @@
     invoke-static/range {v17 .. v18}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 872
-    if-eqz v9, :cond_19
+    if-eqz v9, :cond_17
 
     .line 873
     const/16 v17, 0x1
@@ -8504,7 +8373,7 @@
 
     move/from16 v1, v18
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v18
 
@@ -8574,7 +8443,7 @@
     goto/16 :goto_0
 
     .line 882
-    :cond_19
+    :cond_17
     const/16 v17, 0x0
 
     :try_start_1
@@ -8614,7 +8483,7 @@
 
     .line 893
     .end local v7    # "e":Ljava/lang/NullPointerException;
-    :cond_1a
+    :cond_18
     const/16 v17, 0x0
 
     move-object/from16 v0, p0
@@ -8626,7 +8495,7 @@
     goto/16 :goto_0
 
     .line 896
-    :cond_1b
+    :cond_19
     const-string v17, "IccCardProxy"
 
     const-string v18, "EVENT_GET_EF_LOCK result corrupted"
@@ -8676,7 +8545,7 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_1c
+    if-nez v17, :cond_1a
 
     .line 909
     const-string v17, "IccCardProxy"
@@ -8717,7 +8586,7 @@
     goto/16 :goto_0
 
     .line 919
-    :cond_1c
+    :cond_1a
     move-object/from16 v0, p1
 
     iget-object v5, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -8731,16 +8600,16 @@
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_1d
+    if-nez v17, :cond_1b
 
     iget-object v0, v5, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     move-object/from16 v17, v0
 
-    if-nez v17, :cond_1e
+    if-nez v17, :cond_1c
 
     .line 921
-    :cond_1d
+    :cond_1b
     const-string v17, "IccCardProxy"
 
     const-string v18, "EVENT_SET_EF_LOCK result is null"
@@ -8779,7 +8648,7 @@
     goto/16 :goto_0
 
     .line 932
-    :cond_1e
+    :cond_1c
     iget-object v0, v5, Landroid/os/AsyncResult;->result:Ljava/lang/Object;
 
     move-object/from16 v17, v0
@@ -9247,7 +9116,7 @@
 
     const/16 v2, 0x13
 
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
@@ -9258,7 +9127,7 @@
 
     const/16 v2, 0x14
 
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
@@ -9269,7 +9138,7 @@
 
     const/16 v2, 0x15
 
-    invoke-virtual {p0, v2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
@@ -9457,7 +9326,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -9559,7 +9428,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -9914,7 +9783,7 @@
 
     const/16 v5, 0x73
 
-    invoke-virtual {p0, v5}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {p0, v5}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v5
 
@@ -10090,7 +9959,7 @@
 
     const/16 v3, 0x68
 
-    invoke-virtual {p0, v3, p1}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -10491,7 +10360,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -10592,7 +10461,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p2}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -10694,7 +10563,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 
@@ -10796,7 +10665,7 @@
 
     const/16 v3, 0x6b
 
-    invoke-virtual {p0, v3, p3}, Lcom/android/internal/telephony/uicc/IccCardProxy;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v3, p3}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v3
 

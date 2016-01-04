@@ -123,7 +123,7 @@
     .line 25
     sget-object v0, Lcom/android/internal/telephony/cat/PresentationType;->$VALUES:[Lcom/android/internal/telephony/cat/PresentationType;
 
-    invoke-virtual {v0}, [Lcom/android/internal/telephony/cat/PresentationType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

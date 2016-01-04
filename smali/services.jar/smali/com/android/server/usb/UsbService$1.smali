@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/usb/UsbService;)V
     .locals 0
 
+    .prologue
+    .line 100
     iput-object p1, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 103
     const-string v2, "android.intent.extra.user_handle"
 
     const/4 v3, -0x1
@@ -42,10 +48,14 @@
 
     move-result v1
 
+    .line 104
+    .local v1, "userId":I
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 105
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -54,15 +64,18 @@
 
     if-eqz v2, :cond_1
 
+    .line 106
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
     # invokes: Lcom/android/server/usb/UsbService;->setCurrentUser(I)V
     invoke-static {v2, v1}, Lcom/android/server/usb/UsbService;->access$000(Lcom/android/server/usb/UsbService;I)V
 
+    .line 112
     :cond_0
     :goto_0
     return-void
 
+    .line 107
     :cond_1
     const-string v2, "android.intent.action.USER_STOPPED"
 
@@ -72,6 +85,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 108
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
     # getter for: Lcom/android/server/usb/UsbService;->mLock:Ljava/lang/Object;
@@ -81,6 +95,7 @@
 
     monitor-enter v3
 
+    .line 109
     :try_start_0
     iget-object v2, p0, Lcom/android/server/usb/UsbService$1;->this$0:Lcom/android/server/usb/UsbService;
 
@@ -91,6 +106,7 @@
 
     invoke-virtual {v2, v1}, Landroid/util/SparseArray;->remove(I)V
 
+    .line 110
     monitor-exit v3
 
     goto :goto_0

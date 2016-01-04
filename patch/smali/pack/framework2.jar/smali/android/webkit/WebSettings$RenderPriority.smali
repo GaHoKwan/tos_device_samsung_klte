@@ -37,12 +37,14 @@
 .method static constructor <clinit>()V
     .locals 5
 
+    .prologue
     const/4 v4, 0x2
 
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 153
     new-instance v0, Landroid/webkit/WebSettings$RenderPriority;
 
     const-string v1, "NORMAL"
@@ -51,6 +53,7 @@
 
     sput-object v0, Landroid/webkit/WebSettings$RenderPriority;->NORMAL:Landroid/webkit/WebSettings$RenderPriority;
 
+    .line 154
     new-instance v0, Landroid/webkit/WebSettings$RenderPriority;
 
     const-string v1, "HIGH"
@@ -59,6 +62,7 @@
 
     sput-object v0, Landroid/webkit/WebSettings$RenderPriority;->HIGH:Landroid/webkit/WebSettings$RenderPriority;
 
+    .line 155
     new-instance v0, Landroid/webkit/WebSettings$RenderPriority;
 
     const-string v1, "LOW"
@@ -67,6 +71,7 @@
 
     sput-object v0, Landroid/webkit/WebSettings$RenderPriority;->LOW:Landroid/webkit/WebSettings$RenderPriority;
 
+    .line 152
     const/4 v0, 0x3
 
     new-array v0, v0, [Landroid/webkit/WebSettings$RenderPriority;
@@ -96,6 +101,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 152
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -103,7 +110,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/webkit/WebSettings$RenderPriority;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 152
     const-class v0, Landroid/webkit/WebSettings$RenderPriority;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -118,9 +128,11 @@
 .method public static values()[Landroid/webkit/WebSettings$RenderPriority;
     .locals 1
 
+    .prologue
+    .line 152
     sget-object v0, Landroid/webkit/WebSettings$RenderPriority;->$VALUES:[Landroid/webkit/WebSettings$RenderPriority;
 
-    invoke-virtual {v0}, [Landroid/webkit/WebSettings$RenderPriority;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

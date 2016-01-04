@@ -22,12 +22,16 @@
 .method constructor <init>(Lcom/android/server/ssrm/settings/LevelsModelReader;)V
     .locals 1
 
+    .prologue
+    .line 370
     iput-object p1, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$WriterTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
+    .line 371
     const-string/jumbo v0, "writer"
 
     invoke-direct {p0, p1, v0}, Lcom/android/server/ssrm/settings/LevelsModelReader$TagAction;-><init>(Lcom/android/server/ssrm/settings/LevelsModelReader;Ljava/lang/String;)V
 
+    .line 372
     return-void
 .end method
 
@@ -35,21 +39,28 @@
 # virtual methods
 .method handleStartTag(Lorg/xmlpull/v1/XmlPullParser;)V
     .locals 6
+    .param p1, "parser"    # Lorg/xmlpull/v1/XmlPullParser;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 376
     const-string v3, "name"
 
     invoke-interface {p1, v4, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 377
+    .local v1, "name_attr":Ljava/lang/String;
     const-string v3, "extra"
 
     invoke-interface {p1, v4, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
+    .line 379
+    .local v0, "extra_attr":Ljava/lang/String;
     iget-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$WriterTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mWriterNames:Ljava/util/Set;
@@ -63,6 +74,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 380
     new-instance v3, Ljava/lang/RuntimeException;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -93,6 +105,7 @@
 
     throw v3
 
+    .line 383
     :cond_0
     iget-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$WriterTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
@@ -107,8 +120,11 @@
 
     check-cast v2, Lcom/android/server/ssrm/settings/SettingWriter;
 
+    .line 384
+    .local v2, "writer":Lcom/android/server/ssrm/settings/SettingWriter;, "Lcom/android/server/ssrm/settings/SettingWriter<*>;"
     if-eqz v2, :cond_1
 
+    .line 385
     iget-object v3, p0, Lcom/android/server/ssrm/settings/LevelsModelReader$WriterTagAction;->this$0:Lcom/android/server/ssrm/settings/LevelsModelReader;
 
     # getter for: Lcom/android/server/ssrm/settings/LevelsModelReader;->mWriterNames:Ljava/util/Set;
@@ -118,10 +134,13 @@
 
     invoke-interface {v3, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
+    .line 386
     invoke-virtual {v2, v0}, Lcom/android/server/ssrm/settings/SettingWriter;->setExtraData(Ljava/lang/String;)V
 
+    .line 390
     return-void
 
+    .line 388
     :cond_1
     new-instance v3, Ljava/lang/RuntimeException;
 

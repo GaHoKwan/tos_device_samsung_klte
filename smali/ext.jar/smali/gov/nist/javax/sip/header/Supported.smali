@@ -61,7 +61,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v2, p0, Lgov/nist/javax/sip/header/Supported;->headerName:Ljava/lang/String;
+    iget-object v2, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

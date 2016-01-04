@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;)V
     .locals 0
 
+    .prologue
+    .line 494
     iput-object p1, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet$2;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,15 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v5, 0x1
 
     const/4 v6, 0x0
 
+    .line 497
     const-string v7, "ClearCoverMusicWidet"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -60,10 +66,13 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 499
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 500
+    .local v0, "action":Ljava/lang/String;
     const-string v7, "com.sec.android.music.musicservicecommnad.mediainfo"
 
     invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -72,6 +81,7 @@
 
     if-eqz v7, :cond_0
 
+    .line 501
     const-string v7, "isPlaying"
 
     invoke-virtual {p2, v7, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
@@ -82,6 +92,8 @@
 
     move v4, v5
 
+    .line 502
+    .local v4, "playing":I
     :goto_0
     const-string v7, "isStopped"
 
@@ -93,6 +105,8 @@
 
     move v1, v5
 
+    .line 503
+    .local v1, "isStop":I
     :goto_1
     const-string v5, "uri"
 
@@ -102,6 +116,8 @@
 
     check-cast v2, Landroid/net/Uri;
 
+    .line 504
+    .local v2, "mediaUri":Landroid/net/Uri;
     const-string v5, "ClearCoverMusicWidet"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -134,6 +150,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 505
     iget-object v5, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet$2;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;
 
     # getter for: Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;->mMusicHandler:Landroid/os/Handler;
@@ -147,6 +164,8 @@
 
     move-result-object v3
 
+    .line 506
+    .local v3, "msg":Landroid/os/Message;
     iget-object v5, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet$2;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;
 
     # getter for: Lcom/android/internal/policy/impl/sviewcover/SViewCoverWidget$MusicWidet;->mMusicHandler:Landroid/os/Handler;
@@ -156,16 +175,24 @@
 
     invoke-virtual {v5, v3}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 508
+    .end local v1    # "isStop":I
+    .end local v2    # "mediaUri":Landroid/net/Uri;
+    .end local v3    # "msg":Landroid/os/Message;
+    .end local v4    # "playing":I
     :cond_0
     return-void
 
     :cond_1
     move v4, v6
 
+    .line 501
     goto :goto_0
 
+    .restart local v4    # "playing":I
     :cond_2
     move v1, v6
 
+    .line 502
     goto :goto_1
 .end method

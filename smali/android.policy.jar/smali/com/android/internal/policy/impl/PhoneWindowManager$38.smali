@@ -27,6 +27,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindowManager;Z)V
     .locals 0
 
+    .prologue
+    .line 7971
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->val$forceShow:Z
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 7973
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->isDeviceProvisioned()Z
@@ -49,6 +53,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 7975
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -63,6 +68,8 @@
 
     check-cast v1, Landroid/content/Intent;
 
+    .line 7976
+    .local v1, "updateSettingsIntent":Landroid/content/Intent;
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     # getter for: Lcom/android/internal/policy/impl/PhoneWindowManager;->mEnableMultiWindowUISetting:I
@@ -72,16 +79,21 @@
 
     if-nez v2, :cond_1
 
+    .line 7977
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->stopService(Landroid/content/Intent;)Z
 
+    .line 7986
+    .end local v1    # "updateSettingsIntent":Landroid/content/Intent;
     :cond_0
     :goto_0
     return-void
 
+    .line 7979
+    .restart local v1    # "updateSettingsIntent":Landroid/content/Intent;
     :cond_1
     const-string v3, "com.sec.android.multiwindow.ui.forceshow"
 
@@ -94,6 +106,7 @@
     :goto_1
     invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 7980
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$38;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -104,13 +117,20 @@
 
     goto :goto_0
 
+    .line 7982
+    .end local v1    # "updateSettingsIntent":Landroid/content/Intent;
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    .line 7983
+    .local v0, "e":Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 7979
+    .end local v0    # "e":Ljava/lang/Exception;
+    .restart local v1    # "updateSettingsIntent":Landroid/content/Intent;
     :cond_2
     const/4 v2, 0x0
 

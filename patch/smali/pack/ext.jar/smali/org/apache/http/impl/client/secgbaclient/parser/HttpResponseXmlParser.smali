@@ -67,7 +67,7 @@
 
     .line 70
     .local v2, "e":Ljavax/xml/parsers/ParserConfigurationException;
-    invoke-virtual {v2}, Ljavax/xml/parsers/ParserConfigurationException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -78,7 +78,7 @@
 
     .line 73
     .local v2, "e":Lorg/xml/sax/SAXException;
-    invoke-virtual {v2}, Lorg/xml/sax/SAXException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -89,7 +89,7 @@
 
     .line 76
     .local v2, "e":Ljava/io/IOException;
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -144,7 +144,7 @@
 
     .line 53
     .local v0, "e":Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 57
     .end local v0    # "e":Ljava/io/IOException;

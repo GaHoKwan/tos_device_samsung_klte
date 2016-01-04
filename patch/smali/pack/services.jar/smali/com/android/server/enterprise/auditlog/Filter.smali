@@ -13,8 +13,11 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 38
     return-void
 .end method
 
@@ -22,7 +25,10 @@
 # virtual methods
 .method public filtering(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "data"    # Ljava/lang/String;
 
+    .prologue
+    .line 50
     iget-object v0, p0, Lcom/android/server/enterprise/auditlog/Filter;->mPattern:Ljava/util/regex/Pattern;
 
     invoke-virtual {v0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -31,6 +37,7 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/auditlog/Filter;->mMatcher:Ljava/util/regex/Matcher;
 
+    .line 51
     iget-object v0, p0, Lcom/android/server/enterprise/auditlog/Filter;->mMatcher:Ljava/util/regex/Matcher;
 
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
@@ -42,7 +49,10 @@
 
 .method public setFilter(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "filter"    # Ljava/lang/String;
 
+    .prologue
+    .line 42
     :try_start_0
     invoke-static {p1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
 
@@ -52,14 +62,19 @@
     :try_end_0
     .catch Ljava/util/regex/PatternSyntaxException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 43
     const/4 v1, 0x1
 
+    .line 45
     :goto_0
     return v1
 
+    .line 44
     :catch_0
     move-exception v0
 
+    .line 45
+    .local v0, "pEx":Ljava/util/regex/PatternSyntaxException;
     const/4 v1, 0x0
 
     goto :goto_0

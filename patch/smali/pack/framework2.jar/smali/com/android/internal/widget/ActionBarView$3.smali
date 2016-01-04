@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/widget/ActionBarView;)V
     .locals 0
 
+    .prologue
+    .line 270
     iput-object p1, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,12 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 3
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 273
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView;->mIsTitleHoveredBackground:Z
@@ -48,6 +53,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 274
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView;->mActionBarItemBackgroundRes:I
@@ -57,6 +63,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 275
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # getter for: Lcom/android/internal/widget/ActionBarView;->mActionBarItemBackgroundRes:I
@@ -66,12 +73,14 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
+    .line 277
     :cond_0
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     # setter for: Lcom/android/internal/widget/ActionBarView;->mIsTitleHoveredBackground:Z
     invoke-static {v0, v2}, Lcom/android/internal/widget/ActionBarView;->access$202(Lcom/android/internal/widget/ActionBarView;Z)Z
 
+    .line 280
     :cond_1
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
@@ -82,6 +91,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 282
     iget-object v0, p0, Lcom/android/internal/widget/ActionBarView$3;->this$0:Lcom/android/internal/widget/ActionBarView;
 
     iget-object v0, v0, Lcom/android/internal/widget/ActionBarView;->mWindowCallback:Landroid/view/Window$Callback;
@@ -95,6 +105,7 @@
 
     invoke-interface {v0, v2, v1}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
+    .line 284
     :cond_2
     return-void
 .end method

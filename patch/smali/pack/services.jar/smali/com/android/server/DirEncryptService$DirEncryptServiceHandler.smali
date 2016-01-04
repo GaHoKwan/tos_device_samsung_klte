@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/DirEncryptService;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "l"    # Landroid/os/Looper;
 
+    .prologue
+    .line 128
     iput-object p1, p0, Lcom/android/server/DirEncryptService$DirEncryptServiceHandler;->this$0:Lcom/android/server/DirEncryptService;
 
+    .line 129
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 130
     return-void
 .end method
 
@@ -33,7 +38,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 133
     iget-object v0, p0, Lcom/android/server/DirEncryptService$DirEncryptServiceHandler;->this$0:Lcom/android/server/DirEncryptService;
 
     # getter for: Lcom/android/server/DirEncryptService;->mHelper:Lcom/android/server/DirEncryptServiceHelper;
@@ -43,5 +51,6 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/DirEncryptServiceHelper;->doHandleMessage(Landroid/os/Message;)V
 
+    .line 134
     return-void
 .end method

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 0
 
+    .prologue
+    .line 1767
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$26;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 1771
     :goto_0
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$26;->this$0:Lcom/android/server/ssrm/Monitor;
 
@@ -44,6 +48,7 @@
 
     monitor-enter v1
 
+    .line 1773
     :try_start_0
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$26;->this$0:Lcom/android/server/ssrm/Monitor;
 
@@ -51,10 +56,12 @@
 
     invoke-virtual {v0}, Ljava/lang/Object;->wait()V
 
+    .line 1774
     const-wide/16 v2, 0x12c
 
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 1775
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$26;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mProcessObserver:Landroid/app/IProcessObserver;
@@ -70,6 +77,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 1778
     :goto_1
     :try_start_1
     monitor-exit v1
@@ -85,6 +93,7 @@
 
     throw v0
 
+    .line 1776
     :catch_0
     move-exception v0
 

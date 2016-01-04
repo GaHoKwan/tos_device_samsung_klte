@@ -47,9 +47,9 @@
 
     .line 58
     .local v0, "retval":Lgov/nist/javax/sip/header/RouteList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/RouteList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/RouteList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     .line 59
     return-object v0
@@ -107,24 +107,24 @@
 
     .line 75
     .local v4, "that":Lgov/nist/javax/sip/header/RouteList;
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/RouteList;->size()I
+    invoke-virtual {p0}, Lgov/nist/javax/sip/header/SIPHeaderList;->size()I
 
     move-result v6
 
-    invoke-virtual {v4}, Lgov/nist/javax/sip/header/RouteList;->size()I
+    invoke-virtual {v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->size()I
 
     move-result v7
 
     if-ne v6, v7, :cond_0
 
     .line 77
-    invoke-virtual {p0}, Lgov/nist/javax/sip/header/RouteList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Lgov/nist/javax/sip/header/SIPHeaderList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
     .line 78
     .local v0, "it":Ljava/util/ListIterator;, "Ljava/util/ListIterator<Lgov/nist/javax/sip/header/Route;>;"
-    invoke-virtual {v4}, Lgov/nist/javax/sip/header/RouteList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v4}, Lgov/nist/javax/sip/header/SIPHeaderList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 

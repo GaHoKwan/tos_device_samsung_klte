@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webviewchromium_actionbar_share">Paylaş</string>
+    <string name="webviewchromium_actionbar_web_search">Veb axtarış</string>
+    <string name="webviewchromium_accessibility_content_view">Veb Görüntü</string>
+    <string name="webviewchromium_date_picker_dialog_set">Ayarlayın</string>
+    <string name="webviewchromium_date_picker_dialog_clear">Təmizlə</string>
+    <string name="webviewchromium_date_picker_dialog_title">Tarixi ayarlayın</string>
+    <string name="webviewchromium_date_time_picker_dialog_title">Tarix və vaxtı ayarlayın</string>
+    <string name="webviewchromium_month_picker_dialog_title">Ayı ayarlayın</string>
+    <string name="webviewchromium_week_picker_dialog_title">Həftəni ayarlayın</string>
+    <string name="webviewchromium_accessibility_datetime_picker_date">Tarix</string>
+    <string name="webviewchromium_accessibility_datetime_picker_time">Vaxt</string>
+    <string name="webviewchromium_accessibility_date_picker_month">Ay</string>
+    <string name="webviewchromium_accessibility_date_picker_week">Həftə</string>
+    <string name="webviewchromium_accessibility_date_picker_year">İl</string>
+    <string name="webviewchromium_media_player_error_title">Video oxumur</string>
+    <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">Üzr istəyirik, bu video bu cihaza strim olunmaq üçün uyğun deyil.</string>
+    <string name="webviewchromium_media_player_error_text_unknown">Üzr istəyirik, video başladıla bilmir.</string>
+    <string name="webviewchromium_media_player_error_button">OK</string>
+    <string name="webviewchromium_media_player_loading_video">Video yüklənir</string>
+    <string name="webviewchromium_color_picker_button_more">Daha çox</string>
+    <string name="webviewchromium_color_picker_hue">Çalar</string>
+    <string name="webviewchromium_color_picker_saturation">Dolğunluq</string>
+    <string name="webviewchromium_color_picker_value">Dəyər</string>
+    <string name="webviewchromium_color_picker_button_set">Ayarlayın</string>
+    <string name="webviewchromium_color_picker_button_cancel">Ləğv et</string>
+    <string name="webviewchromium_color_picker_dialog_title">Rəng ​​seçin</string>
+    <string name="webviewchromium_low_memory_error">Yaddaş az olduğu üçün əvvəlki əməliyyatı tamamlamaq mümkün deyil</string>
+    <string name="webviewchromium_opening_file_error">Seçilmiş faylı açmaq mümkün olmadı</string>
+    <string name="webviewchromium_private_browsing_warning">Bu funksionallıq Androidin bu versiyasında dəstəklənmir.</string>
+</resources>

@@ -1112,7 +1112,7 @@
 
     iget-object v6, p0, Landroid/telephony/gsm/CbMessage;->malphabetType:Landroid/telephony/gsm/CbMessage$MSGSMS_CB_ALPHABET_TYPE;
 
-    invoke-virtual {v6}, Landroid/telephony/gsm/CbMessage$MSGSMS_CB_ALPHABET_TYPE;->ordinal()I
+    invoke-virtual {v6}, Ljava/lang/Enum;->ordinal()I
 
     move-result v6
 

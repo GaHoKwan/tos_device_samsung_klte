@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ConnectivityService;)V
     .locals 0
 
+    .prologue
+    .line 7191
     iput-object p1, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,17 +35,23 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const-wide/32 v6, 0x927c0
 
     const/4 v5, 0x1
 
     const/4 v4, 0x0
 
+    .line 7194
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 7195
+    .local v0, "action":Ljava/lang/String;
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # getter for: Lcom/android/server/ConnectivityService;->mEmergencyMgr:Lcom/sec/android/emergencymode/EmergencyManager;
@@ -75,10 +83,12 @@
 
     if-nez v2, :cond_1
 
+    .line 7229
     :cond_0
     :goto_0
     return-void
 
+    .line 7198
     :cond_1
     const-string v2, "android.intent.action.SCREEN_ON"
 
@@ -88,11 +98,13 @@
 
     if-eqz v2, :cond_3
 
+    .line 7199
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # invokes: Lcom/android/server/ConnectivityService;->routeTableFlush(Z)V
     invoke-static {v2, v4}, Lcom/android/server/ConnectivityService;->access$6200(Lcom/android/server/ConnectivityService;Z)V
 
+    .line 7228
     :cond_2
     :goto_1
     const-string v2, "ConnectivityService"
@@ -119,6 +131,7 @@
 
     goto :goto_0
 
+    .line 7200
     :cond_3
     const-string v2, "android.intent.action.SCREEN_OFF"
 
@@ -128,6 +141,7 @@
 
     if-eqz v2, :cond_4
 
+    .line 7201
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # invokes: Lcom/android/server/ConnectivityService;->routeTableFlush(Z)V
@@ -135,6 +149,7 @@
 
     goto :goto_1
 
+    .line 7202
     :cond_4
     const-string v2, "android.intent.action.EMERGENCY_DATA_OPEN_REQ"
 
@@ -144,6 +159,7 @@
 
     if-eqz v2, :cond_5
 
+    .line 7203
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v3, "EMERGENCY_DATA_OPEN_REQ"
@@ -151,6 +167,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->removeAllMessage(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/server/ConnectivityService;->access$6300(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 7204
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v3, "EMERGENCY_DATA_OPEN_REQ"
@@ -158,6 +175,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->emergencyOpenDataPath(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/server/ConnectivityService;->access$6400(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 7205
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # getter for: Lcom/android/server/ConnectivityService;->mEmergencyHandler:Lcom/android/server/ConnectivityService$EmergencyHandler;
@@ -172,12 +190,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v4}, Lcom/android/server/ConnectivityService$EmergencyHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3, v6, v7}, Lcom/android/server/ConnectivityService$EmergencyHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v2, v3, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 7208
     const-string v2, "ConnectivityService"
 
     const-string v3, "Send Message MAX TIMEOUT(600000)"
@@ -186,6 +205,7 @@
 
     goto :goto_1
 
+    .line 7209
     :cond_5
     const-string v2, "jp.co.nttdocomo.lcsapp.ACTION_STATUS_CHANGED"
 
@@ -195,6 +215,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 7210
     const-string/jumbo v2, "status"
 
     const/4 v3, 0x2
@@ -203,8 +224,11 @@
 
     move-result v1
 
+    .line 7211
+    .local v1, "status":I
     if-nez v1, :cond_6
 
+    .line 7212
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v3, "LCSAPP_TERMINATED"
@@ -212,6 +236,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->removeAllMessage(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/server/ConnectivityService;->access$6300(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 7213
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # getter for: Lcom/android/server/ConnectivityService;->mEmergencyHandler:Lcom/android/server/ConnectivityService$EmergencyHandler;
@@ -226,14 +251,15 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v4}, Lcom/android/server/ConnectivityService$EmergencyHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
     const-wide/32 v4, 0xea60
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/server/ConnectivityService$EmergencyHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 7216
     const-string v2, "ConnectivityService"
 
     const-string v3, "Send Message TERMINATE TIMEOUT(60000)"
@@ -242,9 +268,11 @@
 
     goto/16 :goto_1
 
+    .line 7217
     :cond_6
     if-ne v1, v5, :cond_7
 
+    .line 7218
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v3, "LCSAPP_START"
@@ -252,6 +280,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->removeAllMessage(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/server/ConnectivityService;->access$6300(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 7219
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     const-string v3, "LCSAPP_START"
@@ -259,6 +288,7 @@
     # invokes: Lcom/android/server/ConnectivityService;->emergencyOpenDataPath(Ljava/lang/String;)V
     invoke-static {v2, v3}, Lcom/android/server/ConnectivityService;->access$6400(Lcom/android/server/ConnectivityService;Ljava/lang/String;)V
 
+    .line 7220
     iget-object v2, p0, Lcom/android/server/ConnectivityService$EmergencyReceiver;->this$0:Lcom/android/server/ConnectivityService;
 
     # getter for: Lcom/android/server/ConnectivityService;->mEmergencyHandler:Lcom/android/server/ConnectivityService$EmergencyHandler;
@@ -273,12 +303,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v3, v4}, Lcom/android/server/ConnectivityService$EmergencyHandler;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v3
 
-    invoke-virtual {v2, v3, v6, v7}, Lcom/android/server/ConnectivityService$EmergencyHandler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v2, v3, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
+    .line 7223
     const-string v2, "ConnectivityService"
 
     const-string v3, "Send Message MAX TIMEOUT(600000)"
@@ -287,6 +318,7 @@
 
     goto/16 :goto_1
 
+    .line 7225
     :cond_7
     const-string v2, "ConnectivityService"
 

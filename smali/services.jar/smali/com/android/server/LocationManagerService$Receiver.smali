@@ -63,31 +63,46 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/LocationManagerService;Landroid/location/ILocationListener;Landroid/app/PendingIntent;IILjava/lang/String;Landroid/os/WorkSource;Z)V
     .locals 3
+    .param p2, "listener"    # Landroid/location/ILocationListener;
+    .param p3, "intent"    # Landroid/app/PendingIntent;
+    .param p4, "pid"    # I
+    .param p5, "uid"    # I
+    .param p6, "packageName"    # Ljava/lang/String;
+    .param p7, "workSource"    # Landroid/os/WorkSource;
+    .param p8, "hideFromAppOps"    # Z
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 617
     iput-object p1, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 607
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mUpdateRecords:Ljava/util/HashMap;
 
+    .line 618
     iput-object p2, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
+    .line 619
     iput-object p3, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingIntent:Landroid/app/PendingIntent;
 
+    .line 620
     if-eqz p2, :cond_2
 
+    .line 621
     invoke-interface {p2}, Landroid/location/ILocationListener;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mKey:Ljava/lang/Object;
 
+    .line 625
     :goto_0
     # invokes: Lcom/android/server/LocationManagerService;->getAllowedResolutionLevel(II)I
     invoke-static {p1, p4, p5}, Lcom/android/server/LocationManagerService;->access$600(Lcom/android/server/LocationManagerService;II)I
@@ -96,12 +111,16 @@
 
     iput v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mAllowedResolutionLevel:I
 
+    .line 626
     iput p5, p0, Lcom/android/server/LocationManagerService$Receiver;->mUid:I
 
+    .line 627
     iput p4, p0, Lcom/android/server/LocationManagerService$Receiver;->mPid:I
 
+    .line 628
     iput-object p6, p0, Lcom/android/server/LocationManagerService$Receiver;->mPackageName:Ljava/lang/String;
 
+    .line 629
     if-eqz p7, :cond_0
 
     invoke-virtual {p7}, Landroid/os/WorkSource;->size()I
@@ -110,15 +129,20 @@
 
     if-gtz v0, :cond_0
 
+    .line 630
     const/4 p7, 0x0
 
+    .line 632
     :cond_0
     iput-object p7, p0, Lcom/android/server/LocationManagerService$Receiver;->mWorkSource:Landroid/os/WorkSource;
 
+    .line 633
     iput-boolean p8, p0, Lcom/android/server/LocationManagerService$Receiver;->mHideFromAppOps:Z
 
+    .line 635
     invoke-virtual {p0, v2}, Lcom/android/server/LocationManagerService$Receiver;->updateMonitoring(Z)V
 
+    .line 638
     # getter for: Lcom/android/server/LocationManagerService;->mPowerManager:Landroid/os/PowerManager;
     invoke-static {p1}, Lcom/android/server/LocationManagerService;->access$700(Lcom/android/server/LocationManagerService;)Landroid/os/PowerManager;
 
@@ -132,23 +156,30 @@
 
     iput-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    .line 639
     if-nez p7, :cond_1
 
+    .line 640
     new-instance p7, Landroid/os/WorkSource;
 
+    .end local p7    # "workSource":Landroid/os/WorkSource;
     iget v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mUid:I
 
     iget-object v1, p0, Lcom/android/server/LocationManagerService$Receiver;->mPackageName:Ljava/lang/String;
 
     invoke-direct {p7, v0, v1}, Landroid/os/WorkSource;-><init>(ILjava/lang/String;)V
 
+    .line 642
+    .restart local p7    # "workSource":Landroid/os/WorkSource;
     :cond_1
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0, p7}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
 
+    .line 643
     return-void
 
+    .line 623
     :cond_2
     iput-object p3, p0, Lcom/android/server/LocationManagerService$Receiver;->mKey:Ljava/lang/Object;
 
@@ -157,7 +188,10 @@
 
 .method static synthetic access$1500(Lcom/android/server/LocationManagerService$Receiver;)V
     .locals 0
+    .param p0, "x0"    # Lcom/android/server/LocationManagerService$Receiver;
 
+    .prologue
+    .line 595
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->decrementPendingBroadcastsLocked()V
 
     return-void
@@ -166,6 +200,8 @@
 .method private decrementPendingBroadcastsLocked()V
     .locals 1
 
+    .prologue
+    .line 997
     iget v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingBroadcasts:I
 
     add-int/lit8 v0, v0, -0x1
@@ -174,6 +210,7 @@
 
     if-nez v0, :cond_0
 
+    .line 998
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
@@ -182,10 +219,12 @@
 
     if-eqz v0, :cond_0
 
+    .line 999
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1002
     :cond_0
     return-void
 .end method
@@ -193,6 +232,8 @@
 .method private incrementPendingBroadcastsLocked()V
     .locals 2
 
+    .prologue
+    .line 991
     iget v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingBroadcasts:I
 
     add-int/lit8 v1, v0, 0x1
@@ -201,16 +242,19 @@
 
     if-nez v0, :cond_0
 
+    .line 992
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
+    .line 994
     :cond_0
     return-void
 .end method
 
 .method private lbsCheck(Landroid/content/pm/PackageManager;Ljava/util/List;)Ljava/util/HashSet;
     .locals 10
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -226,6 +270,9 @@
         }
     .end annotation
 
+    .prologue
+    .line 878
+    .local p2, "procInfos":Ljava/util/List;, "Ljava/util/List<Landroid/app/ActivityManager$RunningAppProcessInfo;>;"
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -239,11 +286,14 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 879
     :cond_0
     new-instance v4, Ljava/util/HashSet;
 
     invoke-direct {v4}, Ljava/util/HashSet;-><init>()V
 
+    .line 880
+    .local v4, "mAppNames":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
     iget-object v7, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     iget-object v7, v7, Lcom/android/server/LocationManagerService;->mLocUserAppsList:Ljava/util/HashSet;
@@ -252,6 +302,8 @@
 
     move-result-object v2
 
+    .line 881
+    .local v2, "itr":Ljava/util/Iterator;, "Ljava/util/Iterator<Ljava/lang/String;>;"
     :cond_1
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
@@ -260,12 +312,15 @@
 
     if-eqz v7, :cond_b
 
+    .line 882
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v6
 
     check-cast v6, Ljava/lang/String;
 
+    .line 883
+    .local v6, "pckgName":Ljava/lang/String;
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -295,6 +350,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 886
     :cond_2
     const/16 v7, 0x1000
 
@@ -303,10 +359,13 @@
 
     move-result-object v5
 
+    .line 887
+    .local v5, "packageInfo":Landroid/content/pm/PackageInfo;
     iget-object v7, v5, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
 
     if-eqz v7, :cond_1
 
+    .line 888
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -320,9 +379,11 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 890
     :cond_3
     const/4 v1, 0x0
 
+    .local v1, "i":I
     :goto_1
     iget-object v7, v5, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
 
@@ -330,6 +391,7 @@
 
     if-ge v1, v7, :cond_1
 
+    .line 891
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -373,6 +435,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 892
     :cond_4
     iget-object v7, v5, Landroid/content/pm/PackageInfo;->requestedPermissions:[Ljava/lang/String;
 
@@ -434,6 +497,7 @@
 
     if-eqz v7, :cond_9
 
+    .line 897
     :cond_5
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
@@ -470,9 +534,11 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 898
     :cond_6
     const/4 v3, 0x0
 
+    .local v3, "j":I
     :goto_2
     invoke-interface {p2}, Ljava/util/List;->size()I
 
@@ -480,6 +546,7 @@
 
     if-ge v3, v7, :cond_9
 
+    .line 899
     invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v7
@@ -494,6 +561,7 @@
 
     if-eqz v7, :cond_a
 
+    .line 900
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -529,6 +597,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 901
     :cond_7
     invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -542,6 +611,7 @@
 
     if-ne v7, v8, :cond_a
 
+    .line 902
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -579,6 +649,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 904
     :cond_8
     :try_start_1
     new-instance v7, Ljava/lang/StringBuilder;
@@ -611,6 +682,7 @@
 
     invoke-virtual {v4, v7}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
+    .line 905
     # getter for: Lcom/android/server/LocationManagerService;->DBG:Z
     invoke-static {}, Lcom/android/server/LocationManagerService;->access$1300()Z
 
@@ -648,47 +720,77 @@
     :try_end_1
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
 
+    .line 890
+    .end local v3    # "j":I
     :cond_9
     :goto_3
     add-int/lit8 v1, v1, 0x1
 
     goto/16 :goto_1
 
+    .line 907
+    .restart local v3    # "j":I
     :catch_0
     move-exception v0
 
+    .line 908
+    .local v0, "e":Landroid/content/pm/PackageManager$NameNotFoundException;
     :try_start_2
-    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_1
 
     goto :goto_3
 
+    .line 918
+    .end local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .end local v1    # "i":I
+    .end local v3    # "j":I
+    .end local v5    # "packageInfo":Landroid/content/pm/PackageInfo;
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    .line 919
+    .restart local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
+    .line 898
+    .end local v0    # "e":Landroid/content/pm/PackageManager$NameNotFoundException;
+    .restart local v1    # "i":I
+    .restart local v3    # "j":I
+    .restart local v5    # "packageInfo":Landroid/content/pm/PackageInfo;
     :cond_a
     add-int/lit8 v3, v3, 0x1
 
     goto/16 :goto_2
 
+    .line 922
+    .end local v1    # "i":I
+    .end local v3    # "j":I
+    .end local v5    # "packageInfo":Landroid/content/pm/PackageInfo;
+    .end local v6    # "pckgName":Ljava/lang/String;
     :cond_b
     return-object v4
 .end method
 
 .method private updateMonitoring(ZZI)Z
     .locals 4
+    .param p1, "allowMonitoring"    # Z
+    .param p2, "currentlyMonitoring"    # Z
+    .param p3, "op"    # I
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 736
     if-nez p2, :cond_1
 
+    .line 737
     if-eqz p1, :cond_3
 
+    .line 738
     iget-object v1, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     # getter for: Lcom/android/server/LocationManagerService;->mAppOps:Landroid/app/AppOpsManager;
@@ -708,10 +810,12 @@
 
     const/4 v0, 0x1
 
+    .line 749
     :cond_0
     :goto_0
     return v0
 
+    .line 742
     :cond_1
     if-eqz p1, :cond_2
 
@@ -732,6 +836,7 @@
 
     if-eqz v1, :cond_3
 
+    .line 744
     :cond_2
     iget-object v1, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
@@ -751,6 +856,7 @@
     :cond_3
     move v0, p2
 
+    .line 749
     goto :goto_0
 .end method
 
@@ -759,12 +865,15 @@
 .method public binderDied()V
     .locals 2
 
+    .prologue
+    .line 970
     const-string v0, "LocationManagerService"
 
     const-string v1, "Location listener died"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 972
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     # getter for: Lcom/android/server/LocationManagerService;->mLock:Ljava/lang/Object;
@@ -774,27 +883,34 @@
 
     monitor-enter v1
 
+    .line 973
     :try_start_0
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     # invokes: Lcom/android/server/LocationManagerService;->removeUpdatesLocked(Lcom/android/server/LocationManagerService$Receiver;)V
     invoke-static {v0, p0}, Lcom/android/server/LocationManagerService;->access$1400(Lcom/android/server/LocationManagerService;Lcom/android/server/LocationManagerService$Receiver;)V
 
+    .line 974
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 975
     monitor-enter p0
 
+    .line 976
     :try_start_1
     invoke-virtual {p0}, Lcom/android/server/LocationManagerService$Receiver;->clearPendingBroadcastsLocked()V
 
+    .line 977
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 978
     return-void
 
+    .line 974
     :catchall_0
     move-exception v0
 
@@ -805,6 +921,7 @@
 
     throw v0
 
+    .line 977
     :catchall_1
     move-exception v0
 
@@ -818,18 +935,23 @@
 
 .method public callLocationChangedLocked(Landroid/location/Location;)Z
     .locals 9
+    .param p1, "location"    # Landroid/location/Location;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 843
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v0, :cond_0
 
+    .line 845
     :try_start_0
     monitor-enter p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 848
     :try_start_1
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
@@ -839,16 +961,20 @@
 
     invoke-interface {v0, v1}, Landroid/location/ILocationListener;->onLocationChanged(Landroid/location/Location;)V
 
+    .line 851
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 852
     monitor-exit p0
 
+    .line 873
     :goto_0
     const/4 v0, 0x1
 
     :goto_1
     return v0
 
+    .line 852
     :catchall_0
     move-exception v0
 
@@ -861,18 +987,25 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 853
     :catch_0
     move-exception v7
 
+    .local v7, "e":Landroid/os/RemoteException;
     move v0, v8
 
+    .line 854
     goto :goto_1
 
+    .line 857
+    .end local v7    # "e":Landroid/os/RemoteException;
     :cond_0
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
+    .line 858
+    .local v3, "locationChanged":Landroid/content/Intent;
     const-string v0, "location"
 
     new-instance v1, Landroid/location/Location;
@@ -881,11 +1014,13 @@
 
     invoke-virtual {v3, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
+    .line 860
     :try_start_3
     monitor-enter p0
     :try_end_3
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 863
     :try_start_4
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingIntent:Landroid/app/PendingIntent;
 
@@ -918,8 +1053,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V
 
+    .line 867
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 868
     monitor-exit p0
 
     goto :goto_0
@@ -936,50 +1073,65 @@
     :try_end_5
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_5 .. :try_end_5} :catch_1
 
+    .line 869
     :catch_1
     move-exception v7
 
+    .local v7, "e":Landroid/app/PendingIntent$CanceledException;
     move v0, v8
 
+    .line 870
     goto :goto_1
 .end method
 
 .method public callProviderEnabledLocked(Ljava/lang/String;Z)Z
     .locals 10
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "enabled"    # Z
 
+    .prologue
     const/4 v9, 0x1
 
     const/4 v8, 0x0
 
+    .line 929
     invoke-virtual {p0, v9}, Lcom/android/server/LocationManagerService$Receiver;->updateMonitoring(Z)V
 
+    .line 931
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v0, :cond_1
 
+    .line 933
     :try_start_0
     monitor-enter p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 936
     if-eqz p2, :cond_0
 
+    .line 937
     :try_start_1
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     invoke-interface {v0, p1}, Landroid/location/ILocationListener;->onProviderEnabled(Ljava/lang/String;)V
 
+    .line 943
     :goto_0
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 944
     monitor-exit p0
 
     :goto_1
     move v0, v9
 
+    .line 965
     :goto_2
     return v0
 
+    .line 939
     :cond_0
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
@@ -987,6 +1139,7 @@
 
     goto :goto_0
 
+    .line 944
     :catchall_0
     move-exception v0
 
@@ -999,27 +1152,36 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 945
     :catch_0
     move-exception v7
 
+    .local v7, "e":Landroid/os/RemoteException;
     move v0, v8
 
+    .line 946
     goto :goto_2
 
+    .line 949
+    .end local v7    # "e":Landroid/os/RemoteException;
     :cond_1
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
+    .line 950
+    .local v3, "providerIntent":Landroid/content/Intent;
     const-string v0, "providerEnabled"
 
     invoke-virtual {v3, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
+    .line 952
     :try_start_3
     monitor-enter p0
     :try_end_3
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 955
     :try_start_4
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingIntent:Landroid/app/PendingIntent;
 
@@ -1052,8 +1214,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V
 
+    .line 959
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 960
     monitor-exit p0
 
     goto :goto_1
@@ -1070,43 +1234,57 @@
     :try_end_5
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_5 .. :try_end_5} :catch_1
 
+    .line 961
     :catch_1
     move-exception v7
 
+    .local v7, "e":Landroid/app/PendingIntent$CanceledException;
     move v0, v8
 
+    .line 962
     goto :goto_2
 .end method
 
 .method public callStatusChangedLocked(Ljava/lang/String;ILandroid/os/Bundle;)Z
     .locals 9
+    .param p1, "provider"    # Ljava/lang/String;
+    .param p2, "status"    # I
+    .param p3, "extras"    # Landroid/os/Bundle;
 
+    .prologue
     const/4 v8, 0x0
 
+    .line 768
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v0, :cond_0
 
+    .line 770
     :try_start_0
     monitor-enter p0
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 773
     :try_start_1
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     invoke-interface {v0, p1, p2, p3}, Landroid/location/ILocationListener;->onStatusChanged(Ljava/lang/String;ILandroid/os/Bundle;)V
 
+    .line 776
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 777
     monitor-exit p0
 
+    .line 799
     :goto_0
     const/4 v0, 0x1
 
     :goto_1
     return v0
 
+    .line 777
     :catchall_0
     move-exception v0
 
@@ -1119,33 +1297,43 @@
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
+    .line 778
     :catch_0
     move-exception v7
 
+    .local v7, "e":Landroid/os/RemoteException;
     move v0, v8
 
+    .line 779
     goto :goto_1
 
+    .line 782
+    .end local v7    # "e":Landroid/os/RemoteException;
     :cond_0
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
 
+    .line 783
+    .local v3, "statusChanged":Landroid/content/Intent;
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0, p3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
     invoke-virtual {v3, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
+    .line 784
     const-string/jumbo v0, "status"
 
     invoke-virtual {v3, v0, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 786
     :try_start_3
     monitor-enter p0
     :try_end_3
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_3 .. :try_end_3} :catch_1
 
+    .line 789
     :try_start_4
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingIntent:Landroid/app/PendingIntent;
 
@@ -1178,8 +1366,10 @@
 
     invoke-virtual/range {v0 .. v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;)V
 
+    .line 793
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->incrementPendingBroadcastsLocked()V
 
+    .line 794
     monitor-exit p0
 
     goto :goto_0
@@ -1196,25 +1386,32 @@
     :try_end_5
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_5 .. :try_end_5} :catch_1
 
+    .line 795
     :catch_1
     move-exception v7
 
+    .local v7, "e":Landroid/app/PendingIntent$CanceledException;
     move v0, v8
 
+    .line 796
     goto :goto_1
 .end method
 
 .method public clearPendingBroadcastsLocked()V
     .locals 1
 
+    .prologue
+    .line 1005
     iget v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingBroadcasts:I
 
     if-lez v0, :cond_0
 
+    .line 1006
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingBroadcasts:I
 
+    .line 1007
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
@@ -1223,34 +1420,43 @@
 
     if-eqz v0, :cond_0
 
+    .line 1008
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    .line 1011
     :cond_0
     return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 2
+    .param p1, "otherObj"    # Ljava/lang/Object;
 
+    .prologue
+    .line 647
     instance-of v0, p1, Lcom/android/server/LocationManagerService$Receiver;
 
     if-eqz v0, :cond_0
 
+    .line 648
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mKey:Ljava/lang/Object;
 
     check-cast p1, Lcom/android/server/LocationManagerService$Receiver;
 
+    .end local p1    # "otherObj":Ljava/lang/Object;
     iget-object v1, p1, Lcom/android/server/LocationManagerService$Receiver;->mKey:Ljava/lang/Object;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
+    .line 650
     :goto_0
     return v0
 
+    .restart local p1    # "otherObj":Ljava/lang/Object;
     :cond_0
     const/4 v0, 0x0
 
@@ -1260,14 +1466,18 @@
 .method public getListener()Landroid/location/ILocationListener;
     .locals 2
 
+    .prologue
+    .line 761
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v0, :cond_0
 
+    .line 762
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     return-object v0
 
+    .line 764
     :cond_0
     new-instance v0, Ljava/lang/IllegalStateException;
 
@@ -1281,6 +1491,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 655
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mKey:Ljava/lang/Object;
 
     invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
@@ -1293,6 +1505,8 @@
 .method public isListener()Z
     .locals 1
 
+    .prologue
+    .line 753
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v0, :cond_0
@@ -1311,6 +1525,8 @@
 .method public isPendingIntent()Z
     .locals 1
 
+    .prologue
+    .line 757
     iget-object v0, p0, Lcom/android/server/LocationManagerService$Receiver;->mPendingIntent:Landroid/app/PendingIntent;
 
     if-eqz v0, :cond_0
@@ -1328,16 +1544,27 @@
 
 .method public onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 1
+    .param p1, "pendingIntent"    # Landroid/app/PendingIntent;
+    .param p2, "intent"    # Landroid/content/Intent;
+    .param p3, "resultCode"    # I
+    .param p4, "resultData"    # Ljava/lang/String;
+    .param p5, "resultExtras"    # Landroid/os/Bundle;
 
+    .prologue
+    .line 983
     monitor-enter p0
 
+    .line 984
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/LocationManagerService$Receiver;->decrementPendingBroadcastsLocked()V
 
+    .line 985
     monitor-exit p0
 
+    .line 986
     return-void
 
+    .line 985
     :catchall_0
     move-exception v0
 
@@ -1351,14 +1578,19 @@
 .method public toString()Ljava/lang/String;
     .locals 5
 
+    .prologue
+    .line 660
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 661
+    .local v2, "s":Ljava/lang/StringBuilder;
     const-string v3, "Reciever["
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 662
     invoke-static {p0}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
 
     move-result v3
@@ -1369,14 +1601,17 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 663
     iget-object v3, p0, Lcom/android/server/LocationManagerService$Receiver;->mListener:Landroid/location/ILocationListener;
 
     if-eqz v3, :cond_0
 
+    .line 664
     const-string v3, " listener"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 668
     :goto_0
     iget-object v3, p0, Lcom/android/server/LocationManagerService$Receiver;->mUpdateRecords:Ljava/util/HashMap;
 
@@ -1388,6 +1623,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :goto_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1401,6 +1637,8 @@
 
     check-cast v1, Ljava/lang/String;
 
+    .line 669
+    .local v1, "p":Ljava/lang/String;
     const-string v3, " "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1423,6 +1661,9 @@
 
     goto :goto_1
 
+    .line 666
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v1    # "p":Ljava/lang/String;
     :cond_0
     const-string v3, " intent"
 
@@ -1430,11 +1671,14 @@
 
     goto :goto_0
 
+    .line 671
+    .restart local v0    # "i$":Ljava/util/Iterator;
     :cond_1
     const-string v3, "]"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 672
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -1444,22 +1688,32 @@
 
 .method public updateMonitoring(Z)V
     .locals 12
+    .param p1, "allow"    # Z
 
+    .prologue
+    .line 681
     iget-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mHideFromAppOps:Z
 
     if-eqz v8, :cond_1
 
+    .line 724
     :cond_0
     :goto_0
     return-void
 
+    .line 685
     :cond_1
     const/4 v5, 0x0
 
+    .line 686
+    .local v5, "requestingLocation":Z
     const/4 v4, 0x0
 
+    .line 687
+    .local v4, "requestingHighPowerLocation":Z
     if-eqz p1, :cond_3
 
+    .line 690
     iget-object v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mUpdateRecords:Ljava/util/HashMap;
 
     invoke-virtual {v8}, Ljava/util/HashMap;->values()Ljava/util/Collection;
@@ -1470,6 +1724,7 @@
 
     move-result-object v0
 
+    .local v0, "i$":Ljava/util/Iterator;
     :cond_2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -1483,6 +1738,8 @@
 
     check-cast v6, Lcom/android/server/LocationManagerService$UpdateRecord;
 
+    .line 691
+    .local v6, "updateRecord":Lcom/android/server/LocationManagerService$UpdateRecord;
     iget-object v8, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     iget-object v9, v6, Lcom/android/server/LocationManagerService$UpdateRecord;->mProvider:Ljava/lang/String;
@@ -1494,8 +1751,10 @@
 
     if-eqz v8, :cond_2
 
+    .line 692
     const/4 v5, 0x1
 
+    .line 693
     iget-object v8, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     # getter for: Lcom/android/server/LocationManagerService;->mProvidersByName:Ljava/util/HashMap;
@@ -1511,12 +1770,16 @@
 
     check-cast v2, Lcom/android/server/location/LocationProviderInterface;
 
+    .line 695
+    .local v2, "locationProvider":Lcom/android/server/location/LocationProviderInterface;
     if-eqz v2, :cond_4
 
     invoke-interface {v2}, Lcom/android/server/location/LocationProviderInterface;->getProperties()Lcom/android/internal/location/ProviderProperties;
 
     move-result-object v3
 
+    .line 697
+    .local v3, "properties":Lcom/android/internal/location/ProviderProperties;
     :goto_1
     if-eqz v3, :cond_2
 
@@ -1538,8 +1801,14 @@
 
     if-gez v8, :cond_2
 
+    .line 700
     const/4 v4, 0x1
 
+    .line 708
+    .end local v0    # "i$":Ljava/util/Iterator;
+    .end local v2    # "locationProvider":Lcom/android/server/location/LocationProviderInterface;
+    .end local v3    # "properties":Lcom/android/internal/location/ProviderProperties;
+    .end local v6    # "updateRecord":Lcom/android/server/LocationManagerService$UpdateRecord;
     :cond_3
     iget-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpMonitoring:Z
 
@@ -1551,8 +1820,11 @@
 
     iput-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpMonitoring:Z
 
+    .line 714
     iget-boolean v7, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpHighPowerMonitoring:Z
 
+    .line 715
+    .local v7, "wasHighPowerMonitoring":Z
     iget-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpHighPowerMonitoring:Z
 
     const/16 v9, 0x2a
@@ -1563,16 +1835,20 @@
 
     iput-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpHighPowerMonitoring:Z
 
+    .line 719
     iget-boolean v8, p0, Lcom/android/server/LocationManagerService$Receiver;->mOpHighPowerMonitoring:Z
 
     if-eq v8, v7, :cond_0
 
+    .line 721
     new-instance v1, Landroid/content/Intent;
 
     const-string v8, "android.location.HIGH_POWER_REQUEST_CHANGE"
 
     invoke-direct {v1, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 722
+    .local v1, "intent":Landroid/content/Intent;
     iget-object v8, p0, Lcom/android/server/LocationManagerService$Receiver;->this$0:Lcom/android/server/LocationManagerService;
 
     # getter for: Lcom/android/server/LocationManagerService;->mContext:Landroid/content/Context;
@@ -1586,6 +1862,12 @@
 
     goto :goto_0
 
+    .line 695
+    .end local v1    # "intent":Landroid/content/Intent;
+    .end local v7    # "wasHighPowerMonitoring":Z
+    .restart local v0    # "i$":Ljava/util/Iterator;
+    .restart local v2    # "locationProvider":Lcom/android/server/location/LocationProviderInterface;
+    .restart local v6    # "updateRecord":Lcom/android/server/LocationManagerService$UpdateRecord;
     :cond_4
     const/4 v3, 0x0
 

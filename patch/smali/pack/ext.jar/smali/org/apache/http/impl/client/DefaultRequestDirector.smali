@@ -504,7 +504,7 @@
     .line 3003
     iget-object v3, p0, Lorg/apache/http/impl/client/DefaultRequestDirector;->log:Lorg/apache/commons/logging/Log;
 
-    invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -555,7 +555,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v11, v0}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v11, v0}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 3280
     sget-boolean v19, Lorg/apache/http/impl/client/CustomHttpClient;->APACHE_HTTP_DBG:Z
@@ -685,7 +685,7 @@
 
     .line 3314
     .local v3, "allHeader":[Lorg/apache/http/Header;
-    invoke-virtual {v13, v3}, Lorg/apache/http/client/methods/HttpGet;->setHeaders([Lorg/apache/http/Header;)V
+    invoke-virtual {v13, v3}, Lorg/apache/http/message/AbstractHttpMessage;->setHeaders([Lorg/apache/http/Header;)V
 
     .line 3316
     new-instance v18, Lorg/apache/http/impl/client/RequestWrapper;
@@ -701,7 +701,7 @@
     if-eqz v19, :cond_2
 
     .line 3319
-    invoke-virtual/range {v18 .. v18}, Lorg/apache/http/impl/client/RequestWrapper;->getAllHeaders()[Lorg/apache/http/Header;
+    invoke-virtual/range {v18 .. v18}, Lorg/apache/http/message/AbstractHttpMessage;->getAllHeaders()[Lorg/apache/http/Header;
 
     move-result-object v16
 
@@ -787,7 +787,7 @@
     :cond_2
     move-object/from16 v0, v18
 
-    invoke-virtual {v0, v3}, Lorg/apache/http/impl/client/RequestWrapper;->setHeaders([Lorg/apache/http/Header;)V
+    invoke-virtual {v0, v3}, Lorg/apache/http/message/AbstractHttpMessage;->setHeaders([Lorg/apache/http/Header;)V
 
     .line 3325
     move-object/from16 v0, p0
@@ -796,7 +796,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-virtual/range {v18 .. v19}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual/range {v18 .. v19}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 3336
     new-instance v6, Lorg/apache/http/conn/routing/HttpRoute;
@@ -819,7 +819,7 @@
 
     move-object/from16 v0, v19
 
-    invoke-virtual {v0, v3}, Lorg/apache/http/impl/client/RequestWrapper;->setHeaders([Lorg/apache/http/Header;)V
+    invoke-virtual {v0, v3}, Lorg/apache/http/message/AbstractHttpMessage;->setHeaders([Lorg/apache/http/Header;)V
 
     .line 3349
     invoke-virtual {v5}, Lorg/apache/http/impl/client/RoutedRequest;->getRequest()Lorg/apache/http/impl/client/RequestWrapper;
@@ -832,7 +832,7 @@
 
     move-object/from16 v20, v0
 
-    invoke-virtual/range {v19 .. v20}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual/range {v19 .. v20}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 3361
     return-object v5
@@ -874,7 +874,7 @@
 
     move-object/from16 v1, v28
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 1156
     move-object/from16 v0, p0
@@ -1203,7 +1203,7 @@
     invoke-virtual {v0, v1, v2}, Lorg/apache/http/impl/client/DefaultRequestDirector;->rewriteRequestURI(Lorg/apache/http/impl/client/RequestWrapper;Lorg/apache/http/conn/routing/HttpRoute;)V
 
     .line 1255
-    invoke-virtual/range {v27 .. v27}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v27 .. v27}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v28
 
@@ -1438,7 +1438,7 @@
 
     .line 1195
     .local v14, "iox":Ljava/io/InterruptedIOException;
-    invoke-virtual {v14, v13}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v14, v13}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 1196
     throw v14
@@ -1547,7 +1547,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-virtual {v10}, Lorg/apache/http/impl/client/TunnelRefusedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v29
 
@@ -1798,7 +1798,7 @@
 
     move-result-object v29
 
-    invoke-virtual {v10}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v30
 
@@ -1833,7 +1833,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-virtual {v10}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v29
 
@@ -2332,7 +2332,7 @@
 
     move-object/from16 v0, v49
 
-    invoke-virtual {v0, v5}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v5}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 732
     move-object/from16 v0, p0
@@ -2641,7 +2641,7 @@
     invoke-virtual {v0, v1, v2}, Lorg/apache/http/impl/client/DefaultRequestDirector;->rewriteRequestURI(Lorg/apache/http/impl/client/RequestWrapper;Lorg/apache/http/conn/routing/HttpRoute;)V
 
     .line 835
-    invoke-virtual/range {v64 .. v64}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v64 .. v64}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v5
 
@@ -2896,7 +2896,7 @@
 
     move-object/from16 v1, v42
 
-    invoke-virtual {v0, v1}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v1}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 775
     throw v43
@@ -2997,7 +2997,7 @@
 
     iget-object v5, v0, Lorg/apache/http/impl/client/DefaultRequestDirector;->log:Lorg/apache/commons/logging/Log;
 
-    invoke-virtual/range {v37 .. v37}, Lorg/apache/http/impl/client/TunnelRefusedException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v37 .. v37}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -4114,7 +4114,7 @@
 
     move-result-object v6
 
-    invoke-virtual/range {v37 .. v37}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v37 .. v37}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -4145,7 +4145,7 @@
 
     iget-object v5, v0, Lorg/apache/http/impl/client/DefaultRequestDirector;->log:Lorg/apache/commons/logging/Log;
 
-    invoke-virtual/range {v37 .. v37}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v37 .. v37}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -5755,7 +5755,7 @@
 
     move-result-object v4
 
-    invoke-virtual/range {v16 .. v16}, Lorg/apache/http/auth/AuthenticationException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -5971,7 +5971,7 @@
 
     move-result-object v4
 
-    invoke-virtual/range {v16 .. v16}, Lorg/apache/http/auth/AuthenticationException;->getMessage()Ljava/lang/String;
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -7304,7 +7304,7 @@
 
     move-object/from16 v1, v32
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 1795
     move-object/from16 v0, p0
@@ -7823,7 +7823,7 @@
     invoke-virtual {v0, v1, v2}, Lorg/apache/http/impl/client/DefaultRequestDirector;->rewriteRequestURI(Lorg/apache/http/impl/client/RequestWrapper;Lorg/apache/http/conn/routing/HttpRoute;)V
 
     .line 1913
-    invoke-virtual/range {v31 .. v31}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v31 .. v31}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v32
 
@@ -8079,7 +8079,7 @@
 
     move-result-object v33
 
-    invoke-virtual/range {v31 .. v33}, Lorg/apache/http/impl/client/RequestWrapper;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v31 .. v33}, Lorg/apache/http/message/AbstractHttpMessage;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1952
     sget-boolean v32, Lorg/apache/http/impl/client/DefaultRequestDirector;->IS_KEEP_ALIVE:Z
@@ -8091,7 +8091,7 @@
 
     const-string v33, "Keep-Alive"
 
-    invoke-virtual/range {v31 .. v33}, Lorg/apache/http/impl/client/RequestWrapper;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v31 .. v33}, Lorg/apache/http/message/AbstractHttpMessage;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1956
     :cond_b
@@ -8163,7 +8163,7 @@
     .local v16, "iox":Ljava/io/InterruptedIOException;
     move-object/from16 v0, v16
 
-    invoke-virtual {v0, v15}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v15}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 1845
     throw v16
@@ -8267,7 +8267,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-virtual {v12}, Lorg/apache/http/impl/client/TunnelRefusedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v33
 
@@ -8545,7 +8545,7 @@
 
     move-result-object v33
 
-    invoke-virtual {v12}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v34
 
@@ -8580,7 +8580,7 @@
 
     move-object/from16 v32, v0
 
-    invoke-virtual {v12}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v33
 
@@ -9246,7 +9246,7 @@
 
     move-object/from16 v1, v30
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 1463
     move-object/from16 v0, p0
@@ -9873,7 +9873,7 @@
     invoke-virtual {v0, v1, v2}, Lorg/apache/http/impl/client/DefaultRequestDirector;->rewriteRequestURI(Lorg/apache/http/impl/client/RequestWrapper;Lorg/apache/http/conn/routing/HttpRoute;)V
 
     .line 1583
-    invoke-virtual/range {v29 .. v29}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v29 .. v29}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v30
 
@@ -10129,7 +10129,7 @@
 
     move-result-object v31
 
-    invoke-virtual/range {v29 .. v31}, Lorg/apache/http/impl/client/RequestWrapper;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v29 .. v31}, Lorg/apache/http/message/AbstractHttpMessage;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1621
     sget-boolean v30, Lorg/apache/http/impl/client/DefaultRequestDirector;->IS_KEEP_ALIVE:Z
@@ -10141,7 +10141,7 @@
 
     const-string v31, "Keep-Alive"
 
-    invoke-virtual/range {v29 .. v31}, Lorg/apache/http/impl/client/RequestWrapper;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v29 .. v31}, Lorg/apache/http/message/AbstractHttpMessage;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1625
     :cond_d
@@ -10212,7 +10212,7 @@
     .local v16, "iox":Ljava/io/InterruptedIOException;
     move-object/from16 v0, v16
 
-    invoke-virtual {v0, v15}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v15}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 1517
     throw v16
@@ -10313,7 +10313,7 @@
 
     move-object/from16 v30, v0
 
-    invoke-virtual {v12}, Lorg/apache/http/impl/client/TunnelRefusedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v31
 
@@ -10566,7 +10566,7 @@
 
     move-result-object v31
 
-    invoke-virtual {v12}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v32
 
@@ -10601,7 +10601,7 @@
 
     move-object/from16 v30, v0
 
-    invoke-virtual {v12}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v12}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v31
 
@@ -11408,7 +11408,7 @@
 
     move-object/from16 v1, v37
 
-    invoke-virtual {v0, v1}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v1}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 2152
     move-object/from16 v0, p0
@@ -11724,7 +11724,7 @@
     invoke-virtual {v0, v1, v2}, Lorg/apache/http/impl/client/DefaultRequestDirector;->rewriteRequestURI(Lorg/apache/http/impl/client/RequestWrapper;Lorg/apache/http/conn/routing/HttpRoute;)V
 
     .line 2252
-    invoke-virtual/range {v36 .. v36}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v36 .. v36}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v37
 
@@ -11912,7 +11912,7 @@
 
     move-result-object v38
 
-    invoke-virtual/range {v36 .. v38}, Lorg/apache/http/impl/client/RequestWrapper;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual/range {v36 .. v38}, Lorg/apache/http/message/AbstractHttpMessage;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 2286
     invoke-virtual/range {v36 .. v36}, Lorg/apache/http/impl/client/RequestWrapper;->incrementExecCount()V
@@ -12064,7 +12064,7 @@
 
     move-object/from16 v1, v19
 
-    invoke-virtual {v0, v1}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
+    invoke-virtual {v0, v1}, Ljava/lang/Throwable;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
     .line 2192
     throw v20
@@ -12119,7 +12119,7 @@
 
     move-object/from16 v37, v0
 
-    invoke-virtual {v15}, Lorg/apache/http/impl/client/TunnelRefusedException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v38
 
@@ -12454,7 +12454,7 @@
 
     move-result-object v38
 
-    invoke-virtual {v15}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v39
 
@@ -12489,7 +12489,7 @@
 
     move-object/from16 v37, v0
 
-    invoke-virtual {v15}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v38
 
@@ -13176,7 +13176,7 @@
 
     .line 2876
     .local v18, "request":Lorg/apache/http/impl/client/RequestWrapper;
-    invoke-virtual/range {v18 .. v18}, Lorg/apache/http/impl/client/RequestWrapper;->getParams()Lorg/apache/http/params/HttpParams;
+    invoke-virtual/range {v18 .. v18}, Lorg/apache/http/message/AbstractHttpMessage;->getParams()Lorg/apache/http/params/HttpParams;
 
     move-result-object v15
 
@@ -13383,7 +13383,7 @@
 
     move-object/from16 v0, v17
 
-    invoke-virtual {v0, v3}, Lorg/apache/http/client/methods/HttpGet;->setHeaders([Lorg/apache/http/Header;)V
+    invoke-virtual {v0, v3}, Lorg/apache/http/message/AbstractHttpMessage;->setHeaders([Lorg/apache/http/Header;)V
 
     .line 2904
     new-instance v22, Lorg/apache/http/impl/client/RequestWrapper;
@@ -13398,7 +13398,7 @@
     .local v22, "wrapper":Lorg/apache/http/impl/client/RequestWrapper;
     move-object/from16 v0, v22
 
-    invoke-virtual {v0, v15}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v0, v15}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 2907
     move-object/from16 v0, p0
@@ -13645,7 +13645,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v10}, Lorg/apache/http/auth/AuthenticationException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -13794,7 +13794,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v10}, Lorg/apache/http/auth/AuthenticationException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -14316,7 +14316,7 @@
 
     iget-object v13, v0, Lorg/apache/http/impl/client/DefaultRequestDirector;->mCustomHttpParams:Lorg/apache/http/params/HttpParams;
 
-    invoke-virtual {v7, v13}, Lorg/apache/http/impl/client/RequestWrapper;->setParams(Lorg/apache/http/params/HttpParams;)V
+    invoke-virtual {v7, v13}, Lorg/apache/http/message/AbstractHttpMessage;->setParams(Lorg/apache/http/params/HttpParams;)V
 
     .line 3137
     move-object/from16 v0, p0

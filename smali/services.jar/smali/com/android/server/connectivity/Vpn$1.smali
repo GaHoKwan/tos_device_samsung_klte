@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/connectivity/Vpn;)V
     .locals 0
 
+    .prologue
+    .line 175
     iput-object p1, p0, Lcom/android/server/connectivity/Vpn$1;->this$0:Lcom/android/server/connectivity/Vpn;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,13 +38,18 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
+    .param p1, "name"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 177
     const-string v0, "Vpn"
 
     const-string v1, "onServiceConnected called"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 178
     invoke-static {p2}, Lcom/sec/android/service/sm/service/ISecurityManager$Stub;->asInterface(Landroid/os/IBinder;)Lcom/sec/android/service/sm/service/ISecurityManager;
 
     move-result-object v0
@@ -50,22 +57,28 @@
     # setter for: Lcom/android/server/connectivity/Vpn;->mSecurityManager:Lcom/sec/android/service/sm/service/ISecurityManager;
     invoke-static {v0}, Lcom/android/server/connectivity/Vpn;->access$002(Lcom/sec/android/service/sm/service/ISecurityManager;)Lcom/sec/android/service/sm/service/ISecurityManager;
 
+    .line 179
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "name"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 182
     const-string v0, "Vpn"
 
     const-string v1, "onServiceDisconnected called"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 183
     const/4 v0, 0x0
 
     # setter for: Lcom/android/server/connectivity/Vpn;->mSecurityManager:Lcom/sec/android/service/sm/service/ISecurityManager;
     invoke-static {v0}, Lcom/android/server/connectivity/Vpn;->access$002(Lcom/sec/android/service/sm/service/ISecurityManager;)Lcom/sec/android/service/sm/service/ISecurityManager;
 
+    .line 184
     return-void
 .end method

@@ -34,6 +34,8 @@
 .method constructor <init>(Landroid/webkitsec/HtmlComposerInputConnection;)V
     .locals 0
 
+    .prologue
+    .line 117
     iput-object p1, p0, Landroid/webkitsec/HtmlComposerInputConnection$SpanDataInfo;->this$0:Landroid/webkitsec/HtmlComposerInputConnection;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

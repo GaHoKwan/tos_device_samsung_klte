@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate;Landroid/os/Looper;Lcom/samsung/android/healthcover/HealthCoverManager;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 179
     iput-object p1, p0, Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate$1;->this$1:Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate;
 
     iput-object p3, p0, Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate$1;->val$this$0:Lcom/samsung/android/healthcover/HealthCoverManager;
@@ -37,7 +40,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 184
     :try_start_0
     iget-object v1, p0, Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate$1;->this$1:Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate;
 
@@ -48,6 +54,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 185
     if-eqz p1, :cond_0
 
     iget v1, p1, Landroid/os/Message;->what:I
@@ -56,6 +63,7 @@
 
     if-ne v1, v2, :cond_0
 
+    .line 186
     iget-object v1, p0, Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate$1;->this$1:Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate;
 
     # getter for: Lcom/samsung/android/healthcover/HealthCoverManager$ListenerDelegate;->mListener:Lcom/samsung/android/healthcover/HealthCoverListener;
@@ -81,13 +89,17 @@
     :try_end_0
     .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 192
     :cond_0
     :goto_0
     return-void
 
+    .line 189
     :catch_0
     move-exception v0
 
+    .line 190
+    .local v0, "e":Ljava/lang/ClassCastException;
     const-string v1, "HealthCoverListener"
 
     new-instance v2, Ljava/lang/StringBuilder;

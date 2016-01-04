@@ -1,2 +1,4 @@
 version: 2.0.0
 apkFileName: services.jar
+unknownFiles:
+  com/sec/android/service/sm/service/ISecurityManager.aidl: '8'

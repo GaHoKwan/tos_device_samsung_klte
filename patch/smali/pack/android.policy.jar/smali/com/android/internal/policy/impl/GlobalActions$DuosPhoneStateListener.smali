@@ -23,13 +23,18 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions;I)V
     .locals 0
+    .param p2, "phoneIndex"    # I
 
+    .prologue
+    .line 2850
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
 
+    .line 2851
     iput p2, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->mPhoneIndex:I
 
+    .line 2852
     return-void
 .end method
 
@@ -37,9 +42,12 @@
 # virtual methods
 .method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 4
+    .param p1, "state"    # Landroid/telephony/ServiceState;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 2856
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     # getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
@@ -51,6 +59,7 @@
 
     if-nez p1, :cond_1
 
+    .line 2857
     :cond_0
     const-string v1, "GlobalActions"
 
@@ -91,9 +100,11 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2869
     :goto_0
     return-void
 
+    .line 2860
     :cond_1
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -114,11 +125,14 @@
 
     if-ne v1, v0, :cond_4
 
+    .line 2861
+    .local v0, "inAirplaneMode":Z
     :goto_1
     sget-boolean v1, Lcom/android/internal/policy/impl/GlobalActions;->SAFE_DEBUG:Z
 
     if-eqz v1, :cond_2
 
+    .line 2862
     const-string v1, "GlobalActions"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -143,6 +157,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2864
     :cond_2
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -154,10 +169,12 @@
     # setter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
     invoke-static {v2, v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$1402(Lcom/android/internal/policy/impl/GlobalActions;Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
+    .line 2865
     sget-boolean v1, Lcom/android/internal/policy/impl/GlobalActions;->SAFE_DEBUG:Z
 
     if-eqz v1, :cond_3
 
+    .line 2866
     const-string v1, "GlobalActions"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -197,6 +214,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2867
     :cond_3
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$DuosPhoneStateListener;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -211,11 +229,15 @@
 
     goto :goto_0
 
+    .line 2860
+    .end local v0    # "inAirplaneMode":Z
     :cond_4
     const/4 v0, 0x0
 
     goto :goto_1
 
+    .line 2864
+    .restart local v0    # "inAirplaneMode":Z
     :cond_5
     sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->Off:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 

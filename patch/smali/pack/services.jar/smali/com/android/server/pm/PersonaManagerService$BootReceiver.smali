@@ -22,6 +22,8 @@
 .method public constructor <init>(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2599
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$BootReceiver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 12
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 2602
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v9
@@ -46,12 +52,14 @@
 
     if-eqz v9, :cond_1
 
+    .line 2603
     const-string v9, "PersonaManagerService"
 
     const-string v10, "ACTION_BOOT_COMPLETED"
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2605
     :try_start_0
     const-string v9, "PersonaManagerService"
 
@@ -59,6 +67,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2607
     iget-object v9, p0, Lcom/android/server/pm/PersonaManagerService$BootReceiver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
@@ -74,6 +83,8 @@
 
     check-cast v7, Landroid/os/PersonaManager;
 
+    .line 2609
+    .local v7, "personaManager":Landroid/os/PersonaManager;
     iget-object v9, p0, Lcom/android/server/pm/PersonaManagerService$BootReceiver;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
@@ -89,14 +100,19 @@
 
     check-cast v0, Landroid/app/ActivityManager;
 
+    .line 2612
+    .local v0, "activityManager":Landroid/app/ActivityManager;
     if-eqz v7, :cond_1
 
+    .line 2613
     const/4 v9, 0x0
 
     invoke-virtual {v7, v9}, Landroid/os/PersonaManager;->getPersonasForUser(I)Ljava/util/List;
 
     move-result-object v6
 
+    .line 2615
+    .local v6, "personaInfoList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PersonaInfo;>;"
     if-eqz v6, :cond_1
 
     invoke-interface {v6}, Ljava/util/List;->size()I
@@ -105,18 +121,26 @@
 
     if-lez v9, :cond_1
 
+    .line 2616
     const/4 v9, 0x2
 
     new-array v5, v9, [I
 
+    .line 2617
+    .local v5, "personaIds":[I
     const/4 v3, 0x0
 
+    .line 2618
+    .local v3, "n":I
     invoke-interface {v6}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
+    .local v2, "i$":Ljava/util/Iterator;
     move v4, v3
 
+    .end local v3    # "n":I
+    .local v4, "n":I
     :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
@@ -130,28 +154,46 @@
 
     check-cast v8, Landroid/content/pm/PersonaInfo;
 
+    .line 2619
+    .local v8, "pi":Landroid/content/pm/PersonaInfo;
     add-int/lit8 v3, v4, 0x1
 
-    iget v9, v8, Landroid/content/pm/PersonaInfo;->id:I
+    .end local v4    # "n":I
+    .restart local v3    # "n":I
+    iget v9, v8, Landroid/content/pm/UserInfo;->id:I
 
     aput v9, v5, v4
 
     move v4, v3
 
+    .end local v3    # "n":I
+    .restart local v4    # "n":I
     goto :goto_0
 
+    .line 2621
+    .end local v8    # "pi":Landroid/content/pm/PersonaInfo;
     :cond_0
     invoke-virtual {v0, v5}, Landroid/app/ActivityManager;->softStartPersonas([I)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 2631
+    .end local v0    # "activityManager":Landroid/app/ActivityManager;
+    .end local v2    # "i$":Ljava/util/Iterator;
+    .end local v4    # "n":I
+    .end local v5    # "personaIds":[I
+    .end local v6    # "personaInfoList":Ljava/util/List;, "Ljava/util/List<Landroid/content/pm/PersonaInfo;>;"
+    .end local v7    # "personaManager":Landroid/os/PersonaManager;
     :cond_1
     :goto_1
     return-void
 
+    .line 2624
     :catch_0
     move-exception v1
 
+    .line 2625
+    .local v1, "e":Ljava/lang/Exception;
     const-string v9, "PersonaManagerService"
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -164,7 +206,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v11
 

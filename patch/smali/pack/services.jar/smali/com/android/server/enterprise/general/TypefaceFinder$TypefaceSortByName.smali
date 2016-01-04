@@ -35,6 +35,8 @@
 .method public constructor <init>(Lcom/android/server/enterprise/general/TypefaceFinder;)V
     .locals 0
 
+    .prologue
+    .line 210
     iput-object p1, p0, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;->this$0:Lcom/android/server/enterprise/general/TypefaceFinder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +48,11 @@
 # virtual methods
 .method public compare(Lcom/android/server/enterprise/general/Typeface;Lcom/android/server/enterprise/general/Typeface;)I
     .locals 2
+    .param p1, "o1"    # Lcom/android/server/enterprise/general/Typeface;
+    .param p2, "o2"    # Lcom/android/server/enterprise/general/Typeface;
 
+    .prologue
+    .line 216
     invoke-virtual {p1}, Lcom/android/server/enterprise/general/Typeface;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -64,11 +70,17 @@
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+    .param p1, "x0"    # Ljava/lang/Object;
+    .param p2, "x1"    # Ljava/lang/Object;
 
+    .prologue
+    .line 210
     check-cast p1, Lcom/android/server/enterprise/general/Typeface;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     check-cast p2, Lcom/android/server/enterprise/general/Typeface;
 
+    .end local p2    # "x1":Ljava/lang/Object;
     invoke-virtual {p0, p1, p2}, Lcom/android/server/enterprise/general/TypefaceFinder$TypefaceSortByName;->compare(Lcom/android/server/enterprise/general/Typeface;Lcom/android/server/enterprise/general/Typeface;)I
 
     move-result v0

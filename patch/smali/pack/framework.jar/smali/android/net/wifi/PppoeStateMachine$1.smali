@@ -441,7 +441,7 @@
 
     move-result-object v8
 
-    const-string v9, "wlan0"
+    const-string/jumbo v9, "wlan0"
 
     invoke-interface {v8, v9}, Landroid/os/INetworkManagementService;->setDefaultInterfaceForDns(Ljava/lang/String;)V
     :try_end_1
@@ -464,6 +464,8 @@
     goto/16 :goto_0
 
     .line 88
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

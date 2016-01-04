@@ -537,7 +537,7 @@
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
     .line 294
-    invoke-virtual {v2}, Lorg/apache/http/impl/conn/tsccm/BasicPoolEntryRef;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v0
 

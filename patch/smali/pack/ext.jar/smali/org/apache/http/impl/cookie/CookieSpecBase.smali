@@ -103,7 +103,7 @@
 
     .line 123
     :cond_1
-    invoke-virtual {p0}, Lorg/apache/http/impl/cookie/CookieSpecBase;->getAttribHandlers()Ljava/util/Collection;
+    invoke-virtual {p0}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->getAttribHandlers()Ljava/util/Collection;
 
     move-result-object v2
 
@@ -290,7 +290,7 @@
     .line 93
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v12}, Lorg/apache/http/impl/cookie/CookieSpecBase;->findAttribHandler(Ljava/lang/String;)Lorg/apache/http/cookie/CookieAttributeHandler;
+    invoke-virtual {v0, v12}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->findAttribHandler(Ljava/lang/String;)Lorg/apache/http/cookie/CookieAttributeHandler;
 
     move-result-object v6
 
@@ -372,7 +372,7 @@
 
     .line 111
     :cond_1
-    invoke-virtual {p0}, Lorg/apache/http/impl/cookie/CookieSpecBase;->getAttribHandlers()Ljava/util/Collection;
+    invoke-virtual {p0}, Lorg/apache/http/impl/cookie/AbstractCookieSpec;->getAttribHandlers()Ljava/util/Collection;
 
     move-result-object v2
 

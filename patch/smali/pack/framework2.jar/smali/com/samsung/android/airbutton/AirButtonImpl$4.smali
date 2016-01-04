@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/android/airbutton/AirButtonImpl;)V
     .locals 0
 
+    .prologue
+    .line 1295
     iput-object p1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$4;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 1298
     const-string v1, "AxT9IME.isVisibleWindow"
 
     const/4 v2, 0x0
@@ -42,6 +48,8 @@
 
     move-result v0
 
+    .line 1299
+    .local v0, "isKeypadVisible":Z
     const-string v1, "AirButtonImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -64,8 +72,10 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1300
     if-nez v0, :cond_0
 
+    .line 1301
     iget-object v1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$4;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mHandler:Landroid/os/Handler;
@@ -82,6 +92,7 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
+    .line 1302
     iget-object v1, p0, Lcom/samsung/android/airbutton/AirButtonImpl$4;->this$0:Lcom/samsung/android/airbutton/AirButtonImpl;
 
     # getter for: Lcom/samsung/android/airbutton/AirButtonImpl;->mHandler:Landroid/os/Handler;
@@ -100,6 +111,7 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 1304
     :cond_0
     return-void
 .end method

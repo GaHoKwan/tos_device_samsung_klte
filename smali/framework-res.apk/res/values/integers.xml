@@ -20,14 +20,14 @@
     <integer name="config_wifi_scan_interval_p2p_connected">60000</integer>
     <integer name="config_wifi_framework_scan_interval">300000</integer>
     <integer name="config_wifi_driver_stop_delay">120000</integer>
-    <integer name="config_lidOpenRotation">-1</integer>
+    <integer name="config_lidOpenRotation">90</integer>
     <integer name="config_deskDockRotation">-1</integer>
     <integer name="config_carDockRotation">-1</integer>
     <integer name="config_undockedHdmiRotation">-1</integer>
     <integer name="config_defaultUiModeType">1</integer>
     <integer name="config_deskDockKeepsScreenOn">1</integer>
     <integer name="config_carDockKeepsScreenOn">1</integer>
-    <integer name="config_lidKeyboardAccessibility">0</integer>
+    <integer name="config_lidKeyboardAccessibility">1</integer>
     <integer name="config_lidNavigationAccessibility">0</integer>
     <integer name="config_longPressOnPowerBehavior">1</integer>
     <integer name="config_criticalBatteryWarningLevel">5</integer>
@@ -67,7 +67,7 @@
     <integer name="config_ntpRetry">3</integer>
     <integer name="config_ntpThreshold">5000</integer>
     <integer name="config_ntpTimeout">5000</integer>
-    <integer name="config_networkPolicyDefaultWarning">-1</integer>
+    <integer name="config_networkPolicyDefaultWarning">2048</integer>
     <integer name="config_maxResolverActivityColumns">2</integer>
     <integer name="config_windowManagerDefaultRotation">-1</integer>
     <integer name="config_MirrorLinkDockRotation">90</integer>

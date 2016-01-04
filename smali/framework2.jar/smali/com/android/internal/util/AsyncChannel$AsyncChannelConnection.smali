@@ -25,10 +25,13 @@
 .method constructor <init>(Lcom/android/internal/util/AsyncChannel;)V
     .locals 0
 
+    .prologue
+    .line 912
     iput-object p1, p0, Lcom/android/internal/util/AsyncChannel$AsyncChannelConnection;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 913
     return-void
 .end method
 
@@ -36,7 +39,11 @@
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 2
+    .param p1, "className"    # Landroid/content/ComponentName;
+    .param p2, "service"    # Landroid/os/IBinder;
 
+    .prologue
+    .line 917
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel$AsyncChannelConnection;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     new-instance v1, Landroid/os/Messenger;
@@ -46,6 +53,7 @@
     # setter for: Lcom/android/internal/util/AsyncChannel;->mDstMessenger:Landroid/os/Messenger;
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$502(Lcom/android/internal/util/AsyncChannel;Landroid/os/Messenger;)Landroid/os/Messenger;
 
+    .line 918
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel$AsyncChannelConnection;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     const/4 v1, 0x0
@@ -53,12 +61,16 @@
     # invokes: Lcom/android/internal/util/AsyncChannel;->replyHalfConnected(I)V
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$000(Lcom/android/internal/util/AsyncChannel;I)V
 
+    .line 919
     return-void
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 2
+    .param p1, "className"    # Landroid/content/ComponentName;
 
+    .prologue
+    .line 923
     iget-object v0, p0, Lcom/android/internal/util/AsyncChannel$AsyncChannelConnection;->this$0:Lcom/android/internal/util/AsyncChannel;
 
     const/4 v1, 0x0
@@ -66,5 +78,6 @@
     # invokes: Lcom/android/internal/util/AsyncChannel;->replyDisconnected(I)V
     invoke-static {v0, v1}, Lcom/android/internal/util/AsyncChannel;->access$600(Lcom/android/internal/util/AsyncChannel;I)V
 
+    .line 924
     return-void
 .end method

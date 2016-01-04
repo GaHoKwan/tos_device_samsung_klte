@@ -228,7 +228,7 @@
 
     .line 88
     .local v1, "i":Landroid/hardware/contextaware/aggregator/AggregatorErrors;
-    invoke-virtual {v1}, Landroid/hardware/contextaware/aggregator/AggregatorErrors;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v5
 
@@ -287,7 +287,7 @@
     .line 23
     sget-object v0, Landroid/hardware/contextaware/aggregator/AggregatorErrors;->$VALUES:[Landroid/hardware/contextaware/aggregator/AggregatorErrors;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/aggregator/AggregatorErrors;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -303,7 +303,7 @@
 
     .prologue
     .line 65
-    invoke-virtual {p0}, Landroid/hardware/contextaware/aggregator/AggregatorErrors;->ordinal()I
+    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
 
     move-result v0
 

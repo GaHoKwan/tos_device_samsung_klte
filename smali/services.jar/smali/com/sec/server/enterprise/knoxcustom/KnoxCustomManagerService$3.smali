@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;)V
     .locals 0
 
+    .prologue
+    .line 317
     iput-object p1, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$3;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 321
     iget-object v2, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$3;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     # getter for: Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->mTempContext:Landroid/content/Context;
@@ -52,6 +56,8 @@
 
     check-cast v0, Landroid/net/ConnectivityManager;
 
+    .line 322
+    .local v0, "cm":Landroid/net/ConnectivityManager;
     iget-object v2, p0, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService$3;->this$0:Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;
 
     invoke-virtual {v2}, Lcom/sec/server/enterprise/knoxcustom/KnoxCustomManagerService;->getSealedUsbNetState()Z
@@ -62,17 +68,22 @@
 
     move-result v1
 
+    .line 323
+    .local v1, "result":I
     if-nez v1, :cond_0
 
+    .line 325
     const-string v2, "KnoxCustomManagerService"
 
     const-string/jumbo v3, "startUsbNet OK"
 
     invoke-static {v2, v3}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 331
     :goto_0
     return-void
 
+    .line 329
     :cond_0
     const-string v2, "KnoxCustomManagerService"
 

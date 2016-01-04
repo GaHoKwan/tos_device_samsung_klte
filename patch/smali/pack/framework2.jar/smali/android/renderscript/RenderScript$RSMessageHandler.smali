@@ -29,6 +29,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 940
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -39,5 +41,7 @@
 .method public run()V
     .locals 0
 
+    .prologue
+    .line 945
     return-void
 .end method

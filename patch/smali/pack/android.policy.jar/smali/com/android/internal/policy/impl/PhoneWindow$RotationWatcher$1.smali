@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;)V
     .locals 0
 
+    .prologue
+    .line 4233
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher$1;->this$0:Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 4235
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher$1;->this$0:Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/PhoneWindow$RotationWatcher;->dispatchRotationChanged()V
 
+    .line 4236
     return-void
 .end method

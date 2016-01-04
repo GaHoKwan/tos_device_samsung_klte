@@ -17,6 +17,7 @@
 # direct methods
 .method constructor <init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;)V
     .locals 0
+    .param p3, "seinfo"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -34,13 +35,22 @@
         }
     .end annotation
 
+    .prologue
+    .line 1108
+    .local p1, "policyPerms":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "pkgPolicy":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;>;"
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;-><init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;)V
 
+    .line 1109
     return-void
 .end method
 
 .method constructor <init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;ILjava/lang/String;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 0
+    .param p3, "seinfo"    # Ljava/lang/String;
+    .param p4, "category"    # I
+    .param p5, "allowCategory"    # Ljava/lang/String;
+    .param p6, "isContainerApp"    # Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,8 +78,15 @@
         }
     .end annotation
 
+    .prologue
+    .line 1116
+    .local p1, "policyPerms":Ljava/util/HashSet;, "Ljava/util/HashSet<Ljava/lang/String;>;"
+    .local p2, "pkgPolicy":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;>;"
+    .local p7, "trustedPackageNameList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .local p8, "noAuditPackageNameList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-direct/range {p0 .. p8}, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;-><init>(Ljava/util/HashSet;Ljava/util/HashMap;Ljava/lang/String;ILjava/lang/String;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
 
+    .line 1119
     return-void
 .end method
 
@@ -77,8 +94,11 @@
 # virtual methods
 .method public passedPolicyChecks(Landroid/content/pm/PackageParser$Package;)Z
     .locals 5
+    .param p1, "pkg"    # Landroid/content/pm/PackageParser$Package;
 
-    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$BlackListPolicy;->pkgPolicy:Ljava/util/HashMap;
+    .prologue
+    .line 1124
+    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;->pkgPolicy:Ljava/util/HashMap;
 
     iget-object v3, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
@@ -88,7 +108,8 @@
 
     if-eqz v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$BlackListPolicy;->pkgPolicy:Ljava/util/HashMap;
+    .line 1125
+    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;->pkgPolicy:Ljava/util/HashMap;
 
     iget-object v3, p1, Landroid/content/pm/PackageParser$Package;->packageName:Ljava/lang/String;
 
@@ -102,9 +123,11 @@
 
     move-result v2
 
+    .line 1137
     :goto_0
     return v2
 
+    .line 1128
     :cond_0
     iget-object v2, p1, Landroid/content/pm/PackageParser$Package;->requestedPermissions:Ljava/util/ArrayList;
 
@@ -112,6 +135,8 @@
 
     move-result-object v0
 
+    .line 1129
+    .local v0, "itr":Ljava/util/Iterator;
     :cond_1
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -119,13 +144,16 @@
 
     if-eqz v2, :cond_2
 
+    .line 1130
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$BlackListPolicy;->policyPerms:Ljava/util/HashSet;
+    .line 1131
+    .local v1, "perm":Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/server/pm/SELinuxMMAC$InstallPolicy;->policyPerms:Ljava/util/HashSet;
 
     invoke-virtual {v2, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
@@ -133,6 +161,7 @@
 
     if-eqz v2, :cond_1
 
+    .line 1132
     const-string v2, "SELinuxMMAC"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -167,10 +196,13 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1134
     const/4 v2, 0x0
 
     goto :goto_0
 
+    .line 1137
+    .end local v1    # "perm":Ljava/lang/String;
     :cond_2
     const/4 v2, 0x1
 
@@ -180,6 +212,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1142
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

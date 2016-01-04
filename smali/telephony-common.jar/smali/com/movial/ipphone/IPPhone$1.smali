@@ -94,7 +94,7 @@
 
     .line 240
     .local v3, "e":Landroid/util/AndroidRuntimeException;
-    invoke-virtual {v3}, Landroid/util/AndroidRuntimeException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v4
 
@@ -121,7 +121,7 @@
 
     move-result-object v10
 
-    invoke-virtual {v3}, Landroid/util/AndroidRuntimeException;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v11
 
@@ -148,7 +148,7 @@
     .line 246
     iget-object v9, p0, Lcom/movial/ipphone/IPPhone$1;->this$0:Lcom/movial/ipphone/IPPhone;
 
-    # getter for: Lcom/movial/ipphone/IPPhone;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
+    # getter for: Lcom/android/internal/telephony/PhoneBase;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
     invoke-static {v9}, Lcom/movial/ipphone/IPPhone;->access$700(Lcom/movial/ipphone/IPPhone;)Landroid/os/RegistrantList;
 
     move-result-object v9
@@ -366,7 +366,7 @@
     .line 202
     iget-object v9, p0, Lcom/movial/ipphone/IPPhone$1;->this$0:Lcom/movial/ipphone/IPPhone;
 
-    # getter for: Lcom/movial/ipphone/IPPhone;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
+    # getter for: Lcom/android/internal/telephony/PhoneBase;->mMmiCompleteRegistrants:Landroid/os/RegistrantList;
     invoke-static {v9}, Lcom/movial/ipphone/IPPhone;->access$400(Lcom/movial/ipphone/IPPhone;)Landroid/os/RegistrantList;
 
     move-result-object v9

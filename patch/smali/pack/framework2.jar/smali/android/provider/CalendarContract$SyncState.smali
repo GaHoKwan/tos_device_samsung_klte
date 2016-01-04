@@ -27,6 +27,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 2569
     sget-object v0, Landroid/provider/CalendarContract;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "syncstate"
@@ -43,6 +45,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 2561
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

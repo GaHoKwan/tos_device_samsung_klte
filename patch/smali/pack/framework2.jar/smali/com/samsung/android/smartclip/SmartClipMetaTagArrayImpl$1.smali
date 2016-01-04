@@ -31,6 +31,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 205
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -40,25 +42,35 @@
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
     .locals 3
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 207
     const-string v1, "SmartClipMetaTagArrayImpl"
 
     const-string v2, "SmartClipMetaTagArrayImpl.createFromParcel called"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 209
     new-instance v0, Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
 
     invoke-direct {v0}, Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;-><init>()V
 
+    .line 210
+    .local v0, "data":Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
     invoke-virtual {v0, p1}, Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;->readFromParcel(Landroid/os/Parcel;)V
 
+    .line 211
     return-object v0
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 205
     invoke-virtual {p0, p1}, Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl$1;->createFromParcel(Landroid/os/Parcel;)Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
 
     move-result-object v0
@@ -68,7 +80,10 @@
 
 .method public newArray(I)[Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
     .locals 1
+    .param p1, "size"    # I
 
+    .prologue
+    .line 215
     new-array v0, p1, [Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
 
     return-object v0
@@ -76,7 +91,10 @@
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
     .locals 1
+    .param p1, "x0"    # I
 
+    .prologue
+    .line 205
     invoke-virtual {p0, p1}, Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl$1;->newArray(I)[Lcom/samsung/android/smartclip/SmartClipMetaTagArrayImpl;
 
     move-result-object v0

@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions$5$1;)V
     .locals 0
 
+    .prologue
+    .line 804
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,9 +38,13 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 5
+    .param p1, "arg0"    # Landroid/content/DialogInterface;
+    .param p2, "arg1"    # I
 
+    .prologue
     const/4 v4, -0x2
 
+    .line 808
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -67,6 +73,7 @@
 
     invoke-virtual {v1, v2, v3}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->turnOffTalkBackExclusiveOptions(Landroid/content/Context;I)V
 
+    .line 809
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -88,6 +95,7 @@
 
     invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
+    .line 813
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -109,12 +117,15 @@
 
     invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
+    .line 815
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.settings.action.talkback_off"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 816
+    .local v0, "talk_back_off":Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -130,6 +141,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 817
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -138,5 +150,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions$5;->changeStateFromPress(Z)V
 
+    .line 818
     return-void
 .end method

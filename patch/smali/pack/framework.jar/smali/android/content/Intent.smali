@@ -8823,7 +8823,7 @@
     invoke-virtual/range {v0 .. v5}, Landroid/content/Intent;->toShortString(Ljava/lang/StringBuilder;ZZZZ)V
 
     .line 7361
-    const-string v0, "}"
+    const-string/jumbo v0, "}"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

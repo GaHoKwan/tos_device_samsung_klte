@@ -790,7 +790,7 @@
                 <action android:name="com.carrieriq.iqagent.ENABLETOGGLE"/>
             </intent-filter>
         </receiver>
-        <activity android:enabled="true" android:exported="false" android:label="IQ Agent Settings" android:name="com.carrieriq.iqagent.service.ui.UserPage">
+        <activity android:enabled="true" android:label="IQ Agent Settings" android:name="com.carrieriq.iqagent.service.ui.UserPage">
             <intent-filter>
                 <action android:name="com.carrieriq.iqagent.service.ui.DebugSettings"/>
                 <category android:name="android.intent.category.DEFAULT"/>

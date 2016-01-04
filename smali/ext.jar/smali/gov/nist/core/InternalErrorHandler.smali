@@ -37,7 +37,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -52,7 +52,7 @@
     invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
     .line 44
-    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 45
     new-instance v0, Ljava/lang/RuntimeException;
@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -103,7 +103,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v1
 
@@ -143,7 +143,7 @@
     invoke-interface {p1, v0}, Lgov/nist/core/StackLogger;->logError(Ljava/lang/String;)V
 
     .line 54
-    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 55
     invoke-interface {p1, p0}, Lgov/nist/core/StackLogger;->logException(Ljava/lang/Throwable;)V
@@ -161,7 +161,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v2
 
@@ -188,7 +188,7 @@
 
     invoke-direct {v0}, Ljava/lang/Exception;-><init>()V
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 65
     sget-object v0, Ljava/lang/System;->err:Ljava/io/PrintStream;

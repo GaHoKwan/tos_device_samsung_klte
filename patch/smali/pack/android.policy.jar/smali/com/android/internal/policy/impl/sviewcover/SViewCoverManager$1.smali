@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;)V
     .locals 0
 
+    .prologue
+    .line 85
     iput-object p1, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager$1;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 89
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager$1;->this$0:Lcom/android/internal/policy/impl/sviewcover/SViewCoverManager;
 
@@ -55,13 +59,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 93
     :goto_0
     return-void
 
+    .line 90
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 91
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

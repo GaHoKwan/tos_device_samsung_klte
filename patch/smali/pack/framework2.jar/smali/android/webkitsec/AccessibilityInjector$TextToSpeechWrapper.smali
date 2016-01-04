@@ -48,6 +48,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 693
     const-class v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -61,29 +63,36 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const/4 v4, 0x0
 
+    .line 713
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 695
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
+    .line 805
     new-instance v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper$1;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper$1;-><init>(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;)V
 
     iput-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
 
+    .line 834
     new-instance v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper$2;
 
     invoke-direct {v0, p0}, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper$2;-><init>(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;)V
 
     iput-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mErrorListener:Landroid/speech/tts/UtteranceProgressListener;
 
+    .line 714
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -91,6 +100,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 715
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -141,21 +151,27 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 719
     :cond_0
     invoke-virtual {p1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v6
 
+    .line 721
+    .local v6, "pkgName":Ljava/lang/String;
     iput-boolean v4, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
+    .line 722
     iput-boolean v4, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mShutdown:Z
 
+    .line 724
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsParams:Ljava/util/HashMap;
 
+    .line 725
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsParams:Ljava/util/HashMap;
 
     const-string/jumbo v1, "utteranceId"
@@ -164,6 +180,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 727
     new-instance v0, Landroid/speech/tts/TextToSpeech;
 
     iget-object v2, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mInitListener:Landroid/speech/tts/TextToSpeech$OnInitListener;
@@ -196,18 +213,23 @@
 
     iput-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
+    .line 729
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mErrorListener:Landroid/speech/tts/UtteranceProgressListener;
 
     invoke-virtual {v0, v1}, Landroid/speech/tts/TextToSpeech;->setOnUtteranceProgressListener(Landroid/speech/tts/UtteranceProgressListener;)I
 
+    .line 730
     return-void
 .end method
 
 .method static synthetic access$600(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;)Ljava/lang/Object;
     .locals 1
+    .param p0, "x0"    # Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;
 
+    .prologue
+    .line 692
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
     return-object v0
@@ -215,7 +237,10 @@
 
 .method static synthetic access$700(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;)Z
     .locals 1
+    .param p0, "x0"    # Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;
 
+    .prologue
+    .line 692
     iget-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mShutdown:Z
 
     return v0
@@ -224,6 +249,8 @@
 .method static synthetic access$800()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 692
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     return-object v0
@@ -231,7 +258,11 @@
 
 .method static synthetic access$902(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;Z)Z
     .locals 0
+    .param p0, "x0"    # Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;
+    .param p1, "x1"    # Z
 
+    .prologue
+    .line 692
     iput-boolean p1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
     return p1
@@ -244,19 +275,24 @@
     .annotation runtime Landroid/webkitsec/JavascriptInterface;
     .end annotation
 
+    .prologue
+    .line 736
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 737
     :try_start_0
     iget-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
     if-nez v0, :cond_0
 
+    .line 738
     const/4 v0, 0x0
 
     monitor-exit v1
 
+    .line 741
     :goto_0
     return v0
 
@@ -271,6 +307,7 @@
 
     goto :goto_0
 
+    .line 742
     :catchall_0
     move-exception v0
 
@@ -284,15 +321,19 @@
 .method protected shutdown()V
     .locals 5
 
+    .prologue
+    .line 788
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 789
     :try_start_0
     iget-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
     if-nez v0, :cond_1
 
+    .line 790
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -300,6 +341,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 791
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -332,24 +374,30 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 799
     :cond_0
     :goto_0
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mShutdown:Z
 
+    .line 800
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
+    .line 801
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
     invoke-virtual {v0}, Landroid/speech/tts/TextToSpeech;->shutdown()V
 
+    .line 802
     monitor-exit v1
 
+    .line 803
     return-void
 
+    .line 794
     :cond_1
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
@@ -358,6 +406,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 795
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -416,6 +465,7 @@
 
     goto :goto_0
 
+    .line 802
     :catchall_0
     move-exception v0
 
@@ -428,6 +478,8 @@
 
 .method public speak(Ljava/lang/String;ILjava/util/HashMap;)I
     .locals 4
+    .param p1, "text"    # Ljava/lang/String;
+    .param p2, "queueMode"    # I
     .annotation runtime Landroid/webkitsec/JavascriptInterface;
     .end annotation
 
@@ -444,15 +496,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 749
+    .local p3, "params":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;"
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 750
     :try_start_0
     iget-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
     if-nez v0, :cond_1
 
+    .line 751
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -460,6 +517,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 752
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -492,14 +550,17 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 754
     :cond_0
     const/4 v0, -0x1
 
     monitor-exit v1
 
+    .line 761
     :goto_0
     return v0
 
+    .line 756
     :cond_1
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
@@ -508,6 +569,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 757
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -540,6 +602,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 761
     :cond_2
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
@@ -551,6 +614,7 @@
 
     goto :goto_0
 
+    .line 762
     :catchall_0
     move-exception v0
 
@@ -566,15 +630,19 @@
     .annotation runtime Landroid/webkitsec/JavascriptInterface;
     .end annotation
 
+    .prologue
+    .line 769
     iget-object v1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTtsLock:Ljava/lang/Object;
 
     monitor-enter v1
 
+    .line 770
     :try_start_0
     iget-boolean v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mReady:Z
 
     if-nez v0, :cond_1
 
+    .line 771
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -582,6 +650,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 772
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -614,14 +683,17 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 774
     :cond_0
     const/4 v0, -0x1
 
     monitor-exit v1
 
+    .line 781
     :goto_0
     return v0
 
+    .line 776
     :cond_1
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
@@ -630,6 +702,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 777
     sget-object v0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -662,6 +735,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 781
     :cond_2
     iget-object v0, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
@@ -673,6 +747,7 @@
 
     goto :goto_0
 
+    .line 782
     :catchall_0
     move-exception v0
 

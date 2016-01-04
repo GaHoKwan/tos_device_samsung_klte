@@ -14,10 +14,13 @@
 .method public constructor <init>(Lcom/absolute/android/persistservice/ABTPersistenceService;)V
     .locals 0
 
+    .prologue
+    .line 3430
     iput-object p1, p0, Lcom/absolute/android/persistservice/b;->a:Lcom/absolute/android/persistservice/ABTPersistenceService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3431
     return-void
 .end method
 
@@ -26,6 +29,8 @@
 .method public final accept(Ljava/io/File;Ljava/lang/String;)Z
     .locals 1
 
+    .prologue
+    .line 3434
     invoke-static {}, Lcom/absolute/android/persistservice/ABTPersistenceService;->c()Ljava/lang/String;
 
     move-result-object v0

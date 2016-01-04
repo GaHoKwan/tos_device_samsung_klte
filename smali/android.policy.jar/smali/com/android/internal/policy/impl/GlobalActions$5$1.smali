@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions$5;ZZLjava/lang/String;I)V
     .locals 0
 
+    .prologue
+    .line 786
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->val$bIsEnable:Z
@@ -52,19 +54,25 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 8
+    .param p1, "arg0"    # Landroid/content/DialogInterface;
+    .param p2, "arg1"    # I
 
+    .prologue
     const/4 v7, -0x2
 
     const/4 v6, 0x1
 
+    .line 790
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->val$bIsEnable:Z
 
     if-nez v3, :cond_2
 
+    .line 791
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->val$is_enabled:Z
 
     if-nez v3, :cond_0
 
+    .line 792
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -84,6 +92,7 @@
 
     invoke-static {v3, v4, v5, v7}, Landroid/provider/Settings$Secure;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
+    .line 796
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -101,12 +110,15 @@
 
     invoke-static {v3, v4, v6, v7}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
 
+    .line 798
     new-instance v2, Landroid/content/Intent;
 
     const-string v3, "com.android.settings.action.talkback_off"
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 799
+    .local v2, "talk_back_off":Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -120,13 +132,17 @@
 
     invoke-virtual {v3, v2, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 843
+    .end local v2    # "talk_back_off":Landroid/content/Intent;
     :goto_0
     return-void
 
+    .line 801
     :cond_0
     # setter for: Lcom/android/internal/policy/impl/GlobalActions;->sIsSecondConfirming:Z
     invoke-static {v6}, Lcom/android/internal/policy/impl/GlobalActions;->access$002(Z)Z
 
+    .line 802
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
@@ -140,10 +156,13 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
+    .line 803
+    .local v0, "_builder":Landroid/app/AlertDialog$Builder;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->val$disableExclusiveOptionsMessage:Ljava/lang/String;
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
+    .line 804
     const v3, 0x104000a
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$5$1$1;
@@ -152,6 +171,7 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
+    .line 820
     const/high16 v3, 0x1040000
 
     new-instance v4, Lcom/android/internal/policy/impl/GlobalActions$5$1$2;
@@ -160,10 +180,13 @@
 
     invoke-virtual {v0, v3, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
+    .line 826
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
+    .line 827
+    .local v1, "_dialog":Landroid/app/AlertDialog;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -175,7 +198,8 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    .line 828
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v3
 
@@ -183,6 +207,7 @@
 
     invoke-virtual {v3, v4}, Landroid/view/Window;->setType(I)V
 
+    .line 832
     :goto_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
@@ -195,6 +220,7 @@
 
     iput-object v1, v3, Lcom/android/internal/policy/impl/GlobalActions$ConfirmDialogReceiver;->dialog:Landroid/app/AlertDialog;
 
+    .line 833
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -204,8 +230,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v1, v3}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v3}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
+    .line 834
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -213,12 +240,14 @@
     # setter for: Lcom/android/internal/policy/impl/GlobalActions;->mConfirmDialog:Landroid/app/AlertDialog;
     invoke-static {v3, v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$2102(Lcom/android/internal/policy/impl/GlobalActions;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
+    .line 835
+    invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     goto :goto_0
 
+    .line 830
     :cond_1
-    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object v3
 
@@ -228,6 +257,9 @@
 
     goto :goto_1
 
+    .line 839
+    .end local v0    # "_builder":Landroid/app/AlertDialog$Builder;
+    .end local v1    # "_dialog":Landroid/app/AlertDialog;
     :cond_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
@@ -247,12 +279,15 @@
 
     invoke-static {v3}, Lcom/android/internal/policy/impl/GlobalActions$GlobalActionsDialog;->turnOffTalkBack(Landroid/content/Context;)Z
 
+    .line 840
     new-instance v2, Landroid/content/Intent;
 
     const-string v3, "com.android.settings.action.talkback_off"
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 841
+    .restart local v2    # "talk_back_off":Landroid/content/Intent;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     iget-object v3, v3, Lcom/android/internal/policy/impl/GlobalActions$5;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -266,6 +301,7 @@
 
     invoke-virtual {v3, v2, v4}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
+    .line 842
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1;->this$1:Lcom/android/internal/policy/impl/GlobalActions$5;
 
     invoke-virtual {v3, v6}, Lcom/android/internal/policy/impl/GlobalActions$5;->changeStateFromPress(Z)V

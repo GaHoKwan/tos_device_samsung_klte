@@ -625,7 +625,7 @@
 
     .line 174
     .local v1, "e":Ljava/security/NoSuchAlgorithmException;
-    invoke-virtual {v1}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     .line 176
     const/4 v2, 0x0

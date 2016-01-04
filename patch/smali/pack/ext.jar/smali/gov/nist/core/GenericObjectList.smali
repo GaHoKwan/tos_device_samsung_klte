@@ -463,7 +463,7 @@
 
     .line 129
     .local v2, "retval":Lgov/nist/core/GenericObjectList;
-    invoke-virtual {v2}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v2}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
@@ -524,7 +524,7 @@
     if-nez p2, :cond_0
 
     .line 241
-    invoke-virtual {p0, p1}, Lgov/nist/core/GenericObjectList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {p0, p1}, Ljava/util/LinkedList;->addAll(Ljava/util/Collection;)Z
 
     .line 246
     :goto_0
@@ -534,7 +534,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0, p1}, Lgov/nist/core/GenericObjectList;->addAll(ILjava/util/Collection;)Z
+    invoke-virtual {p0, v0, p1}, Ljava/util/LinkedList;->addAll(ILjava/util/Collection;)Z
 
     goto :goto_0
 .end method
@@ -656,7 +656,7 @@
 
     .prologue
     .line 348
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->isEmpty()Z
+    invoke-virtual {p0}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v4
 
@@ -677,7 +677,7 @@
 
     .line 351
     .local v0, "encoding":Ljava/lang/StringBuffer;
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
 
@@ -788,18 +788,18 @@
 
     .line 405
     .local v5, "that":Lgov/nist/core/GenericObjectList;
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->size()I
+    invoke-virtual {p0}, Ljava/util/LinkedList;->size()I
 
     move-result v7
 
-    invoke-virtual {v5}, Lgov/nist/core/GenericObjectList;->size()I
+    invoke-virtual {v5}, Ljava/util/LinkedList;->size()I
 
     move-result v8
 
     if-ne v7, v8, :cond_0
 
     .line 407
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v3
 
@@ -819,7 +819,7 @@
 
     .line 410
     .local v4, "myobj":Ljava/lang/Object;
-    invoke-virtual {v5}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v5}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 
@@ -857,7 +857,7 @@
     .end local v1    # "hisIterator":Ljava/util/ListIterator;
     .end local v4    # "myobj":Ljava/lang/Object;
     :cond_3
-    invoke-virtual {v5}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v5}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 
@@ -877,7 +877,7 @@
 
     .line 424
     .restart local v2    # "hisobj":Ljava/lang/Object;
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v3
 
@@ -925,7 +925,7 @@
     .line 196
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Lgov/nist/core/GenericObjectList;->listIterator(I)Ljava/util/ListIterator;
+    invoke-virtual {p0, v1}, Ljava/util/LinkedList;->listIterator(I)Ljava/util/ListIterator;
 
     move-result-object v1
 
@@ -1027,7 +1027,7 @@
 
     .line 451
     .local v4, "that":Lgov/nist/core/GenericObjectList;
-    invoke-virtual {v4}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {v4}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v0
 
@@ -1050,7 +1050,7 @@
 
     .line 455
     .local v3, "myobj":Ljava/lang/Object;
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
 
@@ -1197,13 +1197,13 @@
 
     .line 330
     :cond_1
-    invoke-virtual {p0}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p0}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v1
 
     .line 331
     .local v1, "it1":Ljava/util/Iterator;
-    invoke-virtual {p1}, Lgov/nist/core/GenericObjectList;->listIterator()Ljava/util/ListIterator;
+    invoke-virtual {p1}, Ljava/util/AbstractList;->listIterator()Ljava/util/ListIterator;
 
     move-result-object v2
 
@@ -1258,7 +1258,7 @@
     .line 209
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v1}, Lgov/nist/core/GenericObjectList;->listIterator(I)Ljava/util/ListIterator;
+    invoke-virtual {p0, v1}, Ljava/util/LinkedList;->listIterator(I)Ljava/util/ListIterator;
 
     move-result-object v1
 

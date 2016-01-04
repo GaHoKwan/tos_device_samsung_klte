@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/glancecard/GlanceCardManagerService;)V
     .locals 0
 
+    .prologue
+    .line 395
     iput-object p1, p0, Lcom/android/server/glancecard/GlanceCardManagerService$1;->this$0:Lcom/android/server/glancecard/GlanceCardManagerService;
 
     invoke-direct {p0}, Lcom/android/internal/app/IUsageStatsWatcher$Stub;-><init>()V
@@ -33,12 +35,15 @@
 # virtual methods
 .method public notePauseComponent(Landroid/content/ComponentName;)V
     .locals 3
+    .param p1, "arg0"    # Landroid/content/ComponentName;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 404
     iget-object v0, p0, Lcom/android/server/glancecard/GlanceCardManagerService$1;->this$0:Lcom/android/server/glancecard/GlanceCardManagerService;
 
     # getter for: Lcom/android/server/glancecard/GlanceCardManagerService;->mCurrentComponent:Landroid/content/ComponentName;
@@ -70,6 +75,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 405
     # getter for: Lcom/android/server/glancecard/GlanceCardManagerService;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/glancecard/GlanceCardManagerService;->access$200()Ljava/lang/String;
 
@@ -102,6 +108,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 406
     iget-object v0, p0, Lcom/android/server/glancecard/GlanceCardManagerService$1;->this$0:Lcom/android/server/glancecard/GlanceCardManagerService;
 
     const/4 v1, 0x6
@@ -111,17 +118,22 @@
     # invokes: Lcom/android/server/glancecard/GlanceCardManagerService;->sendCardsAndCommand(Landroid/content/ComponentName;II)V
     invoke-static {v0, p1, v1, v2}, Lcom/android/server/glancecard/GlanceCardManagerService;->access$300(Lcom/android/server/glancecard/GlanceCardManagerService;Landroid/content/ComponentName;II)V
 
+    .line 408
     :cond_0
     return-void
 .end method
 
 .method public noteResumeComponent(Landroid/content/ComponentName;Landroid/content/Intent;)V
     .locals 0
+    .param p1, "arg0"    # Landroid/content/ComponentName;
+    .param p2, "arg1"    # Landroid/content/Intent;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 400
     return-void
 .end method

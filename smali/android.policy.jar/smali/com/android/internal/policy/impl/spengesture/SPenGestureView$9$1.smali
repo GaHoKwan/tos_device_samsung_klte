@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;)V
     .locals 0
 
+    .prologue
+    .line 1767
     iput-object p1, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,10 @@
 .method public run()V
     .locals 9
 
+    .prologue
     const/4 v8, 0x1
 
+    .line 1770
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -46,32 +50,40 @@
     # invokes: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->SaveImage()Z
     invoke-static {v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$7100(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;)Z
 
+    .line 1771
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
+    .line 1772
+    .local v1, "suggestionInfo":Landroid/os/Bundle;
     new-instance v0, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.MAIN"
 
     invoke-direct {v0, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 1773
+    .local v0, "intent":Landroid/content/Intent;
     const-string v2, "android.intent.category.SUGGESTIONAPP"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1774
     const-string v2, "suggestionType"
 
     const-string v3, "IMAGE_CROP"
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1775
     const-string v2, "srcCropPath"
 
     const-string v3, "/data/easyclip/crop_image.png"
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1776
     const-string v2, "cropPath"
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
@@ -85,12 +97,14 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1778
     const-string v2, "srcCropPathForAnimation"
 
     const-string v3, "/data/easyclip/crop_image_anim.png"
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1779
     const-string v2, "cropPathForAnimation"
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
@@ -104,6 +118,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1781
     const-string v2, "cropRect"
 
     new-instance v3, Landroid/graphics/Rect;
@@ -148,8 +163,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
+    .line 1782
     invoke-virtual {v0, v1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
+    .line 1784
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -161,6 +178,7 @@
 
     if-nez v2, :cond_0
 
+    .line 1785
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -172,6 +190,7 @@
 
     invoke-virtual {v2, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
+    .line 1786
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -179,6 +198,7 @@
     # setter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mIsStartingSuggestionService:Z
     invoke-static {v2, v8}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$7402(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;Z)Z
 
+    .line 1787
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -190,6 +210,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1788
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -201,6 +222,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1789
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -212,6 +234,7 @@
 
     invoke-virtual {v2}, Landroid/graphics/Path;->reset()V
 
+    .line 1792
     :cond_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
@@ -224,6 +247,7 @@
 
     invoke-virtual {v2, v8}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 1793
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -237,12 +261,14 @@
 
     invoke-virtual {v2, v3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
+    .line 1794
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/os/Looper;->quit()V
 
+    .line 1795
     iget-object v2, p0, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9$1;->this$1:Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;
 
     iget-object v2, v2, Lcom/android/internal/policy/impl/spengesture/SPenGestureView$9;->this$0:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -252,5 +278,6 @@
     # setter for: Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->mIsLiveCropThread:Z
     invoke-static {v2, v3}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->access$902(Lcom/android/internal/policy/impl/spengesture/SPenGestureView;Z)Z
 
+    .line 1796
     return-void
 .end method

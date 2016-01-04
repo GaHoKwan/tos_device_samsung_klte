@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService$5;)V
     .locals 0
 
+    .prologue
+    .line 3286
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$5$1;->this$1:Lcom/android/server/pm/PersonaManagerService$5;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -34,6 +36,8 @@
 .method public run()V
     .locals 5
 
+    .prologue
+    .line 3288
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$5$1;->this$1:Lcom/android/server/pm/PersonaManagerService$5;
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
@@ -45,6 +49,7 @@
 
     monitor-enter v1
 
+    .line 3289
     :try_start_0
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$5$1;->this$1:Lcom/android/server/pm/PersonaManagerService$5;
 
@@ -59,6 +64,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
+    .line 3290
     :try_start_1
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$5$1;->this$1:Lcom/android/server/pm/PersonaManagerService$5;
 
@@ -73,6 +79,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
+    .line 3291
     :try_start_2
     const-string v0, "PersonaManagerService"
 
@@ -80,6 +87,7 @@
 
     invoke-static {v0, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 3292
     iget-object v0, p0, Lcom/android/server/pm/PersonaManagerService$5$1;->this$1:Lcom/android/server/pm/PersonaManagerService$5;
 
     iget-object v0, v0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
@@ -91,22 +99,27 @@
     # invokes: Lcom/android/server/pm/PersonaManagerService;->removeUserStateLocked(I)V
     invoke-static {v0, v4}, Lcom/android/server/pm/PersonaManagerService;->access$2200(Lcom/android/server/pm/PersonaManagerService;I)V
 
+    .line 3293
     monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 3294
     :try_start_3
     monitor-exit v2
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
+    .line 3295
     :try_start_4
     monitor-exit v1
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
+    .line 3297
     return-void
 
+    .line 3293
     :catchall_0
     move-exception v0
 
@@ -118,6 +131,7 @@
     :try_start_6
     throw v0
 
+    .line 3294
     :catchall_1
     move-exception v0
 
@@ -128,6 +142,7 @@
     :try_start_7
     throw v0
 
+    .line 3295
     :catchall_2
     move-exception v0
 

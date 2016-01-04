@@ -155,7 +155,7 @@
 
     sget-object v2, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    invoke-virtual {v0}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -544,7 +544,7 @@
 
     sget-object v6, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    invoke-virtual {v0}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v7
 
@@ -669,7 +669,7 @@
 
     sget-object v5, Ljava/util/logging/Level;->WARNING:Ljava/util/logging/Level;
 
-    invoke-virtual {v0}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v6
 

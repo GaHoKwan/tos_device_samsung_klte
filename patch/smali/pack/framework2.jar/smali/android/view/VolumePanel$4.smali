@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/VolumePanel;)V
     .locals 0
 
+    .prologue
+    .line 542
     iput-object p1, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 544
     # getter for: Landroid/view/VolumePanel;->LOGD:Z
     invoke-static {}, Landroid/view/VolumePanel;->access$300()Z
 
@@ -50,6 +55,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 545
     :cond_0
     # getter for: Landroid/view/VolumePanel;->LOGD:Z
     invoke-static {}, Landroid/view/VolumePanel;->access$300()Z
@@ -64,6 +70,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 546
     :cond_1
     iget-object v0, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
 
@@ -71,6 +78,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/VolumePanel;->setSeekbarSlidingAnimation(Z)V
 
+    .line 547
     iget-object v0, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
 
     const/4 v1, -0x1
@@ -78,6 +86,7 @@
     # setter for: Landroid/view/VolumePanel;->mActiveStreamType:I
     invoke-static {v0, v1}, Landroid/view/VolumePanel;->access$702(Landroid/view/VolumePanel;I)I
 
+    .line 548
     iget-object v0, p0, Landroid/view/VolumePanel$4;->this$0:Landroid/view/VolumePanel;
 
     # getter for: Landroid/view/VolumePanel;->mAudioManager:Landroid/media/AudioManager;
@@ -94,5 +103,6 @@
 
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->forceVolumeControlStream(I)V
 
+    .line 549
     return-void
 .end method

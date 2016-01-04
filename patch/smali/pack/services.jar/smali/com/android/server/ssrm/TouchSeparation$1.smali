@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/TouchSeparation;)V
     .locals 0
 
+    .prologue
+    .line 149
     iput-object p1, p0, Lcom/android/server/ssrm/TouchSeparation$1;->this$0:Lcom/android/server/ssrm/TouchSeparation;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,16 +35,21 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 152
     const-string v0, "SSRMv2:TouchSeparation"
 
     const-string v1, "handleMessage() ++"
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 153
     iget-object v0, p0, Lcom/android/server/ssrm/TouchSeparation$1;->this$0:Lcom/android/server/ssrm/TouchSeparation;
 
     invoke-virtual {v0}, Lcom/android/server/ssrm/TouchSeparation;->updateTouchMode()V
 
+    .line 154
     return-void
 .end method

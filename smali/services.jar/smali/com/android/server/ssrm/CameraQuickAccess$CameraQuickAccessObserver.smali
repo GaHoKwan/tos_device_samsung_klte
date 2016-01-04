@@ -22,14 +22,18 @@
 .method constructor <init>(Lcom/android/server/ssrm/CameraQuickAccess;)V
     .locals 1
 
+    .prologue
+    .line 43
     iput-object p1, p0, Lcom/android/server/ssrm/CameraQuickAccess$CameraQuickAccessObserver;->this$0:Lcom/android/server/ssrm/CameraQuickAccess;
 
+    .line 44
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 45
     return-void
 .end method
 
@@ -37,7 +41,10 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 5
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 49
     iget-object v1, p0, Lcom/android/server/ssrm/CameraQuickAccess$CameraQuickAccessObserver;->this$0:Lcom/android/server/ssrm/CameraQuickAccess;
 
     iget-object v1, v1, Lcom/android/server/ssrm/CameraQuickAccess;->mResolver:Landroid/content/ContentResolver;
@@ -52,6 +59,8 @@
 
     move-result v0
 
+    .line 51
+    .local v0, "value":I
     const-string v1, "SSRMv2:CameraQuickAccess"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -74,5 +83,6 @@
 
     invoke-static {v1, v2}, Lcom/android/server/ssrm/SSRMUtil;->updateTouchBooster(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 52
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/webkitsec/WebIconDatabaseClassic$EventHandler;)V
     .locals 0
 
+    .prologue
+    .line 83
     iput-object p1, p0, Landroid/webkitsec/WebIconDatabaseClassic$EventHandler$1;->this$0:Landroid/webkitsec/WebIconDatabaseClassic$EventHandler;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,14 +35,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 4
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 88
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 119
     :goto_0
     return-void
 
+    .line 90
     :pswitch_0
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -51,23 +58,28 @@
 
     goto :goto_0
 
+    .line 94
     :pswitch_1
     # invokes: Landroid/webkitsec/WebIconDatabaseClassic;->nativeClose()V
     invoke-static {}, Landroid/webkitsec/WebIconDatabaseClassic;->access$200()V
 
     goto :goto_0
 
+    .line 98
     :pswitch_2
     # invokes: Landroid/webkitsec/WebIconDatabaseClassic;->nativeRemoveAllIcons()V
     invoke-static {}, Landroid/webkitsec/WebIconDatabaseClassic;->access$300()V
 
     goto :goto_0
 
+    .line 102
     :pswitch_3
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Landroid/webkitsec/WebIconDatabase$IconListener;
 
+    .line 103
+    .local v0, "l":Landroid/webkitsec/WebIconDatabase$IconListener;
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v2
@@ -78,6 +90,8 @@
 
     move-result-object v1
 
+    .line 104
+    .local v1, "url":Ljava/lang/String;
     iget-object v2, p0, Landroid/webkitsec/WebIconDatabaseClassic$EventHandler$1;->this$0:Landroid/webkitsec/WebIconDatabaseClassic$EventHandler;
 
     # invokes: Landroid/webkitsec/WebIconDatabaseClassic$EventHandler;->requestIconAndSendResult(Ljava/lang/String;Landroid/webkitsec/WebIconDatabase$IconListener;)V
@@ -85,6 +99,9 @@
 
     goto :goto_0
 
+    .line 108
+    .end local v0    # "l":Landroid/webkitsec/WebIconDatabase$IconListener;
+    .end local v1    # "url":Ljava/lang/String;
     :pswitch_4
     iget-object v2, p0, Landroid/webkitsec/WebIconDatabaseClassic$EventHandler$1;->this$0:Landroid/webkitsec/WebIconDatabaseClassic$EventHandler;
 
@@ -93,6 +110,7 @@
 
     goto :goto_0
 
+    .line 112
     :pswitch_5
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -103,6 +121,7 @@
 
     goto :goto_0
 
+    .line 116
     :pswitch_6
     iget-object v2, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -113,6 +132,7 @@
 
     goto :goto_0
 
+    .line 88
     nop
 
     :pswitch_data_0

@@ -279,7 +279,7 @@
 
     .line 356
     .local v1, "e":Ljava/lang/SecurityException;
-    invoke-virtual {v1}, Ljava/lang/SecurityException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -290,7 +290,7 @@
 
     .line 362
     .local v1, "e":Ljava/lang/IllegalArgumentException;
-    invoke-virtual {v1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -301,7 +301,7 @@
 
     .line 368
     .local v1, "e":Ljava/lang/NoSuchFieldException;
-    invoke-virtual {v1}, Ljava/lang/NoSuchFieldException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
@@ -312,7 +312,7 @@
 
     .line 374
     .local v1, "e":Ljava/lang/IllegalAccessException;
-    invoke-virtual {v1}, Ljava/lang/IllegalAccessException;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -465,7 +465,7 @@
     .line 472
     const/4 v7, 0x1
 
-    invoke-virtual {v2, v7}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+    invoke-virtual {v2, v7}, Ljava/lang/reflect/AccessibleObject;->setAccessible(Z)V
 
     .line 474
     invoke-virtual {v2, v0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1249,7 +1249,7 @@
     .line 322
     .local v2, "e":Lorg/apache/http/HttpException;
     :try_start_3
-    invoke-virtual {v2}, Lorg/apache/http/HttpException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1271,7 +1271,7 @@
     .line 328
     .local v2, "e":Ljava/io/IOException;
     :try_start_4
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
@@ -1403,7 +1403,7 @@
 
     .line 710
     .local v0, "e":Ljava/io/IOException;
-    invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     .end local v0    # "e":Ljava/io/IOException;
     :cond_1

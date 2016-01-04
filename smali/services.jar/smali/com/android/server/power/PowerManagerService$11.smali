@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
 
+    .prologue
+    .line 5894
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$11;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,8 +39,12 @@
 .method public run()V
     .locals 8
 
+    .prologue
+    .line 5896
     const/4 v2, 0x0
 
+    .line 5899
+    .local v2, "process":Ljava/lang/Process;
     :try_start_0
     new-instance v0, Ljava/io/File;
 
@@ -46,14 +52,18 @@
 
     invoke-direct {v0, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 5900
+    .local v0, "dataLogDirectory":Ljava/io/File;
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v5
 
     if-nez v5, :cond_0
 
+    .line 5901
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
+    .line 5904
     :cond_0
     const/4 v5, 0x3
 
@@ -77,6 +87,8 @@
 
     aput-object v6, v4, v5
 
+    .line 5906
+    .local v4, "shellCommandForLogcat":[Ljava/lang/String;
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v5
@@ -85,8 +97,10 @@
 
     move-result-object v2
 
+    .line 5907
     invoke-virtual {v2}, Ljava/lang/Process;->waitFor()I
 
+    .line 5909
     const/4 v5, 0x3
 
     new-array v3, v5, [Ljava/lang/String;
@@ -109,6 +123,8 @@
 
     aput-object v6, v3, v5
 
+    .line 5910
+    .local v3, "shellCommandForDumpsys":[Ljava/lang/String;
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
 
     move-result-object v5
@@ -117,12 +133,17 @@
 
     move-result-object v2
 
+    .line 5911
     invoke-virtual {v2}, Ljava/lang/Process;->waitFor()I
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_2
 
+    .line 5920
+    .end local v0    # "dataLogDirectory":Ljava/io/File;
+    .end local v3    # "shellCommandForDumpsys":[Ljava/lang/String;
+    .end local v4    # "shellCommandForLogcat":[Ljava/lang/String;
     :goto_0
     const-string v5, "PowerManagerService"
 
@@ -130,11 +151,15 @@
 
     invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 5921
     return-void
 
+    .line 5912
     :catch_0
     move-exception v1
 
+    .line 5913
+    .local v1, "exception":Ljava/io/IOException;
     const-string v5, "PowerManagerService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -159,9 +184,13 @@
 
     goto :goto_0
 
+    .line 5914
+    .end local v1    # "exception":Ljava/io/IOException;
     :catch_1
     move-exception v1
 
+    .line 5915
+    .local v1, "exception":Ljava/lang/SecurityException;
     const-string v5, "PowerManagerService"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -186,9 +215,13 @@
 
     goto :goto_0
 
+    .line 5916
+    .end local v1    # "exception":Ljava/lang/SecurityException;
     :catch_2
     move-exception v1
 
+    .line 5917
+    .local v1, "exception":Ljava/lang/InterruptedException;
     const-string v5, "PowerManagerService"
 
     new-instance v6, Ljava/lang/StringBuilder;

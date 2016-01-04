@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/WifiDisplayAdapter;)V
     .locals 0
 
+    .prologue
+    .line 1326
     iput-object p1, p0, Lcom/android/server/display/WifiDisplayAdapter$22;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 1329
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$22;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -46,6 +50,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1330
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$22;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mDisplayController:Lcom/android/server/display/WifiDisplayController;
@@ -55,6 +60,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/display/WifiDisplayController;->notifyExitHomeSyncApp()V
 
+    .line 1332
     :cond_0
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$22;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
@@ -65,6 +71,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 1333
     iget-object v0, p0, Lcom/android/server/display/WifiDisplayAdapter$22;->this$0:Lcom/android/server/display/WifiDisplayAdapter;
 
     # getter for: Lcom/android/server/display/WifiDisplayAdapter;->mIpRemoteDisplayController:Lcom/android/server/display/IpRemoteDisplayController;
@@ -74,6 +81,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/display/IpRemoteDisplayController;->notifyExitHomeSyncApp()V
 
+    .line 1335
     :cond_1
     return-void
 .end method

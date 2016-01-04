@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/auditlog/IptablesLogging;)V
     .locals 0
 
+    .prologue
+    .line 92
     iput-object p1, p0, Lcom/android/server/enterprise/auditlog/IptablesLogging$CommandsLooperThread;->this$0:Lcom/android/server/enterprise/auditlog/IptablesLogging;
 
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -36,8 +38,11 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 97
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
+    .line 98
     new-instance v0, Lcom/android/server/enterprise/auditlog/IptablesLogging$CommandsHandler;
 
     iget-object v1, p0, Lcom/android/server/enterprise/auditlog/IptablesLogging$CommandsLooperThread;->this$0:Lcom/android/server/enterprise/auditlog/IptablesLogging;
@@ -46,7 +51,9 @@
 
     iput-object v0, p0, Lcom/android/server/enterprise/auditlog/IptablesLogging$CommandsLooperThread;->mHandler:Lcom/android/server/enterprise/auditlog/IptablesLogging$CommandsHandler;
 
+    .line 99
     invoke-static {}, Landroid/os/Looper;->loop()V
 
+    .line 100
     return-void
 .end method

@@ -33,6 +33,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/log/LogManagerService;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
 
+    .prologue
+    .line 335
     iput-object p1, p0, Lcom/android/server/enterprise/log/LogManagerService$2;->this$0:Lcom/android/server/enterprise/log/LogManagerService;
 
     iput-object p2, p0, Lcom/android/server/enterprise/log/LogManagerService$2;->val$file:Landroid/os/ParcelFileDescriptor;
@@ -46,27 +48,35 @@
 # virtual methods
 .method public close(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
     .locals 0
+    .param p1, "io"    # Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 369
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->close()V
 
+    .line 370
     return-void
 .end method
 
 .method public bridge synthetic close(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 335
     check-cast p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/LogManagerService$2;->close(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
 
     return-void
@@ -74,27 +84,35 @@
 
 .method public flush(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
     .locals 0
+    .param p1, "io"    # Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 356
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->flush()V
 
+    .line 357
     return-void
 .end method
 
 .method public bridge synthetic flush(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 335
     check-cast p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/LogManagerService$2;->flush(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
 
     return-void
@@ -108,6 +126,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 340
     new-instance v0, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
     iget-object v1, p0, Lcom/android/server/enterprise/log/LogManagerService$2;->val$file:Landroid/os/ParcelFileDescriptor;
@@ -125,6 +145,8 @@
         }
     .end annotation
 
+    .prologue
+    .line 335
     invoke-virtual {p0}, Lcom/android/server/enterprise/log/LogManagerService$2;->open()Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
     move-result-object v0
@@ -134,12 +156,15 @@
 
 .method public process(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
     .locals 2
+    .param p1, "io"    # Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 348
     iget-object v0, p0, Lcom/android/server/enterprise/log/LogManagerService$2;->this$0:Lcom/android/server/enterprise/log/LogManagerService;
 
     const/4 v1, 0x2
@@ -153,19 +178,24 @@
 
     invoke-virtual {v0, p1}, Lcom/android/server/enterprise/log/FileLogger;->copyLogs(Ljava/io/FileOutputStream;)V
 
+    .line 351
     return-void
 .end method
 
 .method public bridge synthetic process(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 335
     check-cast p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/LogManagerService$2;->process(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
 
     return-void
@@ -173,31 +203,39 @@
 
 .method public sync(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
     .locals 1
+    .param p1, "io"    # Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 362
     invoke-virtual {p1}, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;->getFD()Ljava/io/FileDescriptor;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/io/FileDescriptor;->sync()V
 
+    .line 363
     return-void
 .end method
 
 .method public bridge synthetic sync(Ljava/lang/Object;)V
     .locals 0
+    .param p1, "x0"    # Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 335
     check-cast p1, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
 
+    .end local p1    # "x0":Ljava/lang/Object;
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/log/LogManagerService$2;->sync(Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;)V
 
     return-void

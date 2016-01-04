@@ -104,7 +104,7 @@
     .line 102
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v1, "yyyy:MM:dd HH:mm:ss"
+    const-string/jumbo v1, "yyyy:MM:dd HH:mm:ss"
 
     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Ljava/text/SimpleDateFormat;->setTimeZone(Ljava/util/TimeZone;)V
+    invoke-virtual {v0, v1}, Ljava/text/DateFormat;->setTimeZone(Ljava/util/TimeZone;)V
 
     .line 114
     new-instance v0, Ljava/lang/Object;

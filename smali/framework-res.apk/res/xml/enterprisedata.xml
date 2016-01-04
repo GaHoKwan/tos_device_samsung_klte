@@ -27,7 +27,7 @@
             <application name="com.sec.android.inputmethod.iwnnime.japan" />
             <application name="com.samsung.inputmethod" />
             <application name="com.infraware.polarisviewer5" />
-            <replace name="com.infraware.polarisoffice5" value="att,tmo,vzw" />
+            <application name="com.infraware.polarisoffice5" />
             <application name="com.samsung.android.intelligenceservice" />
             <application name="com.samsung.android.internal.intelligence.useranalysis" />
             <application name="com.sec.hearingadjust" />
@@ -133,7 +133,7 @@
         </column>
         <column name="GoogleAppsPkgList">
             <disablePkg name="com.google.android.gm" />
-            <disablePkg name="com.android.chrome" value="vzw" />
+            <disablePkg name="com.android.chrome" />
             <disablePkg name="com.google.android.apps.maps" />
             <disablePkg name="com.google.android.gms" />
             <disablePkg name="com.google.android.gsf" />
@@ -223,7 +223,7 @@
             <application name="com.sec.android.inputmethod.iwnnime.japan" />
             <application name="com.samsung.inputmethod" />
             <application name="com.infraware.polarisviewer5" />
-            <replace name="com.infraware.polarisoffice5" value="att,tmo,vzw" />
+            <application name="com.infraware.polarisoffice5" />
             <application name="com.samsung.android.intelligenceservice" />
             <application name="com.samsung.android.internal.intelligence.useranalysis" />
             <application name="com.sec.hearingadjust" />
@@ -327,7 +327,7 @@
         </column>
         <column name="GoogleAppsPkgList">
             <disablePkg name="com.google.android.gm" />
-            <disablePkg name="com.android.chrome" value="vzw" />
+            <disablePkg name="com.android.chrome" />
             <disablePkg name="com.google.android.apps.maps" />
             <disablePkg name="com.google.android.gms" />
             <disablePkg name="com.google.android.gsf" />

@@ -42,7 +42,7 @@
     .line 57
     const/16 v1, 0x80f
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ToParser;->headerName(I)V
+    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 58
     new-instance v0, Lgov/nist/javax/sip/header/To;
@@ -54,7 +54,7 @@
     invoke-super {p0, v0}, Lgov/nist/javax/sip/parser/AddressParametersParser;->parse(Lgov/nist/javax/sip/header/AddressParametersHeader;)V
 
     .line 60
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ToParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0xa
 

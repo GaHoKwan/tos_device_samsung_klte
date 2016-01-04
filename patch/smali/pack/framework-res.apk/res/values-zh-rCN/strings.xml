@@ -400,7 +400,7 @@
     <string name="global_actions_airplane_mode_on_status">已启用</string>
     <string name="global_actions_airplane_mode_off_status">已禁用</string>
     <string name="global_actions_airplane_mode_on_status_confirm">飞行模式可让您关闭通话、信息和数据网络功能。其也将关闭 Wi-Fi 和蓝牙等连接性功能。若要使用 Wi-Fi 和蓝牙，请在设置或通知面板中将其开启。</string>
-    <string name="global_actions_airplane_mode_on_status_confirm_body">飞行模式关闭通话、信息和移动网络功能</string>
+    <string name="global_actions_airplane_mode_on_status_confirm_body">飞行模式允许您禁用通话、信息和移动网络功能。</string>
     <string name="global_actions_airplane_mode_off_status_confirm">将禁用飞行模式。</string>
     <string name="global_actions_airplane_mode_on_status_confirm_wifi">飞行模式允许您关闭包括 Wi-Fi 和蓝牙在内的网络功能。若要使用 Wi-Fi 和蓝牙，请在设置或通知面板中将其开启。</string>
     <string name="global_action_toggle_data_mode">数据网络模式</string>
@@ -1883,13 +1883,13 @@
     <string name="storage_sd_card">SD 卡</string>
     <string name="storage_usb">USB存储</string>
     <string name="extract_edit_menu_button">编辑</string>
-    <string name="data_usage_warning_title">数据使用提醒</string>
-    <string name="data_usage_warning_body">点击查看使用和设置</string>
+    <string name="data_usage_warning_title">数据使用量警报</string>
+    <string name="data_usage_warning_body">轻敲以查看使用量和设置。</string>
     <string name="data_usage_3g_limit_title">2G-3G 数据已禁用</string>
     <string name="data_usage_4g_limit_title">4G 数据已禁用</string>
     <string name="data_usage_mobile_limit_title">移动数据已禁用</string>
     <string name="data_usage_wifi_limit_title">Wi-Fi 数据使用已禁用。</string>
-    <string name="data_usage_limit_body">点击启用</string>
+    <string name="data_usage_limit_body">点击以启用。</string>
     <string name="data_usage_3g_limit_snoozed_title">已超过 2G/3G 数据使用量限制</string>
     <string name="data_usage_4g_limit_snoozed_title">已超过 4G 数据使用量限制</string>
     <string name="data_usage_mobile_limit_snoozed_title">已达到移动数据使用限制。</string>
@@ -2255,7 +2255,7 @@
     <string name="keyguard_carrierlock_phone_locked_title">联系该设备的所有者。</string>
     <string name="keyguard_carrierlock_when_call_disable">该设备已报告为丢失。请通知 SK Telecom 服务中心您已找到 (%s)。</string>
     <string name="vzw_cooldown_mode">无法打开应用程序。设备过热。</string>
-    <string name="vzw_cooldown_mode_kill">您的手机过热，因此部分应用程序已关闭以帮助其冷却。</string>
+    <string name="vzw_cooldown_mode_kill">%s 应用程序已关闭。设备过热。</string>
     <string name="vzw_cooldown_mode_attention">注意</string>
     <string name="vzw_cooldown_mode_ok">确认</string>
     <string name="batt_cooldown_mode">无法打开该应用程序。您的设备过热。</string>

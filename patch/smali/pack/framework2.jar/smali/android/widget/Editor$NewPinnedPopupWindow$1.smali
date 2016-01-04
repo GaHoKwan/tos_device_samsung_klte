@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/widget/Editor$NewPinnedPopupWindow;I)V
     .locals 0
 
+    .prologue
+    .line 3687
     iput-object p1, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->this$1:Landroid/widget/Editor$NewPinnedPopupWindow;
 
     iput p2, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->val$menuItemDiff:I
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 3689
     iget-object v1, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->this$1:Landroid/widget/Editor$NewPinnedPopupWindow;
 
     iget-object v1, v1, Landroid/widget/Editor$NewPinnedPopupWindow;->this$0:Landroid/widget/Editor;
@@ -50,7 +54,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -70,11 +74,14 @@
 
     float-to-int v0, v1
 
+    .line 3691
+    .local v0, "t":I
     const-wide/16 v1, 0xc8
 
     :try_start_0
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 3693
     :goto_0
     iget-object v1, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->this$1:Landroid/widget/Editor$NewPinnedPopupWindow;
 
@@ -85,7 +92,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
@@ -105,8 +112,10 @@
 
     sub-int/2addr v0, v1
 
+    .line 3694
     if-gtz v0, :cond_0
 
+    .line 3695
     iget-object v1, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->this$1:Landroid/widget/Editor$NewPinnedPopupWindow;
 
     iget-object v1, v1, Landroid/widget/Editor$NewPinnedPopupWindow;->mHorizontalScrollView:Landroid/widget/HorizontalScrollView;
@@ -117,9 +126,11 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
+    .line 3703
     :goto_1
     return-void
 
+    .line 3698
     :cond_0
     iget-object v1, p0, Landroid/widget/Editor$NewPinnedPopupWindow$1;->this$1:Landroid/widget/Editor$NewPinnedPopupWindow;
 
@@ -129,6 +140,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
+    .line 3700
     const-wide/16 v1, 0x2
 
     invoke-static {v1, v2}, Ljava/lang/Thread;->sleep(J)V
@@ -137,6 +149,7 @@
 
     goto :goto_0
 
+    .line 3702
     :catch_0
     move-exception v1
 

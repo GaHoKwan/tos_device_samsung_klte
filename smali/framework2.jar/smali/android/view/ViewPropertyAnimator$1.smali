@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/view/ViewPropertyAnimator;)V
     .locals 0
 
+    .prologue
+    .line 159
     iput-object p1, p0, Landroid/view/ViewPropertyAnimator$1;->this$0:Landroid/view/ViewPropertyAnimator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 162
     iget-object v0, p0, Landroid/view/ViewPropertyAnimator$1;->this$0:Landroid/view/ViewPropertyAnimator;
 
     # invokes: Landroid/view/ViewPropertyAnimator;->startAnimation()V
     invoke-static {v0}, Landroid/view/ViewPropertyAnimator;->access$100(Landroid/view/ViewPropertyAnimator;)V
 
+    .line 163
     return-void
 .end method

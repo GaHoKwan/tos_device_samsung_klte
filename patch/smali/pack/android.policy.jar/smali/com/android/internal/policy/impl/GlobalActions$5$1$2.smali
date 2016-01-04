@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/policy/impl/GlobalActions$5$1;)V
     .locals 0
 
+    .prologue
+    .line 820
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$5$1$2;->this$2:Lcom/android/internal/policy/impl/GlobalActions$5$1;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,6 +38,10 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 0
+    .param p1, "arg0"    # Landroid/content/DialogInterface;
+    .param p2, "arg1"    # I
 
+    .prologue
+    .line 823
     return-void
 .end method

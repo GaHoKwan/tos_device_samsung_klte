@@ -25,6 +25,8 @@
 .method private constructor <init>(Landroid/view/VolumePanel;)V
     .locals 0
 
+    .prologue
+    .line 678
     iput-object p1, p0, Landroid/view/VolumePanel$LoadListener;->this$0:Landroid/view/VolumePanel;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +36,11 @@
 
 .method synthetic constructor <init>(Landroid/view/VolumePanel;Landroid/view/VolumePanel$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/view/VolumePanel;
+    .param p2, "x1"    # Landroid/view/VolumePanel$1;
 
+    .prologue
+    .line 678
     invoke-direct {p0, p1}, Landroid/view/VolumePanel$LoadListener;-><init>(Landroid/view/VolumePanel;)V
 
     return-void
@@ -44,7 +50,12 @@
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
     .locals 3
+    .param p1, "soundPool"    # Landroid/media/SoundPool;
+    .param p2, "sampleId"    # I
+    .param p3, "status"    # I
 
+    .prologue
+    .line 681
     const-string v0, "VolumePanel"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -83,15 +94,19 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 682
     if-ltz p3, :cond_0
 
+    .line 683
     const/4 v0, 0x1
 
     sput-boolean v0, Landroid/view/VolumePanel;->mIsLoadSoundPool:Z
 
+    .line 686
     :goto_0
     return-void
 
+    .line 685
     :cond_0
     const/4 v0, 0x0
 

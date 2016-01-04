@@ -47,7 +47,7 @@
     .line 108
     new-instance v0, Ljava/lang/StringBuffer;
 
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ExtensionHeaderImpl;->headerName:Ljava/lang/String;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
@@ -192,7 +192,7 @@
 
     .prologue
     .line 69
-    iput-object p1, p0, Lgov/nist/javax/sip/header/ExtensionHeaderImpl;->headerName:Ljava/lang/String;
+    iput-object p1, p0, Lgov/nist/javax/sip/header/SIPHeader;->headerName:Ljava/lang/String;
 
     .line 70
     return-void

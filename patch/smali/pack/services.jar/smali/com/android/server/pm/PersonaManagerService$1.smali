@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
+    .prologue
+    .line 2515
     iput-object p1, p0, Lcom/android/server/pm/PersonaManagerService$1;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,28 +39,36 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 2518
     const-string v1, "PersonaManagerService"
 
     const-string v2, "registerReceiver for ACTION_USER_SWITCHED"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2519
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
+    .line 2520
+    .local v0, "filter":Landroid/content/IntentFilter;
     const-string v1, "android.intent.action.USER_SWITCHED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 2521
     const-string v1, "com.sec.knox.container.INTENT_KNOX_ALARM_TIMEOUT"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 2522
     const-string v1, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    .line 2523
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService$1;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     # getter for: Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
@@ -75,12 +85,14 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    .line 2525
     const-string/jumbo v1, "sys.knox.store"
 
     const-string v2, "0"
 
     invoke-static {v1, v2}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 2526
     iget-object v1, p0, Lcom/android/server/pm/PersonaManagerService$1;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
     iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService$1;->this$0:Lcom/android/server/pm/PersonaManagerService;
@@ -95,5 +107,6 @@
     # invokes: Lcom/android/server/pm/PersonaManagerService;->setKnoxAppsComponentSetting(Landroid/content/Context;I)V
     invoke-static {v1, v2, v3}, Lcom/android/server/pm/PersonaManagerService;->access$600(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
 
+    .line 2527
     return-void
 .end method

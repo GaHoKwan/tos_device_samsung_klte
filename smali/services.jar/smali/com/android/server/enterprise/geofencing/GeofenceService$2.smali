@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/geofencing/GeofenceService;)V
     .locals 0
 
+    .prologue
+    .line 206
     iput-object p1, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$2;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 9
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 209
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 210
+    .local v0, "action":Ljava/lang/String;
     const-string v6, "android.intent.action.USER_REMOVED"
 
     invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,6 +54,7 @@
 
     if-eqz v6, :cond_1
 
+    .line 211
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$2;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     invoke-virtual {v6}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
@@ -58,12 +67,15 @@
 
     move-result-object v2
 
+    .line 212
+    .local v2, "message":Landroid/os/Message;
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
 
     move-result v6
 
     iput v6, v2, Landroid/os/Message;->arg1:I
 
+    .line 213
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$2;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     invoke-virtual {v6}, Lcom/android/server/enterprise/geofencing/GeofenceService;->getHandler()Landroid/os/Handler;
@@ -72,9 +84,12 @@
 
     invoke-virtual {v6, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 226
+    .end local v2    # "message":Landroid/os/Message;
     :cond_0
     return-void
 
+    .line 215
     :cond_1
     const-string v6, "android.intent.action.USER_STOPPED"
 
@@ -84,6 +99,7 @@
 
     if-eqz v6, :cond_0
 
+    .line 216
     const-string v6, "android.intent.extra.user_handle"
 
     const/4 v7, -0x1
@@ -92,10 +108,13 @@
 
     move-result v5
 
+    .line 217
+    .local v5, "userId":I
     const/4 v6, 0x1
 
     if-lt v5, v6, :cond_0
 
+    .line 219
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$2;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # getter for: Lcom/android/server/enterprise/geofencing/GeofenceService;->mEdmStorageProvider:Lcom/android/server/enterprise/storage/EdmStorageProvider;
@@ -111,10 +130,13 @@
 
     move-result-object v4
 
+    .line 221
+    .local v4, "uidList":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
+    .local v1, "i$":Ljava/util/Iterator;
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -132,6 +154,8 @@
 
     move-result v3
 
+    .line 222
+    .local v3, "uid":I
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$2;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->deleteGeofenceActiveListByAdmin(I)V

@@ -26,6 +26,8 @@
 .method private constructor <init>(Landroid/webkitsec/JsDialogHelper;)V
     .locals 0
 
+    .prologue
+    .line 150
     iput-object p1, p0, Landroid/webkitsec/JsDialogHelper$CancelListener;->this$0:Landroid/webkitsec/JsDialogHelper;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +37,11 @@
 
 .method synthetic constructor <init>(Landroid/webkitsec/JsDialogHelper;Landroid/webkitsec/JsDialogHelper$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/webkitsec/JsDialogHelper;
+    .param p2, "x1"    # Landroid/webkitsec/JsDialogHelper$1;
 
+    .prologue
+    .line 150
     invoke-direct {p0, p1}, Landroid/webkitsec/JsDialogHelper$CancelListener;-><init>(Landroid/webkitsec/JsDialogHelper;)V
 
     return-void
@@ -45,7 +51,10 @@
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 154
     iget-object v0, p0, Landroid/webkitsec/JsDialogHelper$CancelListener;->this$0:Landroid/webkitsec/JsDialogHelper;
 
     # getter for: Landroid/webkitsec/JsDialogHelper;->mResult:Landroid/webkitsec/JsPromptResult;
@@ -53,14 +62,19 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkitsec/JsPromptResult;->cancel()V
+    invoke-virtual {v0}, Landroid/webkitsec/JsResult;->cancel()V
 
+    .line 155
     return-void
 .end method
 
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 1
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 158
     iget-object v0, p0, Landroid/webkitsec/JsDialogHelper$CancelListener;->this$0:Landroid/webkitsec/JsDialogHelper;
 
     # getter for: Landroid/webkitsec/JsDialogHelper;->mResult:Landroid/webkitsec/JsPromptResult;
@@ -68,7 +82,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/webkitsec/JsPromptResult;->cancel()V
+    invoke-virtual {v0}, Landroid/webkitsec/JsResult;->cancel()V
 
+    .line 159
     return-void
 .end method

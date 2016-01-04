@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/widget/AbsListView;Z)V
     .locals 0
 
+    .prologue
+    .line 1690
     iput-object p1, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
     iput-boolean p2, p0, Landroid/widget/AbsListView$1;->val$enabled:Z
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 1693
     iget-object v0, p0, Landroid/widget/AbsListView$1;->this$0:Landroid/widget/AbsListView;
 
     iget-boolean v1, p0, Landroid/widget/AbsListView$1;->val$enabled:Z
@@ -48,5 +52,6 @@
     # invokes: Landroid/widget/AbsListView;->setFastScrollerEnabledUiThread(Z)V
     invoke-static {v0, v1}, Landroid/widget/AbsListView;->access$000(Landroid/widget/AbsListView;Z)V
 
+    .line 1694
     return-void
 .end method

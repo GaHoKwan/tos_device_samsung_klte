@@ -224,7 +224,7 @@
 
     move-result-object v26
 
-    const-string v27, "{ what="
+    const-string/jumbo v27, "{ what="
 
     invoke-virtual/range {v26 .. v27}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3204,6 +3204,8 @@
     goto/16 :goto_1
 
     .line 1415
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x20083 -> :sswitch_1

@@ -40,6 +40,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 104
     new-instance v0, Landroid/util/Log$1;
 
     invoke-direct {v0}, Landroid/util/Log$1;-><init>()V
@@ -52,14 +54,21 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 111
     return-void
 .end method
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 158
     const/4 v0, 0x0
 
     const/4 v1, 0x3
@@ -73,7 +82,12 @@
 
 .method public static d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 177
     const/4 v0, 0x0
 
     const/4 v1, 0x3
@@ -113,7 +127,11 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 307
     const/4 v0, 0x0
 
     const/4 v1, 0x6
@@ -127,7 +145,12 @@
 
 .method public static e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 326
     const/4 v0, 0x0
 
     const/4 v1, 0x6
@@ -167,28 +190,39 @@
 
 .method public static getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
     .locals 5
+    .param p0, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 410
     if-nez p0, :cond_0
 
+    .line 411
     const-string v3, ""
 
+    .line 428
     :goto_0
     return-object v3
 
+    .line 416
     :cond_0
     move-object v2, p0
 
+    .line 417
+    .local v2, "t":Ljava/lang/Throwable;
     :goto_1
     if-eqz v2, :cond_2
 
+    .line 418
     instance-of v3, v2, Ljava/net/UnknownHostException;
 
     if-eqz v3, :cond_1
 
+    .line 419
     const-string v3, ""
 
     goto :goto_0
 
+    .line 421
     :cond_1
     invoke-virtual {v2}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
 
@@ -196,11 +230,14 @@
 
     goto :goto_1
 
+    .line 424
     :cond_2
     new-instance v1, Ljava/io/StringWriter;
 
     invoke-direct {v1}, Ljava/io/StringWriter;-><init>()V
 
+    .line 425
+    .local v1, "sw":Ljava/io/StringWriter;
     new-instance v0, Lcom/android/internal/util/FastPrintWriter;
 
     const/4 v3, 0x0
@@ -209,10 +246,14 @@
 
     invoke-direct {v0, v1, v3, v4}, Lcom/android/internal/util/FastPrintWriter;-><init>(Ljava/io/Writer;ZI)V
 
+    .line 426
+    .local v0, "pw":Ljava/io/PrintWriter;
     invoke-virtual {p0, v0}, Ljava/lang/Throwable;->printStackTrace(Ljava/io/PrintWriter;)V
 
-    invoke-virtual {v0}, Ljava/io/PrintWriter;->flush()V
+    .line 427
+    invoke-virtual {v0}, Lcom/android/internal/util/FastPrintWriter;->flush()V
 
+    .line 428
     invoke-virtual {v1}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v3
@@ -222,7 +263,11 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 195
     const/4 v0, 0x0
 
     const/4 v1, 0x4
@@ -236,7 +281,12 @@
 
 .method public static i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 214
     const/4 v0, 0x0
 
     const/4 v1, 0x4
@@ -279,7 +329,12 @@
 
 .method public static println(ILjava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "priority"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 440
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Landroid/util/Log;->println_native(IILjava/lang/String;Ljava/lang/String;)I
@@ -294,15 +349,21 @@
 
 .method public static secD(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 163
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecDLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 164
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    .line 166
     :goto_0
     return v0
 
@@ -314,15 +375,22 @@
 
 .method public static secD(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 182
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecDLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 183
     invoke-static {p0, p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 185
     :goto_0
     return v0
 
@@ -334,15 +402,21 @@
 
 .method public static secE(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 312
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecELog:Z
 
     if-eqz v0, :cond_0
 
+    .line 313
     invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    .line 315
     :goto_0
     return v0
 
@@ -354,15 +428,22 @@
 
 .method public static secE(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 331
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecELog:Z
 
     if-eqz v0, :cond_0
 
+    .line 332
     invoke-static {p0, p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 334
     :goto_0
     return v0
 
@@ -374,15 +455,21 @@
 
 .method public static secI(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 200
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecILog:Z
 
     if-eqz v0, :cond_0
 
+    .line 201
     invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    .line 203
     :goto_0
     return v0
 
@@ -394,15 +481,22 @@
 
 .method public static secI(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 219
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecILog:Z
 
     if-eqz v0, :cond_0
 
+    .line 220
     invoke-static {p0, p1, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 222
     :goto_0
     return v0
 
@@ -414,15 +508,21 @@
 
 .method public static secV(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 125
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecVLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 126
     invoke-static {p0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    .line 129
     :goto_0
     return v0
 
@@ -434,15 +534,22 @@
 
 .method public static secV(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 145
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecVLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 146
     invoke-static {p0, p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 148
     :goto_0
     return v0
 
@@ -454,15 +561,21 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/String;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 237
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecWLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 238
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
 
+    .line 240
     :goto_0
     return v0
 
@@ -474,15 +587,22 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 256
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecWLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 257
     invoke-static {p0, p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 259
     :goto_0
     return v0
 
@@ -494,15 +614,21 @@
 
 .method public static secW(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 294
     sget-boolean v0, Landroid/util/secutil/LogSwitcher;->isShowingSecWLog:Z
 
     if-eqz v0, :cond_0
 
+    .line 295
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
     move-result v0
 
+    .line 297
     :goto_0
     return v0
 
@@ -514,9 +640,13 @@
 
 .method public static setWtfHandler(Landroid/util/Log$TerribleFailureHandler;)Landroid/util/Log$TerribleFailureHandler;
     .locals 3
+    .param p0, "handler"    # Landroid/util/Log$TerribleFailureHandler;
 
+    .prologue
+    .line 397
     if-nez p0, :cond_0
 
+    .line 398
     new-instance v1, Ljava/lang/NullPointerException;
 
     const-string v2, "handler == null"
@@ -525,17 +655,25 @@
 
     throw v1
 
+    .line 400
     :cond_0
     sget-object v0, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
+    .line 401
+    .local v0, "oldHandler":Landroid/util/Log$TerribleFailureHandler;
     sput-object p0, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
+    .line 402
     return-object v0
 .end method
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 120
     const/4 v0, 0x0
 
     const/4 v1, 0x2
@@ -549,7 +687,12 @@
 
 .method public static v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 140
     const/4 v0, 0x0
 
     const/4 v1, 0x2
@@ -589,7 +732,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 232
     const/4 v0, 0x0
 
     const/4 v1, 0x5
@@ -603,7 +750,12 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 4
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 251
     const/4 v0, 0x0
 
     const/4 v1, 0x5
@@ -643,7 +795,11 @@
 
 .method public static w(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 3
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
+    .line 289
     const/4 v0, 0x0
 
     const/4 v1, 0x5
@@ -661,11 +817,20 @@
 
 .method static wtf(ILjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Z)I
     .locals 5
+    .param p0, "logId"    # I
+    .param p1, "tag"    # Ljava/lang/String;
+    .param p2, "msg"    # Ljava/lang/String;
+    .param p3, "tr"    # Ljava/lang/Throwable;
+    .param p4, "localStack"    # Z
 
+    .prologue
+    .line 382
     new-instance v1, Landroid/util/Log$TerribleFailure;
 
     invoke-direct {v1, p2, p3}, Landroid/util/Log$TerribleFailure;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
+    .line 383
+    .local v1, "what":Landroid/util/Log$TerribleFailure;
     const/4 v2, 0x7
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -686,6 +851,7 @@
 
     move-object p3, v1
 
+    .end local p3    # "tr":Ljava/lang/Throwable;
     :cond_0
     invoke-static {p3}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
 
@@ -703,18 +869,25 @@
 
     move-result v0
 
+    .line 385
+    .local v0, "bytes":I
     sget-object v2, Landroid/util/Log;->sWtfHandler:Landroid/util/Log$TerribleFailureHandler;
 
     invoke-interface {v2, p1, v1}, Landroid/util/Log$TerribleFailureHandler;->onTerribleFailure(Ljava/lang/String;Landroid/util/Log$TerribleFailure;)V
 
+    .line 386
     return v0
 .end method
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 348
     const/4 v0, 0x0
 
     invoke-static {v1, p0, p1, v0, v1}, Landroid/util/Log;->wtf(ILjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Z)I
@@ -726,9 +899,14 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 1
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
+    .param p2, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 378
     invoke-static {v0, p0, p1, p2, v0}, Landroid/util/Log;->wtf(ILjava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Z)I
 
     move-result v0
@@ -738,9 +916,13 @@
 
 .method public static wtf(Ljava/lang/String;Ljava/lang/Throwable;)I
     .locals 2
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "tr"    # Ljava/lang/Throwable;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 367
     invoke-virtual {p1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
@@ -754,7 +936,11 @@
 
 .method public static wtfStack(Ljava/lang/String;Ljava/lang/String;)I
     .locals 3
+    .param p0, "tag"    # Ljava/lang/String;
+    .param p1, "msg"    # Ljava/lang/String;
 
+    .prologue
+    .line 357
     const/4 v0, 0x0
 
     const/4 v1, 0x0

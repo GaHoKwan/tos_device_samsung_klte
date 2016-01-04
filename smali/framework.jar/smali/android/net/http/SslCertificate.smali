@@ -43,7 +43,7 @@
 
     .prologue
     .line 50
-    const-string v0, "yyyy-MM-dd HH:mm:ssZ"
+    const-string/jumbo v0, "yyyy-MM-dd HH:mm:ssZ"
 
     sput-object v0, Landroid/net/http/SslCertificate;->ISO_8601_DATE_FORMAT:Ljava/lang/String;
 
@@ -514,7 +514,7 @@
 
     .line 124
     :cond_0
-    const-string v1, "x509-certificate"
+    const-string/jumbo v1, "x509-certificate"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
 
@@ -692,7 +692,7 @@
 
     .line 107
     :try_start_0
-    const-string v2, "x509-certificate"
+    const-string/jumbo v2, "x509-certificate"
 
     invoke-virtual {v1}, Ljava/security/cert/X509Certificate;->getEncoded()[B
 

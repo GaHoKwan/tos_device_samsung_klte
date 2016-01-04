@@ -31,16 +31,21 @@
 .method constructor <init>(Lcom/android/server/ssrm/Monitor;)V
     .locals 1
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 868
     iput-object p1, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->this$0:Lcom/android/server/ssrm/Monitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 869
     iput v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->mMaxBrightnessNext:I
 
+    .line 871
     iput v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->mMaxBrightnessNow:I
 
+    .line 873
     const/16 v0, 0x7530
 
     iput v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->BRIGHTNESS_UPDATE_PERIOD:I
@@ -53,15 +58,19 @@
 .method public limitBrightness()V
     .locals 3
 
+    .prologue
+    .line 882
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->isSiopEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
+    .line 894
     :goto_0
     return-void
 
+    .line 885
     :cond_0
     iget v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->mMaxBrightnessNow:I
 
@@ -69,6 +78,7 @@
 
     if-eq v0, v1, :cond_1
 
+    .line 886
     sget-object v0, Lcom/android/server/ssrm/Monitor;->TAG_SIOP:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -93,6 +103,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 887
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mPowerManager:Landroid/os/PowerManager;
@@ -103,12 +114,14 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->setMasterBrightnessLimit(II)V
 
+    .line 889
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-boolean v0, v0, Lcom/android/server/ssrm/Monitor;->mBootComplete:Z
 
     if-eqz v0, :cond_1
 
+    .line 890
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget v1, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->mMaxBrightnessNext:I
@@ -117,6 +130,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/server/ssrm/Monitor;->notifyLimitBrightness(IZ)V
 
+    .line 893
     :cond_1
     iget v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->mMaxBrightnessNext:I
 
@@ -128,8 +142,11 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 877
     invoke-virtual {p0}, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->limitBrightness()V
 
+    .line 878
     iget-object v0, p0, Lcom/android/server/ssrm/Monitor$MaxBrightnessSetRunnable;->this$0:Lcom/android/server/ssrm/Monitor;
 
     iget-object v0, v0, Lcom/android/server/ssrm/Monitor;->mHandler:Landroid/os/Handler;
@@ -138,5 +155,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
+    .line 879
     return-void
 .end method

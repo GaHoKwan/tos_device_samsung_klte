@@ -514,7 +514,7 @@
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
@@ -21269,7 +21269,7 @@
 
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v0}, Lcom/samsung/javaomp/compiler/ParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
@@ -21305,7 +21305,7 @@
 
     sget-object v2, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
-    invoke-virtual {v0}, Lcom/samsung/javaomp/compiler/JavaOMPError;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 
@@ -22810,7 +22810,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTBlock;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -22818,7 +22818,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTBlock;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -23564,7 +23564,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTCatchBlock;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -23572,7 +23572,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTCatchBlock;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -23733,7 +23733,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBody;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -23741,7 +23741,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBody;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -24061,7 +24061,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :try_start_3
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBodyDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -24069,7 +24069,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTClassOrInterfaceBodyDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
@@ -24511,7 +24511,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTCompilationUnit;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const v0, 0x7fffffff
 
@@ -24626,7 +24626,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTCompilationUnit;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -25094,7 +25094,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTConstructorDeclatration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -25102,7 +25102,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTConstructorDeclatration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -26609,7 +26609,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTForStatement;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -26617,7 +26617,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTForStatement;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -27097,7 +27097,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTFormalParameter;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v1, 0x0
 
@@ -27105,7 +27105,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTFormalParameter;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v6, v5, v0}, Lcom/samsung/javaomp/compiler/ASTFormalParameter;->setVariable(Ljava/lang/String;I[Ljava/lang/String;)V
     :try_end_1
@@ -27645,7 +27645,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTImportDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -27653,7 +27653,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTImportDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTImportDeclaration;->setName(Ljava/lang/String;)V
     :try_end_1
@@ -28395,7 +28395,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTLocalVariableDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -28403,7 +28403,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTLocalVariableDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -29067,7 +29067,7 @@
 
     invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTMethodDeclaration;->setStatic(Z)V
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTMethodDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -29075,7 +29075,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTMethodDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_4
     .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
@@ -29605,9 +29605,9 @@
 
     move-result-object v5
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTName;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
-    invoke-virtual {v3, v5}, Lcom/samsung/javaomp/compiler/ASTName;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     iget-object v6, v4, Lcom/samsung/javaomp/compiler/Token;->image:Ljava/lang/String;
 
@@ -29811,7 +29811,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPBarrier;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -29819,7 +29819,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPBarrier;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -29888,7 +29888,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCancelStatement;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -29896,7 +29896,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCancelStatement;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -30137,7 +30137,7 @@
     :try_start_5
     invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;->setStatement(Lcom/samsung/javaomp/compiler/ASTStatement;)V
 
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -30145,7 +30145,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_5
     .catch Ljava/lang/Throwable; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
@@ -30311,7 +30311,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCommentDefinition;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -30319,7 +30319,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPCommentDefinition;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -30446,7 +30446,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPCritical;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v5, 0x0
 
@@ -30454,7 +30454,7 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPCritical;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPCritical;->setStatement(Lcom/samsung/javaomp/compiler/ASTStatement;)V
 
@@ -30684,7 +30684,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -30692,7 +30692,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -30896,7 +30896,7 @@
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPForExitCond;->setId(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPForExitCond;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -30904,7 +30904,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPForExitCond;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -31183,7 +31183,7 @@
 
     invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPForInitExpr;->setType(Ljava/lang/String;)V
 
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPForInitExpr;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -31191,7 +31191,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPForInitExpr;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -31388,7 +31388,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPIdentifier;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -31396,7 +31396,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPIdentifier;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     iget-object v0, v4, Lcom/samsung/javaomp/compiler/Token;->image:Ljava/lang/String;
 
@@ -31548,7 +31548,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v5, v6}, Lcom/samsung/javaomp/compiler/ASTOMPForIncrExpr;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v5, v6}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v6, 0x0
 
@@ -31556,7 +31556,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Lcom/samsung/javaomp/compiler/ASTOMPForIncrExpr;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v5, v6}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v5, v4}, Lcom/samsung/javaomp/compiler/ASTOMPForIncrExpr;->setIncr(Ljava/lang/String;)V
 
@@ -32203,7 +32203,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPMaster;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -32211,7 +32211,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPMaster;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPMaster;->setStatement(Lcom/samsung/javaomp/compiler/ASTStatement;)V
     :try_end_1
@@ -32559,7 +32559,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -32567,7 +32567,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -32851,7 +32851,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -32859,11 +32859,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
-    invoke-virtual {v4, v6}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelFor;->setCanonicalFor(Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;)V
+    invoke-virtual {v4, v6}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->setCanonicalFor(Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;)V
 
     invoke-virtual {v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->getOuterClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
@@ -33068,7 +33068,7 @@
     :try_start_1
     invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelSections;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelSections;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -33076,7 +33076,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPNonParallelSections;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v5}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->getOuterClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
@@ -33256,7 +33256,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -33264,7 +33264,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -33549,7 +33549,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPOrdered;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -33557,7 +33557,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPOrdered;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPOrdered;->setStatement(Lcom/samsung/javaomp/compiler/ASTStatement;)V
     :try_end_1
@@ -33832,7 +33832,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -33840,7 +33840,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x1
 
@@ -34110,7 +34110,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -34118,7 +34118,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -34207,7 +34207,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -34215,7 +34215,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x1
 
@@ -34522,7 +34522,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -34530,11 +34530,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
-    invoke-virtual {v4, v6}, Lcom/samsung/javaomp/compiler/ASTOMPParallelFor;->setCanonicalFor(Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;)V
+    invoke-virtual {v4, v6}, Lcom/samsung/javaomp/compiler/ASTOMPForStatement;->setCanonicalFor(Lcom/samsung/javaomp/compiler/ASTOMPCanonicalFor;)V
 
     invoke-virtual {v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->getOuterClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
@@ -34737,9 +34737,9 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPParallelSections;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTOMPDirectiveWithClauses;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelSections;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -34747,7 +34747,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelSections;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v5}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->getOuterClauses()Lcom/samsung/javaomp/compiler/ASTOMPClauses;
 
@@ -34927,7 +34927,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -34935,7 +34935,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x1
 
@@ -35215,7 +35215,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelStatement;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -35223,7 +35223,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPParallelStatement;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPParallelStatement;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
@@ -35940,7 +35940,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPSingle;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -35948,7 +35948,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPSingle;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPSingle;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
@@ -36118,7 +36118,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -36126,7 +36126,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
@@ -36439,7 +36439,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTask;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -36447,7 +36447,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTask;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPTask;->setClauses(Lcom/samsung/javaomp/compiler/ASTOMPClauses;)V
 
@@ -36617,7 +36617,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -36625,7 +36625,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTOMPClauses;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x1
 
@@ -36885,7 +36885,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTaskwait;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -36893,7 +36893,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTaskwait;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -36962,7 +36962,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTaskyield;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -36970,7 +36970,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/ASTOMPTaskyield;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v3, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -37366,7 +37366,7 @@
     invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTPrimaryPrefix;->setNotAllowedModifier(Ljava/lang/String;)V
 
     :cond_0
-    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/ASTPrimaryPrefix;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v5}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -37374,7 +37374,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTPrimaryPrefix;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_1
     .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -38911,7 +38911,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :try_start_3
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTStatement;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -38919,7 +38919,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTStatement;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
@@ -40175,7 +40175,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :try_start_3
-    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/ASTTypeDeclaration;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v1}, Lcom/samsung/javaomp/compiler/SimpleNode;->setFirstToken(Lcom/samsung/javaomp/compiler/Token;)V
 
     const/4 v0, 0x0
 
@@ -40183,7 +40183,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/ASTTypeDeclaration;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
+    invoke-virtual {v4, v0}, Lcom/samsung/javaomp/compiler/SimpleNode;->setLastToken(Lcom/samsung/javaomp/compiler/Token;)V
     :try_end_3
     .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_2

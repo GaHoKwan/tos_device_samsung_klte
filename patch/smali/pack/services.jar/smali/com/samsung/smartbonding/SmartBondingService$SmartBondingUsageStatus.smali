@@ -43,45 +43,64 @@
 # direct methods
 .method public constructor <init>(Lcom/samsung/smartbonding/SmartBondingService;IIJJLjava/lang/String;J)V
     .locals 5
+    .param p2, "pid"    # I
+    .param p3, "uid"    # I
+    .param p4, "threadID"    # J
+    .param p6, "fileSize"    # J
+    .param p8, "url"    # Ljava/lang/String;
+    .param p9, "startRange"    # J
 
+    .prologue
     const-wide/16 v3, 0x0
 
     const/4 v2, 0x0
 
     const/4 v0, -0x1
 
+    .line 3224
     iput-object p1, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->this$0:Lcom/samsung/smartbonding/SmartBondingService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 3212
     iput v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mPid:I
 
+    .line 3213
     iput v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mUid:I
 
+    .line 3214
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mThreadID:J
 
+    .line 3215
     iput v2, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mStatus:I
 
+    .line 3216
     iput-wide v3, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mFileSize:J
 
+    .line 3217
     const-string v0, ""
 
     iput-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mUrl:Ljava/lang/String;
 
+    .line 3218
     iput-wide v3, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mStartRange:J
 
+    .line 3219
     iput-boolean v2, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mStartWithPopup:Z
 
+    .line 3220
     const-string v0, ""
 
     iput-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mHost:Ljava/lang/String;
 
+    .line 3221
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mInetAddresses:[Ljava/net/InetAddress;
 
+    .line 3222
     const/4 v0, 0x4
 
     new-array v0, v0, [J
@@ -90,20 +109,28 @@
 
     iput-object v0, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mStatistics:[J
 
+    .line 3225
     iput p2, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mPid:I
 
+    .line 3226
     iput p3, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mUid:I
 
+    .line 3227
     iput-wide p4, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mThreadID:J
 
+    .line 3228
     iput-wide p6, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mFileSize:J
 
+    .line 3229
     iput-object p8, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mUrl:Ljava/lang/String;
 
+    .line 3230
     iput-wide p9, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mStartRange:J
 
+    .line 3231
     return-void
 
+    .line 3222
     nop
 
     :array_0
@@ -119,13 +146,17 @@
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
     .locals 6
+    .param p1, "o"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 3235
     instance-of v2, p1, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;
 
     if-nez v2, :cond_1
 
+    .line 3238
     :cond_0
     :goto_0
     return v1
@@ -133,8 +164,11 @@
     :cond_1
     move-object v0, p1
 
+    .line 3236
     check-cast v0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;
 
+    .line 3237
+    .local v0, "UsageStatus":Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;
     iget v2, v0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mPid:I
 
     iget v3, p0, Lcom/samsung/smartbonding/SmartBondingService$SmartBondingUsageStatus;->mPid:I

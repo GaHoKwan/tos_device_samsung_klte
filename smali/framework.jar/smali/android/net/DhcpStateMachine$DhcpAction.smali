@@ -115,7 +115,7 @@
     .line 77
     sget-object v0, Landroid/net/DhcpStateMachine$DhcpAction;->$VALUES:[Landroid/net/DhcpStateMachine$DhcpAction;
 
-    invoke-virtual {v0}, [Landroid/net/DhcpStateMachine$DhcpAction;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

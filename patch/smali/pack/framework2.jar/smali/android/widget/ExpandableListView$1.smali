@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/ExpandableListView;)V
     .locals 0
 
+    .prologue
+    .line 684
     iput-object p1, p0, Landroid/widget/ExpandableListView$1;->this$0:Landroid/widget/ExpandableListView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,9 +39,12 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 687
     iget-object v0, p0, Landroid/widget/ExpandableListView$1;->this$0:Landroid/widget/ExpandableListView;
 
-    invoke-virtual {v0}, Landroid/widget/ExpandableListView;->requestLayout()V
+    invoke-virtual {v0}, Landroid/widget/AbsListView;->requestLayout()V
 
+    .line 688
     return-void
 .end method

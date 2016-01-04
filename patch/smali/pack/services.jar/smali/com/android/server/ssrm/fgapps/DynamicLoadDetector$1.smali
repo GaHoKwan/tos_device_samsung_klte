@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 71
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$1;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,16 +36,21 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 74
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 91
     :goto_0
     return-void
 
+    .line 76
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$1;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
@@ -50,6 +58,7 @@
 
     goto :goto_0
 
+    .line 79
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$1;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
@@ -59,6 +68,7 @@
 
     goto :goto_0
 
+    .line 83
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$1;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
@@ -66,6 +76,7 @@
 
     goto :goto_0
 
+    .line 86
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/ssrm/fgapps/DynamicLoadDetector$1;->this$0:Lcom/android/server/ssrm/fgapps/DynamicLoadDetector;
 
@@ -75,6 +86,7 @@
 
     goto :goto_0
 
+    .line 74
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

@@ -23,7 +23,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;Landroid/os/Looper;Lcom/samsung/android/cover/CoverManager;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 366
     iput-object p1, p0, Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;
 
     iput-object p3, p0, Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate$1;->val$this$0:Lcom/samsung/android/cover/CoverManager;
@@ -37,7 +40,10 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 369
     iget-object v1, p0, Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;
 
     # getter for: Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
@@ -47,12 +53,16 @@
 
     if-eqz v1, :cond_0
 
+    .line 370
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v0, Lcom/samsung/android/cover/CoverState;
 
+    .line 371
+    .local v0, "coverState":Lcom/samsung/android/cover/CoverState;
     if-eqz v0, :cond_1
 
+    .line 372
     iget-object v1, p0, Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate$1;->this$1:Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;
 
     # getter for: Lcom/samsung/android/cover/CoverManager$CoverListenerDelegate;->mListener:Lcom/samsung/android/cover/CoverManager$StateListener;
@@ -62,10 +72,14 @@
 
     invoke-interface {v1, v0}, Lcom/samsung/android/cover/CoverManager$StateListener;->onCoverStateChanged(Lcom/samsung/android/cover/CoverState;)V
 
+    .line 377
+    .end local v0    # "coverState":Lcom/samsung/android/cover/CoverState;
     :cond_0
     :goto_0
     return-void
 
+    .line 374
+    .restart local v0    # "coverState":Lcom/samsung/android/cover/CoverState;
     :cond_1
     const-string v1, "CoverManager"
 

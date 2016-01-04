@@ -24,6 +24,8 @@
 .method constructor <init>(Landroid/webkitsec/WebViewDatabaseClassic;Landroid/content/Context;)V
     .locals 0
 
+    .prologue
+    .line 108
     iput-object p1, p0, Landroid/webkitsec/WebViewDatabaseClassic$1;->this$0:Landroid/webkitsec/WebViewDatabaseClassic;
 
     iput-object p2, p0, Landroid/webkitsec/WebViewDatabaseClassic$1;->val$context:Landroid/content/Context;
@@ -38,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 111
     iget-object v0, p0, Landroid/webkitsec/WebViewDatabaseClassic$1;->this$0:Landroid/webkitsec/WebViewDatabaseClassic;
 
     iget-object v1, p0, Landroid/webkitsec/WebViewDatabaseClassic$1;->val$context:Landroid/content/Context;
@@ -45,5 +49,6 @@
     # invokes: Landroid/webkitsec/WebViewDatabaseClassic;->init(Landroid/content/Context;)V
     invoke-static {v0, v1}, Landroid/webkitsec/WebViewDatabaseClassic;->access$000(Landroid/webkitsec/WebViewDatabaseClassic;Landroid/content/Context;)V
 
+    .line 112
     return-void
 .end method

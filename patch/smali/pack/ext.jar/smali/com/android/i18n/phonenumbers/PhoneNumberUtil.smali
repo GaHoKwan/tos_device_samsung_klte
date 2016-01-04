@@ -3899,7 +3899,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v10}, Lcom/android/i18n/phonenumbers/NumberParseException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v6
 
@@ -4146,7 +4146,7 @@
     .line 1621
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$2;->$SwitchMap$com$android$i18n$phonenumbers$PhoneNumberUtil$PhoneNumberFormat:[I
 
-    invoke-virtual {p2}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberFormat;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -5059,7 +5059,7 @@
 
     move-result-object v18
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/i18n/phonenumbers/Phonenumber$PhoneNumber$CountryCodeSource;->ordinal()I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Enum;->ordinal()I
 
     move-result v18
 
@@ -7259,7 +7259,7 @@
     .line 1820
     sget-object v0, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$2;->$SwitchMap$com$android$i18n$phonenumbers$PhoneNumberUtil$PhoneNumberType:[I
 
-    invoke-virtual {p2}, Lcom/android/i18n/phonenumbers/PhoneNumberUtil$PhoneNumberType;->ordinal()I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

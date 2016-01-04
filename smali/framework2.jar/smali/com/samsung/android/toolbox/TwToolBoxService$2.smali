@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/samsung/android/toolbox/TwToolBoxService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 120
     iput-object p1, p0, Lcom/samsung/android/toolbox/TwToolBoxService$2;->this$0:Lcom/samsung/android/toolbox/TwToolBoxService;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,11 +36,14 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 7
+    .param p1, "selfChange"    # Z
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
+    .line 123
     iget-object v4, p0, Lcom/samsung/android/toolbox/TwToolBoxService$2;->this$0:Lcom/samsung/android/toolbox/TwToolBoxService;
 
     # getter for: Lcom/samsung/android/toolbox/TwToolBoxService;->mContentResolver:Landroid/content/ContentResolver;
@@ -57,9 +63,13 @@
 
     move v1, v2
 
+    .line 124
+    .local v1, "isVisible":Z
     :goto_0
     const/4 v0, 0x1
 
+    .line 125
+    .local v0, "isFloatingStyle":Z
     iget-object v4, p0, Lcom/samsung/android/toolbox/TwToolBoxService$2;->this$0:Lcom/samsung/android/toolbox/TwToolBoxService;
 
     if-eqz v1, :cond_1
@@ -68,15 +78,22 @@
     # setter for: Lcom/samsung/android/toolbox/TwToolBoxService;->mVisibleFloatingStyle:Z
     invoke-static {v4, v2}, Lcom/samsung/android/toolbox/TwToolBoxService;->access$102(Lcom/samsung/android/toolbox/TwToolBoxService;Z)Z
 
+    .line 126
     return-void
 
+    .end local v0    # "isFloatingStyle":Z
+    .end local v1    # "isVisible":Z
     :cond_0
     move v1, v3
 
+    .line 123
     goto :goto_0
 
+    .restart local v0    # "isFloatingStyle":Z
+    .restart local v1    # "isVisible":Z
     :cond_1
     move v2, v3
 
+    .line 125
     goto :goto_1
 .end method

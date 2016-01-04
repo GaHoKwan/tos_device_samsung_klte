@@ -14,6 +14,8 @@
 .method private constructor <init>(Lcom/absolute/android/sslutil/SslUtil;)V
     .locals 0
 
+    .prologue
+    .line 98
     iput-object p1, p0, Lcom/absolute/android/sslutil/c;->a:Lcom/absolute/android/sslutil/SslUtil;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,6 +26,8 @@
 .method synthetic constructor <init>(Lcom/absolute/android/sslutil/SslUtil;B)V
     .locals 0
 
+    .prologue
+    .line 98
     invoke-direct {p0, p1}, Lcom/absolute/android/sslutil/c;-><init>(Lcom/absolute/android/sslutil/SslUtil;)V
 
     return-void
@@ -34,18 +38,24 @@
 .method public final checkClientTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 100
     return-void
 .end method
 
 .method public final checkServerTrusted([Ljava/security/cert/X509Certificate;Ljava/lang/String;)V
     .locals 0
 
+    .prologue
+    .line 103
     return-void
 .end method
 
 .method public final getAcceptedIssuers()[Ljava/security/cert/X509Certificate;
     .locals 1
 
+    .prologue
+    .line 106
     const/4 v0, 0x0
 
     new-array v0, v0, [Ljava/security/cert/X509Certificate;

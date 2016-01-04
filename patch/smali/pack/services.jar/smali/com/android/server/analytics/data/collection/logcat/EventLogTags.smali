@@ -17,6 +17,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 46
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -24,7 +26,10 @@
 
 .method static synthetic access$000(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
+    .param p0, "x0"    # Ljava/lang/String;
 
+    .prologue
+    .line 46
     invoke-static {p0}, Lcom/android/server/analytics/data/collection/logcat/EventLogTags;->extractTagName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -34,13 +39,18 @@
 
 .method private static final extractTagName(Ljava/lang/String;)Ljava/lang/String;
     .locals 4
+    .param p0, "sb"    # Ljava/lang/String;
 
+    .prologue
+    .line 61
     const-string v2, " "
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
     move-result v1
 
+    .line 62
+    .local v1, "start":I
     const-string v2, " "
 
     add-int/lit8 v3, v1, 0x1
@@ -49,6 +59,8 @@
 
     move-result v0
 
+    .line 63
+    .local v0, "end":I
     add-int/lit8 v2, v1, 0x1
 
     invoke-virtual {p0, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
@@ -60,6 +72,7 @@
 
 .method public static getTagNames(Ljava/lang/String;)Ljava/util/List;
     .locals 2
+    .param p0, "tagNumberPrefix"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,15 +85,20 @@
         }
     .end annotation
 
+    .prologue
+    .line 74
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
+    .line 77
+    .local v0, "tagNames":Ljava/util/List;, "Ljava/util/List<Ljava/lang/String;>;"
     new-instance v1, Lcom/android/server/analytics/data/collection/logcat/EventLogTags$1;
 
     invoke-direct {v1, p0, v0}, Lcom/android/server/analytics/data/collection/logcat/EventLogTags$1;-><init>(Ljava/lang/String;Ljava/util/List;)V
 
     invoke-static {v1}, Lcom/android/server/analytics/data/collection/utils/IOExceptionHandler;->process(Lcom/android/server/analytics/data/collection/utils/IOExceptionHandler$IOProcessor;)V
 
+    .line 102
     return-object v0
 .end method

@@ -51,7 +51,7 @@
 
     sget-object v2, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->LIBRARY_DATATYPE_ACTIVITY_TRACKER:Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;
 
-    invoke-virtual {v2}, Landroid/hardware/contextaware/dataprovider/sensorhubprovider/SensorHubParserProtocol$DATA_TYPE;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Enum;->toString()Ljava/lang/String;
 
     move-result-object v2
 
@@ -144,7 +144,7 @@
     .line 34
     sget-object v0, Landroid/hardware/contextaware/MultiModeContextList$MultiModeContextType;->$VALUES:[Landroid/hardware/contextaware/MultiModeContextList$MultiModeContextType;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/MultiModeContextList$MultiModeContextType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

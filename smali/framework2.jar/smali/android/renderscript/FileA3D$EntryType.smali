@@ -39,10 +39,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x1
 
     const/4 v2, 0x0
 
+    .line 56
     new-instance v0, Landroid/renderscript/FileA3D$EntryType;
 
     const-string v1, "UNKNOWN"
@@ -51,6 +53,7 @@
 
     sput-object v0, Landroid/renderscript/FileA3D$EntryType;->UNKNOWN:Landroid/renderscript/FileA3D$EntryType;
 
+    .line 61
     new-instance v0, Landroid/renderscript/FileA3D$EntryType;
 
     const-string v1, "MESH"
@@ -59,6 +62,7 @@
 
     sput-object v0, Landroid/renderscript/FileA3D$EntryType;->MESH:Landroid/renderscript/FileA3D$EntryType;
 
+    .line 50
     const/4 v0, 0x2
 
     new-array v0, v0, [Landroid/renderscript/FileA3D$EntryType;
@@ -78,22 +82,30 @@
 
 .method private constructor <init>(Ljava/lang/String;II)V
     .locals 0
+    .param p3, "id"    # I
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
         }
     .end annotation
 
+    .prologue
+    .line 64
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
+    .line 65
     iput p3, p0, Landroid/renderscript/FileA3D$EntryType;->mID:I
 
+    .line 66
     return-void
 .end method
 
 .method static toEntryType(I)Landroid/renderscript/FileA3D$EntryType;
     .locals 1
+    .param p0, "intID"    # I
 
+    .prologue
+    .line 69
     invoke-static {}, Landroid/renderscript/FileA3D$EntryType;->values()[Landroid/renderscript/FileA3D$EntryType;
 
     move-result-object v0
@@ -105,7 +117,10 @@
 
 .method public static valueOf(Ljava/lang/String;)Landroid/renderscript/FileA3D$EntryType;
     .locals 1
+    .param p0, "name"    # Ljava/lang/String;
 
+    .prologue
+    .line 50
     const-class v0, Landroid/renderscript/FileA3D$EntryType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -120,9 +135,11 @@
 .method public static values()[Landroid/renderscript/FileA3D$EntryType;
     .locals 1
 
+    .prologue
+    .line 50
     sget-object v0, Landroid/renderscript/FileA3D$EntryType;->$VALUES:[Landroid/renderscript/FileA3D$EntryType;
 
-    invoke-virtual {v0}, [Landroid/renderscript/FileA3D$EntryType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

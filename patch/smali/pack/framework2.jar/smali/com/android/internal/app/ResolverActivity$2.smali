@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/app/ResolverActivity;)V
     .locals 0
 
+    .prologue
+    .line 183
     iput-object p1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,11 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 3
+    .param p1, "dialog"    # Landroid/content/DialogInterface;
+    .param p2, "which"    # I
 
+    .prologue
+    .line 185
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mIsDeviceDefault:Z
@@ -46,6 +52,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 187
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     # getter for: Lcom/android/internal/app/ResolverActivity;->mListView:Landroid/widget/AbsListView;
@@ -57,10 +64,13 @@
 
     move-result v0
 
+    .line 188
+    .local v0, "checkedItemPosition":I
     const/4 v1, -0x1
 
     if-eq v0, v1, :cond_2
 
+    .line 189
     iget-object v2, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
     const/4 v1, -0x2
@@ -72,19 +82,25 @@
     :goto_0
     invoke-virtual {v2, v0, v1}, Lcom/android/internal/app/ResolverActivity;->startSelected(IZ)V
 
+    .line 193
     :goto_1
     iget-object v1, p0, Lcom/android/internal/app/ResolverActivity$2;->this$0:Lcom/android/internal/app/ResolverActivity;
 
-    invoke-virtual {v1}, Lcom/android/internal/app/ResolverActivity;->dismiss()V
+    invoke-virtual {v1}, Lcom/android/internal/app/AlertActivity;->dismiss()V
 
+    .line 195
+    .end local v0    # "checkedItemPosition":I
     :cond_0
     return-void
 
+    .line 189
+    .restart local v0    # "checkedItemPosition":I
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 191
     :cond_2
     const-string v1, "ResolverActivity"
 

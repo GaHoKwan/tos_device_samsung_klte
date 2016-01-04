@@ -28,23 +28,32 @@
 # direct methods
 .method public constructor <init>(Lcom/sec/knox/container/EnterpriseContainerService;Landroid/content/Context;I)V
     .locals 1
+    .param p2, "con"    # Landroid/content/Context;
+    .param p3, "contId"    # I
 
+    .prologue
+    .line 1355
     iput-object p1, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1352
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->containerId:I
 
+    .line 1353
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->mContext:Landroid/content/Context;
 
+    .line 1356
     iput-object p2, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->mContext:Landroid/content/Context;
 
+    .line 1357
     iput p3, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->containerId:I
 
+    .line 1358
     return-void
 .end method
 
@@ -53,8 +62,10 @@
 .method public run()V
     .locals 6
 
+    .prologue
     const/4 v5, 0x0
 
+    .line 1362
     const-string v1, "EnterpriseContainerService"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -84,6 +95,7 @@
 
     invoke-static {v1, v2}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1365
     iget-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     # invokes: Lcom/sec/knox/container/EnterpriseContainerService;->getWakeLockCounter()I
@@ -93,12 +105,14 @@
 
     if-lez v1, :cond_0
 
+    .line 1366
     const-string v1, "EnterpriseContainerService"
 
     const-string v2, "TimeoutRunnableStartAfterStop starting as refcounter > 0"
 
     invoke-static {v1, v2}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 1367
     iget-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     # getter for: Lcom/sec/knox/container/EnterpriseContainerService;->mWakeLockHandler:Landroid/os/Handler;
@@ -118,6 +132,8 @@
 
     move-result-object v0
 
+    .line 1369
+    .local v0, "msg":Landroid/os/Message;
     iget-object v1, p0, Lcom/sec/knox/container/EnterpriseContainerService$TimeoutRunnableStartAfterStop;->this$0:Lcom/sec/knox/container/EnterpriseContainerService;
 
     # getter for: Lcom/sec/knox/container/EnterpriseContainerService;->mWakeLockHandler:Landroid/os/Handler;
@@ -127,6 +143,8 @@
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 1371
+    .end local v0    # "msg":Landroid/os/Message;
     :cond_0
     return-void
 .end method

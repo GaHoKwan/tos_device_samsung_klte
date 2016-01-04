@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 81
     const/4 v0, 0x0
 
     sput v0, Lcom/android/server/am/AppStateBroadcaster$InstanceLock;->mRefCount:I
@@ -31,9 +33,13 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
+    .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 67
     # getter for: Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
     invoke-static {}, Lcom/android/server/am/AppStateBroadcaster;->access$000()Lcom/android/server/am/AppStateBroadcaster;
 
@@ -41,6 +47,7 @@
 
     if-nez v0, :cond_0
 
+    .line 68
     new-instance v0, Lcom/android/server/am/AppStateBroadcaster;
 
     const/4 v1, 0x0
@@ -50,6 +57,7 @@
     # setter for: Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
     invoke-static {v0}, Lcom/android/server/am/AppStateBroadcaster;->access$002(Lcom/android/server/am/AppStateBroadcaster;)Lcom/android/server/am/AppStateBroadcaster;
 
+    .line 71
     :cond_0
     sget v0, Lcom/android/server/am/AppStateBroadcaster$InstanceLock;->mRefCount:I
 
@@ -57,6 +65,7 @@
 
     sput v0, Lcom/android/server/am/AppStateBroadcaster$InstanceLock;->mRefCount:I
 
+    .line 72
     return-void
 .end method
 
@@ -65,6 +74,8 @@
 .method protected finalize()V
     .locals 1
 
+    .prologue
+    .line 75
     sget v0, Lcom/android/server/am/AppStateBroadcaster$InstanceLock;->mRefCount:I
 
     add-int/lit8 v0, v0, -0x1
@@ -73,11 +84,13 @@
 
     if-nez v0, :cond_0
 
+    .line 77
     const/4 v0, 0x0
 
     # setter for: Lcom/android/server/am/AppStateBroadcaster;->instance:Lcom/android/server/am/AppStateBroadcaster;
     invoke-static {v0}, Lcom/android/server/am/AppStateBroadcaster;->access$002(Lcom/android/server/am/AppStateBroadcaster;)Lcom/android/server/am/AppStateBroadcaster;
 
+    .line 79
     :cond_0
     return-void
 .end method

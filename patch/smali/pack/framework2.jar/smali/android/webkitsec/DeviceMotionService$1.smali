@@ -29,6 +29,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 81
     const-class v0, Landroid/webkitsec/DeviceMotionService;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -53,6 +55,8 @@
 .method constructor <init>(Landroid/webkitsec/DeviceMotionService;)V
     .locals 0
 
+    .prologue
+    .line 81
     iput-object p1, p0, Landroid/webkitsec/DeviceMotionService$1;->this$0:Landroid/webkitsec/DeviceMotionService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,8 +69,10 @@
 .method public run()V
     .locals 6
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 84
     sget-boolean v0, Landroid/webkitsec/DeviceMotionService$1;->$assertionsDisabled:Z
 
     if-nez v0, :cond_0
@@ -93,6 +99,7 @@
 
     throw v0
 
+    .line 85
     :cond_0
     iget-object v0, p0, Landroid/webkitsec/DeviceMotionService$1;->this$0:Landroid/webkitsec/DeviceMotionService;
 
@@ -103,6 +110,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 87
     iget-object v0, p0, Landroid/webkitsec/DeviceMotionService$1;->this$0:Landroid/webkitsec/DeviceMotionService;
 
     # getter for: Landroid/webkitsec/DeviceMotionService;->mManager:Landroid/webkitsec/DeviceMotionAndOrientationManager;
@@ -118,6 +126,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/webkitsec/DeviceMotionAndOrientationManager;->onMotionChange(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Double;D)V
 
+    .line 89
     :cond_1
     return-void
 .end method

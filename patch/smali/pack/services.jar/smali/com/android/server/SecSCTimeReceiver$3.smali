@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/SecSCTimeReceiver;)V
     .locals 0
 
+    .prologue
+    .line 314
     iput-object p1, p0, Lcom/android/server/SecSCTimeReceiver$3;->this$0:Lcom/android/server/SecSCTimeReceiver;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,12 +39,16 @@
 .method public run()V
     .locals 11
 
+    .prologue
     const-wide/16 v9, 0x3e8
 
+    .line 318
     new-instance v0, Landroid/net/SntpClient;
 
     invoke-direct {v0}, Landroid/net/SntpClient;-><init>()V
 
+    .line 319
+    .local v0, "client":Landroid/net/SntpClient;
     const-string v7, "pool.ntp.org"
 
     const/16 v8, 0x7d0
@@ -53,18 +59,23 @@
 
     if-eqz v7, :cond_0
 
+    .line 320
     invoke-virtual {v0}, Landroid/net/SntpClient;->getNtpTime()J
 
     move-result-wide v7
 
     div-long v1, v7, v9
 
+    .line 321
+    .local v1, "networktime":J
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v7
 
     div-long v3, v7, v9
 
+    .line 322
+    .local v3, "systemtime":J
     const-string v7, "SecSCTimeReceiver"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -100,13 +111,18 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 323
     iget-object v7, p0, Lcom/android/server/SecSCTimeReceiver$3;->this$0:Lcom/android/server/SecSCTimeReceiver;
 
     invoke-virtual {v7, v1, v2, v3, v4}, Lcom/android/server/SecSCTimeReceiver;->onNetworkStateChanged(JJ)V
 
+    .line 330
+    .end local v1    # "networktime":J
+    .end local v3    # "systemtime":J
     :goto_0
     return-void
 
+    .line 326
     :cond_0
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
@@ -114,6 +130,8 @@
 
     div-long v5, v7, v9
 
+    .line 327
+    .local v5, "systime":J
     const-string v7, "SecSCTimeReceiver"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -149,6 +167,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 328
     const-string v7, "SecSCTimeReceiver"
 
     new-instance v8, Ljava/lang/StringBuilder;

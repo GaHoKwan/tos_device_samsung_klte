@@ -34,12 +34,12 @@
     .line 155
     const-string v0, "hipri"
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$1;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .line 156
     const-string v0, "supl"
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/telephony/PDPContextStateBroadcaster$1;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     .line 157
     return-void

@@ -36,7 +36,7 @@
 
     sget-object v1, Lcom/samsung/javaomp/runtime/OMPSched;->STATIC:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -52,7 +52,7 @@
 
     sget-object v1, Lcom/samsung/javaomp/runtime/OMPSched;->AUTO:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -68,7 +68,7 @@
 
     sget-object v1, Lcom/samsung/javaomp/runtime/OMPSched;->RUNTIME:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -84,7 +84,7 @@
 
     sget-object v1, Lcom/samsung/javaomp/runtime/OMPSched;->DYNAMIC:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -100,7 +100,7 @@
 
     sget-object v1, Lcom/samsung/javaomp/runtime/OMPSched;->GUIDED:Lcom/samsung/javaomp/runtime/OMPSched;
 
-    invoke-virtual {v1}, Lcom/samsung/javaomp/runtime/OMPSched;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

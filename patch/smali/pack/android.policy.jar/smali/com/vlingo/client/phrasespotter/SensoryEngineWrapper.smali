@@ -11,6 +11,8 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,6 +21,8 @@
 .method public static declared-synchronized getInstance()Lcom/vlingo/client/phrasespotter/SensoryJNI;
     .locals 3
 
+    .prologue
+    .line 23
     const-class v1, Lcom/vlingo/client/phrasespotter/SensoryEngineWrapper;
 
     monitor-enter v1
@@ -28,20 +32,24 @@
 
     if-nez v0, :cond_0
 
+    .line 27
     const-string v0, "SensoryEngineWrapper"
 
     const-string v2, "getInstance() : make new SensoryJNI"
 
     invoke-static {v0, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 31
     invoke-static {}, Lcom/vlingo/client/phrasespotter/SensoryJNI;->init()V
 
+    .line 33
     new-instance v0, Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
     invoke-direct {v0}, Lcom/vlingo/client/phrasespotter/SensoryJNI;-><init>()V
 
     sput-object v0, Lcom/vlingo/client/phrasespotter/SensoryEngineWrapper;->uniqueInstance:Lcom/vlingo/client/phrasespotter/SensoryJNI;
 
+    .line 47
     :goto_0
     sget-object v0, Lcom/vlingo/client/phrasespotter/SensoryEngineWrapper;->uniqueInstance:Lcom/vlingo/client/phrasespotter/SensoryJNI;
     :try_end_0
@@ -51,6 +59,7 @@
 
     return-object v0
 
+    .line 41
     :cond_0
     :try_start_1
     const-string v0, "SensoryEngineWrapper"
@@ -63,6 +72,7 @@
 
     goto :goto_0
 
+    .line 23
     :catchall_0
     move-exception v0
 

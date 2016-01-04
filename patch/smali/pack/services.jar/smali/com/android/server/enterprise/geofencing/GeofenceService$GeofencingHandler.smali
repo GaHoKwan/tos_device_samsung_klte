@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/enterprise/geofencing/GeofenceService;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 156
     iput-object p1, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
+    .line 157
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 158
     return-void
 .end method
 
@@ -33,25 +38,34 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 9
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 161
     if-eqz p1, :cond_0
 
+    .line 162
     iget v6, p1, Landroid/os/Message;->what:I
 
     packed-switch v6, :pswitch_data_0
 
+    .line 202
     :cond_0
     :goto_0
     return-void
 
+    .line 165
     :pswitch_0
     iget v5, p1, Landroid/os/Message;->arg1:I
 
+    .line 166
+    .local v5, "userId":I
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->loadGeofenceActiveList(I)V
     invoke-static {v6, v5}, Lcom/android/server/enterprise/geofencing/GeofenceService;->access$000(Lcom/android/server/enterprise/geofencing/GeofenceService;I)V
 
+    .line 167
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->checkMonitoring()V
@@ -59,9 +73,13 @@
 
     goto :goto_0
 
+    .line 171
+    .end local v5    # "userId":I
     :pswitch_1
     iget v5, p1, Landroid/os/Message;->arg1:I
 
+    .line 172
+    .restart local v5    # "userId":I
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->checkMonitoring()V
@@ -69,6 +87,8 @@
 
     goto :goto_0
 
+    .line 183
+    .end local v5    # "userId":I
     :pswitch_2
     iget-object v6, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
@@ -78,6 +98,8 @@
 
     move-result v4
 
+    .line 184
+    .local v4, "uid":I
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->isDeviceInsideGeofence(I)Ljava/util/List;
@@ -85,6 +107,8 @@
 
     move-result-object v3
 
+    .line 185
+    .local v3, "ret":Ljava/util/List;, "Ljava/util/List<Ljava/lang/Integer;>;"
     if-eqz v3, :cond_0
 
     invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
@@ -93,20 +117,26 @@
 
     if-nez v6, :cond_0
 
+    .line 186
     new-instance v2, Landroid/content/Intent;
 
     const-string v6, "edm.intent.action.device.inside"
 
     invoke-direct {v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 187
+    .local v2, "intent":Landroid/content/Intent;
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v6
 
     new-array v1, v6, [I
 
+    .line 188
+    .local v1, "id":[I
     const/4 v0, 0x0
 
+    .local v0, "i":I
     :goto_1
     invoke-interface {v3}, Ljava/util/List;->size()I
 
@@ -114,6 +144,7 @@
 
     if-ge v0, v6, :cond_1
 
+    .line 189
     invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
@@ -126,15 +157,18 @@
 
     aput v6, v1, v0
 
+    .line 188
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
+    .line 191
     :cond_1
     const-string v6, "edm.intent.extra.geofence.id"
 
     invoke-virtual {v2, v6, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[I)Landroid/content/Intent;
 
+    .line 192
     const-string v6, "edm.intent.extra.geofence.user.id"
 
     invoke-static {v4}, Landroid/os/UserHandle;->getUserId(I)I
@@ -143,6 +177,7 @@
 
     invoke-virtual {v2, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 193
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # invokes: Lcom/android/server/enterprise/geofencing/GeofenceService;->getPackageNameForUid(I)Ljava/lang/String;
@@ -152,6 +187,7 @@
 
     invoke-virtual {v2, v6}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 194
     iget-object v6, p0, Lcom/android/server/enterprise/geofencing/GeofenceService$GeofencingHandler;->this$0:Lcom/android/server/enterprise/geofencing/GeofenceService;
 
     # getter for: Lcom/android/server/enterprise/geofencing/GeofenceService;->mContext:Landroid/content/Context;
@@ -167,6 +203,7 @@
 
     goto :goto_0
 
+    .line 162
     nop
 
     :pswitch_data_0

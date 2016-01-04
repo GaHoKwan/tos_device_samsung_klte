@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/display/OverlayDisplayWindow;)V
     .locals 0
 
+    .prologue
+    .line 323
     iput-object p1, p0, Lcom/android/server/display/OverlayDisplayWindow$3;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,15 +38,23 @@
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 4
+    .param p1, "view"    # Landroid/view/View;
+    .param p2, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 327
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
+    .line 328
+    .local v0, "oldX":F
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v1
 
+    .line 329
+    .local v1, "oldY":F
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v2
@@ -55,6 +65,7 @@
 
     invoke-virtual {p2, v2, v3}, Landroid/view/MotionEvent;->setLocation(FF)V
 
+    .line 331
     iget-object v2, p0, Lcom/android/server/display/OverlayDisplayWindow$3;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     # getter for: Lcom/android/server/display/OverlayDisplayWindow;->mGestureDetector:Landroid/view/GestureDetector;
@@ -64,6 +75,7 @@
 
     invoke-virtual {v2, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
+    .line 332
     iget-object v2, p0, Lcom/android/server/display/OverlayDisplayWindow$3;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
     # getter for: Lcom/android/server/display/OverlayDisplayWindow;->mScaleGestureDetector:Landroid/view/ScaleGestureDetector;
@@ -73,20 +85,24 @@
 
     invoke-virtual {v2, p2}, Landroid/view/ScaleGestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
+    .line 334
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v2
 
     packed-switch v2, :pswitch_data_0
 
+    .line 342
     :goto_0
     :pswitch_0
     invoke-virtual {p2, v0, v1}, Landroid/view/MotionEvent;->setLocation(FF)V
 
+    .line 343
     const/4 v2, 0x1
 
     return v2
 
+    .line 337
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/display/OverlayDisplayWindow$3;->this$0:Lcom/android/server/display/OverlayDisplayWindow;
 
@@ -95,6 +111,7 @@
 
     goto :goto_0
 
+    .line 334
     nop
 
     :pswitch_data_0

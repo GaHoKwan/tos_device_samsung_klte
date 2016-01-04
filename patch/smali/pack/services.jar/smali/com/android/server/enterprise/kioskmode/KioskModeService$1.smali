@@ -37,6 +37,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/kioskmode/KioskModeService;Landroid/app/enterprise/ContextInfo;Ljava/lang/String;IIIJ)V
     .locals 0
 
+    .prologue
+    .line 533
     iput-object p1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     iput-object p2, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$info:Landroid/app/enterprise/ContextInfo;
@@ -61,8 +63,10 @@
 .method public run()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 536
     iget-object v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     iget-object v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$info:Landroid/app/enterprise/ContextInfo;
@@ -72,6 +76,7 @@
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->cleanUpKioskMode(Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)V
     invoke-static {v0, v1, v2}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$100(Lcom/android/server/enterprise/kioskmode/KioskModeService;Landroid/app/enterprise/ContextInfo;Ljava/lang/String;)V
 
+    .line 539
     iget-object v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     iget v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$userId:I
@@ -79,6 +84,7 @@
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->wipeRecentTasks(I)Z
     invoke-static {v0, v1}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$200(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)Z
 
+    .line 542
     iget-object v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     iget v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$userId:I
@@ -86,6 +92,7 @@
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->launchHomeActivity(I)V
     invoke-static {v0, v1}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$300(Lcom/android/server/enterprise/kioskmode/KioskModeService;I)V
 
+    .line 545
     iget-object v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     iget v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$adminUid:I
@@ -95,12 +102,15 @@
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->broadcastKioskResult(III)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$400(Lcom/android/server/enterprise/kioskmode/KioskModeService;III)V
 
+    .line 546
     iget-wide v0, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$1;->val$token:J
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
+    .line 547
     # setter for: Lcom/android/server/enterprise/kioskmode/KioskModeService;->mProcessing:Z
     invoke-static {v3}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$502(Z)Z
 
+    .line 549
     return-void
 .end method

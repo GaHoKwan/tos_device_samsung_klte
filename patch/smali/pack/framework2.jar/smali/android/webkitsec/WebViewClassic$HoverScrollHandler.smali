@@ -22,6 +22,8 @@
 .method private constructor <init>(Landroid/webkitsec/WebViewClassic;)V
     .locals 0
 
+    .prologue
+    .line 10697
     iput-object p1, p0, Landroid/webkitsec/WebViewClassic$HoverScrollHandler;->this$0:Landroid/webkitsec/WebViewClassic;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -31,7 +33,11 @@
 
 .method synthetic constructor <init>(Landroid/webkitsec/WebViewClassic;Landroid/webkitsec/WebViewClassic$1;)V
     .locals 0
+    .param p1, "x0"    # Landroid/webkitsec/WebViewClassic;
+    .param p2, "x1"    # Landroid/webkitsec/WebViewClassic$1;
 
+    .prologue
+    .line 10697
     invoke-direct {p0, p1}, Landroid/webkitsec/WebViewClassic$HoverScrollHandler;-><init>(Landroid/webkitsec/WebViewClassic;)V
 
     return-void
@@ -41,14 +47,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 1
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 10701
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 10709
     :goto_0
     return-void
 
+    .line 10703
     :pswitch_0
     iget-object v0, p0, Landroid/webkitsec/WebViewClassic$HoverScrollHandler;->this$0:Landroid/webkitsec/WebViewClassic;
 
@@ -57,6 +68,7 @@
 
     goto :goto_0
 
+    .line 10701
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

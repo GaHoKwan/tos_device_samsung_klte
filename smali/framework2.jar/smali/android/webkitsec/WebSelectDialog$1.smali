@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/WebSelectDialog;)V
     .locals 0
 
+    .prologue
+    .line 101
     iput-object p1, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onComputeInternalInsets(Landroid/view/ViewTreeObserver$InternalInsetsInfo;)V
     .locals 2
+    .param p1, "info"    # Landroid/view/ViewTreeObserver$InternalInsetsInfo;
 
+    .prologue
+    .line 103
     iget-object v0, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
 
     iget-object v1, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
@@ -45,6 +50,7 @@
 
     invoke-virtual {v0, v1}, Landroid/webkitsec/WebSelectDialog;->onComputeInsets(Landroid/inputmethodservice/InputMethodService$Insets;)V
 
+    .line 104
     iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->contentInsets:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
@@ -55,6 +61,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
+    .line 105
     iget-object v0, p1, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->visibleInsets:Landroid/graphics/Rect;
 
     iget-object v1, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
@@ -65,6 +72,7 @@
 
     iput v1, v0, Landroid/graphics/Rect;->top:I
 
+    .line 106
     iget-object v0, p0, Landroid/webkitsec/WebSelectDialog$1;->this$0:Landroid/webkitsec/WebSelectDialog;
 
     iget-object v0, v0, Landroid/webkitsec/WebSelectDialog;->mTmpInsets:Landroid/inputmethodservice/InputMethodService$Insets;
@@ -73,5 +81,6 @@
 
     invoke-virtual {p1, v0}, Landroid/view/ViewTreeObserver$InternalInsetsInfo;->setTouchableInsets(I)V
 
+    .line 107
     return-void
 .end method

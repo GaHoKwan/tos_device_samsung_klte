@@ -28,14 +28,18 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiController;)V
     .locals 1
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 663
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
 
+    .line 664
     iput v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
+    .line 665
     iput-boolean v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mHaveDeferredEnable:Z
 
     return-void
@@ -43,7 +47,10 @@
 
 .method private doDeferEnable(Landroid/os/Message;)Z
     .locals 8
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 731
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v3
@@ -52,10 +59,12 @@
 
     sub-long v1, v3, v5
 
+    .line 732
+    .local v1, "delaySoFar":J
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mReEnableDelayMillis:J
-    invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$4300(Lcom/android/server/wifi/WifiController;)J
+    invoke-static {v3}, Lcom/android/server/wifi/WifiController;->access$4100(Lcom/android/server/wifi/WifiController;)J
 
     move-result-wide v3
 
@@ -63,11 +72,14 @@
 
     if-ltz v3, :cond_0
 
+    .line 733
     const/4 v3, 0x0
 
+    .line 744
     :goto_0
     return v3
 
+    .line 736
     :cond_0
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -94,7 +106,7 @@
     iget-object v5, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mReEnableDelayMillis:J
-    invoke-static {v5}, Lcom/android/server/wifi/WifiController;->access$4300(Lcom/android/server/wifi/WifiController;)J
+    invoke-static {v5}, Lcom/android/server/wifi/WifiController;->access$4100(Lcom/android/server/wifi/WifiController;)J
 
     move-result-wide v5
 
@@ -114,23 +126,27 @@
 
     move-result-object v4
 
-    # invokes: Lcom/android/server/wifi/WifiController;->log(Ljava/lang/String;)V
-    invoke-static {v3, v4}, Lcom/android/server/wifi/WifiController;->access$5900(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->log(Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/android/server/wifi/WifiController;->access$5700(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
+    .line 740
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const v4, 0x2600b
 
-    invoke-virtual {v3, v4}, Lcom/android/server/wifi/WifiController;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/StateMachine;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v0
 
+    .line 741
+    .local v0, "deferredMsg":Landroid/os/Message;
     invoke-static {p1}, Landroid/os/Message;->obtain(Landroid/os/Message;)Landroid/os/Message;
 
     move-result-object v3
 
     iput-object v3, v0, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    .line 742
     iget v3, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
     add-int/lit8 v3, v3, 0x1
@@ -139,12 +155,13 @@
 
     iput v3, v0, Landroid/os/Message;->arg1:I
 
+    .line 743
     iget-object v3, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v4, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mReEnableDelayMillis:J
-    invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$4300(Lcom/android/server/wifi/WifiController;)J
+    invoke-static {v4}, Lcom/android/server/wifi/WifiController;->access$4100(Lcom/android/server/wifi/WifiController;)J
 
     move-result-wide v4
 
@@ -154,8 +171,9 @@
 
     add-long/2addr v4, v6
 
-    invoke-virtual {v3, v0, v4, v5}, Lcom/android/server/wifi/WifiController;->sendMessageDelayed(Landroid/os/Message;J)V
+    invoke-virtual {v3, v0, v4, v5}, Lcom/android/internal/util/StateMachine;->sendMessageDelayed(Landroid/os/Message;J)V
 
+    .line 744
     const/4 v3, 0x1
 
     goto :goto_0
@@ -166,10 +184,12 @@
 .method public enter()V
     .locals 4
 
+    .prologue
     const/4 v3, 0x3
 
     const/4 v2, 0x1
 
+    .line 671
     # getter for: Lcom/android/server/wifi/WifiController;->DBG:Z
     invoke-static {}, Lcom/android/server/wifi/WifiController;->access$1000()Z
 
@@ -181,9 +201,10 @@
 
     const-string v1, "Enabling disabled with scan state"
 
-    # invokes: Lcom/android/server/wifi/WifiController;->logd(Ljava/lang/String;)V
-    invoke-static {v0, v1}, Lcom/android/server/wifi/WifiController;->access$5100(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->logd(Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/wifi/WifiController;->access$4900(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
+    .line 673
     :cond_0
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -191,52 +212,63 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/net/wifi/WifiStateMachine;->setSupplicantRunning(ZI)V
 
+    .line 674
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v0, v3}, Landroid/net/wifi/WifiStateMachine;->setOperationalMode(I)V
 
+    .line 675
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v0, v2}, Landroid/net/wifi/WifiStateMachine;->setDriverStart(Z)V
 
+    .line 677
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDisabledTimestamp:J
 
+    .line 678
     iget v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
     add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
+    .line 679
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mHaveDeferredEnable:Z
 
+    .line 680
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 684
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 727
     :goto_0
     :pswitch_0
     return v0
 
+    .line 686
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -248,22 +280,26 @@
 
     if-eqz v2, :cond_5
 
+    .line 687
     invoke-direct {p0, p1}, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->doDeferEnable(Landroid/os/Message;)Z
 
     move-result v2
 
     if-eqz v2, :cond_3
 
+    .line 688
     iget-boolean v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mHaveDeferredEnable:Z
 
     if-eqz v2, :cond_0
 
+    .line 690
     iget v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
     add-int/lit8 v2, v2, 0x1
 
     iput v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mDeferredEnableSerialNumber:I
 
+    .line 692
     :cond_0
     iget-boolean v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->mHaveDeferredEnable:Z
 
@@ -278,8 +314,10 @@
     :goto_1
     move v0, v1
 
+    .line 727
     goto :goto_0
 
+    .line 695
     :cond_3
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -290,28 +328,31 @@
 
     if-nez v0, :cond_4
 
+    .line 696
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mDeviceActiveState:Lcom/android/server/wifi/WifiController$DeviceActiveState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2700(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$DeviceActiveState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2200(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$DeviceActiveState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5200(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5000(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 698
     :cond_4
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # invokes: Lcom/android/server/wifi/WifiController;->checkLocksAndTransitionWhenDeviceIdle()V
-    invoke-static {v0}, Lcom/android/server/wifi/WifiController;->access$2900(Lcom/android/server/wifi/WifiController;)V
+    invoke-static {v0}, Lcom/android/server/wifi/WifiController;->access$2400(Lcom/android/server/wifi/WifiController;)V
 
     goto :goto_1
 
+    .line 700
     :cond_5
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -325,27 +366,30 @@
 
     if-ne v0, v2, :cond_2
 
+    .line 702
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v2, "illegal state found both WifiController and WifiStateMachine"
 
-    # invokes: Lcom/android/server/wifi/WifiController;->loge(Ljava/lang/String;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5300(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->loge(Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5100(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
+    .line 703
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mStaDisabledWithScanState:Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$3000(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2600(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5400(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5200(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 707
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -367,6 +411,7 @@
 
     if-nez v0, :cond_6
 
+    .line 709
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
@@ -376,9 +421,10 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5500(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5300(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
+    .line 712
     :cond_6
     :pswitch_3
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
@@ -391,6 +437,7 @@
 
     if-nez v0, :cond_2
 
+    .line 713
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
@@ -400,11 +447,12 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5600(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5400(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 717
     :pswitch_4
     iget v0, p1, Landroid/os/Message;->arg1:I
 
@@ -412,23 +460,26 @@
 
     if-eq v0, v2, :cond_7
 
+    .line 718
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v2, "DEFERRED_TOGGLE ignored due to serial mismatch"
 
-    # invokes: Lcom/android/server/wifi/WifiController;->log(Ljava/lang/String;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5700(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->log(Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5500(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
     goto :goto_1
 
+    .line 721
     :cond_7
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v2, "DEFERRED_TOGGLE handled"
 
-    # invokes: Lcom/android/server/wifi/WifiController;->logd(Ljava/lang/String;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5800(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->logd(Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$5600(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
+    .line 722
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -437,10 +488,11 @@
 
     check-cast v0, Landroid/os/Message;
 
-    invoke-virtual {v2, v0}, Lcom/android/server/wifi/WifiController;->sendMessage(Landroid/os/Message;)V
+    invoke-virtual {v2, v0}, Lcom/android/internal/util/StateMachine;->sendMessage(Landroid/os/Message;)V
 
     goto/16 :goto_1
 
+    .line 684
     :pswitch_data_0
     .packed-switch 0x26007
         :pswitch_3

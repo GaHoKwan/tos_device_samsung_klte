@@ -177,7 +177,7 @@
     const/4 v5, 0x0
 
     .line 124
-    invoke-super {p0}, Landroid/preference/CheckBoxPreference;->onClick()V
+    invoke-super {p0}, Landroid/preference/TwoStatePreference;->onClick()V
 
     .line 125
     const-string v3, "WifiCallCheckBoxPreference"
@@ -192,7 +192,7 @@
 
     move-result-object v6
 
-    invoke-virtual {p0}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v7
 
@@ -207,7 +207,7 @@
     invoke-static {v3, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 127
-    invoke-virtual {p0}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->isChecked()Z
+    invoke-virtual {p0}, Landroid/preference/TwoStatePreference;->isChecked()Z
 
     move-result v3
 
@@ -386,7 +386,7 @@
     move v0, v1
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setChecked(Z)V
+    invoke-virtual {p0, v0}, Landroid/preference/TwoStatePreference;->setChecked(Z)V
 
     .line 155
     iget-boolean v0, p0, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->mCellOnly:Z
@@ -395,7 +395,7 @@
 
     const-string v0, "Disabled"
 
-    invoke-virtual {p0, v0}, Lcom/movial/ipphone/WifiCallCheckBoxPreference;->setSummary(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0, v0}, Landroid/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
     .line 156
     :cond_0

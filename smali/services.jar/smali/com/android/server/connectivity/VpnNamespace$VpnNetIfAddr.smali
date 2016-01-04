@@ -42,6 +42,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 530
     const-class v0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -55,18 +57,27 @@
 
 .method private constructor <init>(BBBBI)V
     .locals 3
+    .param p1, "family"    # B
+    .param p2, "prefix"    # B
+    .param p3, "flags"    # B
+    .param p4, "scope"    # B
+    .param p5, "idx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
+    .line 598
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 599
     const/4 v0, 0x2
 
     if-eq p1, v0, :cond_0
 
+    .line 600
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "only IPv4 is currently supported"
@@ -75,6 +86,7 @@
 
     throw v0
 
+    .line 602
     :cond_0
     if-ltz p2, :cond_1
 
@@ -82,6 +94,7 @@
 
     if-le p2, v0, :cond_2
 
+    .line 603
     :cond_1
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
@@ -107,30 +120,42 @@
 
     throw v0
 
+    .line 605
     :cond_2
     iput-byte p1, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrFamily:B
 
+    .line 606
     iput-byte p2, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrPrefixLen:B
 
+    .line 607
     iput-byte p3, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrFlags:B
 
+    .line 608
     iput-byte p4, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrScope:B
 
+    .line 609
     iput p5, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrIfIdx:I
 
+    .line 610
     return-void
 .end method
 
 .method private constructor <init>(BB[BI)V
     .locals 6
+    .param p1, "family"    # B
+    .param p2, "prefix"    # B
+    .param p3, "rawAddr"    # [B
+    .param p4, "idx"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 581
     move-object v0, p0
 
     move v1, p1
@@ -143,34 +168,48 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;-><init>(BBBBI)V
 
+    .line 582
     iput-object p3, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrLocal:[B
 
+    .line 583
     iput-object p3, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrRemote:[B
 
+    .line 584
     return-void
 .end method
 
 .method public static fromLinkAddress(ILandroid/net/LinkAddress;)Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     .locals 8
+    .param p0, "idx"    # I
+    .param p1, "lAddr"    # Landroid/net/LinkAddress;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    .prologue
+    .line 554
     const/4 v3, 0x0
 
+    .line 555
+    .local v3, "prefixLen":B
     const/4 v4, 0x0
 
+    .line 558
+    .local v4, "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     :try_start_0
     invoke-virtual {p1}, Landroid/net/LinkAddress;->getAddress()Ljava/net/InetAddress;
 
     move-result-object v0
 
+    .line 560
+    .local v0, "addr":Ljava/net/InetAddress;
     instance-of v5, v0, Ljava/net/Inet6Address;
 
     if-eqz v5, :cond_0
 
+    .line 561
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "IPV6 is not yet supported"
@@ -182,17 +221,27 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 571
+    .end local v0    # "addr":Ljava/net/InetAddress;
+    .end local v4    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     :catch_0
     move-exception v1
 
+    .line 572
+    .local v1, "e":Ljava/lang/IllegalArgumentException;
     throw v1
 
+    .line 563
+    .end local v1    # "e":Ljava/lang/IllegalArgumentException;
+    .restart local v0    # "addr":Ljava/net/InetAddress;
+    .restart local v4    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     :cond_0
     :try_start_1
     instance-of v5, v0, Ljava/net/Inet4Address;
 
     if-eqz v5, :cond_1
 
+    .line 564
     sget-object v5, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -219,6 +268,7 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 567
     :cond_1
     invoke-virtual {p1}, Landroid/net/LinkAddress;->getNetworkPrefixLength()I
 
@@ -228,12 +278,16 @@
 
     move-result-object v2
 
+    .line 568
+    .local v2, "pref":Ljava/lang/Integer;
     invoke-virtual {v2}, Ljava/lang/Integer;->byteValue()B
 
     move-result v3
 
+    .line 570
     new-instance v4, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
 
+    .end local v4    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     const/4 v5, 0x2
 
     invoke-virtual {v0}, Ljava/net/InetAddress;->getAddress()[B
@@ -245,11 +299,19 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
+    .line 577
+    .restart local v4    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     return-object v4
 
+    .line 573
+    .end local v0    # "addr":Ljava/net/InetAddress;
+    .end local v2    # "pref":Ljava/lang/Integer;
+    .end local v4    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;
     :catch_1
     move-exception v1
 
+    .line 574
+    .local v1, "e":Ljava/lang/Exception;
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -272,7 +334,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
@@ -294,6 +356,7 @@
 .method public toString()Ljava/lang/String;
     .locals 9
 
+    .prologue
     const/4 v8, 0x1
 
     const/4 v7, 0x0
@@ -304,6 +367,7 @@
 
     const/16 v4, 0x20
 
+    .line 639
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -589,18 +653,22 @@
 
 .method writeObject(Ljava/io/DataOutputStream;)V
     .locals 3
+    .param p1, "dout"    # Ljava/io/DataOutputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 618
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrLocal:[B
 
     if-nez v0, :cond_0
 
+    .line 619
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "interface has no local address (yet?)"
@@ -609,27 +677,33 @@
 
     throw v0
 
+    .line 621
     :cond_0
     iget-byte v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrFamily:B
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 622
     iget-byte v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrPrefixLen:B
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 623
     iget-byte v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrFlags:B
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 624
     iget-byte v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrScope:B
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeByte(I)V
 
+    .line 625
     iget v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrIfIdx:I
 
     invoke-virtual {p1, v0}, Ljava/io/DataOutputStream;->writeInt(I)V
 
+    .line 626
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrLocal:[B
 
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrLocal:[B
@@ -638,10 +712,12 @@
 
     invoke-virtual {p1, v0, v2, v1}, Ljava/io/DataOutputStream;->write([BII)V
 
+    .line 627
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrRemote:[B
 
     if-eqz v0, :cond_1
 
+    .line 628
     iget-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrRemote:[B
 
     iget-object v1, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIfAddr;->addrRemote:[B
@@ -650,6 +726,7 @@
 
     invoke-virtual {p1, v0, v2, v1}, Ljava/io/DataOutputStream;->write([BII)V
 
+    .line 630
     :cond_1
     return-void
 .end method

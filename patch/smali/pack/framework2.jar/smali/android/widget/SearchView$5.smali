@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/widget/SearchView;)V
     .locals 0
 
+    .prologue
+    .line 336
     iput-object p1, p0, Landroid/widget/SearchView$5;->this$0:Landroid/widget/SearchView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,11 +38,23 @@
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
+    .param p2, "left"    # I
+    .param p3, "top"    # I
+    .param p4, "right"    # I
+    .param p5, "bottom"    # I
+    .param p6, "oldLeft"    # I
+    .param p7, "oldTop"    # I
+    .param p8, "oldRight"    # I
+    .param p9, "oldBottom"    # I
 
+    .prologue
+    .line 340
     iget-object v0, p0, Landroid/widget/SearchView$5;->this$0:Landroid/widget/SearchView;
 
     # invokes: Landroid/widget/SearchView;->adjustDropDownSizeAndPosition()V
     invoke-static {v0}, Landroid/widget/SearchView;->access$300(Landroid/widget/SearchView;)V
 
+    .line 341
     return-void
 .end method

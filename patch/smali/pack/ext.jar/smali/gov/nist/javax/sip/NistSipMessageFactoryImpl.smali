@@ -107,7 +107,7 @@
     :cond_4
     iget-object v2, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v2}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v2
 
@@ -116,7 +116,7 @@
     .line 84
     iget-object v2, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v2}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v2
 
@@ -192,7 +192,7 @@
     .local v2, "tr":Lgov/nist/javax/sip/stack/SIPTransaction;
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v3
 
@@ -201,7 +201,7 @@
     .line 108
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v3
 
@@ -249,7 +249,7 @@
     .line 117
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v3
 
@@ -258,7 +258,7 @@
     .line 118
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v3
 
@@ -294,7 +294,7 @@
     .line 124
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->isLoggingEnabled()Z
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->isLoggingEnabled()Z
 
     move-result v3
 
@@ -303,7 +303,7 @@
     .line 125
     iget-object v3, p0, Lgov/nist/javax/sip/NistSipMessageFactoryImpl;->sipStack:Lgov/nist/javax/sip/SipStackImpl;
 
-    invoke-virtual {v3}, Lgov/nist/javax/sip/SipStackImpl;->getStackLogger()Lgov/nist/core/StackLogger;
+    invoke-virtual {v3}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 
     move-result-object v3
 

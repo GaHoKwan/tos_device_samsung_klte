@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiController;)V
     .locals 0
 
+    .prologue
+    .line 806
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -34,40 +36,48 @@
 .method public enter()V
     .locals 3
 
+    .prologue
     const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    .line 809
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v0, v2}, Landroid/net/wifi/WifiStateMachine;->setOperationalMode(I)V
 
+    .line 810
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v0, v2}, Landroid/net/wifi/WifiStateMachine;->setDriverStart(Z)V
 
+    .line 811
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->setHighPerfModeEnabled(Z)V
 
+    .line 814
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mSettingsStore:Lcom/android/server/wifi/WifiSettingsStore;
 
     invoke-virtual {v0, v1}, Lcom/android/server/wifi/WifiSettingsStore;->setOrRecoveryScanMode(Z)V
 
+    .line 815
     return-void
 .end method
 
 .method public exit()V
     .locals 2
 
+    .prologue
+    .line 848
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mSettingsStore:Lcom/android/server/wifi/WifiSettingsStore;
@@ -76,23 +86,29 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/wifi/WifiSettingsStore;->setOrRecoveryScanMode(Z)V
 
+    .line 849
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v0, 0x0
 
+    .line 818
     iget v2, p1, Landroid/os/Message;->what:I
 
     sparse-switch v2, :sswitch_data_0
 
+    .line 842
     :goto_0
     return v0
 
+    .line 820
     :sswitch_0
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -104,12 +120,14 @@
 
     if-eqz v2, :cond_0
 
+    .line 821
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, v2, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v2, v0}, Landroid/net/wifi/WifiStateMachine;->setIbssRunning(Z)V
 
+    .line 822
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
@@ -119,26 +137,30 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6300(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6100(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     :cond_0
     :goto_1
     move v0, v1
 
+    .line 842
     goto :goto_0
 
+    .line 826
     :sswitch_1
     iget v2, p1, Landroid/os/Message;->arg1:I
 
     if-nez v2, :cond_2
 
+    .line 827
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, v2, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
 
     invoke-virtual {v2, v0}, Landroid/net/wifi/WifiStateMachine;->setIbssRunning(Z)V
 
+    .line 828
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mSettingsStore:Lcom/android/server/wifi/WifiSettingsStore;
@@ -149,20 +171,22 @@
 
     if-eqz v0, :cond_1
 
+    .line 829
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mStaDisabledWithScanState:Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$3000(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2600(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6400(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6200(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 831
     :cond_1
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -173,11 +197,12 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6500(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6300(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 833
     :cond_2
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -189,27 +214,30 @@
 
     if-ne v0, v1, :cond_0
 
+    .line 835
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     const-string v2, "illegal state found both WifiController and WifiStateMachine"
 
-    # invokes: Lcom/android/server/wifi/WifiController;->loge(Ljava/lang/String;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6600(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->loge(Ljava/lang/String;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6400(Lcom/android/server/wifi/WifiController;Ljava/lang/String;)V
 
+    .line 836
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$IbssEnabledState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mIbssEnabledState:Lcom/android/server/wifi/WifiController$IbssEnabledState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$3400(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$IbssEnabledState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$3000(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$IbssEnabledState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6700(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v0, v2}, Lcom/android/server/wifi/WifiController;->access$6500(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_1
 
+    .line 818
     :sswitch_data_0
     .sparse-switch
         0x26009 -> :sswitch_0

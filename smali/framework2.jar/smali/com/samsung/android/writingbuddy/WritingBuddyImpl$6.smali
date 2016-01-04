@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/samsung/android/writingbuddy/WritingBuddyImpl;)V
     .locals 0
 
+    .prologue
+    .line 2195
     iput-object p1, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     invoke-direct {p0}, Lcom/samsung/android/writingbuddy/IWritingBuddyClient$Stub;-><init>()V
@@ -33,12 +35,16 @@
 # virtual methods
 .method public onImageInserted(ILandroid/net/Uri;)V
     .locals 7
+    .param p1, "clientId"    # I
+    .param p2, "uri"    # Landroid/net/Uri;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2199
     const-string v4, "WritingBuddyImpl"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -61,6 +67,7 @@
 
     invoke-static {v4, v5}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2201
     iget-object v4, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mParentView:Landroid/view/View;
@@ -72,10 +79,13 @@
 
     move-result-object v1
 
+    .line 2203
+    .local v1, "context":Landroid/content/Context;
     if-eqz p2, :cond_0
 
     if-eqz v1, :cond_0
 
+    .line 2205
     :try_start_0
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -85,6 +95,8 @@
 
     move-result-object v0
 
+    .line 2206
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
     iget-object v4, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mHandler:Landroid/os/Handler;
@@ -98,38 +110,54 @@
 
     move-result-object v3
 
+    .line 2207
+    .local v3, "msg":Landroid/os/Message;
     invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
     :try_end_0
     .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
+    .line 2230
+    .end local v0    # "bitmap":Landroid/graphics/Bitmap;
+    .end local v3    # "msg":Landroid/os/Message;
     :cond_0
     :goto_0
     return-void
 
+    .line 2208
     :catch_0
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/io/FileNotFoundException;->printStackTrace()V
+    .line 2210
+    .local v2, "e":Ljava/io/FileNotFoundException;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 2211
+    .end local v2    # "e":Ljava/io/FileNotFoundException;
     :catch_1
     move-exception v2
 
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
+    .line 2213
+    .local v2, "e":Ljava/io/IOException;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method
 
 .method public onResultReceived(ILandroid/os/Bundle;)V
     .locals 4
+    .param p1, "clientId"    # I
+    .param p2, "result"    # Landroid/os/Bundle;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2248
     const-string v1, "WritingBuddyImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -156,6 +184,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2249
     iget-object v1, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mHandler:Landroid/os/Handler;
@@ -171,25 +200,34 @@
 
     move-result-object v0
 
+    .line 2250
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 2251
     return-void
 .end method
 
 .method public onTextDeleted(III)V
     .locals 3
+    .param p1, "clientId"    # I
+    .param p2, "start"    # I
+    .param p3, "end"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2241
     const-string v1, "WritingBuddyImpl"
 
     const-string/jumbo v2, "mServiceCallback onTextDeleted()"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2242
     iget-object v1, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mHandler:Landroid/os/Handler;
@@ -203,25 +241,35 @@
 
     move-result-object v0
 
+    .line 2243
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 2244
     return-void
 .end method
 
 .method public onTextInserted(IILjava/lang/CharSequence;I)V
     .locals 3
+    .param p1, "clientId"    # I
+    .param p2, "where"    # I
+    .param p3, "text"    # Ljava/lang/CharSequence;
+    .param p4, "nextCursor"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2234
     const-string v1, "WritingBuddyImpl"
 
     const-string/jumbo v2, "mServiceCallback onTextInserted()"
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2235
     iget-object v1, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mHandler:Landroid/os/Handler;
@@ -235,19 +283,25 @@
 
     move-result-object v0
 
+    .line 2236
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 2237
     return-void
 .end method
 
 .method public onUpdateDialog(I)V
     .locals 4
+    .param p1, "clientId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 2255
     const-string v1, "WritingBuddyImpl"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -274,6 +328,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 2256
     iget-object v1, p0, Lcom/samsung/android/writingbuddy/WritingBuddyImpl$6;->this$0:Lcom/samsung/android/writingbuddy/WritingBuddyImpl;
 
     # getter for: Lcom/samsung/android/writingbuddy/WritingBuddyImpl;->mHandler:Landroid/os/Handler;
@@ -287,7 +342,10 @@
 
     move-result-object v0
 
+    .line 2257
+    .local v0, "msg":Landroid/os/Message;
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    .line 2258
     return-void
 .end method

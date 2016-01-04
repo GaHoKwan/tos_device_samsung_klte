@@ -113,6 +113,14 @@
     .end annotation
 .end method
 
+.method public abstract notifyFdnUpdated()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract notifyMessageWaitingChanged(Z)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

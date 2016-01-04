@@ -29,6 +29,8 @@
 .method constructor <init>(Landroid/widget/NumberPicker;)V
     .locals 0
 
+    .prologue
+    .line 2334
     iput-object p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->this$0:Landroid/widget/NumberPicker;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +40,11 @@
 
 .method static synthetic access$602(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
     .locals 0
+    .param p0, "x0"    # Landroid/widget/NumberPicker$SetSelectionCommand;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 2334
     iput p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionStart:I
 
     return p1
@@ -46,7 +52,11 @@
 
 .method static synthetic access$702(Landroid/widget/NumberPicker$SetSelectionCommand;I)I
     .locals 0
+    .param p0, "x0"    # Landroid/widget/NumberPicker$SetSelectionCommand;
+    .param p1, "x1"    # I
 
+    .prologue
+    .line 2334
     iput p1, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->mSelectionEnd:I
 
     return p1
@@ -57,6 +67,8 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 2340
     iget-object v0, p0, Landroid/widget/NumberPicker$SetSelectionCommand;->this$0:Landroid/widget/NumberPicker;
 
     # getter for: Landroid/widget/NumberPicker;->mInputText:Landroid/widget/EditText;
@@ -70,5 +82,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/EditText;->setSelection(II)V
 
+    .line 2341
     return-void
 .end method

@@ -34,6 +34,8 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 447
     const-class v0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
 
     invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -47,17 +49,28 @@
 
 .method private constructor <init>(Ljava/lang/String;III)V
     .locals 3
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "idx"    # I
+    .param p3, "flags"    # I
+    .param p4, "type"    # I
 
+    .prologue
+    .line 462
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 463
     iput-object p1, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifName:Ljava/lang/String;
 
+    .line 464
     iput p2, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifIdx:I
 
+    .line 465
     iput p3, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifFlags:I
 
+    .line 466
     iput p4, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifType:I
 
+    .line 467
     sget-object v0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,58 +137,86 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 473
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifAddr:[B
 
+    .line 474
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III[B)V
     .locals 0
+    .param p1, "name"    # Ljava/lang/String;
+    .param p2, "idx"    # I
+    .param p3, "flags"    # I
+    .param p4, "type"    # I
+    .param p5, "addr"    # [B
 
+    .prologue
+    .line 477
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;-><init>(Ljava/lang/String;III)V
 
+    .line 478
     iput-object p5, p0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->ifAddr:[B
 
+    .line 479
     return-void
 .end method
 
 .method static readObject(Ljava/io/DataInputStream;)Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
     .locals 10
+    .param p0, "din"    # Ljava/io/DataInputStream;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 489
     const/4 v0, 0x0
 
+    .line 491
+    .local v0, "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
     const/4 v5, 0x0
 
+    .line 493
+    .local v5, "addr":[B
     :try_start_0
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v2
 
+    .line 494
+    .local v2, "idx":I
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readInt()I
 
     move-result v3
 
+    .line 495
+    .local v3, "flags":I
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v4
 
+    .line 496
+    .local v4, "type":I
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v6
 
+    .line 498
+    .local v6, "alen":I
     if-lez v6, :cond_1
 
+    .line 499
     const/16 v1, 0x14
 
     if-le v6, v1, :cond_0
 
+    .line 500
     new-instance v1, Ljava/io/IOException;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -208,6 +249,12 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 519
+    .end local v0    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
+    .end local v2    # "idx":I
+    .end local v3    # "flags":I
+    .end local v4    # "type":I
+    .end local v6    # "alen":I
     :catchall_0
     move-exception v1
 
@@ -219,29 +266,41 @@
 
     throw v1
 
+    .line 502
+    .restart local v0    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
+    .restart local v2    # "idx":I
+    .restart local v3    # "flags":I
+    .restart local v4    # "type":I
+    .restart local v6    # "alen":I
     :cond_0
     :try_start_1
     new-array v5, v6, [B
 
+    .line 503
     invoke-virtual {p0, v5}, Ljava/io/DataInputStream;->readFully([B)V
 
+    .line 504
     rsub-int/lit8 v1, v6, 0x14
 
     invoke-virtual {p0, v1}, Ljava/io/DataInputStream;->skipBytes(I)I
 
+    .line 507
     :cond_1
     invoke-virtual {p0}, Ljava/io/DataInputStream;->readShort()S
 
     move-result v6
 
+    .line 509
     if-gtz v6, :cond_2
 
+    .line 510
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->TAG:Ljava/lang/String;
 
     const-string v8, "#readObject(): invalid name"
 
     invoke-static {v1, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 511
     new-instance v1, Ljava/io/IOException;
 
     const-string v8, "corrupted name string"
@@ -250,13 +309,18 @@
 
     throw v1
 
+    .line 513
     :cond_2
     new-array v7, v6, [B
 
+    .line 514
+    .local v7, "name":[B
     invoke-virtual {p0, v7}, Ljava/io/DataInputStream;->readFully([B)V
 
+    .line 516
     new-instance v0, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
 
+    .end local v0    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
     new-instance v1, Ljava/lang/String;
 
     invoke-direct {v1, v7}, Ljava/lang/String;-><init>([B)V
@@ -265,11 +329,14 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 519
+    .restart local v0    # "res":Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;
     sget-object v1, Lcom/android/server/connectivity/VpnNamespace$VpnNetIf;->TAG:Ljava/lang/String;
 
     const-string v8, "#readObject(): exiting"
 
     invoke-static {v1, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 521
     return-object v0
 .end method

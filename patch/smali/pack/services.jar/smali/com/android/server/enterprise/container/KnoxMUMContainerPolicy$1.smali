@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;)V
     .locals 0
 
+    .prologue
+    .line 279
     iput-object p1, p0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$1;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,26 +35,36 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v3, -0x1
 
+    .line 283
     const-string v2, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 284
+    .local v1, "userId":I
     if-ne v1, v3, :cond_1
 
+    .line 292
     :cond_0
     :goto_0
     return-void
 
+    .line 286
     :cond_1
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 287
+    .local v0, "action":Ljava/lang/String;
     const-string v2, "android.intent.action.USER_ADDED"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -61,6 +73,7 @@
 
     if-eqz v2, :cond_2
 
+    .line 288
     iget-object v2, p0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$1;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
     # invokes: Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->registerPersonaObserver(I)V
@@ -68,6 +81,7 @@
 
     goto :goto_0
 
+    .line 289
     :cond_2
     const-string v2, "android.intent.action.USER_REMOVED"
 
@@ -77,6 +91,7 @@
 
     if-eqz v2, :cond_0
 
+    .line 290
     iget-object v2, p0, Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy$1;->this$0:Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;
 
     # invokes: Lcom/android/server/enterprise/container/KnoxMUMContainerPolicy;->unregisterPersonaObserver(I)V

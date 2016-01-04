@@ -21,6 +21,8 @@
 .method constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 99
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -31,8 +33,11 @@
 .method public run()V
     .locals 0
 
+    .prologue
+    .line 101
     # invokes: Landroid/os/Trace;->cacheEnabledTags()J
     invoke-static {}, Landroid/os/Trace;->access$000()J
 
+    .line 102
     return-void
 .end method

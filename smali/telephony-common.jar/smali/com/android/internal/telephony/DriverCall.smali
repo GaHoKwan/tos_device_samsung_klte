@@ -104,6 +104,10 @@
     .prologue
     const/4 v3, 0x0
 
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
     .line 91
     new-instance v2, Lcom/android/internal/telephony/DriverCall;
 
@@ -120,39 +124,49 @@
     :try_start_0
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextInt()I
 
-    move-result v4
+    move-result v6
 
-    iput v4, v2, Lcom/android/internal/telephony/DriverCall;->index:I
+    iput v6, v2, Lcom/android/internal/telephony/DriverCall;->index:I
 
     .line 99
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextBoolean()Z
 
-    move-result v4
+    move-result v6
 
-    iput-boolean v4, v2, Lcom/android/internal/telephony/DriverCall;->isMT:Z
+    iput-boolean v6, v2, Lcom/android/internal/telephony/DriverCall;->isMT:Z
 
     .line 100
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextInt()I
 
-    move-result v4
+    move-result v6
 
-    invoke-static {v4}, Lcom/android/internal/telephony/DriverCall;->stateFromCLCC(I)Lcom/android/internal/telephony/DriverCall$State;
+    invoke-static {v6}, Lcom/android/internal/telephony/DriverCall;->stateFromCLCC(I)Lcom/android/internal/telephony/DriverCall$State;
 
-    move-result-object v4
+    move-result-object v6
 
-    iput-object v4, v2, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
+    iput-object v6, v2, Lcom/android/internal/telephony/DriverCall;->state:Lcom/android/internal/telephony/DriverCall$State;
 
     .line 102
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextInt()I
 
-    move-result v4
+    move-result v6
 
-    if-nez v4, :cond_2
+    if-nez v6, :cond_2
 
-    const/4 v4, 0x1
+    move v6, v4
 
     :goto_0
-    iput-boolean v4, v2, Lcom/android/internal/telephony/DriverCall;->isVoice:Z
+    iput-boolean v6, v2, Lcom/android/internal/telephony/DriverCall;->isVoice:Z
+
+    .line 104
+    invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextInt()I
+
+    move-result v6
+
+    if-nez v6, :cond_3
+
+    :goto_1
+    iput-boolean v4, v2, Lcom/android/internal/telephony/DriverCall;->isVideo:Z
 
     .line 107
     invoke-virtual {v1}, Lcom/android/internal/telephony/ATResponseParser;->nextBoolean()Z
@@ -222,15 +236,21 @@
     .line 135
     .end local v2    # "ret":Lcom/android/internal/telephony/DriverCall;
     :cond_1
-    :goto_1
+    :goto_2
     return-object v2
 
-    .line 102
     .restart local v2    # "ret":Lcom/android/internal/telephony/DriverCall;
     :cond_2
-    const/4 v4, 0x0
+    move v6, v5
 
+    .line 102
     goto :goto_0
+
+    :cond_3
+    move v4, v5
+
+    .line 104
+    goto :goto_1
 
     .line 130
     :catch_0
@@ -269,7 +289,7 @@
     move-object v2, v3
 
     .line 132
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method public static presentationFromCLIP(I)I

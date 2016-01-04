@@ -132,7 +132,7 @@
     .line 30
     sget-object v0, Landroid/net/wifi/PPPOEInfo$Status;->$VALUES:[Landroid/net/wifi/PPPOEInfo$Status;
 
-    invoke-virtual {v0}, [Landroid/net/wifi/PPPOEInfo$Status;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

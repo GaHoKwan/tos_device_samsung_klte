@@ -10,6 +10,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,7 +21,14 @@
 # virtual methods
 .method public onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
     .locals 8
+    .param p1, "url"    # Ljava/lang/String;
+    .param p2, "userAgent"    # Ljava/lang/String;
+    .param p3, "contentDisposition"    # Ljava/lang/String;
+    .param p4, "mimetype"    # Ljava/lang/String;
+    .param p5, "contentLength"    # J
 
+    .prologue
+    .line 54
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -36,6 +45,7 @@
 
     invoke-virtual/range {v0 .. v7}, Landroid/webkit/BrowserDownloadListener;->onDownloadStart(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V
 
+    .line 56
     return-void
 .end method
 

@@ -63,7 +63,7 @@
     .line 209
     iget-object v1, p0, Lcom/android/internal/telephony/WakeLockStateMachine$WaitingState;->this$0:Lcom/android/internal/telephony/WakeLockStateMachine;
 
-    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->deferMessage(Landroid/os/Message;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->deferMessage(Landroid/os/Message;)V
     invoke-static {v1, p1}, Lcom/android/internal/telephony/WakeLockStateMachine;->access$300(Lcom/android/internal/telephony/WakeLockStateMachine;Landroid/os/Message;)V
 
     goto :goto_0
@@ -86,7 +86,7 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/internal/telephony/WakeLockStateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
     invoke-static {v1, v2}, Lcom/android/internal/telephony/WakeLockStateMachine;->access$500(Lcom/android/internal/telephony/WakeLockStateMachine;Lcom/android/internal/util/IState;)V
 
     goto :goto_0

@@ -85,7 +85,7 @@
     .local v2, "ex":Ljava/lang/NoSuchMethodException;
     new-instance v4, Ljava/lang/NoSuchMethodError;
 
-    invoke-virtual {v2}, Ljava/lang/NoSuchMethodException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -138,7 +138,7 @@
     .local v2, "ex":Ljava/lang/IllegalAccessException;
     new-instance v4, Ljava/lang/IllegalAccessError;
 
-    invoke-virtual {v2}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 

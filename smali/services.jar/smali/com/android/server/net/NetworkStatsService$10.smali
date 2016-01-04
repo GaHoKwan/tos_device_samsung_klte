@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/net/NetworkStatsService;)V
     .locals 0
 
+    .prologue
+    .line 1233
     iput-object p1, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,21 +38,28 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v1, 0x1
 
+    .line 1236
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 1251
     const/4 v1, 0x0
 
     :goto_0
     return v1
 
+    .line 1238
     :pswitch_0
     iget v0, p1, Landroid/os/Message;->arg1:I
 
+    .line 1239
+    .local v0, "flags":I
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
     # invokes: Lcom/android/server/net/NetworkStatsService;->performPoll(I)V
@@ -58,6 +67,8 @@
 
     goto :goto_0
 
+    .line 1243
+    .end local v0    # "flags":I
     :pswitch_1
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
@@ -66,6 +77,7 @@
 
     goto :goto_0
 
+    .line 1247
     :pswitch_2
     iget-object v2, p0, Lcom/android/server/net/NetworkStatsService$10;->this$0:Lcom/android/server/net/NetworkStatsService;
 
@@ -74,6 +86,7 @@
 
     goto :goto_0
 
+    .line 1236
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

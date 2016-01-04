@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/samsung/android/fingerprint/FingerprintManager;)V
     .locals 0
 
+    .prologue
+    .line 641
     iput-object p1, p0, Lcom/samsung/android/fingerprint/FingerprintManager$2;->this$0:Lcom/samsung/android/fingerprint/FingerprintManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,17 +38,22 @@
 # virtual methods
 .method public onDismiss(Landroid/content/DialogInterface;)V
     .locals 2
+    .param p1, "dialogInterface"    # Landroid/content/DialogInterface;
 
+    .prologue
+    .line 644
     const-string v0, "FingerprintManager"
 
     const-string v1, "=== Identify Dialog : onDismiss ==="
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 645
     const/4 v0, 0x0
 
     # setter for: Lcom/samsung/android/fingerprint/FingerprintManager;->mIdentifyDialog:Landroid/app/Dialog;
     invoke-static {v0}, Lcom/samsung/android/fingerprint/FingerprintManager;->access$102(Landroid/app/Dialog;)Landroid/app/Dialog;
 
+    .line 646
     return-void
 .end method

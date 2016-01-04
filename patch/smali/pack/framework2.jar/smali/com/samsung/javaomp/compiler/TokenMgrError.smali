@@ -355,7 +355,7 @@
 .method public getMessage()Ljava/lang/String;
     .locals 1
 
-    invoke-super {p0}, Ljava/lang/Error;->getMessage()Ljava/lang/String;
+    invoke-super {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v0
 

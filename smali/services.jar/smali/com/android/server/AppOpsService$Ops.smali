@@ -32,12 +32,19 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/String;I)V
     .locals 0
+    .param p1, "_packageName"    # Ljava/lang/String;
+    .param p2, "_uid"    # I
 
+    .prologue
+    .line 106
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
 
+    .line 107
     iput-object p1, p0, Lcom/android/server/AppOpsService$Ops;->packageName:Ljava/lang/String;
 
+    .line 108
     iput p2, p0, Lcom/android/server/AppOpsService$Ops;->uid:I
 
+    .line 109
     return-void
 .end method

@@ -309,7 +309,7 @@
     .end local v4    # "tok":Ljava/lang/String;
     .end local v5    # "x":I
     :cond_1
-    invoke-virtual {v0}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v6
 
@@ -455,7 +455,7 @@
     .line 282
     .end local v2    # "cpe":Ljava/security/cert/CertificateParsingException;
     :cond_1
-    invoke-virtual {v6}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v6}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v9
 
@@ -645,7 +645,7 @@
     .end local v8    # "len$":I
     .end local v12    # "subjectAlt":Ljava/lang/String;
     :cond_2
-    invoke-virtual {v11}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v11}, Ljava/util/AbstractCollection;->isEmpty()Z
 
     move-result v13
 
@@ -711,7 +711,7 @@
 
     .line 150
     .local v9, "match":Z
-    invoke-virtual {v11}, Ljava/util/LinkedList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v11}, Ljava/util/AbstractSequentialList;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 

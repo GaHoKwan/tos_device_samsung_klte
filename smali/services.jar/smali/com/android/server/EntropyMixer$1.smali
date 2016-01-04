@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/EntropyMixer;)V
     .locals 0
 
+    .prologue
+    .line 65
     iput-object p1, p0, Lcom/android/server/EntropyMixer$1;->this$0:Lcom/android/server/EntropyMixer;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,28 +35,35 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 68
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
     if-eq v0, v1, :cond_0
 
+    .line 69
     const-string v0, "EntropyMixer"
 
     const-string v1, "Will not process invalid message"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 74
     :goto_0
     return-void
 
+    .line 72
     :cond_0
     iget-object v0, p0, Lcom/android/server/EntropyMixer$1;->this$0:Lcom/android/server/EntropyMixer;
 
     # invokes: Lcom/android/server/EntropyMixer;->writeEntropy()V
     invoke-static {v0}, Lcom/android/server/EntropyMixer;->access$000(Lcom/android/server/EntropyMixer;)V
 
+    .line 73
     iget-object v0, p0, Lcom/android/server/EntropyMixer$1;->this$0:Lcom/android/server/EntropyMixer;
 
     # invokes: Lcom/android/server/EntropyMixer;->scheduleEntropyWriter()V

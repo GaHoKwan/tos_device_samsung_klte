@@ -119,6 +119,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 16
     const-string v0, "/data/system/container/databases/"
 
     const/16 v1, 0x2f
@@ -145,18 +147,22 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->AUTHORITY:Ljava/lang/String;
 
+    .line 17
     const-string v0, "containerwithassociatedpackages"
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_TABLE_NAME:Ljava/lang/String;
 
+    .line 18
     const-string v0, "containeractivestatus"
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_TABLE_ACTIVESTATUS_NAME:Ljava/lang/String;
 
+    .line 19
     const-string v0, "certificatemanager"
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CERTIFICATE_MANAGER_TABLE_NAME:Ljava/lang/String;
 
+    .line 23
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -195,6 +201,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_CONTENT_URI:Landroid/net/Uri;
 
+    .line 24
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -233,6 +240,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_ACTIVE_STATUS_URI:Landroid/net/Uri;
 
+    .line 25
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -271,6 +279,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CERTIFICATE_MANAGER_URI:Landroid/net/Uri;
 
+    .line 51
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -377,6 +386,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->createTableContainerAssociatedPackage:Ljava/lang/String;
 
+    .line 60
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -615,6 +625,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->createTableContainerActive:Ljava/lang/String;
 
+    .line 80
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -661,6 +672,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerActive:Ljava/lang/String;
 
+    .line 84
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -707,6 +719,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerActivePassExpired:Ljava/lang/String;
 
+    .line 88
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -753,6 +766,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerActiveFailedPassAttemps:Ljava/lang/String;
 
+    .line 92
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -799,6 +813,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerActiveAdminUid:Ljava/lang/String;
 
+    .line 96
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -845,6 +860,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerLockType:Ljava/lang/String;
 
+    .line 100
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -891,6 +907,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableContainerType:Ljava/lang/String;
 
+    .line 104
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -961,6 +978,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->createTableCertificateManager:Ljava/lang/String;
 
+    .line 111
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1007,6 +1025,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->upgradeTableScreenlock:Ljava/lang/String;
 
+    .line 115
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1059,6 +1078,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void

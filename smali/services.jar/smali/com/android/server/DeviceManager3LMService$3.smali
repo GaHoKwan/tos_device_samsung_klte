@@ -24,6 +24,8 @@
 .method constructor <init>(Lcom/android/server/DeviceManager3LMService;I)V
     .locals 0
 
+    .prologue
+    .line 682
     iput-object p1, p0, Lcom/android/server/DeviceManager3LMService$3;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     iput p2, p0, Lcom/android/server/DeviceManager3LMService$3;->val$id:I
@@ -38,6 +40,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 684
     iget-object v0, p0, Lcom/android/server/DeviceManager3LMService$3;->this$0:Lcom/android/server/DeviceManager3LMService;
 
     # getter for: Lcom/android/server/DeviceManager3LMService;->mNotificationManager:Landroid/app/NotificationManager;
@@ -49,5 +53,6 @@
 
     invoke-virtual {v0, v1}, Landroid/app/NotificationManager;->cancel(I)V
 
+    .line 685
     return-void
 .end method

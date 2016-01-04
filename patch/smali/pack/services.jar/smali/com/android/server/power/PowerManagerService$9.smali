@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/power/PowerManagerService;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Looper;
 
+    .prologue
+    .line 5589
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -33,11 +36,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 5591
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 5601
     const-string v0, "PowerManagerService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,9 +69,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 5604
     :goto_0
     return-void
 
+    .line 5593
     :pswitch_0
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -75,6 +84,7 @@
 
     goto :goto_0
 
+    .line 5597
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$9;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -85,6 +95,7 @@
 
     goto :goto_0
 
+    .line 5591
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

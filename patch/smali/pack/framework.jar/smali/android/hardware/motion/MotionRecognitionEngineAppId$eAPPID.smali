@@ -1097,7 +1097,7 @@
     .line 4
     sget-object v0, Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;->$VALUES:[Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;
 
-    invoke-virtual {v0}, [Landroid/hardware/motion/MotionRecognitionEngineAppId$eAPPID;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

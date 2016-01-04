@@ -754,7 +754,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -921,7 +921,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1100,7 +1100,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1253,7 +1253,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1697,7 +1697,7 @@
 
     if-eqz v15, :cond_1
 
-    invoke-virtual {v4}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v15
 
@@ -2001,7 +2001,7 @@
 
     if-eqz v8, :cond_1
 
-    invoke-virtual {v2}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v8
 
@@ -2982,7 +2982,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v0}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -3162,7 +3162,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -3328,7 +3328,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v7}, Ljava/lang/SecurityException;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object v1
 

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/display/IpRemoteDisplayController;)V
     .locals 0
 
+    .prologue
+    .line 177
     iput-object p1, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,19 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v6, 0x0
 
+    .line 181
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 182
+    .local v0, "action":Ljava/lang/String;
     const-string v3, "IpRemoteDisplayController"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -62,6 +70,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 184
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mWfdBridgeServer:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -71,16 +80,19 @@
 
     if-nez v3, :cond_1
 
+    .line 185
     const-string v3, "IpRemoteDisplayController"
 
     const-string v4, "Bridge Server is not available"
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 207
     :cond_0
     :goto_0
     return-void
 
+    .line 189
     :cond_1
     const-string v3, "android.intent.action.WIFI_DISPLAY_SINK_STATE"
 
@@ -90,12 +102,15 @@
 
     if-eqz v3, :cond_2
 
+    .line 190
     const-string/jumbo v3, "state"
 
     invoke-virtual {p2, v3, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v1
 
+    .line 191
+    .local v1, "wfdSinkState":I
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mWfdBridgeServer:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -107,6 +122,8 @@
 
     goto :goto_0
 
+    .line 192
+    .end local v1    # "wfdSinkState":I
     :cond_2
     const-string v3, "android.intent.action.WIFI_DISPLAY"
 
@@ -116,12 +133,15 @@
 
     if-eqz v3, :cond_3
 
+    .line 193
     const-string/jumbo v3, "state"
 
     invoke-virtual {p2, v3, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v2
 
+    .line 194
+    .local v2, "wfdSourceState":I
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mWfdBridgeServer:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -133,6 +153,8 @@
 
     goto :goto_0
 
+    .line 195
+    .end local v2    # "wfdSourceState":I
     :cond_3
     const-string v3, "android.intent.action.SCREEN_ON"
 
@@ -142,6 +164,7 @@
 
     if-eqz v3, :cond_4
 
+    .line 196
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mWfdBridgeServer:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -155,6 +178,7 @@
 
     goto :goto_0
 
+    .line 197
     :cond_4
     const-string v3, "android.intent.action.SCREEN_OFF"
 
@@ -164,6 +188,7 @@
 
     if-eqz v3, :cond_5
 
+    .line 198
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mWfdBridgeServer:Lcom/android/server/display/IpRemoteDisplayController$WfdBridgeAdapter;
@@ -175,6 +200,7 @@
 
     goto :goto_0
 
+    .line 199
     :cond_5
     const-string v3, "android.intent.action.HDMI_PLUGGED"
 
@@ -184,6 +210,7 @@
 
     if-eqz v3, :cond_0
 
+    .line 200
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     const-string/jumbo v4, "state"
@@ -195,6 +222,7 @@
     # setter for: Lcom/android/server/display/IpRemoteDisplayController;->mHDMIConnected:Z
     invoke-static {v3, v4}, Lcom/android/server/display/IpRemoteDisplayController;->access$602(Lcom/android/server/display/IpRemoteDisplayController;Z)Z
 
+    .line 201
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # getter for: Lcom/android/server/display/IpRemoteDisplayController;->mHDMIConnected:Z
@@ -213,17 +241,20 @@
 
     if-eqz v3, :cond_6
 
+    .line 202
     const-string v3, "IpRemoteDisplayController"
 
     const-string v4, "HDMI Connected! we disconnect WFD!"
 
     invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 203
     iget-object v3, p0, Lcom/android/server/display/IpRemoteDisplayController$2;->this$0:Lcom/android/server/display/IpRemoteDisplayController;
 
     # invokes: Lcom/android/server/display/IpRemoteDisplayController;->disconnect()V
     invoke-static {v3}, Lcom/android/server/display/IpRemoteDisplayController;->access$700(Lcom/android/server/display/IpRemoteDisplayController;)V
 
+    .line 205
     :cond_6
     const-string v3, "IpRemoteDisplayController"
 

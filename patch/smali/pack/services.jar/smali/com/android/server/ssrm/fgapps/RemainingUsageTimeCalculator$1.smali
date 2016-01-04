@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;)V
     .locals 0
 
+    .prologue
+    .line 112
     iput-object p1, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,12 +35,18 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 8
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 116
     :try_start_0
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 117
+    .local v0, "action":Ljava/lang/String;
     const-string v5, "android.intent.action.TIME_SET"
 
     invoke-virtual {v5, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -55,6 +63,7 @@
 
     if-eqz v5, :cond_2
 
+    .line 119
     :cond_0
     iget-object v5, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;
 
@@ -64,10 +73,14 @@
 
     invoke-virtual {v5, v6}, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;->initStartChecking(I)V
 
+    .line 143
+    .end local v0    # "action":Ljava/lang/String;
     :cond_1
     :goto_0
     return-void
 
+    .line 120
+    .restart local v0    # "action":Ljava/lang/String;
     :cond_2
     const-string v5, "android.intent.action.BATTERY_CHANGED"
 
@@ -77,6 +90,7 @@
 
     if-eqz v5, :cond_1
 
+    .line 121
     const-string/jumbo v5, "status"
 
     const/4 v6, -0x1
@@ -85,6 +99,8 @@
 
     move-result v1
 
+    .line 122
+    .local v1, "battStatus":I
     const-string v5, "level"
 
     const/4 v6, -0x1
@@ -93,12 +109,15 @@
 
     move-result v4
 
+    .line 123
+    .local v4, "level":I
     iget-object v5, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;
 
     iget v5, v5, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;->mEndLevel:I
 
     if-eq v5, v4, :cond_1
 
+    .line 126
     # getter for: Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;->TAG:Ljava/lang/String;
     invoke-static {}, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;->access$000()Ljava/lang/String;
 
@@ -124,6 +143,7 @@
 
     invoke-static {v5, v6}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 127
     const/4 v5, 0x2
 
     if-eq v1, v5, :cond_3
@@ -140,6 +160,7 @@
 
     if-eqz v5, :cond_5
 
+    .line 130
     :cond_3
     iget-object v5, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;
 
@@ -149,32 +170,49 @@
 
     goto :goto_0
 
+    .line 135
+    .end local v0    # "action":Ljava/lang/String;
+    .end local v1    # "battStatus":I
+    .end local v4    # "level":I
     :catch_0
     move-exception v2
 
+    .line 136
+    .local v2, "e":Ljava/lang/Exception;
     new-instance v3, Ljava/io/File;
 
     const-string v5, "/data/system/rut.db"
 
     invoke-direct {v3, v5}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 137
+    .local v3, "fileRemainingTime":Ljava/io/File;
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v5
 
     if-eqz v5, :cond_4
 
+    .line 138
     invoke-virtual {v3}, Ljava/io/File;->delete()Z
 
+    .line 140
     :cond_4
     iget-object v5, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;
 
     invoke-virtual {v5}, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;->createRemainUsageTimeHistory()V
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
+    .line 141
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 132
+    .end local v2    # "e":Ljava/lang/Exception;
+    .end local v3    # "fileRemainingTime":Ljava/io/File;
+    .restart local v0    # "action":Ljava/lang/String;
+    .restart local v1    # "battStatus":I
+    .restart local v4    # "level":I
     :cond_5
     :try_start_1
     iget-object v5, p0, Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator$1;->this$0:Lcom/android/server/ssrm/fgapps/RemainingUsageTimeCalculator;

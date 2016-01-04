@@ -30,7 +30,7 @@
 
     move-result v0
 
-    iput v0, p0, Landroid/graphics/PaintFlagsDrawFilter;->mNativeInt:I
+    iput v0, p0, Landroid/graphics/DrawFilter;->mNativeInt:I
 
     .line 39
     return-void

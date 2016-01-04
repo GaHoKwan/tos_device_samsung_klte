@@ -24,6 +24,8 @@
 .method constructor <init>(Landroid/transition/TransitionSet;Landroid/transition/Transition;)V
     .locals 0
 
+    .prologue
+    .line 275
     iput-object p1, p0, Landroid/transition/TransitionSet$1;->this$0:Landroid/transition/TransitionSet;
 
     iput-object p2, p0, Landroid/transition/TransitionSet$1;->val$nextTransition:Landroid/transition/Transition;
@@ -37,12 +39,17 @@
 # virtual methods
 .method public onTransitionEnd(Landroid/transition/Transition;)V
     .locals 1
+    .param p1, "transition"    # Landroid/transition/Transition;
 
+    .prologue
+    .line 278
     iget-object v0, p0, Landroid/transition/TransitionSet$1;->val$nextTransition:Landroid/transition/Transition;
 
     invoke-virtual {v0}, Landroid/transition/Transition;->runAnimators()V
 
+    .line 279
     invoke-virtual {p1, p0}, Landroid/transition/Transition;->removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
+    .line 280
     return-void
 .end method

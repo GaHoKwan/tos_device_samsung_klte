@@ -113,7 +113,7 @@
 
     move-result-object v7
 
-    const-string v8, "{ what="
+    const-string/jumbo v8, "{ what="
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -553,6 +553,8 @@
     goto/16 :goto_1
 
     .line 3296
+    nop
+
     nop
 
     :sswitch_data_0

@@ -32,19 +32,30 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
+    .param p2, "u"    # I
+    .param p3, "cid"    # Ljava/lang/String;
+    .param p4, "s"    # Ljava/lang/String;
+    .param p5, "i"    # Ljava/lang/String;
 
+    .prologue
+    .line 1302
     iput-object p1, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 1303
     iput p2, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->uid:I
 
+    .line 1304
     iput-object p3, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->ContainerId:Ljava/lang/String;
 
+    .line 1305
     iput-object p4, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->sso:Ljava/lang/String;
 
+    .line 1306
     iput-object p5, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->item:Ljava/lang/String;
 
+    .line 1307
     return-void
 .end method
 
@@ -53,6 +64,8 @@
 .method public run()V
     .locals 4
 
+    .prologue
+    .line 1309
     iget-object v0, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     new-instance v1, Landroid/app/enterprise/ContextInfo;
@@ -77,6 +90,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->unenroll(Landroid/app/enterprise/ContextInfo;ILjava/lang/String;)Landroid/app/enterprise/EnterpriseResponseData;
 
+    .line 1310
     iget-object v0, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->clientsList:Ljava/util/ArrayList;
@@ -88,11 +102,13 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 1311
     iget-object v0, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->this$0:Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;
 
     # invokes: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->writeListToFile()V
     invoke-static {v0}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$700(Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;)V
 
+    .line 1313
     iget-object v0, p0, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy$1UnenrollRunnable;->ContainerId:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -129,6 +145,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 1314
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOInterfaceMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$800()Ljava/util/Map;
 
@@ -146,6 +163,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1315
     const-string v0, "EnterpriseSSOPolicyService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -173,6 +191,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1317
     :cond_0
     # getter for: Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->mSSOTypeMap:Ljava/util/Map;
     invoke-static {}, Lcom/android/server/enterprise/container/EnterpriseSSOPolicy;->access$900()Ljava/util/Map;
@@ -187,5 +206,6 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 1318
     return-void
 .end method

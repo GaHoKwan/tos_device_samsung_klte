@@ -32,7 +32,7 @@
     invoke-direct {p0, p1, p2}, Lorg/apache/http/impl/conn/AbstractPooledConnAdapter;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/impl/conn/AbstractPoolEntry;)V
 
     .line 460
-    invoke-virtual {p0}, Lorg/apache/http/impl/conn/SingleClientConnManager$ConnAdapter;->markReusable()V
+    invoke-virtual {p0}, Lorg/apache/http/impl/conn/AbstractClientConnAdapter;->markReusable()V
 
     .line 461
     iput-object p3, p2, Lorg/apache/http/impl/conn/SingleClientConnManager$PoolEntry;->route:Lorg/apache/http/conn/routing/HttpRoute;

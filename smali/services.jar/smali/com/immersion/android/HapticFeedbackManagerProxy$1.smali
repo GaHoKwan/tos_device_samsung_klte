@@ -27,6 +27,8 @@
 .method constructor <init>(Landroid/content/Context;Landroid/os/Looper;)V
     .locals 0
 
+    .prologue
+    .line 66
     iput-object p1, p0, Lcom/immersion/android/HapticFeedbackManagerProxy$1;->val$theContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/immersion/android/HapticFeedbackManagerProxy$1;->val$looper:Landroid/os/Looper;
@@ -41,6 +43,8 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 69
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/immersion/android/HapticFeedbackManagerProxy$1$1;
@@ -51,5 +55,6 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
+    .line 74
     return-void
 .end method

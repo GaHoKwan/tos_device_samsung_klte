@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/smartclip/SmartClipView;)V
     .locals 0
 
+    .prologue
+    .line 1038
     iput-object p1, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,6 +39,8 @@
 .method public run()V
     .locals 7
 
+    .prologue
+    .line 1041
     :try_start_0
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
@@ -54,15 +58,18 @@
 
     if-eqz v4, :cond_0
 
+    .line 1042
     const-string v4, "SmartClipView"
 
     const-string v5, "gesturepad is live!!!"
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1075
     :goto_0
     return-void
 
+    .line 1046
     :cond_0
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
@@ -72,6 +79,7 @@
 
     if-eqz v4, :cond_1
 
+    .line 1047
     const-string v4, "SmartClipView"
 
     const-string v5, "Now keyguard is on!!!"
@@ -80,11 +88,13 @@
 
     goto :goto_0
 
+    .line 1069
     :catch_0
     move-exception v4
 
     goto :goto_0
 
+    .line 1051
     :cond_1
     const-string v4, "SmartClipView"
 
@@ -92,38 +102,46 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 1053
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
+    .line 1054
+    .local v0, "dvfsLockIntent":Landroid/content/Intent;
     const-string v4, "com.sec.android.intent.action.DVFS_BOOSTER"
 
     invoke-virtual {v0, v4}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1055
     const-string v4, "PACKAGE"
 
     const-string v5, "com.sec.android.gesturepad"
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1056
     const-string v4, "CPU"
 
     const-string v5, "MAX"
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1057
     const-string v4, "CPU_CORE_NUM"
 
     const-string v5, "4"
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1058
     const-string v4, "DURATION"
 
     const-string v5, "1500"
 
     invoke-virtual {v0, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
+    .line 1060
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mContext:Landroid/content/Context;
@@ -133,6 +151,7 @@
 
     invoke-virtual {v4, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 1063
     const-class v4, Landroid/content/Intent;
 
     const-string v5, "EXTRA_WINDOW_MODE"
@@ -141,6 +160,8 @@
 
     move-result-object v2
 
+    .line 1064
+    .local v2, "intentField":Ljava/lang/reflect/Field;
     const-class v4, Landroid/view/WindowManagerPolicy;
 
     const-string v5, "WINDOW_MODE_NORMAL"
@@ -149,6 +170,8 @@
 
     move-result-object v3
 
+    .line 1065
+    .local v3, "policyField":Ljava/lang/reflect/Field;
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mGesturePadIntent:Landroid/content/Intent;
@@ -168,6 +191,7 @@
 
     invoke-virtual {v5, v4, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 1066
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mGesturePadIntent:Landroid/content/Intent;
@@ -186,6 +210,7 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 1067
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
     # getter for: Lcom/android/server/smartclip/SmartClipView;->mGesturePadIntent:Landroid/content/Intent;
@@ -204,9 +229,10 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
+    .line 1068
     iget-object v4, p0, Lcom/android/server/smartclip/SmartClipView$7;->this$0:Lcom/android/server/smartclip/SmartClipView;
 
-    invoke-virtual {v4}, Lcom/android/server/smartclip/SmartClipView;->getContext()Landroid/content/Context;
+    invoke-virtual {v4}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object v4
 
@@ -226,18 +252,27 @@
 
     goto/16 :goto_0
 
+    .line 1070
+    .end local v0    # "dvfsLockIntent":Landroid/content/Intent;
+    .end local v2    # "intentField":Ljava/lang/reflect/Field;
+    .end local v3    # "policyField":Ljava/lang/reflect/Field;
     :catch_1
     move-exception v4
 
     goto/16 :goto_0
 
+    .line 1072
     :catch_2
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    .line 1073
+    .local v1, "e":Ljava/lang/Exception;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 
+    .line 1071
+    .end local v1    # "e":Ljava/lang/Exception;
     :catch_3
     move-exception v4
 

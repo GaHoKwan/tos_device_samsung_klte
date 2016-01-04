@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/ssrm/PreMonitor;)V
     .locals 0
 
+    .prologue
+    .line 85
     iput-object p1, p0, Lcom/android/server/ssrm/PreMonitor$1;->this$0:Lcom/android/server/ssrm/PreMonitor;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,19 +39,25 @@
 .method public run()V
     .locals 9
 
+    .prologue
     const/4 v8, -0x1
 
+    .line 89
     const-wide/16 v0, 0x7d0
 
     :try_start_0
     invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
 
+    .line 91
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->updateBatteryTemperature()V
 
+    .line 92
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->getBatteryTemperature()I
 
     move-result v6
 
+    .line 94
+    .local v6, "batteryTemp":I
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -59,6 +67,7 @@
 
     if-le v6, v0, :cond_1
 
+    .line 95
     const-string v0, "SSRMv2:PreMonitor"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -81,16 +90,21 @@
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 128
+    .end local v6    # "batteryTemp":I
     :cond_0
     :goto_0
     return-void
 
+    .line 99
+    .restart local v6    # "batteryTemp":I
     :cond_1
     const/4 v0, 0x1
 
     # setter for: Lcom/android/server/ssrm/PreMonitor;->mSiopEnabled:Z
     invoke-static {v0}, Lcom/android/server/ssrm/PreMonitor;->access$102(Z)Z
 
+    .line 100
     const-string v0, "SSRMv2:PreMonitor"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -113,6 +127,7 @@
 
     invoke-static {v0, v1}, Lcom/android/server/ssrm/SSRMUtil;->logOnEng(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 104
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -122,6 +137,7 @@
 
     if-eq v0, v8, :cond_2
 
+    .line 105
     new-instance v0, Landroid/os/DVFSHelper;
 
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mContext:Landroid/content/Context;
@@ -140,6 +156,7 @@
     # setter for: Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {v0}, Lcom/android/server/ssrm/PreMonitor;->access$202(Landroid/os/DVFSHelper;)Landroid/os/DVFSHelper;
 
+    .line 107
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$200()Landroid/os/DVFSHelper;
 
@@ -158,6 +175,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 108
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$200()Landroid/os/DVFSHelper;
 
@@ -165,6 +183,7 @@
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 111
     :cond_2
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
@@ -175,6 +194,7 @@
 
     if-eq v0, v8, :cond_3
 
+    .line 112
     new-instance v0, Landroid/os/DVFSHelper;
 
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mContext:Landroid/content/Context;
@@ -193,6 +213,7 @@
     # setter for: Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {v0}, Lcom/android/server/ssrm/PreMonitor;->access$402(Landroid/os/DVFSHelper;)Landroid/os/DVFSHelper;
 
+    .line 114
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$400()Landroid/os/DVFSHelper;
 
@@ -211,6 +232,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/DVFSHelper;->addExtraOption(Ljava/lang/String;J)V
 
+    .line 115
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$400()Landroid/os/DVFSHelper;
 
@@ -218,6 +240,7 @@
 
     invoke-virtual {v0}, Landroid/os/DVFSHelper;->acquire()V
 
+    .line 118
     :cond_3
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
@@ -228,6 +251,7 @@
 
     if-eq v0, v8, :cond_4
 
+    .line 119
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -237,6 +261,7 @@
 
     invoke-static {v0}, Lcom/android/server/ssrm/PreMonitor$BrightnessController;->limitMaxBrightness(I)V
 
+    .line 122
     :cond_4
     # getter for: Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor;->access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
@@ -247,6 +272,7 @@
 
     if-nez v0, :cond_0
 
+    .line 123
     const/4 v0, 0x0
 
     invoke-static {v0}, Lcom/android/server/ssrm/PreMonitor$BrightnessController;->limitMaxButtonBrightness(I)V
@@ -255,10 +281,14 @@
 
     goto/16 :goto_0
 
+    .line 125
+    .end local v6    # "batteryTemp":I
     :catch_0
     move-exception v7
 
-    invoke-virtual {v7}, Ljava/lang/Exception;->printStackTrace()V
+    .line 126
+    .local v7, "e":Ljava/lang/Exception;
+    invoke-virtual {v7}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_0
 .end method

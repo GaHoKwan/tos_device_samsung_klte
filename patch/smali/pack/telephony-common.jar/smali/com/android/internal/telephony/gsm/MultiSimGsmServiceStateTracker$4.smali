@@ -71,7 +71,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->log(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->log(Ljava/lang/String;)V
 
     .line 1261
     const-wide/16 v2, 0x1f4
@@ -103,14 +103,14 @@
     .line 1265
     iget-object v2, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker$4;->this$0:Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;
 
-    # getter for: Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
+    # getter for: Lcom/android/internal/telephony/ServiceStateTracker;->mCi:Lcom/android/internal/telephony/CommandsInterface;
     invoke-static {v2}, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->access$200(Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;)Lcom/android/internal/telephony/CommandsInterface;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker$4;->this$0:Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;
 
-    iget v3, v3, Lcom/android/internal/telephony/gsm/MultiSimGsmServiceStateTracker;->mPreferredNetworkType:I
+    iget v3, v3, Lcom/android/internal/telephony/gsm/GsmServiceStateTracker;->mPreferredNetworkType:I
 
     const/4 v4, 0x0
 
@@ -179,7 +179,7 @@
 
     .line 1276
     .local v0, "e":Ljava/lang/InterruptedException;
-    invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

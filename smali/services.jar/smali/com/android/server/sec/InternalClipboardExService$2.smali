@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/sec/InternalClipboardExService;)V
     .locals 0
 
+    .prologue
+    .line 391
     iput-object p1, p0, Lcom/android/server/sec/InternalClipboardExService$2;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
     invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
@@ -33,7 +35,10 @@
 # virtual methods
 .method public onUserSwitchComplete(I)V
     .locals 3
+    .param p1, "newUserId"    # I
 
+    .prologue
+    .line 407
     const-string v0, "ClipboardServiceEx"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -56,12 +61,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 409
     return-void
 .end method
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 3
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
+    .prologue
+    .line 394
     const-string v0, "ClipboardServiceEx"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -84,14 +94,17 @@
 
     invoke-static {v0, v1}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 396
     iget-object v0, p0, Lcom/android/server/sec/InternalClipboardExService$2;->this$0:Lcom/android/server/sec/InternalClipboardExService;
 
     const-string v1, "SWITCHED"
 
     invoke-virtual {v0, p1, v1}, Lcom/android/server/sec/InternalClipboardExService;->multiUserMode(ILjava/lang/String;)V
 
+    .line 398
     if-eqz p2, :cond_0
 
+    .line 400
     const/4 v0, 0x0
 
     :try_start_0
@@ -99,10 +112,12 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 404
     :cond_0
     :goto_0
     return-void
 
+    .line 401
     :catch_0
     move-exception v0
 

@@ -17,41 +17,53 @@
 .method static constructor <clinit>()V
     .locals 1
 
+    .prologue
+    .line 39
     const-string/jumbo v0, "srec_jni"
 
     invoke-static {v0}, Ljava/lang/System;->loadLibrary(Ljava/lang/String;)V
 
+    .line 40
     return-void
 .end method
 
 .method public constructor <init>(II)V
     .locals 4
+    .param p1, "sampleRate"    # I
+    .param p2, "fifoDepth"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 52
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
 
+    .line 43
     const/4 v1, 0x0
 
     iput v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
+    .line 44
     const/4 v1, 0x1
 
     new-array v1, v1, [B
 
     iput-object v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mOneByte:[B
 
+    .line 54
     invoke-static {}, Landroid/speech/srec/MicrophoneInputStream;->checkMicrophoneEnabled()Z
 
+    .line 56
     invoke-static {p1, p2}, Landroid/speech/srec/MicrophoneInputStream;->AudioRecordNew(II)I
 
     move-result v1
 
     iput v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
+    .line 57
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-nez v1, :cond_0
@@ -64,6 +76,7 @@
 
     throw v1
 
+    .line 58
     :cond_0
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -71,10 +84,14 @@
 
     move-result v0
 
+    .line 59
+    .local v0, "status":I
     if-eqz v0, :cond_1
 
+    .line 60
     invoke-virtual {p0}, Landroid/speech/srec/MicrophoneInputStream;->close()V
 
+    .line 61
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -99,6 +116,7 @@
 
     throw v1
 
+    .line 63
     :cond_1
     return-void
 .end method
@@ -136,8 +154,12 @@
 .method private static checkMicrophoneEnabled()Z
     .locals 5
 
+    .prologue
+    .line 115
     const/4 v1, 0x1
 
+    .line 117
+    .local v1, "enabled":Z
     :try_start_0
     invoke-static {}, Landroid/sec/enterprise/EnterpriseDeviceManager;->getInstance()Landroid/sec/enterprise/EnterpriseDeviceManager;
 
@@ -147,6 +169,8 @@
 
     move-result-object v2
 
+    .line 119
+    .local v2, "rp":Landroid/sec/enterprise/RestrictionPolicy;
     const/4 v3, 0x1
 
     invoke-virtual {v2, v3}, Landroid/sec/enterprise/RestrictionPolicy;->isMicrophoneEnabled(Z)Z
@@ -155,15 +179,19 @@
 
     move-result v1
 
+    .line 125
+    .end local v2    # "rp":Landroid/sec/enterprise/RestrictionPolicy;
     :goto_0
     if-nez v1, :cond_0
 
+    .line 127
     const-string v3, "MicrophoneInputStream"
 
     const-string v4, "MICROPHONE IS DISABLED"
 
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 128
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v3
@@ -180,22 +208,28 @@
 
     if-gt v3, v4, :cond_0
 
+    .line 131
     invoke-static {}, Landroid/os/Process;->myPid()I
 
     move-result v3
 
     invoke-static {v3}, Landroid/os/Process;->killProcess(I)V
 
+    .line 132
     const/16 v3, 0xa
 
     invoke-static {v3}, Ljava/lang/System;->exit(I)V
 
+    .line 136
     :cond_0
     return v1
 
+    .line 121
     :catch_0
     move-exception v0
 
+    .line 122
+    .local v0, "e":Ljava/lang/Exception;
     const/4 v1, 0x1
 
     goto :goto_0
@@ -211,12 +245,15 @@
         }
     .end annotation
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 90
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-eqz v0, :cond_0
 
+    .line 92
     :try_start_0
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -224,6 +261,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 95
     :try_start_1
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -231,11 +269,14 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 97
     iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
+    .line 101
     :cond_0
     return-void
 
+    .line 97
     :catchall_0
     move-exception v0
 
@@ -243,9 +284,11 @@
 
     throw v0
 
+    .line 94
     :catchall_1
     move-exception v0
 
+    .line 95
     :try_start_2
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -253,6 +296,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
+    .line 97
     iput v2, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     throw v0
@@ -273,12 +317,16 @@
         }
     .end annotation
 
+    .prologue
+    .line 105
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-eqz v0, :cond_0
 
+    .line 106
     invoke-virtual {p0}, Landroid/speech/srec/MicrophoneInputStream;->close()V
 
+    .line 107
     new-instance v0, Ljava/io/IOException;
 
     const-string/jumbo v1, "someone forgot to close MicrophoneInputStream"
@@ -287,6 +335,7 @@
 
     throw v0
 
+    .line 109
     :cond_0
     return-void
 .end method
@@ -299,10 +348,12 @@
         }
     .end annotation
 
+    .prologue
     const/4 v4, 0x1
 
     const/4 v3, 0x0
 
+    .line 67
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-nez v1, :cond_0
@@ -315,6 +366,7 @@
 
     throw v1
 
+    .line 68
     :cond_0
     iget v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -324,6 +376,8 @@
 
     move-result v0
 
+    .line 69
+    .local v0, "rtn":I
     if-ne v0, v4, :cond_1
 
     iget-object v1, p0, Landroid/speech/srec/MicrophoneInputStream;->mOneByte:[B
@@ -343,12 +397,15 @@
 
 .method public read([B)I
     .locals 3
+    .param p1, "b"    # [B
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 74
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-nez v0, :cond_0
@@ -361,6 +418,7 @@
 
     throw v0
 
+    .line 75
     :cond_0
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
@@ -377,12 +435,17 @@
 
 .method public read([BII)I
     .locals 2
+    .param p1, "b"    # [B
+    .param p2, "offset"    # I
+    .param p3, "length"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
+    .prologue
+    .line 80
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 
     if-nez v0, :cond_0
@@ -395,6 +458,7 @@
 
     throw v0
 
+    .line 82
     :cond_0
     iget v0, p0, Landroid/speech/srec/MicrophoneInputStream;->mAudioRecord:I
 

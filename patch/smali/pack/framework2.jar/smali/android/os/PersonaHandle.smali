@@ -49,6 +49,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 32
     new-instance v0, Landroid/os/PersonaHandle;
 
     const/4 v1, -0x1
@@ -57,6 +59,7 @@
 
     sput-object v0, Landroid/os/PersonaHandle;->ALL:Landroid/os/PersonaHandle;
 
+    .line 38
     new-instance v0, Landroid/os/PersonaHandle;
 
     const/4 v1, -0x2
@@ -65,6 +68,7 @@
 
     sput-object v0, Landroid/os/PersonaHandle;->CURRENT:Landroid/os/PersonaHandle;
 
+    .line 48
     new-instance v0, Landroid/os/PersonaHandle;
 
     const/4 v1, -0x3
@@ -73,6 +77,7 @@
 
     sput-object v0, Landroid/os/PersonaHandle;->CURRENT_OR_SELF:Landroid/os/PersonaHandle;
 
+    .line 57
     new-instance v0, Landroid/os/PersonaHandle;
 
     const/4 v1, 0x0
@@ -81,6 +86,7 @@
 
     sput-object v0, Landroid/os/PersonaHandle;->OWNER:Landroid/os/PersonaHandle;
 
+    .line 236
     new-instance v0, Landroid/os/PersonaHandle$1;
 
     invoke-direct {v0}, Landroid/os/PersonaHandle$1;-><init>()V
@@ -92,31 +98,44 @@
 
 .method public constructor <init>(I)V
     .locals 0
+    .param p1, "h"    # I
 
+    .prologue
+    .line 164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 165
     iput p1, p0, Landroid/os/PersonaHandle;->mHandle:I
 
+    .line 166
     return-void
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
+    .param p1, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 257
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 258
     invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
     iput v0, p0, Landroid/os/PersonaHandle;->mHandle:I
 
+    .line 259
     return-void
 .end method
 
 .method public static final getAppId(I)I
     .locals 1
+    .param p0, "uid"    # I
 
+    .prologue
+    .line 142
     const v0, 0x186a0
 
     rem-int v0, p0, v0
@@ -127,6 +146,8 @@
 .method public static final getCallingPersonaId()I
     .locals 1
 
+    .prologue
+    .line 122
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
@@ -140,7 +161,10 @@
 
 .method public static final getPersonaId(I)I
     .locals 1
+    .param p0, "uid"    # I
 
+    .prologue
+    .line 114
     const v0, 0x186a0
 
     div-int v0, p0, v0
@@ -150,7 +174,10 @@
 
 .method public static final getSharedAppGid(I)I
     .locals 2
+    .param p0, "id"    # I
 
+    .prologue
+    .line 150
     const v0, 0xc350
 
     const v1, 0x186a0
@@ -166,9 +193,13 @@
 
 .method public static final getUid(II)I
     .locals 2
+    .param p0, "userId"    # I
+    .param p1, "appId"    # I
 
+    .prologue
     const v1, 0x186a0
 
+    .line 131
     mul-int v0, p0, v1
 
     rem-int v1, p1, v1
@@ -180,15 +211,21 @@
 
 .method public static isApp(I)Z
     .locals 3
+    .param p0, "uid"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 100
     if-lez p0, :cond_0
 
+    .line 101
     invoke-static {p0}, Landroid/os/PersonaHandle;->getAppId(I)I
 
     move-result v0
 
+    .line 102
+    .local v0, "appId":I
     const/16 v2, 0x2710
 
     if-lt v0, v2, :cond_0
@@ -199,21 +236,29 @@
 
     const/4 v1, 0x1
 
+    .line 104
+    .end local v0    # "appId":I
     :cond_0
     return v1
 .end method
 
 .method public static final isIsolated(I)Z
     .locals 3
+    .param p0, "uid"    # I
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 90
     if-lez p0, :cond_0
 
+    .line 91
     invoke-static {p0}, Landroid/os/PersonaHandle;->getAppId(I)I
 
     move-result v0
 
+    .line 92
+    .local v0, "appId":I
     const v2, 0x182b8
 
     if-lt v0, v2, :cond_0
@@ -224,13 +269,19 @@
 
     const/4 v1, 0x1
 
+    .line 94
+    .end local v0    # "appId":I
     :cond_0
     return v1
 .end method
 
 .method public static final isSame(II)Z
     .locals 2
+    .param p0, "uid1"    # I
+    .param p1, "uid2"    # I
 
+    .prologue
+    .line 73
     invoke-static {p0}, Landroid/os/PersonaHandle;->getPersonaId(I)I
 
     move-result v0
@@ -254,7 +305,11 @@
 
 .method public static final isSameApp(II)Z
     .locals 2
+    .param p0, "uid1"    # I
+    .param p1, "uid2"    # I
 
+    .prologue
+    .line 85
     invoke-static {p0}, Landroid/os/PersonaHandle;->getAppId(I)I
 
     move-result v0
@@ -279,6 +334,8 @@
 .method public static final myPersonaId()I
     .locals 1
 
+    .prologue
+    .line 160
     invoke-static {}, Landroid/os/Process;->myUid()I
 
     move-result v0
@@ -292,11 +349,16 @@
 
 .method public static readFromParcel(Landroid/os/Parcel;)Landroid/os/PersonaHandle;
     .locals 2
+    .param p0, "in"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 232
     invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
 
     move-result v0
 
+    .line 233
+    .local v0, "h":I
     const/16 v1, -0x2710
 
     if-eq v0, v1, :cond_0
@@ -316,16 +378,23 @@
 
 .method public static writeToParcel(Landroid/os/PersonaHandle;Landroid/os/Parcel;)V
     .locals 1
+    .param p0, "h"    # Landroid/os/PersonaHandle;
+    .param p1, "out"    # Landroid/os/Parcel;
 
+    .prologue
+    .line 213
     if-eqz p0, :cond_0
 
+    .line 214
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Landroid/os/PersonaHandle;->writeToParcel(Landroid/os/Parcel;I)V
 
+    .line 218
     :goto_0
     return-void
 
+    .line 216
     :cond_0
     const/16 v0, -0x2710
 
@@ -339,6 +408,8 @@
 .method public describeContents()I
     .locals 1
 
+    .prologue
+    .line 196
     const/4 v0, 0x0
 
     return v0
@@ -346,11 +417,15 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 5
+    .param p1, "obj"    # Ljava/lang/Object;
 
+    .prologue
     const/4 v2, 0x0
 
+    .line 181
     if-eqz p1, :cond_0
 
+    .line 182
     :try_start_0
     move-object v0, p1
 
@@ -358,6 +433,8 @@
 
     move-object v1, v0
 
+    .line 183
+    .local v1, "other":Landroid/os/PersonaHandle;
     iget v3, p0, Landroid/os/PersonaHandle;->mHandle:I
 
     iget v4, v1, Landroid/os/PersonaHandle;->mHandle:I
@@ -368,10 +445,13 @@
 
     const/4 v2, 0x1
 
+    .line 187
+    .end local v1    # "other":Landroid/os/PersonaHandle;
     :cond_0
     :goto_0
     return v2
 
+    .line 185
     :catch_0
     move-exception v3
 
@@ -381,6 +461,8 @@
 .method public getIdentifier()I
     .locals 1
 
+    .prologue
+    .line 170
     iget v0, p0, Landroid/os/PersonaHandle;->mHandle:I
 
     return v0
@@ -389,6 +471,8 @@
 .method public hashCode()I
     .locals 1
 
+    .prologue
+    .line 192
     iget v0, p0, Landroid/os/PersonaHandle;->mHandle:I
 
     return v0
@@ -397,6 +481,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 175
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -428,10 +514,15 @@
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
+    .param p1, "out"    # Landroid/os/Parcel;
+    .param p2, "flags"    # I
 
+    .prologue
+    .line 200
     iget v0, p0, Landroid/os/PersonaHandle;->mHandle:I
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
+    .line 201
     return-void
 .end method

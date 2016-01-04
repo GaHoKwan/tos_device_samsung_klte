@@ -21,11 +21,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/AdaptiveDisplayColorService;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "handler"    # Landroid/os/Handler;
 
+    .prologue
+    .line 300
     iput-object p1, p0, Lcom/android/server/AdaptiveDisplayColorService$SettingsObserver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
+    .line 301
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
+    .line 302
     return-void
 .end method
 
@@ -33,7 +38,11 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 306
     iget-object v0, p0, Lcom/android/server/AdaptiveDisplayColorService$SettingsObserver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # getter for: Lcom/android/server/AdaptiveDisplayColorService;->DEBUG:Z
@@ -43,6 +52,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 307
     const-string v0, "AdaptiveDisplayColorService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -65,11 +75,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 310
     :cond_0
     iget-object v0, p0, Lcom/android/server/AdaptiveDisplayColorService$SettingsObserver;->this$0:Lcom/android/server/AdaptiveDisplayColorService;
 
     # invokes: Lcom/android/server/AdaptiveDisplayColorService;->setting_is_changed()V
     invoke-static {v0}, Lcom/android/server/AdaptiveDisplayColorService;->access$1000(Lcom/android/server/AdaptiveDisplayColorService;)V
 
+    .line 311
     return-void
 .end method

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/am/MultiWindowFacadeService;)V
     .locals 0
 
+    .prologue
+    .line 486
     iput-object p1, p0, Lcom/android/server/am/MultiWindowFacadeService$2;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 488
     iget-object v0, p0, Lcom/android/server/am/MultiWindowFacadeService$2;->this$0:Lcom/android/server/am/MultiWindowFacadeService;
 
     iget-object v0, v0, Lcom/android/server/am/MultiWindowFacadeService;->mHandler:Lcom/android/server/am/MultiWindowFacadeService$H;
@@ -44,11 +50,12 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/am/MultiWindowFacadeService$H;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/server/am/MultiWindowFacadeService$H;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 489
     return-void
 .end method

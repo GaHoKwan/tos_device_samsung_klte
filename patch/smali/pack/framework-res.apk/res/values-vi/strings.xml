@@ -400,7 +400,7 @@
     <string name="global_actions_airplane_mode_on_status">Đã bật</string>
     <string name="global_actions_airplane_mode_off_status">Đã tắt</string>
     <string name="global_actions_airplane_mode_on_status_confirm">Chế độ Máy bay cho phép bạn tắt cuộc gọi, tin nhắn và dữ liệu mạng. Nó cũng tắt các kết nối như Wi-Fi và Bluetooth. Để sử dụng Wi-Fi và Bluetooth, hãy bật các kết nối này tại Cài đặt hoặc ở bảng thông báo.</string>
-    <string name="global_actions_airplane_mode_on_status_confirm_body">Chế độ Máy bay sẽ tắt chức năng gọi điện, nhắn tin và các chức năng mạng di động.</string>
+    <string name="global_actions_airplane_mode_on_status_confirm_body">Chế độ Máy bay cho phép bạn tắt cuộc gọi, tin nhắn và các chức năng mạng di động.</string>
     <string name="global_actions_airplane_mode_off_status_confirm">Chế độ Máy bay sẽ tắt.</string>
     <string name="global_actions_airplane_mode_on_status_confirm_wifi">Chế độ Máy bay cho phép bạn tắt các tính năng mạng, bao gồm Wi-Fi và Bluetooth. Để sử dụng Wi-Fi và Bluetooth, hãy bật các tính năng này trong Cài đặt hoặc bảng thông báo.</string>
     <string name="global_action_toggle_data_mode">Chế độ Mạng dữ liệu</string>
@@ -1332,7 +1332,7 @@
 
 Bạn có chắc chắn muốn điều hướng khỏi trang này không?"</string>
     <string name="save_password_label">Xác nhận</string>
-    <string name="double_tap_toast">Gợi ý: Chạm hai lần để phóng to và thu nhỏ.</string>
+    <string name="double_tap_toast">Gợi ý: Chạm hai lần để thu nhỏ và phóng to.</string>
     <string name="autofill_this_form">Tự điền</string>
     <string name="setup_autofill">Thiết lập Tự động điền</string>
     <string name="autofill_address_name_separator">" "</string>
@@ -1707,7 +1707,7 @@ Bạn có muốn đóng trang không?"</string>
     <string name="permdesc_access_keyguard_secure_storage">Cho phép một ứng dụng truy cập bộ nhớ bảo mật Keyguard</string>
     <string name="permlab_control_keyguard">Hiện và ẩn nội dung trong bộ nhớ bảo mật Keyguard</string>
     <string name="permdesc_control_keyguard">Cho phép một ứng dụng điều khiển Keyguard</string>
-    <string name="tutorial_double_tap_to_zoom_message_short">Chạm hai lần để điều khiển thu/phóng.</string>
+    <string name="tutorial_double_tap_to_zoom_message_short">Chạm hai lần để điều khiển thu phóng.</string>
     <string name="gadget_host_error_inflating">Không thể thêm widget.</string>
     <string name="ime_action_go">Đi</string>
     <string name="ime_action_search">Tìm kiếm</string>
@@ -1883,13 +1883,13 @@ cho tài khoản %s"</string>
     <string name="storage_sd_card">Thẻ nhớ SD</string>
     <string name="storage_usb">Bộ nhớ USB</string>
     <string name="extract_edit_menu_button">Sửa</string>
-    <string name="data_usage_warning_title">Cảnh báo về sử dụng dữ liệu</string>
-    <string name="data_usage_warning_body">Chạm để xem mức sử dụng và cài đặt</string>
+    <string name="data_usage_warning_title">Cảnh báo sử dụng dữ liệu</string>
+    <string name="data_usage_warning_body">Chạm để xem sử dụng và các cài đặt.</string>
     <string name="data_usage_3g_limit_title">Dữ liệu 2G-3G bị vô hiệu</string>
     <string name="data_usage_4g_limit_title">Dữ liệu 4G bị vô hiệu</string>
     <string name="data_usage_mobile_limit_title">Dữ liệu di động bị vô hiệu</string>
     <string name="data_usage_wifi_limit_title">Tắt sử dụng dữ liệu Wi-Fi.</string>
-    <string name="data_usage_limit_body">Chạm để bật</string>
+    <string name="data_usage_limit_body">Chạm để bật.</string>
     <string name="data_usage_3g_limit_snoozed_title">Đã vượt quá giới hạn sử dụng dữ liệu 2G/3G</string>
     <string name="data_usage_4g_limit_snoozed_title">Đã vượt quá giới hạn sử dụng dữ liệu 4G</string>
     <string name="data_usage_mobile_limit_snoozed_title">Đã đạt mức giới hạn sử dụng dữ liệu di động.</string>
@@ -2255,7 +2255,7 @@ Nghe ở mức âm lượng cao trong thời gian dài có thể gây hại cho 
     <string name="keyguard_carrierlock_phone_locked_title">Liên hệ với chủ sở hữu của thiết bị.</string>
     <string name="keyguard_carrierlock_when_call_disable">Thiết bị này đã được báo mất. Vui lòng thông báo cho trung tâm dịch vụ SK Telecom là bạn đã tìm thấy thiết bị (%s).</string>
     <string name="vzw_cooldown_mode">Không thể mở ứng dụng. Thiết bị đang quá nóng.</string>
-    <string name="vzw_cooldown_mode_kill">Điện thoại của bạn đang trở nên quá nóng nên một số ứng dụng đã đóng để giúp nó hạ nhiệt.</string>
+    <string name="vzw_cooldown_mode_kill">%s ứng dụng đã đóng. Thiết bị đang quá nóng.</string>
     <string name="vzw_cooldown_mode_attention">Chú ý</string>
     <string name="vzw_cooldown_mode_ok">OK</string>
     <string name="batt_cooldown_mode">Không thể mở ứng dụng này. Thiết bị của bạn đang quá nóng.</string>

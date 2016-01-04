@@ -39,7 +39,7 @@
 
     const/16 v1, 0x2000
 
-    invoke-virtual {p0, v0, v1, p3}, Lorg/apache/http/impl/io/SocketOutputBuffer;->init(Ljava/io/OutputStream;ILorg/apache/http/params/HttpParams;)V
+    invoke-virtual {p0, v0, v1, p3}, Lorg/apache/http/impl/io/AbstractSessionOutputBuffer;->init(Ljava/io/OutputStream;ILorg/apache/http/params/HttpParams;)V
 
     .line 66
     return-void

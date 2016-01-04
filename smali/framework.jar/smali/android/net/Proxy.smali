@@ -571,7 +571,7 @@
 
     const-string v0, ","
 
-    const-string v1, "|"
+    const-string/jumbo v1, "|"
 
     invoke-virtual {p2, v0, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 

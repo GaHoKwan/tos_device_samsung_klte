@@ -24,13 +24,13 @@
     .param p2, "h"    # Landroid/os/Handler;
 
     .prologue
-    .line 1257
+    .line 1273
     iput-object p1, p0, Lcom/android/internal/telephony/ims/ImsPhone$FormatChangeObserver;->this$0:Lcom/android/internal/telephony/ims/ImsPhone;
 
-    .line 1258
+    .line 1274
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 1259
+    .line 1275
     return-void
 .end method
 
@@ -41,10 +41,10 @@
     .param p1, "selfChange"    # Z
 
     .prologue
-    .line 1263
-    const-string v0, "vzw"
+    .line 1279
+    const-string v0, "default"
 
-    .line 1264
+    .line 1280
     .local v0, "format":Ljava/lang/String;
     const-string v1, "vzw"
 
@@ -54,20 +54,20 @@
 
     if-eqz v1, :cond_0
 
-    .line 1265
+    .line 1281
     iget-object v1, p0, Lcom/android/internal/telephony/ims/ImsPhone$FormatChangeObserver;->this$0:Lcom/android/internal/telephony/ims/ImsPhone;
 
     iget-object v2, p0, Lcom/android/internal/telephony/ims/ImsPhone$FormatChangeObserver;->this$0:Lcom/android/internal/telephony/ims/ImsPhone;
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3}, Lcom/android/internal/telephony/ims/ImsPhone;->obtainMessage(I)Landroid/os/Message;
+    invoke-virtual {v2, v3}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/telephony/ims/ImsPhone;->sendMessage(Landroid/os/Message;)Z
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    .line 1267
+    .line 1283
     :cond_0
     return-void
 .end method

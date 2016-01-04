@@ -166,7 +166,7 @@
     .line 57
     sget-object v0, Landroid/telephony/gsm/CbMessage$EMSGSMS_CBMSG_TYPE;->$VALUES:[Landroid/telephony/gsm/CbMessage$EMSGSMS_CBMSG_TYPE;
 
-    invoke-virtual {v0}, [Landroid/telephony/gsm/CbMessage$EMSGSMS_CBMSG_TYPE;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

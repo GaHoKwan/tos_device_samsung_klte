@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 126
     iput-object p1, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$1;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,15 +36,21 @@
 # virtual methods
 .method public onChange(ZLandroid/net/Uri;)V
     .locals 3
+    .param p1, "selfChange"    # Z
+    .param p2, "uri"    # Landroid/net/Uri;
 
+    .prologue
     const/16 v2, 0x12f0
 
+    .line 129
     if-nez p2, :cond_1
 
+    .line 136
     :cond_0
     :goto_0
     return-void
 
+    .line 131
     :cond_1
     const-string v0, "informative_screen_switch_onoff"
 
@@ -55,6 +64,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 132
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$1;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mHandler:Landroid/os/Handler;
@@ -68,6 +78,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 133
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$1;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 
     # getter for: Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;->mHandler:Landroid/os/Handler;
@@ -77,6 +88,7 @@
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
+    .line 134
     :cond_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate$1;->this$0:Lcom/android/internal/policy/impl/keyguard/KeyguardServiceDelegate;
 

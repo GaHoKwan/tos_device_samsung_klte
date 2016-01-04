@@ -52,6 +52,8 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
+    .line 5913
     sget-object v0, Landroid/provider/ContactsContract$Data;->CONTENT_URI:Landroid/net/Uri;
 
     const-string/jumbo v1, "postals"
@@ -68,14 +70,22 @@
 .method private constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 5896
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 5897
     return-void
 .end method
 
 .method public static final getTypeLabel(Landroid/content/res/Resources;ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 2
+    .param p0, "res"    # Landroid/content/res/Resources;
+    .param p1, "type"    # I
+    .param p2, "label"    # Ljava/lang/CharSequence;
 
+    .prologue
+    .line 6005
     if-nez p1, :cond_0
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -84,14 +94,20 @@
 
     if-nez v1, :cond_0
 
+    .line 6009
+    .end local p2    # "label":Ljava/lang/CharSequence;
     :goto_0
     return-object p2
 
+    .line 6008
+    .restart local p2    # "label":Ljava/lang/CharSequence;
     :cond_0
     invoke-static {p1}, Landroid/provider/ContactsContract$CommonDataKinds$StructuredPostal;->getTypeLabelResource(I)I
 
     move-result v0
 
+    .line 6009
+    .local v0, "labelRes":I
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
@@ -101,29 +117,37 @@
 
 .method public static final getTypeLabelResource(I)I
     .locals 1
+    .param p0, "type"    # I
 
+    .prologue
+    .line 5990
     packed-switch p0, :pswitch_data_0
 
+    .line 5994
     const v0, 0x1040548
 
     :goto_0
     return v0
 
+    .line 5991
     :pswitch_0
     const v0, 0x1040549
 
     goto :goto_0
 
+    .line 5992
     :pswitch_1
     const v0, 0x104054a
 
     goto :goto_0
 
+    .line 5993
     :pswitch_2
     const v0, 0x104054b
 
     goto :goto_0
 
+    .line 5990
     nop
 
     :pswitch_data_0

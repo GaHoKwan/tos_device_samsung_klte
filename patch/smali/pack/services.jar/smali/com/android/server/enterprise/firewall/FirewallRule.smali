@@ -77,82 +77,123 @@
 .method public constructor <init>()V
     .locals 2
 
+    .prologue
     const/4 v1, -0x1
 
+    .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 67
     iput v1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleType:I
 
+    .line 68
     iput v1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mUid:I
 
+    .line 72
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setDirection(Ljava/lang/String;)Z
 
+    .line 73
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setHostnameOrIp(Ljava/lang/String;)Z
 
+    .line 74
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setPort(Ljava/lang/String;)Z
 
+    .line 75
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setProtocol(Ljava/lang/String;)Z
 
+    .line 76
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setPortLocation(Ljava/lang/String;)Z
 
+    .line 77
     const-string v0, ""
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setNetworkInterface(Ljava/lang/String;)Z
 
+    .line 78
     invoke-virtual {p0, v1}, Lcom/android/server/enterprise/firewall/FirewallRule;->setRuleType(I)Z
 
+    .line 79
     invoke-virtual {p0, v1}, Lcom/android/server/enterprise/firewall/FirewallRule;->setUid(I)Z
 
+    .line 80
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/server/enterprise/firewall/FirewallRule;->setRuleAction(Lcom/android/server/enterprise/firewall/FirewallRuleAction;)Z
 
+    .line 81
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILcom/android/server/enterprise/firewall/FirewallRuleAction;)V
     .locals 1
+    .param p1, "table"    # Ljava/lang/String;
+    .param p2, "chain"    # Ljava/lang/String;
+    .param p3, "direction"    # Ljava/lang/String;
+    .param p4, "ipRange"    # Ljava/lang/String;
+    .param p5, "port"    # Ljava/lang/String;
+    .param p6, "protocol"    # Ljava/lang/String;
+    .param p7, "portLocation"    # Ljava/lang/String;
+    .param p8, "networkInterface"    # Ljava/lang/String;
+    .param p9, "type"    # I
+    .param p10, "uid"    # I
+    .param p11, "ruleAction"    # Lcom/android/server/enterprise/firewall/FirewallRuleAction;
 
+    .prologue
     const/4 v0, -0x1
 
+    .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 67
     iput v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleType:I
 
+    .line 68
     iput v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mUid:I
 
+    .line 86
     invoke-virtual {p0, p1}, Lcom/android/server/enterprise/firewall/FirewallRule;->setTable(Ljava/lang/String;)Z
 
+    .line 87
     invoke-virtual {p0, p2}, Lcom/android/server/enterprise/firewall/FirewallRule;->setChain(Ljava/lang/String;)Z
 
+    .line 88
     invoke-virtual {p0, p3}, Lcom/android/server/enterprise/firewall/FirewallRule;->setDirection(Ljava/lang/String;)Z
 
+    .line 89
     invoke-virtual {p0, p4}, Lcom/android/server/enterprise/firewall/FirewallRule;->setHostnameOrIp(Ljava/lang/String;)Z
 
+    .line 90
     invoke-virtual {p0, p5}, Lcom/android/server/enterprise/firewall/FirewallRule;->setPort(Ljava/lang/String;)Z
 
+    .line 91
     invoke-virtual {p0, p6}, Lcom/android/server/enterprise/firewall/FirewallRule;->setProtocol(Ljava/lang/String;)Z
 
+    .line 92
     invoke-virtual {p0, p7}, Lcom/android/server/enterprise/firewall/FirewallRule;->setPortLocation(Ljava/lang/String;)Z
 
+    .line 93
     invoke-virtual {p0, p8}, Lcom/android/server/enterprise/firewall/FirewallRule;->setNetworkInterface(Ljava/lang/String;)Z
 
+    .line 94
     invoke-virtual {p0, p9}, Lcom/android/server/enterprise/firewall/FirewallRule;->setRuleType(I)Z
 
+    .line 95
     invoke-virtual {p0, p10}, Lcom/android/server/enterprise/firewall/FirewallRule;->setUid(I)Z
 
+    .line 96
     invoke-virtual {p0, p11}, Lcom/android/server/enterprise/firewall/FirewallRule;->setRuleAction(Lcom/android/server/enterprise/firewall/FirewallRuleAction;)Z
 
+    .line 97
     return-void
 .end method
 
@@ -161,6 +202,8 @@
 .method public getChain()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 106
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mChain:Ljava/lang/String;
 
     return-object v0
@@ -169,6 +212,8 @@
 .method public getDirection()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 132
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mDirection:Ljava/lang/String;
 
     return-object v0
@@ -177,6 +222,8 @@
 .method public getHostnameOrIp()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 142
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mIprange:Ljava/lang/String;
 
     return-object v0
@@ -185,6 +232,8 @@
 .method public getNetworkInterface()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 184
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mNetworkInterface:Ljava/lang/String;
 
     return-object v0
@@ -193,6 +242,8 @@
 .method public getPort()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 161
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mPort:Ljava/lang/String;
 
     return-object v0
@@ -201,6 +252,8 @@
 .method public getPortLocation()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 243
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mPortLocation:Ljava/lang/String;
 
     return-object v0
@@ -209,6 +262,8 @@
 .method public getProtocol()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 230
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mProtocol:Ljava/lang/String;
 
     return-object v0
@@ -217,6 +272,8 @@
 .method public getRuleAction()Lcom/android/server/enterprise/firewall/FirewallRuleAction;
     .locals 1
 
+    .prologue
+    .line 193
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleAction:Lcom/android/server/enterprise/firewall/FirewallRuleAction;
 
     return-object v0
@@ -225,6 +282,8 @@
 .method public getRuleType()I
     .locals 1
 
+    .prologue
+    .line 205
     iget v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleType:I
 
     return v0
@@ -233,6 +292,8 @@
 .method public getTable()Ljava/lang/String;
     .locals 1
 
+    .prologue
+    .line 119
     iget-object v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mTable:Ljava/lang/String;
 
     return-object v0
@@ -241,6 +302,8 @@
 .method public getUid()I
     .locals 1
 
+    .prologue
+    .line 216
     iget v0, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mUid:I
 
     return v0
@@ -248,9 +311,13 @@
 
 .method public setChain(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "chain"    # Ljava/lang/String;
 
+    .prologue
+    .line 101
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mChain:Ljava/lang/String;
 
+    .line 102
     const/4 v0, 0x1
 
     return v0
@@ -258,7 +325,10 @@
 
 .method public setDirection(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "direction"    # Ljava/lang/String;
 
+    .prologue
+    .line 123
     const-string v0, "both"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -283,11 +353,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 125
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mDirection:Ljava/lang/String;
 
+    .line 126
     const/4 v0, 0x1
 
+    .line 128
     :goto_0
     return v0
 
@@ -299,9 +372,13 @@
 
 .method public setHostnameOrIp(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "hostnameOrIp"    # Ljava/lang/String;
 
+    .prologue
+    .line 137
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mIprange:Ljava/lang/String;
 
+    .line 138
     const/4 v0, 0x1
 
     return v0
@@ -309,7 +386,10 @@
 
 .method public setNetworkInterface(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "networkInterface"    # Ljava/lang/String;
 
+    .prologue
+    .line 175
     const-string v0, "both"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -334,11 +414,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 177
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mNetworkInterface:Ljava/lang/String;
 
+    .line 178
     const/4 v0, 0x1
 
+    .line 180
     :goto_0
     return v0
 
@@ -350,9 +433,13 @@
 
 .method public setPort(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "port"    # Ljava/lang/String;
 
+    .prologue
+    .line 156
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mPort:Ljava/lang/String;
 
+    .line 157
     const/4 v0, 0x1
 
     return v0
@@ -360,7 +447,10 @@
 
 .method public setPortLocation(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "portLocation"    # Ljava/lang/String;
 
+    .prologue
+    .line 234
     const-string v0, "both"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -385,11 +475,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 236
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mPortLocation:Ljava/lang/String;
 
+    .line 237
     const/4 v0, 0x1
 
+    .line 239
     :goto_0
     return v0
 
@@ -401,7 +494,10 @@
 
 .method public setProtocol(Ljava/lang/String;)Z
     .locals 2
+    .param p1, "protocol"    # Ljava/lang/String;
 
+    .prologue
+    .line 220
     const-string v0, "both"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -426,20 +522,25 @@
 
     if-eqz v0, :cond_1
 
+    .line 221
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mProtocol:Ljava/lang/String;
 
+    .line 222
     const-string v0, "FirewallPolicy"
 
     const-string v1, "setProtocol before true"
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 223
     const/4 v0, 0x1
 
+    .line 226
     :goto_0
     return v0
 
+    .line 225
     :cond_1
     const-string v0, "FirewallPolicy"
 
@@ -447,6 +548,7 @@
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 226
     const/4 v0, 0x0
 
     goto :goto_0
@@ -454,9 +556,13 @@
 
 .method public setRuleAction(Lcom/android/server/enterprise/firewall/FirewallRuleAction;)Z
     .locals 1
+    .param p1, "ruleAction"    # Lcom/android/server/enterprise/firewall/FirewallRuleAction;
 
+    .prologue
+    .line 188
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleAction:Lcom/android/server/enterprise/firewall/FirewallRuleAction;
 
+    .line 189
     const/4 v0, 0x1
 
     return v0
@@ -464,9 +570,12 @@
 
 .method public setRuleType(I)Z
     .locals 2
+    .param p1, "ruleType"    # I
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 197
     if-eq p1, v0, :cond_0
 
     const/4 v1, 0x2
@@ -477,9 +586,11 @@
 
     if-ne p1, v1, :cond_1
 
+    .line 198
     :cond_0
     iput p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mRuleType:I
 
+    .line 201
     :goto_0
     return v0
 
@@ -491,7 +602,10 @@
 
 .method public setTable(Ljava/lang/String;)Z
     .locals 1
+    .param p1, "table"    # Ljava/lang/String;
 
+    .prologue
+    .line 110
     const-string v0, "filter"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -524,11 +638,14 @@
 
     if-eqz v0, :cond_1
 
+    .line 112
     :cond_0
     iput-object p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mTable:Ljava/lang/String;
 
+    .line 113
     const/4 v0, 0x1
 
+    .line 115
     :goto_0
     return v0
 
@@ -540,9 +657,13 @@
 
 .method public setUid(I)Z
     .locals 1
+    .param p1, "uid"    # I
 
+    .prologue
+    .line 211
     iput p1, p0, Lcom/android/server/enterprise/firewall/FirewallRule;->mUid:I
 
+    .line 212
     const/4 v0, 0x1
 
     return v0

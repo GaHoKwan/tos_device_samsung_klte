@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/accessibility/AccessibilityManagerService;)V
     .locals 0
 
+    .prologue
+    .line 569
     iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,10 +39,13 @@
 .method public run()V
     .locals 1
 
+    .prologue
+    .line 571
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$4;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
     # invokes: Lcom/android/server/accessibility/AccessibilityManagerService;->talkbackOffWarning()V
     invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->access$400(Lcom/android/server/accessibility/AccessibilityManagerService;)V
 
+    .line 572
     return-void
 .end method

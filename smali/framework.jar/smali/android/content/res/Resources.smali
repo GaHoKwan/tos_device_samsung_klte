@@ -79,6 +79,8 @@
     .end annotation
 .end field
 
+.field static pref:Landroid/content/res/GlobalSharedPreferences;
+
 .field private static resCDefThreadCount:I
 
 .field private static sPreloaded:Z
@@ -300,6 +302,16 @@
     .locals 4
 
     .prologue
+    new-instance v0, Landroid/content/res/GlobalSharedPreferences;
+
+    const-string v1, "com.lidroid.settings"
+
+    const-string v2, "dpi"
+
+    invoke-direct {v0, v1, v2}, Landroid/content/res/GlobalSharedPreferences;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    sput-object v0, Landroid/content/res/Resources;->pref:Landroid/content/res/GlobalSharedPreferences;
+
     const/4 v3, 0x0
 
     const/4 v0, 0x0
@@ -390,7 +402,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 5
 
     .prologue
@@ -2118,7 +2130,7 @@
     .restart local v0    # "attrs":Landroid/content/res/TypedArray;
     :cond_1
     :try_start_1
-    new-instance v0, Landroid/content/res/TypedArray;
+    new-instance v0, Landroid/content/res/LidroidTypedArray;
 
     .end local v0    # "attrs":Landroid/content/res/TypedArray;
     mul-int/lit8 v2, p1, 0x6
@@ -2129,11 +2141,53 @@
 
     new-array v4, v4, [I
 
-    invoke-direct {v0, p0, v2, v4, p1}, Landroid/content/res/TypedArray;-><init>(Landroid/content/res/Resources;[I[II)V
+    invoke-direct {v0, p0, v2, v4, p1}, Landroid/content/res/LidroidTypedArray;-><init>(Landroid/content/res/Resources;[I[II)V
 
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_0
+.end method
+
+.method private static getPacakgeDPI(Ljava/lang/String;)I
+    .locals 4
+    .param p0, "packageName"    # Ljava/lang/String;
+
+    .prologue
+    const/4 v0, 0x0
+
+    .line 48
+    if-nez p0, :cond_0
+
+    .line 54
+    :goto_0
+    return v0
+
+    .line 52
+    :cond_0
+    sget-object v1, Landroid/content/res/Resources;->pref:Landroid/content/res/GlobalSharedPreferences;
+
+    invoke-virtual {v1}, Landroid/content/res/GlobalSharedPreferences;->reload()V
+
+    .line 54
+    sget-object v1, Landroid/content/res/Resources;->pref:Landroid/content/res/GlobalSharedPreferences;
+
+    const-string v2, "dpi_%s"
+
+    const/4 v3, 0x1
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p0, v3, v0
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/res/GlobalSharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
 
     goto :goto_0
 .end method
@@ -2490,10 +2544,10 @@
     if-nez v0, :cond_0
 
     .line 1387
-    new-instance v0, Landroid/content/res/Resources;
+    new-instance v0, Landroid/content/res/LidroidResources;
 
     .end local v0    # "ret":Landroid/content/res/Resources;
-    invoke-direct {v0}, Landroid/content/res/Resources;-><init>()V
+    invoke-direct {v0}, Landroid/content/res/LidroidResources;-><init>()V
 
     .line 1388
     .restart local v0    # "ret":Landroid/content/res/Resources;
@@ -4341,7 +4395,7 @@
 
     .line 1498
     :pswitch_0
-    const-string v0, "zero"
+    const-string/jumbo v0, "zero"
 
     goto :goto_0
 
@@ -4370,6 +4424,8 @@
     goto :goto_0
 
     .line 1497
+    nop
+
     nop
 
     :pswitch_data_0
@@ -5100,7 +5156,7 @@
 
     invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v25, "writeLockOnImage -> processed drawable -"
+    const-string/jumbo v25, "writeLockOnImage -> processed drawable -"
 
     invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5467,7 +5523,7 @@
 
     invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v25, "writeLockOnImage -> Resource NotFoundException"
+    const-string/jumbo v25, "writeLockOnImage -> Resource NotFoundException"
 
     invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5516,7 +5572,7 @@
     :cond_e
     const-string v23, "Resources"
 
-    const-string v24, "writeLockOnImage -> Handler is null. Calling local API"
+    const-string/jumbo v24, "writeLockOnImage -> Handler is null. Calling local API"
 
     invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5538,7 +5594,7 @@
     :cond_f
     const-string v23, "Resources"
 
-    const-string v24, "writeLockOnImage -> getPersonaManager cannot be null.."
+    const-string/jumbo v24, "writeLockOnImage -> getPersonaManager cannot be null.."
 
     invoke-static/range {v23 .. v24}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2
@@ -5592,7 +5648,7 @@
 
     invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v25, "writeLockOnImage -> Non processed drawable -"
+    const-string/jumbo v25, "writeLockOnImage -> Non processed drawable -"
 
     invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9180,7 +9236,7 @@
 
     .prologue
     .line 2216
-    const-string v0, "xml"
+    const-string/jumbo v0, "xml"
 
     invoke-virtual {p0, p1, v0}, Landroid/content/res/Resources;->loadXmlResourceParser(ILjava/lang/String;)Landroid/content/res/XmlResourceParser;
 
@@ -11511,7 +11567,7 @@
     throw v8
 .end method
 
-.method public final newTheme()Landroid/content/res/Resources$Theme;
+.method public newTheme()Landroid/content/res/Resources$Theme;
     .locals 1
 
     .prologue
@@ -13026,6 +13082,95 @@
 .end method
 
 .method public updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
+    .locals 6
+    .param p1, "config"    # Landroid/content/res/Configuration;
+    .param p2, "metrics"    # Landroid/util/DisplayMetrics;
+    .param p3, "compat"    # Landroid/content/res/CompatibilityInfo;
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    .prologue
+    .line 14
+    invoke-static {}, Landroid/app/AndroidAppHelper;->currentPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 15
+    .local v3, "packageName":Ljava/lang/String;
+    invoke-static {v3}, Landroid/content/res/Resources;->getPacakgeDPI(Ljava/lang/String;)I
+
+    move-result v2
+
+    .line 17
+    .local v2, "packageDPI":I
+    if-eqz v2, :cond_0
+
+    if-eqz p1, :cond_0
+
+    .line 18
+    new-instance v0, Landroid/content/res/Configuration;
+
+    invoke-direct {v0, p1}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
+
+    .line 20
+    .local v0, "newConfig":Landroid/content/res/Configuration;
+    if-eqz p2, :cond_1
+
+    .line 21
+    new-instance v1, Landroid/util/DisplayMetrics;
+
+    invoke-direct {v1}, Landroid/util/DisplayMetrics;-><init>()V
+
+    .line 22
+    .local v1, "newMetrics":Landroid/util/DisplayMetrics;
+    invoke-virtual {v1, p2}, Landroid/util/DisplayMetrics;->setTo(Landroid/util/DisplayMetrics;)V
+
+    .line 28
+    :goto_0
+    iput v2, v1, Landroid/util/DisplayMetrics;->densityDpi:I
+
+    .line 29
+    int-to-float v4, v2
+
+    const/high16 v5, 0x43200000    # 160.0f
+
+    div-float/2addr v4, v5
+
+    iput v4, v1, Landroid/util/DisplayMetrics;->density:F
+
+    .line 30
+    iput v2, v0, Landroid/content/res/Configuration;->densityDpi:I
+
+    .line 32
+    move-object p1, v0
+
+    .line 33
+    move-object p2, v1
+
+    .line 36
+    .end local v0    # "newConfig":Landroid/content/res/Configuration;
+    .end local v1    # "newMetrics":Landroid/util/DisplayMetrics;
+    :cond_0
+    invoke-virtual {p0, p1, p2, p3}, Landroid/content/res/Resources;->updateConfigurationOld(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
+
+    .line 37
+    return-void
+
+    .line 25
+    .restart local v0    # "newConfig":Landroid/content/res/Configuration;
+    :cond_1
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v1
+
+    .restart local v1    # "newMetrics":Landroid/util/DisplayMetrics;
+    goto :goto_0
+.end method
+
+.method public updateConfigurationOld(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;Landroid/content/res/CompatibilityInfo;)V
     .locals 23
     .param p1, "config"    # Landroid/content/res/Configuration;
     .param p2, "metrics"    # Landroid/util/DisplayMetrics;

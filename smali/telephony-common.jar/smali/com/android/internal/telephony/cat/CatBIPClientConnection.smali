@@ -391,7 +391,7 @@
 
     move-result-object v8
 
-    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     iget v9, v9, Lcom/android/internal/telephony/cat/TransportLevel;->portNumber:I
 
@@ -452,7 +452,7 @@
 
     .line 145
     :cond_0
-    iget-object v8, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v8, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     invoke-virtual {v8}, Lcom/android/internal/telephony/cat/TransportLevel;->isTCPRemoteClient()Z
 
@@ -470,7 +470,7 @@
 
     iget-object v8, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->destination:Ljava/net/InetAddress;
 
-    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     iget v9, v9, Lcom/android/internal/telephony/cat/TransportLevel;->portNumber:I
 
@@ -555,7 +555,7 @@
     .line 167
     new-instance v8, Ljava/io/ByteArrayOutputStream;
 
-    iget v9, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->bufferSize:I
+    iget v9, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     invoke-direct {v8, v9}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
@@ -564,7 +564,7 @@
     .line 168
     new-instance v8, Ljava/io/ByteArrayOutputStream;
 
-    iget v9, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->bufferSize:I
+    iget v9, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->bufferSize:I
 
     invoke-direct {v8, v9}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
@@ -608,7 +608,7 @@
     .local v0, "ds":Ljava/net/DatagramSocket;
     iget-object v8, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->destination:Ljava/net/InetAddress;
 
-    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v9, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     iget v9, v9, Lcom/android/internal/telephony/cat/TransportLevel;->portNumber:I
 
@@ -677,7 +677,7 @@
     invoke-static {p0, v8}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 180
-    invoke-virtual {v5}, Ljava/net/SocketTimeoutException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -732,7 +732,7 @@
     invoke-static {p0, v8}, Lcom/android/internal/telephony/cat/CatLog;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 190
-    invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -804,7 +804,7 @@
 
     move-result-object v4
 
-    iget v5, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->channelId:I
+    iget v5, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->channelId:I
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -818,7 +818,7 @@
 
     .line 212
     :try_start_0
-    iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
+    iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPConnection;->uiccTerminalIface:Lcom/android/internal/telephony/cat/TransportLevel;
 
     invoke-virtual {v4}, Lcom/android/internal/telephony/cat/TransportLevel;->isTCPRemoteClient()Z
 
@@ -850,7 +850,7 @@
     .line 218
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->in:Ljava/io/DataInputStream;
 
-    invoke-virtual {v4}, Ljava/io/DataInputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FilterInputStream;->close()V
 
     .line 220
     :cond_1
@@ -866,7 +866,7 @@
     .line 222
     iget-object v4, p0, Lcom/android/internal/telephony/cat/CatBIPClientConnection;->out:Ljava/io/DataOutputStream;
 
-    invoke-virtual {v4}, Ljava/io/DataOutputStream;->close()V
+    invoke-virtual {v4}, Ljava/io/FilterOutputStream;->close()V
 
     .line 224
     :cond_2
@@ -954,7 +954,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 
@@ -987,7 +987,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v5
 

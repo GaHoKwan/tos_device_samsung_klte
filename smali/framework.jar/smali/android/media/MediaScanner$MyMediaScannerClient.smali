@@ -3583,7 +3583,7 @@
 
     move-result-object v2
 
-    const-string v3, "x"
+    const-string/jumbo v3, "x"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3904,7 +3904,7 @@
     if-eqz v2, :cond_8
 
     .line 1117
-    const-string v2, "year"
+    const-string/jumbo v2, "year"
 
     iget v3, p0, Landroid/media/MediaScanner$MyMediaScannerClient;->mYear:I
 
@@ -5697,7 +5697,7 @@
 
     .line 898
     :cond_c
-    const-string v4, "year"
+    const-string/jumbo v4, "year"
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -5705,7 +5705,7 @@
 
     if-nez v4, :cond_d
 
-    const-string v4, "year;"
+    const-string/jumbo v4, "year;"
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -5830,7 +5830,7 @@
 
     .line 913
     :cond_13
-    const-string v4, "writer"
+    const-string/jumbo v4, "writer"
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
@@ -5838,7 +5838,7 @@
 
     if-nez v4, :cond_14
 
-    const-string v4, "writer;"
+    const-string/jumbo v4, "writer;"
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
@@ -6114,7 +6114,7 @@
     if-eqz v3, :cond_1
 
     .line 943
-    const-string v3, "yes"
+    const-string/jumbo v3, "yes"
 
     invoke-virtual {v3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

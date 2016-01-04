@@ -63,7 +63,7 @@
     .line 305
     iget-object v2, p0, Lgov/nist/javax/sip/stack/SIPServerTransaction$ListenerExecutionMaxTimer;->serverTransaction:Lgov/nist/javax/sip/stack/SIPServerTransaction;
 
-    invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPServerTransaction;->getSIPStack()Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransaction;->getSIPStack()Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     move-result-object v1
 
@@ -94,7 +94,7 @@
     .local v0, "ex":Ljava/lang/Exception;
     iget-object v2, p0, Lgov/nist/javax/sip/stack/SIPServerTransaction$ListenerExecutionMaxTimer;->this$0:Lgov/nist/javax/sip/stack/SIPServerTransaction;
 
-    iget-object v2, v2, Lgov/nist/javax/sip/stack/SIPServerTransaction;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
+    iget-object v2, v2, Lgov/nist/javax/sip/stack/SIPTransaction;->sipStack:Lgov/nist/javax/sip/stack/SIPTransactionStack;
 
     invoke-virtual {v2}, Lgov/nist/javax/sip/stack/SIPTransactionStack;->getStackLogger()Lgov/nist/core/StackLogger;
 

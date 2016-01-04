@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webviewchromium_actionbar_share">გაზიარება</string>
+    <string name="webviewchromium_actionbar_web_search">ვებზე ძიება</string>
+    <string name="webviewchromium_accessibility_content_view">ვებ-ხედი</string>
+    <string name="webviewchromium_date_picker_dialog_set">დაყენება</string>
+    <string name="webviewchromium_date_picker_dialog_clear">გასუფთავება</string>
+    <string name="webviewchromium_date_picker_dialog_title">თარიღის დაყენება</string>
+    <string name="webviewchromium_date_time_picker_dialog_title">თარიღისა და დროის დაყენება</string>
+    <string name="webviewchromium_month_picker_dialog_title">თვის დაყენება</string>
+    <string name="webviewchromium_week_picker_dialog_title">კვირის დაყენება</string>
+    <string name="webviewchromium_accessibility_datetime_picker_date">თარიღი</string>
+    <string name="webviewchromium_accessibility_datetime_picker_time">დრო</string>
+    <string name="webviewchromium_accessibility_date_picker_month">თვე</string>
+    <string name="webviewchromium_accessibility_date_picker_week">კვირა</string>
+    <string name="webviewchromium_accessibility_date_picker_year">წელი</string>
+    <string name="webviewchromium_media_player_error_title">ვიდეოს დაკვრა ვერ ხერხდება</string>
+    <string name="webviewchromium_media_player_error_text_invalid_progressive_playback">უკაცრავად, ეს ვიდეო არ გამოდგება ამ მოწყობილობაზე სტრიმინგისთვის.</string>
+    <string name="webviewchromium_media_player_error_text_unknown">უკაცრავად, ამ ვიდეოს ვერ ჩართავთ.</string>
+    <string name="webviewchromium_media_player_error_button">კარგი</string>
+    <string name="webviewchromium_media_player_loading_video">მიმდინარეობს ვიდეოს ჩატვირთვა</string>
+    <string name="webviewchromium_color_picker_button_more">მეტი</string>
+    <string name="webviewchromium_color_picker_hue">ფერადოვნება</string>
+    <string name="webviewchromium_color_picker_saturation">ინტენსივობა</string>
+    <string name="webviewchromium_color_picker_value">მნიშვნელობა</string>
+    <string name="webviewchromium_color_picker_button_set">დაყენება</string>
+    <string name="webviewchromium_color_picker_button_cancel">გაუქმება</string>
+    <string name="webviewchromium_color_picker_dialog_title">აირჩიეთ ფერი</string>
+    <string name="webviewchromium_low_memory_error">მცირე მეხსიერების გამო წინა ოპერაციის დასრულება ვერ მოხერხდა.</string>
+    <string name="webviewchromium_opening_file_error">არჩეული ფაილის გახსნა ვერ მოხერხდა</string>
+    <string name="webviewchromium_private_browsing_warning">Android-ის ამ ვერსიაში ეს ფუნქცია მხარდაჭერილი არ არის.</string>
+</resources>

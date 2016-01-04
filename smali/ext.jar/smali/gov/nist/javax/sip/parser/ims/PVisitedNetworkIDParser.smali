@@ -58,31 +58,31 @@
     .line 84
     const-string v3, "VisitedNetworkIDParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 87
     :cond_0
     :try_start_0
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x84b
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 88
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 89
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x3a
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 90
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -94,11 +94,11 @@
 
     .line 96
     .local v1, "visitedNetworkID":Lgov/nist/javax/sip/header/ims/PVisitedNetworkID;
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -111,19 +111,19 @@
 
     .line 101
     :goto_1
-    invoke-virtual {v2, v1}, Lgov/nist/javax/sip/header/ims/PVisitedNetworkIDList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
+    invoke-virtual {v2, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->add(Lgov/nist/javax/sip/header/SIPHeader;)Z
 
     .line 103
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 104
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v3, v4}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v0
 
@@ -132,14 +132,14 @@
     if-ne v0, v5, :cond_3
 
     .line 106
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v4, 0x2c
 
     invoke-virtual {v3, v4}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 107
-    iget-object v3, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v3, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v3}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_0
@@ -160,7 +160,7 @@
     .line 116
     const-string v4, "VisitedNetworkIDParser.parse"
 
-    invoke-virtual {p0, v4}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v4}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 115
     :cond_1
@@ -191,7 +191,7 @@
     .line 116
     const-string v3, "VisitedNetworkIDParser.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 113
     :cond_4
@@ -218,7 +218,7 @@
 
     move-result-object v3
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v3
 
@@ -247,7 +247,7 @@
     .line 124
     const-string v2, "parseQuotedString"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 128
     :cond_0
@@ -258,11 +258,11 @@
 
     .line 130
     .local v1, "retval":Ljava/lang/StringBuffer;
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -271,7 +271,7 @@
     .line 131
     const-string v2, "unexpected char"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v2
 
@@ -291,7 +291,7 @@
     .line 157
     const-string v3, "parseQuotedString.parse"
 
-    invoke-virtual {p0, v3}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v3}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 156
     :cond_1
@@ -301,17 +301,17 @@
     .restart local v1    # "retval":Ljava/lang/StringBuffer;
     :cond_2
     :try_start_1
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, v3}, Lgov/nist/core/LexerCore;->consume(I)V
+    invoke-virtual {v2, v3}, Lgov/nist/core/StringTokenizer;->consume(I)V
 
     .line 135
     :goto_0
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {v2}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v0
 
@@ -339,7 +339,7 @@
     .line 157
     const-string v2, "parseQuotedString.parse"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 160
     :cond_3
@@ -371,9 +371,9 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
     .line 143
-    iget-object v2, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v2, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v2}, Lgov/nist/core/LexerCore;->getNextChar()C
+    invoke-virtual {v2}, Lgov/nist/core/StringTokenizer;->getNextChar()C
 
     move-result v0
 
@@ -402,14 +402,14 @@
 
     .prologue
     .line 166
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v2, 0xfff
 
     invoke-virtual {v1, v2}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 167
-    iget-object v1, p0, Lgov/nist/javax/sip/parser/ims/PVisitedNetworkIDParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v1, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v1}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 

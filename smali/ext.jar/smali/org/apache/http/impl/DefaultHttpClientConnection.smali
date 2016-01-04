@@ -55,7 +55,7 @@
 
     .line 64
     :cond_1
-    invoke-virtual {p0}, Lorg/apache/http/impl/DefaultHttpClientConnection;->assertNotOpen()V
+    invoke-virtual {p0}, Lorg/apache/http/impl/SocketHttpClientConnection;->assertNotOpen()V
 
     .line 65
     invoke-static {p2}, Lorg/apache/http/params/HttpConnectionParams;->getTcpNoDelay(Lorg/apache/http/params/HttpParams;)Z
@@ -118,14 +118,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     .line 78
-    invoke-virtual {p0}, Lorg/apache/http/impl/DefaultHttpClientConnection;->isOpen()Z
+    invoke-virtual {p0}, Lorg/apache/http/impl/SocketHttpClientConnection;->isOpen()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
     .line 79
-    invoke-virtual {p0}, Lorg/apache/http/impl/DefaultHttpClientConnection;->getRemotePort()I
+    invoke-virtual {p0}, Lorg/apache/http/impl/SocketHttpClientConnection;->getRemotePort()I
 
     move-result v1
 

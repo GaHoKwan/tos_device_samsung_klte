@@ -297,7 +297,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v8
 
@@ -1094,7 +1094,7 @@
     :cond_1
     iget-object v3, p0, Landroid/media/videoeditor/AudioTrack;->mWaveformData:Ljava/lang/ref/SoftReference;
 
-    invoke-virtual {v3}, Ljava/lang/ref/SoftReference;->get()Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/ref/Reference;->get()Ljava/lang/Object;
 
     move-result-object v1
 

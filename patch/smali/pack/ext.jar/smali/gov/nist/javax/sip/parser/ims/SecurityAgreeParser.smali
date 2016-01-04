@@ -73,17 +73,17 @@
     .line 98
     .local v4, "list":Lgov/nist/javax/sip/header/SIPHeaderList;
     :goto_0
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 99
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6, v12}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 100
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -98,14 +98,14 @@
     invoke-virtual {p1, v6}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setSecurityMechanism(Ljava/lang/String;)V
 
     .line 102
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 104
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
-    invoke-virtual {v6, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v6, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v2
 
@@ -187,13 +187,13 @@
     if-ne v2, v9, :cond_4
 
     .line 111
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6, v9}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 113
     :cond_4
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
@@ -204,11 +204,11 @@
     .local v1, "header":Lgov/nist/javax/sip/header/ims/SecurityAgree;
     :goto_2
     :try_start_0
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v7, 0x0
 
-    invoke-virtual {v6, v7}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v6, v7}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v6
 
@@ -218,16 +218,16 @@
     invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->parseParameter(Lgov/nist/javax/sip/header/ims/SecurityAgree;)V
 
     .line 120
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 121
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v7, 0x0
 
-    invoke-virtual {v6, v7}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v6, v7}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v3
 
@@ -286,26 +286,26 @@
     .restart local p1    # "header":Lgov/nist/javax/sip/header/ims/SecurityAgree;
     :goto_3
     :try_start_1
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v7, 0x2c
 
     invoke-virtual {v6, v7}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 137
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 138
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v7, 0xfff
 
     invoke-virtual {v6, v7}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 139
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->getNextToken()Lgov/nist/core/Token;
 
@@ -320,23 +320,23 @@
 
     .line 143
     :goto_4
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 145
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v7, 0x0
 
-    invoke-virtual {v6, v7}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v6, v7}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v6
 
     if-ne v6, v9, :cond_7
 
     .line 146
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v7, 0x3b
 
@@ -344,7 +344,7 @@
 
     .line 148
     :cond_7
-    iget-object v6, p0, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v6, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v6}, Lgov/nist/core/LexerCore;->SPorHT()V
     :try_end_1
@@ -473,20 +473,20 @@
     .line 70
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 72
     :cond_0
     const/16 v1, 0x3d
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->nameValue(C)Lgov/nist/core/NameValue;
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->nameValue(C)Lgov/nist/core/NameValue;
 
     move-result-object v0
 
     .line 73
     .local v0, "nv":Lgov/nist/core/NameValue;
-    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ims/SecurityAgree;->setParameter(Lgov/nist/core/NameValue;)V
+    invoke-virtual {p1, v0}, Lgov/nist/javax/sip/header/ParametersHeader;->setParameter(Lgov/nist/core/NameValue;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -498,7 +498,7 @@
     .line 76
     const-string v1, "parseParameter"
 
-    invoke-virtual {p0, v1}, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v1}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 78
     :cond_1
@@ -516,7 +516,7 @@
     .line 76
     const-string v2, "parseParameter"
 
-    invoke-virtual {p0, v2}, Lgov/nist/javax/sip/parser/ims/SecurityAgreeParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v2}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 75
     :cond_2

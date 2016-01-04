@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/restriction/RestrictionPolicy;)V
     .locals 0
 
+    .prologue
+    .line 355
     iput-object p1, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,15 +35,21 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 11
+    .param p1, "arg0"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v10, 0x0
 
     const/4 v6, 0x0
 
+    .line 359
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 361
+    .local v0, "action":Ljava/lang/String;
     const-string v7, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -50,6 +58,7 @@
 
     if-eqz v7, :cond_2
 
+    .line 364
     :try_start_0
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -58,13 +67,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 370
     :goto_0
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object v1
 
+    .line 371
+    .local v1, "adapter":Landroid/bluetooth/BluetoothAdapter;
     if-eqz v1, :cond_0
 
+    .line 372
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
     # getter for: Lcom/android/server/enterprise/restriction/RestrictionPolicy;->mContext:Landroid/content/Context;
@@ -83,6 +96,7 @@
 
     invoke-virtual {v1, v7, v8, v9}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
+    .line 375
     :cond_0
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -92,18 +106,24 @@
 
     if-nez v7, :cond_1
 
+    .line 376
     iget-object v7, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
     # invokes: Lcom/android/server/enterprise/restriction/RestrictionPolicy;->enforceStatusBarExpansion(Z)V
     invoke-static {v7, v6}, Lcom/android/server/enterprise/restriction/RestrictionPolicy;->access$400(Lcom/android/server/enterprise/restriction/RestrictionPolicy;Z)V
 
+    .line 403
+    .end local v1    # "adapter":Landroid/bluetooth/BluetoothAdapter;
     :cond_1
     :goto_1
     return-void
 
+    .line 365
     :catch_0
     move-exception v4
 
+    .line 366
+    .local v4, "e":Ljava/lang/Exception;
     const-string v7, "RestrictionPolicy"
 
     const-string/jumbo v8, "updateUsbMode failed"
@@ -112,6 +132,8 @@
 
     goto :goto_0
 
+    .line 379
+    .end local v4    # "e":Ljava/lang/Exception;
     :cond_2
     const-string v7, "android.intent.action.ACTION_POWER_DISCONNECTED"
 
@@ -121,6 +143,7 @@
 
     if-eqz v7, :cond_3
 
+    .line 382
     :try_start_1
     iget-object v6, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -131,9 +154,12 @@
 
     goto :goto_1
 
+    .line 383
     :catch_1
     move-exception v4
 
+    .line 384
+    .restart local v4    # "e":Ljava/lang/Exception;
     const-string v6, "RestrictionPolicy"
 
     const-string/jumbo v7, "updateUsbMode failed"
@@ -142,6 +168,8 @@
 
     goto :goto_1
 
+    .line 386
+    .end local v4    # "e":Ljava/lang/Exception;
     :cond_3
     const-string v7, "android.intent.action.sec.DEFAULT_NETWORK_POLICY_APPLIED"
 
@@ -159,6 +187,7 @@
 
     if-nez v7, :cond_4
 
+    .line 388
     :try_start_2
     iget-object v6, p0, Lcom/android/server/enterprise/restriction/RestrictionPolicy$6;->this$0:Lcom/android/server/enterprise/restriction/RestrictionPolicy;
 
@@ -168,9 +197,12 @@
 
     goto :goto_1
 
+    .line 389
     :catch_2
     move-exception v4
 
+    .line 390
+    .restart local v4    # "e":Ljava/lang/Exception;
     const-string v6, "RestrictionPolicy"
 
     const-string v7, "Network Policy update failed"
@@ -179,6 +211,8 @@
 
     goto :goto_1
 
+    .line 392
+    .end local v4    # "e":Ljava/lang/Exception;
     :cond_4
     const-string v7, "android.intent.action.USER_SWITCHED"
 
@@ -188,20 +222,27 @@
 
     if-eqz v7, :cond_1
 
+    .line 393
     const-string v7, "android.intent.extra.user_handle"
 
     invoke-virtual {p2, v7, v6}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v5
 
+    .line 394
+    .local v5, "userId":I
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v2
 
+    .line 395
+    .local v2, "callingUid":I
     invoke-static {v2}, Lcom/sec/enterprise/knox/EnterpriseContainerManager;->getContainerId(I)I
 
     move-result v3
 
+    .line 397
+    .local v3, "containerId":I
     const-string v7, "RestrictionPolicy"
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -234,8 +275,10 @@
 
     invoke-static {v7, v8}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 398
     if-nez v3, :cond_1
 
+    .line 399
     const-string v7, "screenCaptureEnabled"
 
     new-instance v8, Ljava/lang/StringBuilder;

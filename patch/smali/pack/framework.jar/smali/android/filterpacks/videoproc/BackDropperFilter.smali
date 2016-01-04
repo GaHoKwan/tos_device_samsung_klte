@@ -1087,7 +1087,7 @@
     .local v5, "yuvWeights":[F
     iget-object v6, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
 
-    const-string v7, "yuv_weights"
+    const-string/jumbo v7, "yuv_weights"
 
     invoke-virtual {v6, v7, v5}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 
@@ -1553,7 +1553,7 @@
 
     move-result-object v7
 
-    const-string v8, "}\n"
+    const-string/jumbo v8, "}\n"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2665,7 +2665,7 @@
     .local v0, "yuvWeights":[F
     iget-object v1, p0, Landroid/filterpacks/videoproc/BackDropperFilter;->mBgMaskProgram:Landroid/filterfw/core/ShaderProgram;
 
-    const-string v2, "yuv_weights"
+    const-string/jumbo v2, "yuv_weights"
 
     invoke-virtual {v1, v2, v0}, Landroid/filterfw/core/ShaderProgram;->setHostValue(Ljava/lang/String;Ljava/lang/Object;)V
 

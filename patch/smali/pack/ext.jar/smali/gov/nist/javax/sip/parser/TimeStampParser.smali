@@ -49,7 +49,7 @@
     .line 68
     const-string v7, "TimeStampParser.parse"
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->dbg_enter(Ljava/lang/String;)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/ParserCore;->dbg_enter(Ljava/lang/String;)V
 
     .line 69
     :cond_0
@@ -62,20 +62,20 @@
     const/16 v7, 0x837
 
     :try_start_0
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->headerName(I)V
+    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/HeaderParser;->headerName(I)V
 
     .line 73
     const-string v7, "Timestamp"
 
-    invoke-virtual {v4, v7}, Lgov/nist/javax/sip/header/TimeStamp;->setHeaderName(Ljava/lang/String;)V
+    invoke-virtual {v4, v7}, Lgov/nist/javax/sip/header/SIPHeader;->setHeaderName(Ljava/lang/String;)V
 
     .line 75
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 76
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
     :try_end_0
@@ -86,25 +86,25 @@
     .line 80
     .local v1, "firstNumber":Ljava/lang/String;
     :try_start_1
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v8, 0x0
 
-    invoke-virtual {v7, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v7, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v7
 
     if-ne v7, v9, :cond_3
 
     .line 81
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v8, 0x2e
 
     invoke-virtual {v7, v8}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 82
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -154,16 +154,16 @@
     .end local v5    # "ts":F
     :goto_0
     :try_start_2
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->SPorHT()V
 
     .line 100
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v8, 0x0
 
-    invoke-virtual {v7, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v7, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v7
 
@@ -172,7 +172,7 @@
     if-eq v7, v8, :cond_1
 
     .line 101
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
     :try_end_2
@@ -182,25 +182,25 @@
 
     .line 105
     :try_start_3
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/4 v8, 0x0
 
-    invoke-virtual {v7, v8}, Lgov/nist/core/LexerCore;->lookAhead(I)C
+    invoke-virtual {v7, v8}, Lgov/nist/core/StringTokenizer;->lookAhead(I)C
 
     move-result v7
 
     if-ne v7, v9, :cond_5
 
     .line 106
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     const/16 v8, 0x2e
 
     invoke-virtual {v7, v8}, Lgov/nist/core/LexerCore;->match(I)Lgov/nist/core/Token;
 
     .line 107
-    iget-object v7, p0, Lgov/nist/javax/sip/parser/TimeStampParser;->lexer:Lgov/nist/core/LexerCore;
+    iget-object v7, p0, Lgov/nist/core/ParserCore;->lexer:Lgov/nist/core/LexerCore;
 
     invoke-virtual {v7}, Lgov/nist/core/LexerCore;->number()Ljava/lang/String;
 
@@ -257,7 +257,7 @@
     .line 127
     const-string v7, "TimeStampParser.parse"
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v7}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 130
     :cond_2
@@ -288,11 +288,11 @@
     .line 94
     .local v0, "ex":Ljava/lang/NumberFormatException;
     :try_start_5
-    invoke-virtual {v0}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v7
 
@@ -313,7 +313,7 @@
     .line 127
     const-string v8, "TimeStampParser.parse"
 
-    invoke-virtual {p0, v8}, Lgov/nist/javax/sip/parser/TimeStampParser;->dbg_leave(Ljava/lang/String;)V
+    invoke-virtual {p0, v8}, Lgov/nist/core/ParserCore;->dbg_leave(Ljava/lang/String;)V
 
     .line 126
     :cond_4
@@ -327,11 +327,11 @@
     .line 96
     .local v0, "ex":Ljavax/sip/InvalidArgumentException;
     :try_start_6
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v7
 
@@ -367,11 +367,11 @@
     .line 119
     .local v0, "ex":Ljava/lang/NumberFormatException;
     :try_start_8
-    invoke-virtual {v0}, Ljava/lang/NumberFormatException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v7
 
@@ -384,11 +384,11 @@
 
     .line 121
     .local v0, "ex":Ljavax/sip/InvalidArgumentException;
-    invoke-virtual {v0}, Ljavax/sip/InvalidArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/TimeStampParser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
+    invoke-virtual {p0, v7}, Lgov/nist/javax/sip/parser/Parser;->createParseException(Ljava/lang/String;)Ljava/text/ParseException;
 
     move-result-object v7
 

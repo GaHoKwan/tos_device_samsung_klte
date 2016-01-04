@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;)V
     .locals 0
 
+    .prologue
+    .line 834
     iput-object p1, p0, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper$2;->this$0:Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;
 
     invoke-direct {p0}, Landroid/speech/tts/UtteranceProgressListener;-><init>()V
@@ -33,13 +35,19 @@
 # virtual methods
 .method public onDone(Ljava/lang/String;)V
     .locals 0
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
+    .prologue
+    .line 851
     return-void
 .end method
 
 .method public onError(Ljava/lang/String;)V
     .locals 3
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
+    .prologue
+    .line 842
     # getter for: Landroid/webkitsec/AccessibilityInjector;->DEBUG:Z
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector;->access$000()Z
 
@@ -47,6 +55,7 @@
 
     if-eqz v0, :cond_0
 
+    .line 843
     # getter for: Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->WRAP_TAG:Ljava/lang/String;
     invoke-static {}, Landroid/webkitsec/AccessibilityInjector$TextToSpeechWrapper;->access$800()Ljava/lang/String;
 
@@ -84,12 +93,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 846
     :cond_0
     return-void
 .end method
 
 .method public onStart(Ljava/lang/String;)V
     .locals 0
+    .param p1, "utteranceId"    # Ljava/lang/String;
 
+    .prologue
+    .line 838
     return-void
 .end method

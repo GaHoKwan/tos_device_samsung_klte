@@ -500,7 +500,7 @@
 
     .line 328
     :try_start_2
-    invoke-virtual {v3}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v3}, Ljava/io/InputStreamReader;->close()V
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
 
@@ -544,7 +544,7 @@
 
     .line 328
     :try_start_4
-    invoke-virtual {v2}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStreamReader;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
 
@@ -586,7 +586,7 @@
 
     .line 328
     :try_start_6
-    invoke-virtual {v2}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStreamReader;->close()V
     :try_end_6
     .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_2
 
@@ -617,7 +617,7 @@
 
     .line 328
     :try_start_7
-    invoke-virtual {v2}, Ljava/io/FileReader;->close()V
+    invoke-virtual {v2}, Ljava/io/InputStreamReader;->close()V
     :try_end_7
     .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_5
 
@@ -1338,7 +1338,7 @@
 
     const-string v7, "VZW"
 
-    const-string v9, "VZW"
+    const-string v9, "OPEN"
 
     invoke-virtual {v7, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2058,30 +2058,15 @@
 
     throw v0
 
-    .line 452
-    :cond_1
-    :try_start_1
-    const-string v2, "6245"
-
-    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    .line 454
-    monitor-exit v1
-
-    goto :goto_0
-
     .line 458
-    :cond_2
-    if-eqz p2, :cond_4
+    :cond_1
+    if-eqz p2, :cond_3
 
     .line 459
+    :try_start_1
     iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentCountry:Ljava/lang/String;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentCountry:Ljava/lang/String;
 
@@ -2089,7 +2074,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mPatternFile:Ljava/io/File;
 
@@ -2101,34 +2086,31 @@
 
     cmp-long v2, v2, v4
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
-    .line 465
-    :cond_3
-    iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mPatternFile:Ljava/io/File;
+    .line 462
+    :cond_2
+    const-string v2, "SmsUsageMonitor"
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    const-string v3, "Loading SMS Short Code patterns from resource only"
 
-    move-result v2
+    invoke-static {v2, v3}, Landroid/telephony/Rlog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_5
-
-    .line 467
-    invoke-direct {p0, p2}, Lcom/android/internal/telephony/SmsUsageMonitor;->getPatternMatcherFromFile(Ljava/lang/String;)Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
+    .line 463
+    invoke-direct {p0, p2}, Lcom/android/internal/telephony/SmsUsageMonitor;->getPatternMatcherFromResource(Ljava/lang/String;)Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentPatternMatcher:Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
 
     .line 473
-    :goto_1
     iput-object p2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentCountry:Ljava/lang/String;
 
     .line 477
-    :cond_4
+    :cond_3
     iget-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentPatternMatcher:Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_4
 
     .line 478
     iget-object v0, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentPatternMatcher:Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
@@ -2141,18 +2123,8 @@
 
     goto :goto_0
 
-    .line 470
-    :cond_5
-    invoke-direct {p0, p2}, Lcom/android/internal/telephony/SmsUsageMonitor;->getPatternMatcherFromResource(Ljava/lang/String;)Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/internal/telephony/SmsUsageMonitor;->mCurrentPatternMatcher:Lcom/android/internal/telephony/SmsUsageMonitor$ShortCodePatternMatcher;
-
-    goto :goto_1
-
     .line 481
-    :cond_6
+    :cond_4
     const-string v2, "SmsUsageMonitor"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2182,7 +2154,7 @@
     invoke-static {v2, v3}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 483
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_5
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
@@ -2190,7 +2162,7 @@
 
     const/4 v3, 0x5
 
-    if-gt v2, v3, :cond_7
+    if-gt v2, v3, :cond_5
 
     .line 485
     const/4 v0, 0x3
@@ -2200,7 +2172,7 @@
     goto :goto_0
 
     .line 487
-    :cond_7
+    :cond_5
     monitor-exit v1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -2340,7 +2312,7 @@
 
     const-string v0, "VZW"
 
-    const-string v2, "VZW"
+    const-string v2, "OPEN"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

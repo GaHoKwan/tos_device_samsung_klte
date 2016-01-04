@@ -23,19 +23,30 @@
 # direct methods
 .method public constructor <init>(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Landroid/view/InputChannel;Landroid/os/Looper;Lcom/android/internal/policy/impl/spengesture/SPenGestureView;)V
     .locals 0
+    .param p2, "inputChannel"    # Landroid/view/InputChannel;
+    .param p3, "looper"    # Landroid/os/Looper;
+    .param p4, "view"    # Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
+    .prologue
+    .line 3287
     iput-object p1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
+    .line 3288
     invoke-direct {p0, p2, p3}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
+    .line 3289
     iput-object p4, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
+    .line 3290
     return-void
 .end method
 
 .method private disableSPenGestureView(Landroid/view/MotionEvent;)V
     .locals 3
+    .param p1, "event"    # Landroid/view/MotionEvent;
 
+    .prologue
+    .line 3293
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mSPenGestureView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -46,6 +57,7 @@
 
     if-nez v0, :cond_1
 
+    .line 3294
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     # getter for: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mIsVisibleSPenGestureView:Z
@@ -55,12 +67,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 3295
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    .line 3296
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     const/4 v1, 0x0
@@ -68,6 +82,7 @@
     # setter for: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mIsVisibleSPenGestureView:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->access$1302(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Z)Z
 
+    .line 3297
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
@@ -84,10 +99,12 @@
 
     invoke-virtual {v0, p1, v1, v2}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->addSPenEvent(Landroid/view/MotionEvent;ZZ)V
 
+    .line 3302
     :cond_0
     :goto_0
     return-void
 
+    .line 3300
     :cond_1
     iget-object v0, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
@@ -104,26 +121,35 @@
 # virtual methods
 .method public onInputEvent(Landroid/view/InputEvent;)V
     .locals 6
+    .param p1, "event"    # Landroid/view/InputEvent;
 
+    .prologue
     const/4 v5, 0x2
 
+    .line 3306
     const/4 v1, 0x0
 
+    .line 3308
+    .local v1, "handled":Z
     :try_start_0
     instance-of v3, p1, Landroid/view/MotionEvent;
 
     if-eqz v3, :cond_2
 
+    .line 3309
     move-object v0, p1
 
     check-cast v0, Landroid/view/MotionEvent;
 
     move-object v2, v0
 
+    .line 3311
+    .local v2, "motionEvent":Landroid/view/MotionEvent;
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     if-eqz v3, :cond_1
 
+    .line 3312
     const/4 v3, 0x0
 
     invoke-virtual {v2, v3}, Landroid/view/MotionEvent;->getToolType(I)I
@@ -140,6 +166,7 @@
 
     if-ne v3, v4, :cond_1
 
+    .line 3314
     :cond_0
     invoke-virtual {v2}, Landroid/view/MotionEvent;->getButtonState()I
 
@@ -149,6 +176,7 @@
 
     if-ne v3, v5, :cond_4
 
+    .line 3315
     invoke-virtual {v2}, Landroid/view/MotionEvent;->getAction()I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -157,16 +185,22 @@
 
     packed-switch v3, :pswitch_data_0
 
+    .line 3348
     :cond_1
     :goto_0
     :pswitch_0
     const/4 v1, 0x1
 
+    .line 3351
+    .end local v2    # "motionEvent":Landroid/view/MotionEvent;
     :cond_2
-    invoke-virtual {p0, p1, v1}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
+    invoke-virtual {p0, p1, v1}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
+    .line 3353
     return-void
 
+    .line 3319
+    .restart local v2    # "motionEvent":Landroid/view/MotionEvent;
     :pswitch_1
     :try_start_1
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
@@ -179,6 +213,7 @@
 
     if-nez v3, :cond_1
 
+    .line 3320
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     # getter for: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mIsVisibleSPenGestureView:Z
@@ -188,12 +223,14 @@
 
     if-nez v3, :cond_3
 
+    .line 3321
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
     const/4 v4, 0x0
 
-    invoke-virtual {v3, v4}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->setVisibility(I)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
+    .line 3322
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;
 
     const/4 v4, 0x1
@@ -201,6 +238,7 @@
     # setter for: Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->mIsVisibleSPenGestureView:Z
     invoke-static {v3, v4}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;->access$1302(Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager;Z)Z
 
+    .line 3324
     :cond_3
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
 
@@ -222,13 +260,17 @@
 
     goto :goto_0
 
+    .line 3351
+    .end local v2    # "motionEvent":Landroid/view/MotionEvent;
     :catchall_0
     move-exception v3
 
-    invoke-virtual {p0, p1, v1}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
+    invoke-virtual {p0, p1, v1}, Landroid/view/InputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     throw v3
 
+    .line 3331
+    .restart local v2    # "motionEvent":Landroid/view/MotionEvent;
     :pswitch_2
     :try_start_2
     iget-object v3, p0, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->mView:Lcom/android/internal/policy/impl/spengesture/SPenGestureView;
@@ -247,15 +289,18 @@
 
     invoke-virtual {v3, v2, v4, v5}, Lcom/android/internal/policy/impl/spengesture/SPenGestureView;->addSPenEvent(Landroid/view/MotionEvent;ZZ)V
 
+    .line 3333
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->disableSPenGestureView(Landroid/view/MotionEvent;)V
 
     goto :goto_0
 
+    .line 3338
     :pswitch_3
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->disableSPenGestureView(Landroid/view/MotionEvent;)V
 
     goto :goto_0
 
+    .line 3344
     :cond_4
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/sec/SamsungPhoneWindowManager$SPenGestureInputEventReceiver;->disableSPenGestureView(Landroid/view/MotionEvent;)V
     :try_end_2
@@ -263,6 +308,7 @@
 
     goto :goto_0
 
+    .line 3315
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_1

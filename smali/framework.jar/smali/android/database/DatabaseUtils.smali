@@ -1509,7 +1509,7 @@
     .end local v1    # "e":Landroid/database/sqlite/SQLiteException;
     .end local v4    # "value":Ljava/lang/String;
     :cond_0
-    const-string v5, "}"
+    const-string/jumbo v5, "}"
 
     invoke-virtual {p1, v5}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
@@ -1641,7 +1641,7 @@
     .end local v1    # "e":Landroid/database/sqlite/SQLiteException;
     .end local v4    # "value":Ljava/lang/String;
     :cond_0
-    const-string v5, "}\n"
+    const-string/jumbo v5, "}\n"
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

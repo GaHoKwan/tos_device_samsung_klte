@@ -144,7 +144,7 @@
     .line 32
     sget-object v0, Landroid/hardware/contextaware/InterruptModeContextList$InterruptModeContextType;->$VALUES:[Landroid/hardware/contextaware/InterruptModeContextList$InterruptModeContextType;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/InterruptModeContextList$InterruptModeContextType;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

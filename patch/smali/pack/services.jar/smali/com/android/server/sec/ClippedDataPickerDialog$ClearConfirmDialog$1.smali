@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;)V
     .locals 0
 
+    .prologue
+    .line 310
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,19 +38,25 @@
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 17
+    .param p1, "arg0"    # Landroid/content/DialogInterface;
+    .param p2, "arg1"    # I
 
+    .prologue
+    .line 313
     const/4 v14, -0x1
 
     move/from16 v0, p2
 
     if-ne v0, v14, :cond_c
 
+    .line 314
     const-string v14, "ClipboardServiceEx"
 
     const-string v15, "pressed OK"
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 316
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -62,10 +70,12 @@
 
     if-nez v14, :cond_1
 
+    .line 437
     :cond_0
     :goto_0
     return-void
 
+    .line 320
     :cond_1
     move-object/from16 v0, p0
 
@@ -82,8 +92,12 @@
 
     move-result v3
 
+    .line 321
+    .local v3, "count":I
     const/4 v9, 0x0
 
+    .line 323
+    .local v9, "protectCount":I
     sget-boolean v14, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v14, :cond_2
@@ -110,29 +124,39 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 330
     :cond_2
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
+    .line 331
+    .local v1, "clearedClipsArr":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v8
 
+    .line 334
+    .local v8, "id":I
     if-nez v8, :cond_5
 
+    .line 335
     new-instance v10, Ljava/io/File;
 
     const-string v14, "/data/clipboard"
 
     invoke-direct {v10, v14}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 336
+    .local v10, "rootPath":Ljava/io/File;
     new-instance v12, Ljava/io/File;
 
     const-string v14, "/data/clipboard/shared"
 
     invoke-direct {v12, v14}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 343
+    .local v12, "sharedPath":Ljava/io/File;
     :goto_1
     const-string v14, "ClipboardServiceEx"
 
@@ -176,11 +200,14 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 346
     const/4 v7, 0x0
 
+    .local v7, "i":I
     :goto_2
     if-ge v7, v3, :cond_9
 
+    .line 347
     sget-boolean v14, Landroid/sec/clipboard/data/ClipboardDefine;->DEBUG:Z
 
     if-eqz v14, :cond_3
@@ -228,6 +255,7 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 349
     :cond_3
     :try_start_0
     move-object/from16 v0, p0
@@ -245,14 +273,20 @@
 
     if-eqz v14, :cond_6
 
+    .line 350
     add-int/lit8 v9, v9, 0x1
 
+    .line 346
     :cond_4
     :goto_3
     add-int/lit8 v7, v7, 0x1
 
     goto :goto_2
 
+    .line 338
+    .end local v7    # "i":I
+    .end local v10    # "rootPath":Ljava/io/File;
+    .end local v12    # "sharedPath":Ljava/io/File;
     :cond_5
     new-instance v10, Ljava/io/File;
 
@@ -280,6 +314,8 @@
 
     invoke-direct {v10, v14}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 340
+    .restart local v10    # "rootPath":Ljava/io/File;
     new-instance v12, Ljava/io/File;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -312,20 +348,26 @@
 
     invoke-direct {v12, v14}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .restart local v12    # "sharedPath":Ljava/io/File;
     goto/16 :goto_1
 
+    .line 353
+    .restart local v7    # "i":I
     :cond_6
     :try_start_1
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
+    .line 354
+    .local v5, "deleteItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v14
 
     invoke-virtual {v5, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 355
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -336,8 +378,11 @@
 
     invoke-virtual {v14, v5}, Lcom/android/server/sec/ClippedDataPickerGridView;->setDeletedItems(Ljava/util/ArrayList;)V
 
+    .line 362
     const/4 v4, 0x0
 
+    .line 363
+    .local v4, "data":Landroid/sec/clipboard/data/file/WrapFileClipData;
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -350,6 +395,7 @@
 
     if-eqz v14, :cond_8
 
+    .line 364
     new-instance v11, Landroid/sec/clipboard/data/file/FileManager;
 
     new-instance v14, Ljava/io/File;
@@ -360,6 +406,8 @@
 
     invoke-direct {v11, v14, v8}, Landroid/sec/clipboard/data/file/FileManager;-><init>(Ljava/io/File;I)V
 
+    .line 366
+    .local v11, "rootfm":Landroid/sec/clipboard/data/file/FileManager;
     const-string v14, "ClipboardServiceEx"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -396,6 +444,7 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 369
     if-eqz v11, :cond_8
 
     invoke-virtual {v11}, Landroid/sec/clipboard/data/file/FileManager;->size()I
@@ -404,6 +453,7 @@
 
     if-lt v9, v14, :cond_8
 
+    .line 370
     new-instance v13, Landroid/sec/clipboard/data/file/FileManager;
 
     new-instance v14, Ljava/io/File;
@@ -414,8 +464,11 @@
 
     invoke-direct {v13, v14, v8}, Landroid/sec/clipboard/data/file/FileManager;-><init>(Ljava/io/File;I)V
 
+    .line 372
+    .local v13, "sharedfm":Landroid/sec/clipboard/data/file/FileManager;
     if-eqz v13, :cond_7
 
+    .line 373
     invoke-virtual {v11}, Landroid/sec/clipboard/data/file/FileManager;->size()I
 
     move-result v14
@@ -426,6 +479,7 @@
 
     move-result-object v4
 
+    .line 376
     :cond_7
     const-string v14, "ClipboardServiceEx"
 
@@ -449,6 +503,9 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 382
+    .end local v11    # "rootfm":Landroid/sec/clipboard/data/file/FileManager;
+    .end local v13    # "sharedfm":Landroid/sec/clipboard/data/file/FileManager;
     :cond_8
     move-object/from16 v0, p0
 
@@ -463,12 +520,14 @@
 
     invoke-interface {v14, v9}, Landroid/sec/clipboard/IClipboardDataUiEvent;->removeItem(I)V
 
+    .line 383
     sget v14, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
 
     add-int/lit8 v14, v14, -0x1
 
     sput v14, Lcom/android/server/sec/ClippedDataPickerDialog;->CHILD_COUNT:I
 
+    .line 386
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -481,10 +540,12 @@
 
     if-eqz v14, :cond_4
 
+    .line 387
     if-eqz v4, :cond_4
 
     if-eqz v1, :cond_4
 
+    .line 388
     const-string v14, "ClipboardServiceEx"
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -515,6 +576,7 @@
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 391
     invoke-virtual {v4}, Landroid/sec/clipboard/data/file/WrapFileClipData;->getFile()Ljava/io/File;
 
     move-result-object v14
@@ -529,13 +591,20 @@
 
     goto/16 :goto_3
 
+    .line 397
+    .end local v4    # "data":Landroid/sec/clipboard/data/file/WrapFileClipData;
+    .end local v5    # "deleteItems":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/Integer;>;"
     :catch_0
     move-exception v6
 
-    invoke-virtual {v6}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 399
+    .local v6, "e":Landroid/os/RemoteException;
+    invoke-virtual {v6}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto/16 :goto_3
 
+    .line 408
+    .end local v6    # "e":Landroid/os/RemoteException;
     :cond_9
     move-object/from16 v0, p0
 
@@ -549,6 +618,7 @@
 
     if-eqz v14, :cond_a
 
+    .line 409
     if-eqz v1, :cond_a
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -557,22 +627,28 @@
 
     if-lez v14, :cond_a
 
+    .line 410
     const-string v14, "ClipboardServiceEx"
 
     const-string v15, "onClear: Sending ClipsCleared broadcast"
 
     invoke-static {v14, v15}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 412
     new-instance v7, Landroid/content/Intent;
 
+    .end local v7    # "i":I
     const-string v14, "com.samsung.knox.clipboard.clipscleared"
 
     invoke-direct {v7, v14}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    .line 413
+    .local v7, "i":Landroid/content/Intent;
     const-string v14, "ClearedClipsArray"
 
     invoke-virtual {v7, v14, v1}, Landroid/content/Intent;->putStringArrayListExtra(Ljava/lang/String;Ljava/util/ArrayList;)Landroid/content/Intent;
 
+    .line 415
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -584,6 +660,8 @@
 
     invoke-virtual {v14, v7}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
+    .line 422
+    .end local v7    # "i":Landroid/content/Intent;
     :cond_a
     move-object/from16 v0, p0
 
@@ -598,6 +676,7 @@
 
     if-eqz v14, :cond_b
 
+    .line 423
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
     move-object/from16 v0, p0
@@ -613,6 +692,8 @@
 
     invoke-direct {v2, v14, v15}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
+    .line 427
+    .local v2, "context":Landroid/content/Context;
     :goto_4
     const v14, 0x1040b46
 
@@ -624,6 +705,7 @@
 
     invoke-virtual {v14}, Landroid/widget/Toast;->show()V
 
+    .line 430
     move-object/from16 v0, p0
 
     iget-object v14, v0, Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClearConfirmDialog;
@@ -656,6 +738,8 @@
 
     goto/16 :goto_0
 
+    .line 425
+    .end local v2    # "context":Landroid/content/Context;
     :cond_b
     new-instance v2, Landroid/view/ContextThemeWrapper;
 
@@ -672,8 +756,17 @@
 
     invoke-direct {v2, v14, v15}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
+    .restart local v2    # "context":Landroid/content/Context;
     goto :goto_4
 
+    .line 431
+    .end local v1    # "clearedClipsArr":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
+    .end local v2    # "context":Landroid/content/Context;
+    .end local v3    # "count":I
+    .end local v8    # "id":I
+    .end local v9    # "protectCount":I
+    .end local v10    # "rootPath":Ljava/io/File;
+    .end local v12    # "sharedPath":Ljava/io/File;
     :cond_c
     const/4 v14, -0x2
 
@@ -681,6 +774,7 @@
 
     if-ne v0, v14, :cond_d
 
+    .line 432
     const-string v14, "ClipboardServiceEx"
 
     const-string v15, "pressed CANCEL"
@@ -689,6 +783,7 @@
 
     goto/16 :goto_0
 
+    .line 434
     :cond_d
     const-string v14, "ClipboardServiceEx"
 

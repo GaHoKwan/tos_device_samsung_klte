@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/KiesConnectivity/KiesUsbManager;)V
     .locals 0
 
+    .prologue
+    .line 230
     iput-object p1, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager$2;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbManager;
 
     invoke-direct {p0}, Ljava/util/TimerTask;-><init>()V
@@ -34,12 +36,15 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 232
     const-string v0, "KiesUsbManager"
 
     const-string/jumbo v1, "setUsbCurrentSettingMode -> modechange"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 233
     # getter for: Lcom/android/server/KiesConnectivity/KiesUsbManager;->kiesusbobserver:Lcom/android/server/KiesConnectivity/KiesUsbObserver;
     invoke-static {}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->access$100()Lcom/android/server/KiesConnectivity/KiesUsbObserver;
 
@@ -47,6 +52,7 @@
 
     sput-boolean v0, Lcom/android/server/KiesConnectivity/KiesUsbObserver;->isTwiceReset:Z
 
+    .line 234
     # getter for: Lcom/android/server/KiesConnectivity/KiesUsbManager;->kiesusbobserver:Lcom/android/server/KiesConnectivity/KiesUsbObserver;
     invoke-static {}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->access$100()Lcom/android/server/KiesConnectivity/KiesUsbObserver;
 
@@ -54,11 +60,13 @@
 
     if-eqz v0, :cond_0
 
+    .line 235
     iget-object v0, p0, Lcom/android/server/KiesConnectivity/KiesUsbManager$2;->this$0:Lcom/android/server/KiesConnectivity/KiesUsbManager;
 
     # invokes: Lcom/android/server/KiesConnectivity/KiesUsbManager;->setUsbCurrentSettingMode()V
     invoke-static {v0}, Lcom/android/server/KiesConnectivity/KiesUsbManager;->access$200(Lcom/android/server/KiesConnectivity/KiesUsbManager;)V
 
+    .line 238
     :cond_0
     return-void
 .end method

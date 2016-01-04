@@ -33,6 +33,7 @@
 .method static constructor <clinit>()V
     .locals 15
 
+    .prologue
     const/4 v14, 0x4
 
     const/4 v13, 0x3
@@ -43,6 +44,7 @@
 
     const/4 v10, 0x0
 
+    .line 30
     new-array v7, v12, [Ljava/lang/String;
 
     const-string v8, "636f6d2e636a656e6d2e4d6f646f6f4d6172626c654b616b616f"
@@ -63,6 +65,7 @@
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->HotGameGroup0:[Ljava/lang/String;
 
+    .line 37
     const/16 v7, 0x2d
 
     new-array v7, v7, [Ljava/lang/String;
@@ -509,6 +512,7 @@
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->HotGameGroup1:[Ljava/lang/String;
 
+    .line 130
     new-array v7, v14, [Ljava/lang/String;
 
     const-string v8, "636f6d2e676c752e67756e62726f7332"
@@ -545,6 +549,7 @@
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->HotGameGroup2:[Ljava/lang/String;
 
+    .line 141
     new-array v7, v12, [Ljava/lang/String;
 
     const-string v8, "636f6d2e65612e67616d65732e72335f726f77"
@@ -565,6 +570,7 @@
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->HotGameGroup3:[Ljava/lang/String;
 
+    .line 148
     const/16 v7, 0xb
 
     new-array v7, v7, [Ljava/lang/String;
@@ -671,31 +677,41 @@
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->HotGameGroup4:[Ljava/lang/String;
 
+    .line 173
     new-instance v7, Ljava/util/HashMap;
 
     invoke-direct {v7}, Ljava/util/HashMap;-><init>()V
 
     sput-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
+    .line 176
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup0:[Ljava/lang/String;
 
+    .local v0, "arr$":[Ljava/lang/String;
     array-length v4, v0
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v5, v0, v3
 
+    .line 177
+    .local v5, "s":Ljava/lang/String;
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 176
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 179
+    .end local v5    # "s":Ljava/lang/String;
     :cond_0
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup1:[Ljava/lang/String;
 
@@ -708,14 +724,19 @@
 
     aget-object v5, v0, v3
 
+    .line 180
+    .restart local v5    # "s":Ljava/lang/String;
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 179
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
+    .line 182
+    .end local v5    # "s":Ljava/lang/String;
     :cond_1
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup2:[Ljava/lang/String;
 
@@ -728,14 +749,19 @@
 
     aget-object v5, v0, v3
 
+    .line 183
+    .restart local v5    # "s":Ljava/lang/String;
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 182
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
+    .line 185
+    .end local v5    # "s":Ljava/lang/String;
     :cond_2
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup3:[Ljava/lang/String;
 
@@ -748,14 +774,19 @@
 
     aget-object v5, v0, v3
 
+    .line 186
+    .restart local v5    # "s":Ljava/lang/String;
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 185
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_3
 
+    .line 188
+    .end local v5    # "s":Ljava/lang/String;
     :cond_3
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup4:[Ljava/lang/String;
 
@@ -768,14 +799,19 @@
 
     aget-object v5, v0, v3
 
+    .line 189
+    .restart local v5    # "s":Ljava/lang/String;
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v7, v5, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 188
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_4
 
+    .line 192
+    .end local v5    # "s":Ljava/lang/String;
     :cond_4
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
@@ -793,6 +829,7 @@
 
     invoke-virtual {v7, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 195
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     const-string v8, "636f6d2e696d616e67692e74656d706c6572756e32"
@@ -809,6 +846,7 @@
 
     invoke-virtual {v7, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 198
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     const-string v8, "636f6d2e676c752e616e64726f69642e67756e62726f735f66726565"
@@ -825,6 +863,7 @@
 
     invoke-virtual {v7, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 202
     sget-object v7, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     const-string v8, "636f6d2e676c752e67756e62726f7332"
@@ -841,6 +880,7 @@
 
     invoke-virtual {v7, v8, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 205
     sget-boolean v7, Lcom/android/server/ssrm/SSRMUtil;->DEBUG:Z
 
     if-eqz v7, :cond_b
@@ -857,35 +897,44 @@
 
     if-eqz v7, :cond_b
 
+    .line 206
     new-instance v2, Ljava/io/File;
 
     const-string v7, "/data/system/ssrm_hot_game_list"
 
     invoke-direct {v2, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
+    .line 207
+    .local v2, "f":Ljava/io/File;
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v7
 
     if-eqz v7, :cond_5
 
+    .line 208
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
+    .line 211
     :cond_5
     :try_start_0
     invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 216
     :goto_5
     new-instance v6, Ljava/lang/StringBuffer;
 
     invoke-direct {v6}, Ljava/lang/StringBuffer;-><init>()V
 
+    .line 217
+    .local v6, "sb":Ljava/lang/StringBuffer;
     const-string v7, "HotGameGroup0 =====\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 218
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup0:[Ljava/lang/String;
 
     array-length v4, v0
@@ -897,6 +946,8 @@
 
     aget-object v5, v0, v3
 
+    .line 219
+    .restart local v5    # "s":Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -917,22 +968,32 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 218
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_6
 
+    .line 212
+    .end local v5    # "s":Ljava/lang/String;
+    .end local v6    # "sb":Ljava/lang/StringBuffer;
     :catch_0
     move-exception v1
 
-    invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
+    .line 214
+    .local v1, "e":Ljava/io/IOException;
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_5
 
+    .line 221
+    .end local v1    # "e":Ljava/io/IOException;
+    .restart local v6    # "sb":Ljava/lang/StringBuffer;
     :cond_6
     const-string v7, "\nHotGameGroup1 =====\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 222
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup1:[Ljava/lang/String;
 
     array-length v4, v0
@@ -944,6 +1005,8 @@
 
     aget-object v5, v0, v3
 
+    .line 223
+    .restart local v5    # "s":Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -964,15 +1027,19 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 222
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_7
 
+    .line 225
+    .end local v5    # "s":Ljava/lang/String;
     :cond_7
     const-string v7, "\nHotGameGroup2 =====\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 226
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup2:[Ljava/lang/String;
 
     array-length v4, v0
@@ -984,6 +1051,8 @@
 
     aget-object v5, v0, v3
 
+    .line 227
+    .restart local v5    # "s":Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1004,15 +1073,19 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 226
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_8
 
+    .line 229
+    .end local v5    # "s":Ljava/lang/String;
     :cond_8
     const-string v7, "\nHotGameGroup3 =====\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 230
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup3:[Ljava/lang/String;
 
     array-length v4, v0
@@ -1024,6 +1097,8 @@
 
     aget-object v5, v0, v3
 
+    .line 231
+    .restart local v5    # "s":Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1044,15 +1119,19 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 230
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_9
 
+    .line 233
+    .end local v5    # "s":Ljava/lang/String;
     :cond_9
     const-string v7, "\nHotGameGroup4 =====\n"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 234
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->HotGameGroup4:[Ljava/lang/String;
 
     array-length v4, v0
@@ -1064,6 +1143,8 @@
 
     aget-object v5, v0, v3
 
+    .line 235
+    .restart local v5    # "s":Ljava/lang/String;
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -1084,10 +1165,13 @@
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
+    .line 234
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_a
 
+    .line 237
+    .end local v5    # "s":Ljava/lang/String;
     :cond_a
     const-string v7, "SSRMv2:HotGameList"
 
@@ -1101,6 +1185,9 @@
 
     invoke-static {v7, v8, v9}, Lcom/android/server/ssrm/SSRMUtil;->writeSysfs(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 239
+    .end local v2    # "f":Ljava/io/File;
+    .end local v6    # "sb":Ljava/lang/StringBuffer;
     :cond_b
     return-void
 .end method
@@ -1108,6 +1195,8 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -1115,7 +1204,10 @@
 
 .method public static isKnownGame(Ljava/lang/String;)Z
     .locals 1
+    .param p0, "packageName"    # Ljava/lang/String;
 
+    .prologue
+    .line 242
     sget-object v0, Lcom/android/server/ssrm/HotGameList;->sKnownGameHashMap:Ljava/util/HashMap;
 
     invoke-virtual {v0, p0}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z

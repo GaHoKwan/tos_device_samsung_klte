@@ -281,11 +281,11 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v4, v2, v1, v5}, Lcom/android/internal/telephony/dataconnection/DataConnection;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {v4, v2, v1, v5}, Lcom/android/internal/util/StateMachine;->obtainMessage(III)Landroid/os/Message;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Lcom/android/internal/telephony/dataconnection/DataConnection;->sendMessage(Landroid/os/Message;)V
+    invoke-virtual {v3, v4}, Lcom/android/internal/util/StateMachine;->sendMessage(Landroid/os/Message;)V
 
     goto/16 :goto_0
 

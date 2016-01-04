@@ -22,6 +22,8 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    .prologue
+    .line 1129
     invoke-static {}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->values()[Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
     move-result-object v0
@@ -37,7 +39,7 @@
 
     sget-object v1, Landroid/webkitsec/ConsoleMessage$MessageLevel;->TIP:Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
-    invoke-virtual {v1}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -53,7 +55,7 @@
 
     sget-object v1, Landroid/webkitsec/ConsoleMessage$MessageLevel;->LOG:Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
-    invoke-virtual {v1}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -69,7 +71,7 @@
 
     sget-object v1, Landroid/webkitsec/ConsoleMessage$MessageLevel;->WARNING:Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
-    invoke-virtual {v1}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -85,7 +87,7 @@
 
     sget-object v1, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ERROR:Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
-    invoke-virtual {v1}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 
@@ -101,7 +103,7 @@
 
     sget-object v1, Landroid/webkitsec/ConsoleMessage$MessageLevel;->DEBUG:Landroid/webkitsec/ConsoleMessage$MessageLevel;
 
-    invoke-virtual {v1}, Landroid/webkitsec/ConsoleMessage$MessageLevel;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
     move-result v1
 

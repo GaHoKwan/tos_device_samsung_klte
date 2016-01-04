@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;)V
     .locals 0
 
+    .prologue
+    .line 2148
     iput-object p1, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +38,10 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 4
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 2154
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
     iget-object v2, v2, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;->this$0:Lcom/android/server/sec/ClippedDataPickerDialog;
@@ -45,9 +50,11 @@
 
     if-eqz v2, :cond_0
 
+    .line 2174
     :goto_0
     return-void
 
+    .line 2159
     :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
@@ -56,12 +63,14 @@
 
     iget-object v2, v2, Lcom/android/server/sec/ClippedDataPickerDialog;->mGrid:Lcom/android/server/sec/ClippedDataPickerGridView;
 
-    invoke-virtual {v2, p1}, Lcom/android/server/sec/ClippedDataPickerGridView;->getPositionForView(Landroid/view/View;)I
+    invoke-virtual {v2, p1}, Landroid/widget/AdapterView;->getPositionForView(Landroid/view/View;)I
     :try_end_0
     .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result v1
 
+    .line 2167
+    .local v1, "index":I
     :try_start_1
     iget-object v2, p0, Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter$1;->this$1:Lcom/android/server/sec/ClippedDataPickerDialog$ClipAdapter;
 
@@ -87,17 +96,25 @@
 
     goto :goto_0
 
+    .line 2168
     :catch_0
     move-exception v0
 
-    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
+    .line 2170
+    .local v0, "e":Landroid/os/RemoteException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 
+    .line 2160
+    .end local v0    # "e":Landroid/os/RemoteException;
+    .end local v1    # "index":I
     :catch_1
     move-exception v0
 
-    invoke-virtual {v0}, Ljava/lang/NullPointerException;->printStackTrace()V
+    .line 2161
+    .local v0, "e":Ljava/lang/NullPointerException;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 .end method

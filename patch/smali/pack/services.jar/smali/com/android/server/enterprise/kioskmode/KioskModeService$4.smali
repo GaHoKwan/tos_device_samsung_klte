@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/enterprise/kioskmode/KioskModeService;)V
     .locals 0
 
+    .prologue
+    .line 742
     iput-object p1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$4;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,7 +35,11 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 745
     const-string v1, "android.intent.extra.user_handle"
 
     const/4 v2, 0x0
@@ -42,10 +48,13 @@
 
     move-result v0
 
+    .line 746
+    .local v0, "userId":I
     iget-object v1, p0, Lcom/android/server/enterprise/kioskmode/KioskModeService$4;->this$0:Lcom/android/server/enterprise/kioskmode/KioskModeService;
 
     # invokes: Lcom/android/server/enterprise/kioskmode/KioskModeService;->applyHideSystemBarPolicy()V
     invoke-static {v1}, Lcom/android/server/enterprise/kioskmode/KioskModeService;->access$900(Lcom/android/server/enterprise/kioskmode/KioskModeService;)V
 
+    .line 747
     return-void
 .end method

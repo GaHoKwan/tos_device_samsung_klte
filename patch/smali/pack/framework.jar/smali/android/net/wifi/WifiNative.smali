@@ -2446,39 +2446,13 @@
 
     goto/16 :goto_0
 
-    .line 1462
     :sswitch_14
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "DRIVER SET_TX_POWER_CALLING "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {p0, v3}, Landroid/net/wifi/WifiNative;->doBooleanCommand(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
     move v1, v2
 
+    .line 1464
     goto/16 :goto_0
 
     .line 1338
-    nop
-
     :sswitch_data_0
     .sparse-switch
         0x0 -> :sswitch_0

@@ -21,11 +21,16 @@
 # direct methods
 .method constructor <init>(Landroid/view/accessibility/AccessibilityManager;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "mainLooper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 144
     iput-object p1, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
+    .line 145
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 146
     return-void
 .end method
 
@@ -33,11 +38,15 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
+    .param p1, "message"    # Landroid/os/Message;
 
+    .prologue
+    .line 150
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 155
     const-string v0, "AccessibilityManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -62,9 +71,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 157
     :goto_0
     return-void
 
+    .line 152
     :pswitch_0
     iget-object v0, p0, Landroid/view/accessibility/AccessibilityManager$MyHandler;->this$0:Landroid/view/accessibility/AccessibilityManager;
 
@@ -75,6 +86,7 @@
 
     goto :goto_0
 
+    .line 150
     :pswitch_data_0
     .packed-switch 0xa
         :pswitch_0

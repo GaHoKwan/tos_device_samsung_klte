@@ -581,12 +581,12 @@
 
     .line 308
     .local v3, "tmpListeners":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Landroid/animation/Animator$AnimatorListener;>;"
-    iget-object v4, p0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_0
 
     .line 309
-    iget-object v4, p0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
 
@@ -1187,12 +1187,12 @@
     .end local v0    # "i$":Ljava/util/Iterator;
     .end local v2    # "node":Landroid/animation/AnimatorSet$Node;
     :cond_3
-    iget-object v4, p0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     if-eqz v4, :cond_4
 
     .line 361
-    iget-object v4, p0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v4, p0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->clone()Ljava/lang/Object;
 
@@ -1388,7 +1388,7 @@
 
     .prologue
     .line 460
-    iget-boolean v2, p0, Landroid/animation/AnimatorSet;->mPaused:Z
+    iget-boolean v2, p0, Landroid/animation/Animator;->mPaused:Z
 
     .line 461
     .local v2, "previouslyPaused":Z
@@ -1397,7 +1397,7 @@
     .line 462
     if-nez v2, :cond_0
 
-    iget-boolean v3, p0, Landroid/animation/AnimatorSet;->mPaused:Z
+    iget-boolean v3, p0, Landroid/animation/Animator;->mPaused:Z
 
     if-eqz v3, :cond_0
 
@@ -1755,7 +1755,7 @@
 
     .prologue
     .line 475
-    iget-boolean v2, p0, Landroid/animation/AnimatorSet;->mPaused:Z
+    iget-boolean v2, p0, Landroid/animation/Animator;->mPaused:Z
 
     .line 476
     .local v2, "previouslyPaused":Z
@@ -1764,7 +1764,7 @@
     .line 477
     if-eqz v2, :cond_0
 
-    iget-boolean v3, p0, Landroid/animation/AnimatorSet;->mPaused:Z
+    iget-boolean v3, p0, Landroid/animation/Animator;->mPaused:Z
 
     if-nez v3, :cond_0
 
@@ -2052,7 +2052,7 @@
 
     move-object/from16 v1, p0
 
-    iput-boolean v0, v1, Landroid/animation/AnimatorSet;->mPaused:Z
+    iput-boolean v0, v1, Landroid/animation/Animator;->mPaused:Z
 
     .line 502
     move-object/from16 v0, p0
@@ -2576,7 +2576,7 @@
 
     invoke-direct {v0, v1, v10}, Landroid/animation/AnimatorSet$1;-><init>(Landroid/animation/AnimatorSet;Ljava/util/ArrayList;)V
 
-    invoke-virtual/range {v16 .. v17}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual/range {v16 .. v17}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     .line 586
     move-object/from16 v0, p0
@@ -2591,7 +2591,7 @@
     :cond_c
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v0, v0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     move-object/from16 v16, v0
 
@@ -2600,7 +2600,7 @@
     .line 589
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v0, v0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     move-object/from16 v16, v0
 
@@ -2681,7 +2681,7 @@
     .line 600
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v0, v0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     move-object/from16 v16, v0
 
@@ -2690,7 +2690,7 @@
     .line 601
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Landroid/animation/AnimatorSet;->mListeners:Ljava/util/ArrayList;
+    iget-object v0, v0, Landroid/animation/Animator;->mListeners:Ljava/util/ArrayList;
 
     move-object/from16 v16, v0
 

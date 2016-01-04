@@ -22,6 +22,8 @@
 .method constructor <init>(Landroid/widget/DateTimeView;)V
     .locals 0
 
+    .prologue
+    .line 232
     iput-object p1, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,11 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
+    .line 235
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    .line 236
+    .local v0, "action":Ljava/lang/String;
     const-string v1, "android.intent.action.TIME_TICK"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -46,6 +54,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 237
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
@@ -61,9 +70,11 @@
 
     if-gez v1, :cond_0
 
+    .line 250
     :goto_0
     return-void
 
+    .line 245
     :cond_0
     iget-object v1, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
@@ -71,6 +82,7 @@
 
     iput-object v2, v1, Landroid/widget/DateTimeView;->mLastFormat:Ljava/text/DateFormat;
 
+    .line 248
     :try_start_0
     iget-object v1, p0, Landroid/widget/DateTimeView$1;->this$0:Landroid/widget/DateTimeView;
 
@@ -80,6 +92,7 @@
 
     goto :goto_0
 
+    .line 249
     :catch_0
     move-exception v1
 

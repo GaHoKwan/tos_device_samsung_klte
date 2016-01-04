@@ -29,11 +29,17 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiService;Landroid/net/wifi/BatchedScanSettings;Landroid/os/IBinder;Landroid/os/WorkSource;)V
     .locals 6
+    .param p2, "settings"    # Landroid/net/wifi/BatchedScanSettings;
+    .param p3, "binder"    # Landroid/os/IBinder;
+    .param p4, "ws"    # Landroid/os/WorkSource;
 
+    .prologue
     const/4 v3, 0x0
 
+    .line 1783
     iput-object p1, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->this$0:Lcom/android/server/wifi/WifiService;
 
+    .line 1784
     const/4 v2, 0x0
 
     move-object v0, p0
@@ -46,22 +52,27 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/wifi/WifiService$DeathRecipient;-><init>(Lcom/android/server/wifi/WifiService;ILjava/lang/String;Landroid/os/IBinder;Landroid/os/WorkSource;)V
 
+    .line 1785
     iput-object p2, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->settings:Landroid/net/wifi/BatchedScanSettings;
 
+    .line 1786
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->uid:I
 
+    .line 1787
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->pid:I
 
+    .line 1788
     iput-object p4, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->workSource:Landroid/os/WorkSource;
 
+    .line 1789
     return-void
 .end method
 
@@ -70,6 +81,8 @@
 .method public binderDied()V
     .locals 4
 
+    .prologue
+    .line 1791
     iget-object v0, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->this$0:Lcom/android/server/wifi/WifiService;
 
     iget-object v1, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->settings:Landroid/net/wifi/BatchedScanSettings;
@@ -81,12 +94,17 @@
     # invokes: Lcom/android/server/wifi/WifiService;->stopBatchedScan(Landroid/net/wifi/BatchedScanSettings;II)V
     invoke-static {v0, v1, v2, v3}, Lcom/android/server/wifi/WifiService;->access$2400(Lcom/android/server/wifi/WifiService;Landroid/net/wifi/BatchedScanSettings;II)V
 
+    .line 1792
     return-void
 .end method
 
 .method public isSameApp(II)Z
     .locals 1
+    .param p1, "uid"    # I
+    .param p2, "pid"    # I
 
+    .prologue
+    .line 1798
     iget v0, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->uid:I
 
     if-ne v0, p1, :cond_0
@@ -109,6 +127,8 @@
 .method public toString()Ljava/lang/String;
     .locals 2
 
+    .prologue
+    .line 1794
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -131,7 +151,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wifi/WifiService$BatchedScanRequest;->mBinder:Landroid/os/IBinder;
+    iget-object v1, p0, Lcom/android/server/wifi/WifiService$DeathRecipient;->mBinder:Landroid/os/IBinder;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

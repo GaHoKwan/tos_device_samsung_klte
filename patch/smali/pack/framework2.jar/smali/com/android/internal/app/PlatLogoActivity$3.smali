@@ -25,6 +25,8 @@
 .method constructor <init>(Lcom/android/internal/app/PlatLogoActivity;)V
     .locals 0
 
+    .prologue
+    .line 152
     iput-object p1, p0, Lcom/android/internal/app/PlatLogoActivity$3;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,12 +38,15 @@
 # virtual methods
 .method public onLongClick(Landroid/view/View;)Z
     .locals 5
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
     const-wide/16 v3, 0x0
 
+    .line 155
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$3;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    invoke-virtual {v1}, Lcom/android/internal/app/PlatLogoActivity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -55,9 +60,10 @@
 
     if-nez v1, :cond_0
 
+    .line 158
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$3;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    invoke-virtual {v1}, Lcom/android/internal/app/PlatLogoActivity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v1}, Landroid/content/ContextWrapper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v1
 
@@ -69,6 +75,7 @@
 
     invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
 
+    .line 163
     :cond_0
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$3;->this$0:Lcom/android/internal/app/PlatLogoActivity;
@@ -91,22 +98,27 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/app/PlatLogoActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 171
     :goto_0
     iget-object v1, p0, Lcom/android/internal/app/PlatLogoActivity$3;->this$0:Lcom/android/internal/app/PlatLogoActivity;
 
-    invoke-virtual {v1}, Lcom/android/internal/app/PlatLogoActivity;->finish()V
+    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
+    .line 172
     const/4 v1, 0x1
 
     return v1
 
+    .line 168
     :catch_0
     move-exception v0
 
+    .line 169
+    .local v0, "ex":Landroid/content/ActivityNotFoundException;
     const-string v1, "PlatLogoActivity"
 
     const-string v2, "Couldn\'t catch a break."

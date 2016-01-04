@@ -33,11 +33,16 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/enterprise/application/ApplicationUsage;Landroid/os/Looper;)V
     .locals 0
+    .param p2, "looper"    # Landroid/os/Looper;
 
+    .prologue
+    .line 101
     iput-object p1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
+    .line 102
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    .line 103
     return-void
 .end method
 
@@ -45,14 +50,19 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 2
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 108
     iget v0, p1, Landroid/os/Message;->what:I
 
     packed-switch v0, :pswitch_data_0
 
+    .line 132
     :goto_0
     return-void
 
+    .line 111
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
@@ -64,6 +74,7 @@
 
     goto :goto_0
 
+    .line 115
     :pswitch_1
     iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
@@ -75,6 +86,7 @@
 
     goto :goto_0
 
+    .line 119
     :pswitch_2
     iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
@@ -86,6 +98,7 @@
 
     goto :goto_0
 
+    .line 123
     :pswitch_3
     iget-object v1, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
@@ -97,6 +110,7 @@
 
     goto :goto_0
 
+    .line 127
     :pswitch_4
     const-string v0, "ApplicationUsage"
 
@@ -104,12 +118,14 @@
 
     invoke-static {v0, v1}, Lcom/android/server/enterprise/log/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 128
     iget-object v0, p0, Lcom/android/server/enterprise/application/ApplicationUsage$UsageHandler;->this$0:Lcom/android/server/enterprise/application/ApplicationUsage;
 
     invoke-virtual {v0}, Lcom/android/server/enterprise/application/ApplicationUsage;->_insertToAppControlDB()V
 
     goto :goto_0
 
+    .line 108
     nop
 
     :pswitch_data_0

@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/WallpaperManagerService;)V
     .locals 0
 
+    .prologue
+    .line 606
     iput-object p1, p0, Lcom/android/server/WallpaperManagerService$2;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-direct {p0}, Landroid/app/IUserSwitchObserver$Stub;-><init>()V
@@ -33,22 +35,30 @@
 # virtual methods
 .method public onUserSwitchComplete(I)V
     .locals 0
+    .param p1, "newUserId"    # I
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
+    .prologue
+    .line 627
     return-void
 .end method
 
 .method public onUserSwitching(ILandroid/os/IRemoteCallback;)V
     .locals 3
+    .param p1, "newUserId"    # I
+    .param p2, "reply"    # Landroid/os/IRemoteCallback;
 
+    .prologue
+    .line 611
     const/16 v0, 0x64
 
     if-lt p1, v0, :cond_0
 
+    .line 612
     const-string v0, "WallpaperService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -71,9 +81,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 623
     :goto_0
     return-void
 
+    .line 614
     :cond_0
     if-nez p1, :cond_1
 
@@ -99,6 +111,7 @@
 
     if-lez v0, :cond_1
 
+    .line 616
     const-string v0, "WallpaperService"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -123,6 +136,7 @@
 
     goto :goto_0
 
+    .line 619
     :cond_1
     const-string v0, "WallpaperService"
 
@@ -146,6 +160,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 620
     iget-object v0, p0, Lcom/android/server/WallpaperManagerService$2;->this$0:Lcom/android/server/WallpaperManagerService;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/WallpaperManagerService;->switchUser(ILandroid/os/IRemoteCallback;)V

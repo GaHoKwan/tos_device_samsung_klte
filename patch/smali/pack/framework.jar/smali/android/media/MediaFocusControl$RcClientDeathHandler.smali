@@ -32,18 +32,18 @@
     .param p3, "pi"    # Landroid/app/PendingIntent;
 
     .prologue
-    .line 1200
+    .line 1194
     iput-object p1, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->this$0:Landroid/media/MediaFocusControl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1201
+    .line 1195
     iput-object p2, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
-    .line 1202
+    .line 1196
     iput-object p3, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->mMediaIntent:Landroid/app/PendingIntent;
 
-    .line 1203
+    .line 1197
     return-void
 .end method
 
@@ -52,7 +52,7 @@
     .param p0, "x0"    # Landroid/media/MediaFocusControl$RcClientDeathHandler;
 
     .prologue
-    .line 1196
+    .line 1190
     iget-object v0, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
     return-object v0
@@ -66,27 +66,27 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1206
+    .line 1200
     const-string v0, "MediaFocusControl"
 
     const-string v1, "  RemoteControlClient died"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 1209
+    .line 1203
     iget-object v0, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->this$0:Landroid/media/MediaFocusControl;
 
     iget-object v1, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->mMediaIntent:Landroid/app/PendingIntent;
 
     invoke-virtual {v0, v1, v2, v2}, Landroid/media/MediaFocusControl;->registerRemoteControlClient(Landroid/app/PendingIntent;Landroid/media/IRemoteControlClient;Ljava/lang/String;)I
 
-    .line 1211
+    .line 1205
     iget-object v0, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->this$0:Landroid/media/MediaFocusControl;
 
     # invokes: Landroid/media/MediaFocusControl;->postReevaluateRemote()V
     invoke-static {v0}, Landroid/media/MediaFocusControl;->access$3100(Landroid/media/MediaFocusControl;)V
 
-    .line 1212
+    .line 1206
     return-void
 .end method
 
@@ -94,7 +94,7 @@
     .locals 1
 
     .prologue
-    .line 1215
+    .line 1209
     iget-object v0, p0, Landroid/media/MediaFocusControl$RcClientDeathHandler;->mCb:Landroid/os/IBinder;
 
     return-object v0

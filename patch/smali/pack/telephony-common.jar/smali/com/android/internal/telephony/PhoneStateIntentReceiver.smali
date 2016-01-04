@@ -516,7 +516,7 @@
     invoke-static {v4, v5}, Landroid/telephony/Rlog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 196
-    invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
 
     goto :goto_0
 

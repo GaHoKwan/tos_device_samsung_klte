@@ -32,19 +32,30 @@
 # direct methods
 .method public constructor <init>(Lcom/android/server/cover/CoverManagerService;Landroid/os/IBinder;Landroid/content/ComponentName;II)V
     .locals 0
+    .param p2, "token"    # Landroid/os/IBinder;
+    .param p3, "component"    # Landroid/content/ComponentName;
+    .param p4, "pid"    # I
+    .param p5, "uid"    # I
 
+    .prologue
+    .line 211
     iput-object p1, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->this$0:Lcom/android/server/cover/CoverManagerService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 212
     iput-object p2, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->token:Landroid/os/IBinder;
 
+    .line 213
     iput-object p3, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->component:Landroid/content/ComponentName;
 
+    .line 214
     iput p4, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->pid:I
 
+    .line 215
     iput p5, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->uid:I
 
+    .line 216
     return-void
 .end method
 
@@ -53,6 +64,8 @@
 .method public binderDied()V
     .locals 3
 
+    .prologue
+    .line 220
     const-string v0, "CoverManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -77,6 +90,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 221
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->this$0:Lcom/android/server/cover/CoverManagerService;
 
     # getter for: Lcom/android/server/cover/CoverManagerService;->mListeners:Ljava/util/ArrayList;
@@ -86,6 +100,7 @@
 
     monitor-enter v1
 
+    .line 222
     :try_start_0
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->this$0:Lcom/android/server/cover/CoverManagerService;
 
@@ -96,18 +111,22 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    .line 223
     monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 224
     iget-object v0, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->token:Landroid/os/IBinder;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, p0, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
+    .line 225
     return-void
 
+    .line 223
     :catchall_0
     move-exception v0
 
@@ -121,21 +140,27 @@
 
 .method public callback(Lcom/samsung/android/cover/CoverState;)V
     .locals 4
+    .param p1, "state"    # Lcom/samsung/android/cover/CoverState;
 
+    .prologue
+    .line 228
     iget-object v2, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->token:Landroid/os/IBinder;
 
     if-nez v2, :cond_1
 
+    .line 229
     const-string v2, "CoverManager"
 
     const-string v3, "null listener received CoverState!"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 240
     :cond_0
     :goto_0
     return-void
 
+    .line 233
     :cond_1
     :try_start_0
     iget-object v2, p0, Lcom/android/server/cover/CoverManagerService$CoverStateListenerInfo;->token:Landroid/os/IBinder;
@@ -144,17 +169,24 @@
 
     move-result-object v0
 
+    .line 234
+    .local v0, "callback":Lcom/samsung/android/cover/ICoverManagerCallback;
     if-eqz v0, :cond_0
 
+    .line 235
     invoke-interface {v0, p1}, Lcom/samsung/android/cover/ICoverManagerCallback;->coverCallback(Lcom/samsung/android/cover/CoverState;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
+    .line 237
+    .end local v0    # "callback":Lcom/samsung/android/cover/ICoverManagerCallback;
     :catch_0
     move-exception v1
 
+    .line 238
+    .local v1, "e":Landroid/os/RemoteException;
     const-string v2, "CoverManager"
 
     const-string v3, "Failed coverCallback"

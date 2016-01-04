@@ -36,22 +36,30 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    .prologue
     const/4 v1, 0x0
 
     const/4 v0, 0x0
 
+    .line 30
     sput-object v1, Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
+    .line 32
     sput-boolean v0, Lcom/android/server/ssrm/PreMonitor;->mSiopEnabled:Z
 
+    .line 34
     sput-boolean v0, Lcom/android/server/ssrm/PreMonitor;->LOCAL_TEST:Z
 
+    .line 73
     sput-object v1, Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
 
+    .line 75
     sput-object v1, Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
 
+    .line 132
     sput v0, Lcom/android/server/ssrm/PreMonitor;->mBatteryTemperature:I
 
+    .line 147
     sput-boolean v0, Lcom/android/server/ssrm/PreMonitor;->mBootComplete:Z
 
     return-void
@@ -60,14 +68,19 @@
 .method public constructor <init>()V
     .locals 0
 
+    .prologue
+    .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 242
     return-void
 .end method
 
 .method static synthetic access$000()Lcom/android/server/ssrm/PreMonitor$SIOPTable;
     .locals 1
 
+    .prologue
+    .line 24
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
     return-object v0
@@ -75,7 +88,10 @@
 
 .method static synthetic access$102(Z)Z
     .locals 0
+    .param p0, "x0"    # Z
 
+    .prologue
+    .line 24
     sput-boolean p0, Lcom/android/server/ssrm/PreMonitor;->mSiopEnabled:Z
 
     return p0
@@ -84,6 +100,8 @@
 .method static synthetic access$200()Landroid/os/DVFSHelper;
     .locals 1
 
+    .prologue
+    .line 24
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
 
     return-object v0
@@ -91,7 +109,10 @@
 
 .method static synthetic access$202(Landroid/os/DVFSHelper;)Landroid/os/DVFSHelper;
     .locals 0
+    .param p0, "x0"    # Landroid/os/DVFSHelper;
 
+    .prologue
+    .line 24
     sput-object p0, Lcom/android/server/ssrm/PreMonitor;->mArmDVFSHelper:Landroid/os/DVFSHelper;
 
     return-object p0
@@ -100,6 +121,8 @@
 .method static synthetic access$300()Landroid/content/Context;
     .locals 1
 
+    .prologue
+    .line 24
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -108,6 +131,8 @@
 .method static synthetic access$400()Landroid/os/DVFSHelper;
     .locals 1
 
+    .prologue
+    .line 24
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
 
     return-object v0
@@ -115,7 +140,10 @@
 
 .method static synthetic access$402(Landroid/os/DVFSHelper;)Landroid/os/DVFSHelper;
     .locals 0
+    .param p0, "x0"    # Landroid/os/DVFSHelper;
 
+    .prologue
+    .line 24
     sput-object p0, Lcom/android/server/ssrm/PreMonitor;->mGpuDVFSHelper:Landroid/os/DVFSHelper;
 
     return-object p0
@@ -124,6 +152,8 @@
 .method static getBatteryTemperature()I
     .locals 1
 
+    .prologue
+    .line 144
     sget v0, Lcom/android/server/ssrm/PreMonitor;->mBatteryTemperature:I
 
     return v0
@@ -132,12 +162,16 @@
 .method public static getDuration()I
     .locals 1
 
+    .prologue
+    .line 45
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
     if-nez v0, :cond_0
 
+    .line 46
     const/16 v0, 0x7d0
 
+    .line 48
     :goto_0
     return v0
 
@@ -152,6 +186,8 @@
 .method public static getLastBatteryTemperature()I
     .locals 1
 
+    .prologue
+    .line 41
     sget v0, Lcom/android/server/ssrm/PreMonitor;->mBatteryTemperature:I
 
     return v0
@@ -160,6 +196,8 @@
 .method public static isSiopEnabled()Z
     .locals 1
 
+    .prologue
+    .line 37
     sget-boolean v0, Lcom/android/server/ssrm/PreMonitor;->mSiopEnabled:Z
 
     return v0
@@ -168,17 +206,22 @@
 .method static updateBatteryTemperature()V
     .locals 2
 
+    .prologue
+    .line 135
     sget-boolean v0, Lcom/android/server/ssrm/PreMonitor;->LOCAL_TEST:Z
 
     if-eqz v0, :cond_0
 
+    .line 136
     const/16 v0, -0xc8
 
     sput v0, Lcom/android/server/ssrm/PreMonitor;->mBatteryTemperature:I
 
+    .line 141
     :goto_0
     return-void
 
+    .line 138
     :cond_0
     const-string v0, "SSRMv2:PreMonitor"
 
@@ -202,20 +245,26 @@
 .method bootComplete()V
     .locals 2
 
+    .prologue
+    .line 150
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/server/ssrm/PreMonitor;->mBootComplete:Z
 
+    .line 152
     sget-boolean v0, Lcom/android/server/ssrm/PreMonitor;->mSiopEnabled:Z
 
     if-nez v0, :cond_0
 
+    .line 191
     :goto_0
     return-void
 
+    .line 156
     :cond_0
     invoke-static {}, Lcom/android/server/ssrm/PreMonitor$BrightnessController;->notifyMaxBrightnessToSettings()V
 
+    .line 158
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Lcom/android/server/ssrm/PreMonitor$2;
@@ -231,7 +280,9 @@
 
 .method initialize(Landroid/content/Context;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
 
+    .prologue
     const v2, 0x9eb10
 
     const/16 v3, 0xb1
@@ -242,8 +293,10 @@
 
     const/4 v5, 0x0
 
+    .line 57
     sput-object p1, Lcom/android/server/ssrm/PreMonitor;->mContext:Landroid/content/Context;
 
+    .line 58
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_LT03_3GWIFI:Z
 
     if-nez v0, :cond_0
@@ -252,6 +305,7 @@
 
     if-eqz v0, :cond_2
 
+    .line 59
     :cond_0
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -261,10 +315,12 @@
 
     sput-object v0, Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
+    .line 71
     :cond_1
     :goto_0
     return-void
 
+    .line 60
     :cond_2
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_LT03_LTE:Z
 
@@ -274,6 +330,7 @@
 
     if-eqz v0, :cond_4
 
+    .line 61
     :cond_3
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -289,11 +346,13 @@
 
     goto :goto_0
 
+    .line 62
     :cond_4
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_CHAGALL:Z
 
     if-eqz v0, :cond_5
 
+    .line 63
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
     const/16 v1, -0x28
@@ -304,11 +363,13 @@
 
     goto :goto_0
 
+    .line 64
     :cond_5
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_MONDRIAN:Z
 
     if-eqz v0, :cond_6
 
+    .line 65
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
     const v2, 0x16da00
@@ -325,6 +386,7 @@
 
     goto :goto_0
 
+    .line 66
     :cond_6
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_V1_3GWIFI:Z
 
@@ -334,6 +396,7 @@
 
     if-eqz v0, :cond_8
 
+    .line 67
     :cond_7
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -345,6 +408,7 @@
 
     goto :goto_0
 
+    .line 68
     :cond_8
     sget-boolean v0, Lcom/android/server/ssrm/Feature;->MODEL_V1_LTE:Z
 
@@ -354,6 +418,7 @@
 
     if-eqz v0, :cond_1
 
+    .line 69
     :cond_9
     new-instance v0, Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
@@ -377,13 +442,17 @@
 .method public run()V
     .locals 2
 
+    .prologue
+    .line 82
     sget-object v0, Lcom/android/server/ssrm/PreMonitor;->mSiopTable:Lcom/android/server/ssrm/PreMonitor$SIOPTable;
 
     if-nez v0, :cond_0
 
+    .line 130
     :goto_0
     return-void
 
+    .line 85
     :cond_0
     new-instance v0, Ljava/lang/Thread;
 

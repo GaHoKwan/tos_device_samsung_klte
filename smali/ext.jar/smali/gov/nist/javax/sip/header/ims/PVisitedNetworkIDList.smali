@@ -47,9 +47,9 @@
 
     .line 53
     .local v0, "retval":Lgov/nist/javax/sip/header/ims/PVisitedNetworkIDList;
-    iget-object v1, p0, Lgov/nist/javax/sip/header/ims/PVisitedNetworkIDList;->hlist:Ljava/util/List;
+    iget-object v1, p0, Lgov/nist/javax/sip/header/SIPHeaderList;->hlist:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/ims/PVisitedNetworkIDList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
+    invoke-virtual {v0, v1}, Lgov/nist/javax/sip/header/SIPHeaderList;->clonehlist(Ljava/util/List;)Lgov/nist/javax/sip/header/SIPHeaderList;
 
     move-result-object v1
 

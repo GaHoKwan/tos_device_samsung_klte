@@ -524,7 +524,7 @@
 
     .line 311
     .local v2, "isa":Ljava/net/InetSocketAddress;
-    invoke-virtual {v5, v2}, Ljavax/net/ssl/SSLSocket;->bind(Ljava/net/SocketAddress;)V
+    invoke-virtual {v5, v2}, Ljava/net/Socket;->bind(Ljava/net/SocketAddress;)V
 
     .line 314
     .end local v2    # "isa":Ljava/net/InetSocketAddress;
@@ -559,10 +559,10 @@
     .line 324
     .local v3, "remoteAddress":Ljava/net/InetSocketAddress;
     :goto_1
-    invoke-virtual {v5, v3, v0}, Ljavax/net/ssl/SSLSocket;->connect(Ljava/net/SocketAddress;I)V
+    invoke-virtual {v5, v3, v0}, Ljava/net/Socket;->connect(Ljava/net/SocketAddress;I)V
 
     .line 326
-    invoke-virtual {v5, v4}, Ljavax/net/ssl/SSLSocket;->setSoTimeout(I)V
+    invoke-virtual {v5, v4}, Ljava/net/Socket;->setSoTimeout(I)V
 
     .line 328
     :try_start_0
@@ -606,7 +606,7 @@
     .line 332
     .local v1, "iox":Ljava/io/IOException;
     :try_start_1
-    invoke-virtual {v5}, Ljavax/net/ssl/SSLSocket;->close()V
+    invoke-virtual {v5}, Ljava/net/Socket;->close()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
@@ -633,7 +633,7 @@
     .line 279
     iget-object v0, p0, Lorg/apache/http/conn/ssl/SSLSocketFactory;->socketfactory:Ljavax/net/ssl/SSLSocketFactory;
 
-    invoke-virtual {v0}, Ljavax/net/ssl/SSLSocketFactory;->createSocket()Ljava/net/Socket;
+    invoke-virtual {v0}, Ljavax/net/SocketFactory;->createSocket()Ljava/net/Socket;
 
     move-result-object v0
 

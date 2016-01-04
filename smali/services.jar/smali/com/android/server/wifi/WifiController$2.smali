@@ -21,7 +21,10 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/wifi/WifiController;Landroid/os/Handler;)V
     .locals 0
+    .param p2, "x0"    # Landroid/os/Handler;
 
+    .prologue
+    .line 272
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$2;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -33,11 +36,15 @@
 # virtual methods
 .method public onChange(Z)V
     .locals 1
+    .param p1, "selfChange"    # Z
 
+    .prologue
+    .line 275
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$2;->this$0:Lcom/android/server/wifi/WifiController;
 
     # invokes: Lcom/android/server/wifi/WifiController;->readStayAwakeConditions()V
     invoke-static {v0}, Lcom/android/server/wifi/WifiController;->access$000(Lcom/android/server/wifi/WifiController;)V
 
+    .line 276
     return-void
 .end method

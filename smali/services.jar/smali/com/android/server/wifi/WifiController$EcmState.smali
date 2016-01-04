@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/wifi/WifiController;)V
     .locals 0
 
+    .prologue
+    .line 852
     iput-object p1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     invoke-direct {p0}, Lcom/android/internal/util/State;-><init>()V
@@ -34,6 +36,8 @@
 .method public enter()V
     .locals 2
 
+    .prologue
+    .line 855
     iget-object v0, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v0, v0, Lcom/android/server/wifi/WifiController;->mWifiStateMachine:Landroid/net/wifi/WifiStateMachine;
@@ -42,14 +46,18 @@
 
     invoke-virtual {v0, v1}, Landroid/net/wifi/WifiStateMachine;->setSupplicantRunning(Z)V
 
+    .line 856
     return-void
 .end method
 
 .method public processMessage(Landroid/os/Message;)Z
     .locals 3
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v0, 0x1
 
+    .line 860
     iget v1, p1, Landroid/os/Message;->what:I
 
     const v2, 0x26001
@@ -60,6 +68,7 @@
 
     if-nez v1, :cond_3
 
+    .line 861
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v1, v1, Lcom/android/server/wifi/WifiController;->mSettingsStore:Lcom/android/server/wifi/WifiSettingsStore;
@@ -70,6 +79,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 862
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mDeviceIdle:Z
@@ -79,30 +89,34 @@
 
     if-nez v1, :cond_0
 
+    .line 863
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mDeviceActiveState:Lcom/android/server/wifi/WifiController$DeviceActiveState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2700(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$DeviceActiveState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2200(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$DeviceActiveState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$6800(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$6600(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
+    .line 880
     :goto_0
     :pswitch_0
     return v0
 
+    .line 865
     :cond_0
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # invokes: Lcom/android/server/wifi/WifiController;->checkLocksAndTransitionWhenDeviceIdle()V
-    invoke-static {v1}, Lcom/android/server/wifi/WifiController;->access$2900(Lcom/android/server/wifi/WifiController;)V
+    invoke-static {v1}, Lcom/android/server/wifi/WifiController;->access$2400(Lcom/android/server/wifi/WifiController;)V
 
     goto :goto_0
 
+    .line 867
     :cond_1
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -114,20 +128,22 @@
 
     if-eqz v1, :cond_2
 
+    .line 868
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     iget-object v2, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
     # getter for: Lcom/android/server/wifi/WifiController;->mStaDisabledWithScanState:Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
-    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$3000(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
+    invoke-static {v2}, Lcom/android/server/wifi/WifiController;->access$2600(Lcom/android/server/wifi/WifiController;)Lcom/android/server/wifi/WifiController$StaDisabledWithScanState;
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$6900(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$6700(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 
+    .line 870
     :cond_2
     iget-object v1, p0, Lcom/android/server/wifi/WifiController$EcmState;->this$0:Lcom/android/server/wifi/WifiController;
 
@@ -138,21 +154,24 @@
 
     move-result-object v2
 
-    # invokes: Lcom/android/server/wifi/WifiController;->transitionTo(Lcom/android/internal/util/IState;)V
-    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$7000(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
+    # invokes: Lcom/android/internal/util/StateMachine;->transitionTo(Lcom/android/internal/util/IState;)V
+    invoke-static {v1, v2}, Lcom/android/server/wifi/WifiController;->access$6800(Lcom/android/server/wifi/WifiController;Lcom/android/internal/util/IState;)V
 
     goto :goto_0
 
+    .line 874
     :cond_3
     iget v1, p1, Landroid/os/Message;->what:I
 
     packed-switch v1, :pswitch_data_0
 
+    .line 880
     :pswitch_1
     const/4 v0, 0x0
 
     goto :goto_0
 
+    .line 874
     nop
 
     :pswitch_data_0

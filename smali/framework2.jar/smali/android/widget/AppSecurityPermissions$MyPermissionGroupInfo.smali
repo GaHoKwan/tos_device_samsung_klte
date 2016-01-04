@@ -65,73 +65,91 @@
 # direct methods
 .method constructor <init>(Landroid/content/pm/PermissionGroupInfo;)V
     .locals 1
+    .param p1, "info"    # Landroid/content/pm/PermissionGroupInfo;
 
+    .prologue
+    .line 99
     invoke-direct {p0, p1}, Landroid/content/pm/PermissionGroupInfo;-><init>(Landroid/content/pm/PermissionGroupInfo;)V
 
+    .line 88
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mNewPermissions:Ljava/util/ArrayList;
 
+    .line 89
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mPersonalPermissions:Ljava/util/ArrayList;
 
+    .line 90
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mDevicePermissions:Ljava/util/ArrayList;
 
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mAllPermissions:Ljava/util/ArrayList;
 
+    .line 100
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/pm/PermissionInfo;)V
     .locals 1
+    .param p1, "perm"    # Landroid/content/pm/PermissionInfo;
 
+    .prologue
+    .line 93
     invoke-direct {p0}, Landroid/content/pm/PermissionGroupInfo;-><init>()V
 
+    .line 88
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mNewPermissions:Ljava/util/ArrayList;
 
+    .line 89
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mPersonalPermissions:Ljava/util/ArrayList;
 
+    .line 90
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mDevicePermissions:Ljava/util/ArrayList;
 
+    .line 91
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->mAllPermissions:Ljava/util/ArrayList;
 
-    iget-object v0, p1, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
+    .line 94
+    iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->name:Ljava/lang/String;
+    iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->name:Ljava/lang/String;
 
-    iget-object v0, p1, Landroid/content/pm/PermissionInfo;->packageName:Ljava/lang/String;
+    .line 95
+    iget-object v0, p1, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
-    iput-object v0, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->packageName:Ljava/lang/String;
+    iput-object v0, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
+    .line 96
     return-void
 .end method
 
@@ -139,21 +157,27 @@
 # virtual methods
 .method public loadGroupIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     .locals 3
+    .param p1, "pm"    # Landroid/content/pm/PackageManager;
 
-    iget v1, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->icon:I
+    .prologue
+    .line 103
+    iget v1, p0, Landroid/content/pm/PackageItemInfo;->icon:I
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0, p1}, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    .line 104
+    invoke-virtual {p0, p1}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
+    .line 113
     :goto_0
     return-object v1
 
+    .line 108
     :cond_0
     :try_start_0
-    iget-object v1, p0, Landroid/widget/AppSecurityPermissions$MyPermissionGroupInfo;->packageName:Ljava/lang/String;
+    iget-object v1, p0, Landroid/content/pm/PackageItemInfo;->packageName:Ljava/lang/String;
 
     const/4 v2, 0x0
 
@@ -161,7 +185,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/content/pm/ApplicationInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
+    .line 109
+    .local v0, "appInfo":Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v0, p1}, Landroid/content/pm/PackageItemInfo;->loadIcon(Landroid/content/pm/PackageManager;)Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -169,9 +195,12 @@
 
     goto :goto_0
 
+    .line 110
+    .end local v0    # "appInfo":Landroid/content/pm/ApplicationInfo;
     :catch_0
     move-exception v1
 
+    .line 113
     const/4 v1, 0x0
 
     goto :goto_0

@@ -305,7 +305,7 @@
     .line 56
     sget-object v0, Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;->$VALUES:[Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;
 
-    invoke-virtual {v0}, [Landroid/hardware/contextaware/utilbundle/logger/CaLogger$Level;->clone()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v0
 

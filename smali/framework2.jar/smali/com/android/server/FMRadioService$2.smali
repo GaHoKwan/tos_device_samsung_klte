@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/FMRadioService;)V
     .locals 0
 
+    .prologue
+    .line 269
     iput-object p1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,13 +35,17 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 7
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v6, 0x0
 
     const/4 v3, 0x0
 
     const/4 v2, 0x1
 
+    .line 271
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v1
@@ -52,10 +58,12 @@
 
     if-eqz v1, :cond_7
 
+    .line 273
     const-string/jumbo v1, "mReceiver: ACTION_HEADSET_PLUG"
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 274
     # getter for: Lcom/android/server/FMRadioService;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/server/FMRadioService;->access$400()Z
 
@@ -63,6 +71,7 @@
 
     if-eqz v1, :cond_0
 
+    .line 275
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -83,6 +92,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 277
     :cond_0
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -110,6 +120,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 279
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -136,6 +147,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 281
     iget-object v4, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const-string/jumbo v1, "state"
@@ -152,6 +164,7 @@
     # setter for: Lcom/android/server/FMRadioService;->mIsHeadsetPlugged:Z
     invoke-static {v4, v1}, Lcom/android/server/FMRadioService;->access$502(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 284
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsTestMode:Z
@@ -161,6 +174,7 @@
 
     if-eqz v1, :cond_5
 
+    .line 285
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mAudioManager:Landroid/media/AudioManager;
@@ -182,6 +196,7 @@
     :goto_1
     invoke-virtual {v4, v1}, Landroid/media/AudioManager;->setRadioSpeakerOn(Z)V
 
+    .line 286
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -212,6 +227,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 380
     :cond_1
     :goto_3
     return-void
@@ -219,18 +235,22 @@
     :cond_2
     move v1, v3
 
+    .line 281
     goto :goto_0
 
     :cond_3
     move v1, v3
 
+    .line 285
     goto :goto_1
 
     :cond_4
     move v2, v3
 
+    .line 286
     goto :goto_2
 
+    .line 291
     :cond_5
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
@@ -241,6 +261,7 @@
 
     if-nez v1, :cond_6
 
+    .line 295
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mContext:Landroid/content/Context;
@@ -258,6 +279,8 @@
 
     move-result v0
 
+    .line 297
+    .local v0, "tvstatus":I
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -278,14 +301,17 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 298
     if-eq v0, v2, :cond_1
 
+    .line 302
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const/16 v3, 0x9
 
     invoke-virtual {v1, v3, v6}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
+    .line 312
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -295,15 +321,18 @@
 
     if-eqz v1, :cond_1
 
+    .line 313
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # invokes: Lcom/android/server/FMRadioService;->stopInternetStreaming()V
     invoke-static {v1}, Lcom/android/server/FMRadioService;->access$800(Lcom/android/server/FMRadioService;)V
 
+    .line 314
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v1}, Lcom/android/server/FMRadioService;->cancelSeek()V
 
+    .line 315
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const/4 v3, 0x2
@@ -313,6 +342,8 @@
 
     goto :goto_3
 
+    .line 319
+    .end local v0    # "tvstatus":I
     :cond_6
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
@@ -322,6 +353,7 @@
 
     goto :goto_3
 
+    .line 332
     :cond_7
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -335,10 +367,12 @@
 
     if-eqz v1, :cond_9
 
+    .line 334
     const-string/jumbo v1, "mReceiver: ACTION_AIRPLANE_MODE_CHANGED"
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 335
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     iget-object v4, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
@@ -366,6 +400,7 @@
     # setter for: Lcom/android/server/FMRadioService;->mAirPlaneEnabled:Z
     invoke-static {v1, v3}, Lcom/android/server/FMRadioService;->access$1002(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 338
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -395,6 +430,7 @@
 
     invoke-virtual {v1, v3}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
 
+    .line 340
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mAirPlaneEnabled:Z
@@ -413,11 +449,13 @@
 
     if-eqz v1, :cond_1
 
+    .line 341
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # invokes: Lcom/android/server/FMRadioService;->stopInternetStreaming()V
     invoke-static {v1}, Lcom/android/server/FMRadioService;->access$800(Lcom/android/server/FMRadioService;)V
 
+    .line 342
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const/4 v3, 0x3
@@ -427,6 +465,7 @@
 
     goto/16 :goto_3
 
+    .line 344
     :cond_9
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -440,10 +479,12 @@
 
     if-eqz v1, :cond_c
 
+    .line 346
     const-string/jumbo v1, "mReceiver: ACTION_TVOUT_PLUG"
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 347
     # getter for: Lcom/android/server/FMRadioService;->DEBUGGABLE:Z
     invoke-static {}, Lcom/android/server/FMRadioService;->access$400()Z
 
@@ -451,6 +492,7 @@
 
     if-eqz v1, :cond_a
 
+    .line 348
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -471,6 +513,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 350
     :cond_a
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -498,6 +541,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 352
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -524,6 +568,7 @@
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 354
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsTestMode:Z
@@ -533,6 +578,7 @@
 
     if-nez v1, :cond_1
 
+    .line 357
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const-string/jumbo v4, "state"
@@ -549,6 +595,7 @@
     # setter for: Lcom/android/server/FMRadioService;->mIsTvOutPlugged:Z
     invoke-static {v1, v3}, Lcom/android/server/FMRadioService;->access$1102(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 359
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsTvOutPlugged:Z
@@ -558,6 +605,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 360
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -567,15 +615,18 @@
 
     if-eqz v1, :cond_1
 
+    .line 361
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # invokes: Lcom/android/server/FMRadioService;->stopInternetStreaming()V
     invoke-static {v1}, Lcom/android/server/FMRadioService;->access$800(Lcom/android/server/FMRadioService;)V
 
+    .line 362
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     invoke-virtual {v1}, Lcom/android/server/FMRadioService;->cancelSeek()V
 
+    .line 363
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const/16 v3, 0xa
@@ -585,6 +636,7 @@
 
     goto/16 :goto_3
 
+    .line 366
     :cond_c
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -598,6 +650,7 @@
 
     if-eqz v1, :cond_1
 
+    .line 367
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mIsOn:Z
@@ -616,10 +669,12 @@
 
     if-eqz v1, :cond_1
 
+    .line 368
     const-string/jumbo v1, "mReceiver: ACTION_RECORDING_SAVE - fmradio off"
 
     invoke-static {v1}, Lcom/android/server/FMRadioService;->log(Ljava/lang/String;)V
 
+    .line 369
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mScanProgress:Z
@@ -629,6 +684,7 @@
 
     if-eqz v1, :cond_d
 
+    .line 370
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     iget-object v4, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
@@ -641,6 +697,7 @@
     # setter for: Lcom/android/server/FMRadioService;->mNeedResumeToFreq:J
     invoke-static {v1, v4, v5}, Lcom/android/server/FMRadioService;->access$1402(Lcom/android/server/FMRadioService;J)J
 
+    .line 374
     :goto_4
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
@@ -648,6 +705,7 @@
 
     invoke-virtual {v1, v4, v6}, Lcom/android/server/FMRadioService;->notifyEvent(ILjava/lang/Object;)V
 
+    .line 375
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     const/16 v4, 0xb
@@ -655,11 +713,13 @@
     # invokes: Lcom/android/server/FMRadioService;->offInternal(ZIZ)Z
     invoke-static {v1, v2, v4, v3}, Lcom/android/server/FMRadioService;->access$900(Lcom/android/server/FMRadioService;ZIZ)Z
 
+    .line 376
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # setter for: Lcom/android/server/FMRadioService;->mIsphoneCall:Z
     invoke-static {v1, v2}, Lcom/android/server/FMRadioService;->access$1602(Lcom/android/server/FMRadioService;Z)Z
 
+    .line 377
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 
     # getter for: Lcom/android/server/FMRadioService;->mContext:Landroid/content/Context;
@@ -677,6 +737,7 @@
 
     goto/16 :goto_3
 
+    .line 372
     :cond_d
     iget-object v1, p0, Lcom/android/server/FMRadioService$2;->this$0:Lcom/android/server/FMRadioService;
 

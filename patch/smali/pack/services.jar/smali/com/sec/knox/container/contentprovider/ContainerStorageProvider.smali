@@ -45,10 +45,12 @@
 .method static constructor <clinit>()V
     .locals 4
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 22
     const-class v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -62,12 +64,16 @@
     :goto_0
     sput-boolean v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->$assertionsDisabled:Z
 
+    .line 25
     sput-object v2, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
+    .line 27
     sput-object v2, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
+    .line 30
     sput-object v2, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSelfInstance:Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
+    .line 32
     new-instance v0, Landroid/content/UriMatcher;
 
     const/4 v2, -0x1
@@ -76,6 +82,7 @@
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
+    .line 33
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     sget-object v2, Lcom/sec/knox/container/contentprovider/DBConstants;->AUTHORITY:Ljava/lang/String;
@@ -84,12 +91,14 @@
 
     invoke-virtual {v0, v2, v3, v1}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 34
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
+    .line 35
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "_id"
@@ -98,6 +107,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 36
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "containerid"
@@ -106,6 +116,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 38
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "admin_uid"
@@ -114,6 +125,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 40
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "packages"
@@ -122,6 +134,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 42
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "original_signature"
@@ -130,6 +143,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 44
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "installation_source"
@@ -138,6 +152,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 46
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "app_uid"
@@ -146,6 +161,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 48
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     sget-object v1, Lcom/sec/knox/container/contentprovider/DBConstants;->AUTHORITY:Ljava/lang/String;
@@ -156,6 +172,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 50
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "activestatus"
@@ -164,6 +181,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 52
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "password"
@@ -172,6 +190,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 54
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "passwordstatus"
@@ -180,6 +199,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 56
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "email"
@@ -188,6 +208,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 58
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "name"
@@ -196,6 +217,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 60
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "securitytext"
@@ -204,6 +226,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 62
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "securityicon"
@@ -212,6 +235,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 64
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "androidid"
@@ -220,6 +244,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 66
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "failedpasswordattempts"
@@ -228,6 +253,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 68
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "locktype"
@@ -236,6 +262,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 70
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "containertype"
@@ -244,6 +271,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 72
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "containerLockOnScreenLock"
@@ -252,6 +280,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 74
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "containerPwdVerfyOnModeChange"
@@ -260,6 +289,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 76
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "deviceFirmwareVersion"
@@ -268,6 +298,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 78
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "new_signature_creationtime"
@@ -276,6 +307,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 81
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     const-string v1, "orig_signature"
@@ -284,6 +316,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    .line 85
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     sget-object v1, Lcom/sec/knox/container/contentprovider/DBConstants;->AUTHORITY:Ljava/lang/String;
@@ -294,8 +327,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
+    .line 90
     return-void
 
+    .line 22
     :cond_0
     const/4 v0, 0x0
 
@@ -304,17 +339,24 @@
 
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 1
+    .param p1, "ctx"    # Landroid/content/Context;
 
+    .prologue
     const/4 v0, 0x0
 
+    .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 26
     iput-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mDbHelper:Lcom/sec/knox/container/contentprovider/ContainerStorageHelper;
 
+    .line 28
     iput-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mContext:Landroid/content/Context;
 
+    .line 29
     iput-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
+    .line 94
     new-instance v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider$ContainerDbErrorHandler;
 
     invoke-direct {v0, p0}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider$ContainerDbErrorHandler;-><init>(Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;)V
@@ -325,32 +367,39 @@
 
     iput-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mDbHelper:Lcom/sec/knox/container/contentprovider/ContainerStorageHelper;
 
+    .line 95
     iput-object p1, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mContext:Landroid/content/Context;
 
+    .line 96
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mDbHelper:Lcom/sec/knox/container/contentprovider/ContainerStorageHelper;
 
-    invoke-virtual {v0}, Lcom/sec/knox/container/contentprovider/ContainerStorageHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
+    invoke-virtual {v0}, Landroid/database/sqlite/SQLiteOpenHelper;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
+    .line 97
     return-void
 .end method
 
 .method private checkIfNullUriMatcher(Landroid/net/Uri;)Z
     .locals 5
+    .param p1, "uri"    # Landroid/net/Uri;
 
+    .prologue
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
+    .line 183
     if-eqz p1, :cond_0
 
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     if-nez v0, :cond_2
 
+    .line 184
     :cond_0
     const-string v3, "ContainerStorageProvider"
 
@@ -404,18 +453,28 @@
 
     move v2, v1
 
+    .line 187
     :cond_2
     return v2
 
     :cond_3
     move v0, v2
 
+    .line 184
     goto :goto_0
 .end method
 
 .method private getCursorForQuery(Landroid/database/sqlite/SQLiteQueryBuilder;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Landroid/database/Cursor;
     .locals 10
+    .param p1, "mSQLiteQueryBuilderObj"    # Landroid/database/sqlite/SQLiteQueryBuilder;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "sortOrder"    # Ljava/lang/String;
+    .param p6, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 122
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     if-eqz v0, :cond_0
@@ -430,13 +489,17 @@
 
     if-eqz v0, :cond_0
 
+    .line 123
     const/4 v9, 0x0
 
+    .line 125
+    .local v9, "mCursorObj":Landroid/database/Cursor;
     :try_start_0
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
 
+    .line 126
     iget-object v1, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     const/4 v5, 0x0
@@ -457,10 +520,12 @@
 
     move-result-object v9
 
+    .line 128
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
 
+    .line 129
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
@@ -468,12 +533,18 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    .line 144
+    .end local v9    # "mCursorObj":Landroid/database/Cursor;
     :goto_0
     return-object v9
 
+    .line 130
+    .restart local v9    # "mCursorObj":Landroid/database/Cursor;
     :catch_0
     move-exception v8
 
+    .line 131
+    .local v8, "e":Ljava/lang/Exception;
     :try_start_1
     const-string v0, "ContainerStorageProvider"
 
@@ -487,16 +558,21 @@
 
     goto :goto_0
 
+    .line 132
+    .end local v8    # "e":Ljava/lang/Exception;
     :catchall_0
     move-exception v0
 
     throw v0
 
+    .line 138
+    .end local v9    # "mCursorObj":Landroid/database/Cursor;
     :cond_0
     iget-object v0, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     if-nez v0, :cond_2
 
+    .line 139
     const-string v1, "ContainerStorageProvider"
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -530,6 +606,7 @@
 
     invoke-static {v1, v0}, Lcom/sec/knox/container/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 143
     :goto_2
     const-string v0, "ContainerStorageProvider"
 
@@ -537,15 +614,18 @@
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 144
     const/4 v9, 0x0
 
     goto :goto_0
 
+    .line 139
     :cond_1
     const/4 v0, 0x0
 
     goto :goto_1
 
+    .line 141
     :cond_2
     const-string v1, "ContainerStorageProvider"
 
@@ -600,17 +680,22 @@
 
 .method public static getInstance(Landroid/content/Context;)Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
     .locals 1
+    .param p0, "ctx"    # Landroid/content/Context;
 
+    .prologue
+    .line 100
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSelfInstance:Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
     if-nez v0, :cond_0
 
+    .line 101
     new-instance v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
     invoke-direct {v0, p0}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSelfInstance:Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
+    .line 103
     :cond_0
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSelfInstance:Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;
 
@@ -619,23 +704,32 @@
 
 .method private getSQLiteQueryBuilderObj(Landroid/net/Uri;)Landroid/database/sqlite/SQLiteQueryBuilder;
     .locals 2
+    .param p1, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 151
     new-instance v0, Landroid/database/sqlite/SQLiteQueryBuilder;
 
     invoke-direct {v0}, Landroid/database/sqlite/SQLiteQueryBuilder;-><init>()V
 
+    .line 152
+    .local v0, "mSQLiteQueryBuilderObj":Landroid/database/sqlite/SQLiteQueryBuilder;
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getTableNameForUri(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
 
     invoke-direct {p0, v0, v1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->updateBuilderObj(Landroid/database/sqlite/SQLiteQueryBuilder;Ljava/lang/String;)V
 
+    .line 153
     return-object v0
 .end method
 
 .method private getTableNameForUri(Landroid/net/Uri;)Ljava/lang/String;
     .locals 3
+    .param p1, "uri"    # Landroid/net/Uri;
 
+    .prologue
+    .line 166
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
@@ -644,6 +738,7 @@
 
     packed-switch v0, :pswitch_data_0
 
+    .line 177
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -668,6 +763,7 @@
 
     throw v0
 
+    .line 168
     :pswitch_0
     const-string v0, "ContainerStorageProvider"
 
@@ -675,11 +771,14 @@
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 169
     sget-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_TABLE_NAME:Ljava/lang/String;
 
+    .line 175
     :goto_0
     return-object v0
 
+    .line 171
     :pswitch_1
     const-string v0, "ContainerStorageProvider"
 
@@ -687,10 +786,12 @@
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 172
     sget-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_TABLE_ACTIVESTATUS_NAME:Ljava/lang/String;
 
     goto :goto_0
 
+    .line 174
     :pswitch_2
     const-string v0, "ContainerStorageProvider"
 
@@ -698,10 +799,12 @@
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 175
     sget-object v0, Lcom/sec/knox/container/contentprovider/DBConstants;->CERTIFICATE_MANAGER_TABLE_NAME:Ljava/lang/String;
 
     goto :goto_0
 
+    .line 166
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -712,21 +815,29 @@
 
 .method private updateBuilderObj(Landroid/database/sqlite/SQLiteQueryBuilder;Ljava/lang/String;)V
     .locals 2
+    .param p1, "mSQLiteQueryBuilderObj"    # Landroid/database/sqlite/SQLiteQueryBuilder;
+    .param p2, "tableName"    # Ljava/lang/String;
 
+    .prologue
+    .line 158
     if-eqz p1, :cond_0
 
+    .line 159
     const-string v0, "ContainerStorageProvider"
 
     const-string/jumbo v1, "updatebuilderobj"
 
     invoke-static {v0, v1}, Lcom/sec/knox/container/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 160
     invoke-virtual {p1, p2}, Landroid/database/sqlite/SQLiteQueryBuilder;->setTables(Ljava/lang/String;)V
 
+    .line 161
     sget-object v0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mQuotesPreferencesProjectionMap:Ljava/util/HashMap;
 
     invoke-virtual {p1, v0}, Landroid/database/sqlite/SQLiteQueryBuilder;->setProjectionMap(Ljava/util/Map;)V
 
+    .line 163
     :cond_0
     return-void
 .end method
@@ -735,9 +846,14 @@
 # virtual methods
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 6
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "where"    # Ljava/lang/String;
+    .param p3, "whereArgs"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 238
     sget-boolean v3, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->$assertionsDisabled:Z
 
     if-nez v3, :cond_0
@@ -758,6 +874,7 @@
 
     throw v2
 
+    .line 239
     :cond_0
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->checkIfNullUriMatcher(Landroid/net/Uri;)Z
 
@@ -765,12 +882,16 @@
 
     if-eqz v3, :cond_1
 
+    .line 253
     :goto_0
     return v2
 
+    .line 242
     :cond_1
     const/4 v0, 0x0
 
+    .line 243
+    .local v0, "count":I
     iget-object v3, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     if-eqz v3, :cond_2
@@ -783,39 +904,49 @@
 
     if-eqz v3, :cond_2
 
+    .line 244
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getTableNameForUri(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 245
+    .local v1, "tableName":Ljava/lang/String;
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
 
+    .line 246
     const-string v2, "ContainerStorageProvider"
 
     const-string v3, "deleting database"
 
     invoke-static {v2, v3}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 247
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2, v1, p2, p3}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v0
 
+    .line 248
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
 
+    .line 249
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
+    .end local v1    # "tableName":Ljava/lang/String;
     :goto_1
     move v2, v0
 
+    .line 253
     goto :goto_0
 
+    .line 251
     :cond_2
     const-string v3, "ContentProvider"
 
@@ -854,33 +985,44 @@
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 9
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "initialValues"    # Landroid/content/ContentValues;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/database/SQLException;
         }
     .end annotation
 
+    .prologue
     const/4 v1, 0x0
 
+    .line 192
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->checkIfNullUriMatcher(Landroid/net/Uri;)Z
 
     move-result v6
 
     if-eqz v6, :cond_0
 
+    .line 228
     :goto_0
     return-object v1
 
+    .line 196
     :cond_0
     if-eqz p2, :cond_2
 
+    .line 197
     new-instance v5, Landroid/content/ContentValues;
 
     invoke-direct {v5, p2}, Landroid/content/ContentValues;-><init>(Landroid/content/ContentValues;)V
 
+    .line 201
+    .local v5, "values":Landroid/content/ContentValues;
     :goto_1
     const-wide/16 v2, 0x0
 
+    .line 202
+    .local v2, "rowId":J
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     if-eqz v6, :cond_1
@@ -893,42 +1035,53 @@
 
     if-eqz v6, :cond_1
 
+    .line 203
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getTableNameForUri(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v4
 
+    .line 204
+    .local v4, "tableName":Ljava/lang/String;
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
 
+    .line 205
     const-string v6, "ContainerStorageProvider"
 
     const-string v7, "inserting database"
 
     invoke-static {v6, v7}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 206
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v6, v4, v1, v5}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
     move-result-wide v2
 
+    .line 207
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
 
+    .line 208
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
+    .line 210
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
 
     if-lez v6, :cond_1
 
+    .line 211
     const/4 v1, 0x0
 
+    .line 212
+    .local v1, "noteUri":Landroid/net/Uri;
     :try_start_0
     sget-object v6, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->sUriMatcher:Landroid/content/UriMatcher;
 
@@ -938,6 +1091,7 @@
 
     packed-switch v6, :pswitch_data_0
 
+    .line 225
     new-instance v6, Ljava/lang/IllegalArgumentException;
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -964,9 +1118,12 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 230
     :catch_0
     move-exception v0
 
+    .line 231
+    .local v0, "e":Ljava/lang/Exception;
     const-string v6, "ContainerStorageProvider"
 
     invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
@@ -975,6 +1132,10 @@
 
     invoke-static {v6, v7}, Lcom/sec/knox/container/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 234
+    .end local v0    # "e":Ljava/lang/Exception;
+    .end local v1    # "noteUri":Landroid/net/Uri;
+    .end local v4    # "tableName":Ljava/lang/String;
     :cond_1
     new-instance v6, Landroid/database/SQLException;
 
@@ -1000,13 +1161,21 @@
 
     throw v6
 
+    .line 199
+    .end local v2    # "rowId":J
+    .end local v5    # "values":Landroid/content/ContentValues;
     :cond_2
     new-instance v5, Landroid/content/ContentValues;
 
     invoke-direct {v5}, Landroid/content/ContentValues;-><init>()V
 
+    .restart local v5    # "values":Landroid/content/ContentValues;
     goto :goto_1
 
+    .line 214
+    .restart local v1    # "noteUri":Landroid/net/Uri;
+    .restart local v2    # "rowId":J
+    .restart local v4    # "tableName":Ljava/lang/String;
     :pswitch_0
     :try_start_1
     sget-object v6, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_CONTENT_URI:Landroid/net/Uri;
@@ -1015,6 +1184,7 @@
 
     move-result-object v1
 
+    .line 227
     :goto_2
     iget-object v6, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mContext:Landroid/content/Context;
 
@@ -1028,6 +1198,7 @@
 
     goto/16 :goto_0
 
+    .line 218
     :pswitch_1
     sget-object v6, Lcom/sec/knox/container/contentprovider/DBConstants;->CONTAINER_ACTIVE_STATUS_URI:Landroid/net/Uri;
 
@@ -1035,8 +1206,10 @@
 
     move-result-object v1
 
+    .line 220
     goto :goto_2
 
+    .line 222
     :pswitch_2
     sget-object v6, Lcom/sec/knox/container/contentprovider/DBConstants;->CERTIFICATE_MANAGER_URI:Landroid/net/Uri;
 
@@ -1046,8 +1219,10 @@
 
     move-result-object v1
 
+    .line 223
     goto :goto_2
 
+    .line 212
     nop
 
     :pswitch_data_0
@@ -1060,7 +1235,14 @@
 
 .method public declared-synchronized query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     .locals 8
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "projection"    # [Ljava/lang/String;
+    .param p3, "selection"    # Ljava/lang/String;
+    .param p4, "selectionArgs"    # [Ljava/lang/String;
+    .param p5, "sortOrder"    # Ljava/lang/String;
 
+    .prologue
+    .line 108
     monitor-enter p0
 
     :try_start_0
@@ -1093,6 +1275,7 @@
 
     throw v0
 
+    .line 109
     :cond_0
     :try_start_1
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->checkIfNullUriMatcher(Landroid/net/Uri;)Z
@@ -1103,19 +1286,23 @@
 
     if-eqz v0, :cond_1
 
+    .line 110
     const/4 v7, 0x0
 
+    .line 116
     :goto_0
     monitor-exit p0
 
     return-object v7
 
+    .line 113
     :cond_1
     :try_start_2
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getSQLiteQueryBuilderObj(Landroid/net/Uri;)Landroid/database/sqlite/SQLiteQueryBuilder;
 
     move-result-object v1
 
+    .local v1, "mSQLiteQueryBuilderObj":Landroid/database/sqlite/SQLiteQueryBuilder;
     move-object v0, p0
 
     move-object v2, p2
@@ -1128,20 +1315,29 @@
 
     move-object v6, p1
 
+    .line 114
     invoke-direct/range {v0 .. v6}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getCursorForQuery(Landroid/database/sqlite/SQLiteQueryBuilder;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/net/Uri;)Landroid/database/Cursor;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     move-result-object v7
 
+    .line 116
+    .local v7, "mcursor":Landroid/database/Cursor;
     goto :goto_0
 .end method
 
 .method public declared-synchronized update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 6
+    .param p1, "uri"    # Landroid/net/Uri;
+    .param p2, "values"    # Landroid/content/ContentValues;
+    .param p3, "where"    # Ljava/lang/String;
+    .param p4, "whereArgs"    # [Ljava/lang/String;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 257
     monitor-enter p0
 
     :try_start_0
@@ -1174,6 +1370,7 @@
 
     throw v2
 
+    .line 258
     :cond_0
     :try_start_1
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->checkIfNullUriMatcher(Landroid/net/Uri;)Z
@@ -1186,15 +1383,19 @@
 
     move v0, v2
 
+    .line 275
     :cond_1
     :goto_0
     monitor-exit p0
 
     return v0
 
+    .line 261
     :cond_2
     const/4 v0, 0x0
 
+    .line 262
+    .local v0, "count":I
     :try_start_2
     iget-object v3, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -1208,36 +1409,45 @@
 
     if-eqz v3, :cond_3
 
+    .line 263
     invoke-direct {p0, p1}, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->getTableNameForUri(Landroid/net/Uri;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 264
+    .local v1, "tableName":Ljava/lang/String;
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->beginTransaction()V
 
+    .line 265
     const-string v2, "ContainerStorageProvider"
 
     const-string/jumbo v3, "updating database"
 
     invoke-static {v2, v3}, Lcom/sec/knox/container/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 266
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2, v1, p2, p3, p4}, Landroid/database/sqlite/SQLiteDatabase;->update(Ljava/lang/String;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
     move-result v0
 
+    .line 267
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->setTransactionSuccessful()V
 
+    .line 268
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v2}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
     goto :goto_0
 
+    .line 270
+    .end local v1    # "tableName":Ljava/lang/String;
     :cond_3
     const-string v3, "ContentProvider"
 
@@ -1266,10 +1476,12 @@
 
     invoke-static {v3, v2}, Lcom/sec/knox/container/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    .line 271
     iget-object v2, p0, Lcom/sec/knox/container/contentprovider/ContainerStorageProvider;->mSQLiteDataBaseObj:Landroid/database/sqlite/SQLiteDatabase;
 
     if-eqz v2, :cond_1
 
+    .line 272
     const-string v2, "ContentProvider"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1302,6 +1514,7 @@
 
     goto :goto_0
 
+    .line 270
     :cond_4
     const/4 v2, 0x0
 

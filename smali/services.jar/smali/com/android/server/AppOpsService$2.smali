@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/AppOpsService;)V
     .locals 0
 
+    .prologue
+    .line 208
     iput-object p1, p0, Lcom/android/server/AppOpsService$2;->this$0:Lcom/android/server/AppOpsService;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -33,21 +35,29 @@
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
     .locals 12
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
+    .line 210
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_0
 
+    .line 232
     :goto_0
     return-void
 
+    .line 212
     :pswitch_0
     iget-object v8, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v8, Ljava/util/HashMap;
 
+    .line 214
+    .local v8, "data":Ljava/util/HashMap;, "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;"
     monitor-enter p0
 
+    .line 215
     :try_start_0
     const-string v2, "op"
 
@@ -57,6 +67,8 @@
 
     check-cast v9, Lcom/android/server/AppOpsService$Op;
 
+    .line 216
+    .local v9, "op":Lcom/android/server/AppOpsService$Op;
     const-string v2, "result"
 
     invoke-virtual {v8, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -65,16 +77,20 @@
 
     check-cast v10, Lcom/android/server/PermissionDialogResult$Result;
 
+    .line 217
+    .local v10, "res":Lcom/android/server/PermissionDialogResult$Result;
     iget-object v2, v9, Lcom/android/server/AppOpsService$Op;->dialogResult:Lcom/android/server/PermissionDialogResult;
 
     invoke-virtual {v2, v10}, Lcom/android/server/PermissionDialogResult;->register(Lcom/android/server/PermissionDialogResult$Result;)V
 
+    .line 218
     iget-object v2, v9, Lcom/android/server/AppOpsService$Op;->dialogResult:Lcom/android/server/PermissionDialogResult;
 
     iget-object v2, v2, Lcom/android/server/PermissionDialogResult;->mDialog:Lcom/android/server/PermissionDialog;
 
     if-nez v2, :cond_0
 
+    .line 219
     const-string v2, "code"
 
     invoke-virtual {v8, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -83,6 +99,8 @@
 
     check-cast v7, Ljava/lang/Integer;
 
+    .line 220
+    .local v7, "code":Ljava/lang/Integer;
     const-string/jumbo v2, "uid"
 
     invoke-virtual {v8, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -91,6 +109,8 @@
 
     check-cast v11, Ljava/lang/Integer;
 
+    .line 221
+    .local v11, "uid":Ljava/lang/Integer;
     const-string v2, "packageName"
 
     invoke-virtual {v8, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -99,6 +119,8 @@
 
     check-cast v6, Ljava/lang/String;
 
+    .line 223
+    .local v6, "packageName":Ljava/lang/String;
     new-instance v1, Lcom/android/server/PermissionDialog;
 
     iget-object v2, p0, Lcom/android/server/AppOpsService$2;->this$0:Lcom/android/server/AppOpsService;
@@ -117,6 +139,8 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/server/PermissionDialog;-><init>(Landroid/content/Context;Lcom/android/server/AppOpsService;IILjava/lang/String;)V
 
+    .line 226
+    .local v1, "d":Landroid/app/Dialog;
     iget-object v3, v9, Lcom/android/server/AppOpsService$Op;->dialogResult:Lcom/android/server/PermissionDialogResult;
 
     move-object v0, v1
@@ -127,13 +151,21 @@
 
     iput-object v2, v3, Lcom/android/server/PermissionDialogResult;->mDialog:Lcom/android/server/PermissionDialog;
 
+    .line 227
     invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
+    .line 229
+    .end local v1    # "d":Landroid/app/Dialog;
+    .end local v6    # "packageName":Ljava/lang/String;
+    .end local v7    # "code":Ljava/lang/Integer;
+    .end local v11    # "uid":Ljava/lang/Integer;
     :cond_0
     monitor-exit p0
 
     goto :goto_0
 
+    .end local v9    # "op":Lcom/android/server/AppOpsService$Op;
+    .end local v10    # "res":Lcom/android/server/PermissionDialogResult$Result;
     :catchall_0
     move-exception v2
 
@@ -143,6 +175,7 @@
 
     throw v2
 
+    .line 210
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0

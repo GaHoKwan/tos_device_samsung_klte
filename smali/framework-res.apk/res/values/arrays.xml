@@ -403,21 +403,23 @@
     <string-array name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
-        <item>mobile_mms,2,0,2,240000,true</item>
+        <item>mobile_mms,2,0,2,180000,true</item>
         <item>mobile_supl,3,0,2,60000,true</item>
-        <item>mobile_dun,4,0,2,-1,true</item>
+        <item>mobile_dun,4,0,2,60000,true</item>
         <item>mobile_hipri,5,0,3,60000,true</item>
+        <item>bluetooth,7,7,0,-1,true</item>
         <item>mobile_fota,10,0,2,60000,true</item>
         <item>mobile_ims,11,0,2,-1,true</item>
         <item>mobile_cbs,12,0,2,60000,true</item>
         <item>wifi_p2p,13,1,0,-1,true</item>
-        <item>mobile_cas,24,0,3,60000,true</item>
-        <item>bluetooth,7,7,0,-1,true</item>
+        <item>mobile_ia,14,0,2,-1,true</item>
+        <item>mobile_bip,23,0,2,60000,true</item>
     </string-array>
     <integer-array name="config_protectedNetworks">
         <item>10</item>
         <item>11</item>
         <item>12</item>
+        <item>14</item>
     </integer-array>
     <string-array name="shouldNotWriteMessage">
         <item>com.android.mms</item>
@@ -493,9 +495,14 @@
     </string-array>
     <integer-array name="config_data_usage_network_types">
         <item>0</item>
+        <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>14</item>
     </integer-array>
     <string-array name="config_tether_usb_regexs">
         <item>usb\\d</item>
@@ -603,7 +610,7 @@
         <item>0</item>
     </integer-array>
     <string-array name="config_locationProviderPackageNames">
-        <item>com.baidu.map.location</item>
+        <item>com.google.android.gms</item>
         <item>com.android.location.fused</item>
     </string-array>
     <array name="config_twoDigitNumberPattern" />
@@ -612,11 +619,18 @@
     <array name="config_oemUsbModeOverride" />
     <string-array name="hideApnBlackList">
         <item>ims</item>
+        <item>cbs</item>
+        <item>fota</item>
     </string-array>
-    <string-array name="allowedOnDataDisabled">
-        <item>ims</item>
-    </string-array>
-    <array name="config_onlySingleDcAllowed" />
+    <array name="allowedOnDataDisabled" />
+    <integer-array name="config_onlySingleDcAllowed">
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>12</item>
+    </integer-array>
     <integer-array name="config_defaultNotificationVibePattern">
         <item>0</item>
         <item>350</item>
@@ -680,8 +694,8 @@
         <item>8000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessLowHysteresisValues">
-        <item>30</item>
-        <item>53</item>
+        <item>8</item>
+        <item>51</item>
         <item>73</item>
         <item>146</item>
         <item>219</item>
@@ -701,9 +715,9 @@
         <item>40000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessValues">
-        <item>30</item>
-        <item>30</item>
-        <item>60</item>
+        <item>8</item>
+        <item>8</item>
+        <item>59</item>
         <item>134</item>
         <item>161</item>
         <item>219</item>
@@ -723,12 +737,12 @@
         <item>40000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessHighHysteresisValues">
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>60</item>
+        <item>8</item>
+        <item>8</item>
+        <item>11</item>
+        <item>59</item>
         <item>134</item>
-        <item>171</item>
+        <item>175</item>
         <item>255</item>
         <item>255</item>
         <item>500</item>
@@ -744,9 +758,9 @@
         <item>8000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessLowHysteresisValuesForEbookOnly">
+        <item>8</item>
+        <item>22</item>
         <item>30</item>
-        <item>44</item>
-        <item>44</item>
         <item>50</item>
         <item>219</item>
         <item>255</item>
@@ -765,9 +779,9 @@
         <item>40000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessValuesForEbookOnly">
+        <item>8</item>
+        <item>8</item>
         <item>30</item>
-        <item>30</item>
-        <item>41</item>
         <item>50</item>
         <item>161</item>
         <item>219</item>
@@ -787,12 +801,12 @@
         <item>40000</item>
     </integer-array>
     <integer-array name="config_dynamicAutoBrightnessHighHysteresisValuesForEbookOnly">
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>33</item>
+        <item>8</item>
+        <item>8</item>
+        <item>8</item>
+        <item>22</item>
         <item>50</item>
-        <item>171</item>
+        <item>175</item>
         <item>255</item>
         <item>255</item>
         <item>500</item>

@@ -53,29 +53,42 @@
 # direct methods
 .method constructor <init>(Lcom/android/server/INativeDaemonConnectorCallbacks;Ljava/lang/String;ILjava/lang/String;I)V
     .locals 2
+    .param p1, "callbacks"    # Lcom/android/server/INativeDaemonConnectorCallbacks;
+    .param p2, "socket"    # Ljava/lang/String;
+    .param p3, "responseQueueSize"    # I
+    .param p4, "logTag"    # Ljava/lang/String;
+    .param p5, "maxLogSize"    # I
 
+    .prologue
+    .line 73
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    .line 68
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct {v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mDaemonLock:Ljava/lang/Object;
 
+    .line 70
     const/16 v0, 0x1000
 
     iput v0, p0, Lcom/android/server/NativeDaemonConnector;->BUFFER_SIZE:I
 
+    .line 74
     iput-object p1, p0, Lcom/android/server/NativeDaemonConnector;->mCallbacks:Lcom/android/server/INativeDaemonConnectorCallbacks;
 
+    .line 75
     iput-object p2, p0, Lcom/android/server/NativeDaemonConnector;->mSocket:Ljava/lang/String;
 
+    .line 76
     new-instance v0, Lcom/android/server/NativeDaemonConnector$ResponseQueue;
 
     invoke-direct {v0, p3}, Lcom/android/server/NativeDaemonConnector$ResponseQueue;-><init>(I)V
 
     iput-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mResponseQueue:Lcom/android/server/NativeDaemonConnector$ResponseQueue;
 
+    .line 77
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
     const/4 v1, 0x0
@@ -84,19 +97,25 @@
 
     iput-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
 
+    .line 78
     if-eqz p4, :cond_0
 
+    .end local p4    # "logTag":Ljava/lang/String;
     :goto_0
     iput-object p4, p0, Lcom/android/server/NativeDaemonConnector;->TAG:Ljava/lang/String;
 
+    .line 79
     new-instance v0, Landroid/util/LocalLog;
 
     invoke-direct {v0, p5}, Landroid/util/LocalLog;-><init>(I)V
 
     iput-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mLocalLog:Landroid/util/LocalLog;
 
+    .line 80
     return-void
 
+    .line 78
+    .restart local p4    # "logTag":Ljava/lang/String;
     :cond_0
     const-string p4, "NativeDaemonConnector"
 
@@ -105,9 +124,13 @@
 
 .method static appendEscaped(Ljava/lang/StringBuilder;Ljava/lang/String;)V
     .locals 6
+    .param p0, "builder"    # Ljava/lang/StringBuilder;
+    .param p1, "arg"    # Ljava/lang/String;
 
+    .prologue
     const/16 v5, 0x22
 
+    .line 423
     const/16 v4, 0x20
 
     invoke-virtual {p1, v4}, Ljava/lang/String;->indexOf(I)I
@@ -118,62 +141,90 @@
 
     const/4 v1, 0x1
 
+    .line 424
+    .local v1, "hasSpaces":Z
     :goto_0
     if-eqz v1, :cond_0
 
+    .line 425
     invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 428
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v3
 
+    .line 429
+    .local v3, "length":I
     const/4 v2, 0x0
 
+    .local v2, "i":I
     :goto_1
     if-ge v2, v3, :cond_4
 
+    .line 430
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
 
+    .line 432
+    .local v0, "c":C
     if-ne v0, v5, :cond_2
 
+    .line 433
     const-string v4, "\\\""
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 429
     :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1
 
+    .line 423
+    .end local v0    # "c":C
+    .end local v1    # "hasSpaces":Z
+    .end local v2    # "i":I
+    .end local v3    # "length":I
     :cond_1
     const/4 v1, 0x0
 
     goto :goto_0
 
+    .line 434
+    .restart local v0    # "c":C
+    .restart local v1    # "hasSpaces":Z
+    .restart local v2    # "i":I
+    .restart local v3    # "length":I
     :cond_2
     const/16 v4, 0x5c
 
     if-ne v0, v4, :cond_3
 
+    .line 435
     const-string v4, "\\\\"
 
     invoke-virtual {p0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
+    .line 437
     :cond_3
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
+    .line 441
+    .end local v0    # "c":C
     :cond_4
     if-eqz v1, :cond_5
 
+    .line 442
     invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 444
     :cond_5
     return-void
 .end method
@@ -181,6 +232,8 @@
 .method private determineSocketAddress()Landroid/net/LocalSocketAddress;
     .locals 3
 
+    .prologue
+    .line 114
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mSocket:Ljava/lang/String;
 
     const-string v1, "__test__"
@@ -195,12 +248,14 @@
 
     if-eqz v0, :cond_0
 
+    .line 115
     new-instance v0, Landroid/net/LocalSocketAddress;
 
     iget-object v1, p0, Lcom/android/server/NativeDaemonConnector;->mSocket:Ljava/lang/String;
 
     invoke-direct {v0, v1}, Landroid/net/LocalSocketAddress;-><init>(Ljava/lang/String;)V
 
+    .line 117
     :goto_0
     return-object v0
 
@@ -224,8 +279,12 @@
         }
     .end annotation
 
+    .prologue
+    .line 122
     const/4 v12, 0x0
 
+    .line 125
+    .local v12, "socket":Landroid/net/LocalSocket;
     :try_start_0
     new-instance v13, Landroid/net/LocalSocket;
 
@@ -234,17 +293,25 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_6
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    .line 126
+    .end local v12    # "socket":Landroid/net/LocalSocket;
+    .local v13, "socket":Landroid/net/LocalSocket;
     :try_start_1
     invoke-direct/range {p0 .. p0}, Lcom/android/server/NativeDaemonConnector;->determineSocketAddress()Landroid/net/LocalSocketAddress;
 
     move-result-object v2
 
+    .line 128
+    .local v2, "address":Landroid/net/LocalSocketAddress;
     invoke-virtual {v13, v2}, Landroid/net/LocalSocket;->connect(Landroid/net/LocalSocketAddress;)V
 
+    .line 130
     invoke-virtual {v13}, Landroid/net/LocalSocket;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v9
 
+    .line 131
+    .local v9, "inputStream":Ljava/io/InputStream;
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/NativeDaemonConnector;->mDaemonLock:Ljava/lang/Object;
@@ -256,6 +323,7 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
+    .line 132
     :try_start_2
     invoke-virtual {v13}, Landroid/net/LocalSocket;->getOutputStream()Ljava/io/OutputStream;
 
@@ -265,10 +333,12 @@
 
     iput-object v15, v0, Lcom/android/server/NativeDaemonConnector;->mOutputStream:Ljava/io/OutputStream;
 
+    .line 133
     monitor-exit v16
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 135
     :try_start_3
     move-object/from16 v0, p0
 
@@ -276,12 +346,17 @@
 
     invoke-interface {v15}, Lcom/android/server/INativeDaemonConnectorCallbacks;->onDaemonConnected()V
 
+    .line 137
     const/16 v15, 0x1000
 
     new-array v3, v15, [B
 
+    .line 138
+    .local v3, "buffer":[B
     const/4 v14, 0x0
 
+    .line 141
+    .local v14, "start":I
     :goto_0
     rsub-int v15, v14, 0x1000
 
@@ -289,8 +364,11 @@
 
     move-result v4
 
+    .line 142
+    .local v4, "count":I
     if-gez v4, :cond_2
 
+    .line 143
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -323,8 +401,10 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 189
     const/4 v8, 0x0
 
+    .local v8, "i":I
     :goto_1
     array-length v15, v3
 
@@ -341,6 +421,11 @@
 
     goto :goto_1
 
+    .line 133
+    .end local v3    # "buffer":[B
+    .end local v4    # "count":I
+    .end local v8    # "i":I
+    .end local v14    # "start":I
     :catchall_0
     move-exception v15
 
@@ -355,11 +440,18 @@
     .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
+    .line 190
+    .end local v2    # "address":Landroid/net/LocalSocketAddress;
+    .end local v9    # "inputStream":Ljava/io/InputStream;
     :catch_0
     move-exception v7
 
     move-object v12, v13
 
+    .line 191
+    .end local v13    # "socket":Landroid/net/LocalSocket;
+    .local v7, "ex":Ljava/io/IOException;
+    .restart local v12    # "socket":Landroid/net/LocalSocket;
     :goto_2
     :try_start_6
     new-instance v15, Ljava/lang/StringBuilder;
@@ -384,10 +476,13 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 192
     throw v7
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
+    .line 194
+    .end local v7    # "ex":Ljava/io/IOException;
     :catchall_1
     move-exception v15
 
@@ -400,6 +495,7 @@
 
     monitor-enter v16
 
+    .line 195
     :try_start_7
     move-object/from16 v0, p0
 
@@ -411,6 +507,7 @@
 
     if-eqz v17, :cond_0
 
+    .line 197
     :try_start_8
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -442,6 +539,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 198
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/NativeDaemonConnector;->mOutputStream:Ljava/io/OutputStream;
@@ -453,6 +551,7 @@
     .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
     .catchall {:try_start_8 .. :try_end_8} :catchall_3
 
+    .line 202
     :goto_4
     const/16 v17, 0x0
 
@@ -463,37 +562,54 @@
 
     iput-object v0, v1, Lcom/android/server/NativeDaemonConnector;->mOutputStream:Ljava/io/OutputStream;
 
+    .line 204
     :cond_0
     monitor-exit v16
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_3
 
+    .line 207
     if-eqz v12, :cond_1
 
+    .line 208
     :try_start_a
     invoke-virtual {v12}, Landroid/net/LocalSocket;->close()V
     :try_end_a
     .catch Ljava/io/IOException; {:try_start_a .. :try_end_a} :catch_2
 
+    .line 194
     :cond_1
     :goto_5
     throw v15
 
+    .line 148
+    .end local v12    # "socket":Landroid/net/LocalSocket;
+    .restart local v2    # "address":Landroid/net/LocalSocketAddress;
+    .restart local v3    # "buffer":[B
+    .restart local v4    # "count":I
+    .restart local v9    # "inputStream":Ljava/io/InputStream;
+    .restart local v13    # "socket":Landroid/net/LocalSocket;
+    .restart local v14    # "start":I
     :cond_2
     add-int/2addr v4, v14
 
+    .line 149
     const/4 v14, 0x0
 
+    .line 151
     const/4 v8, 0x0
 
+    .restart local v8    # "i":I
     :goto_6
     if-ge v8, v4, :cond_5
 
+    .line 152
     :try_start_b
     aget-byte v15, v3, v8
 
     if-nez v15, :cond_3
 
+    .line 153
     new-instance v10, Ljava/lang/String;
 
     sub-int v15, v8, v14
@@ -504,6 +620,8 @@
 
     invoke-direct {v10, v3, v14, v15, v0}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
+    .line 155
+    .local v10, "rawEvent":Ljava/lang/String;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -535,17 +653,21 @@
     .catch Ljava/io/IOException; {:try_start_b .. :try_end_b} :catch_0
     .catchall {:try_start_b .. :try_end_b} :catchall_2
 
+    .line 158
     :try_start_c
     invoke-static {v10}, Lcom/android/server/NativeDaemonEvent;->parseRawEvent(Ljava/lang/String;)Lcom/android/server/NativeDaemonEvent;
 
     move-result-object v6
 
+    .line 160
+    .local v6, "event":Lcom/android/server/NativeDaemonEvent;
     invoke-virtual {v6}, Lcom/android/server/NativeDaemonEvent;->isClassUnsolicited()Z
 
     move-result v15
 
     if-eqz v15, :cond_4
 
+    .line 162
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/NativeDaemonConnector;->mCallbackHandler:Landroid/os/Handler;
@@ -570,14 +692,21 @@
 
     invoke-virtual/range {v15 .. v16}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
+    .line 171
+    .end local v6    # "event":Lcom/android/server/NativeDaemonEvent;
     :goto_7
     add-int/lit8 v14, v8, 0x1
 
+    .line 151
+    .end local v10    # "rawEvent":Ljava/lang/String;
     :cond_3
     add-int/lit8 v8, v8, 0x1
 
     goto :goto_6
 
+    .line 165
+    .restart local v6    # "event":Lcom/android/server/NativeDaemonEvent;
+    .restart local v10    # "rawEvent":Ljava/lang/String;
     :cond_4
     move-object/from16 v0, p0
 
@@ -597,9 +726,13 @@
 
     goto :goto_7
 
+    .line 167
+    .end local v6    # "event":Lcom/android/server/NativeDaemonEvent;
     :catch_1
     move-exception v5
 
+    .line 168
+    .local v5, "e":Ljava/lang/IllegalArgumentException;
     :try_start_d
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -635,22 +768,45 @@
 
     goto :goto_7
 
+    .line 194
+    .end local v2    # "address":Landroid/net/LocalSocketAddress;
+    .end local v3    # "buffer":[B
+    .end local v4    # "count":I
+    .end local v5    # "e":Ljava/lang/IllegalArgumentException;
+    .end local v8    # "i":I
+    .end local v9    # "inputStream":Ljava/io/InputStream;
+    .end local v10    # "rawEvent":Ljava/lang/String;
+    .end local v14    # "start":I
     :catchall_2
     move-exception v15
 
     move-object v12, v13
 
+    .end local v13    # "socket":Landroid/net/LocalSocket;
+    .restart local v12    # "socket":Landroid/net/LocalSocket;
     goto/16 :goto_3
 
+    .line 174
+    .end local v12    # "socket":Landroid/net/LocalSocket;
+    .restart local v2    # "address":Landroid/net/LocalSocketAddress;
+    .restart local v3    # "buffer":[B
+    .restart local v4    # "count":I
+    .restart local v8    # "i":I
+    .restart local v9    # "inputStream":Ljava/io/InputStream;
+    .restart local v13    # "socket":Landroid/net/LocalSocket;
+    .restart local v14    # "start":I
     :cond_5
     if-nez v14, :cond_6
 
+    .line 175
     new-instance v10, Ljava/lang/String;
 
     sget-object v15, Ljava/nio/charset/StandardCharsets;->UTF_8:Ljava/nio/charset/Charset;
 
     invoke-direct {v10, v3, v14, v4, v15}, Ljava/lang/String;-><init>([BIILjava/nio/charset/Charset;)V
 
+    .line 176
+    .restart local v10    # "rawEvent":Ljava/lang/String;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -679,11 +835,16 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->log(Ljava/lang/String;)V
 
+    .line 181
+    .end local v10    # "rawEvent":Ljava/lang/String;
     :cond_6
     if-eq v14, v4, :cond_7
 
+    .line 182
     rsub-int v11, v14, 0x1000
 
+    .line 183
+    .local v11, "remaining":I
     const/4 v15, 0x0
 
     invoke-static {v3, v14, v3, v15, v11}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
@@ -691,15 +852,20 @@
     .catch Ljava/io/IOException; {:try_start_d .. :try_end_d} :catch_0
     .catchall {:try_start_d .. :try_end_d} :catchall_2
 
+    .line 184
     move v14, v11
 
+    .line 185
     goto/16 :goto_0
 
+    .line 186
+    .end local v11    # "remaining":I
     :cond_7
     const/4 v14, 0x0
 
     goto/16 :goto_0
 
+    .line 194
     :cond_8
     move-object/from16 v0, p0
 
@@ -709,6 +875,7 @@
 
     monitor-enter v16
 
+    .line 195
     :try_start_e
     move-object/from16 v0, p0
 
@@ -718,6 +885,7 @@
 
     if-eqz v15, :cond_9
 
+    .line 197
     :try_start_f
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -751,6 +919,7 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 198
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/NativeDaemonConnector;->mOutputStream:Ljava/io/OutputStream;
@@ -760,6 +929,7 @@
     .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_5
     .catchall {:try_start_f .. :try_end_f} :catchall_4
 
+    .line 202
     :goto_8
     const/4 v15, 0x0
 
@@ -768,22 +938,35 @@
 
     iput-object v15, v0, Lcom/android/server/NativeDaemonConnector;->mOutputStream:Ljava/io/OutputStream;
 
+    .line 204
     :cond_9
     monitor-exit v16
     :try_end_10
     .catchall {:try_start_10 .. :try_end_10} :catchall_4
 
+    .line 207
     if-eqz v13, :cond_a
 
+    .line 208
     :try_start_11
     invoke-virtual {v13}, Landroid/net/LocalSocket;->close()V
     :try_end_11
     .catch Ljava/io/IOException; {:try_start_11 .. :try_end_11} :catch_4
 
+    .line 214
     :cond_a
     :goto_9
     return-void
 
+    .line 204
+    .end local v2    # "address":Landroid/net/LocalSocketAddress;
+    .end local v3    # "buffer":[B
+    .end local v4    # "count":I
+    .end local v8    # "i":I
+    .end local v9    # "inputStream":Ljava/io/InputStream;
+    .end local v13    # "socket":Landroid/net/LocalSocket;
+    .end local v14    # "start":I
+    .restart local v12    # "socket":Landroid/net/LocalSocket;
     :catchall_3
     move-exception v15
 
@@ -794,9 +977,12 @@
 
     throw v15
 
+    .line 210
     :catch_2
     move-exception v7
 
+    .line 211
+    .restart local v7    # "ex":Ljava/io/IOException;
     new-instance v16, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v16 .. v16}, Ljava/lang/StringBuilder;-><init>()V
@@ -825,9 +1011,13 @@
 
     goto/16 :goto_5
 
+    .line 199
+    .end local v7    # "ex":Ljava/io/IOException;
     :catch_3
     move-exception v5
 
+    .line 200
+    .local v5, "e":Ljava/io/IOException;
     :try_start_13
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -859,6 +1049,16 @@
 
     goto/16 :goto_4
 
+    .line 204
+    .end local v5    # "e":Ljava/io/IOException;
+    .end local v12    # "socket":Landroid/net/LocalSocket;
+    .restart local v2    # "address":Landroid/net/LocalSocketAddress;
+    .restart local v3    # "buffer":[B
+    .restart local v4    # "count":I
+    .restart local v8    # "i":I
+    .restart local v9    # "inputStream":Ljava/io/InputStream;
+    .restart local v13    # "socket":Landroid/net/LocalSocket;
+    .restart local v14    # "start":I
     :catchall_4
     move-exception v15
 
@@ -869,9 +1069,12 @@
 
     throw v15
 
+    .line 210
     :catch_4
     move-exception v7
 
+    .line 211
+    .restart local v7    # "ex":Ljava/io/IOException;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -896,9 +1099,13 @@
 
     goto :goto_9
 
+    .line 199
+    .end local v7    # "ex":Ljava/io/IOException;
     :catch_5
     move-exception v5
 
+    .line 200
+    .restart local v5    # "e":Ljava/io/IOException;
     :try_start_15
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -928,6 +1135,16 @@
 
     goto/16 :goto_8
 
+    .line 190
+    .end local v2    # "address":Landroid/net/LocalSocketAddress;
+    .end local v3    # "buffer":[B
+    .end local v4    # "count":I
+    .end local v5    # "e":Ljava/io/IOException;
+    .end local v8    # "i":I
+    .end local v9    # "inputStream":Ljava/io/InputStream;
+    .end local v13    # "socket":Landroid/net/LocalSocket;
+    .end local v14    # "start":I
+    .restart local v12    # "socket":Landroid/net/LocalSocket;
     :catch_6
     move-exception v7
 
@@ -936,41 +1153,58 @@
 
 .method private log(Ljava/lang/String;)V
     .locals 1
+    .param p1, "logstring"    # Ljava/lang/String;
 
+    .prologue
+    .line 497
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mLocalLog:Landroid/util/LocalLog;
 
     invoke-virtual {v0, p1}, Landroid/util/LocalLog;->log(Ljava/lang/String;)V
 
+    .line 498
     return-void
 .end method
 
 .method private loge(Ljava/lang/String;)V
     .locals 1
+    .param p1, "logstring"    # Ljava/lang/String;
 
+    .prologue
+    .line 501
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->TAG:Ljava/lang/String;
 
     invoke-static {v0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 502
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mLocalLog:Landroid/util/LocalLog;
 
     invoke-virtual {v0, p1}, Landroid/util/LocalLog;->log(Ljava/lang/String;)V
 
+    .line 503
     return-void
 .end method
 
 .method static varargs makeCommand(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;ILjava/lang/String;[Ljava/lang/Object;)V
     .locals 8
+    .param p0, "rawBuilder"    # Ljava/lang/StringBuilder;
+    .param p1, "logBuilder"    # Ljava/lang/StringBuilder;
+    .param p2, "sequenceNumber"    # I
+    .param p3, "cmd"    # Ljava/lang/String;
+    .param p4, "args"    # [Ljava/lang/Object;
 
+    .prologue
     const/4 v7, 0x0
 
     const/16 v6, 0x20
 
+    .line 239
     invoke-virtual {p3, v7}, Ljava/lang/String;->indexOf(I)I
 
     move-result v5
 
     if-ltz v5, :cond_0
 
+    .line 240
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -995,6 +1229,7 @@
 
     throw v5
 
+    .line 242
     :cond_0
     invoke-virtual {p3, v6}, Ljava/lang/String;->indexOf(I)I
 
@@ -1002,6 +1237,7 @@
 
     if-ltz v5, :cond_1
 
+    .line 243
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     const-string v6, "Arguments must be separate from command"
@@ -1010,6 +1246,7 @@
 
     throw v5
 
+    .line 246
     :cond_1
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1021,6 +1258,7 @@
 
     invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 247
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v5
@@ -1031,27 +1269,36 @@
 
     invoke-virtual {v5, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 248
     move-object v2, p4
 
+    .local v2, "arr$":[Ljava/lang/Object;
     array-length v4, v2
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_4
 
     aget-object v0, v2, v3
 
+    .line 249
+    .local v0, "arg":Ljava/lang/Object;
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
+    .line 250
+    .local v1, "argString":Ljava/lang/String;
     invoke-virtual {v1, v7}, Ljava/lang/String;->indexOf(I)I
 
     move-result v5
 
     if-ltz v5, :cond_2
 
+    .line 251
     new-instance v5, Ljava/lang/IllegalArgumentException;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1076,34 +1323,45 @@
 
     throw v5
 
+    .line 254
     :cond_2
     invoke-virtual {p0, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 255
     invoke-virtual {p1, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 257
     invoke-static {p0, v1}, Lcom/android/server/NativeDaemonConnector;->appendEscaped(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
+    .line 258
     instance-of v5, v0, Lcom/android/server/NativeDaemonConnector$SensitiveArg;
 
     if-eqz v5, :cond_3
 
+    .line 259
     const-string v5, "[scrubbed]"
 
     invoke-virtual {p1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    .line 248
     :goto_1
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 261
     :cond_3
     invoke-static {p1, v1}, Lcom/android/server/NativeDaemonConnector;->appendEscaped(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
     goto :goto_1
 
+    .line 265
+    .end local v0    # "arg":Ljava/lang/Object;
+    .end local v1    # "argString":Ljava/lang/String;
     :cond_4
     invoke-virtual {p0, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
+    .line 266
     return-void
 .end method
 
@@ -1111,6 +1369,7 @@
 # virtual methods
 .method public doCommand(Ljava/lang/String;)Ljava/util/ArrayList;
     .locals 7
+    .param p1, "cmd"    # Ljava/lang/String;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1132,10 +1391,14 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
+    .prologue
+    .line 271
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v5
 
+    .line 272
+    .local v5, "rawEvents":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Ljava/lang/String;>;"
     const/4 v6, 0x0
 
     new-array v6, v6, [Ljava/lang/Object;
@@ -1144,55 +1407,76 @@
 
     move-result-object v2
 
+    .line 273
+    .local v2, "events":[Lcom/android/server/NativeDaemonEvent;
     move-object v0, v2
 
+    .local v0, "arr$":[Lcom/android/server/NativeDaemonEvent;
     array-length v4, v0
 
+    .local v4, "len$":I
     const/4 v3, 0x0
 
+    .local v3, "i$":I
     :goto_0
     if-ge v3, v4, :cond_0
 
     aget-object v1, v0, v3
 
+    .line 274
+    .local v1, "event":Lcom/android/server/NativeDaemonEvent;
     invoke-virtual {v1}, Lcom/android/server/NativeDaemonEvent;->getRawEvent()Ljava/lang/String;
 
     move-result-object v6
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 273
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
+    .line 276
+    .end local v1    # "event":Lcom/android/server/NativeDaemonEvent;
     :cond_0
     return-object v5
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
+    .param p1, "fd"    # Ljava/io/FileDescriptor;
+    .param p2, "pw"    # Ljava/io/PrintWriter;
+    .param p3, "args"    # [Ljava/lang/String;
 
+    .prologue
+    .line 490
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mLocalLog:Landroid/util/LocalLog;
 
     invoke-virtual {v0, p1, p2, p3}, Landroid/util/LocalLog;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
+    .line 491
     invoke-virtual {p2}, Ljava/io/PrintWriter;->println()V
 
+    .line 492
     iget-object v0, p0, Lcom/android/server/NativeDaemonConnector;->mResponseQueue:Lcom/android/server/NativeDaemonConnector$ResponseQueue;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/NativeDaemonConnector$ResponseQueue;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
+    .line 493
     return-void
 .end method
 
 .method public execute(Lcom/android/server/NativeDaemonConnector$Command;)Lcom/android/server/NativeDaemonEvent;
     .locals 2
+    .param p1, "cmd"    # Lcom/android/server/NativeDaemonConnector$Command;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/NativeDaemonConnectorException;
         }
     .end annotation
 
+    .prologue
+    .line 288
     # getter for: Lcom/android/server/NativeDaemonConnector$Command;->mCmd:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/server/NativeDaemonConnector$Command;->access$000(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/lang/String;
 
@@ -1216,22 +1500,29 @@
 
 .method public varargs execute(Ljava/lang/String;[Ljava/lang/Object;)Lcom/android/server/NativeDaemonEvent;
     .locals 4
+    .param p1, "cmd"    # Ljava/lang/String;
+    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/NativeDaemonConnectorException;
         }
     .end annotation
 
+    .prologue
+    .line 303
     invoke-virtual {p0, p1, p2}, Lcom/android/server/NativeDaemonConnector;->executeForList(Ljava/lang/String;[Ljava/lang/Object;)[Lcom/android/server/NativeDaemonEvent;
 
     move-result-object v0
 
+    .line 304
+    .local v0, "events":[Lcom/android/server/NativeDaemonEvent;
     array-length v1, v0
 
     const/4 v2, 0x1
 
     if-eq v1, v2, :cond_0
 
+    .line 305
     new-instance v1, Lcom/android/server/NativeDaemonConnectorException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1258,6 +1549,7 @@
 
     throw v1
 
+    .line 308
     :cond_0
     const/4 v1, 0x0
 
@@ -1268,28 +1560,41 @@
 
 .method public varargs execute(ILjava/lang/String;[Ljava/lang/Object;)[Lcom/android/server/NativeDaemonEvent;
     .locals 19
+    .param p1, "timeout"    # I
+    .param p2, "cmd"    # Ljava/lang/String;
+    .param p3, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/NativeDaemonConnectorException;
         }
     .end annotation
 
+    .prologue
+    .line 355
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v13
 
+    .line 357
+    .local v13, "startTime":J
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
     move-result-object v6
 
+    .line 359
+    .local v6, "events":Ljava/util/ArrayList;, "Ljava/util/ArrayList<Lcom/android/server/NativeDaemonEvent;>;"
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 360
+    .local v10, "rawBuilder":Ljava/lang/StringBuilder;
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
+    .line 361
+    .local v8, "logBuilder":Ljava/lang/StringBuilder;
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lcom/android/server/NativeDaemonConnector;->mSequenceNumber:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1298,20 +1603,27 @@
 
     move-result v12
 
+    .line 363
+    .local v12, "sequenceNumber":I
     move-object/from16 v0, p2
 
     move-object/from16 v1, p3
 
     invoke-static {v10, v8, v12, v0, v1}, Lcom/android/server/NativeDaemonConnector;->makeCommand(Ljava/lang/StringBuilder;Ljava/lang/StringBuilder;ILjava/lang/String;[Ljava/lang/Object;)V
 
+    .line 365
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v11
 
+    .line 366
+    .local v11, "rawCmd":Ljava/lang/String;
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
 
+    .line 368
+    .local v9, "logCmd":Ljava/lang/String;
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -1340,6 +1652,7 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->log(Ljava/lang/String;)V
 
+    .line 370
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/server/NativeDaemonConnector;->mDaemonLock:Ljava/lang/Object;
@@ -1348,6 +1661,7 @@
 
     monitor-enter v16
 
+    .line 371
     :try_start_0
     move-object/from16 v0, p0
 
@@ -1355,6 +1669,7 @@
 
     if-nez v15, :cond_0
 
+    .line 372
     new-instance v15, Lcom/android/server/NativeDaemonConnectorException;
 
     const-string v17, "missing output stream"
@@ -1365,6 +1680,7 @@
 
     throw v15
 
+    .line 380
     :catchall_0
     move-exception v15
 
@@ -1374,6 +1690,7 @@
 
     throw v15
 
+    .line 375
     :cond_0
     :try_start_1
     move-object/from16 v0, p0
@@ -1395,13 +1712,16 @@
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    .line 380
     :try_start_2
     monitor-exit v16
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
+    .line 383
     const/4 v7, 0x0
 
+    .local v7, "i":I
     :goto_0
     invoke-virtual {v10}, Ljava/lang/StringBuilder;->length()I
 
@@ -1417,9 +1737,13 @@
 
     goto :goto_0
 
+    .line 376
+    .end local v7    # "i":I
     :catch_0
     move-exception v2
 
+    .line 377
+    .local v2, "e":Ljava/io/IOException;
     :try_start_3
     new-instance v15, Lcom/android/server/NativeDaemonConnectorException;
 
@@ -1433,9 +1757,14 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
+    .line 385
+    .end local v2    # "e":Ljava/io/IOException;
+    .restart local v7    # "i":I
     :cond_1
     const/4 v5, 0x0
 
+    .line 387
+    .local v5, "event":Lcom/android/server/NativeDaemonEvent;
     :cond_2
     move-object/from16 v0, p0
 
@@ -1447,8 +1776,10 @@
 
     move-result-object v5
 
+    .line 388
     if-nez v5, :cond_3
 
+    .line 389
     new-instance v15, Ljava/lang/StringBuilder;
 
     invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
@@ -1471,12 +1802,14 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 390
     new-instance v15, Lcom/android/server/NativeDaemonConnector$NativeDaemonFailureException;
 
     invoke-direct {v15, v9, v5}, Lcom/android/server/NativeDaemonConnector$NativeDaemonFailureException;-><init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
 
     throw v15
 
+    .line 392
     :cond_3
     new-instance v15, Ljava/lang/StringBuilder;
 
@@ -1506,18 +1839,23 @@
 
     invoke-direct {v0, v15}, Lcom/android/server/NativeDaemonConnector;->log(Ljava/lang/String;)V
 
+    .line 393
     invoke-virtual {v6, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    .line 394
     invoke-virtual {v5}, Lcom/android/server/NativeDaemonEvent;->isClassContinue()Z
 
     move-result v15
 
     if-nez v15, :cond_2
 
+    .line 396
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v3
 
+    .line 397
+    .local v3, "endTime":J
     sub-long v15, v3, v13
 
     const-wide/16 v17, 0x1f4
@@ -1526,6 +1864,7 @@
 
     if-lez v15, :cond_4
 
+    .line 402
     :cond_4
     invoke-virtual {v5}, Lcom/android/server/NativeDaemonEvent;->isClassClientError()Z
 
@@ -1533,12 +1872,14 @@
 
     if-eqz v15, :cond_5
 
+    .line 403
     new-instance v15, Lcom/android/server/NativeDaemonConnector$NativeDaemonArgumentException;
 
     invoke-direct {v15, v9, v5}, Lcom/android/server/NativeDaemonConnector$NativeDaemonArgumentException;-><init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
 
     throw v15
 
+    .line 405
     :cond_5
     invoke-virtual {v5}, Lcom/android/server/NativeDaemonEvent;->isClassServerError()Z
 
@@ -1546,17 +1887,21 @@
 
     if-eqz v15, :cond_6
 
+    .line 406
     new-instance v15, Lcom/android/server/NativeDaemonConnector$NativeDaemonFailureException;
 
     invoke-direct {v15, v9, v5}, Lcom/android/server/NativeDaemonConnector$NativeDaemonFailureException;-><init>(Ljava/lang/String;Lcom/android/server/NativeDaemonEvent;)V
 
     throw v15
 
+    .line 410
     :cond_6
     invoke-virtual {v11}, Ljava/lang/String;->clear()V
 
+    .line 411
     invoke-virtual {v9}, Ljava/lang/String;->clear()V
 
+    .line 412
     const/4 v7, 0x0
 
     :goto_1
@@ -1574,6 +1919,7 @@
 
     goto :goto_1
 
+    .line 414
     :cond_7
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
@@ -1592,12 +1938,15 @@
 
 .method public executeForList(Lcom/android/server/NativeDaemonConnector$Command;)[Lcom/android/server/NativeDaemonEvent;
     .locals 2
+    .param p1, "cmd"    # Lcom/android/server/NativeDaemonConnector$Command;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/NativeDaemonConnectorException;
         }
     .end annotation
 
+    .prologue
+    .line 322
     # getter for: Lcom/android/server/NativeDaemonConnector$Command;->mCmd:Ljava/lang/String;
     invoke-static {p1}, Lcom/android/server/NativeDaemonConnector$Command;->access$000(Lcom/android/server/NativeDaemonConnector$Command;)Ljava/lang/String;
 
@@ -1621,12 +1970,16 @@
 
 .method public varargs executeForList(Ljava/lang/String;[Ljava/lang/Object;)[Lcom/android/server/NativeDaemonEvent;
     .locals 1
+    .param p1, "cmd"    # Ljava/lang/String;
+    .param p2, "args"    # [Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lcom/android/server/NativeDaemonConnectorException;
         }
     .end annotation
 
+    .prologue
+    .line 338
     const v0, 0xea60
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/server/NativeDaemonConnector;->execute(ILjava/lang/String;[Ljava/lang/Object;)[Lcom/android/server/NativeDaemonEvent;
@@ -1638,13 +1991,18 @@
 
 .method public handleMessage(Landroid/os/Message;)Z
     .locals 6
+    .param p1, "msg"    # Landroid/os/Message;
 
+    .prologue
     const/4 v5, 0x1
 
+    .line 98
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/String;
 
+    .line 100
+    .local v1, "event":Ljava/lang/String;
     :try_start_0
     iget-object v2, p0, Lcom/android/server/NativeDaemonConnector;->mCallbacks:Lcom/android/server/INativeDaemonConnectorCallbacks;
 
@@ -1660,6 +2018,7 @@
 
     if-nez v2, :cond_0
 
+    .line 101
     const-string v2, "Unhandled event \'%s\'"
 
     const/4 v3, 0x1
@@ -1678,13 +2037,17 @@
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
+    .line 106
     :cond_0
     :goto_0
     return v5
 
+    .line 103
     :catch_0
     move-exception v0
 
+    .line 104
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -1721,6 +2084,8 @@
 .method public monitor()V
     .locals 2
 
+    .prologue
+    .line 486
     iget-object v1, p0, Lcom/android/server/NativeDaemonConnector;->mDaemonLock:Ljava/lang/Object;
 
     monitor-enter v1
@@ -1728,8 +2093,10 @@
     :try_start_0
     monitor-exit v1
 
+    .line 487
     return-void
 
+    .line 486
     :catchall_0
     move-exception v0
 
@@ -1743,13 +2110,15 @@
 .method public run()V
     .locals 3
 
+    .prologue
+    .line 84
     new-instance v1, Landroid/os/Handler;
 
     invoke-static {}, Lcom/android/server/FgThread;->get()Lcom/android/server/FgThread;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/server/FgThread;->getLooper()Landroid/os/Looper;
+    invoke-virtual {v2}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v2
 
@@ -1757,6 +2126,7 @@
 
     iput-object v1, p0, Lcom/android/server/NativeDaemonConnector;->mCallbackHandler:Landroid/os/Handler;
 
+    .line 88
     :goto_0
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/NativeDaemonConnector;->listenToSocket()V
@@ -1765,9 +2135,12 @@
 
     goto :goto_0
 
+    .line 89
     :catch_0
     move-exception v0
 
+    .line 90
+    .local v0, "e":Ljava/lang/Exception;
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1788,6 +2161,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/NativeDaemonConnector;->loge(Ljava/lang/String;)V
 
+    .line 91
     const-wide/16 v1, 0x1388
 
     invoke-static {v1, v2}, Landroid/os/SystemClock;->sleep(J)V

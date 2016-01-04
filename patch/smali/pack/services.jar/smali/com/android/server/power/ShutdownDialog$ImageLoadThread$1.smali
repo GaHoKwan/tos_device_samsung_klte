@@ -22,6 +22,8 @@
 .method constructor <init>(Lcom/android/server/power/ShutdownDialog$ImageLoadThread;)V
     .locals 0
 
+    .prologue
+    .line 396
     iput-object p1, p0, Lcom/android/server/power/ShutdownDialog$ImageLoadThread$1;->this$1:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -33,9 +35,13 @@
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 5
+    .param p1, "context"    # Landroid/content/Context;
+    .param p2, "intent"    # Landroid/content/Intent;
 
+    .prologue
     const/4 v2, 0x1
 
+    .line 398
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$ImageLoadThread$1;->this$1:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
     const-string v1, "coverOpen"
@@ -47,11 +53,13 @@
     # setter for: Lcom/android/server/power/ShutdownDialog$ImageLoadThread;->coverStateOpen:Z
     invoke-static {v0, v1}, Lcom/android/server/power/ShutdownDialog$ImageLoadThread;->access$1702(Lcom/android/server/power/ShutdownDialog$ImageLoadThread;Z)Z
 
+    .line 399
     iget-object v0, p0, Lcom/android/server/power/ShutdownDialog$ImageLoadThread$1;->this$1:Lcom/android/server/power/ShutdownDialog$ImageLoadThread;
 
     # setter for: Lcom/android/server/power/ShutdownDialog$ImageLoadThread;->coverStateDirty:Z
     invoke-static {v0, v2}, Lcom/android/server/power/ShutdownDialog$ImageLoadThread;->access$1802(Lcom/android/server/power/ShutdownDialog$ImageLoadThread;Z)Z
 
+    .line 400
     const-string v0, "ShutdownDialog"
 
     const-string v1, "cover state : %b"
@@ -79,5 +87,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 401
     return-void
 .end method

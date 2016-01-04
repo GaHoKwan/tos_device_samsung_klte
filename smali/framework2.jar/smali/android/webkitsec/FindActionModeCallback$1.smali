@@ -25,6 +25,8 @@
 .method constructor <init>(Landroid/webkitsec/FindActionModeCallback;)V
     .locals 0
 
+    .prologue
+    .line 77
     iput-object p1, p0, Landroid/webkitsec/FindActionModeCallback$1;->this$0:Landroid/webkitsec/FindActionModeCallback;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,10 +38,14 @@
 # virtual methods
 .method public onClick(Landroid/view/View;)V
     .locals 1
+    .param p1, "v"    # Landroid/view/View;
 
+    .prologue
+    .line 80
     iget-object v0, p0, Landroid/webkitsec/FindActionModeCallback$1;->this$0:Landroid/webkitsec/FindActionModeCallback;
 
     invoke-virtual {v0}, Landroid/webkitsec/FindActionModeCallback;->finish()V
 
+    .line 81
     return-void
 .end method

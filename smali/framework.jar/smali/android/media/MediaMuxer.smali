@@ -858,7 +858,7 @@
 
     add-int/2addr v0, v1
 
-    invoke-virtual {p2}, Ljava/nio/ByteBuffer;->capacity()I
+    invoke-virtual {p2}, Ljava/nio/Buffer;->capacity()I
 
     move-result v1
 
